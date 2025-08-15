@@ -58,6 +58,11 @@
       <artifactId>jackson-databind</artifactId>
       <version>2.13.0</version>
     </dependency>
+    <dependency>
+      <groupId>com.amadeus</groupId>
+      <artifactId>amadeus-java</artifactId>
+      <version>7.0.0</version>
+    </dependency>
 
   </dependencies>
 
