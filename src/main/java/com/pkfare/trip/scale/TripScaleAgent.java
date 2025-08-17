@@ -17,7 +17,7 @@ import java.util.Scanner;
 
 public class TripScaleAgent {
 
-  private static String NAME = "trip_scale_agent";
+  private static String NAME = "Coordinator";
   private static String USER_ID = "0987654321";
 
   public static BaseAgent ROOT_AGENT = initAgent();

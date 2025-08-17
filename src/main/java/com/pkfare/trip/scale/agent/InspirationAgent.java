@@ -3,18 +3,27 @@ package com.pkfare.trip.scale.agent;
 import com.google.adk.agents.BaseAgent;
 import com.google.adk.agents.LlmAgent;
 import com.google.adk.events.Event;
+import com.google.adk.memory.InMemoryMemoryService;
 import com.google.adk.models.Gemini;
 import com.google.adk.runner.InMemoryRunner;
 import com.google.adk.sessions.Session;
 import com.google.adk.tools.FunctionTool;
 import com.google.genai.types.Content;
 import com.google.genai.types.Part;
+import com.google.gson.Gson;
 import com.pkfare.trip.scale.assistance.DestinationSuggestionService;
 import com.pkfare.trip.scale.config.GoogleConfig;
+import com.pkfare.trip.scale.dto.TripCriteria;
 import io.reactivex.rxjava3.core.Flowable;
+import io.reactivex.rxjava3.core.Maybe;
+import io.reactivex.rxjava3.core.Observable;
 import java.nio.charset.StandardCharsets;
+import java.util.Objects;
+import java.util.Optional;
 import java.util.Scanner;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class InspirationAgent {
 
   private static String NAME = "trip_inspiration_agent";
@@ -28,6 +37,22 @@ public class InspirationAgent {
         .instruction(InspirationPrompt.DEMAND_AND_PREFERENCE_INSPIRATION)
         .tools(
             FunctionTool.create(DestinationSuggestionService.class, "getDestinationSuggestions"))
+        .afterAgentCallback(aac -> {
+          //predict if done
+          Optional<Content> contentOptional = aac.userContent();
+          if (contentOptional.isPresent()){
+            Content content = contentOptional.get();
+            String text = content.text();
+            try {
+              TripCriteria tripCriteria = new Gson().fromJson(text, TripCriteria.class);
+              if (Objects.nonNull(tripCriteria)){
+                aac.state().put("trip_criteria", text);
+              }
+            }catch (Throwable e){
+            }
+          }
+          return Maybe.fromOptional(aac.userContent());
+        })
         .build();
   }
 
