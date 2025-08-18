@@ -20,7 +20,8 @@ public class DemandPrompt {
       + "    \"origin\":String,\n"
       + "    \"days\":int,\n"
       + "    \"passenger_number\":int,\n"
-      + "    \"budgets\": String\n"
+      + "    \"budgets\": int,\n"
+      + "    \"currency\": String\n"
       + "}\n"
       + "\n";
 

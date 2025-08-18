@@ -3,8 +3,11 @@ package com.pkfare.trip.scale.agent.orchestration;
 import com.google.adk.agents.BaseAgent;
 import com.google.adk.agents.LlmAgent;
 import com.google.adk.events.Event;
+import com.google.adk.events.EventActions;
 import com.google.adk.models.Gemini;
 import com.google.adk.runner.InMemoryRunner;
+import com.google.adk.sessions.BaseSessionService;
+import com.google.adk.sessions.InMemorySessionService;
 import com.google.adk.sessions.Session;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
@@ -19,8 +22,10 @@ import com.pkfare.trip.scale.dto.RespConversation;
 import com.pkfare.trip.scale.function.UserEventFilter;
 import io.reactivex.rxjava3.core.Flowable;
 import java.nio.charset.StandardCharsets;
+import java.time.Instant;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Scanner;
 import java.util.concurrent.ConcurrentMap;
 import lombok.extern.slf4j.Slf4j;
@@ -41,8 +46,8 @@ public class RootAgent {
   public static BaseAgent initAgent() {
     return LlmAgent.builder()
         .name(NAME)
-        .model(GoogleConfig.GEMINI_2_5_PRO)
-        .description("Agent to help user to plan a trip.")
+        .model(GoogleConfig.GEMINI_2_5_FLASH)
+        .description("Agent to coordinate different agents to work together with different steps to finish a trip planning.")
         .instruction(RootPrompt.INTRO)
         .subAgents(DemandAgent.instance(), InspirationAgent.instance())
         .build();
@@ -51,12 +56,15 @@ public class RootAgent {
   public List<RespConversation> chat(Conversation conversation) {
     Session session = initSession(conversation.getConversationId(), conversation.getUserId());
 
+    Session updatedSession = runner.sessionService().getSession(NAME, conversation.getUserId(), session.id(), Optional.empty()).blockingGet();
+    log.info("current session {}", updatedSession.state().entrySet());
+
     Content userMsg = Content.fromParts(Part.fromText(conversation.getContent()));
 
     Flowable<Event> events = runner.runAsync(conversation.getUserId(), session.id(), userMsg);
     StringBuilder stringBuilder = new StringBuilder();
     events.filter(UserEventFilter.instance()).blockingForEach(event -> {
-      log.info("event {}", new Gson().toJson(event));
+      log.info("event {}", event.toString());
       if(event.content().isPresent()){
         Content content = event.content().get();
         stringBuilder.append(content.text());
@@ -80,15 +88,32 @@ public class RootAgent {
    * @return
    */
   private static Session initSession(String conversationId, String userId) {
+
     if (!SESSION_MAP.containsKey(conversationId)){
       log.info("start init a new session for conversation {}", conversationId);
       ConcurrentMap<String, Object> states = Maps.newConcurrentMap();
       states.put("stage", "demand");
       states.put("userId", userId);
-      SESSION_MAP.put(conversationId, runner
-          .sessionService()
+
+      EventActions actionsWithUpdate = EventActions.builder().stateDelta(states).build();
+      long currentTimeMillis = Instant.now().toEpochMilli(); // Use milliseconds for Java Event
+
+      Session session = runner.sessionService()
           .createSession(NAME, userId, states, conversationId)
-          .blockingGet());
+          .blockingGet();
+      SESSION_MAP.put(conversationId, session);
+
+      Event systemEvent =
+          Event.builder()
+              .invocationId("init")
+              .author("system") // Or 'agent', 'tool' etc.
+              .actions(actionsWithUpdate)
+              .timestamp(currentTimeMillis)
+              // content might be None or represent the action taken
+              .build();
+      Event updatedSession =
+          runner.sessionService().appendEvent(session, systemEvent).blockingGet();
+
     }
     return SESSION_MAP.get(conversationId);
   }

@@ -19,7 +19,8 @@ public class RootPrompt {
           + "\n"
           + "\n"
           + "### attention\n"
-          + "1. You must transfer to an agent every time; there must be no cases where forwarding does not occur.\n"
+          + "1. You must transfer to an agent every time; there must be no cases where forwarding does not occur."
+          + "2. If user wants to know the stage, output present stage.\n"
           + "\n"
           + "present stage is : {stage}\n";
 

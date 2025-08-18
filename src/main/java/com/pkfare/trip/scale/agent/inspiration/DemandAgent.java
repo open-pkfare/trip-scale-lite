@@ -28,7 +28,7 @@ public class DemandAgent {
   public static BaseAgent instance() {
     return LlmAgent.builder()
         .name(NAME)
-        .model(GoogleConfig.GEMINI_2_5_PRO)
+        .model(GoogleConfig.GEMINI_2_5_FLASH)
         .description("Agent to help user to inspire and collect trip demand info.")
         .instruction(DemandPrompt.DEMAND_AND_PREFERENCE_INSPIRATION)
         .tools(
