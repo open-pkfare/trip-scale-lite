@@ -7,6 +7,7 @@ import com.google.adk.models.Gemini;
 import com.google.adk.runner.InMemoryRunner;
 import com.google.adk.runner.Runner;
 import com.google.adk.sessions.Session;
+import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.genai.types.Content;
 import com.google.genai.types.Part;
@@ -17,6 +18,7 @@ import com.pkfare.trip.scale.dto.Conversation;
 import com.pkfare.trip.scale.dto.RespConversation;
 import io.reactivex.rxjava3.core.Flowable;
 import java.nio.charset.StandardCharsets;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import lombok.extern.slf4j.Slf4j;
@@ -46,7 +48,7 @@ public class RootAgent {
         .build();
   }
 
-  public RespConversation chat(Conversation conversation) {
+  public List<RespConversation> chat(Conversation conversation) {
     Session session = initSession(conversation.getConversationId(), conversation.getUserId());
 
     Content userMsg = Content.fromParts(Part.fromText(conversation.getContent()));
@@ -66,9 +68,13 @@ public class RootAgent {
     });
 
     RespConversation respConversation = new RespConversation();
+    respConversation.setType("type");
     respConversation.setContent(stringBuilder.toString());
     respConversation.setConversationId(conversation.getConversationId());
-    return respConversation;
+
+    List<RespConversation> respConversations = Lists.newArrayList();
+    respConversations.add(respConversation);
+    return respConversations;
   }
 
   private Session initSession(String conversationId, String userId) {

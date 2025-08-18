@@ -4,5 +4,6 @@ import lombok.Data;
 
 @Data
 public class RespConversation extends Conversation {
+  private String type;
   private Object data;
 }

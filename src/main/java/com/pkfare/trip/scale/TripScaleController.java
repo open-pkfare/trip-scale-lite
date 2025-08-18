@@ -3,6 +3,7 @@ package com.pkfare.trip.scale;
 import com.pkfare.trip.scale.agent.orchestration.RootAgent;
 import com.pkfare.trip.scale.dto.Conversation;
 import com.pkfare.trip.scale.dto.RespConversation;
+import java.util.List;
 import java.util.UUID;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,7 @@ public class TripScaleController {
 
   @RequestMapping("/chat")
   @ResponseBody
-  public RespConversation chat(@RequestBody Conversation conversation) {
+  public List<RespConversation> chat(@RequestBody Conversation conversation) {
     if (StringUtils.isEmpty(conversation.getConversationId())) {
       conversation.setConversationId(UUID.randomUUID().toString());
     }
