@@ -12,6 +12,7 @@ import com.google.genai.types.Content;
 import com.google.genai.types.Part;
 import com.google.gson.Gson;
 import com.pkfare.trip.scale.agent.inspiration.DemandAgent;
+import com.pkfare.trip.scale.agent.inspiration.InspirationAgent;
 import com.pkfare.trip.scale.config.GoogleConfig;
 import com.pkfare.trip.scale.dto.Conversation;
 import com.pkfare.trip.scale.dto.RespConversation;
@@ -43,7 +44,7 @@ public class RootAgent {
         .model(geminiModel)
         .description("Agent to help user to plan a trip.")
         .instruction(RootPrompt.INTRO)
-        .subAgents(DemandAgent.instance())
+        .subAgents(DemandAgent.instance(), InspirationAgent.instance())
         .build();
   }
 

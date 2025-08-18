@@ -7,6 +7,6 @@ public class TripRoute {
 
   private int day;
   private String destination;
-  private String keyJourneyExperience;
+  private String reasonForRecommendation;
 
 }

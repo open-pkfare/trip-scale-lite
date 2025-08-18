@@ -2,15 +2,30 @@ package com.pkfare.trip.scale.agent.inspiration;
 
 import com.google.adk.agents.BaseAgent;
 import com.google.adk.agents.LlmAgent;
+import com.google.adk.events.Event;
+import com.google.adk.events.EventActions;
+import com.google.adk.runner.InMemoryRunner;
+import com.google.adk.sessions.InMemorySessionService;
+import com.google.adk.sessions.Session;
 import com.google.adk.tools.FunctionTool;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import com.google.genai.types.Content;
+import com.google.genai.types.Part;
 import com.google.gson.Gson;
-import com.pkfare.trip.scale.assistance.DestinationSuggestionService;
+import com.google.gson.reflect.TypeToken;
+import com.pkfare.trip.scale.assistance.PersonalPreferenceService;
 import com.pkfare.trip.scale.config.GoogleConfig;
-import com.pkfare.trip.scale.dto.TripCriteria;
+import com.pkfare.trip.scale.dto.TripDemand;
+import com.pkfare.trip.scale.dto.TripRoute;
+import io.reactivex.rxjava3.core.Flowable;
 import io.reactivex.rxjava3.core.Maybe;
-import java.util.Objects;
+import java.nio.charset.StandardCharsets;
+import java.time.Instant;
+import java.util.List;
 import java.util.Optional;
+import java.util.Scanner;
+import java.util.concurrent.ConcurrentMap;
 
 public class InspirationAgent {
 
@@ -20,10 +35,10 @@ public class InspirationAgent {
     return LlmAgent.builder()
         .name(NAME)
         .model(GoogleConfig.GEMINI_2_5_PRO)
-        .description("Agent to help user to inspire and collect trip demand info.")
+        .description("Agent to help user to inspire trip demand into trip routes.")
         .instruction(InspirationPrompt.TRIP_ROUTES_INSPIRATION)
         .tools(
-            FunctionTool.create(DestinationSuggestionService.class, "getDestinationSuggestions"))
+            FunctionTool.create(PersonalPreferenceService.class, "preferences"))
         .afterAgentCallback(aac -> {
           //predict if done
           Optional<Content> contentOptional = aac.userContent();
@@ -31,9 +46,9 @@ public class InspirationAgent {
             Content content = contentOptional.get();
             String text = content.text();
             try {
-              TripCriteria tripCriteria = new Gson().fromJson(text, TripCriteria.class);
-              if (Objects.nonNull(tripCriteria)){
-                aac.state().put("trip_demand", text);
+              List<TripRoute> tripRoutes = new Gson().fromJson(text, new TypeToken<List<TripRoute>>(){}.getType());
+              if (null != tripRoutes){
+                aac.state().put("trip_routes", text);
               }
             }catch (Throwable e){
             }
@@ -41,6 +56,46 @@ public class InspirationAgent {
           return Maybe.fromOptional(aac.userContent());
         })
         .build();
+  }
+
+  public static void main(String[] args) {
+    InMemoryRunner runner = new InMemoryRunner(instance());
+
+    TripDemand tripDemand = new TripDemand();
+    tripDemand.setBudgets("15000CNY");
+    tripDemand.setOrigin("shenzhen");
+    tripDemand.setPassengerNumber(1);
+    tripDemand.setMustGoDestinations(Lists.newArrayList("Italy, Venice","Italy, Florence"));
+
+    ConcurrentMap<String, Object> states = Maps.newConcurrentMap();
+    states.put("userId", "123");
+    Session session =
+        runner
+            .sessionService()
+            .createSession(NAME, "123", states, "456")
+            .blockingGet();
+
+    Content init = Content.fromParts(Part.fromText("here's my demand: " + new Gson().toJson(tripDemand)));
+    Flowable<Event> initEvents = runner.runAsync("123", session.id(), init);
+    System.out.print("\nTripScale > ");
+    initEvents.blockingForEach(event -> System.out.println(event.stringifyContent()));
+
+    try (Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8)) {
+      while (true) {
+        System.out.print("\nYou > ");
+        String userInput = scanner.nextLine();
+
+        if ("quit".equalsIgnoreCase(userInput)) {
+          break;
+        }
+
+        Content userMsg = Content.fromParts(Part.fromText(userInput));
+        Flowable<Event> events = runner.runAsync("123", session.id(), userMsg);
+
+        System.out.print("\nTripScale > ");
+        events.blockingForEach(event -> System.out.println(event.stringifyContent()));
+      }
+    }
   }
 
 }

@@ -1,29 +1,32 @@
 package com.pkfare.trip.scale.agent.inspiration;
 
+import com.google.adk.events.Event;
+import com.google.adk.runner.InMemoryRunner;
+import com.google.adk.sessions.Session;
+import com.google.genai.types.Content;
+import com.google.genai.types.Part;
+import io.reactivex.rxjava3.core.Flowable;
+import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
+
 public class InspirationPrompt {
 
   public static String TRIP_ROUTES_INSPIRATION = "### background\n"
       + "you are trip plan assistant, help to plan a wonderful routes with user's demand.\n"
-      + "user's demand is:\n"
-      + "{trip_demand}\n"
-      + "\n"
-      + "plan the route by your knowledge, consider to user's preferences.\n"
-      + "user's preferences are:\n"
-      + "{}\n"
+      + "plan the routes with your travel knowledge,strictly consider to user's preferences while planning.\n"
       + "\n"
       + "### attention\n"
-      + "1. communicate with user briefly, keep dialog simple and keep response limited to a phrase, get necessary data step by step and avoid asking multiple questions all at once. \n"
-      + "2. if user declared he has no idea about where to go, invoke 'destinationSuggestion' method with userId then suggest to user.\n"
+      + "1. communicate with user briefly, keep dialog simple and keep response limited to a phrase.\n"
+      + "2. you can access user's preferences with invoke the tool 'preferences' by userId : {userId}.\n"
+      + "3. trip routes is an array with element of day,destination and reasonForRecommendation.\n"
       + "\n"
-      + "if everything is collected, only briefly output as below:\n"
-      + "{\n"
-      + "    \"must_go_destinations\":Array[String],\n"
-      + "    \"origin\":String,\n"
-      + "    \"days\":int,\n"
-      + "    \"passenger_number\":int,\n"
-      + "    \"budgets\": String\n"
-      + "}\n"
-      + "\n";
-
+      + "briefly output the trip routes as below:\n"
+      + "[\n"
+      + "    {\n"
+      + "        \"day\":int,\n"
+      + "        \"destination\":String,\n"
+      + "        \"reasonForRecommendation\":String\n"
+      + "    }\n"
+      + "]";
 
 }

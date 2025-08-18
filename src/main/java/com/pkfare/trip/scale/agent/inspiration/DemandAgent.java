@@ -3,7 +3,6 @@ package com.pkfare.trip.scale.agent.inspiration;
 import com.google.adk.agents.BaseAgent;
 import com.google.adk.agents.LlmAgent;
 import com.google.adk.events.Event;
-import com.google.adk.models.Gemini;
 import com.google.adk.runner.InMemoryRunner;
 import com.google.adk.sessions.Session;
 import com.google.adk.tools.FunctionTool;
@@ -12,7 +11,7 @@ import com.google.genai.types.Part;
 import com.google.gson.Gson;
 import com.pkfare.trip.scale.assistance.DestinationSuggestionService;
 import com.pkfare.trip.scale.config.GoogleConfig;
-import com.pkfare.trip.scale.dto.TripCriteria;
+import com.pkfare.trip.scale.dto.TripDemand;
 import io.reactivex.rxjava3.core.Flowable;
 import io.reactivex.rxjava3.core.Maybe;
 import java.nio.charset.StandardCharsets;
@@ -41,8 +40,8 @@ public class DemandAgent {
             Content content = contentOptional.get();
             String text = content.text();
             try {
-              TripCriteria tripCriteria = new Gson().fromJson(text, TripCriteria.class);
-              if (Objects.nonNull(tripCriteria)){
+              TripDemand tripDemand = new Gson().fromJson(text, TripDemand.class);
+              if (Objects.nonNull(tripDemand)){
                 aac.state().put("trip_demand", text);
               }
             }catch (Throwable e){

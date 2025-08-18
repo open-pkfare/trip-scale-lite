@@ -4,7 +4,7 @@ import java.util.List;
 import lombok.Data;
 
 @Data
-public class TripCriteria {
+public class TripDemand {
 
   private List<String> mustGoDestinations;
   private int passengerNumber;
