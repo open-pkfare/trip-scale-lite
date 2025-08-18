@@ -10,6 +10,7 @@ import com.google.adk.sessions.Session;
 import com.google.common.collect.Maps;
 import com.google.genai.types.Content;
 import com.google.genai.types.Part;
+import com.google.gson.Gson;
 import com.pkfare.trip.scale.agent.inspiration.InspirationAgent;
 import com.pkfare.trip.scale.config.GoogleConfig;
 import com.pkfare.trip.scale.dto.Conversation;
@@ -18,14 +19,15 @@ import io.reactivex.rxjava3.core.Flowable;
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
 import java.util.Scanner;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 
+@Slf4j
 @Component
 public class RootAgent {
 
   private static String NAME = "Coordinator";
-  private static String USER_ID = "0987654321";
 
   public static BaseAgent ROOT_AGENT = initAgent();
 
@@ -49,9 +51,19 @@ public class RootAgent {
 
     Content userMsg = Content.fromParts(Part.fromText(conversation.getContent()));
 
-    Flowable<Event> events = runner.runAsync(USER_ID, session.id(), userMsg);
+    Flowable<Event> events = runner.runAsync(conversation.getUserId(), session.id(), userMsg);
     StringBuilder stringBuilder = new StringBuilder();
-    events.blockingForEach(event -> stringBuilder.append(event.stringifyContent()));
+    events.blockingForEach(event -> {
+      if(event.content().isPresent()){
+        Content content = event.content().get();
+        String role = content.role().get();
+        if ("user".equals(role)){
+          return;
+        }
+        stringBuilder.append(content.text());
+      }
+      log.info("event {}", new Gson().toJson(event));
+    });
 
     RespConversation respConversation = new RespConversation();
     respConversation.setContent(stringBuilder.toString());
@@ -75,7 +87,7 @@ public class RootAgent {
     Session session =
         runner
             .sessionService()
-            .createSession(NAME, USER_ID)
+            .createSession(NAME, "123")
             .blockingGet();
 
     try (Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8)) {
@@ -88,7 +100,7 @@ public class RootAgent {
         }
 
         Content userMsg = Content.fromParts(Part.fromText(userInput));
-        Flowable<Event> events = runner.runAsync(USER_ID, session.id(), userMsg);
+        Flowable<Event> events = runner.runAsync("123", session.id(), userMsg);
 
         System.out.print("\nTripScale > ");
         events.blockingForEach(event -> System.out.println(event.stringifyContent()));
