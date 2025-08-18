@@ -16,6 +16,7 @@ import com.pkfare.trip.scale.agent.inspiration.InspirationAgent;
 import com.pkfare.trip.scale.config.GoogleConfig;
 import com.pkfare.trip.scale.dto.Conversation;
 import com.pkfare.trip.scale.dto.RespConversation;
+import com.pkfare.trip.scale.function.UserEventFilter;
 import io.reactivex.rxjava3.core.Flowable;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
@@ -55,20 +56,16 @@ public class RootAgent {
 
     Flowable<Event> events = runner.runAsync(conversation.getUserId(), session.id(), userMsg);
     StringBuilder stringBuilder = new StringBuilder();
-    events.blockingForEach(event -> {
+    events.filter(UserEventFilter.instance()).blockingForEach(event -> {
       if(event.content().isPresent()){
         Content content = event.content().get();
-        String role = content.role().get();
-        if ("user".equals(role)){
-          return;
-        }
         stringBuilder.append(content.text());
       }
       log.info("event {}", new Gson().toJson(event));
     });
 
     RespConversation respConversation = new RespConversation();
-    respConversation.setType("type");
+    respConversation.setType("string");
     respConversation.setContent(stringBuilder.toString());
     respConversation.setConversationId(conversation.getConversationId());
 
