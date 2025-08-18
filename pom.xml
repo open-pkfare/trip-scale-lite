@@ -15,6 +15,13 @@
   </properties>
 
   <dependencies>
+    <!-- Spring Boot -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+      <version>3.2.0</version>
+    </dependency>
+
     <!-- ADK -->
     <dependency>
       <groupId>com.google.adk</groupId>
@@ -47,6 +54,12 @@
       <version>8.0.1.Final</version>
       <scope>compile</scope>
     </dependency>
+
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+    </dependency>
+
   </dependencies>
 
   <build>
