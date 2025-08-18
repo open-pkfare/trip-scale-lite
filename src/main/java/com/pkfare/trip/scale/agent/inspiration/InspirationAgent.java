@@ -44,8 +44,9 @@ public class InspirationAgent {
             String text = content.text();
             try {
               List<TripRoute> tripRoutes = new Gson().fromJson(text, new TypeToken<List<TripRoute>>(){}.getType());
-              if (null != tripRoutes){
+              if (null != tripRoutes){//当前agent结束
                 aac.state().put("trip_routes", text);
+                aac.state().put("stage","planning");
               }
             }catch (Throwable e){
             }
