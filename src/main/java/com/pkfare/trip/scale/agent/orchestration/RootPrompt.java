@@ -1,4 +1,4 @@
-package com.pkfare.trip.scale;
+package com.pkfare.trip.scale.agent.orchestration;
 
 public class RootPrompt {
 

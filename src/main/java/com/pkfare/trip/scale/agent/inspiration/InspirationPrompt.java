@@ -1,4 +1,4 @@
-package com.pkfare.trip.scale.inspiration;
+package com.pkfare.trip.scale.agent.inspiration;
 
 public class InspirationPrompt {
 

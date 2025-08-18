@@ -1,4 +1,4 @@
-package com.pkfare.trip.scale.inspiration;
+package com.pkfare.trip.scale.agent.inspiration;
 
 import com.google.adk.agents.BaseAgent;
 import com.google.adk.agents.LlmAgent;
