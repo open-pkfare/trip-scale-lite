@@ -5,14 +5,13 @@ import com.google.adk.agents.LlmAgent;
 import com.google.adk.events.Event;
 import com.google.adk.models.Gemini;
 import com.google.adk.runner.InMemoryRunner;
-import com.google.adk.runner.Runner;
 import com.google.adk.sessions.Session;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.genai.types.Content;
 import com.google.genai.types.Part;
 import com.google.gson.Gson;
-import com.pkfare.trip.scale.agent.inspiration.InspirationAgent;
+import com.pkfare.trip.scale.agent.inspiration.DemandAgent;
 import com.pkfare.trip.scale.config.GoogleConfig;
 import com.pkfare.trip.scale.dto.Conversation;
 import com.pkfare.trip.scale.dto.RespConversation;
@@ -23,7 +22,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 
 @Slf4j
@@ -45,7 +43,7 @@ public class RootAgent {
         .model(geminiModel)
         .description("Agent to help user to plan a trip.")
         .instruction(RootPrompt.INTRO)
-        .subAgents(InspirationAgent.instance())
+        .subAgents(DemandAgent.instance())
         .build();
   }
 
@@ -76,10 +74,11 @@ public class RootAgent {
 
   private Session initSession(String conversationId, String userId) {
     if (!SESSION_MAP.containsKey(conversationId)){
-      SESSION_MAP.put(conversationId,runner
+      SESSION_MAP.put(conversationId, runner
           .sessionService()
           .createSession(NAME, userId)
           .blockingGet());
+      SESSION_MAP.get(conversationId).state().put("stage", "inspiration");
     }
     return SESSION_MAP.get(conversationId);
   }

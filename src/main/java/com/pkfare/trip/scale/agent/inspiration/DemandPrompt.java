@@ -1,15 +1,14 @@
 package com.pkfare.trip.scale.agent.inspiration;
 
-public class InspirationPrompt {
+public class DemandPrompt {
 
-  public static String TRIP_ROUTES_INSPIRATION = "### background\n"
-      + "you are trip plan assistant, help to plan a wonderful routes with user's demand.\n"
-      + "user's demand is:\n"
-      + "{trip_demand}\n"
-      + "\n"
-      + "plan the route by your knowledge, consider to user's preferences.\n"
-      + "user's preferences are:\n"
-      + "{}\n"
+  public static String DEMAND_AND_PREFERENCE_INSPIRATION = "### background\n"
+      + "you are trip plan assistant, collect relevant data from user, inspire user if he has no idea.\n"
+      + "necessary data are:\n"
+      + "1. origin and potential travel dates/period\n"
+      + "2. estimated budget with currency\n"
+      + "3. must go destinations(optional, may be country/city/locations)\n"
+      + "4. number of passengers\n"
       + "\n"
       + "### attention\n"
       + "1. communicate with user briefly, keep dialog simple and keep response limited to a phrase, get necessary data step by step and avoid asking multiple questions all at once. \n"
@@ -24,6 +23,5 @@ public class InspirationPrompt {
       + "    \"budgets\": String\n"
       + "}\n"
       + "\n";
-
 
 }

@@ -1,5 +1,6 @@
 package com.pkfare.trip.scale.assistance;
 
+import com.google.adk.tools.Annotations.Schema;
 import com.google.common.collect.Maps;
 import com.google.gson.Gson;
 import com.pkfare.trip.scale.config.MockPreferenceConfig;
@@ -8,7 +9,7 @@ import java.util.Map;
 
 public class PersonalPreferenceService {
 
-  public Map<String, String> preferences(String userId){
+  public static Map<String, String> preferences(@Schema(name = "userId", description = "get user's preferences by specific user id") String userId){
     Map<String, String> resp = Maps.newHashMap();
 
     Preferences preferences = MockPreferenceConfig.getPreferences();
