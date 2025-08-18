@@ -11,7 +11,7 @@ public class DemandPrompt {
       + "4. number of passengers\n"
       + "\n"
       + "### attention\n"
-      + "1. communicate with user briefly, keep dialog simple and keep response limited to a phrase, get necessary data step by step and avoid asking multiple questions all at once. \n"
+      + "1. communicate with user briefly, keep dialog simple and keep response limited to a phrase, ask question get necessary data one by one and avoid asking multiple questions all at once. \n"
       + "2. if user declared he has no idea about where to go, invoke 'destinationSuggestion' method with userId then suggest to user.\n"
       + "\n"
       + "if everything is collected, only briefly output as below:\n"

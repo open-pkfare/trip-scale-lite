@@ -39,10 +39,9 @@ public class RootAgent {
   private static final Map<String, Session> SESSION_MAP = Maps.newConcurrentMap();
 
   public static BaseAgent initAgent() {
-    Gemini geminiModel = Gemini.builder().modelName("gemini-2.5-pro").apiKey(GoogleConfig.GOOGLE_API_KEY).build();
     return LlmAgent.builder()
         .name(NAME)
-        .model(geminiModel)
+        .model(GoogleConfig.GEMINI_2_5_PRO)
         .description("Agent to help user to plan a trip.")
         .instruction(RootPrompt.INTRO)
         .subAgents(DemandAgent.instance(), InspirationAgent.instance())
@@ -57,11 +56,11 @@ public class RootAgent {
     Flowable<Event> events = runner.runAsync(conversation.getUserId(), session.id(), userMsg);
     StringBuilder stringBuilder = new StringBuilder();
     events.filter(UserEventFilter.instance()).blockingForEach(event -> {
+      log.info("event {}", new Gson().toJson(event));
       if(event.content().isPresent()){
         Content content = event.content().get();
         stringBuilder.append(content.text());
       }
-      log.info("event {}", new Gson().toJson(event));
     });
 
     RespConversation respConversation = new RespConversation();
@@ -74,11 +73,18 @@ public class RootAgent {
     return respConversations;
   }
 
-  private Session initSession(String conversationId, String userId) {
+  /**
+   * init session dialog
+   * @param conversationId
+   * @param userId
+   * @return
+   */
+  private static Session initSession(String conversationId, String userId) {
     if (!SESSION_MAP.containsKey(conversationId)){
-
+      log.info("start init a new session for conversation {}", conversationId);
       ConcurrentMap<String, Object> states = Maps.newConcurrentMap();
       states.put("stage", "demand");
+      states.put("userId", userId);
       SESSION_MAP.put(conversationId, runner
           .sessionService()
           .createSession(NAME, userId, states, conversationId)
@@ -89,12 +95,7 @@ public class RootAgent {
 
 
   public static void main(String[] args) {
-    InMemoryRunner runner = new InMemoryRunner(ROOT_AGENT);
-    Session session =
-        runner
-            .sessionService()
-            .createSession(NAME, "123")
-            .blockingGet();
+    Session session = initSession("1234567890","123");
 
     try (Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8)) {
       while (true) {
