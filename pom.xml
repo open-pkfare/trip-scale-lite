@@ -47,6 +47,11 @@
       <version>8.0.1.Final</version>
       <scope>compile</scope>
     </dependency>
+    <dependency>
+      <groupId>com.amadeus</groupId>
+      <artifactId>amadeus-java</artifactId>
+      <version>7.0.0</version>
+    </dependency>
 
     <dependency>
       <groupId>com.squareup.okhttp3</groupId>
