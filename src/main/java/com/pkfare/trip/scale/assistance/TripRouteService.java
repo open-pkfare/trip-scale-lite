@@ -10,7 +10,8 @@ public class TripRouteService {
   private PersonalPreferenceService personalPreferenceService = new PersonalPreferenceService();
 
   public Map<String,String> tripRouteSuggestion(@Schema(name = "destinations", description = "destinations where user is willing to visit.") List<String> destinations, String userId){
-    personalPreferenceService.preferences(userId);
+    Map<String ,String> preferences = personalPreferenceService.preferences(userId);
+
     return null;
   }
 

@@ -1,4 +1,4 @@
-package com.pkfare.trip.scale.agent;
+package com.pkfare.trip.scale.inspiration;
 
 public class InspirationPrompt {
 
@@ -20,7 +20,6 @@ public class InspirationPrompt {
       + "    \"origin\":String,\n"
       + "    \"days\":int,\n"
       + "    \"passenger_number\":int,\n"
-      + "    \"passenger_type\":\"adult/child\",\n"
       + "    \"budgets\": String\n"
       + "}\n"
       + "\n";

@@ -1,9 +1,8 @@
-package com.pkfare.trip.scale.agent;
+package com.pkfare.trip.scale.inspiration;
 
 import com.google.adk.agents.BaseAgent;
 import com.google.adk.agents.LlmAgent;
 import com.google.adk.events.Event;
-import com.google.adk.memory.InMemoryMemoryService;
 import com.google.adk.models.Gemini;
 import com.google.adk.runner.InMemoryRunner;
 import com.google.adk.sessions.Session;
@@ -16,7 +15,6 @@ import com.pkfare.trip.scale.config.GoogleConfig;
 import com.pkfare.trip.scale.dto.TripCriteria;
 import io.reactivex.rxjava3.core.Flowable;
 import io.reactivex.rxjava3.core.Maybe;
-import io.reactivex.rxjava3.core.Observable;
 import java.nio.charset.StandardCharsets;
 import java.util.Objects;
 import java.util.Optional;
