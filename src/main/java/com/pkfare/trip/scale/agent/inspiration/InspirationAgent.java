@@ -3,9 +3,7 @@ package com.pkfare.trip.scale.agent.inspiration;
 import com.google.adk.agents.BaseAgent;
 import com.google.adk.agents.LlmAgent;
 import com.google.adk.events.Event;
-import com.google.adk.events.EventActions;
 import com.google.adk.runner.InMemoryRunner;
-import com.google.adk.sessions.InMemorySessionService;
 import com.google.adk.sessions.Session;
 import com.google.adk.tools.FunctionTool;
 import com.google.common.collect.Lists;
@@ -21,7 +19,6 @@ import com.pkfare.trip.scale.dto.TripRoute;
 import io.reactivex.rxjava3.core.Flowable;
 import io.reactivex.rxjava3.core.Maybe;
 import java.nio.charset.StandardCharsets;
-import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
@@ -65,6 +62,7 @@ public class InspirationAgent {
     tripDemand.setBudgets("15000CNY");
     tripDemand.setOrigin("shenzhen");
     tripDemand.setPassengerNumber(1);
+    tripDemand.setDays(14);
     tripDemand.setMustGoDestinations(Lists.newArrayList("Italy, Venice","Italy, Florence"));
 
     ConcurrentMap<String, Object> states = Maps.newConcurrentMap();

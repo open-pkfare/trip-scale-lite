@@ -22,6 +22,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.concurrent.ConcurrentMap;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -75,11 +76,13 @@ public class RootAgent {
 
   private Session initSession(String conversationId, String userId) {
     if (!SESSION_MAP.containsKey(conversationId)){
+
+      ConcurrentMap<String, Object> states = Maps.newConcurrentMap();
+      states.put("stage", "demand");
       SESSION_MAP.put(conversationId, runner
           .sessionService()
-          .createSession(NAME, userId)
+          .createSession(NAME, userId, states, conversationId)
           .blockingGet());
-      SESSION_MAP.get(conversationId).state().put("stage", "inspiration");
     }
     return SESSION_MAP.get(conversationId);
   }
