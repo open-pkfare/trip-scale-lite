@@ -11,16 +11,11 @@ import com.google.common.collect.Maps;
 import com.google.genai.types.Content;
 import com.google.genai.types.Part;
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import com.pkfare.trip.scale.assistance.PersonalPreferenceService;
 import com.pkfare.trip.scale.config.GoogleConfig;
 import com.pkfare.trip.scale.dto.TripDemand;
-import com.pkfare.trip.scale.dto.TripRoute;
 import io.reactivex.rxjava3.core.Flowable;
-import io.reactivex.rxjava3.core.Maybe;
 import java.nio.charset.StandardCharsets;
-import java.util.List;
-import java.util.Optional;
 import java.util.Scanner;
 import java.util.concurrent.ConcurrentMap;
 
@@ -31,28 +26,11 @@ public class InspirationAgent {
   public static BaseAgent instance() {
     return LlmAgent.builder()
         .name(NAME)
-        .model(GoogleConfig.GEMINI_2_5_PRO)
+        .model(GoogleConfig.GEMINI_2_5_FLASH)
         .description("Agent to help user to inspire trip demand into trip routes.")
         .instruction(InspirationPrompt.TRIP_ROUTES_INSPIRATION)
         .tools(
             FunctionTool.create(PersonalPreferenceService.class, "preferences"))
-        .afterAgentCallback(aac -> {
-          //predict if done
-          Optional<Content> contentOptional = aac.userContent();
-          if (contentOptional.isPresent()){
-            Content content = contentOptional.get();
-            String text = content.text();
-            try {
-              List<TripRoute> tripRoutes = new Gson().fromJson(text, new TypeToken<List<TripRoute>>(){}.getType());
-              if (null != tripRoutes){//当前agent结束
-                aac.state().put("trip_routes", text);
-                aac.state().put("current_stage","planning");
-              }
-            }catch (Throwable e){
-            }
-          }
-          return Maybe.fromOptional(aac.userContent());
-        })
         .build();
   }
 
