@@ -46,7 +46,7 @@ public class InspirationAgent {
               List<TripRoute> tripRoutes = new Gson().fromJson(text, new TypeToken<List<TripRoute>>(){}.getType());
               if (null != tripRoutes){//当前agent结束
                 aac.state().put("trip_routes", text);
-                aac.state().put("stage","planning");
+                aac.state().put("current_stage","planning");
               }
             }catch (Throwable e){
             }
@@ -67,7 +67,7 @@ public class InspirationAgent {
     tripDemand.setMustGoDestinations(Lists.newArrayList("Italy, Venice","Italy, Florence"));
 
     ConcurrentMap<String, Object> states = Maps.newConcurrentMap();
-    states.put("userId", "123");
+    states.put("user:userId", "123");
     Session session =
         runner
             .sessionService()

@@ -18,7 +18,7 @@
 ### attention
 1. You must transfer to an agent every time; there must be no cases where forwarding does not occur.
 
-present stage is : {stage}
+present stage is : {current_stage}
 
 ---
 
@@ -37,7 +37,7 @@ necessary data are:
 ### attention
 
 1. communicate with user briefly, keep dialog simple and keep response limited to a phrase, get necessary data step by step and avoid asking multiple questions all at once.
-2. if user declared he has no idea about where to go, invoke 'destinationSuggestion' method with userId then suggest to user.
+2. if user declared he has no idea about where to go, invoke 'destinationSuggestion' method with user:userId then suggest to user.
 
 if everything is collected, only briefly output as below:
 {
@@ -60,7 +60,7 @@ plan the trip routes with your travel knowledge and negotiate with user, strictl
 ### attention
 
 1. Communicate with the user about trip routes, focusing only on stay days and destination cities, do not discuss anything else.
-2. you can access user's preferences with invoke the tool 'preferences' by userId.
+2. you can access user's preferences with invoke the tool 'preferences' by user:userId.
 3. reason_for_recommendation should be based on the destination cities and user preferences.
 4. If time permits, additional destinations beyond the must-go destinations can be added, but they should be along a reasonable route.
 5. country_code follow ISO3166-1 standard with 2 letters.

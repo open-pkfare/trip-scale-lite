@@ -19,8 +19,10 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.Scanner;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
 @Slf4j
+@Component
 public class DemandAgent {
 
   private static String NAME = "trip_demand_agent";
@@ -42,8 +44,9 @@ public class DemandAgent {
             try {
               TripDemand tripDemand = new Gson().fromJson(text, TripDemand.class);
               if (Objects.nonNull(tripDemand)){//当前agent结束
-                aac.state().put("trip_demand", text);
-                aac.state().put("stage", "inspiration");
+                aac.state().put("user:trip_demand", text);
+                aac.state().put("current_stage", "inspiration");
+                log.info("change for demand done.");
               }
             }catch (Throwable e){
             }

@@ -14,13 +14,19 @@ import com.google.common.collect.Maps;
 import com.google.genai.types.Content;
 import com.google.genai.types.Part;
 import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
+import com.google.gson.reflect.TypeToken;
 import com.pkfare.trip.scale.agent.inspiration.DemandAgent;
 import com.pkfare.trip.scale.agent.inspiration.InspirationAgent;
 import com.pkfare.trip.scale.config.GoogleConfig;
 import com.pkfare.trip.scale.dto.Conversation;
 import com.pkfare.trip.scale.dto.RespConversation;
+import com.pkfare.trip.scale.dto.TripDemand;
+import com.pkfare.trip.scale.dto.TripRoute;
 import com.pkfare.trip.scale.function.UserEventFilter;
 import io.reactivex.rxjava3.core.Flowable;
+import io.reactivex.rxjava3.core.Maybe;
 import java.nio.charset.StandardCharsets;
 import java.time.Instant;
 import java.util.List;
@@ -29,6 +35,7 @@ import java.util.Optional;
 import java.util.Scanner;
 import java.util.concurrent.ConcurrentMap;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 
 @Slf4j
@@ -40,8 +47,6 @@ public class RootAgent {
   public static BaseAgent ROOT_AGENT = initAgent();
 
   public static InMemoryRunner runner = new InMemoryRunner(ROOT_AGENT);
-
-  private static final Map<String, Session> SESSION_MAP = Maps.newConcurrentMap();
 
   public static BaseAgent initAgent() {
     return LlmAgent.builder()
@@ -64,7 +69,8 @@ public class RootAgent {
     Flowable<Event> events = runner.runAsync(conversation.getUserId(), session.id(), userMsg);
     StringBuilder stringBuilder = new StringBuilder();
     events.filter(UserEventFilter.instance()).blockingForEach(event -> {
-      log.info("event {}", event.toString());
+      setDone(event, conversation.getUserId(), conversation.getConversationId());
+      log.info("event {}", event);
       if(event.content().isPresent()){
         Content content = event.content().get();
         stringBuilder.append(content.text());
@@ -88,21 +94,54 @@ public class RootAgent {
    * @return
    */
   private static Session initSession(String conversationId, String userId) {
-
-    if (!SESSION_MAP.containsKey(conversationId)){
+    Maybe<Session> sessionMaybe = runner.sessionService().getSession(NAME, userId, conversationId, Optional.empty());
+    Session session;
+    if (null == (session = sessionMaybe.blockingGet())){
       log.info("start init a new session for conversation {}", conversationId);
       ConcurrentMap<String, Object> states = Maps.newConcurrentMap();
-      states.put("stage", "demand");
-      states.put("userId", userId);
+      states.put("current_stage", "demand");
+      states.put("user:userId", userId);
+
+      session = runner.sessionService()
+          .createSession(NAME, userId, states, conversationId)
+          .blockingGet();
+    }
+    return session;
+  }
+
+  public Event setDone(Event event, String userId, String conversationId){
+    Event updatedSession = event;
+    if(event.content().isPresent()){
+      Content content = event.content().get();
+      String text = content.text();
+      if (StringUtils.isNotEmpty(text)){
+        Session session = runner.sessionService().getSession(NAME, userId, conversationId, Optional.empty()).blockingGet();
+        String currentStage = (String) session.state().get("current_stage");
+        ConcurrentMap<String, Object> states = Maps.newConcurrentMap();
+
+        JsonElement jsonElement = null;
+        try {
+          jsonElement = JsonParser.parseString(text);
+        }catch (Throwable e){
+          return event;
+        }
+        switch (currentStage){
+          case "demand" :
+            TripDemand tripDemand = new Gson().fromJson(jsonElement, TripDemand.class);
+            states.put("current_stage","inspiration");
+            states.put("trip_demand", tripDemand);
+            break;
+          case "inspiration" :
+            List<TripRoute> tripRoutes = new Gson().fromJson(jsonElement, new TypeToken<List<TripRoute>>(){}.getType());
+            states.put("current_stage","inspiration");
+            states.put("trip_routes", tripRoutes);
+            break;
+          default:
+        }
+
 
       EventActions actionsWithUpdate = EventActions.builder().stateDelta(states).build();
       long currentTimeMillis = Instant.now().toEpochMilli(); // Use milliseconds for Java Event
-
-      Session session = runner.sessionService()
-          .createSession(NAME, userId, states, conversationId)
-          .blockingGet();
-      SESSION_MAP.put(conversationId, session);
-
       Event systemEvent =
           Event.builder()
               .invocationId("init")
@@ -111,11 +150,11 @@ public class RootAgent {
               .timestamp(currentTimeMillis)
               // content might be None or represent the action taken
               .build();
-      Event updatedSession =
+        updatedSession =
           runner.sessionService().appendEvent(session, systemEvent).blockingGet();
-
+      }
     }
-    return SESSION_MAP.get(conversationId);
+    return updatedSession;
   }
 
 

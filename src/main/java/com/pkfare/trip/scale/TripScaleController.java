@@ -1,5 +1,6 @@
 package com.pkfare.trip.scale;
 
+import com.pkfare.trip.scale.agent.orchestration.AnotherRootAgent;
 import com.pkfare.trip.scale.agent.orchestration.RootAgent;
 import com.pkfare.trip.scale.dto.Conversation;
 import com.pkfare.trip.scale.dto.RespConversation;
@@ -18,12 +19,15 @@ public class TripScaleController {
   @Autowired
   private RootAgent rootAgent;
 
+  @Autowired
+  private AnotherRootAgent anotherRootAgent;
+
   @RequestMapping("/chat")
   @ResponseBody
   public List<RespConversation> chat(@RequestBody Conversation conversation) {
     if (StringUtils.isEmpty(conversation.getConversationId())) {
       conversation.setConversationId(UUID.randomUUID().toString());
     }
-    return rootAgent.chat(conversation);
+    return anotherRootAgent.chat(conversation);
   }
 }
