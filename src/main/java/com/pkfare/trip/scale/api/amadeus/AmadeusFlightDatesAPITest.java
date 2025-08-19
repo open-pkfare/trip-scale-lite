@@ -20,8 +20,8 @@ public class AmadeusFlightDatesAPITest {
 
   private static FlightDatesRequest buildFlightDatesRequest() {
     FlightDatesRequest request = new FlightDatesRequest();
-    request.setOrigin("MAD");
-    request.setDestination("MUC");
+    request.setOrigin("PAR");
+    request.setDestination("LIS");
     request.setDepartureDate("2025-10-01");
     request.setDuration("2,8");
     request.setOneWay(false);
