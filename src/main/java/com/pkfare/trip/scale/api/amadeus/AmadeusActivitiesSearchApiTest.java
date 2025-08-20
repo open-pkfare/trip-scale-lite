@@ -2,11 +2,8 @@ package com.pkfare.trip.scale.api.amadeus;
 
 import com.amadeus.exceptions.ResponseException;
 import com.amadeus.resources.Activity;
-import com.amadeus.resources.HotelOfferSearch;
 import com.pkfare.trip.scale.api.amadeus.activities.AmadeusActivitiesSearchApi;
 import com.pkfare.trip.scale.api.amadeus.activities.request.ActivitiesSearchRequest;
-import com.pkfare.trip.scale.api.amadeus.hoteloffers.AmadeusHotelOffersSearchAPI;
-import com.pkfare.trip.scale.api.amadeus.hoteloffers.request.HotelOffersSearchRequest;
 import lombok.extern.slf4j.Slf4j;
 
 
