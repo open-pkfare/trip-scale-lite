@@ -40,7 +40,7 @@ public class PlanningAgent extends BaseAgent {
 
   public PlanningAgent() {
     super(NAME, "Agent to help user to plan a trip with specific trip routes.",
-        Lists.newArrayList(DemandAgent.instance(), InspirationAgent.instance()),
+        null,
         null,
         null);
   }

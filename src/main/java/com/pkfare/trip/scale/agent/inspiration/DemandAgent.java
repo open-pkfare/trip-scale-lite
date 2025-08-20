@@ -5,6 +5,7 @@ import com.google.adk.agents.LlmAgent;
 import com.google.adk.events.Event;
 import com.google.adk.runner.InMemoryRunner;
 import com.google.adk.sessions.Session;
+import com.google.adk.tools.AgentTool;
 import com.google.adk.tools.FunctionTool;
 import com.google.genai.types.Content;
 import com.google.genai.types.Part;
@@ -30,14 +31,14 @@ public class DemandAgent {
   private static BaseAgent INSTANCE;
 
   public static BaseAgent instance() {
-    if (null == INSTANCE){
+    if (null == INSTANCE) {
       INSTANCE = LlmAgent.builder()
           .name(NAME)
           .model(GoogleConfig.GEMINI_2_5_FLASH)
           .description("Agent to help user to inspire and collect trip demand info.")
           .instruction(DemandPrompt.DEMAND_AND_PREFERENCE_INSPIRATION)
-          .tools(
-              FunctionTool.create(DestinationSuggestionService.class, "getDestinationSuggestions"))
+          .subAgents(SuggestionAgent.instance())
+//          .tools(AgentTool.create(SuggestionAgent.instance(), true))
           .build();
     }
     return INSTANCE;

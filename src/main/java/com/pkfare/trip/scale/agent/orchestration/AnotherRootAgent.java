@@ -19,6 +19,7 @@ import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 import com.pkfare.trip.scale.agent.inspiration.DemandAgent;
 import com.pkfare.trip.scale.agent.inspiration.InspirationAgent;
+import com.pkfare.trip.scale.agent.planning.PlanningAgent;
 import com.pkfare.trip.scale.dto.TripDemand;
 import com.pkfare.trip.scale.dto.TripRoute;
 import io.reactivex.rxjava3.core.Flowable;
@@ -43,7 +44,7 @@ public class AnotherRootAgent extends BaseAgent {
 
   public AnotherRootAgent() {
     super(NAME, "Agent to coordinate different agents to work together with different steps to finish a trip planning.",
-        Lists.newArrayList(DemandAgent.instance(), InspirationAgent.instance(), AnotherRootAgent.instance()),
+        Lists.newArrayList(DemandAgent.instance(), InspirationAgent.instance(), PlanningAgent.instance()),
         null,
         null);
   }
