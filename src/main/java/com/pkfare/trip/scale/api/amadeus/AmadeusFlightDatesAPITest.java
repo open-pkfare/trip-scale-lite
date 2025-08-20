@@ -15,18 +15,32 @@ public class AmadeusFlightDatesAPITest {
     AmadeusFlightDatesAPI amadeusFlightDatesAPI = new AmadeusFlightDatesAPI();
     FlightDate[] response = amadeusFlightDatesAPI.flightDates(buildFlightDatesRequest());
     log.info("response : {}", response);
-
   }
 
   private static FlightDatesRequest buildFlightDatesRequest() {
     FlightDatesRequest request = new FlightDatesRequest();
     request.setOrigin("PAR");
     request.setDestination("LIS");
-    request.setDepartureDate("2025-10-01");
+    request.setDepartureDate("2025-09-01,2025-09-30");
     request.setDuration("2,8");
     request.setOneWay(false);
-    request.setNonStop(true);
-    request.setMaxPrice(10000);
+    request.setNonStop(false);
+    //request.setMaxPrice(10000);
+
+    // // FlightDate(type=flight-date, origin=PAR, destination=LIS, departureDate=Wed Oct 01 00:00:00 CST 2025, returnDate=Fri Oct 03 00:00:00 CST 2025, price=FlightDate.Price(total=144.23))
+    return request;
+  }
+
+  private static FlightDatesRequest buildFlightDatesRequest1() {
+    FlightDatesRequest request = new FlightDatesRequest();
+    request.setOrigin("PAR");
+    request.setDestination("LIS");
+    request.setDepartureDate("2025-08-22,2025-08-30");
+    //request.setReturnDate("2025-08-30");
+    //request.setDuration(null);
+    request.setOneWay(true);
+    request.setNonStop(false);
+    //request.setMaxPrice(10000);
     return request;
   }
 

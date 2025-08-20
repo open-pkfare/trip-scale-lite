@@ -14,7 +14,7 @@ public class HotelOffersSearchRequest {
   private int roomQuantity;   // Number of rooms requested (1-9).
   private String priceRange; // 按每晚价格间隔过滤酒店报价（例如：200-300或-300或100）。
   private String currency;
-  private String paymentPolicy;
+  private String paymentPolicy = "NONE";
   private Boolean bestRateOnly = true; // 用于只返回每个酒店或所有可提供的最便宜的报价。
 
 }

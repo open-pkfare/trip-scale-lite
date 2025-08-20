@@ -15,7 +15,8 @@ public class AmadeusFlightDatesAPI {
   public FlightDate[] flightDates(FlightDatesRequest flightDatesRequest) {
     Amadeus amadeus = AmadeusClient.get();
     Params params = Params.with("origin", flightDatesRequest.getOrigin()).and("destination", flightDatesRequest.getDestination())
-        .and("departureDate", flightDatesRequest.getDepartureDate()).and("duration", flightDatesRequest.getDuration())
+        .and("departureDate", flightDatesRequest.getDepartureDate())
+        .and("duration", flightDatesRequest.getDuration())
         .and("oneWay", flightDatesRequest.getOneWay()).and("nonStop", flightDatesRequest.getNonStop())
         .and("maxPrice", flightDatesRequest.getMaxPrice());
 
