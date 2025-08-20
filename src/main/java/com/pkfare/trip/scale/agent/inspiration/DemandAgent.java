@@ -27,33 +27,20 @@ public class DemandAgent {
 
   private static String NAME = "trip_demand_agent";
 
+  private static BaseAgent INSTANCE;
+
   public static BaseAgent instance() {
-    return LlmAgent.builder()
-        .name(NAME)
-        .model(GoogleConfig.GEMINI_2_5_FLASH)
-        .description("Agent to help user to inspire and collect trip demand info.")
-        .instruction(DemandPrompt.DEMAND_AND_PREFERENCE_INSPIRATION)
-        .tools(
-            FunctionTool.create(DestinationSuggestionService.class, "getDestinationSuggestions"))
-        .afterAgentCallback(aac -> {
-          //predict if done
-          Optional<Content> contentOptional = aac.userContent();
-          if (contentOptional.isPresent()){
-            Content content = contentOptional.get();
-            String text = content.text();
-            try {
-              TripDemand tripDemand = new Gson().fromJson(text, TripDemand.class);
-              if (Objects.nonNull(tripDemand)){//当前agent结束
-                aac.state().put("user:trip_demand", text);
-                aac.state().put("current_stage", "inspiration");
-                log.info("change for demand done.");
-              }
-            }catch (Throwable e){
-            }
-          }
-          return Maybe.fromOptional(aac.userContent());
-        })
-        .build();
+    if (null == INSTANCE){
+      INSTANCE = LlmAgent.builder()
+          .name(NAME)
+          .model(GoogleConfig.GEMINI_2_5_FLASH)
+          .description("Agent to help user to inspire and collect trip demand info.")
+          .instruction(DemandPrompt.DEMAND_AND_PREFERENCE_INSPIRATION)
+          .tools(
+              FunctionTool.create(DestinationSuggestionService.class, "getDestinationSuggestions"))
+          .build();
+    }
+    return INSTANCE;
   }
 
   public static void main(String[] args) {

@@ -18,20 +18,30 @@ import io.reactivex.rxjava3.core.Flowable;
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 import java.util.concurrent.ConcurrentMap;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
+@Slf4j
+@Component
 public class InspirationAgent {
 
   private static String NAME = "trip_inspiration_agent";
 
+  private static BaseAgent INSTANCE;
+
   public static BaseAgent instance() {
-    return LlmAgent.builder()
-        .name(NAME)
-        .model(GoogleConfig.GEMINI_2_5_FLASH)
-        .description("Agent to help user to inspire trip demand into trip routes.")
-        .instruction(InspirationPrompt.TRIP_ROUTES_INSPIRATION)
-        .tools(
-            FunctionTool.create(PersonalPreferenceService.class, "preferences"))
-        .build();
+    if (null == INSTANCE){
+      INSTANCE = LlmAgent.builder()
+          .name(NAME)
+          .model(GoogleConfig.GEMINI_2_5_FLASH)
+          .description("Agent to help user to inspire trip demand into trip routes.")
+          .instruction(InspirationPrompt.TRIP_ROUTES_INSPIRATION)
+          .tools(
+              FunctionTool.create(PersonalPreferenceService.class, "preferences"))
+          .build();
+    }
+
+    return INSTANCE;
   }
 
   public static void main(String[] args) {

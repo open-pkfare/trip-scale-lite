@@ -1,4 +1,4 @@
-package com.pkfare.trip.scale;
+package com.pkfare.trip.scale.entrance;
 
 import com.pkfare.trip.scale.agent.orchestration.AnotherRootAgent;
 import com.pkfare.trip.scale.agent.orchestration.RootAgent;
@@ -24,7 +24,7 @@ public class TripScaleController {
   private RootAgent rootAgent;
 
   @Autowired
-  private AnotherRootAgent anotherRootAgent;
+  private CoordinationEntrance coordinationEntrance;
 
   @RequestMapping("/chat")
   @ResponseBody
@@ -34,6 +34,6 @@ public class TripScaleController {
       conversation.setConversationId(UUID.randomUUID().toString());
       logger.info("生成新的会话ID: {}", conversation.getConversationId());
     }
-    return anotherRootAgent.chat(conversation);
+    return coordinationEntrance.chat(conversation);
   }
 }
