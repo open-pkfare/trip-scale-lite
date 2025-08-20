@@ -1,7 +1,6 @@
 package com.pkfare.trip.scale.agent.orchestration;
 
 import com.google.adk.agents.BaseAgent;
-import com.google.adk.agents.CallbackContext;
 import com.google.adk.agents.Callbacks.AfterAgentCallback;
 import com.google.adk.agents.Callbacks.BeforeAgentCallback;
 import com.google.adk.agents.InvocationContext;
@@ -44,7 +43,7 @@ public class AnotherRootAgent extends BaseAgent {
 
   public AnotherRootAgent() {
     super(NAME, "Agent to coordinate different agents to work together with different steps to finish a trip planning.",
-        Lists.newArrayList(DemandAgent.instance(), InspirationAgent.instance()),
+        Lists.newArrayList(DemandAgent.instance(), InspirationAgent.instance(), AnotherRootAgent.instance()),
         null,
         null);
   }
@@ -76,10 +75,12 @@ public class AnotherRootAgent extends BaseAgent {
       case "inspiration":
         eventFlowable = invocationContext.agent().findAgent("trip_inspiration_agent").runAsync(invocationContext);
         break;
+      case "planning":
+        eventFlowable = invocationContext.agent().findAgent("trip_planning_agent").runAsync(invocationContext);
+        break;
 
     }
-
-    return eventFlowable.doAfterNext(event -> stageTransition(event, invocationContext));
+    return eventFlowable.doOnNext(event -> stageTransition(event, invocationContext));
   }
 
   public void stageTransition(Event event, InvocationContext invocationContext) {
@@ -94,12 +95,12 @@ public class AnotherRootAgent extends BaseAgent {
         try {
           text = text.replace("```json","").replace("```","");
           JsonElement jsonElement = JsonParser.parseString(text);
+          List<Part> parts = content.parts().get();
           switch (currentStage) {
             case "demand":
               TripDemand tripDemand = new Gson().fromJson(jsonElement, TripDemand.class);
               states.put("current_stage", "inspiration");
               states.put("trip_demand", tripDemand);
-              List<Part> parts = content.parts().get();
               Part part = parts.getFirst().toBuilder().text(tripDemand.getBrief()).build();
               parts.removeFirst();
               parts.add(part);
@@ -107,9 +108,13 @@ public class AnotherRootAgent extends BaseAgent {
             case "inspiration":
               List<TripRoute> tripRoutes = new Gson().fromJson(jsonElement, new TypeToken<List<TripRoute>>() {
               }.getType());
-              states.put("current_stage", "inspiration");
-              states.put("trip_routes", tripRoutes);
+              states.put("current_stage", "planning");
+              states.put("trip_route", tripRoutes);
+              parts.removeFirst();
+              parts.add(parts.getFirst().toBuilder().text("I will start planning details for it").build());
               break;
+            case "planning":
+
             default:
           }
         } catch (Throwable e) {
