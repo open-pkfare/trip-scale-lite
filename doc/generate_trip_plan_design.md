@@ -101,18 +101,78 @@
 
 ### com.pkfare.trip.scale.plan.service.response.TripPlan
 
-字段待补充。
+```plain
+@Data
+public class TripPlan {
+    private String planId;                    // 计划ID，UUID生成
+    private BigDecimal totalCost;             // 总费用
+    private String currency;                  // 币种
+    private PlanStatus status;                // 计划状态：SUCCESS/OVER_BUDGET/NO_AVAILABLE_OPTION
+    private List<FlightInfo> flights;         // 航班信息列表
+    private List<HotelInfo> hotels;           // 酒店信息列表
+    private List<ActivityInfo> activities;    // 活动信息列表
+    private List<DailySchedule> dailySchedules; // 每日行程安排
+    private String aiGeneratedPlan;           // AI生成的计划文本
+    private LocalDateTime createdTime;        // 创建时间
+    private String errorMessage;              // 错误信息（状态非SUCCESS时）
+}
 
-|字段|说明|
-|:----|:----|
-|||
-|||
-|||
-|||
-|||
-|||
-|||
-|||
+```
+### com.pkfare.trip.scale.plan.service.response.DailySchedule
+
+```plain
+@Data
+public class DailySchedule {
+    private LocalDate date;                   // 日期
+    private String cityCode;                  // 城市代码
+    private String cityName;                  // 城市名称
+    private HotelInfo hotel;                  // 当日酒店
+    private List<ActivityInfo> activities;    // 当日活动列表
+    private TransportationInfo transportation; // 交通信息（城市间移动）
+    private String notes;                     // 备注信息
+    private BigDecimal dailyCost;             // 当日费用
+}
+```
+### com.pkfare.trip.scale.plan.service.response
+
+```plain
+@Data
+public class TransportationInfo {
+    private TransportationType type;          // 交通类型：FLIGHT/TRAIN/BUS/CAR
+    private String from;                      // 出发地
+    private String to;                        // 目的地
+    private String duration;                  // 行程时间
+    private BigDecimal cost;                  // 交通费用
+    private String description;               // 描述信息
+    private LocalDateTime departureTime;      // 出发时间
+    private LocalDateTime arrivalTime;        // 到达时间
+}
+```
+### 其他枚举
+
+```plain
+public enum PlanStatus {
+    SUCCESS("generated successfully"),
+    OVER_BUDGET("over budget"),
+    NO_AVAILABLE_OPTION("no available options"),
+    API_ERROR("API call failed"),
+    PARAM_ERROR("parameter error");
+    
+    private final String description;
+}
+
+public enum TransportationType {
+    FLIGHT("flight"),
+    TRAIN("train"),
+    BUS("bus"),
+    CAR("car"),
+    WALK("walk");
+    
+    private final String description;
+}
+
+```
+
 
 # 5.关键类与方法（Key Classes / Methods）
 
@@ -263,14 +323,7 @@ public class SegmentInfo {
 ```
 
 
-
-## 6.2 使用线程池并行发起 酒店查询 和 **城市景点活动查询**
-
-使用CompleteableFuture编排流程。
-
-
-
-## 6.3 酒店查询（Hotels）
+## 6.2 酒店查询（Hotels）
 
 1.根据目的地城市拉取酒店列表。
 
@@ -291,10 +344,12 @@ public class SegmentInfo {
 
 * 接口请求参数赋值如下：
 
+酒店查询 依赖 航班查询返回的日期来确定查询酒店需要的checkInDate和checkOutDate时间。
+
 |字段|值|
 |:----|:----|
 |hotelIds|localHotelIdMap中对应location_code的hotelIdList。localHotelIdMap.get(location_code)|
-|checkInDate|第一个TripRoute的checkInDate取机票往返航班的去程到达时间，后续每个TripRoute的checkInDate为上一个TripRoute的checkOutDate。|
+|checkInDate|第一个TripRoute对应checkInDate取机票往返航班的去程到达时间，后续每个TripRoute的checkInDate为上一个TripRoute的checkOutDate。|
 |checkOutDate|每一个TripRoute的checkOutDate取它的checkInDate加上当前TripRoute.stay_days。|
 |adults|GeneratePlanParam.adult_number+GeneratePlanParam.child_number。|
 |countryOfResidence|每段TripRoute.country_code。|
@@ -323,7 +378,7 @@ public class HotelInfo {
     private String descriptionText;           // 描述文案
 }
 ```
-## **6.4 城市景点活动查询**
+## **6.3 城市景点活动查询**
 
 1.获取每段TripRoute对应酒店的经纬度，组装成map，key为AmadeusHotelOffersSearchAPI#hotelOffersSearch接口返回的hotelId+dupeId+offerId，value为酒店经纬度组成的实体，该实体两个字段，latitude和longitude，double类型。
 
@@ -332,6 +387,8 @@ public class HotelInfo {
 com.pkfare.trip.scale.api.amadeus.activities.AmadeusActivitiesSearchApi#searchActivities接口查询景点活动。
 
 接口请求参数赋值如下：
+
+城市景点活动查询 依赖 酒店查询返回酒店经纬度信息。
 
 |字段|值|
 |:----|:----|
@@ -360,16 +417,27 @@ public class ActivityInfo {
     private String category;                  // 活动类别
 }
 ```
-## **6.5 将机票、酒店、景点活动数据提交AI大模型生成机票+酒店+旅游景点活动的旅行计划**
+## **6.4 将机票、酒店、景点活动数据提交AI大模型生成机票+酒店+旅游景点活动的旅行计划**
 
-具体实现逻辑待补充。
+逻辑和流程：
+
+*  构建AI提示词，输出模版到com.pkfare.trip.scale.agent.inspiration.PlanningPrompt类，提示词需要结合输入的SubmitAiPlanInfo信息，包括GeneratePlanParam、航班、酒店、景点活动信息。
+
+* 调用Gemini生成计划，结合com.pkfare.trip.scale.agent.planning.PlanningAgent。
+
+* 解析AI响应并构建TripPlan。
 
 
-关键点：
+提示词关键点：
 
 * 保证机票、酒店、活动景点日期和时间连续 且 城市顺序正确。
 
 * 各城市之间输出交通工具和行程时间。
+
+* 活动景点选择需结合活动与酒店经纬度，筛选 100km 内适中距离，活动景点的行程按从酒店由近及远安排。
+
+
+大模型：gemini-2.5-pro
 
 
 输入参数：
@@ -384,9 +452,9 @@ public class SubmitAiPlanInfo {
 ```
 
 
-## **6.6 聚合返回结果**
+## **6.5 聚合返回结果**
 
-具体实现逻辑待补充。
+结合com.pkfare.trip.scale.plan.service.response.TripPlan封装返回结果。
 
 
 # 7.数据流程图（Sequence Diagram）
