@@ -50,9 +50,9 @@ public class InspirationAgent {
     TripDemand tripDemand = new TripDemand();
     tripDemand.setBudgets("15000CNY");
     tripDemand.setOrigin("shenzhen");
-    tripDemand.setPassengerNumber(1);
+    tripDemand.setPassenger_number(1);
     tripDemand.setDays(14);
-    tripDemand.setMustGoDestinations(Lists.newArrayList("Italy, Venice","Italy, Florence"));
+    tripDemand.setMust_go_destinations(Lists.newArrayList("Italy, Venice","Italy, Florence"));
 
     ConcurrentMap<String, Object> states = Maps.newConcurrentMap();
     states.put("user:userId", "123");

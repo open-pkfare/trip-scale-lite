@@ -7,7 +7,7 @@ public class DemandPrompt {
       + "necessary items of demand are:\n"
       + "1. must go destinations(could be country/city/locations)"
       + "2. origin location\n"
-      + "3. potential travel dates/period\n"
+      + "3. potential travel dates and duration\n"
       + "4. number of passengers\n"
       + "5. estimated budget with currency\n"
       + "\n"

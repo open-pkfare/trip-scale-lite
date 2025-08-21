@@ -97,12 +97,13 @@ public class AnotherRootAgent extends BaseAgent {
           text = text.replace("```json","").replace("```","");
           JsonElement jsonElement = JsonParser.parseString(text);
           List<Part> parts = content.parts().get();
+          Part part;
           switch (currentStage) {
             case "demand":
               TripDemand tripDemand = new Gson().fromJson(jsonElement, TripDemand.class);
               states.put("current_stage", "inspiration");
               states.put("trip_demand", tripDemand);
-              Part part = parts.getFirst().toBuilder().text(tripDemand.getBrief()).build();
+              part = Part.builder().text(tripDemand.getBrief()).build();
               parts.removeFirst();
               parts.add(part);
               break;
@@ -111,8 +112,9 @@ public class AnotherRootAgent extends BaseAgent {
               }.getType());
               states.put("current_stage", "planning");
               states.put("trip_route", tripRoutes);
+              part = Part.builder().text("Let's will start planning details for it!").build();
               parts.removeFirst();
-              parts.add(parts.getFirst().toBuilder().text("I will start planning details for it").build());
+              parts.add(part);
               break;
             case "planning":
 
