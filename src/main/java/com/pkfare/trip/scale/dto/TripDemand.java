@@ -6,8 +6,8 @@ import lombok.Data;
 @Data
 public class TripDemand {
 
-  private List<String> mustGoDestinations;
-  private int passengerNumber;
+  private List<String> must_go_destinations;
+  private int passenger_number;
   private String origin;
   private int days;
   private String budgets;
