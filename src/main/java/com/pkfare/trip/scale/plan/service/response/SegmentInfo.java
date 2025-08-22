@@ -9,7 +9,10 @@ import lombok.Data;
  */
 @Data
 public class SegmentInfo {
-    
+    /**
+     * 航段ID，格式可以为出发-达到机场三字码，例如："SIN-DEL"
+     */
+    private String id;
     /**
      * 出发地址
      */
