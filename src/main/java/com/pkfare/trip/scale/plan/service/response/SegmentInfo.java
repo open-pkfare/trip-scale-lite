@@ -19,6 +19,8 @@ public class SegmentInfo {
      * 出发时间
      */
     private String departureTime;
+
+    private GeoInfo departureGeo;
     
     /**
      * 到达地址
@@ -29,6 +31,8 @@ public class SegmentInfo {
      * 到达时间
      */
     private String arrivalTime;
+
+    private GeoInfo arrivalGeo;
     
     /**
      * 航司
