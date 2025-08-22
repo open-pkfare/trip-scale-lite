@@ -59,10 +59,11 @@
       <version>8.0.1.Final</version>
       <scope>compile</scope>
     </dependency>
+
     <dependency>
-      <groupId>com.amadeus</groupId>
-      <artifactId>amadeus-java</artifactId>
-      <version>7.0.0</version>
+      <groupId>javax.validation</groupId>
+      <artifactId>validation-api</artifactId>
+      <version>2.0.1.Final</version> <!-- 常用稳定版本 -->
     </dependency>
 
     <dependency>
@@ -82,7 +83,61 @@
       <artifactId>jackson-databind</artifactId>
       <version>2.13.0</version>
     </dependency>
+    <dependency>
+      <groupId>com.amadeus</groupId>
+      <artifactId>amadeus-java</artifactId>
+      <version>10.0.0</version>
+    </dependency>
 
+    <!-- Validation -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-validation</artifactId>
+      <version>3.2.0</version>
+    </dependency>
+
+    <!-- JSON Processing -->
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>2.10.1</version>
+    </dependency>
+
+    <!-- Testing -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <version>3.2.0</version>
+      <scope>test</scope>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>5.10.1</version>
+      <scope>test</scope>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <version>5.7.0</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.junit.platform</groupId>
+      <artifactId>junit-platform-suite-engine</artifactId>
+      <version>1.9.3</version> <!-- 版本可按需调整 -->
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <version>5.9.3</version> <!-- 与平台版本匹配 -->
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 
   <build>
