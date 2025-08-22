@@ -89,6 +89,13 @@
       <version>10.0.0</version>
     </dependency>
 
+    <!-- Google Maps Services -->
+    <dependency>
+      <groupId>com.google.maps</groupId>
+      <artifactId>google-maps-services</artifactId>
+      <version>2.2.0</version>
+    </dependency>
+
     <!-- Validation -->
     <dependency>
       <groupId>org.springframework.boot</groupId>

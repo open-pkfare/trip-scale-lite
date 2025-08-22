@@ -7,6 +7,7 @@ import com.pkfare.trip.scale.plan.service.response.ActivityInfo;
 import com.pkfare.trip.scale.plan.service.response.FlightInfo;
 import com.pkfare.trip.scale.plan.service.response.HotelInfo;
 import com.pkfare.trip.scale.plan.service.response.TripPlan;
+import com.pkfare.trip.scale.plan.service.response.TripRoutePlanResult;
 import com.pkfare.trip.scale.service.external.ai.GeminiPlanningService;
 import com.pkfare.trip.scale.service.external.ai.GoogleAiService;
 import com.pkfare.trip.scale.service.plan.ActivitySearchService;
@@ -181,7 +182,7 @@ public class GeneratePlanService {
             planInfo.setActivityInfos(activities);
 
             // return geminiPlanningService.generateAiPlan(planInfo);
-            googleAiService.generateAiPlan(planInfo);
+            TripRoutePlanResult result = googleAiService.generateAiPlan(planInfo);
             return null;
         } catch (Exception e) {
             log.error("Failed to generate AI plan", e);
