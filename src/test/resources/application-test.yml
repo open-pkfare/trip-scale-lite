@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: trip-scale-lite-test
+
+# 测试环境配置
+trip:
+  plan:
+    max-retry-attempts: 1  # 测试时减少重试次数
+    retry-delay-ms: 100
+    max-activities-per-city: 3
+    activity-search-radius-km: 10.0
+    activity-filter-radius-km: 50.0
+
+# 测试用的Amadeus配置
+amadeus:
+  client-id: test-client-id
+  client-secret: test-client-secret
+  base-url: https://test.api.amadeus.com/v1
+  timeout-ms: 5000
+  max-connections: 10
+
+# 测试日志配置
+logging:
+  level:
+    com.pkfare.trip.scale: DEBUG
+    org.springframework: WARN
+    org.mockito: WARN
+  pattern:
+    console: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
