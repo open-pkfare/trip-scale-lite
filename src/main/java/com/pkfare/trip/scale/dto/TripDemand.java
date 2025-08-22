@@ -11,6 +11,7 @@ public class TripDemand {
   private String origin;
   private int days;
   private String budgets;
+  private String currency;
   private String brief;
 
 }
