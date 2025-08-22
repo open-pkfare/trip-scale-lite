@@ -17,6 +17,7 @@ import com.pkfare.trip.scale.assistance.DestinationSuggestionService;
 import com.pkfare.trip.scale.config.GoogleConfig;
 import com.pkfare.trip.scale.dto.TripDemand;
 import com.pkfare.trip.scale.dto.TripRoute;
+import com.pkfare.trip.scale.plan.service.param.GeneratePlanParam;
 import io.reactivex.rxjava3.core.Flowable;
 import io.reactivex.rxjava3.core.Maybe;
 import java.util.List;
@@ -57,8 +58,18 @@ public class PlanningAgent extends BaseAgent {
     TripDemand tripDemand = (TripDemand)invocationContext.session().state().get("trip_demand");
     List<TripRoute> tripRoutes = (List<TripRoute>)invocationContext.session().state().get("trip_routes");
 
-    //todo
 
+    GeneratePlanParam param = buildGeneratePlanParam(tripDemand,tripRoutes);
+    // 通过tripDemand和tripRoutes构建GeneratePlanParam
+    // 调用com.pkfare.trip.scale.plan.service.GeneratePlanService.generatePlan接口
+
+    // todo
+    // 拆成两个event（Flowable<Event>） ，摘要是单独的一个
+
+    return null;
+  }
+
+  private GeneratePlanParam buildGeneratePlanParam(TripDemand tripDemand, List<TripRoute> tripRoutes) {
     return null;
   }
 

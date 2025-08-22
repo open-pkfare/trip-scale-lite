@@ -31,16 +31,13 @@ public class TripPlanController {
      * @return 旅行计划
      */
     @PostMapping("/generate")
-    public ResponseEntity<TripPlan> generatePlan(@Valid @RequestBody GeneratePlanParam param) {
+    public ResponseEntity<String> generatePlan(@Valid @RequestBody GeneratePlanParam param) {
         log.info("Received trip plan generation request for origin: {}, routes: {}", 
             param.getOrigin(), param.getTrip_routes().size());
         
         try {
-            TripPlan tripPlan = generatePlanService.generatePlan(param);
-            
-            log.info("Trip plan generated successfully: planId={}, status={}", 
-                tripPlan.getPlanId(), tripPlan.getStatus());
-            
+            String tripPlan = generatePlanService.generatePlan(param);
+
             return ResponseEntity.ok(tripPlan);
             
         } catch (Exception e) {
@@ -54,7 +51,7 @@ public class TripPlanController {
             errorPlan.setCreatedTime(java.time.LocalDateTime.now());
             errorPlan.setCurrency(param.getCurrency());
             
-            return ResponseEntity.status(500).body(errorPlan);
+            return ResponseEntity.status(500).body(errorPlan.toString());
         }
     }
     

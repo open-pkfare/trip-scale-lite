@@ -1,5 +1,6 @@
 package com.pkfare.trip.scale.plan.service;
 
+import com.google.gson.Gson;
 import com.pkfare.trip.scale.model.dto.SubmitAiPlanInfo;
 import com.pkfare.trip.scale.plan.service.param.GeneratePlanParam;
 import com.pkfare.trip.scale.plan.service.param.TripRouteParam;
@@ -56,7 +57,7 @@ public class GeneratePlanService {
      * @param param 生成计划参数
      * @return 完整的旅行计划
      */
-    public TripPlan generatePlan(GeneratePlanParam param) {
+    public String generatePlan(GeneratePlanParam param) {
         log.info("Starting to generate trip plan for origin: {}, destinations: {}", 
             param.getOrigin(), param.getTrip_routes().size());
         
@@ -83,18 +84,17 @@ public class GeneratePlanService {
             log.info("Found {} activities", activities.size());
             
             // 6. AI 生成计划
-            String aiGeneratedPlan = generateAiPlan(param, flights, hotels, activities);
-            log.info("AI plan generated, length: {} characters", 
-                aiGeneratedPlan != null ? aiGeneratedPlan.length() : 0);
+            TripRoutePlanResult tripRoutePlanResult = generateAiPlan(param, flights, hotels, activities);
+            log.info("AI plan generated, result: {} ", tripRoutePlanResult);
             
             // 7. 聚合结果
-            TripPlan tripPlan = planAggregationService.aggregateTripPlan(
-                param, flights, hotels, activities, aiGeneratedPlan);
+            // TripPlan tripPlan = planAggregationService.aggregateTripPlan(
+            //    param, flights, hotels, activities, tripRoutePlanResult);
             
-            log.info("Trip plan generated successfully: planId={}, status={}", 
-                tripPlan.getPlanId(), tripPlan.getStatus());
-            
-            return tripPlan;
+            // log.info("Trip plan generated successfully: planId={}, status={}",
+            //    tripPlan.getPlanId(), tripPlan.getStatus());
+            Gson gson = new Gson();
+            return gson.toJson(gson);
             
         } catch (Exception e) {
             log.error("Failed to generate trip plan", e);
@@ -107,7 +107,7 @@ public class GeneratePlanService {
             errorPlan.setCreatedTime(java.time.LocalDateTime.now());
             errorPlan.setCurrency(param.getCurrency());
             
-            return errorPlan;
+            return errorPlan.toString();
         }
     }
     
@@ -170,7 +170,7 @@ public class GeneratePlanService {
      * @param activities 活动信息
      * @return AI生成的计划文本
      */
-    private String generateAiPlan(GeneratePlanParam param, 
+    private TripRoutePlanResult generateAiPlan(GeneratePlanParam param,
                                  List<FlightInfo> flights, 
                                  List<HotelInfo> hotels, 
                                  List<ActivityInfo> activities) {
@@ -181,12 +181,12 @@ public class GeneratePlanService {
             planInfo.setHotelInfos(hotels);
             planInfo.setActivityInfos(activities);
 
-            // return geminiPlanningService.generateAiPlan(planInfo);
-            TripRoutePlanResult result = googleAiService.generateAiPlan(planInfo);
-            return null;
+            return googleAiService.generateAiPlan(planInfo);
         } catch (Exception e) {
             log.error("Failed to generate AI plan", e);
-            return "AI计划生成暂时不可用，但您的航班、酒店和活动信息已成功获取。";
+            TripRoutePlanResult result  = new TripRoutePlanResult();
+            result.setErrorMessage("生成路线图失败");
+            return result;
         }
     }
 }
