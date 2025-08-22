@@ -8,6 +8,7 @@ import com.pkfare.trip.scale.plan.service.response.FlightInfo;
 import com.pkfare.trip.scale.plan.service.response.HotelInfo;
 import com.pkfare.trip.scale.plan.service.response.TripPlan;
 import com.pkfare.trip.scale.service.external.ai.GeminiPlanningService;
+import com.pkfare.trip.scale.service.external.ai.GoogleAiService;
 import com.pkfare.trip.scale.service.plan.ActivitySearchService;
 import com.pkfare.trip.scale.service.plan.FlightSearchService;
 import com.pkfare.trip.scale.service.plan.HotelSearchService;
@@ -41,6 +42,9 @@ public class GeneratePlanService {
     
     @Autowired
     private GeminiPlanningService geminiPlanningService;
+
+    @Autowired
+    private GoogleAiService googleAiService;
     
     @Autowired
     private PlanAggregationService planAggregationService;
@@ -177,7 +181,7 @@ public class GeneratePlanService {
             planInfo.setActivityInfos(activities);
 
             // return geminiPlanningService.generateAiPlan(planInfo);
-            return null;
+            return googleAiService.generateAiPlan(planInfo);
         } catch (Exception e) {
             log.error("Failed to generate AI plan", e);
             return "AI计划生成暂时不可用，但您的航班、酒店和活动信息已成功获取。";
