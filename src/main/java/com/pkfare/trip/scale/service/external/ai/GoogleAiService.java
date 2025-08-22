@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 public class GoogleAiService {
 
   public String generateAiPlan(SubmitAiPlanInfo planInfo) {
+    // 基于航班、酒店、景点活动等信息（包含经纬度），通过调用google map api获取路线规划，返回路线规划结果
 
     return null;
   }

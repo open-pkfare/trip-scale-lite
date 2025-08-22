@@ -30,7 +30,7 @@ public class ActivitySearchService {
     private AmadeusActivityService amadeusActivityService;
     
     private static final int DEFAULT_RADIUS = 20;
-    private static final int MAX_ACTIVITIES_PER_CITY = 5;
+    private static final int MAX_ACTIVITIES_PER_CITY = 3;
     private static final double ACTIVITY_SEARCH_RADIUS_KM = 100.0;
     
     /**
