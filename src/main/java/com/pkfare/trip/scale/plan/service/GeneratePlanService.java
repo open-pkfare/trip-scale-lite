@@ -1,15 +1,12 @@
 package com.pkfare.trip.scale.plan.service;
 
-import com.google.gson.Gson;
 import com.pkfare.trip.scale.model.dto.SubmitAiPlanInfo;
 import com.pkfare.trip.scale.plan.service.param.GeneratePlanParam;
 import com.pkfare.trip.scale.plan.service.param.TripRouteParam;
 import com.pkfare.trip.scale.plan.service.response.ActivityInfo;
 import com.pkfare.trip.scale.plan.service.response.FlightInfo;
 import com.pkfare.trip.scale.plan.service.response.HotelInfo;
-import com.pkfare.trip.scale.plan.service.response.TripPlan;
 import com.pkfare.trip.scale.plan.service.response.TripRoutePlanResult;
-import com.pkfare.trip.scale.service.external.ai.GeminiPlanningService;
 import com.pkfare.trip.scale.service.external.ai.GoogleAiService;
 import com.pkfare.trip.scale.service.plan.ActivitySearchService;
 import com.pkfare.trip.scale.service.plan.FlightSearchService;
@@ -20,7 +17,6 @@ import com.pkfare.trip.scale.util.ValidationUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.time.LocalDate;
 import java.util.List;
 
@@ -41,9 +37,6 @@ public class GeneratePlanService {
     
     @Autowired
     private ActivitySearchService activitySearchService;
-    
-    @Autowired
-    private GeminiPlanningService geminiPlanningService;
 
     @Autowired
     private GoogleAiService googleAiService;
@@ -57,7 +50,7 @@ public class GeneratePlanService {
      * @param param 生成计划参数
      * @return 完整的旅行计划
      */
-    public String generatePlan(GeneratePlanParam param) {
+    public TripRoutePlanResult generatePlan(GeneratePlanParam param) {
         log.info("Starting to generate trip plan for origin: {}, destinations: {}", 
             param.getOrigin(), param.getTrip_routes().size());
         
@@ -93,21 +86,16 @@ public class GeneratePlanService {
             
             // log.info("Trip plan generated successfully: planId={}, status={}",
             //    tripPlan.getPlanId(), tripPlan.getStatus());
-            Gson gson = new Gson();
-            return gson.toJson(gson);
+            return tripRoutePlanResult;
             
         } catch (Exception e) {
             log.error("Failed to generate trip plan", e);
             
             // 返回错误状态的计划
-            TripPlan errorPlan = new TripPlan();
-            errorPlan.setPlanId(java.util.UUID.randomUUID().toString());
-            errorPlan.setStatus(com.pkfare.trip.scale.model.enums.PlanStatus.API_ERROR);
+            TripRoutePlanResult errorPlan = new TripRoutePlanResult();
+            errorPlan.setStatus(com.pkfare.trip.scale.model.enums.PlanStatus.API_ERROR.getDescription());
             errorPlan.setErrorMessage("生成旅行计划时发生错误: " + e.getMessage());
-            errorPlan.setCreatedTime(java.time.LocalDateTime.now());
-            errorPlan.setCurrency(param.getCurrency());
-            
-            return errorPlan.toString();
+            return errorPlan;
         }
     }
     
