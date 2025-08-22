@@ -11,6 +11,7 @@ public class GoogleAiService {
 
   public String generateAiPlan(SubmitAiPlanInfo planInfo) {
     // 基于航班、酒店、景点活动等信息（包含经纬度），通过调用google map api获取路线规划，返回路线规划结果
+    // 该方法有返回值，将该方法的返回值类型修改为正确的数据结构
 
     return null;
   }

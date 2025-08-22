@@ -181,7 +181,8 @@ public class GeneratePlanService {
             planInfo.setActivityInfos(activities);
 
             // return geminiPlanningService.generateAiPlan(planInfo);
-            return googleAiService.generateAiPlan(planInfo);
+            googleAiService.generateAiPlan(planInfo);
+            return null;
         } catch (Exception e) {
             log.error("Failed to generate AI plan", e);
             return "AI计划生成暂时不可用，但您的航班、酒店和活动信息已成功获取。";
