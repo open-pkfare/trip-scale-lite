@@ -19,12 +19,10 @@ import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
 
 @Slf4j
-public class PlanningAgent extends BaseAgent implements ApplicationContextAware {
+public class PlanningAgent extends BaseAgent {
 
   private static String NAME = "trip_planning_agent";
 
@@ -52,9 +50,12 @@ public class PlanningAgent extends BaseAgent implements ApplicationContextAware 
     }
     return INSTANCE;
   }
-  
 
-  
+  public static void setApplicationContext(ApplicationContext context) {
+    applicationContext = context;
+  }
+
+
   /**
    * 获取GeneratePlanService实例
    */
@@ -168,76 +169,38 @@ public class PlanningAgent extends BaseAgent implements ApplicationContextAware 
     
     // 基本信息
     param.setOrigin(tripDemand.getOrigin());
-    param.setLocation_code("US"); // 默认设置为美国，可根据实际需求调整
+    param.setLocation_code(tripDemand.getCountry_code()); // 默认设置为美国，可根据实际需求调整
     param.setTrip_days(tripDemand.getDays());
     param.setBudgets(tripDemand.getBudgets());
-    param.setCurrency("USD"); // 默认美元
+    param.setCurrency(tripDemand.getCurrency()); // 默认美元
     
     // 乘客信息
     param.setAdult_number(Math.max(1, tripDemand.getPassenger_number())); // 至少1个成人
     param.setChild_number(0); // 默认无儿童
     param.setRoom_quantity(1); // 默认1个房间
-    
-    // 时间信息 - 需要根据天数计算开始和结束日期
-    // 这里假设从当前日期开始，可根据实际需求调整
-    java.time.LocalDate startDate = java.time.LocalDate.now().plusDays(7); // 一周后出发
-    java.time.LocalDate endDate = startDate.plusDays(tripDemand.getDays() - 1);
-    param.setStart_period(startDate.toString());
-    param.setEnd_period(endDate.toString());
+    param.setStart_period(tripDemand.getStart_period());
+    param.setEnd_period(tripDemand.getEnd_period());
     
     // 转换路线信息
     List<TripRouteParam> routeParams = new ArrayList<>();
     for (TripRoute tripRoute : tripRoutes) {
       TripRouteParam routeParam = new TripRouteParam();
-      routeParam.setDestination_city(tripRoute.getDestination());
-      routeParam.setStay_days(tripRoute.getDay());
-      routeParam.setReason_for_recommendation(tripRoute.getReasonForRecommendation());
-      
-      // 设置默认值，可根据实际需求调整
-      routeParam.setCountry_code("US"); // 默认美国
-      routeParam.setLocation_code(generateLocationCode(tripRoute.getDestination())); // 生成位置代码
-      
+      routeParam.setDestination_city(tripRoute.getDestination_city());
+      routeParam.setStay_days(tripRoute.getStay_days());
+      routeParam.setReason_for_recommendation(tripRoute.getReason_for_recommendation());
+      routeParam.setCountry_code(tripRoute.getCountry_code()); // 默认美国
+      routeParam.setLocation_code(tripRoute.getLocation_code()); // 生成位置代码
       routeParams.add(routeParam);
     }
     param.setTrip_routes(routeParams);
     
     return param;
   }
-  
-  /**
-   * 根据目的地城市生成位置代码
-   * 这是一个简化的实现，实际项目中可能需要更复杂的映射逻辑
-   */
-  private String generateLocationCode(String destination) {
-    if (destination == null || destination.isEmpty()) {
-      return "NYC"; // 默认纽约
-    }
-    
-    // 简单的城市到机场代码映射
-    String upperDestination = destination.toUpperCase();
-    if (upperDestination.contains("NEW YORK") || upperDestination.contains("NYC")) {
-      return "NYC";
-    } else if (upperDestination.contains("LOS ANGELES") || upperDestination.contains("LA")) {
-      return "LAX";
-    } else if (upperDestination.contains("CHICAGO")) {
-      return "CHI";
-    } else if (upperDestination.contains("MIAMI")) {
-      return "MIA";
-    } else if (upperDestination.contains("SAN FRANCISCO")) {
-      return "SFO";
-    } else {
-      // 默认使用城市名的前3个字符作为代码
-      return upperDestination.length() >= 3 ? upperDestination.substring(0, 3) : upperDestination;
-    }
-  }
+
 
   @Override
   protected Flowable<Event> runLiveImpl(InvocationContext invocationContext) {
     return null;
   }
 
-  @Override
-  public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-      this.applicationContext = applicationContext;
-  }
 }
