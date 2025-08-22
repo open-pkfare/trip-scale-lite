@@ -10,7 +10,7 @@ import java.util.List;
  */
 @Data
 public class FlightInfo {
-    
+  private String id;
     /**
      * 是否单程
      */

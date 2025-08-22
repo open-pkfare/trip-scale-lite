@@ -16,7 +16,6 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.UUID;
 
 /**
  * 旅行计划调整服务实现
@@ -60,7 +59,7 @@ public class TripPlanAdjustServiceImpl implements TripPlanAdjustService {
             try {
                 switch (item) {
                 case FLIGHT:
-                    copyPlan = adjustFlight(copyPlan, adjustParam);
+                    copyPlan = adjustFlight(generatePlanParam, copyPlan, adjustParam);
                     break;
                 case HOTEL:
                     copyPlan = adjustHotel(copyPlan, adjustParam);
@@ -81,8 +80,7 @@ public class TripPlanAdjustServiceImpl implements TripPlanAdjustService {
         return copyPlan;
     }
 
-    @Override
-    public TripPlan adjustFlight(TripPlan tripPlan, AdjustPlanParam adjustPlanParam) {
+    public TripPlan adjustFlight(GeneratePlanParam generatePlanParam, TripPlan tripPlan, AdjustPlanParam adjustPlanParam) {
         log.info("Adjusting flight: {}", adjustPlanParam.getId());
 
         // 获取调整类型
@@ -97,12 +95,10 @@ public class TripPlanAdjustServiceImpl implements TripPlanAdjustService {
         List<FlightInfo> flights = tripPlan.getFlights();
         for (int i = 0; i < flights.size(); i++) {
             FlightInfo flight = flights.get(i);
-          for (ItineraryInfo itinerary : flight.getItineraries()) {
-            if (itinerary.getId().equals(adjustPlanParam.getId())) {
+            if (flight.getId().equals(adjustPlanParam.getId())) {
                 // 调用搜索服务获取新航班
-                FlightInfo newFlight = flightSearchService.searchFlightOffers(...);
-                flights.gset(i, newFlight);
-                break;
+              FlightInfo newItinerary = flightSearchService.searchFlightInfo(generatePlanParam, flight, adjustPlanParam);
+              flights.set(i, newItinerary);
             }
         }
 

@@ -11,7 +11,7 @@ public enum FlightAdjustTypeEnum {
     DELAY("delay", "推迟航班"),
     CHEAPER("cheaper", "更便宜的航班"),
     CHANGE_DEPARTURE_AIRPORT("changeDepartureAirport", "更改出发机场"),
-    CHANGE_ARRIVAL_AIRPORT("changeArrivelAirport", "更改到达机场");
+    CHANGE_ARRIVAL_AIRPORT("changeArriveAirport", "更改到达机场");
 
     @Getter
     private final String code;

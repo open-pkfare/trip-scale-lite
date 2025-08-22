@@ -7,6 +7,7 @@ import com.pkfare.trip.scale.api.amadeus.config.AmadeusClient;
 import com.pkfare.trip.scale.api.amadeus.exception.AmadeusApiException;
 import com.pkfare.trip.scale.api.amadeus.flightoffers.request.FlightOffersSearchRequest;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 
 
 @Slf4j
@@ -14,10 +15,12 @@ public class AmadeusFlightOffersSearchAPI {
 
   public FlightOfferSearch[] flightOffersSearch(FlightOffersSearchRequest flightOffersSearchRequest) {
     Amadeus amadeus = AmadeusClient.get();
+    String travelClass = flightOffersSearchRequest.getTravelClass();
     Params params = Params.with("originLocationCode", flightOffersSearchRequest.getOrigin())
         .and("destinationLocationCode", flightOffersSearchRequest.getDestination())
         .and("departureDate", flightOffersSearchRequest.getDepartureDate()).and("returnDate", flightOffersSearchRequest.getReturnDate())
         .and("adults", flightOffersSearchRequest.getAdults()).and("children", flightOffersSearchRequest.getChildren())
+        .and("travelClass", StringUtils.isBlank(travelClass) ? "ECONOMY" : travelClass)
         .and("infants", flightOffersSearchRequest.getInfants()).and("nonStop", flightOffersSearchRequest.getNonStop())
         .and("currencyCode", flightOffersSearchRequest.getCurrency()).and("maxPrice", flightOffersSearchRequest.getMaxPrice())
         .and("max", flightOffersSearchRequest.getMax());
