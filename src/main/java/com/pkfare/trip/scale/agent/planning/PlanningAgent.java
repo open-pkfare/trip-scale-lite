@@ -80,7 +80,7 @@ public class PlanningAgent extends BaseAgent implements ApplicationContextAware 
       }
       
       log.info("Retrieved trip demand: origin={}, days={}, passengers={}", 
-          tripDemand.getOrigin(), tripDemand.getDays(), tripDemand.getPassengerNumber());
+          tripDemand.getOrigin(), tripDemand.getDays(), tripDemand.getPassenger_number());
       log.info("Retrieved {} trip routes", tripRoutes.size());
 
       // 通过tripDemand和tripRoutes构建GeneratePlanParam
@@ -174,7 +174,7 @@ public class PlanningAgent extends BaseAgent implements ApplicationContextAware 
     param.setCurrency("USD"); // 默认美元
     
     // 乘客信息
-    param.setAdult_number(Math.max(1, tripDemand.getPassengerNumber())); // 至少1个成人
+    param.setAdult_number(Math.max(1, tripDemand.getPassenger_number())); // 至少1个成人
     param.setChild_number(0); // 默认无儿童
     param.setRoom_quantity(1); // 默认1个房间
     
