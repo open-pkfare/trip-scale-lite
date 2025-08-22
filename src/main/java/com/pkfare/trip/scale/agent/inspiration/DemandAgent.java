@@ -1,34 +1,47 @@
-package com.pkfare.trip.scale.agent;
+package com.pkfare.trip.scale.agent.inspiration;
 
 import com.google.adk.agents.BaseAgent;
 import com.google.adk.agents.LlmAgent;
 import com.google.adk.events.Event;
-import com.google.adk.models.Gemini;
 import com.google.adk.runner.InMemoryRunner;
 import com.google.adk.sessions.Session;
+import com.google.adk.tools.AgentTool;
 import com.google.adk.tools.FunctionTool;
 import com.google.genai.types.Content;
 import com.google.genai.types.Part;
+import com.google.gson.Gson;
 import com.pkfare.trip.scale.assistance.DestinationSuggestionService;
 import com.pkfare.trip.scale.config.GoogleConfig;
+import com.pkfare.trip.scale.dto.TripDemand;
 import io.reactivex.rxjava3.core.Flowable;
+import io.reactivex.rxjava3.core.Maybe;
 import java.nio.charset.StandardCharsets;
+import java.util.Objects;
+import java.util.Optional;
 import java.util.Scanner;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
-public class InspirationAgent {
+@Slf4j
+@Component
+public class DemandAgent {
 
-  private static String NAME = "trip_inspiration_agent";
+  private static String NAME = "trip_demand_agent";
+
+  private static BaseAgent INSTANCE;
 
   public static BaseAgent instance() {
-    Gemini geminiModel = new Gemini("gemini-2.5-pro", GoogleConfig.GOOGLE_API_KEY);
-    return LlmAgent.builder()
-        .name(NAME)
-        .model(geminiModel)
-        .description("Agent to help user to inspire and collect trip demand info.")
-        .instruction(InspirationPrompt.DEMAND_AND_PREFERENCE_INSPIRATION)
-        .tools(
-            FunctionTool.create(DestinationSuggestionService.class, "getDestinationSuggestions"))
-        .build();
+    if (null == INSTANCE) {
+      INSTANCE = LlmAgent.builder()
+          .name(NAME)
+          .model(GoogleConfig.GEMINI_2_5_FLASH)
+          .description("Agent to help user to inspire and collect trip demand info.")
+          .instruction(DemandPrompt.DEMAND_AND_PREFERENCE_INSPIRATION)
+          .subAgents(SuggestionAgent.instance())
+//          .tools(AgentTool.create(SuggestionAgent.instance(), true))
+          .build();
+    }
+    return INSTANCE;
   }
 
   public static void main(String[] args) {
