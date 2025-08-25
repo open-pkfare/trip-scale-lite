@@ -29,7 +29,7 @@ public class InspirationPrompt {
       + "4. If time permits, additional destinations beyond the must-go destinations can be added, but they should be along a reasonable route.\n"
       + "5. country_code follow ISO3166-1 standard with 2 letters.\n"
       + "6. If the city has airport, location_code follow IATA standard with 3 letters, or let it be null.\n"
-      + "7. Ensure the overall order of travel destinations is logically arranged based on objective geographical locations.\n.\n"
+      + "7. Ensure the overall order of travel destinations is logically arranged based on objective geographical locations.\n"
       + "\n"
       + "if user eventually confirm the entire trip routes, only briefly output the trip routes as below:\n"
       + "[\n"
