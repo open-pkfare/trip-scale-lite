@@ -1,5 +1,6 @@
 package com.pkfare.trip.scale.service.external.ai;
 
+import com.google.common.collect.ImmutableList;
 import com.google.maps.DirectionsApi;
 import com.google.maps.GeoApiContext;
 import com.google.maps.model.*;
@@ -203,8 +204,9 @@ public class GoogleAiService {
         if (startIndex >= allActivities.size()) {
             return new ArrayList<>();
         }
-        
-        return allActivities.subList(startIndex, endIndex);
+
+        List<ActivityInfo> copy = ImmutableList.copyOf(allActivities);
+        return copy.subList(startIndex, endIndex);
     }
 
     /**
@@ -332,11 +334,13 @@ public class GoogleAiService {
                 .collect(Collectors.toSet());
         summary.append("covering ").append(cities.size()).append(" cities: ");
         summary.append(String.join(", ", cities));
-        
-        long totalActivities = dailyPlans.stream()
-                .filter(plan -> plan.getActivities() != null)
-                .mapToLong(plan -> plan.getActivities().size())
-                .sum();
+
+        long totalActivities = 0;
+        for(DailyRoutePlan plan :dailyPlans){
+            if(plan.getActivities() != null){
+                totalActivities += plan.getActivities().size();
+            }
+        }
         summary.append(", with a total of ").append(totalActivities).append(" attractions and activities scheduled.");
         
         return summary.toString();

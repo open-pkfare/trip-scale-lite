@@ -35,17 +35,17 @@ public class GeneratePlanServiceTest {
 
   private GeneratePlanParam buildPreciseTravelRoundTripParam() {
     GeneratePlanParam param = new GeneratePlanParam();
-    param.setOrigin("Shenzhen");
-    param.setLocation_code("CN");
+    param.setOrigin("FLR");
+    param.setLocation_code("IT");
     param.setStart_period("2025-10-01");
     param.setEnd_period("2025-10-07");
     param.setTrip_days(7);
     param.setAdult_number(1);
     param.setChild_number(1);
     param.setRoom_quantity(1);
-    param.setBudgets("10000");
+    param.setBudgets("50000");
     param.setCurrency("CNY");
-    param.setTrip_routes(buildRoundTripRoutes());
+    param.setTrip_routes(buildOneWayTripRoutes());
     return param;
   }
 
@@ -53,7 +53,15 @@ public class GeneratePlanServiceTest {
     List<TripRouteParam> tripRouteParams = Lists.newArrayList();
     tripRouteParams.add(buildRouteTrip(2, "Rome", "IT", "FCO"));
     tripRouteParams.add(buildRouteTrip(2, "Ostia", "IT", "OST"));
-    tripRouteParams.add(buildRouteTrip(3, "Anzio", "IT", "ANZ"));
+    tripRouteParams.add(buildRouteTrip(3, "Rome", "IT", "ORY"));
+    return tripRouteParams;
+  }
+
+  private List<TripRouteParam> buildOneWayTripRoutes() {
+    List<TripRouteParam> tripRouteParams = Lists.newArrayList();
+    tripRouteParams.add(buildRouteTrip(2, "Rome", "IT", "FCO"));
+    tripRouteParams.add(buildRouteTrip(2, "Ostia", "IT", "OST"));
+    tripRouteParams.add(buildRouteTrip(3, "Paris", "FR", "ORY"));
     return tripRouteParams;
   }
 

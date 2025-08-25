@@ -1,11 +1,13 @@
 package com.pkfare.trip.scale.service.external.amadeus;
 
 import com.amadeus.resources.FlightDate;
+
 import com.amadeus.resources.FlightOfferSearch;
 import com.pkfare.trip.scale.api.amadeus.flightdates.AmadeusFlightDatesAPI;
 import com.pkfare.trip.scale.api.amadeus.flightdates.request.FlightDatesRequest;
 import com.pkfare.trip.scale.api.amadeus.flightoffers.AmadeusFlightOffersSearchAPI;
 import com.pkfare.trip.scale.api.amadeus.flightoffers.request.FlightOffersSearchRequest;
+
 import com.pkfare.trip.scale.exception.ExternalApiException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

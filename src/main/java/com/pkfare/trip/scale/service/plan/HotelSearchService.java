@@ -36,7 +36,7 @@ public class HotelSearchService {
   @Autowired
   private AmadeusHotelService amadeusHotelService;
 
-  private static final String DEFAULT_PRICE_RANGE = "10,5000";
+  private static final String DEFAULT_PRICE_RANGE = "10-5000";
   private static final int DEFAULT_RADIUS = 20;
   private static final String DEFAULT_RADIUS_UNIT = "KM";
 
@@ -58,16 +58,16 @@ public class HotelSearchService {
 
     // 3. 逐段查询最优报价
     List<HotelInfo> hotels = new ArrayList<>();
-    for (TripRouteParam route : param.getTrip_routes()) {
+    param.getTrip_routes().parallelStream().forEach(route->{
       List<String> hotelIds = localHotelIdMap.get(route.getLocation_code());
       LocalDate[] dates = checkInOutDates.get(route.getLocation_code());
 
       if (hotelIds != null && !hotelIds.isEmpty() && dates != null) {
         List<HotelInfo> routeHotels = searchHotelOffers(
-            param, route, hotelIds, dates[0], dates[1]);
+            param, route, hotelIds.subList(0, hotelIds.size() >= 50 ? 50 : hotelIds.size()), dates[0], dates[1]);
         hotels.addAll(routeHotels);
       }
-    }
+    });
 
     log.info("Found {} hotels in total", hotels.size());
     return hotels;
@@ -295,8 +295,10 @@ public class HotelSearchService {
       hotelInfo.setTotalPrice(PriceUtil.parsePrice(firstOffer.getPrice().getTotal()));
       hotelInfo.setCurrency(firstOffer.getPrice().getCurrency());
       // 描述信息
-      hotelInfo.setDescriptionLang(firstOffer.getDescription().getLang());
-      hotelInfo.setDescriptionText(firstOffer.getDescription().getText());
+      if(Objects.nonNull(firstOffer.getDescription())){
+        hotelInfo.setDescriptionLang(firstOffer.getDescription().getLang());
+        hotelInfo.setDescriptionText(firstOffer.getDescription().getText());
+      }
     }
 
     // 位置信息

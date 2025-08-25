@@ -2,11 +2,14 @@ package com.pkfare.trip.scale.service.plan;
 
 import com.amadeus.resources.FlightDate;
 import com.amadeus.resources.FlightOfferSearch;
+import com.amadeus.resources.FlightOfferSearch.Itinerary;
 import com.amadeus.resources.Location;
 import com.pkfare.trip.scale.api.amadeus.airportlocations.AmadeusFlightAirportLocationSearchAPI;
 import com.pkfare.trip.scale.api.amadeus.airportlocations.request.FlightAirportLocationSearchRequest;
 import com.pkfare.trip.scale.api.amadeus.flightdates.request.FlightDatesRequest;
 import com.pkfare.trip.scale.api.amadeus.flightoffers.request.FlightOffersSearchRequest;
+
+
 import com.pkfare.trip.scale.model.dto.FlightSearchResult;
 import com.pkfare.trip.scale.plan.service.param.GeneratePlanParam;
 import com.pkfare.trip.scale.plan.service.param.TripRouteParam;
@@ -673,7 +676,7 @@ public class FlightSearchService {
      * @param itinerary 行程
      * @return 是否在去程首选时间段
      */
-    private boolean checkOutboundTimeSlot(FlightOfferSearch.Itinerary itinerary) {
+    private boolean checkOutboundTimeSlot(Itinerary itinerary) {
         if (itinerary == null || itinerary.getSegments() == null || itinerary.getSegments().length == 0) {
             return false;
         }
@@ -696,7 +699,7 @@ public class FlightSearchService {
      * @param itinerary 行程
      * @return 是否在返程首选时间段
      */
-    private boolean checkInboundTimeSlot(FlightOfferSearch.Itinerary itinerary) {
+    private boolean checkInboundTimeSlot(Itinerary itinerary) {
         if (itinerary == null || itinerary.getSegments() == null || itinerary.getSegments().length == 0) {
             return false;
         }
