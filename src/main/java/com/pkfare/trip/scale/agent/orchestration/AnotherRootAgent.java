@@ -24,6 +24,7 @@ import com.pkfare.trip.scale.dto.TripDemand;
 import com.pkfare.trip.scale.dto.TripRoute;
 import io.reactivex.rxjava3.core.Flowable;
 import io.reactivex.rxjava3.core.Maybe;
+import io.reactivex.rxjava3.core.Single;
 import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
@@ -31,6 +32,7 @@ import java.util.concurrent.ConcurrentMap;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.exception.ExceptionUtils;
 
 @Slf4j
 public class AnotherRootAgent extends BaseAgent {
@@ -81,7 +83,9 @@ public class AnotherRootAgent extends BaseAgent {
         break;
 
     }
-    return eventFlowable.doOnNext(event -> stageTransition(event, invocationContext));
+    return eventFlowable
+//        .mergeWith(Single.fromSupplier(()-> Event.builder().author("system").content(Content.fromParts(Part.fromText("hi night."))).build()))
+        .doOnNext(event -> stageTransition(event, invocationContext));
   }
 
   public void stageTransition(Event event, InvocationContext invocationContext) {
@@ -121,6 +125,7 @@ public class AnotherRootAgent extends BaseAgent {
             default:
           }
         } catch (Throwable e) {
+          log.info("error {}", ExceptionUtils.getStackTrace(e));
           return;
         }
 
