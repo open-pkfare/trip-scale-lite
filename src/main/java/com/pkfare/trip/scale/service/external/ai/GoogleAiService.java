@@ -1,5 +1,8 @@
 package com.pkfare.trip.scale.service.external.ai;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.google.common.collect.ImmutableList;
 import com.google.maps.DirectionsApi;
 import com.google.maps.GeoApiContext;
@@ -72,6 +75,10 @@ public class GoogleAiService {
             result.setTotalDistance(totalDistance);
             result.setTotalDuration(totalDuration);
             result.setSummary(generateSummary(dailyPlans));
+            ObjectMapper mapper = new ObjectMapper();
+            mapper.registerModule(new JavaTimeModule());
+            mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+            String jsonResult = mapper.writeValueAsString(result);
             
             log.info("Daily route planning generation completed successfully");
             return result;

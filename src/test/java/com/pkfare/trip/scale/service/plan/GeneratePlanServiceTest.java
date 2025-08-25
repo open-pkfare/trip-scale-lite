@@ -27,7 +27,7 @@ public class GeneratePlanServiceTest {
    * 精确行程日期 && 往返航班
    */
   @Test
-  void testPlan_preciseTravel_roundTrip() {
+  void testPlan_preciseTravel_onewaytrip() {
     GeneratePlanParam param = buildPreciseTravelRoundTripParam();
     TripRoutePlanResult result = generatePlanService.generatePlan(param);
     assertNotNull(result);
