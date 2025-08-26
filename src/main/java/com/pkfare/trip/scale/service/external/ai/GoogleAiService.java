@@ -75,10 +75,10 @@ public class GoogleAiService {
             result.setTotalDistance(totalDistance);
             result.setTotalDuration(totalDuration);
             result.setSummary(generateSummary(dailyPlans));
-            ObjectMapper mapper = new ObjectMapper();
-            mapper.registerModule(new JavaTimeModule());
-            mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
-            String jsonResult = mapper.writeValueAsString(result);
+            //ObjectMapper mapper = new ObjectMapper();
+            //mapper.registerModule(new JavaTimeModule());
+            //mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+            //String jsonResult = mapper.writeValueAsString(result);
             
             log.info("Daily route planning generation completed successfully");
             return result;
