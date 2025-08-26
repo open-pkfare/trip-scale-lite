@@ -14151,3 +14151,95 @@ java.lang.ClassNotFoundException: kotlin.jvm.JvmInline
 2025-08-26 14:19:35 [http-nio-8080-exec-10] WARN  c.g.a.w.AdkWebServer$AgentController - Endpoint /apps/Coordinator/eval_sets (GET) is not implemented
 2025-08-26 14:19:35 [http-nio-8080-exec-9] INFO  c.g.a.w.AdkWebServer$AgentController - Request received for GET /apps/Coordinator/users/user/sessions
 2025-08-26 14:19:35 [http-nio-8080-exec-9] INFO  c.g.a.w.AdkWebServer$AgentController - Found 2 non-evaluation sessions for app=Coordinator, user=user
+2025-08-26 14:34:57 [main] INFO  c.p.trip.scale.TripScaleApplication - Starting TripScaleApplication using Java 21.0.3 with PID 47122 (/Users/liuyang/ideaProjects/pkfare/trip-scale-lite/target/classes started by liuyang in /Users/liuyang/ideaProjects/pkfare/trip-scale-lite)
+2025-08-26 14:34:57 [main] DEBUG c.p.trip.scale.TripScaleApplication - Running with Spring Boot v3.2.0, Spring v6.1.1
+2025-08-26 14:34:57 [main] INFO  c.p.trip.scale.TripScaleApplication - No active profile set, falling back to 1 default profile: "default"
+2025-08-26 14:34:57 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-08-26 14:34:57 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-08-26 14:34:57 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-08-26 14:34:57 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-08-26 14:34:57 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 763 ms
+2025-08-26 14:34:57 [main] WARN  c.google.adk.web.AgentCompilerLoader - No classpath entries derived from classloader hierarchy. Falling back to System.getProperty("java.class.path").
+2025-08-26 14:34:58 [main] ERROR c.google.adk.web.AgentCompilerLoader - ECJ Compilation failed. See console output for details.
+2025-08-26 14:34:58 [main] ERROR c.google.adk.web.AgentCompilerLoader - Compilation failed for agent unit: com
+2025-08-26 14:34:58 [main] INFO  com.google.adk.web.AdkWebServer - Loaded 0 dynamic agent(s): []
+2025-08-26 14:34:58 [main] INFO  com.google.adk.web.AdkWebServer - Using InMemorySessionService
+2025-08-26 14:34:59 [main] INFO  com.google.adk.web.AdkWebServer - Using InMemoryArtifactService
+2025-08-26 14:34:59 [main] INFO  c.g.a.w.AdkWebServer$AgentController - AgentController initialized with 1 dynamic agents: [Coordinator]
+2025-08-26 14:34:59 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-08-26 14:34:59 [main] INFO  c.p.trip.scale.TripScaleApplication - Started TripScaleApplication in 2.651 seconds (process running for 10.024)
+2025-08-26 14:36:03 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-26 14:36:03 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-08-26 14:36:03 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-08-26 14:36:03 [http-nio-8080-exec-1] INFO  c.g.a.w.AdkWebServer$AgentController - Listing apps from dynamic registry. Found: [Coordinator]
+2025-08-26 14:36:03 [http-nio-8080-exec-2] INFO  c.g.a.w.AdkWebServer$AgentController - Request received for POST /apps/Coordinator/users/user/sessions (service generates ID) with state: null
+2025-08-26 14:36:03 [http-nio-8080-exec-3] WARN  c.g.a.w.AdkWebServer$AgentController - Endpoint /apps/Coordinator/eval_sets (GET) is not implemented
+2025-08-26 14:36:03 [http-nio-8080-exec-4] WARN  c.g.a.w.AdkWebServer$AgentController - Endpoint /apps/Coordinator/eval_results (GET) is not implemented
+2025-08-26 14:36:03 [http-nio-8080-exec-2] INFO  c.g.a.w.AdkWebServer$AgentController - Session created successfully with generated id: ea0b1a71-cf89-4f48-88b3-3094ff2d1d77
+2025-08-26 14:36:03 [http-nio-8080-exec-2] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Handler dispatch failed: java.lang.NoClassDefFoundError: kotlin/jvm/JvmInline] with root cause
+java.lang.ClassNotFoundException: kotlin.jvm.JvmInline
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526)
+	at com.fasterxml.jackson.module.kotlin.InternalCommonsKt.isUnboxableValueClass(InternalCommons.kt:38)
+	at com.fasterxml.jackson.module.kotlin.KotlinSerializers.findSerializer(KotlinSerializers.kt:110)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory._createSerializer2(BeanSerializerFactory.java:213)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory.createSerializer(BeanSerializerFactory.java:171)
+	at com.fasterxml.jackson.databind.SerializerProvider._createUntypedSerializer(SerializerProvider.java:1554)
+	at com.fasterxml.jackson.databind.SerializerProvider._createAndCacheUntypedSerializer(SerializerProvider.java:1502)
+	at com.fasterxml.jackson.databind.SerializerProvider._findExplicitUntypedSerializer(SerializerProvider.java:1471)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.hasSerializerFor(DefaultSerializerProvider.java:283)
+	at com.fasterxml.jackson.databind.ObjectMapper.canSerialize(ObjectMapper.java:3680)
+	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.canWrite(AbstractJackson2HttpMessageConverter.java:286)
+	at org.springframework.http.converter.AbstractGenericHttpMessageConverter.canWrite(AbstractGenericHttpMessageConverter.java:76)
+	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.getProducibleMediaTypes(AbstractMessageConverterMethodProcessor.java:387)
+	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:237)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.handleReturnValue(RequestResponseBodyMethodProcessor.java:190)
+	at org.springframework.web.method.support.HandlerMethodReturnValueHandlerComposite.handleReturnValue(HandlerMethodReturnValueHandlerComposite.java:78)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:136)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:917)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:829)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-08-26 14:36:04 [http-nio-8080-exec-6] INFO  c.g.a.w.AdkWebServer$AgentController - Request received for GET /apps/Coordinator/users/user/sessions
+2025-08-26 14:36:04 [http-nio-8080-exec-6] INFO  c.g.a.w.AdkWebServer$AgentController - Found 1 non-evaluation sessions for app=Coordinator, user=user
+2025-08-26 14:36:19 [http-nio-8080-exec-7] WARN  c.g.a.w.AdkWebServer$AgentController - sessionId cannot be null or empty in SseEmitter request for appName: Coordinator, session: 

@@ -169,7 +169,7 @@ public class PlanningAgent extends BaseAgent {
     
     // 基本信息
     param.setOrigin(tripDemand.getOrigin());
-    param.setLocation_code(tripDemand.getCountry_code()); // 默认设置为美国，可根据实际需求调整
+    param.setLocation_code(tripDemand.getOrigin_country_code()); // 默认设置为美国，可根据实际需求调整
     param.setTrip_days(tripDemand.getDays());
     param.setBudgets(tripDemand.getBudgets());
     param.setCurrency(tripDemand.getCurrency()); // 默认美元
