@@ -5,9 +5,9 @@ import com.google.adk.agents.Callbacks.AfterAgentCallback;
 import com.google.adk.agents.Callbacks.BeforeAgentCallback;
 import com.google.adk.agents.InvocationContext;
 import com.google.adk.events.Event;
+import com.google.common.collect.Lists;
 import com.google.genai.types.Content;
 import com.google.genai.types.Part;
-import com.google.gson.Gson;
 import com.pkfare.trip.scale.dto.TripDemand;
 import com.pkfare.trip.scale.dto.TripRoute;
 import com.pkfare.trip.scale.plan.service.param.GeneratePlanParam;
@@ -20,6 +20,9 @@ import java.util.ArrayList;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationContext;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 @Slf4j
 public class PlanningAgent extends BaseAgent {
@@ -74,7 +77,8 @@ public class PlanningAgent extends BaseAgent {
       // 从会话状态中获取数据
       TripDemand tripDemand = (TripDemand)invocationContext.session().state().get("trip_demand");
       List<TripRoute> tripRoutes = (List<TripRoute>)invocationContext.session().state().get("trip_routes");
-      
+
+      /**
       if (tripDemand == null || tripRoutes == null) {
         log.error("TripDemand or TripRoutes is null in session state");
         return Flowable.error(new IllegalStateException("Missing required data in session"));
@@ -86,7 +90,8 @@ public class PlanningAgent extends BaseAgent {
 
       // 通过tripDemand和tripRoutes构建GeneratePlanParam
       GeneratePlanParam param = buildGeneratePlanParam(tripDemand, tripRoutes);
-      
+      **/
+      GeneratePlanParam param = mockGeneratePlanParam();
       // 调用GeneratePlanService.generatePlan接口
       GeneratePlanService generatePlanService = getGeneratePlanService();
       TripRoutePlanResult planResult = generatePlanService.generatePlan(param);
@@ -101,7 +106,41 @@ public class PlanningAgent extends BaseAgent {
       return Flowable.error(e);
     }
   }
-  
+
+  private GeneratePlanParam mockGeneratePlanParam() {
+    GeneratePlanParam param = new GeneratePlanParam();
+    param.setOrigin("FLR");
+    param.setLocation_code("IT");
+    param.setStart_period("2025-10-01");
+    param.setEnd_period("2025-10-07");
+    param.setTrip_days(7);
+    param.setAdult_number(1);
+    param.setChild_number(1);
+    param.setRoom_quantity(1);
+    param.setBudgets("50000");
+    param.setCurrency("CNY");
+    param.setTrip_routes(buildOneWayTripRoutes());
+    return param;
+  }
+
+  private List<TripRouteParam> buildOneWayTripRoutes() {
+    List<TripRouteParam> tripRouteParams = Lists.newArrayList();
+    tripRouteParams.add(buildRouteTrip(2, "Rome", "IT", "FCO"));
+    tripRouteParams.add(buildRouteTrip(2, "Ostia", "IT", "OST"));
+    tripRouteParams.add(buildRouteTrip(3, "Paris", "FR", "ORY"));
+    return tripRouteParams;
+  }
+
+  private TripRouteParam buildRouteTrip(int days, String destinationCity, String countryCode, String locationCode) {
+    TripRouteParam param = new TripRouteParam();
+    param.setStay_days(days);
+    param.setDestination_city(destinationCity);
+    param.setLocation_code(locationCode);
+    param.setCountry_code(countryCode);
+    param.setReason_for_recommendation("recommendation");
+    return param;
+  }
+
   /**
    * 创建计划事件
    * 
@@ -129,8 +168,10 @@ public class PlanningAgent extends BaseAgent {
     
     // 第二个事件：完整计划结果事件
     try {
-      Gson gson = new Gson();
-      String planResultJson = gson.toJson(planResult);
+      ObjectMapper mapper = new ObjectMapper();
+      mapper.registerModule(new JavaTimeModule());
+      mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+      String planResultJson = mapper.writeValueAsString(planResult);
       Content planContent = Content.fromParts(Part.fromText(planResultJson));
       
       Event planEvent = Event.builder()
