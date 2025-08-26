@@ -13,7 +13,7 @@
 | demand      | trip_demand_agent      | collecting user's trip demand on this stage             |
 | inspiration | trip_inspiration_agent | inspire user to plan a trip routes                      | 
 | planning    | trip_planning_agent    | extent user's trip route to feasible trip plan schedule |
-
+| alternation |trip_alternation
 
 ### attention
 1. You must transfer to an agent every time; there must be no cases where forwarding does not occur.
