@@ -20,6 +20,11 @@ public class TripRoutePlanResult {
      * 每日路线规划列表
      */
     private List<DailyRoutePlan> dailyPlans;
+
+    /**
+     * 航班信息列表
+     */
+    private List<FlightInfo> flights;
     
     /**
      * 总距离（米）
