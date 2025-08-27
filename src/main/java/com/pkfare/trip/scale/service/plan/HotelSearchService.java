@@ -37,7 +37,7 @@ public class HotelSearchService {
   private AmadeusHotelService amadeusHotelService;
 
   private static final String DEFAULT_PRICE_RANGE = "10-5000";
-  private static final int DEFAULT_RADIUS = 20;
+  private static final int DEFAULT_RADIUS = 10;
   private static final String DEFAULT_RADIUS_UNIT = "KM";
 
   /**

@@ -24,6 +24,13 @@ trip:
     default-price-range: "10,5000"
     default-hotel-radius: 20
     default-hotel-radius-unit: "KM"
+    # 异步执行配置
+    async:
+      core-pool-size: 8
+      max-pool-size: 16
+      queue-capacity: 100
+      keep-alive-seconds: 60
+      thread-name-prefix: "TripPlan-"
 
 # Amadeus API配置
 amadeus:

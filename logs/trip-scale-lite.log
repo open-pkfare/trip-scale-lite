@@ -1367,3 +1367,489 @@ com.pkfare.trip.scale.api.amadeus.exception.AmadeusApiException: null
 2025-08-27 14:44:32 [main] INFO  c.p.t.s.s.plan.ActivitySearchService - Found 21 activities in total
 2025-08-27 14:44:37 [main] INFO  c.p.t.s.p.s.GeneratePlanService - Found 21 activities
 2025-08-27 14:44:37 [main] INFO  c.p.t.s.s.e.ai.GoogleAiService - Starting daily route planning generation
+2025-08-27 14:52:34 [main] INFO  c.p.t.s.s.p.GeneratePlanServiceTest - Starting GeneratePlanServiceTest using Java 21.0.3 with PID 87534 (started by liuyang in /Users/liuyang/ideaProjects/pkfare/trip-scale-lite)
+2025-08-27 14:52:34 [main] DEBUG c.p.t.s.s.p.GeneratePlanServiceTest - Running with Spring Boot v3.2.0, Spring v6.1.1
+2025-08-27 14:52:34 [main] INFO  c.p.t.s.s.p.GeneratePlanServiceTest - No active profile set, falling back to 1 default profile: "default"
+2025-08-27 14:52:35 [main] INFO  c.p.t.s.c.ParentChildContextConfig - Creating loadedAgentRegistry bean for parent-child context
+2025-08-27 14:52:35 [main] INFO  c.p.t.s.c.ParentChildContextConfig - Creating BaseSessionService bean for parent-child context
+2025-08-27 14:52:36 [main] INFO  c.p.t.s.s.p.GeneratePlanServiceTest - Started GeneratePlanServiceTest in 1.47 seconds (process running for 2.315)
+2025-08-27 14:52:36 [main] INFO  c.p.t.s.p.s.GeneratePlanService - Starting to generate trip plan for origin: FLR, destinations: 3
+2025-08-27 14:52:36 [main] DEBUG c.p.t.s.p.s.GeneratePlanService - Validating parameters
+2025-08-27 14:52:36 [main] DEBUG c.p.t.s.p.s.GeneratePlanService - Precise travel calculation: daysBetween=7, tripDays=7, preciseTravel=true
+2025-08-27 14:52:36 [main] DEBUG c.p.t.s.p.s.GeneratePlanService - Round trip calculation: first=FCO, last=ORY, roundTrip=false
+2025-08-27 14:52:36 [main] INFO  c.p.t.s.p.s.GeneratePlanService - Trip configuration: preciseTravel=true, roundTrip=false
+2025-08-27 14:52:36 [main] INFO  c.p.t.s.s.plan.FlightSearchService - Searching flight offers
+2025-08-27 14:52:36 [main] INFO  c.p.t.s.s.e.a.AmadeusFlightService - Searching flight offers with request: FlightOffersSearchRequest(origin=FLR, destination=FCO, departureDate=2025-10-01, returnDate=null, adults=1, children=1, infants=0, nonStop=true, currency=CNY, maxPrice=25000, max=50)
+2025-08-27 14:52:39 [main] INFO  c.p.t.s.s.e.a.AmadeusFlightService - Flight offers search completed, found 4 results
+2025-08-27 14:52:39 [main] INFO  c.p.t.s.s.e.a.AmadeusFlightService - Searching flight offers with request: FlightOffersSearchRequest(origin=ORY, destination=FLR, departureDate=2025-10-07, returnDate=null, adults=1, children=1, infants=0, nonStop=true, currency=CNY, maxPrice=25000, max=50)
+2025-08-27 14:52:40 [main] INFO  c.p.t.s.s.e.a.AmadeusFlightService - Flight offers search completed, found 4 results
+2025-08-27 14:52:40 [main] INFO  c.p.t.s.s.plan.FlightSearchService - Extracted airport codes: [FCO, ORY, FLR]
+2025-08-27 14:52:41 [main] DEBUG c.p.t.s.s.plan.FlightSearchService - Converted location for airport FCO: lat=41.79362, lng=12.2525
+2025-08-27 14:52:41 [main] DEBUG c.p.t.s.s.plan.FlightSearchService - Converted location for airport ORY: lat=48.72528, lng=2.35945
+2025-08-27 14:52:42 [main] DEBUG c.p.t.s.s.plan.FlightSearchService - Converted location for airport FLR: lat=43.81, lng=11.205
+2025-08-27 14:52:42 [main] INFO  c.p.t.s.s.plan.FlightSearchService - Successfully queried 3 flight locations
+2025-08-27 14:52:42 [main] DEBUG c.p.t.s.s.plan.FlightSearchService - Added airport FCO to location map: lat=41.79362, lng=12.2525
+2025-08-27 14:52:42 [main] DEBUG c.p.t.s.s.plan.FlightSearchService - Added airport ORY to location map: lat=48.72528, lng=2.35945
+2025-08-27 14:52:42 [main] DEBUG c.p.t.s.s.plan.FlightSearchService - Added airport FLR to location map: lat=43.81, lng=11.205
+2025-08-27 14:52:42 [main] INFO  c.p.t.s.s.plan.FlightSearchService - Created airport location map with 3 entries
+2025-08-27 14:52:42 [main] DEBUG c.p.t.s.s.plan.FlightSearchService - Supplemented departure geo for airport: FLR
+2025-08-27 14:52:42 [main] DEBUG c.p.t.s.s.plan.FlightSearchService - Supplemented arrival geo for airport: FCO
+2025-08-27 14:52:42 [main] DEBUG c.p.t.s.s.plan.FlightSearchService - Supplemented departure geo for airport: ORY
+2025-08-27 14:52:42 [main] DEBUG c.p.t.s.s.plan.FlightSearchService - Supplemented arrival geo for airport: FLR
+2025-08-27 14:52:42 [main] INFO  c.p.t.s.s.plan.FlightSearchService - Successfully supplemented location information for 2 flights
+2025-08-27 14:52:42 [main] INFO  c.p.t.s.p.s.GeneratePlanService - Found 2 flights
+2025-08-27 14:52:42 [main] INFO  c.p.t.s.s.plan.HotelSearchService - Getting hotels by city for 3 routes
+2025-08-27 14:52:42 [main] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Searching hotels by city with request: QueryHotelByCityRequest(cityCode=OST, radius=20, radiusUnit=KM, amenities=null, ratings=[1, 2, 3, 4, 5])
+2025-08-27 14:52:42 [ForkJoinPool.commonPool-worker-2] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Searching hotels by city with request: QueryHotelByCityRequest(cityCode=ORY, radius=20, radiusUnit=KM, amenities=null, ratings=[1, 2, 3, 4, 5])
+2025-08-27 14:52:42 [ForkJoinPool.commonPool-worker-1] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Searching hotels by city with request: QueryHotelByCityRequest(cityCode=FCO, radius=20, radiusUnit=KM, amenities=null, ratings=[1, 2, 3, 4, 5])
+2025-08-27 14:52:43 [ForkJoinPool.commonPool-worker-1] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Hotels by city search completed, found 97 results
+2025-08-27 14:52:43 [ForkJoinPool.commonPool-worker-1] INFO  c.p.t.s.s.plan.HotelSearchService - Found 97 hotels in city FCO
+2025-08-27 14:52:43 [main] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Hotels by city search completed, found 28 results
+2025-08-27 14:52:43 [main] INFO  c.p.t.s.s.plan.HotelSearchService - Found 28 hotels in city OST
+2025-08-27 14:52:44 [ForkJoinPool.commonPool-worker-2] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Hotels by city search completed, found 849 results
+2025-08-27 14:52:44 [ForkJoinPool.commonPool-worker-2] INFO  c.p.t.s.s.plan.HotelSearchService - Found 849 hotels in city ORY
+2025-08-27 14:52:44 [main] INFO  c.p.t.s.s.plan.HotelSearchService - Searching hotels for 3 routes
+2025-08-27 14:52:44 [main] INFO  c.p.t.s.s.plan.HotelSearchService - City FCO: CheckIn=2025-10-01, CheckOut=2025-10-03
+2025-08-27 14:52:44 [main] INFO  c.p.t.s.s.plan.HotelSearchService - City OST: CheckIn=2025-10-03, CheckOut=2025-10-05
+2025-08-27 14:52:44 [main] INFO  c.p.t.s.s.plan.HotelSearchService - City ORY: CheckIn=2025-10-05, CheckOut=2025-10-08
+2025-08-27 14:52:44 [ForkJoinPool.commonPool-worker-2] INFO  c.p.t.s.s.plan.HotelSearchService - Searching hotel offers for city FCO with 20 hotels
+2025-08-27 14:52:44 [main] INFO  c.p.t.s.s.plan.HotelSearchService - Searching hotel offers for city OST with 20 hotels
+2025-08-27 14:52:44 [ForkJoinPool.commonPool-worker-1] INFO  c.p.t.s.s.plan.HotelSearchService - Searching hotel offers for city ORY with 20 hotels
+2025-08-27 14:52:44 [main] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Searching hotel offers with request: HotelOffersSearchRequest(hotelIds=[HSOSTAAO, CHOSTVEL, HSOSTAAF, CHOSTBER, HSOSTAAY, YXOSTTPA, HSOSTAEL, HSOSTAAE, HSOSTAAJ, BWOST589, BWOST641, HSOSTAEC, HSOSTABG, BWBRU930, HSOSTAAV, HSOSTADY, HSOSTABH, HSOSTACR, ACZGJAZA, HSOSTABM], adults=2, checkInDate=2025-10-03, checkOutDate=2025-10-05, countryOfResidence=IT, roomQuantity=1, priceRange=10-5000, currency=CNY, paymentPolicy=NONE, bestRateOnly=true)
+2025-08-27 14:52:44 [ForkJoinPool.commonPool-worker-2] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Searching hotel offers with request: HotelOffersSearchRequest(hotelIds=[BWFCO336, YXROMSEC, YXROMDLI, YXROMTIB, CIFCO058, WVFCO548, BWFCO270, BNROMABH, ONROMBEL, OIROMBLV, YXFCOLCH, BWROM265, ONROMGIA, RTROMMAG, WVROM148, YXFCO099, HIROM192, SXROMGHO, KYROMSCH, YXROMATR], adults=2, checkInDate=2025-10-01, checkOutDate=2025-10-03, countryOfResidence=IT, roomQuantity=1, priceRange=10-5000, currency=CNY, paymentPolicy=NONE, bestRateOnly=true)
+2025-08-27 14:52:44 [ForkJoinPool.commonPool-worker-1] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Searching hotel offers with request: HotelOffersSearchRequest(hotelIds=[HLORY208, RTORYORY, HSORYAFI, HSPARCCP, RTORYALT, NNPARC16, BWORY780, RTORYRUN, HSORYAEA, HSPARCDM, NNPARC49, CIORY405, WVPARCCL, NNPARP20, NNPARP25, RTORYCHE, CIORY336, CIORY384, FGORYI7Y, HSPARCDA], adults=2, checkInDate=2025-10-05, checkOutDate=2025-10-08, countryOfResidence=FR, roomQuantity=1, priceRange=10-5000, currency=CNY, paymentPolicy=NONE, bestRateOnly=true)
+2025-08-27 14:52:45 [main] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Hotel offers search completed, found 1 results
+2025-08-27 14:52:45 [main] INFO  c.p.t.s.s.plan.HotelSearchService - Found 1 hotel offers for city OST
+2025-08-27 14:52:45 [main] DEBUG c.p.t.s.s.plan.HotelSearchService - Found 1 hotels for route OST
+2025-08-27 14:52:56 [ForkJoinPool.commonPool-worker-2] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Hotel offers search completed, found 4 results
+2025-08-27 14:52:56 [ForkJoinPool.commonPool-worker-2] INFO  c.p.t.s.s.plan.HotelSearchService - Found 1 hotel offers for city FCO
+2025-08-27 14:52:56 [ForkJoinPool.commonPool-worker-2] DEBUG c.p.t.s.s.plan.HotelSearchService - Found 1 hotels for route FCO
+2025-08-27 14:52:56 [ForkJoinPool.commonPool-worker-1] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Hotel offers search completed, found 3 results
+2025-08-27 14:52:56 [ForkJoinPool.commonPool-worker-1] INFO  c.p.t.s.s.plan.HotelSearchService - Found 1 hotel offers for city ORY
+2025-08-27 14:52:56 [ForkJoinPool.commonPool-worker-1] DEBUG c.p.t.s.s.plan.HotelSearchService - Found 1 hotels for route ORY
+2025-08-27 14:52:56 [main] INFO  c.p.t.s.s.plan.HotelSearchService - Found 3 hotels in total
+2025-08-27 14:52:56 [main] INFO  c.p.t.s.p.s.GeneratePlanService - Found 3 hotels
+2025-08-27 14:52:56 [main] INFO  c.p.t.s.s.plan.LocationSearchService - Searching city locations for 3 cities: [Rome, Ostia, Paris]
+2025-08-27 14:52:56 [ForkJoinPool.commonPool-worker-2] DEBUG c.p.t.s.s.plan.LocationSearchService - Searching location for city: Ostia
+2025-08-27 14:52:56 [main] DEBUG c.p.t.s.s.plan.LocationSearchService - Searching location for city: Paris
+2025-08-27 14:52:56 [ForkJoinPool.commonPool-worker-1] DEBUG c.p.t.s.s.plan.LocationSearchService - Searching location for city: Rome
+2025-08-27 14:52:57 [ForkJoinPool.commonPool-worker-1] INFO  c.p.t.s.s.plan.LocationSearchService - Successfully found location for city Rome: lat=41.8967068, lng=12.4822025
+2025-08-27 14:52:57 [main] INFO  c.p.t.s.s.plan.LocationSearchService - Successfully found location for city Paris: lat=48.8575475, lng=2.3513765
+2025-08-27 14:52:57 [ForkJoinPool.commonPool-worker-2] INFO  c.p.t.s.s.plan.LocationSearchService - Successfully found location for city Ostia: lat=41.7311182, lng=12.2862694
+2025-08-27 14:52:57 [main] INFO  c.p.t.s.s.plan.LocationSearchService - Successfully found locations for 3 out of 3 cities
+2025-08-27 14:52:57 [main] INFO  c.p.t.s.s.plan.ActivitySearchService - Searching activities for 3 cityLocationInfos
+2025-08-27 14:52:57 [main] DEBUG c.p.t.s.s.plan.ActivitySearchService - hotelCity Rome location: lat=41.8967068, lon=12.4822025
+2025-08-27 14:52:57 [main] DEBUG c.p.t.s.s.plan.ActivitySearchService - hotelCity Ostia location: lat=41.7311182, lon=12.2862694
+2025-08-27 14:52:57 [main] DEBUG c.p.t.s.s.plan.ActivitySearchService - hotelCity Paris location: lat=48.8575475, lon=2.3513765
+2025-08-27 14:52:57 [ForkJoinPool.commonPool-worker-2] INFO  c.p.t.s.s.plan.ActivitySearchService - Searching activities for city Rome ，location HotelLocationInfo(latitude=41.8967068, longitude=12.4822025)
+2025-08-27 14:52:57 [ForkJoinPool.commonPool-worker-1] INFO  c.p.t.s.s.plan.ActivitySearchService - Searching activities for city Paris ，location HotelLocationInfo(latitude=48.8575475, longitude=2.3513765)
+2025-08-27 14:52:57 [main] INFO  c.p.t.s.s.plan.ActivitySearchService - Searching activities for city Ostia ，location HotelLocationInfo(latitude=41.7311182, longitude=12.2862694)
+2025-08-27 14:52:57 [ForkJoinPool.commonPool-worker-2] INFO  c.p.t.s.s.e.a.AmadeusActivityService - Searching activities with request: ActivitiesSearchRequest(latitude=41.8967068, longitude=12.4822025, radius=20)
+2025-08-27 14:52:57 [main] INFO  c.p.t.s.s.e.a.AmadeusActivityService - Searching activities with request: ActivitiesSearchRequest(latitude=41.7311182, longitude=12.2862694, radius=20)
+2025-08-27 14:52:57 [ForkJoinPool.commonPool-worker-1] INFO  c.p.t.s.s.e.a.AmadeusActivityService - Searching activities with request: ActivitiesSearchRequest(latitude=48.8575475, longitude=2.3513765, radius=20)
+2025-08-27 14:52:58 [main] ERROR c.p.t.s.a.a.a.AmadeusActivitiesSearchApi - call AmadeusActivitiesSearchApi failed
+com.amadeus.exceptions.ClientException: [429]
+The network rate limit is exceeded, please try again later
+	at com.amadeus.Response.detectError(Response.java:78)
+	at com.amadeus.HTTPClient.execute(HTTPClient.java:361)
+	at com.amadeus.HTTPClient.unauthenticatedRequest(HTTPClient.java:253)
+	at com.amadeus.HTTPClient.request(HTTPClient.java:339)
+	at com.amadeus.HTTPClient.get(HTTPClient.java:67)
+	at com.amadeus.shopping.Activities.get(Activities.java:62)
+	at com.pkfare.trip.scale.api.amadeus.activities.AmadeusActivitiesSearchApi.searchActivities(AmadeusActivitiesSearchApi.java:22)
+	at com.pkfare.trip.scale.service.external.amadeus.AmadeusActivityService.lambda$searchActivities$0(AmadeusActivityService.java:41)
+	at com.pkfare.trip.scale.service.external.amadeus.AmadeusActivityService.retryApiCall(AmadeusActivityService.java:79)
+	at com.pkfare.trip.scale.service.external.amadeus.AmadeusActivityService.searchActivities(AmadeusActivityService.java:39)
+	at com.pkfare.trip.scale.service.plan.ActivitySearchService.searchActivitiesForCity(ActivitySearchService.java:119)
+	at com.pkfare.trip.scale.service.plan.ActivitySearchService.lambda$searchActivities$0(ActivitySearchService.java:58)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1708)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.ForEachOps$ForEachTask.compute(ForEachOps.java:291)
+	at java.base/java.util.concurrent.CountedCompleter.exec(CountedCompleter.java:754)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:387)
+	at java.base/java.util.concurrent.ForkJoinTask.invoke(ForkJoinTask.java:667)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateParallel(ForEachOps.java:160)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateParallel(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:233)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:765)
+	at com.pkfare.trip.scale.service.plan.ActivitySearchService.searchActivities(ActivitySearchService.java:53)
+	at com.pkfare.trip.scale.plan.service.GeneratePlanService.generatePlan(GeneratePlanService.java:94)
+	at com.pkfare.trip.scale.service.plan.GeneratePlanServiceTest.testPlan_preciseTravel_onewaytrip(GeneratePlanServiceTest.java:32)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:217)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:213)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:138)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:68)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:147)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:127)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:90)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:55)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:102)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53)
+	at com.intellij.junit5.JUnit5IdeaTestRunner.startRunnerWithArgs(JUnit5IdeaTestRunner.java:57)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38)
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35)
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:232)
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:55)
+2025-08-27 14:52:58 [main] ERROR c.p.t.s.s.e.a.AmadeusActivityService - Failed to search activities
+com.pkfare.trip.scale.api.amadeus.exception.AmadeusApiException: null
+	at com.pkfare.trip.scale.api.amadeus.activities.AmadeusActivitiesSearchApi.searchActivities(AmadeusActivitiesSearchApi.java:34)
+	at com.pkfare.trip.scale.service.external.amadeus.AmadeusActivityService.lambda$searchActivities$0(AmadeusActivityService.java:41)
+	at com.pkfare.trip.scale.service.external.amadeus.AmadeusActivityService.retryApiCall(AmadeusActivityService.java:79)
+	at com.pkfare.trip.scale.service.external.amadeus.AmadeusActivityService.searchActivities(AmadeusActivityService.java:39)
+	at com.pkfare.trip.scale.service.plan.ActivitySearchService.searchActivitiesForCity(ActivitySearchService.java:119)
+	at com.pkfare.trip.scale.service.plan.ActivitySearchService.lambda$searchActivities$0(ActivitySearchService.java:58)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1708)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.ForEachOps$ForEachTask.compute(ForEachOps.java:291)
+	at java.base/java.util.concurrent.CountedCompleter.exec(CountedCompleter.java:754)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:387)
+	at java.base/java.util.concurrent.ForkJoinTask.invoke(ForkJoinTask.java:667)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateParallel(ForEachOps.java:160)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateParallel(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:233)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:765)
+	at com.pkfare.trip.scale.service.plan.ActivitySearchService.searchActivities(ActivitySearchService.java:53)
+	at com.pkfare.trip.scale.plan.service.GeneratePlanService.generatePlan(GeneratePlanService.java:94)
+	at com.pkfare.trip.scale.service.plan.GeneratePlanServiceTest.testPlan_preciseTravel_onewaytrip(GeneratePlanServiceTest.java:32)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:217)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:213)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:138)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:68)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:147)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:127)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:90)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:55)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:102)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53)
+	at com.intellij.junit5.JUnit5IdeaTestRunner.startRunnerWithArgs(JUnit5IdeaTestRunner.java:57)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38)
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35)
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:232)
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:55)
+2025-08-27 14:52:58 [main] WARN  c.p.t.s.s.e.a.AmadeusActivityService - API call attempt 1 failed: Failed to search activities: null
+2025-08-27 14:53:00 [main] INFO  c.p.t.s.s.e.a.AmadeusActivityService - Activities search completed, found 27 results
+2025-08-27 14:53:00 [main] INFO  c.p.t.s.s.plan.ActivitySearchService - Found 27 activities for city Ostia, filtered to 6 top activities
+2025-08-27 14:53:05 [ForkJoinPool.commonPool-worker-1] INFO  c.p.t.s.s.e.a.AmadeusActivityService - Activities search completed, found 956 results
+2025-08-27 14:53:05 [ForkJoinPool.commonPool-worker-1] INFO  c.p.t.s.s.plan.ActivitySearchService - Found 956 activities for city Paris, filtered to 9 top activities
+2025-08-27 14:53:06 [ForkJoinPool.commonPool-worker-2] INFO  c.p.t.s.s.e.a.AmadeusActivityService - Activities search completed, found 1244 results
+2025-08-27 14:53:06 [ForkJoinPool.commonPool-worker-2] INFO  c.p.t.s.s.plan.ActivitySearchService - Found 1244 activities for city Rome, filtered to 6 top activities
+2025-08-27 14:53:06 [main] INFO  c.p.t.s.s.plan.ActivitySearchService - Found 21 activities in total
+2025-08-27 14:53:06 [main] INFO  c.p.t.s.p.s.GeneratePlanService - Found 21 activities
+2025-08-27 14:53:06 [main] INFO  c.p.t.s.s.e.ai.GoogleAiService - Starting daily route planning generation
+2025-08-27 14:53:06 [main] INFO  c.p.t.s.s.e.ai.GoogleAiService - Daily route planning generation completed successfully
+2025-08-27 14:53:06 [main] INFO  c.p.t.s.p.s.GeneratePlanService - AI plan generated, result: TripRoutePlanResult(status=SUCCESS, dailyPlans=[DailyRoutePlan(date=2025-10-01, cityCode=FCO, cityName=Rome, hotel=HotelInfo(hotelId=RTROMMAG, dupeId=700077124, offerId=CU44B5JL9X, hotelName=ibis Roma Fiera, cityCode=FCO, cityName=Rome, checkInDate=2025-10-01, checkOutDate=2025-10-03, nights=2, totalPrice=98.00, currency=EUR, latitude=41.82202, longitude=12.39481, address=, descriptionLang=null, descriptionText=null), activities=[], routes=[], totalDistance=0, totalDuration=0, notes=Today's itinerary includes 0 attractions, total distance approximately 0.0 km, total travel time approximately 0 minutes. ), DailyRoutePlan(date=2025-10-02, cityCode=FCO, cityName=Rome, hotel=HotelInfo(hotelId=RTROMMAG, dupeId=700077124, offerId=CU44B5JL9X, hotelName=ibis Roma Fiera, cityCode=FCO, cityName=Rome, checkInDate=2025-10-01, checkOutDate=2025-10-03, nights=2, totalPrice=98.00, currency=EUR, latitude=41.82202, longitude=12.39481, address=, descriptionLang=null, descriptionText=null), activities=[], routes=[], totalDistance=0, totalDuration=0, notes=Today's itinerary includes 0 attractions, total distance approximately 0.0 km, total travel time approximately 0 minutes. ), DailyRoutePlan(date=2025-10-03, cityCode=OST, cityName=Ostia, hotel=HotelInfo(hotelId=CHOSTVEL, dupeId=501374152, offerId=90UOTK4N0Y, hotelName=VELOTEL, cityCode=OST, cityName=Ostia, checkInDate=2025-10-03, checkOutDate=2025-10-05, nights=2, totalPrice=336.00, currency=EUR, latitude=51.2325, longitude=2.91656, address=, descriptionLang=null, descriptionText=null), activities=[], routes=[], totalDistance=0, totalDuration=0, notes=Today's itinerary includes 0 attractions, total distance approximately 0.0 km, total travel time approximately 0 minutes. ), DailyRoutePlan(date=2025-10-04, cityCode=OST, cityName=Ostia, hotel=HotelInfo(hotelId=CHOSTVEL, dupeId=501374152, offerId=90UOTK4N0Y, hotelName=VELOTEL, cityCode=OST, cityName=Ostia, checkInDate=2025-10-03, checkOutDate=2025-10-05, nights=2, totalPrice=336.00, currency=EUR, latitude=51.2325, longitude=2.91656, address=, descriptionLang=null, descriptionText=null), activities=[], routes=[], totalDistance=0, totalDuration=0, notes=Today's itinerary includes 0 attractions, total distance approximately 0.0 km, total travel time approximately 0 minutes. ), DailyRoutePlan(date=2025-10-05, cityCode=ORY, cityName=Paris, hotel=HotelInfo(hotelId=RTORYALT, dupeId=700033315, offerId=XG937NUCDK, hotelName=Hôtel Mercure Paris Orly Aéroport, cityCode=ORY, cityName=Paris, checkInDate=2025-10-05, checkOutDate=2025-10-08, nights=3, totalPrice=27.00, currency=EUR, latitude=48.74069, longitude=2.36097, address=, descriptionLang=null, descriptionText=null), activities=[], routes=[], totalDistance=0, totalDuration=0, notes=Today's itinerary includes 0 attractions, total distance approximately 0.0 km, total travel time approximately 0 minutes. ), DailyRoutePlan(date=2025-10-06, cityCode=ORY, cityName=Paris, hotel=HotelInfo(hotelId=RTORYALT, dupeId=700033315, offerId=XG937NUCDK, hotelName=Hôtel Mercure Paris Orly Aéroport, cityCode=ORY, cityName=Paris, checkInDate=2025-10-05, checkOutDate=2025-10-08, nights=3, totalPrice=27.00, currency=EUR, latitude=48.74069, longitude=2.36097, address=, descriptionLang=null, descriptionText=null), activities=[], routes=[], totalDistance=0, totalDuration=0, notes=Today's itinerary includes 0 attractions, total distance approximately 0.0 km, total travel time approximately 0 minutes. ), DailyRoutePlan(date=2025-10-07, cityCode=ORY, cityName=Paris, hotel=HotelInfo(hotelId=RTORYALT, dupeId=700033315, offerId=XG937NUCDK, hotelName=Hôtel Mercure Paris Orly Aéroport, cityCode=ORY, cityName=Paris, checkInDate=2025-10-05, checkOutDate=2025-10-08, nights=3, totalPrice=27.00, currency=EUR, latitude=48.74069, longitude=2.36097, address=, descriptionLang=null, descriptionText=null), activities=[], routes=[], totalDistance=0, totalDuration=0, notes=Today's itinerary includes 0 attractions, total distance approximately 0.0 km, total travel time approximately 0 minutes. )], flights=[FlightInfo(oneWay=false, total=1803.00, currency=CNY, itineraries=[ItineraryInfo(segments=[SegmentInfo(departure=FLR, departureTime=2025-10-01T06:35:00, departureGeo=GeoInfo(latitude=43.81, longitude=11.205), arrival=FCO, arrivalTime=2025-10-01T07:25:00, arrivalGeo=GeoInfo(latitude=41.79362, longitude=12.2525), carrierCode=AZ, number=1676)])]), FlightInfo(oneWay=false, total=1658.00, currency=CNY, itineraries=[ItineraryInfo(segments=[SegmentInfo(departure=ORY, departureTime=2025-10-07T21:15:00, departureGeo=GeoInfo(latitude=48.72528, longitude=2.35945), arrival=FLR, arrivalTime=2025-10-07T23:00:00, arrivalGeo=GeoInfo(latitude=43.81, longitude=11.205), carrierCode=VY, number=1505)])])], totalDistance=0, totalDuration=0, errorMessage=null, summary=This trip spans 7 days, covering 3 cities: Rome, Ostia, Paris, with a total of 0 attractions and activities scheduled.) 
+2025-08-27 14:53:06 [main] INFO  c.p.t.s.p.s.GeneratePlanService - *******************************************************Time taken to generate plan: 29593 ms
+2025-08-27 15:22:27 [main] INFO  c.p.t.s.s.p.GeneratePlanServiceTest - Starting GeneratePlanServiceTest using Java 21.0.3 with PID 89434 (started by liuyang in /Users/liuyang/ideaProjects/pkfare/trip-scale-lite)
+2025-08-27 15:22:27 [main] DEBUG c.p.t.s.s.p.GeneratePlanServiceTest - Running with Spring Boot v3.2.0, Spring v6.1.1
+2025-08-27 15:22:27 [main] INFO  c.p.t.s.s.p.GeneratePlanServiceTest - No active profile set, falling back to 1 default profile: "default"
+2025-08-27 15:22:31 [main] INFO  c.p.t.s.config.AsyncExecutorConfig - Creating custom thread pool for trip plan generation: corePoolSize=8, maxPoolSize=16, queueCapacity=100, keepAliveSeconds=60
+2025-08-27 15:22:31 [main] INFO  c.p.t.s.c.ParentChildContextConfig - Creating loadedAgentRegistry bean for parent-child context
+2025-08-27 15:22:31 [main] INFO  c.p.t.s.c.ParentChildContextConfig - Creating BaseSessionService bean for parent-child context
+2025-08-27 15:22:37 [main] INFO  c.p.t.s.s.p.GeneratePlanServiceTest - Started GeneratePlanServiceTest in 10.01 seconds (process running for 11.532)
+2025-08-27 15:23:01 [main] INFO  c.p.t.s.p.s.GeneratePlanService - Starting concurrent trip plan generation for origin: FLR, destinations: 3
+2025-08-27 15:23:01 [main] DEBUG c.p.t.s.p.s.GeneratePlanService - Validating parameters
+2025-08-27 15:23:01 [main] DEBUG c.p.t.s.p.s.GeneratePlanService - Precise travel calculation: daysBetween=7, tripDays=7, preciseTravel=true
+2025-08-27 15:23:01 [main] DEBUG c.p.t.s.p.s.GeneratePlanService - Round trip calculation: first=FCO, last=ORY, roundTrip=false
+2025-08-27 15:23:01 [main] INFO  c.p.t.s.p.s.GeneratePlanService - Trip configuration: preciseTravel=true, roundTrip=false
+2025-08-27 15:23:01 [main] DEBUG c.p.t.s.p.s.GeneratePlanService - Thread Pool Status - Active: 0, Pool Size: 0, Queue Size: 0, Completed Tasks: 0, Total Tasks: 0
+2025-08-27 15:23:16 [main] INFO  c.p.t.s.p.s.GeneratePlanService - Starting concurrent searches with 8 threads
+2025-08-27 15:23:16 [TripPlan-1] INFO  c.p.t.s.s.plan.FlightSearchService - Searching flight offers
+2025-08-27 15:23:16 [TripPlan-2] INFO  c.p.t.s.s.plan.HotelSearchService - Getting hotels by city for 3 routes
+2025-08-27 15:23:16 [TripPlan-1] INFO  c.p.t.s.s.e.a.AmadeusFlightService - Searching flight offers with request: FlightOffersSearchRequest(origin=FLR, destination=FCO, departureDate=2025-10-01, returnDate=null, adults=1, children=1, infants=0, nonStop=true, currency=CNY, maxPrice=25000, max=50)
+2025-08-27 15:23:16 [TripPlan-3] INFO  c.p.t.s.s.plan.LocationSearchService - Searching city locations for 3 cities: [Rome, Ostia, Paris]
+2025-08-27 15:23:18 [ForkJoinPool.commonPool-worker-3] DEBUG c.p.t.s.s.plan.LocationSearchService - Searching location for city: Rome
+2025-08-27 15:23:18 [ForkJoinPool.commonPool-worker-4] DEBUG c.p.t.s.s.plan.LocationSearchService - Searching location for city: Paris
+2025-08-27 15:23:18 [TripPlan-3] DEBUG c.p.t.s.s.plan.LocationSearchService - Searching location for city: Ostia
+2025-08-27 15:23:16 [TripPlan-2] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Searching hotels by city with request: QueryHotelByCityRequest(cityCode=OST, radius=20, radiusUnit=KM, amenities=null, ratings=[1, 2, 3, 4, 5])
+2025-08-27 15:23:16 [ForkJoinPool.commonPool-worker-1] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Searching hotels by city with request: QueryHotelByCityRequest(cityCode=FCO, radius=20, radiusUnit=KM, amenities=null, ratings=[1, 2, 3, 4, 5])
+2025-08-27 15:23:16 [ForkJoinPool.commonPool-worker-2] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Searching hotels by city with request: QueryHotelByCityRequest(cityCode=ORY, radius=20, radiusUnit=KM, amenities=null, ratings=[1, 2, 3, 4, 5])
+2025-08-27 15:23:22 [TripPlan-3] INFO  c.p.t.s.s.plan.LocationSearchService - Successfully found location for city Ostia: lat=41.7311182, lng=12.2862694
+2025-08-27 15:23:22 [ForkJoinPool.commonPool-worker-3] INFO  c.p.t.s.s.plan.LocationSearchService - Successfully found location for city Rome: lat=41.8967068, lng=12.4822025
+2025-08-27 15:23:22 [ForkJoinPool.commonPool-worker-4] INFO  c.p.t.s.s.plan.LocationSearchService - Successfully found location for city Paris: lat=48.8575475, lng=2.3513765
+2025-08-27 15:23:22 [TripPlan-3] INFO  c.p.t.s.s.plan.LocationSearchService - Successfully found locations for 3 out of 3 cities
+2025-08-27 15:23:22 [TripPlan-3] INFO  c.p.t.s.p.s.GeneratePlanService - [TripPlan-3] City locations search completed in 5953 ms, found 3 locations
+2025-08-27 15:23:24 [TripPlan-2] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Hotels by city search completed, found 28 results
+2025-08-27 15:23:24 [TripPlan-2] INFO  c.p.t.s.s.plan.HotelSearchService - Found 28 hotels in city OST
+2025-08-27 15:23:24 [ForkJoinPool.commonPool-worker-1] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Hotels by city search completed, found 97 results
+2025-08-27 15:23:24 [ForkJoinPool.commonPool-worker-1] INFO  c.p.t.s.s.plan.HotelSearchService - Found 97 hotels in city FCO
+2025-08-27 15:23:25 [TripPlan-1] INFO  c.p.t.s.s.e.a.AmadeusFlightService - Flight offers search completed, found 4 results
+2025-08-27 15:23:25 [TripPlan-1] INFO  c.p.t.s.s.e.a.AmadeusFlightService - Searching flight offers with request: FlightOffersSearchRequest(origin=ORY, destination=FLR, departureDate=2025-10-07, returnDate=null, adults=1, children=1, infants=0, nonStop=true, currency=CNY, maxPrice=25000, max=50)
+2025-08-27 15:23:25 [ForkJoinPool.commonPool-worker-2] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Hotels by city search completed, found 849 results
+2025-08-27 15:23:25 [ForkJoinPool.commonPool-worker-2] INFO  c.p.t.s.s.plan.HotelSearchService - Found 849 hotels in city ORY
+2025-08-27 15:23:25 [TripPlan-2] INFO  c.p.t.s.p.s.GeneratePlanService - [TripPlan-2] Hotel IDs search completed in 8826 ms, found 3 cities
+2025-08-27 15:23:26 [TripPlan-1] INFO  c.p.t.s.s.e.a.AmadeusFlightService - Flight offers search completed, found 4 results
+2025-08-27 15:23:26 [TripPlan-1] INFO  c.p.t.s.s.plan.FlightSearchService - Extracted airport codes: [FCO, ORY, FLR]
+2025-08-27 15:23:26 [TripPlan-1] DEBUG c.p.t.s.s.plan.FlightSearchService - Converted location for airport FCO: lat=41.79362, lng=12.2525
+2025-08-27 15:23:27 [TripPlan-1] DEBUG c.p.t.s.s.plan.FlightSearchService - Converted location for airport ORY: lat=48.72528, lng=2.35945
+2025-08-27 15:23:27 [TripPlan-1] DEBUG c.p.t.s.s.plan.FlightSearchService - Converted location for airport FLR: lat=43.81, lng=11.205
+2025-08-27 15:23:27 [TripPlan-1] INFO  c.p.t.s.s.plan.FlightSearchService - Successfully queried 3 flight locations
+2025-08-27 15:23:27 [TripPlan-1] DEBUG c.p.t.s.s.plan.FlightSearchService - Added airport FCO to location map: lat=41.79362, lng=12.2525
+2025-08-27 15:23:27 [TripPlan-1] DEBUG c.p.t.s.s.plan.FlightSearchService - Added airport ORY to location map: lat=48.72528, lng=2.35945
+2025-08-27 15:23:27 [TripPlan-1] DEBUG c.p.t.s.s.plan.FlightSearchService - Added airport FLR to location map: lat=43.81, lng=11.205
+2025-08-27 15:23:27 [TripPlan-1] INFO  c.p.t.s.s.plan.FlightSearchService - Created airport location map with 3 entries
+2025-08-27 15:23:27 [TripPlan-1] DEBUG c.p.t.s.s.plan.FlightSearchService - Supplemented departure geo for airport: FLR
+2025-08-27 15:23:27 [TripPlan-1] DEBUG c.p.t.s.s.plan.FlightSearchService - Supplemented arrival geo for airport: FCO
+2025-08-27 15:23:27 [TripPlan-1] DEBUG c.p.t.s.s.plan.FlightSearchService - Supplemented departure geo for airport: ORY
+2025-08-27 15:23:27 [TripPlan-1] DEBUG c.p.t.s.s.plan.FlightSearchService - Supplemented arrival geo for airport: FLR
+2025-08-27 15:23:27 [TripPlan-1] INFO  c.p.t.s.s.plan.FlightSearchService - Successfully supplemented location information for 2 flights
+2025-08-27 15:23:27 [TripPlan-1] INFO  c.p.t.s.p.s.GeneratePlanService - [TripPlan-1] Flight search completed in 10845 ms, found 2 flights
+2025-08-27 15:23:43 [main] INFO  c.p.t.s.p.s.GeneratePlanService - All concurrent searches completed in 27826 ms
+2025-08-27 15:23:45 [TripPlan-4] INFO  c.p.t.s.s.plan.HotelSearchService - Searching hotels for 3 routes
+2025-08-27 15:23:45 [TripPlan-4] INFO  c.p.t.s.s.plan.HotelSearchService - City FCO: CheckIn=2025-10-01, CheckOut=2025-10-03
+2025-08-27 15:23:45 [TripPlan-4] INFO  c.p.t.s.s.plan.HotelSearchService - City OST: CheckIn=2025-10-03, CheckOut=2025-10-05
+2025-08-27 15:23:45 [TripPlan-4] INFO  c.p.t.s.s.plan.HotelSearchService - City ORY: CheckIn=2025-10-05, CheckOut=2025-10-08
+2025-08-27 15:23:45 [TripPlan-5] INFO  c.p.t.s.s.plan.ActivitySearchService - Searching activities for 3 cityLocationInfos
+2025-08-27 15:23:45 [TripPlan-5] DEBUG c.p.t.s.s.plan.ActivitySearchService - hotelCity Rome location: lat=41.8967068, lon=12.4822025
+2025-08-27 15:23:45 [TripPlan-5] DEBUG c.p.t.s.s.plan.ActivitySearchService - hotelCity Ostia location: lat=41.7311182, lon=12.2862694
+2025-08-27 15:23:45 [TripPlan-5] DEBUG c.p.t.s.s.plan.ActivitySearchService - hotelCity Paris location: lat=48.8575475, lon=2.3513765
+2025-08-27 15:23:47 [TripPlan-4] INFO  c.p.t.s.s.plan.HotelSearchService - Searching hotel offers for city OST with 20 hotels
+2025-08-27 15:23:47 [ForkJoinPool.commonPool-worker-3] INFO  c.p.t.s.s.plan.HotelSearchService - Searching hotel offers for city ORY with 20 hotels
+2025-08-27 15:23:47 [ForkJoinPool.commonPool-worker-4] INFO  c.p.t.s.s.plan.HotelSearchService - Searching hotel offers for city FCO with 20 hotels
+2025-08-27 15:23:47 [ForkJoinPool.commonPool-worker-1] INFO  c.p.t.s.s.plan.ActivitySearchService - Searching activities for city Paris ，location HotelLocationInfo(latitude=48.8575475, longitude=2.3513765)
+2025-08-27 15:23:47 [ForkJoinPool.commonPool-worker-2] INFO  c.p.t.s.s.plan.ActivitySearchService - Searching activities for city Rome ，location HotelLocationInfo(latitude=41.8967068, longitude=12.4822025)
+2025-08-27 15:23:47 [TripPlan-5] INFO  c.p.t.s.s.plan.ActivitySearchService - Searching activities for city Ostia ，location HotelLocationInfo(latitude=41.7311182, longitude=12.2862694)
+2025-08-27 15:23:47 [ForkJoinPool.commonPool-worker-1] INFO  c.p.t.s.s.e.a.AmadeusActivityService - Searching activities with request: ActivitiesSearchRequest(latitude=48.8575475, longitude=2.3513765, radius=20)
+2025-08-27 15:23:47 [ForkJoinPool.commonPool-worker-2] INFO  c.p.t.s.s.e.a.AmadeusActivityService - Searching activities with request: ActivitiesSearchRequest(latitude=41.8967068, longitude=12.4822025, radius=20)
+2025-08-27 15:23:47 [TripPlan-5] INFO  c.p.t.s.s.e.a.AmadeusActivityService - Searching activities with request: ActivitiesSearchRequest(latitude=41.7311182, longitude=12.2862694, radius=20)
+2025-08-27 15:23:47 [ForkJoinPool.commonPool-worker-4] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Searching hotel offers with request: HotelOffersSearchRequest(hotelIds=[BWFCO336, YXROMSEC, YXROMDLI, YXROMTIB, CIFCO058, WVFCO548, BWFCO270, BNROMABH, ONROMBEL, OIROMBLV, YXFCOLCH, BWROM265, ONROMGIA, RTROMMAG, WVROM148, YXFCO099, HIROM192, SXROMGHO, KYROMSCH, YXROMATR], adults=2, checkInDate=2025-10-01, checkOutDate=2025-10-03, countryOfResidence=IT, roomQuantity=1, priceRange=10-5000, currency=CNY, paymentPolicy=NONE, bestRateOnly=true)
+2025-08-27 15:23:47 [TripPlan-4] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Searching hotel offers with request: HotelOffersSearchRequest(hotelIds=[HSOSTAAO, CHOSTVEL, HSOSTAAF, CHOSTBER, HSOSTAAY, YXOSTTPA, HSOSTAEL, HSOSTAAE, HSOSTAAJ, BWOST589, BWOST641, HSOSTAEC, HSOSTABG, BWBRU930, HSOSTAAV, HSOSTADY, HSOSTABH, HSOSTACR, ACZGJAZA, HSOSTABM], adults=2, checkInDate=2025-10-03, checkOutDate=2025-10-05, countryOfResidence=IT, roomQuantity=1, priceRange=10-5000, currency=CNY, paymentPolicy=NONE, bestRateOnly=true)
+2025-08-27 15:23:47 [ForkJoinPool.commonPool-worker-3] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Searching hotel offers with request: HotelOffersSearchRequest(hotelIds=[HLORY208, RTORYORY, HSORYAFI, HSPARCCP, RTORYALT, NNPARC16, BWORY780, RTORYRUN, HSORYAEA, HSPARCDM, NNPARC49, CIORY405, WVPARCCL, NNPARP20, NNPARP25, RTORYCHE, CIORY336, CIORY384, FGORYI7Y, HSPARCDA], adults=2, checkInDate=2025-10-05, checkOutDate=2025-10-08, countryOfResidence=FR, roomQuantity=1, priceRange=10-5000, currency=CNY, paymentPolicy=NONE, bestRateOnly=true)
+2025-08-27 15:23:49 [TripPlan-4] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Hotel offers search completed, found 1 results
+2025-08-27 15:23:49 [TripPlan-4] INFO  c.p.t.s.s.plan.HotelSearchService - Found 1 hotel offers for city OST
+2025-08-27 15:23:49 [TripPlan-4] DEBUG c.p.t.s.s.plan.HotelSearchService - Found 1 hotels for route OST
+2025-08-27 15:23:50 [TripPlan-5] INFO  c.p.t.s.s.e.a.AmadeusActivityService - Activities search completed, found 27 results
+2025-08-27 15:23:50 [TripPlan-5] INFO  c.p.t.s.s.plan.ActivitySearchService - Found 27 activities for city Ostia, filtered to 6 top activities
+2025-08-27 15:23:58 [ForkJoinPool.commonPool-worker-4] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Hotel offers search completed, found 4 results
+2025-08-27 15:23:58 [ForkJoinPool.commonPool-worker-4] INFO  c.p.t.s.s.plan.HotelSearchService - Found 1 hotel offers for city FCO
+2025-08-27 15:23:58 [ForkJoinPool.commonPool-worker-4] DEBUG c.p.t.s.s.plan.HotelSearchService - Found 1 hotels for route FCO
+2025-08-27 15:23:58 [ForkJoinPool.commonPool-worker-3] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Hotel offers search completed, found 3 results
+2025-08-27 15:23:58 [ForkJoinPool.commonPool-worker-3] INFO  c.p.t.s.s.plan.HotelSearchService - Found 1 hotel offers for city ORY
+2025-08-27 15:23:58 [ForkJoinPool.commonPool-worker-3] DEBUG c.p.t.s.s.plan.HotelSearchService - Found 1 hotels for route ORY
+2025-08-27 15:23:58 [TripPlan-4] INFO  c.p.t.s.s.plan.HotelSearchService - Found 3 hotels in total
+2025-08-27 15:23:58 [TripPlan-4] INFO  c.p.t.s.p.s.GeneratePlanService - [TripPlan-4] Hotel details search completed in 13410 ms, found 3 hotels
+2025-08-27 15:24:53 [ForkJoinPool.commonPool-worker-1] INFO  c.p.t.s.s.e.a.AmadeusActivityService - Activities search completed, found 956 results
+2025-08-27 15:24:53 [ForkJoinPool.commonPool-worker-1] INFO  c.p.t.s.s.plan.ActivitySearchService - Found 956 activities for city Paris, filtered to 9 top activities
+2025-08-27 15:25:42 [ForkJoinPool.commonPool-worker-2] INFO  c.p.t.s.s.e.a.AmadeusActivityService - Activities search completed, found 1244 results
+2025-08-27 15:25:42 [ForkJoinPool.commonPool-worker-2] INFO  c.p.t.s.s.plan.ActivitySearchService - Found 1244 activities for city Rome, filtered to 6 top activities
+2025-08-27 15:25:42 [TripPlan-5] INFO  c.p.t.s.s.plan.ActivitySearchService - Found 21 activities in total
+2025-08-27 15:25:42 [TripPlan-5] INFO  c.p.t.s.p.s.GeneratePlanService - [TripPlan-5] Activities search completed in 116686 ms, found 21 activities
+2025-08-27 15:26:15 [main] INFO  c.p.t.s.p.s.GeneratePlanService - Dependent searches completed in 150594 ms
+2025-08-27 15:26:18 [main] INFO  c.p.t.s.s.e.ai.GoogleAiService - Starting daily route planning generation
+2025-08-27 15:26:24 [main] INFO  c.p.t.s.s.e.ai.GoogleAiService - Daily route planning generation completed successfully
+2025-08-27 15:26:24 [main] INFO  c.p.t.s.p.s.GeneratePlanService - AI plan generation completed in 6366 ms
+2025-08-27 15:26:24 [main] INFO  c.p.t.s.p.s.GeneratePlanService - === PERFORMANCE SUMMARY ===
+2025-08-27 15:26:24 [main] INFO  c.p.t.s.p.s.GeneratePlanService - Total trip plan generation time: 203508 ms
+2025-08-27 15:26:24 [main] INFO  c.p.t.s.p.s.GeneratePlanService - Found 2 flights, 3 hotels, 21 activities
+2025-08-27 15:26:24 [main] DEBUG c.p.t.s.p.s.GeneratePlanService - Thread Pool Status - Active: 0, Pool Size: 1, Queue Size: 0, Completed Tasks: 5, Total Tasks: 5
+2025-08-27 15:35:34 [main] INFO  c.p.t.s.s.p.GeneratePlanServiceTest - Starting GeneratePlanServiceTest using Java 21.0.3 with PID 90132 (started by liuyang in /Users/liuyang/ideaProjects/pkfare/trip-scale-lite)
+2025-08-27 15:35:34 [main] DEBUG c.p.t.s.s.p.GeneratePlanServiceTest - Running with Spring Boot v3.2.0, Spring v6.1.1
+2025-08-27 15:35:34 [main] INFO  c.p.t.s.s.p.GeneratePlanServiceTest - No active profile set, falling back to 1 default profile: "default"
+2025-08-27 15:35:34 [main] INFO  c.p.t.s.config.AsyncExecutorConfig - Creating custom thread pool for trip plan generation: corePoolSize=8, maxPoolSize=16, queueCapacity=100, keepAliveSeconds=60
+2025-08-27 15:35:34 [main] INFO  c.p.t.s.c.ParentChildContextConfig - Creating loadedAgentRegistry bean for parent-child context
+2025-08-27 15:35:34 [main] INFO  c.p.t.s.c.ParentChildContextConfig - Creating BaseSessionService bean for parent-child context
+2025-08-27 15:35:35 [main] INFO  c.p.t.s.s.p.GeneratePlanServiceTest - Started GeneratePlanServiceTest in 1.205 seconds (process running for 2.197)
+2025-08-27 15:35:35 [main] INFO  c.p.t.s.p.s.GeneratePlanService - Starting concurrent trip plan generation for origin: FLR, destinations: 3
+2025-08-27 15:35:35 [main] DEBUG c.p.t.s.p.s.GeneratePlanService - Validating parameters
+2025-08-27 15:35:35 [main] DEBUG c.p.t.s.p.s.GeneratePlanService - Precise travel calculation: daysBetween=7, tripDays=7, preciseTravel=true
+2025-08-27 15:35:35 [main] DEBUG c.p.t.s.p.s.GeneratePlanService - Round trip calculation: first=FCO, last=ORY, roundTrip=false
+2025-08-27 15:35:35 [main] INFO  c.p.t.s.p.s.GeneratePlanService - Trip configuration: preciseTravel=true, roundTrip=false
+2025-08-27 15:35:35 [main] DEBUG c.p.t.s.p.s.GeneratePlanService - Thread Pool Status - Active: 0, Pool Size: 0, Queue Size: 0, Completed Tasks: 0, Total Tasks: 0
+2025-08-27 15:35:35 [main] INFO  c.p.t.s.p.s.GeneratePlanService - Starting concurrent searches with 8 threads
+2025-08-27 15:35:35 [TripPlan-1] INFO  c.p.t.s.s.plan.FlightSearchService - Searching flight offers
+2025-08-27 15:35:35 [TripPlan-2] INFO  c.p.t.s.s.plan.HotelSearchService - Getting hotels by city for 3 routes
+2025-08-27 15:35:35 [TripPlan-3] INFO  c.p.t.s.s.plan.LocationSearchService - Searching city locations for 3 cities: [Rome, Ostia, Paris]
+2025-08-27 15:35:35 [ForkJoinPool.commonPool-worker-1] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Searching hotels by city with request: QueryHotelByCityRequest(cityCode=FCO, radius=10, radiusUnit=KM, amenities=null, ratings=[1, 2, 3, 4, 5])
+2025-08-27 15:35:35 [TripPlan-2] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Searching hotels by city with request: QueryHotelByCityRequest(cityCode=OST, radius=10, radiusUnit=KM, amenities=null, ratings=[1, 2, 3, 4, 5])
+2025-08-27 15:35:35 [ForkJoinPool.commonPool-worker-2] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Searching hotels by city with request: QueryHotelByCityRequest(cityCode=ORY, radius=10, radiusUnit=KM, amenities=null, ratings=[1, 2, 3, 4, 5])
+2025-08-27 15:35:35 [ForkJoinPool.commonPool-worker-4] DEBUG c.p.t.s.s.plan.LocationSearchService - Searching location for city: Paris
+2025-08-27 15:35:35 [TripPlan-3] DEBUG c.p.t.s.s.plan.LocationSearchService - Searching location for city: Rome
+2025-08-27 15:35:35 [ForkJoinPool.commonPool-worker-3] DEBUG c.p.t.s.s.plan.LocationSearchService - Searching location for city: Ostia
+2025-08-27 15:35:35 [TripPlan-1] INFO  c.p.t.s.s.e.a.AmadeusFlightService - Searching flight offers with request: FlightOffersSearchRequest(origin=FLR, destination=FCO, departureDate=2025-10-01, returnDate=null, adults=1, children=1, infants=0, nonStop=true, currency=CNY, maxPrice=25000, max=50)
+2025-08-27 15:35:37 [TripPlan-3] INFO  c.p.t.s.s.plan.LocationSearchService - Successfully found location for city Rome: lat=41.8967068, lng=12.4822025
+2025-08-27 15:35:37 [ForkJoinPool.commonPool-worker-3] INFO  c.p.t.s.s.plan.LocationSearchService - Successfully found location for city Ostia: lat=41.7311182, lng=12.2862694
+2025-08-27 15:35:37 [ForkJoinPool.commonPool-worker-4] INFO  c.p.t.s.s.plan.LocationSearchService - Successfully found location for city Paris: lat=48.8575475, lng=2.3513765
+2025-08-27 15:35:37 [TripPlan-3] INFO  c.p.t.s.s.plan.LocationSearchService - Successfully found locations for 3 out of 3 cities
+2025-08-27 15:35:37 [TripPlan-3] INFO  c.p.t.s.p.s.GeneratePlanService - [TripPlan-3] City locations search completed in 1359 ms, found 3 locations
+2025-08-27 15:35:37 [ForkJoinPool.commonPool-worker-2] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Hotels by city search completed, found 43 results
+2025-08-27 15:35:37 [ForkJoinPool.commonPool-worker-2] INFO  c.p.t.s.s.plan.HotelSearchService - Found 43 hotels in city ORY
+2025-08-27 15:35:38 [ForkJoinPool.commonPool-worker-1] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Hotels by city search completed, found 11 results
+2025-08-27 15:35:38 [ForkJoinPool.commonPool-worker-1] INFO  c.p.t.s.s.plan.HotelSearchService - Found 11 hotels in city FCO
+2025-08-27 15:35:38 [TripPlan-2] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Hotels by city search completed, found 8 results
+2025-08-27 15:35:38 [TripPlan-2] INFO  c.p.t.s.s.plan.HotelSearchService - Found 8 hotels in city OST
+2025-08-27 15:35:38 [TripPlan-2] INFO  c.p.t.s.p.s.GeneratePlanService - [TripPlan-2] Hotel IDs search completed in 2412 ms, found 3 cities
+2025-08-27 15:35:41 [TripPlan-1] INFO  c.p.t.s.s.e.a.AmadeusFlightService - Flight offers search completed, found 4 results
+2025-08-27 15:35:41 [TripPlan-1] INFO  c.p.t.s.s.e.a.AmadeusFlightService - Searching flight offers with request: FlightOffersSearchRequest(origin=ORY, destination=FLR, departureDate=2025-10-07, returnDate=null, adults=1, children=1, infants=0, nonStop=true, currency=CNY, maxPrice=25000, max=50)
+2025-08-27 15:35:42 [TripPlan-1] INFO  c.p.t.s.s.e.a.AmadeusFlightService - Flight offers search completed, found 4 results
+2025-08-27 15:35:42 [TripPlan-1] INFO  c.p.t.s.s.plan.FlightSearchService - Extracted airport codes: [FCO, ORY, FLR]
+2025-08-27 15:35:43 [TripPlan-1] DEBUG c.p.t.s.s.plan.FlightSearchService - Converted location for airport FCO: lat=41.79362, lng=12.2525
+2025-08-27 15:35:44 [TripPlan-1] DEBUG c.p.t.s.s.plan.FlightSearchService - Converted location for airport ORY: lat=48.72528, lng=2.35945
+2025-08-27 15:35:44 [TripPlan-1] DEBUG c.p.t.s.s.plan.FlightSearchService - Converted location for airport FLR: lat=43.81, lng=11.205
+2025-08-27 15:35:44 [TripPlan-1] INFO  c.p.t.s.s.plan.FlightSearchService - Successfully queried 3 flight locations
+2025-08-27 15:35:44 [TripPlan-1] DEBUG c.p.t.s.s.plan.FlightSearchService - Added airport FCO to location map: lat=41.79362, lng=12.2525
+2025-08-27 15:35:44 [TripPlan-1] DEBUG c.p.t.s.s.plan.FlightSearchService - Added airport ORY to location map: lat=48.72528, lng=2.35945
+2025-08-27 15:35:44 [TripPlan-1] DEBUG c.p.t.s.s.plan.FlightSearchService - Added airport FLR to location map: lat=43.81, lng=11.205
+2025-08-27 15:35:44 [TripPlan-1] INFO  c.p.t.s.s.plan.FlightSearchService - Created airport location map with 3 entries
+2025-08-27 15:35:44 [TripPlan-1] DEBUG c.p.t.s.s.plan.FlightSearchService - Supplemented departure geo for airport: FLR
+2025-08-27 15:35:44 [TripPlan-1] DEBUG c.p.t.s.s.plan.FlightSearchService - Supplemented arrival geo for airport: FCO
+2025-08-27 15:35:44 [TripPlan-1] DEBUG c.p.t.s.s.plan.FlightSearchService - Supplemented departure geo for airport: ORY
+2025-08-27 15:35:44 [TripPlan-1] DEBUG c.p.t.s.s.plan.FlightSearchService - Supplemented arrival geo for airport: FLR
+2025-08-27 15:35:44 [TripPlan-1] INFO  c.p.t.s.s.plan.FlightSearchService - Successfully supplemented location information for 2 flights
+2025-08-27 15:35:44 [TripPlan-1] INFO  c.p.t.s.p.s.GeneratePlanService - [TripPlan-1] Flight search completed in 8773 ms, found 2 flights
+2025-08-27 15:35:44 [main] INFO  c.p.t.s.p.s.GeneratePlanService - All concurrent searches completed in 8774 ms
+2025-08-27 15:35:44 [TripPlan-4] INFO  c.p.t.s.s.plan.HotelSearchService - Searching hotels for 3 routes
+2025-08-27 15:35:44 [TripPlan-4] INFO  c.p.t.s.s.plan.HotelSearchService - City FCO: CheckIn=2025-10-01, CheckOut=2025-10-03
+2025-08-27 15:35:44 [TripPlan-5] INFO  c.p.t.s.s.plan.ActivitySearchService - Searching activities for 3 cityLocationInfos
+2025-08-27 15:35:44 [TripPlan-5] DEBUG c.p.t.s.s.plan.ActivitySearchService - hotelCity Rome location: lat=41.8967068, lon=12.4822025
+2025-08-27 15:35:44 [TripPlan-5] DEBUG c.p.t.s.s.plan.ActivitySearchService - hotelCity Ostia location: lat=41.7311182, lon=12.2862694
+2025-08-27 15:35:44 [TripPlan-5] DEBUG c.p.t.s.s.plan.ActivitySearchService - hotelCity Paris location: lat=48.8575475, lon=2.3513765
+2025-08-27 15:35:44 [TripPlan-4] INFO  c.p.t.s.s.plan.HotelSearchService - City OST: CheckIn=2025-10-03, CheckOut=2025-10-05
+2025-08-27 15:35:44 [TripPlan-4] INFO  c.p.t.s.s.plan.HotelSearchService - City ORY: CheckIn=2025-10-05, CheckOut=2025-10-08
+2025-08-27 15:35:44 [TripPlan-4] INFO  c.p.t.s.s.plan.HotelSearchService - Searching hotel offers for city OST with 8 hotels
+2025-08-27 15:35:44 [ForkJoinPool.commonPool-worker-2] INFO  c.p.t.s.s.plan.HotelSearchService - Searching hotel offers for city ORY with 20 hotels
+2025-08-27 15:35:44 [ForkJoinPool.commonPool-worker-1] INFO  c.p.t.s.s.plan.HotelSearchService - Searching hotel offers for city FCO with 11 hotels
+2025-08-27 15:35:44 [ForkJoinPool.commonPool-worker-4] INFO  c.p.t.s.s.plan.ActivitySearchService - Searching activities for city Rome ，location HotelLocationInfo(latitude=41.8967068, longitude=12.4822025)
+2025-08-27 15:35:44 [ForkJoinPool.commonPool-worker-3] INFO  c.p.t.s.s.plan.ActivitySearchService - Searching activities for city Paris ，location HotelLocationInfo(latitude=48.8575475, longitude=2.3513765)
+2025-08-27 15:35:44 [TripPlan-5] INFO  c.p.t.s.s.plan.ActivitySearchService - Searching activities for city Ostia ，location HotelLocationInfo(latitude=41.7311182, longitude=12.2862694)
+2025-08-27 15:35:44 [ForkJoinPool.commonPool-worker-2] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Searching hotel offers with request: HotelOffersSearchRequest(hotelIds=[HLORY208, RTORYORY, HSORYAFI, HSPARCCP, RTORYALT, NNPARC16, BWORY780, RTORYRUN, HSORYAEA, HSPARCDM, NNPARC49, CIORY405, WVPARCCL, NNPARP20, NNPARP25, RTORYCHE, CIORY336, CIORY384, FGORYI7Y, HSPARCDA], adults=2, checkInDate=2025-10-05, checkOutDate=2025-10-08, countryOfResidence=FR, roomQuantity=1, priceRange=10-5000, currency=CNY, paymentPolicy=NONE, bestRateOnly=true)
+2025-08-27 15:35:44 [TripPlan-4] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Searching hotel offers with request: HotelOffersSearchRequest(hotelIds=[HSOSTAAO, CHOSTVEL, HSOSTAAF, CHOSTBER, HSOSTAAY, YXOSTTPA, HSOSTAEL, HSOSTAAE], adults=2, checkInDate=2025-10-03, checkOutDate=2025-10-05, countryOfResidence=IT, roomQuantity=1, priceRange=10-5000, currency=CNY, paymentPolicy=NONE, bestRateOnly=true)
+2025-08-27 15:35:44 [ForkJoinPool.commonPool-worker-1] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Searching hotel offers with request: HotelOffersSearchRequest(hotelIds=[BWFCO336, YXROMSEC, YXROMDLI, YXROMTIB, CIFCO058, WVFCO548, BWFCO270, BNROMABH, ONROMBEL, OIROMBLV, YXFCOLCH], adults=2, checkInDate=2025-10-01, checkOutDate=2025-10-03, countryOfResidence=IT, roomQuantity=1, priceRange=10-5000, currency=CNY, paymentPolicy=NONE, bestRateOnly=true)
+2025-08-27 15:35:44 [ForkJoinPool.commonPool-worker-3] INFO  c.p.t.s.s.e.a.AmadeusActivityService - Searching activities with request: ActivitiesSearchRequest(latitude=48.8575475, longitude=2.3513765, radius=20)
+2025-08-27 15:35:44 [ForkJoinPool.commonPool-worker-4] INFO  c.p.t.s.s.e.a.AmadeusActivityService - Searching activities with request: ActivitiesSearchRequest(latitude=41.8967068, longitude=12.4822025, radius=20)
+2025-08-27 15:35:44 [TripPlan-5] INFO  c.p.t.s.s.e.a.AmadeusActivityService - Searching activities with request: ActivitiesSearchRequest(latitude=41.7311182, longitude=12.2862694, radius=20)
+2025-08-27 15:35:46 [TripPlan-4] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Hotel offers search completed, found 1 results
+2025-08-27 15:35:46 [TripPlan-4] INFO  c.p.t.s.s.plan.HotelSearchService - Found 1 hotel offers for city OST
+2025-08-27 15:35:46 [TripPlan-4] DEBUG c.p.t.s.s.plan.HotelSearchService - Found 1 hotels for route OST
+2025-08-27 15:35:46 [TripPlan-5] INFO  c.p.t.s.s.e.a.AmadeusActivityService - Activities search completed, found 27 results
+2025-08-27 15:35:46 [TripPlan-5] INFO  c.p.t.s.s.plan.ActivitySearchService - Found 27 activities for city Ostia, filtered to 6 top activities
+2025-08-27 15:35:52 [ForkJoinPool.commonPool-worker-3] INFO  c.p.t.s.s.e.a.AmadeusActivityService - Activities search completed, found 956 results
+2025-08-27 15:35:52 [ForkJoinPool.commonPool-worker-3] INFO  c.p.t.s.s.plan.ActivitySearchService - Found 956 activities for city Paris, filtered to 9 top activities
+2025-08-27 15:35:55 [ForkJoinPool.commonPool-worker-4] INFO  c.p.t.s.s.e.a.AmadeusActivityService - Activities search completed, found 1244 results
+2025-08-27 15:35:55 [ForkJoinPool.commonPool-worker-4] INFO  c.p.t.s.s.plan.ActivitySearchService - Found 1244 activities for city Rome, filtered to 6 top activities
+2025-08-27 15:35:55 [TripPlan-5] INFO  c.p.t.s.s.plan.ActivitySearchService - Found 21 activities in total
+2025-08-27 15:35:55 [TripPlan-5] INFO  c.p.t.s.p.s.GeneratePlanService - [TripPlan-5] Activities search completed in 10661 ms, found 21 activities
+2025-08-27 15:35:55 [ForkJoinPool.commonPool-worker-2] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Hotel offers search completed, found 3 results
+2025-08-27 15:35:55 [ForkJoinPool.commonPool-worker-2] INFO  c.p.t.s.s.plan.HotelSearchService - Found 1 hotel offers for city ORY
+2025-08-27 15:35:55 [ForkJoinPool.commonPool-worker-2] DEBUG c.p.t.s.s.plan.HotelSearchService - Found 1 hotels for route ORY
+2025-08-27 15:35:56 [ForkJoinPool.commonPool-worker-1] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Hotel offers search completed, found 1 results
+2025-08-27 15:35:56 [ForkJoinPool.commonPool-worker-1] INFO  c.p.t.s.s.plan.HotelSearchService - Found 1 hotel offers for city FCO
+2025-08-27 15:35:56 [ForkJoinPool.commonPool-worker-1] DEBUG c.p.t.s.s.plan.HotelSearchService - Found 1 hotels for route FCO
+2025-08-27 15:35:56 [TripPlan-4] INFO  c.p.t.s.s.plan.HotelSearchService - Found 3 hotels in total
+2025-08-27 15:35:56 [TripPlan-4] INFO  c.p.t.s.p.s.GeneratePlanService - [TripPlan-4] Hotel details search completed in 11734 ms, found 3 hotels
+2025-08-27 15:35:56 [main] INFO  c.p.t.s.p.s.GeneratePlanService - Dependent searches completed in 11738 ms
+2025-08-27 15:35:56 [main] INFO  c.p.t.s.s.e.ai.GoogleAiService - Starting daily route planning generation
+2025-08-27 15:35:56 [main] INFO  c.p.t.s.s.e.ai.GoogleAiService - Daily route planning generation completed successfully
+2025-08-27 15:35:56 [main] INFO  c.p.t.s.p.s.GeneratePlanService - AI plan generation completed in 48 ms
+2025-08-27 15:35:56 [main] INFO  c.p.t.s.p.s.GeneratePlanService - === PERFORMANCE SUMMARY ===
+2025-08-27 15:35:56 [main] INFO  c.p.t.s.p.s.GeneratePlanService - Total trip plan generation time: 20571 ms
+2025-08-27 15:35:56 [main] INFO  c.p.t.s.p.s.GeneratePlanService - Found 2 flights, 3 hotels, 21 activities
+2025-08-27 15:35:56 [main] DEBUG c.p.t.s.p.s.GeneratePlanService - Thread Pool Status - Active: 0, Pool Size: 5, Queue Size: 0, Completed Tasks: 5, Total Tasks: 5
