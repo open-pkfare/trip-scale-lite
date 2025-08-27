@@ -26,11 +26,17 @@ trip:
     default-hotel-radius-unit: "KM"
     # 异步执行配置
     async:
-      core-pool-size: 8
+      core-pool-size: 16
       max-pool-size: 16
       queue-capacity: 100
       keep-alive-seconds: 60
       thread-name-prefix: "TripPlan-"
+    # 缓存配置
+    cache:
+      flight-dates:
+        expire-after-write-minutes: 120
+        maximum-size: 1000
+        initial-capacity: 100
 
 # Amadeus API配置
 amadeus:

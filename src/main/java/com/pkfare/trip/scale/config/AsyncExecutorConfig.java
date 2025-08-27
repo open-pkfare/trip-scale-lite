@@ -24,7 +24,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 @EnableAsync
 public class AsyncExecutorConfig {
 
-    @Value("${trip.plan.async.core-pool-size:8}")
+    @Value("${trip.plan.async.core-pool-size:16}")
     private int corePoolSize;
 
     @Value("${trip.plan.async.max-pool-size:16}")
