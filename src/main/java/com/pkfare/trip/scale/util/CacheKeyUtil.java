@@ -2,6 +2,7 @@ package com.pkfare.trip.scale.util;
 
 import com.pkfare.trip.scale.api.amadeus.flightdates.request.FlightDatesRequest;
 import com.pkfare.trip.scale.api.amadeus.flightoffers.request.FlightOffersSearchRequest;
+import com.pkfare.trip.scale.api.amadeus.hoteloffers.request.HotelOffersSearchRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 
@@ -97,6 +98,61 @@ public class CacheKeyUtil {
                 hashBuilder.append(String.format("%02x", b));
             }
             String hashedKey = "fo_" + hashBuilder.toString();
+            
+            log.debug("Generated cache key: {} for request: {}", hashedKey, rawKey);
+            return hashedKey;
+            
+        } catch (NoSuchAlgorithmException e) {
+            log.warn("MD5 algorithm not available, using raw key", e);
+            return rawKey.replaceAll("[^a-zA-Z0-9_-]", "_");
+        }
+    }
+    
+    /**
+     * 为酒店报价请求生成缓存键
+     * 
+     * @param request 酒店报价请求
+     * @return 缓存键
+     */
+    public static String generateHotelOffersKey(HotelOffersSearchRequest request) {
+        if (request == null) {
+            return "null";
+        }
+        
+        StringBuilder keyBuilder = new StringBuilder();
+        keyBuilder.append("hotel_offers").append(SEPARATOR);
+        
+        // 酒店ID列表（排序后拼接，确保相同酒店列表生成相同键）
+        if (request.getHotelIds() != null && !request.getHotelIds().isEmpty()) {
+            String hotelIdsStr = request.getHotelIds().stream()
+                    .sorted() // 排序确保一致性
+                    .reduce((a, b) -> a + "," + b)
+                    .orElse("");
+            keyBuilder.append(hotelIdsStr);
+        }
+        keyBuilder.append(SEPARATOR);
+        
+        keyBuilder.append(request.getAdults()).append(SEPARATOR);
+        keyBuilder.append(StringUtils.defaultString(request.getCheckInDate(), "")).append(SEPARATOR);
+        keyBuilder.append(StringUtils.defaultString(request.getCheckOutDate(), "")).append(SEPARATOR);
+        keyBuilder.append(StringUtils.defaultString(request.getCountryOfResidence(), "")).append(SEPARATOR);
+        keyBuilder.append(request.getRoomQuantity()).append(SEPARATOR);
+        keyBuilder.append(StringUtils.defaultString(request.getPriceRange(), "")).append(SEPARATOR);
+        keyBuilder.append(StringUtils.defaultString(request.getCurrency(), "")).append(SEPARATOR);
+        keyBuilder.append(StringUtils.defaultString(request.getPaymentPolicy(), "")).append(SEPARATOR);
+        keyBuilder.append(Objects.toString(request.getBestRateOnly(), ""));
+        
+        String rawKey = keyBuilder.toString();
+        
+        // 使用MD5生成固定长度的键，避免键过长
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            byte[] hashBytes = md.digest(rawKey.getBytes());
+            StringBuilder hashBuilder = new StringBuilder();
+            for (byte b : hashBytes) {
+                hashBuilder.append(String.format("%02x", b));
+            }
+            String hashedKey = "ho_" + hashBuilder.toString();
             
             log.debug("Generated cache key: {} for request: {}", hashedKey, rawKey);
             return hashedKey;

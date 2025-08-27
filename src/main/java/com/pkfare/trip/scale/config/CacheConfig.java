@@ -36,6 +36,15 @@ public class CacheConfig {
     @Value("${trip.plan.cache.flight-offers.initial-capacity:100}")
     private int flightOffersInitialCapacity;
 
+    @Value("${trip.plan.cache.hotel-offers.expire-after-write-minutes:120}")
+    private int hotelOffersExpireMinutes;
+
+    @Value("${trip.plan.cache.hotel-offers.maximum-size:1000}")
+    private int hotelOffersMaximumSize;
+
+    @Value("${trip.plan.cache.hotel-offers.initial-capacity:100}")
+    private int hotelOffersInitialCapacity;
+
     /**
      * 航班日期缓存
      * 
@@ -74,6 +83,27 @@ public class CacheConfig {
                 .recordStats() // 启用统计信息
                 .removalListener((key, value, cause) -> {
                     log.debug("Flight offers cache entry removed - key: {}, cause: {}", key, cause);
+                })
+                .build();
+    }
+
+    /**
+     * 酒店报价缓存
+     * 
+     * @return Caffeine缓存实例
+     */
+    @Bean("hotelOffersCache")
+    public Cache<String, Object> hotelOffersCache() {
+        log.info("Creating hotel offers cache with expireAfterWrite: {} minutes, maximumSize: {}, initialCapacity: {}",
+                hotelOffersExpireMinutes, hotelOffersMaximumSize, hotelOffersInitialCapacity);
+
+        return Caffeine.newBuilder()
+                .expireAfterWrite(Duration.ofMinutes(hotelOffersExpireMinutes))
+                .maximumSize(hotelOffersMaximumSize)
+                .initialCapacity(hotelOffersInitialCapacity)
+                .recordStats() // 启用统计信息
+                .removalListener((key, value, cause) -> {
+                    log.debug("Hotel offers cache entry removed - key: {}, cause: {}", key, cause);
                 })
                 .build();
     }
