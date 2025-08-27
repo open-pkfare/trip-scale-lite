@@ -1,6 +1,7 @@
 package com.pkfare.trip.scale.util;
 
 import com.pkfare.trip.scale.api.amadeus.flightdates.request.FlightDatesRequest;
+import com.pkfare.trip.scale.api.amadeus.flightoffers.request.FlightOffersSearchRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 
@@ -50,6 +51,52 @@ public class CacheKeyUtil {
                 hashBuilder.append(String.format("%02x", b));
             }
             String hashedKey = "fd_" + hashBuilder.toString();
+            
+            log.debug("Generated cache key: {} for request: {}", hashedKey, rawKey);
+            return hashedKey;
+            
+        } catch (NoSuchAlgorithmException e) {
+            log.warn("MD5 algorithm not available, using raw key", e);
+            return rawKey.replaceAll("[^a-zA-Z0-9_-]", "_");
+        }
+    }
+    
+    /**
+     * 为航班报价请求生成缓存键
+     * 
+     * @param request 航班报价请求
+     * @return 缓存键
+     */
+    public static String generateFlightOffersKey(FlightOffersSearchRequest request) {
+        if (request == null) {
+            return "null";
+        }
+        
+        StringBuilder keyBuilder = new StringBuilder();
+        keyBuilder.append("flight_offers").append(SEPARATOR);
+        keyBuilder.append(StringUtils.defaultString(request.getOrigin(), "")).append(SEPARATOR);
+        keyBuilder.append(StringUtils.defaultString(request.getDestination(), "")).append(SEPARATOR);
+        keyBuilder.append(StringUtils.defaultString(request.getDepartureDate(), "")).append(SEPARATOR);
+        keyBuilder.append(StringUtils.defaultString(request.getReturnDate(), "")).append(SEPARATOR);
+        keyBuilder.append(request.getAdults()).append(SEPARATOR);
+        keyBuilder.append(request.getChildren()).append(SEPARATOR);
+        keyBuilder.append(request.getInfants()).append(SEPARATOR);
+        keyBuilder.append(Objects.toString(request.getNonStop(), "")).append(SEPARATOR);
+        keyBuilder.append(StringUtils.defaultString(request.getCurrency(), "")).append(SEPARATOR);
+        keyBuilder.append(request.getMaxPrice()).append(SEPARATOR);
+        keyBuilder.append(Objects.toString(request.getMax(), ""));
+        
+        String rawKey = keyBuilder.toString();
+        
+        // 使用MD5生成固定长度的键，避免键过长
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            byte[] hashBytes = md.digest(rawKey.getBytes());
+            StringBuilder hashBuilder = new StringBuilder();
+            for (byte b : hashBytes) {
+                hashBuilder.append(String.format("%02x", b));
+            }
+            String hashedKey = "fo_" + hashBuilder.toString();
             
             log.debug("Generated cache key: {} for request: {}", hashedKey, rawKey);
             return hashedKey;
