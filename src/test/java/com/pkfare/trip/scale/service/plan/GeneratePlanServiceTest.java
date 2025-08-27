@@ -30,7 +30,7 @@ public class GeneratePlanServiceTest {
    */
   @Test
   void testPlan_preciseTravel_onewaytrip() {
-    GeneratePlanParam param = buildPreciseTravelRoundTripParam(7);
+    GeneratePlanParam param = buildPreciseTravelRoundTripParam("2025-10-01", "2025-10-07", 7);
     TripRoutePlanResult result = generatePlanService.generatePlan(param);
     log.info("****************************************************   第二次请求    ***************************************************************");
     TripRoutePlanResult result1 = generatePlanService.generatePlan(param);
@@ -42,19 +42,17 @@ public class GeneratePlanServiceTest {
    */
   @Test
   void testPlan_notPreciseTravel_onewaytrip() {
-    GeneratePlanParam param = buildPreciseTravelRoundTripParam(5);
+    GeneratePlanParam param = buildPreciseTravelRoundTripParam("2025-10-01", "2025-10-30", 7);
     TripRoutePlanResult result = generatePlanService.generatePlan(param);
-    log.info("****************************************************   第二次请求    ***************************************************************");
-    TripRoutePlanResult result1 = generatePlanService.generatePlan(param);
     assertNotNull(result);
   }
 
-  private GeneratePlanParam buildPreciseTravelRoundTripParam(int tripDays) {
+  private GeneratePlanParam buildPreciseTravelRoundTripParam(String startDay ,String returnDay,int tripDays) {
     GeneratePlanParam param = new GeneratePlanParam();
     param.setOrigin("FLR");
     param.setLocation_code("IT");
-    param.setStart_period("2025-10-01");
-    param.setEnd_period("2025-10-07");
+    param.setStart_period(startDay);
+    param.setEnd_period(returnDay);
     param.setTrip_days(tripDays);
     param.setAdult_number(1);
     param.setChild_number(1);

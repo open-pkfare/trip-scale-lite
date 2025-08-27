@@ -106,7 +106,7 @@ public class ValidationUtil {
         
         // 验证总停留天数是否匹配
         int totalStayDays = tripRoutes.stream().mapToInt(TripRouteParam::getStay_days).sum();
-        if (totalStayDays != param.getTrip_days()) {
+        if (totalStayDays > param.getTrip_days()) {
             throw new ParameterValidationException("STAY_DAYS_MISMATCH", 
                 "Total stay days (" + totalStayDays + ") does not match trip days (" + param.getTrip_days() + ")", 
                 "stay_days_total", totalStayDays);

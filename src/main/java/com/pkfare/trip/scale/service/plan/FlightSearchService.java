@@ -329,12 +329,12 @@ public class FlightSearchService {
         
         // 搜索去程
         FlightDatesRequest outboundRequest = buildOneWayFlightDatesRequest(
-            param.getOrigin(), firstDestination, param.getStart_period(), param.getEnd_period(), param.getTrip_days(), true);
+            param.getOrigin(), firstDestination, param.getStart_period(), param.getEnd_period(), param.getTrip_days(), true,param.getBudgets());
         FlightDate[] outboundDates = amadeusFlightService.searchFlightDates(outboundRequest);
         
         // 搜索返程
         FlightDatesRequest returnRequest = buildOneWayFlightDatesRequest(
-            lastDestination, param.getOrigin(), param.getStart_period(), param.getEnd_period(), param.getTrip_days(), false);
+            lastDestination, param.getOrigin(), param.getStart_period(), param.getEnd_period(), param.getTrip_days(), false,param.getBudgets());
         FlightDate[] returnDates = amadeusFlightService.searchFlightDates(returnRequest);
         
         // 找到最佳组合
@@ -461,6 +461,7 @@ public class FlightSearchService {
         request.setDepartureDate(DateUtil.buildDateRange(startDate, adjustedEndDate));
         request.setDuration(String.valueOf(param.getTrip_days()));
         request.setOneWay(!isRoundTrip);
+        request.setMaxPrice(PriceUtil.formatPrice(param.getBudgets()));
         
         return request;
     }
@@ -470,7 +471,7 @@ public class FlightSearchService {
      */
     private FlightDatesRequest buildOneWayFlightDatesRequest(String origin, String destination, 
                                                            String startPeriod, String endPeriod, 
-                                                           int tripDays, boolean isOutbound) {
+                                                           int tripDays, boolean isOutbound, String budgets) {
         FlightDatesRequest request = new FlightDatesRequest();
         request.setOrigin(origin);
         request.setDestination(destination);
@@ -486,7 +487,8 @@ public class FlightSearchService {
             LocalDate adjustedStartDate = DateUtil.addDays(startDate, tripDays);
             request.setDepartureDate(DateUtil.buildDateRange(adjustedStartDate, endDate));
         }
-        
+
+        request.setMaxPrice(PriceUtil.formatPrice(budgets));
         return request;
     }
     

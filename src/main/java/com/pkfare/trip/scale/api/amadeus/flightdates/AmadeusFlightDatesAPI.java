@@ -7,6 +7,7 @@ import com.pkfare.trip.scale.api.amadeus.config.AmadeusClient;
 import com.pkfare.trip.scale.api.amadeus.exception.AmadeusApiException;
 import com.pkfare.trip.scale.api.amadeus.flightdates.request.FlightDatesRequest;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 
 
 @Slf4j
@@ -16,10 +17,11 @@ public class AmadeusFlightDatesAPI {
     Amadeus amadeus = AmadeusClient.get();
     Params params = Params.with("origin", flightDatesRequest.getOrigin()).and("destination", flightDatesRequest.getDestination())
         .and("departureDate", flightDatesRequest.getDepartureDate())
-        .and("duration", flightDatesRequest.getDuration())
         .and("oneWay", flightDatesRequest.getOneWay()).and("nonStop", flightDatesRequest.getNonStop())
         .and("maxPrice", flightDatesRequest.getMaxPrice());
-
+    if(StringUtils.isNotBlank(flightDatesRequest.getDuration())){
+      params.and("duration", flightDatesRequest.getDuration());
+    }
     try {
       FlightDate[] flightDates = amadeus.shopping.flightDates.get(params);
       if (flightDates == null || flightDates.length == 0) {
