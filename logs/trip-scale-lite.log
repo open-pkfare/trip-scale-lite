@@ -2098,3 +2098,519 @@ Caused by: java.lang.NumberFormatException: For input string: "${trip.plan.async
 	at org.springframework.beans.TypeConverterDelegate.convertIfNecessary(TypeConverterDelegate.java:160)
 	at org.springframework.beans.TypeConverterSupport.convertIfNecessary(TypeConverterSupport.java:80)
 	... 102 common frames omitted
+2025-08-27 17:51:17 [main] INFO  c.p.t.s.s.p.GeneratePlanServiceTest - Starting GeneratePlanServiceTest using Java 21.0.3 with PID 688 (started by liuyang in /Users/liuyang/ideaProjects/pkfare/trip-scale-lite)
+2025-08-27 17:51:17 [main] DEBUG c.p.t.s.s.p.GeneratePlanServiceTest - Running with Spring Boot v3.2.0, Spring v6.1.1
+2025-08-27 17:51:17 [main] INFO  c.p.t.s.s.p.GeneratePlanServiceTest - No active profile set, falling back to 1 default profile: "default"
+2025-08-27 17:51:20 [main] INFO  c.p.trip.scale.config.CacheConfig - Creating flight dates cache with expireAfterWrite: 120 minutes, maximumSize: 1000, initialCapacity: 100
+2025-08-27 17:51:20 [main] INFO  c.p.trip.scale.config.CacheConfig - Creating flight offers cache with expireAfterWrite: 120 minutes, maximumSize: 1000, initialCapacity: 100
+2025-08-27 17:51:20 [main] INFO  c.p.t.s.s.e.a.AmadeusFlightService - AmadeusFlightService initialized with flight dates and flight offers cache
+2025-08-27 17:51:20 [main] INFO  c.p.trip.scale.config.CacheConfig - Creating hotel offers cache with expireAfterWrite: 120 minutes, maximumSize: 1000, initialCapacity: 100
+2025-08-27 17:51:20 [main] INFO  c.p.t.s.s.e.a.AmadeusHotelService - AmadeusHotelService initialized with hotel offers cache
+2025-08-27 17:51:20 [main] INFO  c.p.trip.scale.config.CacheConfig - Creating activities cache with expireAfterWrite: 120 minutes, maximumSize: 1000, initialCapacity: 100
+2025-08-27 17:51:20 [main] INFO  c.p.t.s.s.e.a.AmadeusActivityService - AmadeusActivityService initialized with activities cache
+2025-08-27 17:51:21 [main] INFO  c.p.t.s.config.AsyncExecutorConfig - Creating custom thread pool for trip plan generation: corePoolSize=16, maxPoolSize=16, queueCapacity=100, keepAliveSeconds=60
+2025-08-27 17:51:21 [main] INFO  c.p.t.s.c.ParentChildContextConfig - Creating loadedAgentRegistry bean for parent-child context
+2025-08-27 17:51:21 [main] INFO  c.p.t.s.c.ParentChildContextConfig - Creating BaseSessionService bean for parent-child context
+2025-08-27 17:51:27 [main] INFO  c.p.t.s.s.p.GeneratePlanServiceTest - Started GeneratePlanServiceTest in 10.557 seconds (process running for 12.162)
+2025-08-27 17:51:37 [main] INFO  c.p.t.s.p.s.GeneratePlanService - Starting concurrent trip plan generation for origin: FLR, destinations: 3
+2025-08-27 17:51:37 [main] DEBUG c.p.t.s.p.s.GeneratePlanService - Validating parameters
+2025-08-27 17:51:38 [main] DEBUG c.p.t.s.p.s.GeneratePlanService - Precise travel calculation: daysBetween=7, tripDays=7, preciseTravel=true
+2025-08-27 17:51:38 [main] DEBUG c.p.t.s.p.s.GeneratePlanService - Round trip calculation: first=FCO, last=ORY, roundTrip=false
+2025-08-27 17:51:38 [main] INFO  c.p.t.s.p.s.GeneratePlanService - Trip configuration: preciseTravel=true, roundTrip=false
+2025-08-27 17:51:38 [main] DEBUG c.p.t.s.p.s.GeneratePlanService - Thread Pool Status - Active: 0, Pool Size: 0, Queue Size: 0, Completed Tasks: 0, Total Tasks: 0
+2025-08-27 17:51:43 [main] INFO  c.p.t.s.p.s.GeneratePlanService - Starting concurrent searches with 16 threads
+2025-08-27 17:51:44 [TripPlan-1] INFO  c.p.t.s.s.plan.FlightSearchService - Searching flight offers
+2025-08-27 17:51:44 [TripPlan-2] INFO  c.p.t.s.s.plan.HotelSearchService - Getting hotels by city for 3 routes
+2025-08-27 17:51:44 [TripPlan-1] INFO  c.p.t.s.s.e.a.AmadeusFlightService - Searching flight offers with request: FlightOffersSearchRequest(origin=FLR, destination=FCO, departureDate=2025-10-01, returnDate=null, adults=1, children=1, infants=0, nonStop=true, currency=CNY, maxPrice=25000, max=50)
+2025-08-27 17:51:44 [TripPlan-3] INFO  c.p.t.s.s.plan.LocationSearchService - Searching city locations for 3 cities: [Rome, Ostia, Paris]
+2025-08-27 17:51:47 [TripPlan-3] DEBUG c.p.t.s.s.plan.LocationSearchService - Processed city list: 3 unique cities
+2025-08-27 17:51:47 [TripPlan-1] DEBUG c.p.trip.scale.util.CacheKeyUtil - Generated cache key: fo_67f5ebfe070594ca53f807e5e020f89a for request: flight_offers|FLR|FCO|2025-10-01||1|1|0|true|CNY|25000|50
+2025-08-27 17:51:47 [TripPlan-3] DEBUG c.p.t.s.s.plan.LocationSearchService - Cache miss for city: Rome
+2025-08-27 17:51:47 [TripPlan-3] DEBUG c.p.t.s.s.plan.LocationSearchService - Cache miss for city: Ostia
+2025-08-27 17:51:47 [TripPlan-3] DEBUG c.p.t.s.s.plan.LocationSearchService - Cache miss for city: Paris
+2025-08-27 17:51:47 [TripPlan-1] DEBUG c.p.t.s.s.e.a.AmadeusFlightService - Cache miss for key: fo_67f5ebfe070594ca53f807e5e020f89a
+2025-08-27 17:51:47 [TripPlan-3] INFO  c.p.t.s.s.plan.LocationSearchService - Cache statistics - hits: 0, misses: 3, total: 3
+2025-08-27 17:51:47 [TripPlan-3] INFO  c.p.t.s.s.plan.LocationSearchService - Querying 3 cities from API: [Rome, Ostia, Paris]
+2025-08-27 17:51:47 [TripPlan-1] INFO  c.p.t.s.s.e.a.AmadeusFlightService - Cache miss for key: fo_67f5ebfe070594ca53f807e5e020f89a, calling API
+2025-08-27 17:51:47 [TripPlan-3] DEBUG c.p.t.s.s.plan.LocationSearchService - Searching location for city from API: Ostia
+2025-08-27 17:51:47 [ForkJoinPool.commonPool-worker-3] DEBUG c.p.t.s.s.plan.LocationSearchService - Searching location for city from API: Rome
+2025-08-27 17:51:47 [ForkJoinPool.commonPool-worker-4] DEBUG c.p.t.s.s.plan.LocationSearchService - Searching location for city from API: Paris
+2025-08-27 17:51:47 [ForkJoinPool.commonPool-worker-2] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Searching hotels by city with request: QueryHotelByCityRequest(cityCode=ORY, radius=10, radiusUnit=KM, amenities=null, ratings=[1, 2, 3, 4, 5])
+2025-08-27 17:51:44 [ForkJoinPool.commonPool-worker-1] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Searching hotels by city with request: QueryHotelByCityRequest(cityCode=FCO, radius=10, radiusUnit=KM, amenities=null, ratings=[1, 2, 3, 4, 5])
+2025-08-27 17:51:44 [TripPlan-2] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Searching hotels by city with request: QueryHotelByCityRequest(cityCode=OST, radius=10, radiusUnit=KM, amenities=null, ratings=[1, 2, 3, 4, 5])
+2025-08-27 17:51:51 [ForkJoinPool.commonPool-worker-3] INFO  c.p.t.s.s.plan.LocationSearchService - Successfully found and cached location for city Rome: lat=41.8967068, lng=12.4822025
+2025-08-27 17:51:51 [TripPlan-3] INFO  c.p.t.s.s.plan.LocationSearchService - Successfully found and cached location for city Ostia: lat=41.7311182, lng=12.2862694
+2025-08-27 17:51:51 [ForkJoinPool.commonPool-worker-4] INFO  c.p.t.s.s.plan.LocationSearchService - Successfully found and cached location for city Paris: lat=48.8575475, lng=2.3513765
+2025-08-27 17:51:51 [TripPlan-3] INFO  c.p.t.s.s.plan.LocationSearchService - API query completed, found 3 out of 3 cities
+2025-08-27 17:51:51 [TripPlan-3] INFO  c.p.t.s.s.plan.LocationSearchService - Successfully found locations for 3 out of 3 cities (cached: 0, api: 3)
+2025-08-27 17:51:51 [TripPlan-3] INFO  c.p.t.s.p.s.GeneratePlanService - [TripPlan-3] City locations search completed in 7076 ms, found 3 locations
+2025-08-27 17:51:52 [ForkJoinPool.commonPool-worker-1] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Hotels by city search completed, found 11 results
+2025-08-27 17:51:52 [ForkJoinPool.commonPool-worker-1] INFO  c.p.t.s.s.plan.HotelSearchService - Found 11 hotels in city FCO
+2025-08-27 17:51:52 [TripPlan-2] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Hotels by city search completed, found 8 results
+2025-08-27 17:51:52 [TripPlan-2] INFO  c.p.t.s.s.plan.HotelSearchService - Found 8 hotels in city OST
+2025-08-27 17:51:52 [ForkJoinPool.commonPool-worker-2] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Hotels by city search completed, found 43 results
+2025-08-27 17:51:52 [ForkJoinPool.commonPool-worker-2] INFO  c.p.t.s.s.plan.HotelSearchService - Found 43 hotels in city ORY
+2025-08-27 17:51:52 [TripPlan-2] INFO  c.p.t.s.p.s.GeneratePlanService - [TripPlan-2] Hotel IDs search completed in 8837 ms, found 3 cities
+2025-08-27 17:52:22 [TripPlan-1] ERROR c.p.t.s.a.a.f.AmadeusFlightOffersSearchAPI - call AmadeusFlightOffersSearchAPI return empty，resonse:{} 
+2025-08-27 17:52:22 [TripPlan-1] DEBUG c.p.t.s.s.e.a.AmadeusFlightService - API call completed, found 0 results
+2025-08-27 17:52:22 [TripPlan-1] WARN  c.p.t.s.s.e.a.AmadeusFlightService - API returned empty result, not caching for key: fo_67f5ebfe070594ca53f807e5e020f89a
+2025-08-27 17:52:22 [TripPlan-1] DEBUG c.p.t.s.s.e.a.AmadeusFlightService - Flight offers cache stats - size: 0, hitRate: {:.2f}%, evictionCount: 0.0
+2025-08-27 17:52:22 [TripPlan-1] INFO  c.p.t.s.s.e.a.AmadeusFlightService - Searching flight offers with request: FlightOffersSearchRequest(origin=ORY, destination=FLR, departureDate=2025-10-07, returnDate=null, adults=1, children=1, infants=0, nonStop=true, currency=CNY, maxPrice=25000, max=50)
+2025-08-27 17:52:22 [TripPlan-1] DEBUG c.p.trip.scale.util.CacheKeyUtil - Generated cache key: fo_999021c45cb45939bab7a098937da645 for request: flight_offers|ORY|FLR|2025-10-07||1|1|0|true|CNY|25000|50
+2025-08-27 17:52:22 [TripPlan-1] DEBUG c.p.t.s.s.e.a.AmadeusFlightService - Cache miss for key: fo_999021c45cb45939bab7a098937da645
+2025-08-27 17:52:22 [TripPlan-1] INFO  c.p.t.s.s.e.a.AmadeusFlightService - Cache miss for key: fo_999021c45cb45939bab7a098937da645, calling API
+2025-08-27 17:52:52 [TripPlan-1] ERROR c.p.t.s.a.a.f.AmadeusFlightOffersSearchAPI - call AmadeusFlightOffersSearchAPI return empty，resonse:{} 
+2025-08-27 17:52:52 [TripPlan-1] DEBUG c.p.t.s.s.e.a.AmadeusFlightService - API call completed, found 0 results
+2025-08-27 17:52:52 [TripPlan-1] WARN  c.p.t.s.s.e.a.AmadeusFlightService - API returned empty result, not caching for key: fo_999021c45cb45939bab7a098937da645
+2025-08-27 17:52:52 [TripPlan-1] DEBUG c.p.t.s.s.e.a.AmadeusFlightService - Flight offers cache stats - size: 0, hitRate: {:.2f}%, evictionCount: 0.0
+2025-08-27 17:52:52 [TripPlan-1] INFO  c.p.t.s.s.plan.FlightSearchService - Flight info list is empty, returning empty location list
+2025-08-27 17:52:52 [TripPlan-1] INFO  c.p.t.s.s.plan.FlightSearchService - Flight info list is empty, no location supplementation needed
+2025-08-27 17:52:52 [TripPlan-1] INFO  c.p.t.s.p.s.GeneratePlanService - [TripPlan-1] Flight search completed in 68910 ms, found 0 flights
+2025-08-27 17:52:57 [main] INFO  c.p.t.s.p.s.GeneratePlanService - All concurrent searches completed in 74521 ms
+2025-08-27 17:52:59 [TripPlan-4] INFO  c.p.t.s.s.plan.HotelSearchService - Searching hotels for 3 routes
+2025-08-27 17:52:59 [TripPlan-4] INFO  c.p.t.s.s.plan.HotelSearchService - City FCO: CheckIn=2025-10-01, CheckOut=2025-10-03
+2025-08-27 17:52:59 [TripPlan-4] INFO  c.p.t.s.s.plan.HotelSearchService - City OST: CheckIn=2025-10-03, CheckOut=2025-10-05
+2025-08-27 17:52:59 [TripPlan-5] INFO  c.p.t.s.s.plan.ActivitySearchService - Searching activities for 3 cityLocationInfos
+2025-08-27 17:52:59 [TripPlan-4] INFO  c.p.t.s.s.plan.HotelSearchService - City ORY: CheckIn=2025-10-05, CheckOut=2025-10-08
+2025-08-27 17:52:59 [TripPlan-5] DEBUG c.p.t.s.s.plan.ActivitySearchService - hotelCity Rome location: lat=41.8967068, lon=12.4822025
+2025-08-27 17:52:59 [TripPlan-5] DEBUG c.p.t.s.s.plan.ActivitySearchService - hotelCity Ostia location: lat=41.7311182, lon=12.2862694
+2025-08-27 17:52:59 [TripPlan-5] DEBUG c.p.t.s.s.plan.ActivitySearchService - hotelCity Paris location: lat=48.8575475, lon=2.3513765
+2025-08-27 17:53:00 [ForkJoinPool.commonPool-worker-3] INFO  c.p.t.s.s.plan.HotelSearchService - Searching hotel offers for city FCO with 11 hotels
+2025-08-27 17:53:00 [TripPlan-4] INFO  c.p.t.s.s.plan.HotelSearchService - Searching hotel offers for city OST with 8 hotels
+2025-08-27 17:53:00 [ForkJoinPool.commonPool-worker-6] INFO  c.p.t.s.s.plan.HotelSearchService - Searching hotel offers for city ORY with 20 hotels
+2025-08-27 17:53:00 [ForkJoinPool.commonPool-worker-4] INFO  c.p.t.s.s.plan.ActivitySearchService - Searching activities for city Paris ，location HotelLocationInfo(latitude=48.8575475, longitude=2.3513765)
+2025-08-27 17:53:00 [TripPlan-5] INFO  c.p.t.s.s.plan.ActivitySearchService - Searching activities for city Ostia ，location HotelLocationInfo(latitude=41.7311182, longitude=12.2862694)
+2025-08-27 17:53:00 [ForkJoinPool.commonPool-worker-1] INFO  c.p.t.s.s.plan.ActivitySearchService - Searching activities for city Rome ，location HotelLocationInfo(latitude=41.8967068, longitude=12.4822025)
+2025-08-27 17:53:00 [TripPlan-5] INFO  c.p.t.s.s.e.a.AmadeusActivityService - Searching activities with request: ActivitiesSearchRequest(latitude=41.7311182, longitude=12.2862694, radius=20)
+2025-08-27 17:53:00 [ForkJoinPool.commonPool-worker-4] INFO  c.p.t.s.s.e.a.AmadeusActivityService - Searching activities with request: ActivitiesSearchRequest(latitude=48.8575475, longitude=2.3513765, radius=20)
+2025-08-27 17:53:00 [ForkJoinPool.commonPool-worker-1] INFO  c.p.t.s.s.e.a.AmadeusActivityService - Searching activities with request: ActivitiesSearchRequest(latitude=41.8967068, longitude=12.4822025, radius=20)
+2025-08-27 17:53:00 [TripPlan-5] DEBUG c.p.trip.scale.util.CacheKeyUtil - Generated cache key: ac_e77ad97ab0bb34ea534de26358049c1b for request: activities|41.7311182|12.2862694|20
+2025-08-27 17:53:00 [TripPlan-5] DEBUG c.p.t.s.s.e.a.AmadeusActivityService - Cache miss for key: ac_e77ad97ab0bb34ea534de26358049c1b
+2025-08-27 17:53:00 [TripPlan-5] INFO  c.p.t.s.s.e.a.AmadeusActivityService - Cache miss for key: ac_e77ad97ab0bb34ea534de26358049c1b, calling API
+2025-08-27 17:53:00 [ForkJoinPool.commonPool-worker-1] DEBUG c.p.trip.scale.util.CacheKeyUtil - Generated cache key: ac_4924dd02687f3f173ef1ef8466affe9a for request: activities|41.8967068|12.4822025|20
+2025-08-27 17:53:00 [ForkJoinPool.commonPool-worker-4] DEBUG c.p.trip.scale.util.CacheKeyUtil - Generated cache key: ac_373944abba1f88ac302d46a6ba91e657 for request: activities|48.8575475|2.3513765|20
+2025-08-27 17:53:00 [ForkJoinPool.commonPool-worker-1] DEBUG c.p.t.s.s.e.a.AmadeusActivityService - Cache miss for key: ac_4924dd02687f3f173ef1ef8466affe9a
+2025-08-27 17:53:00 [ForkJoinPool.commonPool-worker-4] DEBUG c.p.t.s.s.e.a.AmadeusActivityService - Cache miss for key: ac_373944abba1f88ac302d46a6ba91e657
+2025-08-27 17:53:00 [ForkJoinPool.commonPool-worker-1] INFO  c.p.t.s.s.e.a.AmadeusActivityService - Cache miss for key: ac_4924dd02687f3f173ef1ef8466affe9a, calling API
+2025-08-27 17:53:00 [ForkJoinPool.commonPool-worker-4] INFO  c.p.t.s.s.e.a.AmadeusActivityService - Cache miss for key: ac_373944abba1f88ac302d46a6ba91e657, calling API
+2025-08-27 17:53:00 [ForkJoinPool.commonPool-worker-3] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Searching hotel offers with request: HotelOffersSearchRequest(hotelIds=[BWFCO336, YXROMSEC, YXROMDLI, YXROMTIB, CIFCO058, WVFCO548, BWFCO270, BNROMABH, ONROMBEL, OIROMBLV, YXFCOLCH], adults=2, checkInDate=2025-10-01, checkOutDate=2025-10-03, countryOfResidence=IT, roomQuantity=1, priceRange=10-5000, currency=CNY, paymentPolicy=NONE, bestRateOnly=true)
+2025-08-27 17:53:00 [TripPlan-4] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Searching hotel offers with request: HotelOffersSearchRequest(hotelIds=[HSOSTAAO, CHOSTVEL, HSOSTAAF, CHOSTBER, HSOSTAAY, YXOSTTPA, HSOSTAEL, HSOSTAAE], adults=2, checkInDate=2025-10-03, checkOutDate=2025-10-05, countryOfResidence=IT, roomQuantity=1, priceRange=10-5000, currency=CNY, paymentPolicy=NONE, bestRateOnly=true)
+2025-08-27 17:53:00 [ForkJoinPool.commonPool-worker-6] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Searching hotel offers with request: HotelOffersSearchRequest(hotelIds=[HLORY208, RTORYORY, HSORYAFI, HSPARCCP, RTORYALT, NNPARC16, BWORY780, RTORYRUN, HSORYAEA, HSPARCDM, NNPARC49, CIORY405, WVPARCCL, NNPARP20, NNPARP25, RTORYCHE, CIORY336, CIORY384, FGORYI7Y, HSPARCDA], adults=2, checkInDate=2025-10-05, checkOutDate=2025-10-08, countryOfResidence=FR, roomQuantity=1, priceRange=10-5000, currency=CNY, paymentPolicy=NONE, bestRateOnly=true)
+2025-08-27 17:53:00 [ForkJoinPool.commonPool-worker-3] DEBUG c.p.trip.scale.util.CacheKeyUtil - Generated cache key: ho_c2263665d33f32a2abc4c9554c9ce6ff for request: hotel_offers|BNROMABH,BWFCO270,BWFCO336,CIFCO058,OIROMBLV,ONROMBEL,WVFCO548,YXFCOLCH,YXROMDLI,YXROMSEC,YXROMTIB|2|2025-10-01|2025-10-03|IT|1|10-5000|CNY|NONE|true
+2025-08-27 17:53:00 [ForkJoinPool.commonPool-worker-6] DEBUG c.p.trip.scale.util.CacheKeyUtil - Generated cache key: ho_6d0dcec90bf5a2319e9fb9879d595241 for request: hotel_offers|BWORY780,CIORY336,CIORY384,CIORY405,FGORYI7Y,HLORY208,HSORYAEA,HSORYAFI,HSPARCCP,HSPARCDA,HSPARCDM,NNPARC16,NNPARC49,NNPARP20,NNPARP25,RTORYALT,RTORYCHE,RTORYORY,RTORYRUN,WVPARCCL|2|2025-10-05|2025-10-08|FR|1|10-5000|CNY|NONE|true
+2025-08-27 17:53:00 [TripPlan-4] DEBUG c.p.trip.scale.util.CacheKeyUtil - Generated cache key: ho_0fc10ffdb39e87f6575bf279f0ca6653 for request: hotel_offers|CHOSTBER,CHOSTVEL,HSOSTAAE,HSOSTAAF,HSOSTAAO,HSOSTAAY,HSOSTAEL,YXOSTTPA|2|2025-10-03|2025-10-05|IT|1|10-5000|CNY|NONE|true
+2025-08-27 17:53:00 [TripPlan-4] DEBUG c.p.t.s.s.e.a.AmadeusHotelService - Cache miss for key: ho_0fc10ffdb39e87f6575bf279f0ca6653
+2025-08-27 17:53:00 [ForkJoinPool.commonPool-worker-3] DEBUG c.p.t.s.s.e.a.AmadeusHotelService - Cache miss for key: ho_c2263665d33f32a2abc4c9554c9ce6ff
+2025-08-27 17:53:00 [ForkJoinPool.commonPool-worker-6] DEBUG c.p.t.s.s.e.a.AmadeusHotelService - Cache miss for key: ho_6d0dcec90bf5a2319e9fb9879d595241
+2025-08-27 17:53:00 [ForkJoinPool.commonPool-worker-3] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Cache miss for key: ho_c2263665d33f32a2abc4c9554c9ce6ff, calling API
+2025-08-27 17:53:00 [TripPlan-4] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Cache miss for key: ho_0fc10ffdb39e87f6575bf279f0ca6653, calling API
+2025-08-27 17:53:00 [ForkJoinPool.commonPool-worker-6] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Cache miss for key: ho_6d0dcec90bf5a2319e9fb9879d595241, calling API
+2025-08-27 17:53:01 [ForkJoinPool.commonPool-worker-3] ERROR c.p.t.s.a.a.h.AmadeusHotelOffersSearchAPI - call AmadeusHotelOffersSearchAPI failed
+com.amadeus.exceptions.ClientException: [429]
+The network rate limit is exceeded, please try again later
+	at com.amadeus.Response.detectError(Response.java:78)
+	at com.amadeus.HTTPClient.execute(HTTPClient.java:361)
+	at com.amadeus.HTTPClient.unauthenticatedRequest(HTTPClient.java:253)
+	at com.amadeus.HTTPClient.request(HTTPClient.java:339)
+	at com.amadeus.HTTPClient.get(HTTPClient.java:67)
+	at com.amadeus.shopping.HotelOffersSearch.get(HotelOffersSearch.java:54)
+	at com.pkfare.trip.scale.api.amadeus.hoteloffers.AmadeusHotelOffersSearchAPI.hotelOffersSearch(AmadeusHotelOffersSearchAPI.java:27)
+	at com.pkfare.trip.scale.service.external.amadeus.AmadeusHotelService.lambda$searchHotelOffersWithoutCache$1(AmadeusHotelService.java:155)
+	at com.pkfare.trip.scale.service.external.amadeus.AmadeusHotelService.retryApiCall(AmadeusHotelService.java:234)
+	at com.pkfare.trip.scale.service.external.amadeus.AmadeusHotelService.searchHotelOffersWithoutCache(AmadeusHotelService.java:153)
+	at com.pkfare.trip.scale.service.external.amadeus.AmadeusHotelService.searchHotelOffers(AmadeusHotelService.java:91)
+	at com.pkfare.trip.scale.service.plan.HotelSearchService.searchHotelOffers(HotelSearchService.java:221)
+	at com.pkfare.trip.scale.service.plan.HotelSearchService.lambda$searchHotels$1(HotelSearchService.java:68)
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:273)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1708)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ReduceOps$ReduceTask.doLeaf(ReduceOps.java:960)
+	at java.base/java.util.stream.ReduceOps$ReduceTask.doLeaf(ReduceOps.java:934)
+	at java.base/java.util.stream.AbstractTask.compute(AbstractTask.java:327)
+	at java.base/java.util.concurrent.CountedCompleter.exec(CountedCompleter.java:754)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec$$$capture(ForkJoinTask.java:387)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1312)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1843)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1808)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:188)
+2025-08-27 17:53:01 [ForkJoinPool.commonPool-worker-3] ERROR c.p.t.s.s.e.a.AmadeusHotelService - Failed to search hotel offers via API
+com.pkfare.trip.scale.api.amadeus.exception.AmadeusApiException: null
+	at com.pkfare.trip.scale.api.amadeus.hoteloffers.AmadeusHotelOffersSearchAPI.hotelOffersSearch(AmadeusHotelOffersSearchAPI.java:39)
+	at com.pkfare.trip.scale.service.external.amadeus.AmadeusHotelService.lambda$searchHotelOffersWithoutCache$1(AmadeusHotelService.java:155)
+	at com.pkfare.trip.scale.service.external.amadeus.AmadeusHotelService.retryApiCall(AmadeusHotelService.java:234)
+	at com.pkfare.trip.scale.service.external.amadeus.AmadeusHotelService.searchHotelOffersWithoutCache(AmadeusHotelService.java:153)
+	at com.pkfare.trip.scale.service.external.amadeus.AmadeusHotelService.searchHotelOffers(AmadeusHotelService.java:91)
+	at com.pkfare.trip.scale.service.plan.HotelSearchService.searchHotelOffers(HotelSearchService.java:221)
+	at com.pkfare.trip.scale.service.plan.HotelSearchService.lambda$searchHotels$1(HotelSearchService.java:68)
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:273)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1708)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ReduceOps$ReduceTask.doLeaf(ReduceOps.java:960)
+	at java.base/java.util.stream.ReduceOps$ReduceTask.doLeaf(ReduceOps.java:934)
+	at java.base/java.util.stream.AbstractTask.compute(AbstractTask.java:327)
+	at java.base/java.util.concurrent.CountedCompleter.exec(CountedCompleter.java:754)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec$$$capture(ForkJoinTask.java:387)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1312)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1843)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1808)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:188)
+2025-08-27 17:53:01 [ForkJoinPool.commonPool-worker-3] WARN  c.p.t.s.s.e.a.AmadeusHotelService - API call attempt 1 failed: Failed to search hotel offers: null
+2025-08-27 17:53:02 [TripPlan-4] DEBUG c.p.t.s.s.e.a.AmadeusHotelService - API call completed, found 1 results
+2025-08-27 17:53:02 [TripPlan-4] DEBUG c.p.t.s.s.e.a.AmadeusHotelService - Cached 1 hotel offers for key: ho_0fc10ffdb39e87f6575bf279f0ca6653
+2025-08-27 17:53:02 [TripPlan-4] INFO  c.p.t.s.s.e.a.AmadeusHotelService - API result cached successfully - 1 hotel offers for key: ho_0fc10ffdb39e87f6575bf279f0ca6653
+2025-08-27 17:53:02 [TripPlan-4] DEBUG c.p.t.s.s.e.a.AmadeusHotelService - Hotel offers cache stats - size: 1, hitRate: {:.2f}%, evictionCount: 0.0
+2025-08-27 17:53:02 [TripPlan-4] INFO  c.p.t.s.s.plan.HotelSearchService - Found 1 hotel offers for city OST
+2025-08-27 17:53:02 [TripPlan-4] DEBUG c.p.t.s.s.plan.HotelSearchService - Found 1 hotels for route OST
+2025-08-27 17:53:05 [TripPlan-5] DEBUG c.p.t.s.s.e.a.AmadeusActivityService - API call completed, found 27 results
+2025-08-27 17:53:05 [TripPlan-5] DEBUG c.p.t.s.s.e.a.AmadeusActivityService - Cached 27 activities for key: ac_e77ad97ab0bb34ea534de26358049c1b
+2025-08-27 17:53:05 [TripPlan-5] INFO  c.p.t.s.s.e.a.AmadeusActivityService - API result cached successfully - 27 activities for key: ac_e77ad97ab0bb34ea534de26358049c1b
+2025-08-27 17:53:05 [TripPlan-5] DEBUG c.p.t.s.s.e.a.AmadeusActivityService - Activities cache stats - size: 1, hitRate: {:.2f}%, evictionCount: 0.0
+2025-08-27 17:53:05 [TripPlan-5] INFO  c.p.t.s.s.plan.ActivitySearchService - Found 27 activities for city Ostia, filtered to 6 top activities
+2025-08-27 17:53:12 [ForkJoinPool.commonPool-worker-6] DEBUG c.p.t.s.s.e.a.AmadeusHotelService - API call completed, found 3 results
+2025-08-27 17:53:12 [ForkJoinPool.commonPool-worker-6] DEBUG c.p.t.s.s.e.a.AmadeusHotelService - Cached 3 hotel offers for key: ho_6d0dcec90bf5a2319e9fb9879d595241
+2025-08-27 17:53:12 [ForkJoinPool.commonPool-worker-6] INFO  c.p.t.s.s.e.a.AmadeusHotelService - API result cached successfully - 3 hotel offers for key: ho_6d0dcec90bf5a2319e9fb9879d595241
+2025-08-27 17:53:12 [ForkJoinPool.commonPool-worker-6] DEBUG c.p.t.s.s.e.a.AmadeusHotelService - Hotel offers cache stats - size: 2, hitRate: {:.2f}%, evictionCount: 0.0
+2025-08-27 17:53:12 [ForkJoinPool.commonPool-worker-6] INFO  c.p.t.s.s.plan.HotelSearchService - Found 1 hotel offers for city ORY
+2025-08-27 17:53:12 [ForkJoinPool.commonPool-worker-6] DEBUG c.p.t.s.s.plan.HotelSearchService - Found 1 hotels for route ORY
+2025-08-27 17:53:13 [ForkJoinPool.commonPool-worker-3] DEBUG c.p.t.s.s.e.a.AmadeusHotelService - API call completed, found 1 results
+2025-08-27 17:53:13 [ForkJoinPool.commonPool-worker-3] DEBUG c.p.t.s.s.e.a.AmadeusHotelService - Cached 1 hotel offers for key: ho_c2263665d33f32a2abc4c9554c9ce6ff
+2025-08-27 17:53:13 [ForkJoinPool.commonPool-worker-3] INFO  c.p.t.s.s.e.a.AmadeusHotelService - API result cached successfully - 1 hotel offers for key: ho_c2263665d33f32a2abc4c9554c9ce6ff
+2025-08-27 17:53:13 [ForkJoinPool.commonPool-worker-3] DEBUG c.p.t.s.s.e.a.AmadeusHotelService - Hotel offers cache stats - size: 3, hitRate: {:.2f}%, evictionCount: 0.0
+2025-08-27 17:53:13 [ForkJoinPool.commonPool-worker-3] INFO  c.p.t.s.s.plan.HotelSearchService - Found 1 hotel offers for city FCO
+2025-08-27 17:53:13 [ForkJoinPool.commonPool-worker-3] DEBUG c.p.t.s.s.plan.HotelSearchService - Found 1 hotels for route FCO
+2025-08-27 17:53:13 [TripPlan-4] INFO  c.p.t.s.s.plan.HotelSearchService - Found 3 hotels in total
+2025-08-27 17:53:13 [TripPlan-4] INFO  c.p.t.s.p.s.GeneratePlanService - [TripPlan-4] Hotel details search completed in 14523 ms, found 3 hotels
+2025-08-27 17:53:57 [ForkJoinPool.commonPool-worker-4] DEBUG c.p.t.s.s.e.a.AmadeusActivityService - API call completed, found 956 results
+2025-08-27 17:53:57 [ForkJoinPool.commonPool-worker-4] DEBUG c.p.t.s.s.e.a.AmadeusActivityService - Cached 956 activities for key: ac_373944abba1f88ac302d46a6ba91e657
+2025-08-27 17:53:57 [ForkJoinPool.commonPool-worker-4] INFO  c.p.t.s.s.e.a.AmadeusActivityService - API result cached successfully - 956 activities for key: ac_373944abba1f88ac302d46a6ba91e657
+2025-08-27 17:53:57 [ForkJoinPool.commonPool-worker-4] DEBUG c.p.t.s.s.e.a.AmadeusActivityService - Activities cache stats - size: 2, hitRate: {:.2f}%, evictionCount: 0.0
+2025-08-27 17:53:57 [ForkJoinPool.commonPool-worker-4] INFO  c.p.t.s.s.plan.ActivitySearchService - Found 956 activities for city Paris, filtered to 9 top activities
+2025-08-27 17:54:30 [ForkJoinPool.commonPool-worker-1] DEBUG c.p.t.s.s.e.a.AmadeusActivityService - API call completed, found 1244 results
+2025-08-27 17:54:30 [ForkJoinPool.commonPool-worker-1] DEBUG c.p.t.s.s.e.a.AmadeusActivityService - Cached 1244 activities for key: ac_4924dd02687f3f173ef1ef8466affe9a
+2025-08-27 17:54:30 [ForkJoinPool.commonPool-worker-1] INFO  c.p.t.s.s.e.a.AmadeusActivityService - API result cached successfully - 1244 activities for key: ac_4924dd02687f3f173ef1ef8466affe9a
+2025-08-27 17:54:30 [ForkJoinPool.commonPool-worker-1] DEBUG c.p.t.s.s.e.a.AmadeusActivityService - Activities cache stats - size: 3, hitRate: {:.2f}%, evictionCount: 0.0
+2025-08-27 17:54:30 [ForkJoinPool.commonPool-worker-1] INFO  c.p.t.s.s.plan.ActivitySearchService - Found 1244 activities for city Rome, filtered to 6 top activities
+2025-08-27 17:54:30 [TripPlan-5] INFO  c.p.t.s.s.plan.ActivitySearchService - Found 21 activities in total
+2025-08-27 17:54:30 [TripPlan-5] INFO  c.p.t.s.p.s.GeneratePlanService - [TripPlan-5] Activities search completed in 91251 ms, found 21 activities
+2025-08-27 17:54:33 [main] INFO  c.p.t.s.p.s.GeneratePlanService - Dependent searches completed in 95121 ms
+2025-08-27 17:54:33 [main] INFO  c.p.t.s.s.e.ai.GoogleAiService - Starting daily route planning generation
+2025-08-27 17:54:37 [main] INFO  c.p.t.s.s.e.ai.GoogleAiService - Daily route planning generation completed successfully
+2025-08-27 17:54:37 [main] INFO  c.p.t.s.p.s.GeneratePlanService - AI plan generation completed in 3809 ms
+2025-08-27 17:54:37 [main] INFO  c.p.t.s.p.s.GeneratePlanService - === PERFORMANCE SUMMARY ===
+2025-08-27 17:54:37 [main] INFO  c.p.t.s.p.s.GeneratePlanService - Total trip plan generation time: 179233 ms
+2025-08-27 17:54:37 [main] INFO  c.p.t.s.p.s.GeneratePlanService - Found 0 flights, 3 hotels, 21 activities
+2025-08-27 17:54:37 [main] DEBUG c.p.t.s.p.s.GeneratePlanService - Thread Pool Status - Active: 0, Pool Size: 1, Queue Size: 0, Completed Tasks: 5, Total Tasks: 5
+2025-08-27 17:59:41 [main] INFO  c.p.t.s.s.p.GeneratePlanServiceTest - Starting GeneratePlanServiceTest using Java 21.0.3 with PID 1178 (started by liuyang in /Users/liuyang/ideaProjects/pkfare/trip-scale-lite)
+2025-08-27 17:59:41 [main] DEBUG c.p.t.s.s.p.GeneratePlanServiceTest - Running with Spring Boot v3.2.0, Spring v6.1.1
+2025-08-27 17:59:41 [main] INFO  c.p.t.s.s.p.GeneratePlanServiceTest - No active profile set, falling back to 1 default profile: "default"
+2025-08-27 17:59:44 [main] INFO  c.p.trip.scale.config.CacheConfig - Creating flight dates cache with expireAfterWrite: 120 minutes, maximumSize: 1000, initialCapacity: 100
+2025-08-27 17:59:44 [main] INFO  c.p.trip.scale.config.CacheConfig - Creating flight offers cache with expireAfterWrite: 120 minutes, maximumSize: 1000, initialCapacity: 100
+2025-08-27 17:59:44 [main] INFO  c.p.t.s.s.e.a.AmadeusFlightService - AmadeusFlightService initialized with flight dates and flight offers cache
+2025-08-27 17:59:44 [main] INFO  c.p.trip.scale.config.CacheConfig - Creating hotel offers cache with expireAfterWrite: 120 minutes, maximumSize: 1000, initialCapacity: 100
+2025-08-27 17:59:44 [main] INFO  c.p.t.s.s.e.a.AmadeusHotelService - AmadeusHotelService initialized with hotel offers cache
+2025-08-27 17:59:44 [main] INFO  c.p.trip.scale.config.CacheConfig - Creating activities cache with expireAfterWrite: 120 minutes, maximumSize: 1000, initialCapacity: 100
+2025-08-27 17:59:44 [main] INFO  c.p.t.s.s.e.a.AmadeusActivityService - AmadeusActivityService initialized with activities cache
+2025-08-27 17:59:45 [main] INFO  c.p.t.s.config.AsyncExecutorConfig - Creating custom thread pool for trip plan generation: corePoolSize=16, maxPoolSize=16, queueCapacity=100, keepAliveSeconds=60
+2025-08-27 17:59:45 [main] INFO  c.p.t.s.c.ParentChildContextConfig - Creating loadedAgentRegistry bean for parent-child context
+2025-08-27 17:59:45 [main] INFO  c.p.t.s.c.ParentChildContextConfig - Creating BaseSessionService bean for parent-child context
+2025-08-27 17:59:51 [main] INFO  c.p.t.s.s.p.GeneratePlanServiceTest - Started GeneratePlanServiceTest in 10.55 seconds (process running for 12.086)
+2025-08-27 17:59:56 [main] INFO  c.p.t.s.p.s.GeneratePlanService - Starting concurrent trip plan generation for origin: FLR, destinations: 3
+2025-08-27 17:59:56 [main] DEBUG c.p.t.s.p.s.GeneratePlanService - Validating parameters
+2025-08-27 17:59:56 [main] DEBUG c.p.t.s.p.s.GeneratePlanService - Precise travel calculation: daysBetween=7, tripDays=7, preciseTravel=true
+2025-08-27 17:59:56 [main] DEBUG c.p.t.s.p.s.GeneratePlanService - Round trip calculation: first=FCO, last=ORY, roundTrip=false
+2025-08-27 17:59:56 [main] INFO  c.p.t.s.p.s.GeneratePlanService - Trip configuration: preciseTravel=true, roundTrip=false
+2025-08-27 17:59:56 [main] DEBUG c.p.t.s.p.s.GeneratePlanService - Thread Pool Status - Active: 0, Pool Size: 0, Queue Size: 0, Completed Tasks: 0, Total Tasks: 0
+2025-08-27 18:00:03 [main] INFO  c.p.t.s.p.s.GeneratePlanService - Starting concurrent searches with 16 threads
+2025-08-27 18:00:03 [TripPlan-1] INFO  c.p.t.s.s.plan.FlightSearchService - Searching flight offers
+2025-08-27 18:00:03 [TripPlan-2] INFO  c.p.t.s.s.plan.HotelSearchService - Getting hotels by city for 3 routes
+2025-08-27 18:00:03 [TripPlan-1] INFO  c.p.t.s.s.e.a.AmadeusFlightService - Searching flight offers with request: FlightOffersSearchRequest(origin=FLR, destination=FCO, departureDate=2025-10-01, returnDate=null, adults=1, children=1, infants=0, nonStop=true, currency=CNY, maxPrice=25000, max=50)
+2025-08-27 18:00:06 [TripPlan-3] INFO  c.p.t.s.s.plan.LocationSearchService - Searching city locations for 3 cities: [Rome, Ostia, Paris]
+2025-08-27 18:00:06 [TripPlan-1] DEBUG c.p.trip.scale.util.CacheKeyUtil - Generated cache key: fo_67f5ebfe070594ca53f807e5e020f89a for request: flight_offers|FLR|FCO|2025-10-01||1|1|0|true|CNY|25000|50
+2025-08-27 18:00:06 [TripPlan-3] DEBUG c.p.t.s.s.plan.LocationSearchService - Processed city list: 3 unique cities
+2025-08-27 18:00:07 [TripPlan-1] DEBUG c.p.t.s.s.e.a.AmadeusFlightService - Cache miss for key: fo_67f5ebfe070594ca53f807e5e020f89a
+2025-08-27 18:00:07 [TripPlan-1] INFO  c.p.t.s.s.e.a.AmadeusFlightService - Cache miss for key: fo_67f5ebfe070594ca53f807e5e020f89a, calling API
+2025-08-27 18:00:07 [TripPlan-3] DEBUG c.p.t.s.s.plan.LocationSearchService - Cache miss for city: Rome
+2025-08-27 18:00:07 [TripPlan-3] DEBUG c.p.t.s.s.plan.LocationSearchService - Cache miss for city: Ostia
+2025-08-27 18:00:07 [TripPlan-3] DEBUG c.p.t.s.s.plan.LocationSearchService - Cache miss for city: Paris
+2025-08-27 18:00:07 [TripPlan-3] INFO  c.p.t.s.s.plan.LocationSearchService - Cache statistics - hits: 0, misses: 3, total: 3
+2025-08-27 18:00:07 [TripPlan-3] INFO  c.p.t.s.s.plan.LocationSearchService - Querying 3 cities from API: [Rome, Ostia, Paris]
+2025-08-27 18:00:07 [TripPlan-3] DEBUG c.p.t.s.s.plan.LocationSearchService - Searching location for city from API: Ostia
+2025-08-27 18:00:07 [ForkJoinPool.commonPool-worker-3] DEBUG c.p.t.s.s.plan.LocationSearchService - Searching location for city from API: Rome
+2025-08-27 18:00:07 [ForkJoinPool.commonPool-worker-4] DEBUG c.p.t.s.s.plan.LocationSearchService - Searching location for city from API: Paris
+2025-08-27 18:00:06 [ForkJoinPool.commonPool-worker-1] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Searching hotels by city with request: QueryHotelByCityRequest(cityCode=FCO, radius=10, radiusUnit=KM, amenities=null, ratings=[1, 2, 3, 4, 5])
+2025-08-27 18:00:06 [ForkJoinPool.commonPool-worker-2] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Searching hotels by city with request: QueryHotelByCityRequest(cityCode=ORY, radius=10, radiusUnit=KM, amenities=null, ratings=[1, 2, 3, 4, 5])
+2025-08-27 18:00:06 [TripPlan-2] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Searching hotels by city with request: QueryHotelByCityRequest(cityCode=OST, radius=10, radiusUnit=KM, amenities=null, ratings=[1, 2, 3, 4, 5])
+2025-08-27 18:00:14 [ForkJoinPool.commonPool-worker-4] INFO  c.p.t.s.s.plan.LocationSearchService - Successfully found and cached location for city Paris: lat=48.8575475, lng=2.3513765
+2025-08-27 18:00:14 [ForkJoinPool.commonPool-worker-3] INFO  c.p.t.s.s.plan.LocationSearchService - Successfully found and cached location for city Rome: lat=41.8967068, lng=12.4822025
+2025-08-27 18:00:17 [TripPlan-3] INFO  c.p.t.s.s.plan.LocationSearchService - Successfully found and cached location for city Ostia: lat=41.7311182, lng=12.2862694
+2025-08-27 18:00:17 [TripPlan-3] INFO  c.p.t.s.s.plan.LocationSearchService - API query completed, found 3 out of 3 cities
+2025-08-27 18:00:17 [TripPlan-3] INFO  c.p.t.s.s.plan.LocationSearchService - Successfully found locations for 3 out of 3 cities (cached: 0, api: 3)
+2025-08-27 18:00:17 [TripPlan-3] INFO  c.p.t.s.p.s.GeneratePlanService - [TripPlan-3] City locations search completed in 10892 ms, found 3 locations
+2025-08-27 18:00:18 [ForkJoinPool.commonPool-worker-1] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Hotels by city search completed, found 11 results
+2025-08-27 18:00:19 [ForkJoinPool.commonPool-worker-1] INFO  c.p.t.s.s.plan.HotelSearchService - Found 11 hotels in city FCO
+2025-08-27 18:00:19 [TripPlan-2] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Hotels by city search completed, found 8 results
+2025-08-27 18:00:22 [TripPlan-2] INFO  c.p.t.s.s.plan.HotelSearchService - Found 8 hotels in city OST
+2025-08-27 18:00:22 [ForkJoinPool.commonPool-worker-2] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Hotels by city search completed, found 43 results
+2025-08-27 18:00:22 [ForkJoinPool.commonPool-worker-2] INFO  c.p.t.s.s.plan.HotelSearchService - Found 43 hotels in city ORY
+2025-08-27 18:00:22 [TripPlan-2] INFO  c.p.t.s.p.s.GeneratePlanService - [TripPlan-2] Hotel IDs search completed in 18312 ms, found 3 cities
+2025-08-27 18:00:22 [TripPlan-1] DEBUG c.p.t.s.s.e.a.AmadeusFlightService - API call completed, found 4 results
+2025-08-27 18:00:22 [TripPlan-1] DEBUG c.p.t.s.s.e.a.AmadeusFlightService - Cached 4 flight offers for key: fo_67f5ebfe070594ca53f807e5e020f89a
+2025-08-27 18:00:22 [TripPlan-1] INFO  c.p.t.s.s.e.a.AmadeusFlightService - API result cached successfully - 4 flight offers for key: fo_67f5ebfe070594ca53f807e5e020f89a
+2025-08-27 18:00:22 [TripPlan-1] DEBUG c.p.t.s.s.e.a.AmadeusFlightService - Flight offers cache stats - size: 1, hitRate: {:.2f}%, evictionCount: 0.0
+2025-08-27 18:00:22 [TripPlan-1] INFO  c.p.t.s.s.e.a.AmadeusFlightService - Searching flight offers with request: FlightOffersSearchRequest(origin=ORY, destination=FLR, departureDate=2025-10-07, returnDate=null, adults=1, children=1, infants=0, nonStop=true, currency=CNY, maxPrice=25000, max=50)
+2025-08-27 18:00:26 [TripPlan-1] DEBUG c.p.trip.scale.util.CacheKeyUtil - Generated cache key: fo_999021c45cb45939bab7a098937da645 for request: flight_offers|ORY|FLR|2025-10-07||1|1|0|true|CNY|25000|50
+2025-08-27 18:00:26 [TripPlan-1] DEBUG c.p.t.s.s.e.a.AmadeusFlightService - Cache miss for key: fo_999021c45cb45939bab7a098937da645
+2025-08-27 18:00:26 [TripPlan-1] INFO  c.p.t.s.s.e.a.AmadeusFlightService - Cache miss for key: fo_999021c45cb45939bab7a098937da645, calling API
+2025-08-27 18:00:27 [TripPlan-1] DEBUG c.p.t.s.s.e.a.AmadeusFlightService - API call completed, found 4 results
+2025-08-27 18:00:27 [TripPlan-1] DEBUG c.p.t.s.s.e.a.AmadeusFlightService - Cached 4 flight offers for key: fo_999021c45cb45939bab7a098937da645
+2025-08-27 18:00:27 [TripPlan-1] INFO  c.p.t.s.s.e.a.AmadeusFlightService - API result cached successfully - 4 flight offers for key: fo_999021c45cb45939bab7a098937da645
+2025-08-27 18:00:27 [TripPlan-1] DEBUG c.p.t.s.s.e.a.AmadeusFlightService - Flight offers cache stats - size: 2, hitRate: {:.2f}%, evictionCount: 0.0
+2025-08-27 18:00:27 [TripPlan-1] INFO  c.p.t.s.s.plan.FlightSearchService - Extracted airport codes: [FCO, ORY, FLR]
+2025-08-27 18:00:27 [TripPlan-1] DEBUG c.p.t.s.s.plan.FlightSearchService - Converted location for airport FCO: lat=41.79362, lng=12.2525
+2025-08-27 18:00:28 [TripPlan-1] DEBUG c.p.t.s.s.plan.FlightSearchService - Converted location for airport ORY: lat=48.72528, lng=2.35945
+2025-08-27 18:00:28 [TripPlan-1] DEBUG c.p.t.s.s.plan.FlightSearchService - Converted location for airport FLR: lat=43.81, lng=11.205
+2025-08-27 18:00:28 [TripPlan-1] INFO  c.p.t.s.s.plan.FlightSearchService - Successfully queried 3 flight locations
+2025-08-27 18:00:28 [TripPlan-1] DEBUG c.p.t.s.s.plan.FlightSearchService - Added airport FCO to location map: lat=41.79362, lng=12.2525
+2025-08-27 18:00:28 [TripPlan-1] DEBUG c.p.t.s.s.plan.FlightSearchService - Added airport ORY to location map: lat=48.72528, lng=2.35945
+2025-08-27 18:00:28 [TripPlan-1] DEBUG c.p.t.s.s.plan.FlightSearchService - Added airport FLR to location map: lat=43.81, lng=11.205
+2025-08-27 18:00:28 [TripPlan-1] INFO  c.p.t.s.s.plan.FlightSearchService - Created airport location map with 3 entries
+2025-08-27 18:00:28 [TripPlan-1] DEBUG c.p.t.s.s.plan.FlightSearchService - Supplemented departure geo for airport: FLR
+2025-08-27 18:00:28 [TripPlan-1] DEBUG c.p.t.s.s.plan.FlightSearchService - Supplemented arrival geo for airport: FCO
+2025-08-27 18:00:28 [TripPlan-1] DEBUG c.p.t.s.s.plan.FlightSearchService - Supplemented departure geo for airport: ORY
+2025-08-27 18:00:28 [TripPlan-1] DEBUG c.p.t.s.s.plan.FlightSearchService - Supplemented arrival geo for airport: FLR
+2025-08-27 18:00:28 [TripPlan-1] INFO  c.p.t.s.s.plan.FlightSearchService - Successfully supplemented location information for 2 flights
+2025-08-27 18:00:28 [TripPlan-1] INFO  c.p.t.s.p.s.GeneratePlanService - [TripPlan-1] Flight search completed in 24954 ms, found 2 flights
+2025-08-27 18:00:28 [main] INFO  c.p.t.s.p.s.GeneratePlanService - All concurrent searches completed in 25390 ms
+2025-08-27 18:00:34 [TripPlan-4] INFO  c.p.t.s.s.plan.HotelSearchService - Searching hotels for 3 routes
+2025-08-27 18:00:34 [TripPlan-5] INFO  c.p.t.s.s.plan.ActivitySearchService - Searching activities for 3 cityLocationInfos
+2025-08-27 18:00:34 [TripPlan-5] DEBUG c.p.t.s.s.plan.ActivitySearchService - hotelCity Rome location: lat=41.8967068, lon=12.4822025
+2025-08-27 18:00:34 [TripPlan-4] INFO  c.p.t.s.s.plan.HotelSearchService - City FCO: CheckIn=2025-10-01, CheckOut=2025-10-03
+2025-08-27 18:00:34 [TripPlan-5] DEBUG c.p.t.s.s.plan.ActivitySearchService - hotelCity Ostia location: lat=41.7311182, lon=12.2862694
+2025-08-27 18:00:34 [TripPlan-4] INFO  c.p.t.s.s.plan.HotelSearchService - City OST: CheckIn=2025-10-03, CheckOut=2025-10-05
+2025-08-27 18:00:34 [TripPlan-5] DEBUG c.p.t.s.s.plan.ActivitySearchService - hotelCity Paris location: lat=48.8575475, lon=2.3513765
+2025-08-27 18:00:34 [TripPlan-4] INFO  c.p.t.s.s.plan.HotelSearchService - City ORY: CheckIn=2025-10-05, CheckOut=2025-10-08
+2025-08-27 18:00:34 [TripPlan-4] INFO  c.p.t.s.s.plan.HotelSearchService - Searching hotel offers for city OST with 8 hotels
+2025-08-27 18:00:34 [ForkJoinPool.commonPool-worker-3] INFO  c.p.t.s.s.plan.HotelSearchService - Searching hotel offers for city FCO with 11 hotels
+2025-08-27 18:00:34 [ForkJoinPool.commonPool-worker-4] INFO  c.p.t.s.s.plan.HotelSearchService - Searching hotel offers for city ORY with 20 hotels
+2025-08-27 18:00:34 [TripPlan-5] INFO  c.p.t.s.s.plan.ActivitySearchService - Searching activities for city Ostia ，location HotelLocationInfo(latitude=41.7311182, longitude=12.2862694)
+2025-08-27 18:00:34 [ForkJoinPool.commonPool-worker-1] INFO  c.p.t.s.s.plan.ActivitySearchService - Searching activities for city Paris ，location HotelLocationInfo(latitude=48.8575475, longitude=2.3513765)
+2025-08-27 18:00:34 [ForkJoinPool.commonPool-worker-2] INFO  c.p.t.s.s.plan.ActivitySearchService - Searching activities for city Rome ，location HotelLocationInfo(latitude=41.8967068, longitude=12.4822025)
+2025-08-27 18:00:34 [TripPlan-5] INFO  c.p.t.s.s.e.a.AmadeusActivityService - Searching activities with request: ActivitiesSearchRequest(latitude=41.7311182, longitude=12.2862694, radius=20)
+2025-08-27 18:00:34 [ForkJoinPool.commonPool-worker-2] INFO  c.p.t.s.s.e.a.AmadeusActivityService - Searching activities with request: ActivitiesSearchRequest(latitude=41.8967068, longitude=12.4822025, radius=20)
+2025-08-27 18:00:34 [ForkJoinPool.commonPool-worker-1] INFO  c.p.t.s.s.e.a.AmadeusActivityService - Searching activities with request: ActivitiesSearchRequest(latitude=48.8575475, longitude=2.3513765, radius=20)
+2025-08-27 18:00:37 [ForkJoinPool.commonPool-worker-2] DEBUG c.p.trip.scale.util.CacheKeyUtil - Generated cache key: ac_4924dd02687f3f173ef1ef8466affe9a for request: activities|41.8967068|12.4822025|20
+2025-08-27 18:00:37 [ForkJoinPool.commonPool-worker-2] DEBUG c.p.t.s.s.e.a.AmadeusActivityService - Cache miss for key: ac_4924dd02687f3f173ef1ef8466affe9a
+2025-08-27 18:00:37 [ForkJoinPool.commonPool-worker-2] INFO  c.p.t.s.s.e.a.AmadeusActivityService - Cache miss for key: ac_4924dd02687f3f173ef1ef8466affe9a, calling API
+2025-08-27 18:00:37 [TripPlan-5] DEBUG c.p.trip.scale.util.CacheKeyUtil - Generated cache key: ac_e77ad97ab0bb34ea534de26358049c1b for request: activities|41.7311182|12.2862694|20
+2025-08-27 18:00:37 [TripPlan-5] DEBUG c.p.t.s.s.e.a.AmadeusActivityService - Cache miss for key: ac_e77ad97ab0bb34ea534de26358049c1b
+2025-08-27 18:00:37 [TripPlan-5] INFO  c.p.t.s.s.e.a.AmadeusActivityService - Cache miss for key: ac_e77ad97ab0bb34ea534de26358049c1b, calling API
+2025-08-27 18:00:37 [ForkJoinPool.commonPool-worker-1] DEBUG c.p.trip.scale.util.CacheKeyUtil - Generated cache key: ac_373944abba1f88ac302d46a6ba91e657 for request: activities|48.8575475|2.3513765|20
+2025-08-27 18:00:37 [ForkJoinPool.commonPool-worker-1] DEBUG c.p.t.s.s.e.a.AmadeusActivityService - Cache miss for key: ac_373944abba1f88ac302d46a6ba91e657
+2025-08-27 18:00:37 [ForkJoinPool.commonPool-worker-1] INFO  c.p.t.s.s.e.a.AmadeusActivityService - Cache miss for key: ac_373944abba1f88ac302d46a6ba91e657, calling API
+2025-08-27 18:00:34 [ForkJoinPool.commonPool-worker-4] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Searching hotel offers with request: HotelOffersSearchRequest(hotelIds=[HLORY208, RTORYORY, HSORYAFI, HSPARCCP, RTORYALT, NNPARC16, BWORY780, RTORYRUN, HSORYAEA, HSPARCDM, NNPARC49, CIORY405, WVPARCCL, NNPARP20, NNPARP25, RTORYCHE, CIORY384, CIORY336, FGORYI7Y, HSPARCDA], adults=2, checkInDate=2025-10-05, checkOutDate=2025-10-08, countryOfResidence=FR, roomQuantity=1, priceRange=10-5000, currency=CNY, paymentPolicy=NONE, bestRateOnly=true)
+2025-08-27 18:00:34 [TripPlan-4] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Searching hotel offers with request: HotelOffersSearchRequest(hotelIds=[HSOSTAAO, CHOSTVEL, HSOSTAAF, CHOSTBER, HSOSTAAY, YXOSTTPA, HSOSTAEL, HSOSTAAE], adults=2, checkInDate=2025-10-03, checkOutDate=2025-10-05, countryOfResidence=IT, roomQuantity=1, priceRange=10-5000, currency=CNY, paymentPolicy=NONE, bestRateOnly=true)
+2025-08-27 18:00:34 [ForkJoinPool.commonPool-worker-3] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Searching hotel offers with request: HotelOffersSearchRequest(hotelIds=[BWFCO336, YXROMSEC, YXROMDLI, YXROMTIB, CIFCO058, WVFCO548, BWFCO270, BNROMABH, ONROMBEL, OIROMBLV, YXFCOLCH], adults=2, checkInDate=2025-10-01, checkOutDate=2025-10-03, countryOfResidence=IT, roomQuantity=1, priceRange=10-5000, currency=CNY, paymentPolicy=NONE, bestRateOnly=true)
+2025-08-27 18:00:41 [ForkJoinPool.commonPool-worker-4] DEBUG c.p.trip.scale.util.CacheKeyUtil - Generated cache key: ho_6d0dcec90bf5a2319e9fb9879d595241 for request: hotel_offers|BWORY780,CIORY336,CIORY384,CIORY405,FGORYI7Y,HLORY208,HSORYAEA,HSORYAFI,HSPARCCP,HSPARCDA,HSPARCDM,NNPARC16,NNPARC49,NNPARP20,NNPARP25,RTORYALT,RTORYCHE,RTORYORY,RTORYRUN,WVPARCCL|2|2025-10-05|2025-10-08|FR|1|10-5000|CNY|NONE|true
+2025-08-27 18:00:41 [TripPlan-4] DEBUG c.p.trip.scale.util.CacheKeyUtil - Generated cache key: ho_0fc10ffdb39e87f6575bf279f0ca6653 for request: hotel_offers|CHOSTBER,CHOSTVEL,HSOSTAAE,HSOSTAAF,HSOSTAAO,HSOSTAAY,HSOSTAEL,YXOSTTPA|2|2025-10-03|2025-10-05|IT|1|10-5000|CNY|NONE|true
+2025-08-27 18:00:41 [TripPlan-4] DEBUG c.p.t.s.s.e.a.AmadeusHotelService - Cache miss for key: ho_0fc10ffdb39e87f6575bf279f0ca6653
+2025-08-27 18:00:41 [ForkJoinPool.commonPool-worker-4] DEBUG c.p.t.s.s.e.a.AmadeusHotelService - Cache miss for key: ho_6d0dcec90bf5a2319e9fb9879d595241
+2025-08-27 18:00:41 [ForkJoinPool.commonPool-worker-3] DEBUG c.p.trip.scale.util.CacheKeyUtil - Generated cache key: ho_c2263665d33f32a2abc4c9554c9ce6ff for request: hotel_offers|BNROMABH,BWFCO270,BWFCO336,CIFCO058,OIROMBLV,ONROMBEL,WVFCO548,YXFCOLCH,YXROMDLI,YXROMSEC,YXROMTIB|2|2025-10-01|2025-10-03|IT|1|10-5000|CNY|NONE|true
+2025-08-27 18:00:41 [TripPlan-4] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Cache miss for key: ho_0fc10ffdb39e87f6575bf279f0ca6653, calling API
+2025-08-27 18:00:41 [ForkJoinPool.commonPool-worker-4] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Cache miss for key: ho_6d0dcec90bf5a2319e9fb9879d595241, calling API
+2025-08-27 18:00:41 [ForkJoinPool.commonPool-worker-3] DEBUG c.p.t.s.s.e.a.AmadeusHotelService - Cache miss for key: ho_c2263665d33f32a2abc4c9554c9ce6ff
+2025-08-27 18:00:41 [ForkJoinPool.commonPool-worker-3] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Cache miss for key: ho_c2263665d33f32a2abc4c9554c9ce6ff, calling API
+2025-08-27 18:00:43 [TripPlan-4] DEBUG c.p.t.s.s.e.a.AmadeusHotelService - API call completed, found 1 results
+2025-08-27 18:00:43 [TripPlan-4] DEBUG c.p.t.s.s.e.a.AmadeusHotelService - Cached 1 hotel offers for key: ho_0fc10ffdb39e87f6575bf279f0ca6653
+2025-08-27 18:00:43 [TripPlan-4] INFO  c.p.t.s.s.e.a.AmadeusHotelService - API result cached successfully - 1 hotel offers for key: ho_0fc10ffdb39e87f6575bf279f0ca6653
+2025-08-27 18:00:43 [TripPlan-4] DEBUG c.p.t.s.s.e.a.AmadeusHotelService - Hotel offers cache stats - size: 1, hitRate: {:.2f}%, evictionCount: 0.0
+2025-08-27 18:00:43 [TripPlan-4] INFO  c.p.t.s.s.plan.HotelSearchService - Found 1 hotel offers for city OST
+2025-08-27 18:00:43 [TripPlan-4] DEBUG c.p.t.s.s.plan.HotelSearchService - Found 1 hotels for route OST
+2025-08-27 18:00:43 [TripPlan-5] DEBUG c.p.t.s.s.e.a.AmadeusActivityService - API call completed, found 27 results
+2025-08-27 18:00:43 [TripPlan-5] DEBUG c.p.t.s.s.e.a.AmadeusActivityService - Cached 27 activities for key: ac_e77ad97ab0bb34ea534de26358049c1b
+2025-08-27 18:00:43 [TripPlan-5] INFO  c.p.t.s.s.e.a.AmadeusActivityService - API result cached successfully - 27 activities for key: ac_e77ad97ab0bb34ea534de26358049c1b
+2025-08-27 18:00:43 [TripPlan-5] DEBUG c.p.t.s.s.e.a.AmadeusActivityService - Activities cache stats - size: 1, hitRate: {:.2f}%, evictionCount: 0.0
+2025-08-27 18:00:43 [TripPlan-5] INFO  c.p.t.s.s.plan.ActivitySearchService - Found 27 activities for city Ostia, filtered to 6 top activities
+2025-08-27 18:00:52 [ForkJoinPool.commonPool-worker-1] DEBUG c.p.t.s.s.e.a.AmadeusActivityService - API call completed, found 956 results
+2025-08-27 18:00:52 [ForkJoinPool.commonPool-worker-1] DEBUG c.p.t.s.s.e.a.AmadeusActivityService - Cached 956 activities for key: ac_373944abba1f88ac302d46a6ba91e657
+2025-08-27 18:00:52 [ForkJoinPool.commonPool-worker-1] INFO  c.p.t.s.s.e.a.AmadeusActivityService - API result cached successfully - 956 activities for key: ac_373944abba1f88ac302d46a6ba91e657
+2025-08-27 18:00:52 [ForkJoinPool.commonPool-worker-1] DEBUG c.p.t.s.s.e.a.AmadeusActivityService - Activities cache stats - size: 2, hitRate: {:.2f}%, evictionCount: 0.0
+2025-08-27 18:00:52 [ForkJoinPool.commonPool-worker-1] INFO  c.p.t.s.s.plan.ActivitySearchService - Found 956 activities for city Paris, filtered to 9 top activities
+2025-08-27 18:00:54 [ForkJoinPool.commonPool-worker-3] DEBUG c.p.t.s.s.e.a.AmadeusHotelService - API call completed, found 1 results
+2025-08-27 18:00:54 [ForkJoinPool.commonPool-worker-3] DEBUG c.p.t.s.s.e.a.AmadeusHotelService - Cached 1 hotel offers for key: ho_c2263665d33f32a2abc4c9554c9ce6ff
+2025-08-27 18:00:54 [ForkJoinPool.commonPool-worker-3] INFO  c.p.t.s.s.e.a.AmadeusHotelService - API result cached successfully - 1 hotel offers for key: ho_c2263665d33f32a2abc4c9554c9ce6ff
+2025-08-27 18:00:54 [ForkJoinPool.commonPool-worker-3] DEBUG c.p.t.s.s.e.a.AmadeusHotelService - Hotel offers cache stats - size: 2, hitRate: {:.2f}%, evictionCount: 0.0
+2025-08-27 18:00:54 [ForkJoinPool.commonPool-worker-3] INFO  c.p.t.s.s.plan.HotelSearchService - Found 1 hotel offers for city FCO
+2025-08-27 18:00:54 [ForkJoinPool.commonPool-worker-3] DEBUG c.p.t.s.s.plan.HotelSearchService - Found 1 hotels for route FCO
+2025-08-27 18:00:54 [ForkJoinPool.commonPool-worker-4] DEBUG c.p.t.s.s.e.a.AmadeusHotelService - API call completed, found 3 results
+2025-08-27 18:00:54 [ForkJoinPool.commonPool-worker-4] DEBUG c.p.t.s.s.e.a.AmadeusHotelService - Cached 3 hotel offers for key: ho_6d0dcec90bf5a2319e9fb9879d595241
+2025-08-27 18:00:54 [ForkJoinPool.commonPool-worker-4] INFO  c.p.t.s.s.e.a.AmadeusHotelService - API result cached successfully - 3 hotel offers for key: ho_6d0dcec90bf5a2319e9fb9879d595241
+2025-08-27 18:00:54 [ForkJoinPool.commonPool-worker-4] DEBUG c.p.t.s.s.e.a.AmadeusHotelService - Hotel offers cache stats - size: 3, hitRate: {:.2f}%, evictionCount: 0.0
+2025-08-27 18:00:54 [ForkJoinPool.commonPool-worker-4] INFO  c.p.t.s.s.plan.HotelSearchService - Found 1 hotel offers for city ORY
+2025-08-27 18:00:54 [ForkJoinPool.commonPool-worker-4] DEBUG c.p.t.s.s.plan.HotelSearchService - Found 1 hotels for route ORY
+2025-08-27 18:00:54 [TripPlan-4] INFO  c.p.t.s.s.plan.HotelSearchService - Found 3 hotels in total
+2025-08-27 18:00:54 [TripPlan-4] INFO  c.p.t.s.p.s.GeneratePlanService - [TripPlan-4] Hotel details search completed in 19937 ms, found 3 hotels
+2025-08-27 18:00:55 [ForkJoinPool.commonPool-worker-2] DEBUG c.p.t.s.s.e.a.AmadeusActivityService - API call completed, found 1244 results
+2025-08-27 18:00:55 [ForkJoinPool.commonPool-worker-2] DEBUG c.p.t.s.s.e.a.AmadeusActivityService - Cached 1244 activities for key: ac_4924dd02687f3f173ef1ef8466affe9a
+2025-08-27 18:00:55 [ForkJoinPool.commonPool-worker-2] INFO  c.p.t.s.s.e.a.AmadeusActivityService - API result cached successfully - 1244 activities for key: ac_4924dd02687f3f173ef1ef8466affe9a
+2025-08-27 18:00:55 [ForkJoinPool.commonPool-worker-2] DEBUG c.p.t.s.s.e.a.AmadeusActivityService - Activities cache stats - size: 3, hitRate: {:.2f}%, evictionCount: 0.0
+2025-08-27 18:00:55 [ForkJoinPool.commonPool-worker-2] INFO  c.p.t.s.s.plan.ActivitySearchService - Found 1244 activities for city Rome, filtered to 6 top activities
+2025-08-27 18:00:55 [TripPlan-5] INFO  c.p.t.s.s.plan.ActivitySearchService - Found 21 activities in total
+2025-08-27 18:00:55 [TripPlan-5] INFO  c.p.t.s.p.s.GeneratePlanService - [TripPlan-5] Activities search completed in 20971 ms, found 21 activities
+2025-08-27 18:00:55 [main] INFO  c.p.t.s.p.s.GeneratePlanService - Dependent searches completed in 26475 ms
+2025-08-27 18:00:55 [main] INFO  c.p.t.s.s.e.ai.GoogleAiService - Starting daily route planning generation
+2025-08-27 18:01:00 [main] INFO  c.p.t.s.s.e.ai.GoogleAiService - Daily route planning generation completed successfully
+2025-08-27 18:01:00 [main] INFO  c.p.t.s.p.s.GeneratePlanService - AI plan generation completed in 5233 ms
+2025-08-27 18:01:00 [main] INFO  c.p.t.s.p.s.GeneratePlanService - === PERFORMANCE SUMMARY ===
+2025-08-27 18:01:00 [main] INFO  c.p.t.s.p.s.GeneratePlanService - Total trip plan generation time: 63578 ms
+2025-08-27 18:01:00 [main] INFO  c.p.t.s.p.s.GeneratePlanService - Found 2 flights, 3 hotels, 21 activities
+2025-08-27 18:01:00 [main] DEBUG c.p.t.s.p.s.GeneratePlanService - Thread Pool Status - Active: 0, Pool Size: 5, Queue Size: 0, Completed Tasks: 5, Total Tasks: 5
+2025-08-27 18:01:00 [main] INFO  c.p.t.s.s.p.GeneratePlanServiceTest - ****************************************************   第二次请求    ***************************************************************
+2025-08-27 18:01:01 [main] INFO  c.p.t.s.p.s.GeneratePlanService - Starting concurrent trip plan generation for origin: FLR, destinations: 3
+2025-08-27 18:01:01 [main] DEBUG c.p.t.s.p.s.GeneratePlanService - Validating parameters
+2025-08-27 18:01:01 [main] DEBUG c.p.t.s.p.s.GeneratePlanService - Precise travel calculation: daysBetween=7, tripDays=7, preciseTravel=true
+2025-08-27 18:01:01 [main] DEBUG c.p.t.s.p.s.GeneratePlanService - Round trip calculation: first=FCO, last=ORY, roundTrip=false
+2025-08-27 18:01:01 [main] INFO  c.p.t.s.p.s.GeneratePlanService - Trip configuration: preciseTravel=true, roundTrip=false
+2025-08-27 18:01:01 [main] DEBUG c.p.t.s.p.s.GeneratePlanService - Thread Pool Status - Active: 0, Pool Size: 5, Queue Size: 0, Completed Tasks: 5, Total Tasks: 5
+2025-08-27 18:01:02 [main] INFO  c.p.t.s.p.s.GeneratePlanService - Starting concurrent searches with 16 threads
+2025-08-27 18:01:02 [TripPlan-6] INFO  c.p.t.s.s.plan.FlightSearchService - Searching flight offers
+2025-08-27 18:01:02 [TripPlan-7] INFO  c.p.t.s.s.plan.HotelSearchService - Getting hotels by city for 3 routes
+2025-08-27 18:01:02 [TripPlan-8] INFO  c.p.t.s.s.plan.LocationSearchService - Searching city locations for 3 cities: [Rome, Ostia, Paris]
+2025-08-27 18:01:02 [TripPlan-6] INFO  c.p.t.s.s.e.a.AmadeusFlightService - Searching flight offers with request: FlightOffersSearchRequest(origin=FLR, destination=FCO, departureDate=2025-10-01, returnDate=null, adults=1, children=1, infants=0, nonStop=true, currency=CNY, maxPrice=25000, max=50)
+2025-08-27 18:01:03 [TripPlan-8] DEBUG c.p.t.s.s.plan.LocationSearchService - Processed city list: 3 unique cities
+2025-08-27 18:01:04 [TripPlan-7] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Searching hotels by city with request: QueryHotelByCityRequest(cityCode=OST, radius=10, radiusUnit=KM, amenities=null, ratings=[1, 2, 3, 4, 5])
+2025-08-27 18:01:04 [ForkJoinPool.commonPool-worker-4] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Searching hotels by city with request: QueryHotelByCityRequest(cityCode=ORY, radius=10, radiusUnit=KM, amenities=null, ratings=[1, 2, 3, 4, 5])
+2025-08-27 18:01:04 [ForkJoinPool.commonPool-worker-2] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Searching hotels by city with request: QueryHotelByCityRequest(cityCode=FCO, radius=10, radiusUnit=KM, amenities=null, ratings=[1, 2, 3, 4, 5])
+2025-08-27 18:01:04 [TripPlan-8] DEBUG c.p.t.s.s.plan.LocationSearchService - Cache hit for city: Rome
+2025-08-27 18:01:04 [TripPlan-8] DEBUG c.p.t.s.s.plan.LocationSearchService - Cache hit for city: Ostia
+2025-08-27 18:01:04 [TripPlan-8] DEBUG c.p.t.s.s.plan.LocationSearchService - Cache hit for city: Paris
+2025-08-27 18:01:04 [TripPlan-6] DEBUG c.p.trip.scale.util.CacheKeyUtil - Generated cache key: fo_67f5ebfe070594ca53f807e5e020f89a for request: flight_offers|FLR|FCO|2025-10-01||1|1|0|true|CNY|25000|50
+2025-08-27 18:01:04 [TripPlan-8] INFO  c.p.t.s.s.plan.LocationSearchService - Cache statistics - hits: 3, misses: 0, total: 3
+2025-08-27 18:01:04 [TripPlan-8] INFO  c.p.t.s.s.plan.LocationSearchService - Successfully found locations for 3 out of 3 cities (cached: 3, api: 0)
+2025-08-27 18:01:04 [TripPlan-8] INFO  c.p.t.s.p.s.GeneratePlanService - [TripPlan-8] City locations search completed in 1407 ms, found 3 locations
+2025-08-27 18:01:04 [TripPlan-6] DEBUG c.p.t.s.s.e.a.AmadeusFlightService - Cache hit for key: fo_67f5ebfe070594ca53f807e5e020f89a, found 4 results
+2025-08-27 18:01:04 [TripPlan-6] INFO  c.p.t.s.s.e.a.AmadeusFlightService - Cache hit! Returning 4 cached flight offers for key: fo_67f5ebfe070594ca53f807e5e020f89a
+2025-08-27 18:01:04 [TripPlan-6] DEBUG c.p.t.s.s.e.a.AmadeusFlightService - Flight offers cache stats - size: 2, hitRate: {:.2f}%, evictionCount: 33.33333333333333
+2025-08-27 18:01:04 [TripPlan-6] INFO  c.p.t.s.s.e.a.AmadeusFlightService - Searching flight offers with request: FlightOffersSearchRequest(origin=ORY, destination=FLR, departureDate=2025-10-07, returnDate=null, adults=1, children=1, infants=0, nonStop=true, currency=CNY, maxPrice=25000, max=50)
+2025-08-27 18:01:04 [TripPlan-6] DEBUG c.p.trip.scale.util.CacheKeyUtil - Generated cache key: fo_999021c45cb45939bab7a098937da645 for request: flight_offers|ORY|FLR|2025-10-07||1|1|0|true|CNY|25000|50
+2025-08-27 18:01:04 [TripPlan-6] DEBUG c.p.t.s.s.e.a.AmadeusFlightService - Cache hit for key: fo_999021c45cb45939bab7a098937da645, found 4 results
+2025-08-27 18:01:04 [TripPlan-6] INFO  c.p.t.s.s.e.a.AmadeusFlightService - Cache hit! Returning 4 cached flight offers for key: fo_999021c45cb45939bab7a098937da645
+2025-08-27 18:01:04 [TripPlan-6] DEBUG c.p.t.s.s.e.a.AmadeusFlightService - Flight offers cache stats - size: 2, hitRate: {:.2f}%, evictionCount: 50.0
+2025-08-27 18:01:04 [TripPlan-6] INFO  c.p.t.s.s.plan.FlightSearchService - Extracted airport codes: [FCO, ORY, FLR]
+2025-08-27 18:01:04 [TripPlan-6] DEBUG c.p.t.s.s.plan.FlightSearchService - Converted location for airport FCO: lat=41.79362, lng=12.2525
+2025-08-27 18:01:04 [TripPlan-7] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Hotels by city search completed, found 8 results
+2025-08-27 18:01:04 [TripPlan-7] INFO  c.p.t.s.s.plan.HotelSearchService - Found 8 hotels in city OST
+2025-08-27 18:01:05 [ForkJoinPool.commonPool-worker-4] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Hotels by city search completed, found 43 results
+2025-08-27 18:01:05 [ForkJoinPool.commonPool-worker-4] INFO  c.p.t.s.s.plan.HotelSearchService - Found 43 hotels in city ORY
+2025-08-27 18:01:05 [ForkJoinPool.commonPool-worker-2] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Hotels by city search completed, found 11 results
+2025-08-27 18:01:05 [ForkJoinPool.commonPool-worker-2] INFO  c.p.t.s.s.plan.HotelSearchService - Found 11 hotels in city FCO
+2025-08-27 18:01:05 [TripPlan-7] INFO  c.p.t.s.p.s.GeneratePlanService - [TripPlan-7] Hotel IDs search completed in 2467 ms, found 3 cities
+2025-08-27 18:01:05 [TripPlan-6] DEBUG c.p.t.s.s.plan.FlightSearchService - Converted location for airport ORY: lat=48.72528, lng=2.35945
+2025-08-27 18:01:05 [TripPlan-6] ERROR c.p.t.s.a.a.a.AmadeusFlightAirportLocationSearchAPI - call AmadeusFlightAirportLocationSearchAPI failed
+com.amadeus.exceptions.ClientException: [429]
+The network rate limit is exceeded, please try again later
+	at com.amadeus.Response.detectError(Response.java:78)
+	at com.amadeus.HTTPClient.execute(HTTPClient.java:361)
+	at com.amadeus.HTTPClient.unauthenticatedRequest(HTTPClient.java:253)
+	at com.amadeus.HTTPClient.request(HTTPClient.java:339)
+	at com.amadeus.HTTPClient.get(HTTPClient.java:67)
+	at com.amadeus.referencedata.Locations.get(Locations.java:114)
+	at com.pkfare.trip.scale.api.amadeus.airportlocations.AmadeusFlightAirportLocationSearchAPI.queryFlightLocation(AmadeusFlightAirportLocationSearchAPI.java:22)
+	at com.pkfare.trip.scale.service.plan.FlightSearchService.queryFlightLocations(FlightSearchService.java:102)
+	at com.pkfare.trip.scale.service.plan.FlightSearchService.searchFlightOffers(FlightSearchService.java:372)
+	at com.pkfare.trip.scale.plan.service.GeneratePlanService.lambda$executeConcurrentSearches$0(GeneratePlanService.java:198)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run$$$capture(CompletableFuture.java:1768)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-08-27 18:01:05 [TripPlan-6] ERROR c.p.t.s.s.plan.FlightSearchService - Failed to query location for airport code: FLR
+com.pkfare.trip.scale.api.amadeus.exception.AmadeusApiException: null
+	at com.pkfare.trip.scale.api.amadeus.airportlocations.AmadeusFlightAirportLocationSearchAPI.queryFlightLocation(AmadeusFlightAirportLocationSearchAPI.java:34)
+	at com.pkfare.trip.scale.service.plan.FlightSearchService.queryFlightLocations(FlightSearchService.java:102)
+	at com.pkfare.trip.scale.service.plan.FlightSearchService.searchFlightOffers(FlightSearchService.java:372)
+	at com.pkfare.trip.scale.plan.service.GeneratePlanService.lambda$executeConcurrentSearches$0(GeneratePlanService.java:198)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run$$$capture(CompletableFuture.java:1768)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-08-27 18:01:05 [TripPlan-6] INFO  c.p.t.s.s.plan.FlightSearchService - Successfully queried 2 flight locations
+2025-08-27 18:01:05 [TripPlan-6] DEBUG c.p.t.s.s.plan.FlightSearchService - Added airport FCO to location map: lat=41.79362, lng=12.2525
+2025-08-27 18:01:05 [TripPlan-6] DEBUG c.p.t.s.s.plan.FlightSearchService - Added airport ORY to location map: lat=48.72528, lng=2.35945
+2025-08-27 18:01:05 [TripPlan-6] INFO  c.p.t.s.s.plan.FlightSearchService - Created airport location map with 2 entries
+2025-08-27 18:01:05 [TripPlan-6] DEBUG c.p.t.s.s.plan.FlightSearchService - Supplemented arrival geo for airport: FCO
+2025-08-27 18:01:05 [TripPlan-6] DEBUG c.p.t.s.s.plan.FlightSearchService - Supplemented departure geo for airport: ORY
+2025-08-27 18:01:05 [TripPlan-6] INFO  c.p.t.s.s.plan.FlightSearchService - Successfully supplemented location information for 2 flights
+2025-08-27 18:01:05 [TripPlan-6] INFO  c.p.t.s.p.s.GeneratePlanService - [TripPlan-6] Flight search completed in 2839 ms, found 2 flights
+2025-08-27 18:01:05 [main] INFO  c.p.t.s.p.s.GeneratePlanService - All concurrent searches completed in 2841 ms
+2025-08-27 18:01:05 [TripPlan-9] INFO  c.p.t.s.s.plan.HotelSearchService - Searching hotels for 3 routes
+2025-08-27 18:01:05 [TripPlan-10] INFO  c.p.t.s.s.plan.ActivitySearchService - Searching activities for 3 cityLocationInfos
+2025-08-27 18:01:05 [TripPlan-10] DEBUG c.p.t.s.s.plan.ActivitySearchService - hotelCity Rome location: lat=41.8967068, lon=12.4822025
+2025-08-27 18:01:05 [TripPlan-10] DEBUG c.p.t.s.s.plan.ActivitySearchService - hotelCity Ostia location: lat=41.7311182, lon=12.2862694
+2025-08-27 18:01:05 [TripPlan-9] INFO  c.p.t.s.s.plan.HotelSearchService - City FCO: CheckIn=2025-10-01, CheckOut=2025-10-03
+2025-08-27 18:01:05 [TripPlan-10] DEBUG c.p.t.s.s.plan.ActivitySearchService - hotelCity Paris location: lat=48.8575475, lon=2.3513765
+2025-08-27 18:01:05 [TripPlan-9] INFO  c.p.t.s.s.plan.HotelSearchService - City OST: CheckIn=2025-10-03, CheckOut=2025-10-05
+2025-08-27 18:01:05 [TripPlan-9] INFO  c.p.t.s.s.plan.HotelSearchService - City ORY: CheckIn=2025-10-05, CheckOut=2025-10-08
+2025-08-27 18:01:05 [TripPlan-9] INFO  c.p.t.s.s.plan.HotelSearchService - Searching hotel offers for city OST with 8 hotels
+2025-08-27 18:01:05 [ForkJoinPool.commonPool-worker-2] INFO  c.p.t.s.s.plan.ActivitySearchService - Searching activities for city Rome ，location HotelLocationInfo(latitude=41.8967068, longitude=12.4822025)
+2025-08-27 18:01:05 [ForkJoinPool.commonPool-worker-4] INFO  c.p.t.s.s.plan.ActivitySearchService - Searching activities for city Paris ，location HotelLocationInfo(latitude=48.8575475, longitude=2.3513765)
+2025-08-27 18:01:05 [ForkJoinPool.commonPool-worker-1] INFO  c.p.t.s.s.plan.HotelSearchService - Searching hotel offers for city ORY with 20 hotels
+2025-08-27 18:01:05 [TripPlan-10] INFO  c.p.t.s.s.plan.ActivitySearchService - Searching activities for city Ostia ，location HotelLocationInfo(latitude=41.7311182, longitude=12.2862694)
+2025-08-27 18:01:05 [TripPlan-10] INFO  c.p.t.s.s.e.a.AmadeusActivityService - Searching activities with request: ActivitiesSearchRequest(latitude=41.7311182, longitude=12.2862694, radius=20)
+2025-08-27 18:01:05 [ForkJoinPool.commonPool-worker-4] INFO  c.p.t.s.s.e.a.AmadeusActivityService - Searching activities with request: ActivitiesSearchRequest(latitude=48.8575475, longitude=2.3513765, radius=20)
+2025-08-27 18:01:05 [TripPlan-9] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Searching hotel offers with request: HotelOffersSearchRequest(hotelIds=[HSOSTAAO, CHOSTVEL, HSOSTAAF, CHOSTBER, HSOSTAAY, YXOSTTPA, HSOSTAEL, HSOSTAAE], adults=2, checkInDate=2025-10-03, checkOutDate=2025-10-05, countryOfResidence=IT, roomQuantity=1, priceRange=10-5000, currency=CNY, paymentPolicy=NONE, bestRateOnly=true)
+2025-08-27 18:01:05 [ForkJoinPool.commonPool-worker-2] INFO  c.p.t.s.s.e.a.AmadeusActivityService - Searching activities with request: ActivitiesSearchRequest(latitude=41.8967068, longitude=12.4822025, radius=20)
+2025-08-27 18:01:05 [ForkJoinPool.commonPool-worker-1] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Searching hotel offers with request: HotelOffersSearchRequest(hotelIds=[HLORY208, RTORYORY, HSORYAFI, HSPARCCP, RTORYALT, NNPARC16, BWORY780, RTORYRUN, HSORYAEA, HSPARCDM, NNPARC49, CIORY405, WVPARCCL, NNPARP20, NNPARP25, RTORYCHE, CIORY336, CIORY384, FGORYI7Y, HSPARCDA], adults=2, checkInDate=2025-10-05, checkOutDate=2025-10-08, countryOfResidence=FR, roomQuantity=1, priceRange=10-5000, currency=CNY, paymentPolicy=NONE, bestRateOnly=true)
+2025-08-27 18:01:05 [ForkJoinPool.commonPool-worker-3] INFO  c.p.t.s.s.plan.HotelSearchService - Searching hotel offers for city FCO with 11 hotels
+2025-08-27 18:01:05 [TripPlan-10] DEBUG c.p.trip.scale.util.CacheKeyUtil - Generated cache key: ac_e77ad97ab0bb34ea534de26358049c1b for request: activities|41.7311182|12.2862694|20
+2025-08-27 18:01:05 [ForkJoinPool.commonPool-worker-3] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Searching hotel offers with request: HotelOffersSearchRequest(hotelIds=[BWFCO336, YXROMSEC, YXROMDLI, YXROMTIB, CIFCO058, WVFCO548, BWFCO270, BNROMABH, ONROMBEL, OIROMBLV, YXFCOLCH], adults=2, checkInDate=2025-10-01, checkOutDate=2025-10-03, countryOfResidence=IT, roomQuantity=1, priceRange=10-5000, currency=CNY, paymentPolicy=NONE, bestRateOnly=true)
+2025-08-27 18:01:05 [TripPlan-10] DEBUG c.p.t.s.s.e.a.AmadeusActivityService - Cache hit for key: ac_e77ad97ab0bb34ea534de26358049c1b, found 27 results
+2025-08-27 18:01:05 [TripPlan-10] INFO  c.p.t.s.s.e.a.AmadeusActivityService - Cache hit! Returning 27 cached activities for key: ac_e77ad97ab0bb34ea534de26358049c1b
+2025-08-27 18:01:05 [TripPlan-10] DEBUG c.p.t.s.s.e.a.AmadeusActivityService - Activities cache stats - size: 3, hitRate: {:.2f}%, evictionCount: 25.0
+2025-08-27 18:01:05 [ForkJoinPool.commonPool-worker-4] DEBUG c.p.trip.scale.util.CacheKeyUtil - Generated cache key: ac_373944abba1f88ac302d46a6ba91e657 for request: activities|48.8575475|2.3513765|20
+2025-08-27 18:01:05 [TripPlan-9] DEBUG c.p.trip.scale.util.CacheKeyUtil - Generated cache key: ho_0fc10ffdb39e87f6575bf279f0ca6653 for request: hotel_offers|CHOSTBER,CHOSTVEL,HSOSTAAE,HSOSTAAF,HSOSTAAO,HSOSTAAY,HSOSTAEL,YXOSTTPA|2|2025-10-03|2025-10-05|IT|1|10-5000|CNY|NONE|true
+2025-08-27 18:01:05 [ForkJoinPool.commonPool-worker-2] DEBUG c.p.trip.scale.util.CacheKeyUtil - Generated cache key: ac_4924dd02687f3f173ef1ef8466affe9a for request: activities|41.8967068|12.4822025|20
+2025-08-27 18:01:05 [ForkJoinPool.commonPool-worker-4] DEBUG c.p.t.s.s.e.a.AmadeusActivityService - Cache hit for key: ac_373944abba1f88ac302d46a6ba91e657, found 956 results
+2025-08-27 18:01:05 [ForkJoinPool.commonPool-worker-2] DEBUG c.p.t.s.s.e.a.AmadeusActivityService - Cache hit for key: ac_4924dd02687f3f173ef1ef8466affe9a, found 1244 results
+2025-08-27 18:01:05 [ForkJoinPool.commonPool-worker-4] INFO  c.p.t.s.s.e.a.AmadeusActivityService - Cache hit! Returning 956 cached activities for key: ac_373944abba1f88ac302d46a6ba91e657
+2025-08-27 18:01:05 [TripPlan-9] DEBUG c.p.t.s.s.e.a.AmadeusHotelService - Cache hit for key: ho_0fc10ffdb39e87f6575bf279f0ca6653, found 1 results
+2025-08-27 18:01:05 [TripPlan-10] INFO  c.p.t.s.s.plan.ActivitySearchService - Found 27 activities for city Ostia, filtered to 6 top activities
+2025-08-27 18:01:05 [ForkJoinPool.commonPool-worker-4] DEBUG c.p.t.s.s.e.a.AmadeusActivityService - Activities cache stats - size: 3, hitRate: {:.2f}%, evictionCount: 50.0
+2025-08-27 18:01:05 [ForkJoinPool.commonPool-worker-3] DEBUG c.p.trip.scale.util.CacheKeyUtil - Generated cache key: ho_c2263665d33f32a2abc4c9554c9ce6ff for request: hotel_offers|BNROMABH,BWFCO270,BWFCO336,CIFCO058,OIROMBLV,ONROMBEL,WVFCO548,YXFCOLCH,YXROMDLI,YXROMSEC,YXROMTIB|2|2025-10-01|2025-10-03|IT|1|10-5000|CNY|NONE|true
+2025-08-27 18:01:05 [TripPlan-9] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Cache hit! Returning 1 cached hotel offers for key: ho_0fc10ffdb39e87f6575bf279f0ca6653
+2025-08-27 18:01:05 [ForkJoinPool.commonPool-worker-2] INFO  c.p.t.s.s.e.a.AmadeusActivityService - Cache hit! Returning 1244 cached activities for key: ac_4924dd02687f3f173ef1ef8466affe9a
+2025-08-27 18:01:05 [ForkJoinPool.commonPool-worker-3] DEBUG c.p.t.s.s.e.a.AmadeusHotelService - Cache hit for key: ho_c2263665d33f32a2abc4c9554c9ce6ff, found 1 results
+2025-08-27 18:01:05 [ForkJoinPool.commonPool-worker-1] DEBUG c.p.trip.scale.util.CacheKeyUtil - Generated cache key: ho_6d0dcec90bf5a2319e9fb9879d595241 for request: hotel_offers|BWORY780,CIORY336,CIORY384,CIORY405,FGORYI7Y,HLORY208,HSORYAEA,HSORYAFI,HSPARCCP,HSPARCDA,HSPARCDM,NNPARC16,NNPARC49,NNPARP20,NNPARP25,RTORYALT,RTORYCHE,RTORYORY,RTORYRUN,WVPARCCL|2|2025-10-05|2025-10-08|FR|1|10-5000|CNY|NONE|true
+2025-08-27 18:01:05 [ForkJoinPool.commonPool-worker-3] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Cache hit! Returning 1 cached hotel offers for key: ho_c2263665d33f32a2abc4c9554c9ce6ff
+2025-08-27 18:01:05 [ForkJoinPool.commonPool-worker-2] DEBUG c.p.t.s.s.e.a.AmadeusActivityService - Activities cache stats - size: 3, hitRate: {:.2f}%, evictionCount: 50.0
+2025-08-27 18:01:05 [TripPlan-9] DEBUG c.p.t.s.s.e.a.AmadeusHotelService - Hotel offers cache stats - size: 3, hitRate: {:.2f}%, evictionCount: 40.0
+2025-08-27 18:01:05 [ForkJoinPool.commonPool-worker-3] DEBUG c.p.t.s.s.e.a.AmadeusHotelService - Hotel offers cache stats - size: 3, hitRate: {:.2f}%, evictionCount: 50.0
+2025-08-27 18:01:05 [ForkJoinPool.commonPool-worker-1] DEBUG c.p.t.s.s.e.a.AmadeusHotelService - Cache hit for key: ho_6d0dcec90bf5a2319e9fb9879d595241, found 3 results
+2025-08-27 18:01:05 [ForkJoinPool.commonPool-worker-3] INFO  c.p.t.s.s.plan.HotelSearchService - Found 1 hotel offers for city FCO
+2025-08-27 18:01:05 [ForkJoinPool.commonPool-worker-1] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Cache hit! Returning 3 cached hotel offers for key: ho_6d0dcec90bf5a2319e9fb9879d595241
+2025-08-27 18:01:05 [TripPlan-9] INFO  c.p.t.s.s.plan.HotelSearchService - Found 1 hotel offers for city OST
+2025-08-27 18:01:05 [ForkJoinPool.commonPool-worker-1] DEBUG c.p.t.s.s.e.a.AmadeusHotelService - Hotel offers cache stats - size: 3, hitRate: {:.2f}%, evictionCount: 50.0
+2025-08-27 18:01:05 [ForkJoinPool.commonPool-worker-3] DEBUG c.p.t.s.s.plan.HotelSearchService - Found 1 hotels for route FCO
+2025-08-27 18:01:05 [TripPlan-9] DEBUG c.p.t.s.s.plan.HotelSearchService - Found 1 hotels for route OST
+2025-08-27 18:01:05 [ForkJoinPool.commonPool-worker-1] INFO  c.p.t.s.s.plan.HotelSearchService - Found 1 hotel offers for city ORY
+2025-08-27 18:01:05 [ForkJoinPool.commonPool-worker-1] DEBUG c.p.t.s.s.plan.HotelSearchService - Found 1 hotels for route ORY
+2025-08-27 18:01:05 [TripPlan-9] INFO  c.p.t.s.s.plan.HotelSearchService - Found 3 hotels in total
+2025-08-27 18:01:05 [TripPlan-9] INFO  c.p.t.s.p.s.GeneratePlanService - [TripPlan-9] Hotel details search completed in 13 ms, found 3 hotels
+2025-08-27 18:01:05 [ForkJoinPool.commonPool-worker-4] INFO  c.p.t.s.s.plan.ActivitySearchService - Found 956 activities for city Paris, filtered to 9 top activities
+2025-08-27 18:01:05 [ForkJoinPool.commonPool-worker-2] INFO  c.p.t.s.s.plan.ActivitySearchService - Found 1244 activities for city Rome, filtered to 6 top activities
+2025-08-27 18:01:05 [TripPlan-10] INFO  c.p.t.s.s.plan.ActivitySearchService - Found 21 activities in total
+2025-08-27 18:01:05 [TripPlan-10] INFO  c.p.t.s.p.s.GeneratePlanService - [TripPlan-10] Activities search completed in 57 ms, found 21 activities
+2025-08-27 18:01:05 [main] INFO  c.p.t.s.p.s.GeneratePlanService - Dependent searches completed in 60 ms
+2025-08-27 18:01:05 [main] INFO  c.p.t.s.s.e.ai.GoogleAiService - Starting daily route planning generation
+2025-08-27 18:01:10 [main] INFO  c.p.t.s.s.e.ai.GoogleAiService - Daily route planning generation completed successfully
+2025-08-27 18:01:10 [main] INFO  c.p.t.s.p.s.GeneratePlanService - AI plan generation completed in 4684 ms
+2025-08-27 18:01:10 [main] INFO  c.p.t.s.p.s.GeneratePlanService - === PERFORMANCE SUMMARY ===
+2025-08-27 18:01:10 [main] INFO  c.p.t.s.p.s.GeneratePlanService - Total trip plan generation time: 8885 ms
+2025-08-27 18:01:10 [main] INFO  c.p.t.s.p.s.GeneratePlanService - Found 2 flights, 3 hotels, 21 activities
+2025-08-27 18:01:10 [main] DEBUG c.p.t.s.p.s.GeneratePlanService - Thread Pool Status - Active: 0, Pool Size: 10, Queue Size: 0, Completed Tasks: 10, Total Tasks: 10

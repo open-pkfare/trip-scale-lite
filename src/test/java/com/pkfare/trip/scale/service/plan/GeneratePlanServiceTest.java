@@ -10,11 +10,13 @@ import com.pkfare.trip.scale.plan.service.param.TripRouteParam;
 import com.pkfare.trip.scale.plan.service.response.TripRoutePlanResult;
 import java.util.List;
 import javax.annotation.Resource;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 
+@Slf4j
 @ExtendWith(MockitoExtension.class)
 @SpringBootTest
 public class GeneratePlanServiceTest {
@@ -28,18 +30,32 @@ public class GeneratePlanServiceTest {
    */
   @Test
   void testPlan_preciseTravel_onewaytrip() {
-    GeneratePlanParam param = buildPreciseTravelRoundTripParam();
+    GeneratePlanParam param = buildPreciseTravelRoundTripParam(7);
     TripRoutePlanResult result = generatePlanService.generatePlan(param);
+    log.info("****************************************************   第二次请求    ***************************************************************");
+    TripRoutePlanResult result1 = generatePlanService.generatePlan(param);
     assertNotNull(result);
   }
 
-  private GeneratePlanParam buildPreciseTravelRoundTripParam() {
+  /**
+   * 模糊行程日期 && 往返航班
+   */
+  @Test
+  void testPlan_notPreciseTravel_onewaytrip() {
+    GeneratePlanParam param = buildPreciseTravelRoundTripParam(5);
+    TripRoutePlanResult result = generatePlanService.generatePlan(param);
+    log.info("****************************************************   第二次请求    ***************************************************************");
+    TripRoutePlanResult result1 = generatePlanService.generatePlan(param);
+    assertNotNull(result);
+  }
+
+  private GeneratePlanParam buildPreciseTravelRoundTripParam(int tripDays) {
     GeneratePlanParam param = new GeneratePlanParam();
     param.setOrigin("FLR");
     param.setLocation_code("IT");
     param.setStart_period("2025-10-01");
     param.setEnd_period("2025-10-07");
-    param.setTrip_days(7);
+    param.setTrip_days(tripDays);
     param.setAdult_number(1);
     param.setChild_number(1);
     param.setRoom_quantity(1);
