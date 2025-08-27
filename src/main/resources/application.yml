@@ -45,6 +45,10 @@ trip:
         expire-after-write-minutes: 120
         maximum-size: 1000
         initial-capacity: 100
+      activities:
+        expire-after-write-minutes: 120
+        maximum-size: 1000
+        initial-capacity: 100
 
 # Amadeus API配置
 amadeus:

@@ -1,5 +1,6 @@
 package com.pkfare.trip.scale.util;
 
+import com.pkfare.trip.scale.api.amadeus.activities.request.ActivitiesSearchRequest;
 import com.pkfare.trip.scale.api.amadeus.flightdates.request.FlightDatesRequest;
 import com.pkfare.trip.scale.api.amadeus.flightoffers.request.FlightOffersSearchRequest;
 import com.pkfare.trip.scale.api.amadeus.hoteloffers.request.HotelOffersSearchRequest;
@@ -153,6 +154,44 @@ public class CacheKeyUtil {
                 hashBuilder.append(String.format("%02x", b));
             }
             String hashedKey = "ho_" + hashBuilder.toString();
+            
+            log.debug("Generated cache key: {} for request: {}", hashedKey, rawKey);
+            return hashedKey;
+            
+        } catch (NoSuchAlgorithmException e) {
+            log.warn("MD5 algorithm not available, using raw key", e);
+            return rawKey.replaceAll("[^a-zA-Z0-9_-]", "_");
+        }
+    }
+    
+    /**
+     * 为活动搜索请求生成缓存键
+     * 
+     * @param request 活动搜索请求
+     * @return 缓存键
+     */
+    public static String generateActivitiesKey(ActivitiesSearchRequest request) {
+        if (request == null) {
+            return "null";
+        }
+        
+        StringBuilder keyBuilder = new StringBuilder();
+        keyBuilder.append("activities").append(SEPARATOR);
+        keyBuilder.append(Objects.toString(request.getLatitude(), "")).append(SEPARATOR);
+        keyBuilder.append(Objects.toString(request.getLongitude(), "")).append(SEPARATOR);
+        keyBuilder.append(request.getRadius());
+        
+        String rawKey = keyBuilder.toString();
+        
+        // 使用MD5生成固定长度的键，避免键过长
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            byte[] hashBytes = md.digest(rawKey.getBytes());
+            StringBuilder hashBuilder = new StringBuilder();
+            for (byte b : hashBytes) {
+                hashBuilder.append(String.format("%02x", b));
+            }
+            String hashedKey = "ac_" + hashBuilder.toString();
             
             log.debug("Generated cache key: {} for request: {}", hashedKey, rawKey);
             return hashedKey;
