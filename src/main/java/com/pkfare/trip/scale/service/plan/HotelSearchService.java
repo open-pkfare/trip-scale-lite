@@ -57,17 +57,23 @@ public class HotelSearchService {
     Map<String, LocalDate[]> checkInOutDates = calculateCheckInOutDates(param, flights);
 
     // 3. 逐段查询最优报价
-    List<HotelInfo> hotels = new ArrayList<>();
-    param.getTrip_routes().parallelStream().forEach(route->{
-      List<String> hotelIds = localHotelIdMap.get(route.getLocation_code());
-      LocalDate[] dates = checkInOutDates.get(route.getLocation_code());
+    List<HotelInfo> hotels = param.getTrip_routes().parallelStream()
+        .filter(route -> {
+          List<String> hotelIds = localHotelIdMap.get(route.getLocation_code());
+          LocalDate[] dates = checkInOutDates.get(route.getLocation_code());
+          return hotelIds != null && !hotelIds.isEmpty() && dates != null;
+        })
+        .flatMap(route -> {
+          List<String> hotelIds = localHotelIdMap.get(route.getLocation_code());
+          LocalDate[] dates = checkInOutDates.get(route.getLocation_code());
 
-      if (hotelIds != null && !hotelIds.isEmpty() && dates != null) {
-        List<HotelInfo> routeHotels = searchHotelOffers(
-            param, route, hotelIds.subList(0, hotelIds.size() >= 50 ? 50 : hotelIds.size()), dates[0], dates[1]);
-        hotels.addAll(routeHotels);
-      }
-    });
+          List<String> limitedHotelIds = hotelIds.subList(0, Math.min(hotelIds.size(), 20));
+          List<HotelInfo> routeHotels = searchHotelOffers(param, route, limitedHotelIds, dates[0], dates[1]);
+
+          log.debug("Found {} hotels for route {}", routeHotels.size(), route.getLocation_code());
+          return routeHotels.stream();
+        })
+        .collect(Collectors.toList());
 
     log.info("Found {} hotels in total", hotels.size());
     return hotels;
@@ -84,7 +90,7 @@ public class HotelSearchService {
 
     Map<String, List<String>> localHotelIdMap = new HashMap<>();
 
-    for (TripRouteParam route : routes) {
+    routes.parallelStream().forEach(route->{
       String locationCode = route.getLocation_code();
 
       QueryHotelByCityRequest request = new QueryHotelByCityRequest();
@@ -111,7 +117,7 @@ public class HotelSearchService {
         log.error("Failed to search hotels in city {}", locationCode, e);
         localHotelIdMap.put(locationCode, new ArrayList<>());
       }
-    }
+    });
 
     return localHotelIdMap;
   }
