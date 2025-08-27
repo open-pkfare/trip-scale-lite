@@ -1,5 +1,6 @@
 package com.pkfare.trip.scale.plan.service.param;
 
+import java.util.Optional;
 import lombok.Getter;
 
 /**
@@ -9,9 +10,7 @@ public enum FlightAdjustTypeEnum {
     REPLACE("replace", "替换航班"),
     ADVANCE("advance", "提前航班"),
     DELAY("delay", "推迟航班"),
-    CHEAPER("cheaper", "更便宜的航班"),
-    CHANGE_DEPARTURE_AIRPORT("changeDepartureAirport", "更改出发机场"),
-    CHANGE_ARRIVAL_AIRPORT("changeArriveAirport", "更改到达机场");
+    CHEAPER("cheaper", "更便宜的航班");
 
     @Getter
     private final String code;
@@ -29,15 +28,12 @@ public enum FlightAdjustTypeEnum {
      * @param code 编码
      * @return 枚举值
      */
-    public static FlightAdjustTypeEnum getByCode(String code) {
-        if (code == null) {
-            return null;
-        }
+    public static Optional<FlightAdjustTypeEnum> getByCode(String code) {
         for (FlightAdjustTypeEnum type : values()) {
             if (type.code.equalsIgnoreCase(code)) {
-                return type;
+                return Optional.of(type);
             }
         }
-        return null;
+        return Optional.empty();
     }
 }

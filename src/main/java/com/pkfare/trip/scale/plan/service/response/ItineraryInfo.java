@@ -17,11 +17,6 @@ public class ItineraryInfo {
   private String departure;
 
   /**
-   * 出发时间
-   */
-  private String departureTime;
-
-  /**
    * 到达地址
    */
   private String arrival;

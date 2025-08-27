@@ -1,5 +1,6 @@
 package com.pkfare.trip.scale.plan.service.param;
 
+import java.util.Optional;
 import lombok.Getter;
 
 /**
@@ -26,15 +27,12 @@ public enum AdjustItemEnum {
      * @param code 编码
      * @return 枚举值
      */
-    public static AdjustItemEnum getByCode(String code) {
-        if (code == null) {
-            return null;
-        }
+    public static Optional<AdjustItemEnum> getByCode(String code) {
         for (AdjustItemEnum item : values()) {
             if (item.code.equalsIgnoreCase(code)) {
-                return item;
+                return Optional.of(item);
             }
         }
-        return null;
+        return Optional.empty();
     }
 }

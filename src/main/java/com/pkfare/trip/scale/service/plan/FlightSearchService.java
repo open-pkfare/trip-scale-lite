@@ -3,10 +3,12 @@ package com.pkfare.trip.scale.service.plan;
 import com.amadeus.resources.FlightDate;
 import com.amadeus.resources.FlightOfferSearch;
 import com.amadeus.resources.FlightOfferSearch.Itinerary;
+import com.amadeus.resources.FlightOfferSearch.SearchSegment;
 import com.pkfare.trip.scale.api.amadeus.flightdates.request.FlightDatesRequest;
 import com.pkfare.trip.scale.api.amadeus.flightoffers.request.FlightOffersSearchRequest;
 import com.pkfare.trip.scale.exception.TripPlanException;
 import com.pkfare.trip.scale.model.dto.FlightSearchResult;
+import com.pkfare.trip.scale.model.enums.TripPlanErrorCodeEnum;
 import com.pkfare.trip.scale.plan.service.param.AdjustPlanParam;
 import com.pkfare.trip.scale.plan.service.param.FlightAdjustTypeEnum;
 import com.pkfare.trip.scale.plan.service.param.GeneratePlanParam;
@@ -17,6 +19,7 @@ import com.pkfare.trip.scale.plan.service.response.SegmentInfo;
 import com.pkfare.trip.scale.service.external.amadeus.AmadeusFlightService;
 import com.pkfare.trip.scale.util.DateUtil;
 import com.pkfare.trip.scale.util.PriceUtil;
+import java.time.ZoneId;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -461,7 +464,7 @@ public class FlightSearchService {
      * @param itinerary 行程
      * @return 是否在去程首选时间段
      */
-    private boolean checkOutboundTimeSlot(FlightOfferSearch.Itinerary itinerary) {
+    private boolean checkOutboundTimeSlot(Itinerary itinerary) {
         if (itinerary == null || itinerary.getSegments() == null || itinerary.getSegments().length == 0) {
             return false;
         }
@@ -484,7 +487,7 @@ public class FlightSearchService {
      * @param itinerary 行程
      * @return 是否在返程首选时间段
      */
-    private boolean checkInboundTimeSlot(FlightOfferSearch.Itinerary itinerary) {
+    private boolean checkInboundTimeSlot(Itinerary itinerary) {
         if (itinerary == null || itinerary.getSegments() == null || itinerary.getSegments().length == 0) {
             return false;
         }
@@ -573,9 +576,9 @@ public class FlightSearchService {
             return null;
         }
         
-        if (date instanceof java.util.Date) {
-            return ((java.util.Date) date).toInstant()
-                .atZone(java.time.ZoneId.systemDefault())
+        if (date instanceof Date) {
+            return ((Date) date).toInstant()
+                .atZone(ZoneId.systemDefault())
                 .toLocalDate();
         }
         
@@ -583,15 +586,15 @@ public class FlightSearchService {
         return LocalDate.now(); // 简化实现
     }
 
-  public FlightInfo searchFlightInfo(GeneratePlanParam planParam, FlightInfo flightInfo, AdjustPlanParam adjustPlanParam) {
-    List<ItineraryInfo> itineraries = flightInfo.getItineraries();
-    String departure = itineraries.get(0).getDeparture();
-    String arrival = itineraries.get(itineraries.size()-1).getArrival();
-    String departureTime = itineraries.get(0).getDepartureTime();
-    FlightAdjustTypeEnum adjustTypeEnum = FlightAdjustTypeEnum.getByCode(adjustPlanParam.getAdjustType());
-    if (adjustTypeEnum == null) {
-      return null;
-    }
+  public FlightInfo searchFlightInfo(GeneratePlanParam planParam, FlightInfo oldFlightInfo, AdjustPlanParam adjustPlanParam) {
+    List<ItineraryInfo> itineraries = oldFlightInfo.getItineraries();
+    String departure = itineraries.getFirst().getDeparture();
+    String arrival = itineraries.getLast().getArrival();
+    String departureTime = itineraries.getFirst().getSegments().getFirst().getDepartureTime();
+    List<SegmentInfo> segments = itineraries.getLast().getSegments();
+    String arrivalTime = segments.getLast().getArrivalTime();
+    FlightAdjustTypeEnum adjustTypeEnum = FlightAdjustTypeEnum.getByCode(adjustPlanParam.getAdjustType()).orElse(FlightAdjustTypeEnum.REPLACE);
+
     FlightOffersSearchRequest request = new FlightOffersSearchRequest();
     request.setOrigin(departure);
     request.setDestination(arrival);
@@ -600,46 +603,61 @@ public class FlightSearchService {
     request.setInfants(0);
     request.setNonStop(true);
     request.setCurrency(planParam.getCurrency());
-    request.setMaxPrice(new BigDecimal(flightInfo.getTotal()).intValue());
+    request.setMaxPrice(new BigDecimal(oldFlightInfo.getTotal()).intValue());
     request.setMax(50);
     if (adjustTypeEnum.equals(FlightAdjustTypeEnum.CHEAPER)) {
       request.setTravelClass("PREMIUM_ECONOMY");
-      request.setMaxPrice(new BigDecimal(flightInfo.getTotal()).multiply(new BigDecimal("0.8")).intValue());
+      request.setMaxPrice(new BigDecimal(oldFlightInfo.getTotal()).multiply(new BigDecimal("0.8")).intValue());
     }
 
       FlightOfferSearch[] offers = amadeusFlightService.searchFlightOffers(request);
       if (offers == null || offers.length == 0) {
-        // todo 没有找到合适的航班
-        throw new TripPlanException(TripPlanErrorCodeEnum.NO_FLIGHT_FOUND,"没有找到合适的航班");
+        throw new TripPlanException(TripPlanErrorCodeEnum.NO_FLIGHT_FOUND);
       }
-        // 按价格排序
+        // 按价格升序排序
         List<FlightOfferSearch> offerSearches = Arrays.asList(offers);
         offerSearches.sort((o1, o2) -> {
           BigDecimal price1 = PriceUtil.parsePrice(o1.getPrice().getTotal());
           BigDecimal price2 = PriceUtil.parsePrice(o2.getPrice().getTotal());
           return price1.compareTo(price2);
         });
-        // 从offers找出与flightInfo不同航班号的一个航班
-        Set<String> oldSegmentSet = flightInfo.getItineraries().stream().flatMap(itinerary -> itinerary.getSegments().stream())
-            .flatMap(segment -> segment.getCarrierCode().concat(segment.getNumber()))
-            .collect(Collectors.toSet());
-        Optional<FlightOfferSearch> optional = offerSearches.stream()
-            .filter(offer -> {
-              Arrays.stream(offer.getItineraries()).flatMap(itinerary-> Arrays.stream(itinerary.getSegments()))
-                  .anyMatch(segment -> !oldSegmentSet.contains(segment.getCarrierCode().concat(segment.getNumber()))})
-            .findFirst();
-        if (optional.isPresent()) {
-          FlightOfferSearch offer = optional.get();
-          return convertToFlightInfo(offer);
+
+    // 根据adjustTypeEnum不同，从offers找出不同的航班
+    FlightOfferSearch target = offerSearches.getFirst();
+    if (adjustTypeEnum.equals(FlightAdjustTypeEnum.REPLACE)
+        || adjustTypeEnum.equals(FlightAdjustTypeEnum.CHEAPER)) {
+      // 从offers找出与flightInfo不同航班号的一个航班
+      Set<String> oldSegmentSet = oldFlightInfo.getItineraries().stream().flatMap(itinerary -> itinerary.getSegments().stream())
+          .map(segment -> segment.getCarrierCode().concat(segment.getNumber()))
+          .collect(Collectors.toSet());
+      Optional<FlightOfferSearch> optional = offerSearches.stream()
+          .filter(offer -> {
+            return Arrays.stream(offer.getItineraries()).flatMap(itinerary -> Arrays.stream(itinerary.getSegments()))
+                .anyMatch(segment -> !oldSegmentSet.contains(segment.getCarrierCode().concat(segment.getNumber())));
+          })
+          .findFirst();
+      if (optional.isPresent()) {
+        target = optional.get();
+      }
+    } else if (adjustTypeEnum.equals(FlightAdjustTypeEnum.ADVANCE)) {
+      for (FlightOfferSearch offerSearch : offerSearches) {
+        String newDepartureTime = offerSearch.getItineraries()[0].getSegments()[0].getDeparture().getAt();
+        if (newDepartureTime.compareTo(departureTime) < 0) {
+          target = offerSearch;
+          break;
         }
-
-
-        List<FlightInfo> bestFlights = filterBestFlights(offerSearches, false, false);
-        flights.addAll(bestFlights);
+      }
+    } else if (adjustTypeEnum.equals(FlightAdjustTypeEnum.DELAY)) {
+      for (FlightOfferSearch offerSearch : offerSearches) {
+        Itinerary[] itineraries1 = offerSearch.getItineraries();
+        SearchSegment[] segments1 = itineraries1[itineraries1.length - 1].getSegments();
+        String newArrivalTime = segments1[segments1.length - 1].getArrival().getAt();
+        if (newArrivalTime.compareTo(arrivalTime) > 0) {
+          target = offerSearch;
+          break;
+        }
       }
     }
-
-
-    return null;
+    return convertToFlightInfo(target);
   }
 }
