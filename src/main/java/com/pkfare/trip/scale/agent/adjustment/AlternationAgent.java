@@ -1,4 +1,4 @@
-package com.pkfare.trip.scale.agent.alternation;
+package com.pkfare.trip.scale.agent.adjustment;
 
 import com.google.adk.agents.BaseAgent;
 import com.google.adk.agents.Callbacks.AfterAgentCallback;
