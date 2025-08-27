@@ -94,7 +94,9 @@ public class PlanningAgent extends BaseAgent {
       GeneratePlanParam param = mockGeneratePlanParam();
       // 调用GeneratePlanService.generatePlan接口
       GeneratePlanService generatePlanService = getGeneratePlanService();
+      long start = System.currentTimeMillis();
       TripRoutePlanResult planResult = generatePlanService.generatePlan(param);
+      log.info("*******************************************************Time taken to generate plan: {} ms", System.currentTimeMillis() - start   );
       
       log.info("Generated trip plan with status: {}", planResult.getStatus());
 

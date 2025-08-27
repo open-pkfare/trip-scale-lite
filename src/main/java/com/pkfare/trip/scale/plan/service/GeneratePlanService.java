@@ -1,9 +1,11 @@
 package com.pkfare.trip.scale.plan.service;
 
+import com.pkfare.trip.scale.model.dto.FlightSearchResult;
 import com.pkfare.trip.scale.model.dto.SubmitAiPlanInfo;
 import com.pkfare.trip.scale.plan.service.param.GeneratePlanParam;
 import com.pkfare.trip.scale.plan.service.param.TripRouteParam;
 import com.pkfare.trip.scale.plan.service.response.ActivityInfo;
+import com.pkfare.trip.scale.plan.service.response.CityLocationInfo;
 import com.pkfare.trip.scale.plan.service.response.FlightInfo;
 import com.pkfare.trip.scale.plan.service.response.HotelInfo;
 import com.pkfare.trip.scale.plan.service.response.TripRoutePlanResult;
@@ -11,9 +13,11 @@ import com.pkfare.trip.scale.service.external.ai.GoogleAiService;
 import com.pkfare.trip.scale.service.plan.ActivitySearchService;
 import com.pkfare.trip.scale.service.plan.FlightSearchService;
 import com.pkfare.trip.scale.service.plan.HotelSearchService;
-import com.pkfare.trip.scale.service.plan.PlanAggregationService;
+import com.pkfare.trip.scale.service.plan.LocationSearchService;
 import com.pkfare.trip.scale.util.DateUtil;
 import com.pkfare.trip.scale.util.ValidationUtil;
+import java.util.Map;
+import java.util.stream.Collectors;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,7 +46,7 @@ public class GeneratePlanService {
   private GoogleAiService googleAiService;
 
   @Autowired
-  private PlanAggregationService planAggregationService;
+  private LocationSearchService locationSearchService;
 
   /**
    * 生成旅行计划主入口
@@ -53,7 +57,7 @@ public class GeneratePlanService {
   public TripRoutePlanResult generatePlan(GeneratePlanParam param) {
     log.info("Starting to generate trip plan for origin: {}, destinations: {}",
         param.getOrigin(), param.getTrip_routes().size());
-
+    long start = System.currentTimeMillis();
     try {
       // 1. 参数验证
       validateParams(param);
@@ -64,28 +68,37 @@ public class GeneratePlanService {
 
       log.info("Trip configuration: preciseTravel={}, roundTrip={}", preciseTravel, roundTrip);
 
-      // 3. 搜索航班
-      List<FlightInfo> flights = flightSearchService.searchFlights(param, preciseTravel, roundTrip);
+      FlightSearchResult dateResult = null;
+
+      // 1.如果不是精确时间，先搜索最便宜航班的日期
+      if (!preciseTravel) {
+        dateResult = flightSearchService.searchFlightDates(param, roundTrip);
+      }
+
+      // 2. 根据旅行日期搜索航班
+      List<FlightInfo> flights = flightSearchService.searchFlightOffers(param, dateResult, preciseTravel, roundTrip);
       log.info("Found {} flights", flights.size());
 
-      // 4. 搜索酒店
-      List<HotelInfo> hotels = hotelSearchService.searchHotels(param, flights);
+      // 3. 搜索酒店
+      // 3.1. 根据城市获取酒店ID列表
+      Map<String, List<String>> localHotelIdMap = hotelSearchService.getHotelsByCity(param.getTrip_routes());
+      // 3.2. 根据酒店ID列表搜索酒店
+      List<HotelInfo> hotels = hotelSearchService.searchHotels(param, flights,localHotelIdMap);
       log.info("Found {} hotels", hotels.size());
 
-      // 5. 搜索活动
-      List<ActivityInfo> activities = activitySearchService.searchActivities(hotels);
+      // 4. 搜索活动
+      // 4.1 搜索城市经纬度
+      List<String> cityList = param.getTrip_routes().stream().map(TripRouteParam::getDestination_city).collect(Collectors.toList());
+      List<CityLocationInfo> cityLocationInfos = locationSearchService.searchCityLocations(cityList);
+      // 4.2 根据城市经纬度搜索活动
+      List<ActivityInfo> activities = activitySearchService.searchActivities(param.getTrip_routes(),cityLocationInfos);
       log.info("Found {} activities", activities.size());
 
-      // 6. AI 生成计划
+      // 5. AI 生成计划
       TripRoutePlanResult tripRoutePlanResult = generateAiPlan(param, flights, hotels, activities);
       log.info("AI plan generated, result: {} ", tripRoutePlanResult);
 
-      // 7. 聚合结果
-      // TripPlan tripPlan = planAggregationService.aggregateTripPlan(
-      //    param, flights, hotels, activities, tripRoutePlanResult);
-
-      // log.info("Trip plan generated successfully: planId={}, status={}",
-      //    tripPlan.getPlanId(), tripPlan.getStatus());
+      log.info("*******************************************************Time taken to generate plan: {} ms", System.currentTimeMillis() - start   );
       return tripRoutePlanResult;
 
     } catch (Exception e) {

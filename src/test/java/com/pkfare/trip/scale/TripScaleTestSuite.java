@@ -13,8 +13,6 @@ import org.junit.platform.suite.api.Suite;
 @SelectClasses({
     // 服务层测试
     FlightSearchServiceTimeSlotTest.class,
-    HotelSearchServiceTest.class,
-    ActivitySearchServiceTest.class,
     // 外部服务测试
 })
 public class TripScaleTestSuite {

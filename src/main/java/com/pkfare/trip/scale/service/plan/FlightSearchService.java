@@ -71,8 +71,7 @@ public class FlightSearchService {
         
         // 搜索具体航班报价
         List<FlightInfo> flightInfoList = searchFlightOffers(param, dateResult, preciseTravel, roundTrip);
-        List<FlightLocationInfo> locations = queryFlightLocations(flightInfoList);
-        return supplementFlightLocations(flightInfoList,locations);
+        return flightInfoList;
     }
 
     private List<FlightLocationInfo> queryFlightLocations(List<FlightInfo> flightInfoList) {
@@ -291,12 +290,10 @@ public class FlightSearchService {
      * @param roundTrip 是否往返
      * @return 航班日期搜索结果
      */
-    private FlightSearchResult searchFlightDates(GeneratePlanParam param, boolean roundTrip) {
+    public FlightSearchResult searchFlightDates(GeneratePlanParam param, boolean roundTrip) {
         log.info("Searching flight dates for roundTrip: {}", roundTrip);
         
         FlightSearchResult result = new FlightSearchResult();
-        result.setPreciseTravel(false);
-        result.setRoundTrip(roundTrip);
         
         if (roundTrip) {
             // 往返航班搜索
@@ -353,7 +350,7 @@ public class FlightSearchService {
      * @param roundTrip 是否往返
      * @return 航班信息列表
      */
-    private List<FlightInfo> searchFlightOffers(GeneratePlanParam param, FlightSearchResult dateResult, 
+    public List<FlightInfo> searchFlightOffers(GeneratePlanParam param, FlightSearchResult dateResult,
                                                boolean preciseTravel, boolean roundTrip) {
         log.info("Searching flight offers");
         
@@ -372,8 +369,8 @@ public class FlightSearchService {
             // 两个单程航班搜索
             flights.addAll(searchOneWayFlightOffers(param, dateResult, preciseTravel));
         }
-        
-        return flights;
+        List<FlightLocationInfo> locations = queryFlightLocations(flights);
+        return supplementFlightLocations(flights,locations);
     }
     
     /**

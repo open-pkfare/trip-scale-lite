@@ -20,14 +20,4 @@ public class FlightSearchResult {
      * 返程日期
      */
     private LocalDate returnDate;
-    
-    /**
-     * 是否精确时间
-     */
-    private boolean preciseTravel;
-    
-    /**
-     * 是否往返行程
-     */
-    private boolean roundTrip;
 }

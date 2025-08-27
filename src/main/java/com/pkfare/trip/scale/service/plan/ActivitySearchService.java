@@ -3,7 +3,9 @@ package com.pkfare.trip.scale.service.plan;
 import com.amadeus.resources.Activity;
 import com.pkfare.trip.scale.api.amadeus.activities.request.ActivitiesSearchRequest;
 import com.pkfare.trip.scale.model.dto.HotelLocationInfo;
+import com.pkfare.trip.scale.plan.service.param.TripRouteParam;
 import com.pkfare.trip.scale.plan.service.response.ActivityInfo;
+import com.pkfare.trip.scale.plan.service.response.CityLocationInfo;
 import com.pkfare.trip.scale.plan.service.response.HotelInfo;
 import com.pkfare.trip.scale.service.external.amadeus.AmadeusActivityService;
 import com.pkfare.trip.scale.util.DoubleUtil;
@@ -36,24 +38,24 @@ public class ActivitySearchService {
   /**
    * 搜索活动
    *
-   * @param hotels 酒店信息（用于获取经纬度）
+   * @param tripRoutes 旅游路线（用于获取经纬度）
    * @return 活动信息列表
    */
-  public List<ActivityInfo> searchActivities(List<HotelInfo> hotels) {
-    log.info("Searching activities for {} hotels", hotels.size());
+  public List<ActivityInfo> searchActivities(List<TripRouteParam> tripRoutes, List<CityLocationInfo> cityLocationInfos) {
+    log.info("Searching activities for {} cityLocationInfos", cityLocationInfos.size());
 
     // 1. 获取每个酒店的经纬度信息
-    Map<String, HotelLocationInfo> hotelLocationMap = buildHotelLocationMap(hotels);
+    Map<String, HotelLocationInfo> hotelLocationMap = buildHotelLocationMap(cityLocationInfos);
 
     // 2. 按城市分组搜索活动
     List<ActivityInfo> allActivities = new ArrayList<>();
 
-    hotels.parallelStream().forEach(hotel -> {
-      String hotelKey = buildHotelKey(hotel);
+    tripRoutes.parallelStream().forEach(tripRoute -> {
+      String hotelKey = tripRoute.getDestination_city();
       HotelLocationInfo location = hotelLocationMap.get(hotelKey);
 
       if (location != null) {
-        List<ActivityInfo> cityActivities = searchActivitiesForCity(hotel, location);
+        List<ActivityInfo> cityActivities = searchActivitiesForCity(tripRoute, location);
         allActivities.addAll(cityActivities);
       }
     });
@@ -65,22 +67,22 @@ public class ActivitySearchService {
   /**
    * 构建酒店位置信息映射
    *
-   * @param hotels 酒店列表
+   * @param hotelCitys 酒店列表
    * @return 酒店位置信息映射
    */
-  private Map<String, HotelLocationInfo> buildHotelLocationMap(List<HotelInfo> hotels) {
+  private Map<String, HotelLocationInfo> buildHotelLocationMap(List<CityLocationInfo> hotelCitys) {
     Map<String, HotelLocationInfo> locationMap = new HashMap<>();
 
-    for (HotelInfo hotel : hotels) {
-      if (hotel.getLatitude() != 0.0 && hotel.getLongitude() != 0.0) {
-        String hotelKey = buildHotelKey(hotel);
-        HotelLocationInfo location = new HotelLocationInfo(hotel.getLatitude(), hotel.getLongitude());
+    for (CityLocationInfo hotelCity : hotelCitys) {
+      if (hotelCity.getLatitude() != 0.0 && hotelCity.getLongitude() != 0.0) {
+        String hotelKey = hotelCity.getCityName();
+        HotelLocationInfo location = new HotelLocationInfo(hotelCity.getLatitude(), hotelCity.getLongitude());
         locationMap.put(hotelKey, location);
 
-        log.debug("Hotel {} location: lat={}, lon={}",
-            hotel.getHotelName(), hotel.getLatitude(), hotel.getLongitude());
+        log.debug("hotelCity {} location: lat={}, lon={}",
+            hotelCity.getCityName(), hotelCity.getLatitude(), hotelCity.getLongitude());
       } else {
-        log.warn("Hotel {} has no valid location information", hotel.getHotelName());
+        log.warn("hotelCity {} has no valid location information", hotelCity.getCityName());
       }
     }
 
@@ -100,13 +102,13 @@ public class ActivitySearchService {
   /**
    * 为指定城市搜索活动
    *
-   * @param hotel    酒店信息
+   * @param tripRoute    路线信息
    * @param location 酒店位置
    * @return 活动信息列表
    */
-  private List<ActivityInfo> searchActivitiesForCity(HotelInfo hotel, HotelLocationInfo location) {
-    log.info("Searching activities for city {} near hotel {}",
-        hotel.getCityCode(), hotel.getHotelName());
+  private List<ActivityInfo> searchActivitiesForCity(TripRouteParam tripRoute, HotelLocationInfo location) {
+    log.info("Searching activities for city {} ，location {}",
+        tripRoute.getDestination_city(), location);
 
     ActivitiesSearchRequest request = new ActivitiesSearchRequest();
     request.setLatitude(location.getLatitude());
@@ -118,7 +120,7 @@ public class ActivitySearchService {
 
       if (activities != null && activities.length > 0) {
         List<ActivityInfo> activityInfos = Arrays.stream(activities)
-            .map(activity -> convertToActivityInfo(activity, hotel.getCityCode()))
+            .map(activity -> convertToActivityInfo(activity, tripRoute.getDestination_city()))
             .filter(Objects::nonNull)
             .collect(Collectors.toList());
 
@@ -127,17 +129,17 @@ public class ActivitySearchService {
             activityInfos, location, ACTIVITY_SEARCH_RADIUS_KM);
 
         // 筛选评分最高的活动
-        List<ActivityInfo> topActivities = filterTopActivities(hotel, filteredActivities);
+        List<ActivityInfo> topActivities = filterTopActivities(tripRoute, filteredActivities);
 
         log.info("Found {} activities for city {}, filtered to {} top activities",
-            activityInfos.size(), hotel.getCityCode(), topActivities.size());
+            activityInfos.size(), tripRoute.getDestination_city(), topActivities.size());
 
         return topActivities;
       } else {
-        log.warn("No activities found for city {}", hotel.getCityCode());
+        log.warn("No activities found for city {}", tripRoute.getDestination_city());
       }
     } catch (Exception e) {
-      log.error("Failed to search activities for city {}", hotel.getCityCode(), e);
+      log.error("Failed to search activities for city {}", tripRoute.getDestination_city(), e);
     }
 
     return new ArrayList<>();
@@ -182,7 +184,7 @@ public class ActivitySearchService {
    * @param activities 活动列表
    * @return 筛选后的活动列表
    */
-  private List<ActivityInfo> filterTopActivities(HotelInfo hotel, List<ActivityInfo> activities) {
+  private List<ActivityInfo> filterTopActivities(TripRouteParam tripRoute, List<ActivityInfo> activities) {
     if (activities == null || activities.isEmpty()) {
       return new ArrayList<>();
     }
@@ -190,7 +192,7 @@ public class ActivitySearchService {
     // 按评分倒序排序，选择评分最高的前N个
     return activities.stream()
         .sorted((a1, a2) -> Double.compare(a2.getRating(), a1.getRating()))
-        .limit(MAX_ACTIVITIES_PER_CITY * hotel.getNights())
+        .limit(MAX_ACTIVITIES_PER_CITY * tripRoute.getStay_days())
         .collect(Collectors.toList());
   }
 

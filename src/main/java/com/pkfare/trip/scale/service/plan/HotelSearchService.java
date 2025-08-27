@@ -47,16 +47,13 @@ public class HotelSearchService {
    * @param flights 航班信息（用于确定入住时间）
    * @return 酒店信息列表
    */
-  public List<HotelInfo> searchHotels(GeneratePlanParam param, List<FlightInfo> flights) {
+  public List<HotelInfo> searchHotels(GeneratePlanParam param, List<FlightInfo> flights,Map<String, List<String>> localHotelIdMap) {
     log.info("Searching hotels for {} routes", param.getTrip_routes().size());
 
-    // 1. 根据城市获取酒店ID列表
-    Map<String, List<String>> localHotelIdMap = getHotelsByCity(param.getTrip_routes());
-
-    // 2. 计算入住和退房时间
+    // 1. 计算入住和退房时间
     Map<String, LocalDate[]> checkInOutDates = calculateCheckInOutDates(param, flights);
 
-    // 3. 逐段查询最优报价
+    // 2. 逐段查询最优报价
     List<HotelInfo> hotels = param.getTrip_routes().parallelStream()
         .filter(route -> {
           List<String> hotelIds = localHotelIdMap.get(route.getLocation_code());
@@ -85,7 +82,7 @@ public class HotelSearchService {
    * @param routes 行程路线列表
    * @return 城市代码与酒店ID列表的映射
    */
-  private Map<String, List<String>> getHotelsByCity(List<TripRouteParam> routes) {
+  public Map<String, List<String>> getHotelsByCity(List<TripRouteParam> routes) {
     log.info("Getting hotels by city for {} routes", routes.size());
 
     Map<String, List<String>> localHotelIdMap = new HashMap<>();
@@ -290,6 +287,7 @@ public class HotelSearchService {
     hotelInfo.setHotelId(offer.getHotel().getHotelId());
     hotelInfo.setHotelName(offer.getHotel().getName());
     hotelInfo.setCityCode(route.getLocation_code());
+    hotelInfo.setCityName(route.getDestination_city());
     hotelInfo.setCheckInDate(checkIn);
     hotelInfo.setCheckOutDate(checkOut);
     hotelInfo.setNights((int) DateUtil.daysBetween(checkIn, checkOut));
