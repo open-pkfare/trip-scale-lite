@@ -7,10 +7,10 @@ import lombok.Getter;
  * 航班调整类型枚举
  */
 public enum FlightAdjustTypeEnum {
-    REPLACE("replace", "替换航班"),
-    ADVANCE("advance", "提前航班"),
-    DELAY("delay", "推迟航班"),
-    CHEAPER("cheaper", "更便宜的航班");
+    REPLACE("replace", "替换"),
+    ADVANCE("advance", "提前"),
+    DELAY("delay", "推迟"),
+    CHEAPER("cheaper", "更便宜的");
 
     @Getter
     private final String code;

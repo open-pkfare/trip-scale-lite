@@ -20,7 +20,7 @@ public class AdjustPlanParam {
     private String id;
 
     /**
-     * 调整类型: replace, advance, delay, cheaper, changeDepartureAirport
+     * 调整类型: replace, advance, delay, cheaper
      */
     private String adjustType;
 

@@ -534,7 +534,7 @@ public class FlightSearchService {
     /**
      * 转换为FlightInfo
      */
-    private FlightInfo convertToFlightInfo(FlightOfferSearch offer) {
+    public FlightInfo convertToFlightInfo(FlightOfferSearch offer) {
         FlightInfo flightInfo = new FlightInfo();
         flightInfo.setOneWay(offer.isOneWay());
         flightInfo.setTotal(offer.getPrice().getTotal());
@@ -585,79 +585,4 @@ public class FlightSearchService {
         // 其他日期格式的转换逻辑
         return LocalDate.now(); // 简化实现
     }
-
-  public FlightInfo searchFlightInfo(GeneratePlanParam planParam, FlightInfo oldFlightInfo, AdjustPlanParam adjustPlanParam) {
-    List<ItineraryInfo> itineraries = oldFlightInfo.getItineraries();
-    String departure = itineraries.getFirst().getDeparture();
-    String arrival = itineraries.getLast().getArrival();
-    String departureTime = itineraries.getFirst().getSegments().getFirst().getDepartureTime();
-    List<SegmentInfo> segments = itineraries.getLast().getSegments();
-    String arrivalTime = segments.getLast().getArrivalTime();
-    FlightAdjustTypeEnum adjustTypeEnum = FlightAdjustTypeEnum.getByCode(adjustPlanParam.getAdjustType()).orElse(FlightAdjustTypeEnum.REPLACE);
-
-    FlightOffersSearchRequest request = new FlightOffersSearchRequest();
-    request.setOrigin(departure);
-    request.setDestination(arrival);
-    request.setAdults(planParam.getAdult_number());
-    request.setChildren(planParam.getChild_number());
-    request.setInfants(0);
-    request.setNonStop(true);
-    request.setCurrency(planParam.getCurrency());
-    request.setMaxPrice(new BigDecimal(oldFlightInfo.getTotal()).intValue());
-    request.setMax(50);
-    if (adjustTypeEnum.equals(FlightAdjustTypeEnum.CHEAPER)) {
-      request.setTravelClass("PREMIUM_ECONOMY");
-      request.setMaxPrice(new BigDecimal(oldFlightInfo.getTotal()).multiply(new BigDecimal("0.8")).intValue());
-    }
-
-      FlightOfferSearch[] offers = amadeusFlightService.searchFlightOffers(request);
-      if (offers == null || offers.length == 0) {
-        throw new TripPlanException(TripPlanErrorCodeEnum.NO_FLIGHT_FOUND);
-      }
-        // 按价格升序排序
-        List<FlightOfferSearch> offerSearches = Arrays.asList(offers);
-        offerSearches.sort((o1, o2) -> {
-          BigDecimal price1 = PriceUtil.parsePrice(o1.getPrice().getTotal());
-          BigDecimal price2 = PriceUtil.parsePrice(o2.getPrice().getTotal());
-          return price1.compareTo(price2);
-        });
-
-    // 根据adjustTypeEnum不同，从offers找出不同的航班
-    FlightOfferSearch target = offerSearches.getFirst();
-    if (adjustTypeEnum.equals(FlightAdjustTypeEnum.REPLACE)
-        || adjustTypeEnum.equals(FlightAdjustTypeEnum.CHEAPER)) {
-      // 从offers找出与flightInfo不同航班号的一个航班
-      Set<String> oldSegmentSet = oldFlightInfo.getItineraries().stream().flatMap(itinerary -> itinerary.getSegments().stream())
-          .map(segment -> segment.getCarrierCode().concat(segment.getNumber()))
-          .collect(Collectors.toSet());
-      Optional<FlightOfferSearch> optional = offerSearches.stream()
-          .filter(offer -> {
-            return Arrays.stream(offer.getItineraries()).flatMap(itinerary -> Arrays.stream(itinerary.getSegments()))
-                .anyMatch(segment -> !oldSegmentSet.contains(segment.getCarrierCode().concat(segment.getNumber())));
-          })
-          .findFirst();
-      if (optional.isPresent()) {
-        target = optional.get();
-      }
-    } else if (adjustTypeEnum.equals(FlightAdjustTypeEnum.ADVANCE)) {
-      for (FlightOfferSearch offerSearch : offerSearches) {
-        String newDepartureTime = offerSearch.getItineraries()[0].getSegments()[0].getDeparture().getAt();
-        if (newDepartureTime.compareTo(departureTime) < 0) {
-          target = offerSearch;
-          break;
-        }
-      }
-    } else if (adjustTypeEnum.equals(FlightAdjustTypeEnum.DELAY)) {
-      for (FlightOfferSearch offerSearch : offerSearches) {
-        Itinerary[] itineraries1 = offerSearch.getItineraries();
-        SearchSegment[] segments1 = itineraries1[itineraries1.length - 1].getSegments();
-        String newArrivalTime = segments1[segments1.length - 1].getArrival().getAt();
-        if (newArrivalTime.compareTo(arrivalTime) > 0) {
-          target = offerSearch;
-          break;
-        }
-      }
-    }
-    return convertToFlightInfo(target);
-  }
 }
