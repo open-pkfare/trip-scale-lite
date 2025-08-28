@@ -3,6 +3,7 @@ package com.pkfare.trip.scale.service.plan;
 import com.amadeus.resources.FlightDate;
 import com.amadeus.resources.FlightOfferSearch;
 import com.amadeus.resources.FlightOfferSearch.Itinerary;
+import com.amadeus.resources.FlightOfferSearch.SearchSegment;
 import com.amadeus.resources.Location;
 import com.pkfare.trip.scale.api.amadeus.airportlocations.AmadeusFlightAirportLocationSearchAPI;
 import com.pkfare.trip.scale.api.amadeus.airportlocations.request.FlightAirportLocationSearchRequest;
@@ -750,22 +751,25 @@ public class FlightSearchService {
         flightInfo.setOneWay(offer.isOneWay());
         flightInfo.setTotal(offer.getPrice().getTotal());
         flightInfo.setCurrency(offer.getPrice().getCurrency());
-        
         List<ItineraryInfo> itineraries = new ArrayList<>();
         if (offer.getItineraries() != null) {
             for (var itinerary : offer.getItineraries()) {
                 ItineraryInfo itineraryInfo = new ItineraryInfo();
+                itineraryInfo.setDuration(itinerary.getDuration());
                 List<SegmentInfo> segments = new ArrayList<>();
                 
                 if (itinerary.getSegments() != null) {
-                    for (var segment : itinerary.getSegments()) {
+                    for (SearchSegment segment : itinerary.getSegments()) {
                         SegmentInfo segmentInfo = new SegmentInfo();
                         segmentInfo.setDeparture(segment.getDeparture().getIataCode());
+                        segmentInfo.setDepartureTerminal(segment.getDeparture().getTerminal());
                         segmentInfo.setDepartureTime(segment.getDeparture().getAt());
                         segmentInfo.setArrival(segment.getArrival().getIataCode());
+                        segmentInfo.setArrivalTerminal(segment.getArrival().getTerminal());
                         segmentInfo.setArrivalTime(segment.getArrival().getAt());
                         segmentInfo.setCarrierCode(segment.getCarrierCode());
                         segmentInfo.setNumber(segment.getNumber());
+                        segmentInfo.setDuration(segmentInfo.getDuration());
                         segments.add(segmentInfo);
                     }
                 }

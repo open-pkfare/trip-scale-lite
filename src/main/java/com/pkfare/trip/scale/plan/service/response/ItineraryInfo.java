@@ -10,7 +10,11 @@ import java.util.List;
  */
 @Data
 public class ItineraryInfo {
-    
+
+    /**
+     * 行程时间
+     */
+    private String duration;
     /**
      * 航段列表
      */
