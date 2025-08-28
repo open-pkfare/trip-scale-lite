@@ -76,7 +76,7 @@ public class PlanningAgent extends BaseAgent {
     try {
       // 从会话状态中获取数据
       TripDemand tripDemand = (TripDemand)invocationContext.session().state().get("trip_demand");
-      List<TripRoute> tripRoutes = (List<TripRoute>)invocationContext.session().state().get("trip_routes");
+      List<TripRoute> tripRoutes = (List<TripRoute>)invocationContext.session().state().get("trip_route");
 
       /**
       if (tripDemand == null || tripRoutes == null) {
