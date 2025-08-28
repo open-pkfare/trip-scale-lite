@@ -2,12 +2,15 @@ package com.pkfare.trip.scale.service.external.amadeus;
 
 import com.amadeus.resources.Hotel;
 import com.amadeus.resources.HotelOfferSearch;
+import com.github.benmanes.caffeine.cache.Cache;
 import com.pkfare.trip.scale.api.amadeus.hotelbycity.AmadeusSearchHotelsByCityAPI;
 import com.pkfare.trip.scale.api.amadeus.hotelbycity.request.QueryHotelByCityRequest;
 import com.pkfare.trip.scale.api.amadeus.hoteloffers.AmadeusHotelOffersSearchAPI;
 import com.pkfare.trip.scale.api.amadeus.hoteloffers.request.HotelOffersSearchRequest;
 import com.pkfare.trip.scale.exception.ExternalApiException;
+import com.pkfare.trip.scale.util.CacheKeyUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.function.Supplier;
@@ -23,13 +26,16 @@ public class AmadeusHotelService {
     
     private final AmadeusSearchHotelsByCityAPI hotelsByCityAPI;
     private final AmadeusHotelOffersSearchAPI hotelOffersAPI;
+    private final Cache<String, Object> hotelOffersCache;
     
     private static final int MAX_RETRY_ATTEMPTS = 3;
     private static final long RETRY_DELAY_MS = 1000;
     
-    public AmadeusHotelService() {
+    public AmadeusHotelService(@Qualifier("hotelOffersCache") Cache<String, Object> hotelOffersCache) {
         this.hotelsByCityAPI = new AmadeusSearchHotelsByCityAPI();
         this.hotelOffersAPI = new AmadeusHotelOffersSearchAPI();
+        this.hotelOffersCache = hotelOffersCache;
+        log.info("AmadeusHotelService initialized with hotel offers cache");
     }
     
     /**
@@ -55,7 +61,8 @@ public class AmadeusHotelService {
     }
     
     /**
-     * 搜索酒店报价
+     * 搜索酒店报价 - 带缓存功能
+     * 优先从缓存获取，缓存未命中时调用API并缓存结果
      * 
      * @param request 酒店报价搜索请求
      * @return 酒店报价数组
@@ -63,17 +70,138 @@ public class AmadeusHotelService {
     public HotelOfferSearch[] searchHotelOffers(HotelOffersSearchRequest request) {
         log.info("Searching hotel offers with request: {}", request);
         
+        // 生成缓存键
+        String cacheKey = CacheKeyUtil.generateHotelOffersKey(request);
+        if (!CacheKeyUtil.isValidCacheKey(cacheKey)) {
+            log.warn("Invalid cache key generated, proceeding without cache");
+            return searchHotelOffersWithoutCache(request);
+        }
+        
+        // 1. 先尝试从缓存获取
+        HotelOfferSearch[] cachedResult = getCachedHotelOffers(cacheKey);
+        if (cachedResult != null) {
+            log.info("Cache hit! Returning {} cached hotel offers for key: {}", 
+                cachedResult.length, cacheKey);
+            logHotelOffersCacheStats();
+            return cachedResult;
+        }
+        
+        // 2. 缓存未命中，调用API获取数据
+        log.info("Cache miss for key: {}, calling API", cacheKey);
+        HotelOfferSearch[] apiResult = searchHotelOffersWithoutCache(request);
+        
+        // 3. 将API结果缓存起来
+        if (apiResult != null && apiResult.length > 0) {
+            cacheHotelOffersResult(cacheKey, apiResult);
+            log.info("API result cached successfully - {} hotel offers for key: {}", 
+                apiResult.length, cacheKey);
+        } else {
+            log.warn("API returned empty result, not caching for key: {}", cacheKey);
+        }
+        
+        logHotelOffersCacheStats();
+        return apiResult;
+    }
+    
+    /**
+     * 从缓存获取酒店报价
+     * 
+     * @param cacheKey 缓存键
+     * @return 缓存的酒店报价，如果不存在返回null
+     */
+    private HotelOfferSearch[] getCachedHotelOffers(String cacheKey) {
+        try {
+            Object cached = hotelOffersCache.getIfPresent(cacheKey);
+            if (cached instanceof HotelOfferSearch[]) {
+                HotelOfferSearch[] cachedResult = (HotelOfferSearch[]) cached;
+                log.debug("Cache hit for key: {}, found {} results", cacheKey, cachedResult.length);
+                return cachedResult;
+            } else if (cached != null) {
+                log.warn("Invalid cached object type: {}, removing from cache", cached.getClass());
+                hotelOffersCache.invalidate(cacheKey);
+            }
+        } catch (Exception e) {
+            log.error("Failed to retrieve from cache for key: {}", cacheKey, e);
+        }
+        
+        log.debug("Cache miss for key: {}", cacheKey);
+        return null;
+    }
+    
+    /**
+     * 将酒店报价结果缓存
+     * 
+     * @param cacheKey 缓存键
+     * @param result API查询结果
+     */
+    private void cacheHotelOffersResult(String cacheKey, HotelOfferSearch[] result) {
+        try {
+            hotelOffersCache.put(cacheKey, result);
+            log.debug("Cached {} hotel offers for key: {}", result.length, cacheKey);
+        } catch (Exception e) {
+            log.error("Failed to cache result for key: {}", cacheKey, e);
+        }
+    }
+    
+    /**
+     * 不使用缓存直接搜索酒店报价
+     * 
+     * @param request 酒店报价搜索请求
+     * @return 酒店报价数组
+     */
+    private HotelOfferSearch[] searchHotelOffersWithoutCache(HotelOffersSearchRequest request) {
         return retryApiCall(() -> {
             try {
                 HotelOfferSearch[] result = hotelOffersAPI.hotelOffersSearch(request);
-                log.info("Hotel offers search completed, found {} results", result != null ? result.length : 0);
+                log.debug("API call completed, found {} results", result != null ? result.length : 0);
                 return result;
             } catch (Exception e) {
-                log.error("Failed to search hotel offers", e);
+                log.error("Failed to search hotel offers via API", e);
                 throw new ExternalApiException("AMADEUS_HOTEL_OFFERS_ERROR", 
                     "Failed to search hotel offers: " + e.getMessage(), 500, "AmadeusHotelOffersSearchAPI", e);
             }
         }, MAX_RETRY_ATTEMPTS);
+    }
+    
+    /**
+     * 记录酒店报价缓存统计信息
+     */
+    private void logHotelOffersCacheStats() {
+        try {
+            var stats = hotelOffersCache.stats();
+            log.debug("Hotel offers cache stats - size: {}, hitRate: {:.2f}%, evictionCount: {}", 
+                hotelOffersCache.estimatedSize(), 
+                stats.hitRate() * 100, 
+                stats.evictionCount());
+        } catch (Exception e) {
+            log.debug("Failed to log hotel offers cache stats", e);
+        }
+    }
+    
+    /**
+     * 清除酒店报价缓存
+     */
+    public void clearHotelOffersCache() {
+        hotelOffersCache.invalidateAll();
+        log.info("Hotel offers cache cleared");
+    }
+    
+    /**
+     * 获取酒店报价缓存统计信息
+     * 
+     * @return 缓存统计信息字符串
+     */
+    public String getHotelOffersCacheStats() {
+        try {
+            var stats = hotelOffersCache.stats();
+            return String.format("Hotel Offers Cache Stats - Size: %d, HitRate: %.2f%%, MissRate: %.2f%%, EvictionCount: %d", 
+                hotelOffersCache.estimatedSize(),
+                stats.hitRate() * 100,
+                stats.missRate() * 100,
+                stats.evictionCount());
+        } catch (Exception e) {
+            return "Hotel offers cache stats unavailable: " + e.getMessage();
+        }
     }
     
     /**

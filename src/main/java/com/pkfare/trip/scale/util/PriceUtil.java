@@ -90,4 +90,14 @@ public class PriceUtil {
     public static String formatPrice(BigDecimal price) {
         return price.setScale(2, RoundingMode.HALF_UP).toString();
     }
+
+    public  static int formatPrice(String price){
+        BigDecimal bigDecimal = new BigDecimal(price);
+
+        // 方法1: 使用setScale获取整数部分(向下取整)
+        BigDecimal integerPart = bigDecimal.setScale(0, RoundingMode.FLOOR);
+
+        // 转换为int
+        return integerPart.intValue();
+    }
 }

@@ -36,6 +36,11 @@ public class HotelInfo {
      * 城市代码
      */
     private String cityCode;
+
+    /**
+     * 城市名称
+     */
+    private String cityName;
     
     /**
      * 入住日期

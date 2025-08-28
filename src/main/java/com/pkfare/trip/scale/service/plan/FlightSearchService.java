@@ -3,23 +3,24 @@ package com.pkfare.trip.scale.service.plan;
 import com.amadeus.resources.FlightDate;
 import com.amadeus.resources.FlightOfferSearch;
 import com.amadeus.resources.FlightOfferSearch.Itinerary;
-import com.amadeus.resources.FlightOfferSearch.SearchSegment;
+import com.amadeus.resources.Location;
+import com.pkfare.trip.scale.api.amadeus.airportlocations.AmadeusFlightAirportLocationSearchAPI;
+import com.pkfare.trip.scale.api.amadeus.airportlocations.request.FlightAirportLocationSearchRequest;
 import com.pkfare.trip.scale.api.amadeus.flightdates.request.FlightDatesRequest;
 import com.pkfare.trip.scale.api.amadeus.flightoffers.request.FlightOffersSearchRequest;
-import com.pkfare.trip.scale.exception.TripPlanException;
+
+
 import com.pkfare.trip.scale.model.dto.FlightSearchResult;
-import com.pkfare.trip.scale.model.enums.TripPlanErrorCodeEnum;
-import com.pkfare.trip.scale.plan.service.param.AdjustPlanParam;
-import com.pkfare.trip.scale.plan.service.param.FlightAdjustTypeEnum;
 import com.pkfare.trip.scale.plan.service.param.GeneratePlanParam;
 import com.pkfare.trip.scale.plan.service.param.TripRouteParam;
 import com.pkfare.trip.scale.plan.service.response.FlightInfo;
+import com.pkfare.trip.scale.plan.service.response.FlightLocationInfo;
+import com.pkfare.trip.scale.plan.service.response.GeoInfo;
 import com.pkfare.trip.scale.plan.service.response.ItineraryInfo;
 import com.pkfare.trip.scale.plan.service.response.SegmentInfo;
 import com.pkfare.trip.scale.service.external.amadeus.AmadeusFlightService;
 import com.pkfare.trip.scale.util.DateUtil;
 import com.pkfare.trip.scale.util.PriceUtil;
-import java.time.ZoneId;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -69,9 +70,219 @@ public class FlightSearchService {
         }
         
         // 搜索具体航班报价
-        return searchFlightOffers(param, dateResult, preciseTravel, roundTrip);
+        List<FlightInfo> flightInfoList = searchFlightOffers(param, dateResult, preciseTravel, roundTrip);
+        return flightInfoList;
+    }
+
+    private List<FlightLocationInfo> queryFlightLocations(List<FlightInfo> flightInfoList) {
+        
+        if (flightInfoList == null || flightInfoList.isEmpty()) {
+            log.info("Flight info list is empty, returning empty location list");
+            return new ArrayList<>();
+        }
+        
+        // 1. 从航班信息中提取所有机场代码
+        Set<String> airportCodes = extractAirportCodes(flightInfoList);
+        if (airportCodes.isEmpty()) {
+            log.warn("No airport codes found in flight info list");
+            return new ArrayList<>();
+        }
+        
+        log.info("Extracted airport codes: {}", airportCodes);
+        
+        // 2. 查询机场位置信息
+        List<FlightLocationInfo> locationInfoList = new ArrayList<>();
+        AmadeusFlightAirportLocationSearchAPI locationSearchAPI = new AmadeusFlightAirportLocationSearchAPI();
+        
+        for (String airportCode : airportCodes) {
+            try {
+                FlightAirportLocationSearchRequest request = new FlightAirportLocationSearchRequest();
+                request.setKeyword(airportCode);
+                
+                Location[] locations = locationSearchAPI.queryFlightLocation(request);
+                
+                if (locations != null && locations.length > 0) {
+                    // 3. 转换为FlightLocationInfo
+                    List<FlightLocationInfo> convertedLocations = convertToFlightLocationInfo(locations, airportCode);
+                    locationInfoList.addAll(convertedLocations);
+                }
+            } catch (Exception e) {
+                log.error("Failed to query location for airport code: {}", airportCode, e);
+                // 继续处理其他机场代码，不因单个失败而中断整个流程
+            }
+        }
+        
+        log.info("Successfully queried {} flight locations", locationInfoList.size());
+        return locationInfoList;
     }
     
+    /**
+     * 从航班信息列表中提取所有机场代码
+     * 
+     * @param flightInfoList 航班信息列表
+     * @return 机场代码集合
+     */
+    private Set<String> extractAirportCodes(List<FlightInfo> flightInfoList) {
+        Set<String> airportCodes = new HashSet<>();
+        
+        for (FlightInfo flightInfo : flightInfoList) {
+            if (flightInfo.getItineraries() != null) {
+                for (ItineraryInfo itinerary : flightInfo.getItineraries()) {
+                    if (itinerary.getSegments() != null) {
+                        for (SegmentInfo segment : itinerary.getSegments()) {
+                            // 添加出发机场代码
+                            if (segment.getDeparture() != null && !segment.getDeparture().trim().isEmpty()) {
+                                airportCodes.add(segment.getDeparture().trim());
+                            }
+                            // 添加到达机场代码
+                            if (segment.getArrival() != null && !segment.getArrival().trim().isEmpty()) {
+                                airportCodes.add(segment.getArrival().trim());
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        return airportCodes;
+    }
+    
+    /**
+     * 将Amadeus Location数组转换为FlightLocationInfo列表
+     * 
+     * @param locations Amadeus Location数组
+     * @param airportCode 查询的机场代码
+     * @return FlightLocationInfo列表
+     */
+    private List<FlightLocationInfo> convertToFlightLocationInfo(Location[] locations, String airportCode) {
+        List<FlightLocationInfo> locationInfoList = new ArrayList<>();
+        
+        for (Location location : locations) {
+            try {
+                FlightLocationInfo locationInfo = new FlightLocationInfo();
+                
+                // 设置机场代码
+                locationInfo.setAirport(airportCode);
+                
+                // 设置经纬度信息
+                GeoInfo geoInfo = new GeoInfo();
+                locationInfo.setGeoInfo(geoInfo);
+                if (location.getGeoCode() != null) {
+                    geoInfo.setLatitude(location.getGeoCode().getLatitude());
+                    geoInfo.setLongitude(location.getGeoCode().getLongitude());
+                }
+                
+                locationInfoList.add(locationInfo);
+                
+                log.debug("Converted location for airport {}: lat={}, lng={}", 
+                    airportCode, locationInfo.getGeoInfo().getLatitude(), locationInfo.getGeoInfo().getLongitude());
+                
+            } catch (Exception e) {
+                log.error("Failed to convert location for airport code: {}", airportCode, e);
+                // 继续处理其他位置信息
+            }
+        }
+        
+        return locationInfoList;
+    }
+
+    /**
+     * 将位置信息补充到航班信息中
+     * 
+     * @param flightInfoList 航班信息列表
+     * @param locations 位置信息列表
+     * @return 补充了位置信息的航班信息列表
+     */
+    private List<FlightInfo> supplementFlightLocations(List<FlightInfo> flightInfoList, List<FlightLocationInfo> locations) {
+        if (flightInfoList == null || flightInfoList.isEmpty()) {
+            log.info("Flight info list is empty, no location supplementation needed");
+            return flightInfoList;
+        }
+        
+        if (locations == null || locations.isEmpty()) {
+            log.warn("Location info list is empty, cannot supplement flight locations");
+            return flightInfoList;
+        }
+        
+        // 1. 创建机场代码到位置信息的映射
+        Map<String, GeoInfo> airportLocationMap = createAirportLocationMap(locations);
+        
+        log.info("Created airport location map with {} entries", airportLocationMap.size());
+        
+        // 2. 遍历航班信息，补充位置信息
+        for (FlightInfo flightInfo : flightInfoList) {
+            if (flightInfo.getItineraries() != null) {
+                for (ItineraryInfo itinerary : flightInfo.getItineraries()) {
+                    if (itinerary.getSegments() != null) {
+                        for (SegmentInfo segment : itinerary.getSegments()) {
+                            // 补充出发地位置信息
+                            if (segment.getDeparture() != null) {
+                                GeoInfo departureGeo = airportLocationMap.get(segment.getDeparture().trim());
+                                if (departureGeo != null) {
+                                    segment.setDepartureGeo(copyGeoInfo(departureGeo));
+                                    log.debug("Supplemented departure geo for airport: {}", segment.getDeparture());
+                                }
+                            }
+                            
+                            // 补充到达地位置信息
+                            if (segment.getArrival() != null) {
+                                GeoInfo arrivalGeo = airportLocationMap.get(segment.getArrival().trim());
+                                if (arrivalGeo != null) {
+                                    segment.setArrivalGeo(copyGeoInfo(arrivalGeo));
+                                    log.debug("Supplemented arrival geo for airport: {}", segment.getArrival());
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        log.info("Successfully supplemented location information for {} flights", flightInfoList.size());
+        return flightInfoList;
+    }
+    
+    /**
+     * 创建机场代码到位置信息的映射
+     * 
+     * @param locations 位置信息列表
+     * @return 机场代码到GeoInfo的映射
+     */
+    private Map<String, GeoInfo> createAirportLocationMap(List<FlightLocationInfo> locations) {
+        Map<String, GeoInfo> airportLocationMap = new HashMap<>();
+        
+        for (FlightLocationInfo locationInfo : locations) {
+            if (locationInfo.getAirport() != null && locationInfo.getGeoInfo() != null) {
+                String airportCode = locationInfo.getAirport().trim();
+                airportLocationMap.put(airportCode, locationInfo.getGeoInfo());
+                
+                log.debug("Added airport {} to location map: lat={}, lng={}", 
+                    airportCode, 
+                    locationInfo.getGeoInfo().getLatitude(), 
+                    locationInfo.getGeoInfo().getLongitude());
+            }
+        }
+        
+        return airportLocationMap;
+    }
+    
+    /**
+     * 复制GeoInfo对象，避免引用共享
+     * 
+     * @param original 原始GeoInfo对象
+     * @return 复制的GeoInfo对象
+     */
+    private GeoInfo copyGeoInfo(GeoInfo original) {
+        if (original == null) {
+            return null;
+        }
+        
+        GeoInfo copy = new GeoInfo();
+        copy.setLatitude(original.getLatitude());
+        copy.setLongitude(original.getLongitude());
+        return copy;
+    }
+
     /**
      * 搜索最便宜的航班日期
      * 
@@ -79,12 +290,10 @@ public class FlightSearchService {
      * @param roundTrip 是否往返
      * @return 航班日期搜索结果
      */
-    private FlightSearchResult searchFlightDates(GeneratePlanParam param, boolean roundTrip) {
+    public FlightSearchResult searchFlightDates(GeneratePlanParam param, boolean roundTrip) {
         log.info("Searching flight dates for roundTrip: {}", roundTrip);
         
         FlightSearchResult result = new FlightSearchResult();
-        result.setPreciseTravel(false);
-        result.setRoundTrip(roundTrip);
         
         if (roundTrip) {
             // 往返航班搜索
@@ -120,12 +329,12 @@ public class FlightSearchService {
         
         // 搜索去程
         FlightDatesRequest outboundRequest = buildOneWayFlightDatesRequest(
-            param.getOrigin(), firstDestination, param.getStart_period(), param.getEnd_period(), param.getTrip_days(), true);
+            param.getOrigin(), firstDestination, param.getStart_period(), param.getEnd_period(), param.getTrip_days(), true,param.getBudgets());
         FlightDate[] outboundDates = amadeusFlightService.searchFlightDates(outboundRequest);
         
         // 搜索返程
         FlightDatesRequest returnRequest = buildOneWayFlightDatesRequest(
-            lastDestination, param.getOrigin(), param.getStart_period(), param.getEnd_period(), param.getTrip_days(), false);
+            lastDestination, param.getOrigin(), param.getStart_period(), param.getEnd_period(), param.getTrip_days(), false,param.getBudgets());
         FlightDate[] returnDates = amadeusFlightService.searchFlightDates(returnRequest);
         
         // 找到最佳组合
@@ -141,7 +350,7 @@ public class FlightSearchService {
      * @param roundTrip 是否往返
      * @return 航班信息列表
      */
-    private List<FlightInfo> searchFlightOffers(GeneratePlanParam param, FlightSearchResult dateResult, 
+    public List<FlightInfo> searchFlightOffers(GeneratePlanParam param, FlightSearchResult dateResult,
                                                boolean preciseTravel, boolean roundTrip) {
         log.info("Searching flight offers");
         
@@ -160,8 +369,8 @@ public class FlightSearchService {
             // 两个单程航班搜索
             flights.addAll(searchOneWayFlightOffers(param, dateResult, preciseTravel));
         }
-        
-        return flights;
+        List<FlightLocationInfo> locations = queryFlightLocations(flights);
+        return supplementFlightLocations(flights,locations);
     }
     
     /**
@@ -252,6 +461,7 @@ public class FlightSearchService {
         request.setDepartureDate(DateUtil.buildDateRange(startDate, adjustedEndDate));
         request.setDuration(String.valueOf(param.getTrip_days()));
         request.setOneWay(!isRoundTrip);
+        request.setMaxPrice(PriceUtil.formatPrice(param.getBudgets()));
         
         return request;
     }
@@ -261,7 +471,7 @@ public class FlightSearchService {
      */
     private FlightDatesRequest buildOneWayFlightDatesRequest(String origin, String destination, 
                                                            String startPeriod, String endPeriod, 
-                                                           int tripDays, boolean isOutbound) {
+                                                           int tripDays, boolean isOutbound, String budgets) {
         FlightDatesRequest request = new FlightDatesRequest();
         request.setOrigin(origin);
         request.setDestination(destination);
@@ -277,7 +487,8 @@ public class FlightSearchService {
             LocalDate adjustedStartDate = DateUtil.addDays(startDate, tripDays);
             request.setDepartureDate(DateUtil.buildDateRange(adjustedStartDate, endDate));
         }
-        
+
+        request.setMaxPrice(PriceUtil.formatPrice(budgets));
         return request;
     }
     
@@ -534,7 +745,7 @@ public class FlightSearchService {
     /**
      * 转换为FlightInfo
      */
-    public FlightInfo convertToFlightInfo(FlightOfferSearch offer) {
+    private FlightInfo convertToFlightInfo(FlightOfferSearch offer) {
         FlightInfo flightInfo = new FlightInfo();
         flightInfo.setOneWay(offer.isOneWay());
         flightInfo.setTotal(offer.getPrice().getTotal());
@@ -576,9 +787,9 @@ public class FlightSearchService {
             return null;
         }
         
-        if (date instanceof Date) {
-            return ((Date) date).toInstant()
-                .atZone(ZoneId.systemDefault())
+        if (date instanceof java.util.Date) {
+            return ((java.util.Date) date).toInstant()
+                .atZone(java.time.ZoneId.systemDefault())
                 .toLocalDate();
         }
         
