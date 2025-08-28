@@ -1,18 +1,20 @@
 package com.pkfare.trip.scale.plan.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import com.pkfare.trip.scale.exception.TripPlanException;
 import com.pkfare.trip.scale.model.enums.TripPlanErrorCodeEnum;
 import com.pkfare.trip.scale.plan.service.impl.ActivityAdjustServiceImpl;
 import com.pkfare.trip.scale.plan.service.impl.FlightAdjustServiceImpl;
 import com.pkfare.trip.scale.plan.service.impl.HotelAdjustServiceImpl;
 import com.pkfare.trip.scale.plan.service.param.AdjustItemEnum;
-import com.pkfare.trip.scale.plan.service.param.AdjustPlanParam;
 import com.pkfare.trip.scale.plan.service.param.GeneratePlanParam;
 import com.pkfare.trip.scale.plan.service.response.TripPlan;
 import java.io.IOException;
-import java.util.List;
 import java.util.Optional;
+import javax.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,7 +27,6 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @Service
 public class TripPlanAdjustService {
-
   @Autowired
   private FlightAdjustServiceImpl flightAdjustService;
 
@@ -38,7 +39,7 @@ public class TripPlanAdjustService {
   @Autowired
   private ObjectMapper objectMapper;
 
-  public TripPlan adjustPlan(GeneratePlanParam generatePlanParam, TripPlan tripPlan, List<AdjustPlanParam> adjustPlanParams) {
+  public TripPlan adjustPlan(GeneratePlanParam generatePlanParam, TripPlan tripPlan, @Valid JsonArray adjustPlanParams) {
     log.info("Adjusting trip plan: {}", tripPlan.getPlanId());
     TripPlan adjustedPlan;
     try {
@@ -48,15 +49,21 @@ public class TripPlanAdjustService {
       throw new TripPlanException(TripPlanErrorCodeEnum.NO_FLIGHT_FOUND, e);
     }
 
-    for (AdjustPlanParam adjustParam : adjustPlanParams) {
+    for (JsonElement element : adjustPlanParams) {
       try {
-        Optional<AdjustItemEnum> item = AdjustItemEnum.getByCode(adjustParam.getItem());
-        if (item.isEmpty()) {
-          log.warn("Unknown adjust item type: {}", adjustParam.getItem());
+        if (!element.isJsonObject()) {
+          log.warn("Invalid adjust param format: {}", element);
+          continue;
+        }
+        JsonObject adjustParam = element.getAsJsonObject();
+        String item = adjustParam.get("item").getAsString();
+        Optional<AdjustItemEnum> itemEnum = AdjustItemEnum.getByCode(item);
+        if (itemEnum.isEmpty()) {
+          log.warn("Unknown adjust item type: {}", item);
           continue;
         }
 
-        switch (item.get()) {
+        switch (itemEnum.get()) {
           case FLIGHT:
             flightAdjustService.adjust(generatePlanParam, adjustedPlan, adjustParam);
             break;
@@ -68,7 +75,7 @@ public class TripPlanAdjustService {
             break;
         }
       } catch (Exception e) {
-        log.warn("Failed to process adjust item: {}", adjustParam.getItem(), e);
+        log.warn("Failed to process adjust item: {}", element, e);
       }
     }
     // 重新计算总费用

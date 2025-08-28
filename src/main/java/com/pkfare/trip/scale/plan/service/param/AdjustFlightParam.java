@@ -1,15 +1,14 @@
 package com.pkfare.trip.scale.plan.service.param;
 
-import lombok.Data;
+import java.util.List;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-/**
- * 调整旅行计划参数
- *
- * @author Trip Scale Team
- */
-@Data
-public class AdjustPlanParam {
-
+@Getter
+@Setter
+@NoArgsConstructor
+public class AdjustFlightParam {
   /**
    * 调整项类型: flight, hotel, activity
    *
@@ -24,6 +23,7 @@ public class AdjustPlanParam {
 
   /**
    * 调整类型: replace, advance, delay, cheaper
+   * @see FlightAdjustTypeEnum
    */
   private String adjustType;
 

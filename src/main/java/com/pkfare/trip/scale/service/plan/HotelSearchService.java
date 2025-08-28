@@ -267,16 +267,21 @@ public class HotelSearchService {
     return new ArrayList<>();
   }
 
+  private HotelInfo convertToHotelInfo(HotelOfferSearch offer, TripRouteParam route,
+      LocalDate checkIn, LocalDate checkOut) {
+    return convertToHotelInfo(offer, route.getLocation_code(), route.getDestination_city(), checkIn, checkOut);
+  }
   /**
    * 转换为HotelInfo
    *
    * @param offer    酒店报价
-   * @param route    路线
+   * @param cityCode 城市代码
+   * @param cityName 城市名称
    * @param checkIn  入住日期
    * @param checkOut 退房日期
    * @return 酒店信息
    */
-  private HotelInfo convertToHotelInfo(HotelOfferSearch offer, TripRouteParam route,
+  public static HotelInfo convertToHotelInfo(HotelOfferSearch offer, String cityCode, String cityName,
       LocalDate checkIn, LocalDate checkOut) {
     HotelInfo hotelInfo = new HotelInfo();
     if (offer == null || offer.getHotel() == null) {
@@ -286,8 +291,8 @@ public class HotelSearchService {
     // 基本信息
     hotelInfo.setHotelId(offer.getHotel().getHotelId());
     hotelInfo.setHotelName(offer.getHotel().getName());
-    hotelInfo.setCityCode(route.getLocation_code());
-    hotelInfo.setCityName(route.getDestination_city());
+    hotelInfo.setCityCode(cityCode);
+    hotelInfo.setCityName(cityName);
     hotelInfo.setCheckInDate(checkIn);
     hotelInfo.setCheckOutDate(checkOut);
     hotelInfo.setNights((int) DateUtil.daysBetween(checkIn, checkOut));

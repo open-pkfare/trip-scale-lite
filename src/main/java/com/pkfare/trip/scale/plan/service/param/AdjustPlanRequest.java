@@ -1,5 +1,6 @@
 package com.pkfare.trip.scale.plan.service.param;
 
+import com.google.gson.JsonArray;
 import com.pkfare.trip.scale.plan.service.response.TripPlan;
 import lombok.Data;
 
@@ -29,5 +30,5 @@ public class AdjustPlanRequest {
      * 调整参数列表
      */
     @Valid
-    private List<AdjustPlanParam> adjustPlanParams;
+    private JsonArray adjustPlanParams;
 }

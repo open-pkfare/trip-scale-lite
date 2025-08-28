@@ -1,13 +1,25 @@
 package com.pkfare.trip.scale.plan.service.impl;
 
+import com.amadeus.resources.Hotel;
+import com.amadeus.resources.HotelOfferSearch;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.pkfare.trip.scale.api.amadeus.hotelbycity.request.QueryHotelByGeocodeRequest;
+import com.pkfare.trip.scale.api.amadeus.hoteloffers.request.HotelOffersSearchRequest;
 import com.pkfare.trip.scale.exception.TripPlanException;
 import com.pkfare.trip.scale.model.enums.TripPlanErrorCodeEnum;
 import com.pkfare.trip.scale.plan.service.TripPlanAdjustInterface;
-import com.pkfare.trip.scale.plan.service.param.AdjustPlanParam;
+import com.pkfare.trip.scale.plan.service.param.AdjustHotelParam;
 import com.pkfare.trip.scale.plan.service.param.GeneratePlanParam;
 import com.pkfare.trip.scale.plan.service.response.HotelInfo;
 import com.pkfare.trip.scale.plan.service.response.TripPlan;
+import com.pkfare.trip.scale.service.external.amadeus.AmadeusHotelService;
 import com.pkfare.trip.scale.service.plan.HotelSearchService;
+import com.pkfare.trip.scale.util.DateUtil;
+import com.pkfare.trip.scale.util.PriceUtil;
+import java.math.BigDecimal;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 import lombok.extern.slf4j.Slf4j;
@@ -22,22 +34,25 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @Service
 public class HotelAdjustServiceImpl implements TripPlanAdjustInterface {
-`
+
+  private static final Gson gson = new Gson();
+  public static final Integer DEFAULT_RADIUS = 1;
   @Autowired
-  private HotelSearchService hotelSearchService;
+  private AmadeusHotelService amadeusHotelService;
 
   @Override
-  public void adjust(GeneratePlanParam generatePlanParam, TripPlan tripPlan, AdjustPlanParam adjustPlanParam) {
-    log.info("Adjusting hotel, id: {}", adjustPlanParam.getId());
+  public void adjust(GeneratePlanParam generatePlanParam, TripPlan tripPlan, JsonObject adjustParam) {
+    AdjustHotelParam adjustHotelParam = gson.fromJson(adjustParam, AdjustHotelParam.class);
+    log.info("Adjusting hotel param: {}", adjustHotelParam);
 
     List<HotelInfo> hotels = tripPlan.getHotels();
     boolean found = false;
     for (int i = 0; i < hotels.size(); i++) {
       HotelInfo hotel = hotels.get(i);
-      if (hotel.getHotelId().equals(adjustPlanParam.getId())) {
+      if (hotel.getHotelId().equals(adjustHotelParam.getHotelId())) {
         found = true;
         // 调用搜索服务获取新酒店
-        HotelInfo newHotel = hotelSearchService.searchHotels(generatePlanParam, hotel, adjustPlanParam);
+        HotelInfo newHotel = searchHotel(generatePlanParam, hotel, adjustHotelParam);
         if (Objects.isNull(newHotel)) {
           throw new TripPlanException(TripPlanErrorCodeEnum.NO_HOTEL_FOUND);
         }
@@ -46,8 +61,59 @@ public class HotelAdjustServiceImpl implements TripPlanAdjustInterface {
         break;
       }
     }
-
     if (!found) {
+      throw new TripPlanException(TripPlanErrorCodeEnum.NO_HOTEL_FOUND);
+    }
+  }
+
+  private HotelInfo searchHotel(GeneratePlanParam generatePlanParam, HotelInfo oldHotel, AdjustHotelParam adjustHotelParam) {
+    QueryHotelByGeocodeRequest geocodeRequest = new QueryHotelByGeocodeRequest();
+    geocodeRequest.setLatitude(oldHotel.getLatitude());
+    geocodeRequest.setLongitude(oldHotel.getLongitude());
+    geocodeRequest.setRadius(DEFAULT_RADIUS);
+    geocodeRequest.setRadiusUnit("KM");
+    geocodeRequest.setRatings(adjustHotelParam.getRatings());
+    geocodeRequest.setAmenities(adjustHotelParam.getAmenities());
+    Hotel[] hotels;
+    do {
+      hotels = amadeusHotelService.searchHotelsByGeocode(geocodeRequest);
+      if (hotels != null && hotels.length != 0) {
+        break;
+      }
+      geocodeRequest.setRadius(geocodeRequest.getRadius() + 1);
+    } while (geocodeRequest.getRadius() <= 5);
+    if (hotels == null || hotels.length == 0) {
+      throw new TripPlanException(TripPlanErrorCodeEnum.NO_HOTEL_FOUND);
+    }
+
+    List<String> hotelIds = Arrays.stream(hotels).map(Hotel::getHotelId).toList();
+    String countryCode = hotels[0].getAddress().getCountryCode();
+    HotelOffersSearchRequest request = new HotelOffersSearchRequest();
+    request.setHotelIds(hotelIds);
+    request.setCheckInDate(DateUtil.formatDate(oldHotel.getCheckInDate()));
+    request.setCheckOutDate(DateUtil.formatDate(oldHotel.getCheckOutDate()));
+    request.setAdults(generatePlanParam.getAdult_number() + generatePlanParam.getChild_number());
+    request.setCountryOfResidence(countryCode);
+    request.setRoomQuantity(adjustHotelParam.getRoomQuantity());
+    request.setPriceRange("10-" + adjustHotelParam.getMaxPrice());
+    request.setCurrency(oldHotel.getCurrency());
+    try {
+      HotelOfferSearch[] offers = amadeusHotelService.searchHotelOffers(request);
+      if (offers == null || offers.length == 0) {
+        throw new TripPlanException(TripPlanErrorCodeEnum.NO_HOTEL_FOUND);
+      }
+
+      // 按价格排序，选择最便宜的
+      HotelOfferSearch cheapestOffer = Arrays.stream(offers).min(Comparator.comparing(offer -> {
+        if (offer.getOffers() != null && offer.getOffers().length > 0) {
+          return PriceUtil.parsePrice(offer.getOffers()[0].getPrice().getTotal());
+        }
+        return BigDecimal.valueOf(Double.MAX_VALUE);
+      })).orElse(null);
+
+      return HotelSearchService.convertToHotelInfo(cheapestOffer, oldHotel.getCityCode(), oldHotel.getCityName(), oldHotel.getCheckInDate(),
+          oldHotel.getCheckOutDate());
+    } catch (Exception e) {
       throw new TripPlanException(TripPlanErrorCodeEnum.NO_HOTEL_FOUND);
     }
   }

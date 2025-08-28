@@ -3,11 +3,13 @@ package com.pkfare.trip.scale.plan.service.impl;
 import com.amadeus.resources.FlightOfferSearch;
 import com.amadeus.resources.FlightOfferSearch.Itinerary;
 import com.amadeus.resources.FlightOfferSearch.SearchSegment;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import com.pkfare.trip.scale.api.amadeus.flightoffers.request.FlightOffersSearchRequest;
 import com.pkfare.trip.scale.exception.TripPlanException;
 import com.pkfare.trip.scale.model.enums.TripPlanErrorCodeEnum;
 import com.pkfare.trip.scale.plan.service.TripPlanAdjustInterface;
-import com.pkfare.trip.scale.plan.service.param.AdjustPlanParam;
+import com.pkfare.trip.scale.plan.service.param.AdjustFlightParam;
 import com.pkfare.trip.scale.plan.service.param.FlightAdjustTypeEnum;
 import com.pkfare.trip.scale.plan.service.param.GeneratePlanParam;
 import com.pkfare.trip.scale.plan.service.response.FlightInfo;
@@ -35,22 +37,22 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @Service
 public class FlightAdjustServiceImpl implements TripPlanAdjustInterface {
-
+  private static final Gson gson = new Gson();
   @Autowired
   private FlightSearchService flightSearchService;
   @Autowired
   private AmadeusFlightService amadeusFlightService;
 
   @Override
-  public void adjust(GeneratePlanParam generatePlanParam, TripPlan tripPlan, AdjustPlanParam adjustPlanParam) {
-    log.info("Adjusting flight, id: {}", adjustPlanParam.getId());
+  public void adjust(GeneratePlanParam generatePlanParam, TripPlan tripPlan,  JsonObject adjustParam) {
+    AdjustFlightParam adjustFlightParam = gson.fromJson(adjustParam, AdjustFlightParam.class);
+    log.info("Adjusting flight param: {}", adjustFlightParam);
     List<FlightInfo> flights = tripPlan.getFlights();
     boolean found = false;
     for (int i = 0; i < flights.size(); i++) {
       FlightInfo flight = flights.get(i);
-      if (flight.getId().equals(adjustPlanParam.getId())) {
-        // 调用搜索服务获取新航班
-        FlightInfo newFlight = searchFlightInfo(generatePlanParam, flight, adjustPlanParam);
+      if (flight.getId().equals(adjustFlightParam.getId())) {
+        FlightInfo newFlight = searchFlightInfo(generatePlanParam, flight, adjustFlightParam);
         flights.set(i, newFlight);
         found = true;
         break;
@@ -61,7 +63,7 @@ public class FlightAdjustServiceImpl implements TripPlanAdjustInterface {
     }
   }
 
-  public FlightInfo searchFlightInfo(GeneratePlanParam planParam, FlightInfo oldFlightInfo, AdjustPlanParam adjustPlanParam) {
+  public FlightInfo searchFlightInfo(GeneratePlanParam planParam, FlightInfo oldFlightInfo, AdjustFlightParam adjustPlanParam) {
     List<ItineraryInfo> itineraries = oldFlightInfo.getItineraries();
     String departure = itineraries.getFirst().getDeparture();
     String arrival = itineraries.getLast().getArrival();
@@ -76,7 +78,7 @@ public class FlightAdjustServiceImpl implements TripPlanAdjustInterface {
     request.setAdults(planParam.getAdult_number());
     request.setChildren(planParam.getChild_number());
     request.setInfants(0);
-    request.setNonStop(true);
+    request.setNonStop(adjustPlanParam.isNoStop());
     request.setCurrency(planParam.getCurrency());
     request.setMaxPrice(new BigDecimal(oldFlightInfo.getTotal()).intValue());
     request.setMax(50);

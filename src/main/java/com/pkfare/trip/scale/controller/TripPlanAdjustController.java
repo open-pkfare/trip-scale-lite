@@ -41,16 +41,10 @@ public class TripPlanAdjustController {
     log.info("Received trip plan adjustment request for planId: {}", tripPlan.getPlanId());
 
     try {
-      TripPlan adjustedPlan = tripPlanAdjustService.adjustPlan(
-          request.getGeneratePlanParam(),
-          tripPlan,
-          request.getAdjustPlanParams());
-
+      TripPlan adjustedPlan = tripPlanAdjustService.adjustPlan(request.getGeneratePlanParam(), tripPlan, request.getAdjustPlanParams());
       log.info("Trip plan adjusted successfully: planId={}, status={}",
           adjustedPlan.getPlanId(), adjustedPlan.getStatus());
-
       return ResponseEntity.ok(adjustedPlan);
-
     } catch (Exception e) {
       log.error("Failed to adjust trip plan", e);
 

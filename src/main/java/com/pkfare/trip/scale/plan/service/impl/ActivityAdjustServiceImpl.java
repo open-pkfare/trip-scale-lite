@@ -1,5 +1,6 @@
 package com.pkfare.trip.scale.plan.service.impl;
 
+import com.google.gson.JsonObject;
 import com.pkfare.trip.scale.exception.TripPlanException;
 import com.pkfare.trip.scale.model.enums.TripPlanErrorCodeEnum;
 import com.pkfare.trip.scale.plan.service.TripPlanAdjustInterface;
@@ -26,7 +27,7 @@ public class ActivityAdjustServiceImpl implements TripPlanAdjustInterface {
   private ActivitySearchService activitySearchService;
 
   @Override
-  public void adjust(GeneratePlanParam generatePlanParam, TripPlan tripPlan, AdjustPlanParam adjustPlanParam) {
+  public void adjust(GeneratePlanParam generatePlanParam, TripPlan tripPlan,  JsonObject adjustParam) {
     log.info("Adjusting activity, id: {}", adjustPlanParam.getId());
     
     // 验证参数
