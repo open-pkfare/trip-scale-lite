@@ -331,7 +331,7 @@ public class HotelSearchService {
    * @param address 地址对象
    * @return 地址字符串
    */
-  private String buildAddressString(Object address) {
+  private static String buildAddressString(Object address) {
     // 这里需要根据实际的Address对象结构来实现
     // 简化实现
     return address != null ? address.toString() : "";

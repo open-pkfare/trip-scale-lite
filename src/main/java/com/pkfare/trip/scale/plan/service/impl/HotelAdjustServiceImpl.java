@@ -51,7 +51,6 @@ public class HotelAdjustServiceImpl implements TripPlanAdjustInterface {
       HotelInfo hotel = hotels.get(i);
       if (hotel.getHotelId().equals(adjustHotelParam.getHotelId())) {
         found = true;
-        // 调用搜索服务获取新酒店
         HotelInfo newHotel = searchHotel(generatePlanParam, hotel, adjustHotelParam);
         if (Objects.isNull(newHotel)) {
           throw new TripPlanException(TripPlanErrorCodeEnum.NO_HOTEL_FOUND);
