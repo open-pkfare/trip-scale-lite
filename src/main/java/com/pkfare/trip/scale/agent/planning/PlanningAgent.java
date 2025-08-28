@@ -174,8 +174,7 @@ public class PlanningAgent extends BaseAgent {
       mapper.registerModule(new JavaTimeModule());
       mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
       String planResultJson = mapper.writeValueAsString(planResult);
-      Content planContent = Content.fromParts(Part.fromText(planResultJson));
-      
+      Content planContent = Content.builder().role("planner").parts(Lists.newArrayList(Part.fromText(planResultJson))).build();
       Event planEvent = Event.builder()
           .invocationId(invocationContext.invocationId())
           .author("agent")
