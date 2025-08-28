@@ -15,6 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -102,8 +103,8 @@ public class ActivitySearchService {
   /**
    * 为指定城市搜索活动
    *
-   * @param tripRoute    路线信息
-   * @param location 酒店位置
+   * @param tripRoute 路线信息
+   * @param location  酒店位置
    * @return 活动信息列表
    */
   private List<ActivityInfo> searchActivitiesForCity(TripRouteParam tripRoute, HotelLocationInfo location) {
@@ -156,7 +157,7 @@ public class ActivitySearchService {
   private List<ActivityInfo> filterActivitiesByDistance(List<ActivityInfo> activities,
       HotelLocationInfo hotelLocation,
       double maxDistanceKm) {
-    return activities.stream()
+    return activities.stream().filter(activityInfo -> !CollectionUtils.isEmpty(activityInfo.getPictures()))
         .filter(activity -> {
           if (activity.getLatitude() == 0.0 || activity.getLongitude() == 0.0) {
             return false;
