@@ -96,7 +96,12 @@ public class AnotherRootAgent extends BaseAgent {
         Session session = invocationContext.session();
         String currentStage = (String) session.state().get("current_stage");
         ConcurrentMap<String, Object> states = Maps.newConcurrentMap();
+        String pref = null;
         try {
+          if (text.contains("------")) {
+            text = text.split("------")[1];
+            pref = text.split("------")[0];
+          }
           text = text.replace("```json","").replace("```","");
           JsonElement jsonElement = JsonParser.parseString(text);
           List<Part> parts = content.parts().get();
@@ -115,7 +120,7 @@ public class AnotherRootAgent extends BaseAgent {
               }.getType());
               states.put("current_stage", "planning");
               states.put("trip_route", tripRoutes);
-              part = Part.builder().text("Let's will start planning details for it!").build();
+              part = Part.builder().text(Optional.ofNullable(pref).orElse("Let's will start planning details for it!")).build();
               parts.removeFirst();
               parts.add(part);
               break;
