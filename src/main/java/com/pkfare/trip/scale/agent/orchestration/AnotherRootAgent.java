@@ -82,7 +82,9 @@ public class AnotherRootAgent extends BaseAgent {
       case "planning":
         eventFlowable = invocationContext.agent().findAgent("trip_planning_agent").runAsync(invocationContext);
         break;
-
+      case "adjustment":
+        eventFlowable = invocationContext.agent().findAgent("adjustment_agent").runAsync(invocationContext);
+        break;
     }
     return eventFlowable
 //        .mergeWith(Single.fromSupplier(()-> Event.builder().author("system").content(Content.fromParts(Part.fromText("hi night."))).build()))
