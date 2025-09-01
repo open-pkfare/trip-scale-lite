@@ -5,6 +5,8 @@ import com.amadeus.resources.FlightOfferSearch;
 import com.amadeus.resources.FlightOfferSearch.Itinerary;
 import com.amadeus.resources.FlightOfferSearch.SearchSegment;
 import com.amadeus.resources.Location;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import com.pkfare.trip.scale.api.amadeus.airportlocations.AmadeusFlightAirportLocationSearchAPI;
 import com.pkfare.trip.scale.api.amadeus.airportlocations.request.FlightAirportLocationSearchRequest;
 import com.pkfare.trip.scale.api.amadeus.flightdates.request.FlightDatesRequest;
@@ -51,29 +53,7 @@ public class FlightSearchService {
     private static final LocalTime MORNING_END = LocalTime.of(11, 0);
     private static final LocalTime EVENING_START = LocalTime.of(17, 0);
     private static final LocalTime EVENING_END = LocalTime.of(22, 0);
-    
-    /**
-     * 搜索航班
-     * 
-     * @param param 搜索参数
-     * @param preciseTravel 是否精确时间
-     * @param roundTrip 是否往返
-     * @return 航班信息列表
-     */
-    public List<FlightInfo> searchFlights(GeneratePlanParam param, boolean preciseTravel, boolean roundTrip) {
-        log.info("Searching flights: preciseTravel={}, roundTrip={}", preciseTravel, roundTrip);
-        
-        FlightSearchResult dateResult = null;
-        
-        // 如果不是精确时间，先搜索最便宜的日期
-        if (!preciseTravel) {
-            dateResult = searchFlightDates(param, roundTrip);
-        }
-        
-        // 搜索具体航班报价
-        List<FlightInfo> flightInfoList = searchFlightOffers(param, dateResult, preciseTravel, roundTrip);
-        return flightInfoList;
-    }
+
 
     private List<FlightLocationInfo> queryFlightLocations(List<FlightInfo> flightInfoList) {
         
@@ -194,21 +174,11 @@ public class FlightSearchService {
      * @param locations 位置信息列表
      * @return 补充了位置信息的航班信息列表
      */
-    private List<FlightInfo> supplementFlightLocations(List<FlightInfo> flightInfoList, List<FlightLocationInfo> locations) {
+    private List<FlightInfo> supplementFlightLocations(List<FlightInfo> flightInfoList, Map<String, GeoInfo> airportLocationMap) {
         if (flightInfoList == null || flightInfoList.isEmpty()) {
             log.info("Flight info list is empty, no location supplementation needed");
             return flightInfoList;
         }
-        
-        if (locations == null || locations.isEmpty()) {
-            log.warn("Location info list is empty, cannot supplement flight locations");
-            return flightInfoList;
-        }
-        
-        // 1. 创建机场代码到位置信息的映射
-        Map<String, GeoInfo> airportLocationMap = createAirportLocationMap(locations);
-        
-        log.info("Created airport location map with {} entries", airportLocationMap.size());
         
         // 2. 遍历航班信息，补充位置信息
         for (FlightInfo flightInfo : flightInfoList) {
@@ -351,27 +321,52 @@ public class FlightSearchService {
      * @param roundTrip 是否往返
      * @return 航班信息列表
      */
-    public List<FlightInfo> searchFlightOffers(GeneratePlanParam param, FlightSearchResult dateResult,
+    public Map<String,List<FlightInfo>> searchFlightOffers(GeneratePlanParam param, FlightSearchResult dateResult,
                                                boolean preciseTravel, boolean roundTrip) {
         log.info("Searching flight offers");
-        
-        List<FlightInfo> flights = new ArrayList<>();
+
+        Map<String,List<FlightInfo>> result = Maps.newHashMap();
         
         if (roundTrip) {
             // 往返航班搜索
             FlightOffersSearchRequest request = buildFlightOffersRequest(param, dateResult, preciseTravel, true);
             FlightOfferSearch[] offers = amadeusFlightService.searchFlightOffers(request);
             
+            List<FlightInfo> preferredFlights = new ArrayList<>();
+            List<FlightInfo> alternativeFlights = new ArrayList<>();
+            
             if (offers != null && offers.length > 0) {
+                // 获取首选航班
                 List<FlightInfo> bestFlights = filterBestFlights(Arrays.asList(offers), true, true);
-                flights.addAll(bestFlights);
+                preferredFlights.addAll(bestFlights);
+                
+                // 获取备选航班（剔除首选航班）
+                List<FlightInfo> alternatives = filterAlternativeFlights(Arrays.asList(offers), bestFlights, true, true);
+                alternativeFlights.addAll(alternatives);
             }
+            
+            result.put("preferred", preferredFlights);
+            result.put("alternative", alternativeFlights);
         } else {
             // 两个单程航班搜索
-            flights.addAll(searchOneWayFlightOffers(param, dateResult, preciseTravel));
+            result = searchOneWayFlightOffers(param, dateResult, preciseTravel);
         }
-        List<FlightLocationInfo> locations = queryFlightLocations(flights);
-        return supplementFlightLocations(flights,locations);
+
+        List<FlightLocationInfo> locations = queryFlightLocations(result.values().stream()
+            .flatMap(List::stream)
+            .collect(Collectors.toList()));
+        if (locations == null || locations.isEmpty()) {
+            log.warn("Location info list is empty, cannot supplement flight locations");
+            return result;
+        }
+        // 1. 创建机场代码到位置信息的映射
+        Map<String, GeoInfo> airportLocationMap = createAirportLocationMap(locations);
+
+        log.info("Created airport location map with {} entries", airportLocationMap.size());
+        result.values().forEach(flightList -> {
+            supplementFlightLocations(flightList,airportLocationMap);
+        });
+        return result;
     }
     
     /**
@@ -380,11 +375,11 @@ public class FlightSearchService {
      * @param param 搜索参数
      * @param dateResult 日期搜索结果
      * @param preciseTravel 是否精确时间
-     * @return 航班信息列表
+     * @return 航班信息列表，包含preferred和alternative两类
      */
-    private List<FlightInfo> searchOneWayFlightOffers(GeneratePlanParam param, FlightSearchResult dateResult, boolean preciseTravel) {
-        List<FlightInfo> flights = new ArrayList<>();
-        List<TripRouteParam> routes = param.getTrip_routes();
+    private Map<String,List<FlightInfo>> searchOneWayFlightOffers(GeneratePlanParam param, FlightSearchResult dateResult, boolean preciseTravel) {
+        List<FlightInfo> preferredFlights = new ArrayList<>();
+        List<FlightInfo> alternativeFlights = new ArrayList<>();
         
         // 去程航班
         FlightOffersSearchRequest outboundRequest = buildOneWayFlightOffersRequest(
@@ -392,8 +387,13 @@ public class FlightSearchService {
         FlightOfferSearch[] outboundOffers = amadeusFlightService.searchFlightOffers(outboundRequest);
         
         if (outboundOffers != null && outboundOffers.length > 0) {
-            List<FlightInfo> outboundFlights = filterBestFlights(Arrays.asList(outboundOffers), false, true);
-            flights.addAll(outboundFlights);
+            // 获取首选航班
+            List<FlightInfo> outboundPreferred = filterBestFlights(Arrays.asList(outboundOffers), false, true);
+            preferredFlights.addAll(outboundPreferred);
+            
+            // 获取备选航班（剔除首选航班）
+            List<FlightInfo> outboundAlternative = filterAlternativeFlights(Arrays.asList(outboundOffers), outboundPreferred, false, true);
+            alternativeFlights.addAll(outboundAlternative);
         }
         
         // 返程航班
@@ -402,11 +402,20 @@ public class FlightSearchService {
         FlightOfferSearch[] returnOffers = amadeusFlightService.searchFlightOffers(returnRequest);
         
         if (returnOffers != null && returnOffers.length > 0) {
-            List<FlightInfo> returnFlights = filterBestFlights(Arrays.asList(returnOffers), false, false);
-            flights.addAll(returnFlights);
+            // 获取首选航班
+            List<FlightInfo> returnPreferred = filterBestFlights(Arrays.asList(returnOffers), false, false);
+            preferredFlights.addAll(returnPreferred);
+            
+            // 获取备选航班（剔除首选航班）
+            List<FlightInfo> returnAlternative = filterAlternativeFlights(Arrays.asList(returnOffers), returnPreferred, false, false);
+            alternativeFlights.addAll(returnAlternative);
         }
         
-        return flights;
+        Map<String,List<FlightInfo>> result = new HashMap<>();
+        result.put("preferred", preferredFlights);
+        result.put("alternative", alternativeFlights);
+
+        return result;
     }
     
     /**
@@ -441,6 +450,91 @@ public class FlightSearchService {
         }
         
         return new ArrayList<>();
+    }
+    
+    /**
+     * 筛选备选航班（剔除首选航班）
+     * 
+     * @param offers 航班报价列表
+     * @param preferredFlights 首选航班列表
+     * @param isRoundTrip 是否往返
+     * @param isOutward 是否去程
+     * @return 备选航班信息列表
+     */
+    private List<FlightInfo> filterAlternativeFlights(List<FlightOfferSearch> offers, List<FlightInfo> preferredFlights, boolean isRoundTrip, boolean isOutward) {
+        if (offers == null || offers.isEmpty()) {
+            return new ArrayList<>();
+        }
+        
+        // 按价格排序
+        offers.sort((o1, o2) -> {
+            BigDecimal price1 = PriceUtil.parsePrice(o1.getPrice().getTotal());
+            BigDecimal price2 = PriceUtil.parsePrice(o2.getPrice().getTotal());
+            return price1.compareTo(price2);
+        });
+        
+        List<FlightInfo> alternatives = new ArrayList<>();
+        
+        // 获取首选航班的标识信息，用于排除
+        Set<String> preferredOfferIds = new HashSet<>();
+        if (preferredFlights != null) {
+            for (FlightInfo preferred : preferredFlights) {
+                // 使用航班的关键信息作为标识（价格+出发时间+到达时间）
+                String identifier = generateFlightIdentifier(preferred);
+                if (identifier != null) {
+                    preferredOfferIds.add(identifier);
+                }
+            }
+        }
+        
+        // 筛选备选航班，排除首选航班，最多返回3个备选
+        int alternativeCount = 0;
+        int maxAlternatives = 10;
+        
+        for (FlightOfferSearch offer : offers) {
+            if (alternativeCount >= maxAlternatives) {
+                break;
+            }
+            
+            FlightInfo flightInfo = convertToFlightInfo(offer);
+            String identifier = generateFlightIdentifier(flightInfo);
+            
+            // 如果不是首选航班，则加入备选列表
+            if (identifier != null && !preferredOfferIds.contains(identifier)) {
+                alternatives.add(flightInfo);
+                alternativeCount++;
+            }
+        }
+        
+        return alternatives;
+    }
+    
+    /**
+     * 生成航班标识符，用于区分不同航班
+     * 
+     * @param flightInfo 航班信息
+     * @return 航班标识符
+     */
+    private String generateFlightIdentifier(FlightInfo flightInfo) {
+        if (flightInfo == null || flightInfo.getItineraries() == null || flightInfo.getItineraries().isEmpty()) {
+            return null;
+        }
+        
+        StringBuilder identifier = new StringBuilder();
+        identifier.append(flightInfo.getTotal()).append("_");
+        
+        // 使用第一个行程的第一个航段信息作为标识
+        ItineraryInfo firstItinerary = flightInfo.getItineraries().get(0);
+        if (firstItinerary.getSegments() != null && !firstItinerary.getSegments().isEmpty()) {
+            SegmentInfo firstSegment = firstItinerary.getSegments().get(0);
+            identifier.append(firstSegment.getDeparture()).append("_")
+                     .append(firstSegment.getArrival()).append("_")
+                     .append(firstSegment.getDepartureTime()).append("_")
+                     .append(firstSegment.getCarrierCode()).append("_")
+                     .append(firstSegment.getNumber());
+        }
+        
+        return identifier.toString();
     }
     
     /**

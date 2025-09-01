@@ -1,5 +1,8 @@
 package com.pkfare.trip.scale.agent.orchestration;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.google.adk.agents.BaseAgent;
 import com.google.adk.agents.Callbacks.AfterAgentCallback;
 import com.google.adk.agents.Callbacks.BeforeAgentCallback;
@@ -104,6 +107,7 @@ public class AnotherRootAgent extends BaseAgent {
             pref = text.split("------")[0];
           }
           text = text.replace("```json","").replace("```","");
+
           JsonElement jsonElement = JsonParser.parseString(text);
           List<Part> parts = content.parts().get();
           Part part;
