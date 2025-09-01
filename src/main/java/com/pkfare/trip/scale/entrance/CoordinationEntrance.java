@@ -16,6 +16,7 @@ import io.reactivex.rxjava3.core.Flowable;
 import io.reactivex.rxjava3.core.Maybe;
 import jakarta.annotation.PostConstruct;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentMap;
 import lombok.extern.slf4j.Slf4j;
@@ -51,28 +52,33 @@ public class CoordinationEntrance {
 //    StringBuilder stringBuilder = new StringBuilder();
     List<RespConversation> respConversations = Lists.newArrayList();
 
+    Map<String, StringBuilder> map = Maps.newConcurrentMap();
+
     events.filter(UserEventFilter.instance()).blockingForEach(event -> {
 //      setDone(event, conversation.getUserId(), conversation.getConversationId());
       log.info("event {}", event);
 
-      RespConversation respConversation = new RespConversation();
       if (event.content().isPresent()) {
         Content content = event.content().get();
         switch (content.role().get()){
           case "planner":
-            respConversation.setType("object");
+            map.computeIfAbsent("object", k-> new StringBuilder()).append(content.text());
             break;
           default:
-            respConversation.setType("string");
+            map.computeIfAbsent("string", k-> new StringBuilder()).append(content.text());
             break;
         }
-//        stringBuilder.append(content.text());
-//        respConversation.setContent(stringBuilder.toString());
-        respConversation.setContent(content.text());
-        respConversation.setConversationId(conversation.getConversationId());
-        respConversations.add(respConversation);
       }
     });
+
+    map.forEach((key, value)-> {
+      RespConversation respConversation = new RespConversation();
+      respConversation.setType(key);
+      respConversation.setContent(value.toString());
+      respConversation.setConversationId(conversation.getConversationId());
+      respConversations.add(respConversation);
+    });
+
     return respConversations;
   }
 
