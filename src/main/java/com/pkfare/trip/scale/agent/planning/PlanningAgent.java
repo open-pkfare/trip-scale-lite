@@ -119,7 +119,7 @@ public class PlanningAgent extends BaseAgent {
     param.setEnd_period("2025-10-07");
     param.setTrip_days(7);
     param.setAdult_number(1);
-    param.setChild_number(1);
+    param.setChild_number(0);
     param.setRoom_quantity(1);
     param.setBudgets("50000");
     param.setCurrency("CNY");
