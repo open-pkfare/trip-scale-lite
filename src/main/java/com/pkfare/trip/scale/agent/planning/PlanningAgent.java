@@ -8,6 +8,7 @@ import com.google.adk.events.Event;
 import com.google.common.collect.Lists;
 import com.google.genai.types.Content;
 import com.google.genai.types.Part;
+import com.google.gson.Gson;
 import com.pkfare.trip.scale.dto.TripDemand;
 import com.pkfare.trip.scale.dto.TripRoute;
 import com.pkfare.trip.scale.plan.service.param.GeneratePlanParam;
@@ -170,10 +171,13 @@ public class PlanningAgent extends BaseAgent {
     
     // 第二个事件：完整计划结果事件
     try {
-      ObjectMapper mapper = new ObjectMapper();
-      mapper.registerModule(new JavaTimeModule());
-      mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
-      String planResultJson = mapper.writeValueAsString(planResult);
+//      ObjectMapper mapper = new ObjectMapper();
+//      mapper.registerModule(new JavaTimeModule());
+//      mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+//      String planResultJson = mapper.writeValueAsString(planResult);
+
+      String planResultJson = new Gson().toJson(planResult);
+
       Content planContent = Content.builder().role("planner").parts(Lists.newArrayList(Part.fromText(planResultJson))).build();
       Event planEvent = Event.builder()
           .invocationId(invocationContext.invocationId())
