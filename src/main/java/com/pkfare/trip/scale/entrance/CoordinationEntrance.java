@@ -10,6 +10,7 @@ import com.google.genai.types.Part;
 import com.pkfare.trip.scale.agent.orchestration.AnotherRootAgent;
 import com.pkfare.trip.scale.dto.Conversation;
 import com.pkfare.trip.scale.dto.RespConversation;
+import com.pkfare.trip.scale.function.AppRunner;
 import com.pkfare.trip.scale.function.UserEventFilter;
 import io.reactivex.rxjava3.core.Flowable;
 import io.reactivex.rxjava3.core.Maybe;
@@ -18,6 +19,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentMap;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Slf4j
@@ -26,12 +28,13 @@ public class CoordinationEntrance {
 
   private static final String NAME = "tripScale";
 
-  public static InMemoryRunner runner = new InMemoryRunner(AnotherRootAgent.instance());
+  @Autowired
+  private AppRunner runner;
 
-  @PostConstruct
-  public void init(){
-    AnotherRootAgent.instance().setSessionService(runner.sessionService());
-  }
+//  @PostConstruct
+//  public void init(){
+//    AnotherRootAgent.instance().setSessionService(runner.sessionService());
+//  }
 
   /**
    * chat with agents
@@ -40,7 +43,6 @@ public class CoordinationEntrance {
    */
   public List<RespConversation> chat(Conversation conversation) {
     Session session = AnotherRootAgent.instance().getSession(conversation.getConversationId(), conversation.getUserId());
-
     log.info("current session {}", session.state().entrySet());
 
     Content userMsg = Content.fromParts(Part.fromText(conversation.getContent()));

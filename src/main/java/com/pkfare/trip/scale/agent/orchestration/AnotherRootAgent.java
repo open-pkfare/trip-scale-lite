@@ -57,7 +57,7 @@ public class AnotherRootAgent extends BaseAgent {
     super(name, description, subAgents, beforeAgentCallback, afterAgentCallback);
   }
 
-  public static AnotherRootAgent instance() {
+  public static synchronized AnotherRootAgent instance() {
     if (null == ROOT_AGENT){
       ROOT_AGENT = new AnotherRootAgent();
     }

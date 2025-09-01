@@ -21,9 +21,6 @@ public class TripScaleController {
   private static final Logger logger = LoggerFactory.getLogger(TripScaleController.class);
 
   @Autowired
-  private RootAgent rootAgent;
-
-  @Autowired
   private CoordinationEntrance coordinationEntrance;
 
   @RequestMapping("/chat")
