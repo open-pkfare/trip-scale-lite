@@ -22,6 +22,7 @@ import com.pkfare.trip.scale.agent.inspiration.InspirationAgent;
 import com.pkfare.trip.scale.agent.planning.PlanningAgent;
 import com.pkfare.trip.scale.dto.TripDemand;
 import com.pkfare.trip.scale.dto.TripRoute;
+import com.pkfare.trip.scale.plan.service.response.TripRoutePlanResult;
 import io.reactivex.rxjava3.core.Flowable;
 import io.reactivex.rxjava3.core.Maybe;
 import java.time.Instant;
@@ -125,6 +126,10 @@ public class AnotherRootAgent extends BaseAgent {
               parts.add(part);
               break;
             case "planning":
+              if ("planner".equals(content.role().get())){
+                TripRoutePlanResult tripRoutePlanResult = new Gson().fromJson(text, TripRoutePlanResult.class);
+                states.put("plan_result", tripRoutePlanResult);
+              }
 
             default:
           }

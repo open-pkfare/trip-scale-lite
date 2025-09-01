@@ -76,7 +76,7 @@ public class PlanningAgent extends BaseAgent {
     try {
       // 从会话状态中获取数据
       TripDemand tripDemand = (TripDemand)invocationContext.session().state().get("trip_demand");
-      List<TripRoute> tripRoutes = (List<TripRoute>)invocationContext.session().state().get("trip_routes");
+      List<TripRoute> tripRoutes = (List<TripRoute>)invocationContext.session().state().get("trip_route");
 
       /**
       if (tripDemand == null || tripRoutes == null) {
@@ -174,8 +174,7 @@ public class PlanningAgent extends BaseAgent {
       mapper.registerModule(new JavaTimeModule());
       mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
       String planResultJson = mapper.writeValueAsString(planResult);
-      Content planContent = Content.fromParts(Part.fromText(planResultJson));
-      
+      Content planContent = Content.builder().role("planner").parts(Lists.newArrayList(Part.fromText(planResultJson))).build();
       Event planEvent = Event.builder()
           .invocationId(invocationContext.invocationId())
           .author("agent")

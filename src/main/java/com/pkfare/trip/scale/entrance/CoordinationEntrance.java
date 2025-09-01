@@ -46,23 +46,31 @@ public class CoordinationEntrance {
     Content userMsg = Content.fromParts(Part.fromText(conversation.getContent()));
 
     Flowable<Event> events = runner.runAsync(conversation.getUserId(), session.id(), userMsg);
-    StringBuilder stringBuilder = new StringBuilder();
+//    StringBuilder stringBuilder = new StringBuilder();
+    List<RespConversation> respConversations = Lists.newArrayList();
+
     events.filter(UserEventFilter.instance()).blockingForEach(event -> {
 //      setDone(event, conversation.getUserId(), conversation.getConversationId());
       log.info("event {}", event);
+
+      RespConversation respConversation = new RespConversation();
       if (event.content().isPresent()) {
         Content content = event.content().get();
-        stringBuilder.append(content.text());
+        switch (content.role().get()){
+          case "planner":
+            respConversation.setType("object");
+            break;
+          default:
+            respConversation.setType("string");
+            break;
+        }
+//        stringBuilder.append(content.text());
+//        respConversation.setContent(stringBuilder.toString());
+        respConversation.setContent(content.text());
+        respConversation.setConversationId(conversation.getConversationId());
+        respConversations.add(respConversation);
       }
     });
-
-    RespConversation respConversation = new RespConversation();
-    respConversation.setType("string");
-    respConversation.setContent(stringBuilder.toString());
-    respConversation.setConversationId(conversation.getConversationId());
-
-    List<RespConversation> respConversations = Lists.newArrayList();
-    respConversations.add(respConversation);
     return respConversations;
   }
 
