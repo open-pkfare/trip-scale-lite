@@ -22,6 +22,7 @@ import com.pkfare.trip.scale.agent.inspiration.InspirationAgent;
 import com.pkfare.trip.scale.agent.planning.PlanningAgent;
 import com.pkfare.trip.scale.dto.TripDemand;
 import com.pkfare.trip.scale.dto.TripRoute;
+import com.pkfare.trip.scale.plan.service.response.TripRoutePlanResult;
 import io.reactivex.rxjava3.core.Flowable;
 import io.reactivex.rxjava3.core.Maybe;
 import java.time.Instant;
@@ -96,7 +97,12 @@ public class AnotherRootAgent extends BaseAgent {
         Session session = invocationContext.session();
         String currentStage = (String) session.state().get("current_stage");
         ConcurrentMap<String, Object> states = Maps.newConcurrentMap();
+        String pref = null;
         try {
+          if (text.contains("------")) {
+            text = text.split("------")[1];
+            pref = text.split("------")[0];
+          }
           text = text.replace("```json","").replace("```","");
           JsonElement jsonElement = JsonParser.parseString(text);
           List<Part> parts = content.parts().get();
@@ -115,11 +121,15 @@ public class AnotherRootAgent extends BaseAgent {
               }.getType());
               states.put("current_stage", "planning");
               states.put("trip_route", tripRoutes);
-              part = Part.builder().text("Let's will start planning details for it!").build();
+              part = Part.builder().text(Optional.ofNullable(pref).orElse("Let's will start planning details for it!")).build();
               parts.removeFirst();
               parts.add(part);
               break;
             case "planning":
+              if ("planner".equals(content.role().get())){
+                TripRoutePlanResult tripRoutePlanResult = new Gson().fromJson(text, TripRoutePlanResult.class);
+                states.put("plan_result", tripRoutePlanResult);
+              }
 
             default:
           }
