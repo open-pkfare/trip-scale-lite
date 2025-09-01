@@ -1,5 +1,6 @@
 package com.pkfare.trip.scale.agent.orchestration;
 
+import com.alibaba.fastjson.JSON;
 import com.google.adk.agents.BaseAgent;
 import com.google.adk.agents.Callbacks.AfterAgentCallback;
 import com.google.adk.agents.Callbacks.BeforeAgentCallback;
@@ -100,8 +101,9 @@ public class AnotherRootAgent extends BaseAgent {
         String pref = null;
         try {
           if (text.contains("------")) {
-            text = text.split("------")[1];
-            pref = text.split("------")[0];
+            String[] tt = text.split("------");
+            pref = tt[0];
+            text = tt[1];
           }
           text = text.replace("```json","").replace("```","");
           JsonElement jsonElement = JsonParser.parseString(text);
@@ -127,14 +129,22 @@ public class AnotherRootAgent extends BaseAgent {
               break;
             case "planning":
               if ("planner".equals(content.role().get())){
+//                TripRoutePlanResult tripRoutePlanResult = JSON.parseObject(text,TripRoutePlanResult.class);
                 TripRoutePlanResult tripRoutePlanResult = new Gson().fromJson(text, TripRoutePlanResult.class);
+                states.put("current_stage", "adjustment");
                 states.put("plan_result", tripRoutePlanResult);
+                Part part1 = Part.builder().text(tripRoutePlanResult.getSummary()).build();
+                part = Part.builder().text(text).build();
+                parts.removeFirst();
+                parts.add(part1);
+                parts.add(part);
               }
 
             default:
           }
         } catch (Throwable e) {
-          log.info("error {}", ExceptionUtils.getStackTrace(e));
+//          log.info("error {}", ExceptionUtils.getStackTrace(e));
+          log.info("parse error text : {}", text);
           return;
         }
 

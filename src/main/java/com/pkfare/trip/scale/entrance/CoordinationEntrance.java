@@ -7,6 +7,7 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.genai.types.Content;
 import com.google.genai.types.Part;
+import com.google.gson.Gson;
 import com.pkfare.trip.scale.agent.orchestration.AnotherRootAgent;
 import com.pkfare.trip.scale.dto.Conversation;
 import com.pkfare.trip.scale.dto.RespConversation;
@@ -79,6 +80,7 @@ public class CoordinationEntrance {
       respConversations.add(respConversation);
     });
 
+    log.info("state : {}", new Gson().toJson(session.state()));
     return respConversations;
   }
 
