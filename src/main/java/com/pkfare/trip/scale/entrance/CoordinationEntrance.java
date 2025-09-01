@@ -61,7 +61,11 @@ public class CoordinationEntrance {
 
       if (event.content().isPresent()) {
         Content content = event.content().get();
-        switch (content.role().get()){
+        String role = "";
+        if (content.role().isPresent()){
+          role = content.role().get();
+        }
+        switch (role){
           case "planner":
             map.computeIfAbsent("object", k-> new StringBuilder()).append(content.text());
             break;

@@ -86,7 +86,8 @@ public class AnotherRootAgent extends BaseAgent {
         eventFlowable = invocationContext.agent().findAgent("adjustment_agent").runAsync(invocationContext);
         break;
     }
-    return eventFlowable
+    assert eventFlowable != null;
+    return eventFlowable.doOnNext(event-> log.info("inner event {}", event.id()))
 //        .mergeWith(Single.fromSupplier(()-> Event.builder().author("system").content(Content.fromParts(Part.fromText("hi night."))).build()))
         .doOnNext(event -> stageTransition(event, invocationContext));
   }
@@ -95,7 +96,6 @@ public class AnotherRootAgent extends BaseAgent {
     if (event.content().isPresent()) {
       Content content = event.content().get();
       String text = content.text();
-      String role = content.role().get();
       if (StringUtils.isNotEmpty(text)) {
         Session session = invocationContext.session();
         String currentStage = (String) session.state().get("current_stage");
@@ -130,15 +130,15 @@ public class AnotherRootAgent extends BaseAgent {
               parts.add(part);
               break;
             case "planning":
-              if ("planner".equals(content.role().get())){
+              if (content.role().isPresent() && "planner".equals(content.role().get())){
 //                TripRoutePlanResult tripRoutePlanResult = JSON.parseObject(text,TripRoutePlanResult.class);
                 TripRoutePlanResult tripRoutePlanResult = new Gson().fromJson(text, TripRoutePlanResult.class);
-                states.put("current_stage", "adjustment");
+//                states.put("current_stage", "adjustment");
                 states.put("plan_result", tripRoutePlanResult);
-                Part part1 = Part.builder().text(tripRoutePlanResult.getSummary()).build();
+//                Part part1 = Part.builder().text(tripRoutePlanResult.getSummary()).build();
                 part = Part.builder().text(text).build();
                 parts.removeFirst();
-                parts.add(part1);
+//                parts.add(part1);
                 parts.add(part);
               }
 

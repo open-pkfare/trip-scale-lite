@@ -5,6 +5,7 @@ import com.google.adk.agents.Callbacks.AfterAgentCallback;
 import com.google.adk.agents.Callbacks.BeforeAgentCallback;
 import com.google.adk.agents.InvocationContext;
 import com.google.adk.events.Event;
+import com.google.adk.sessions.BaseSessionService;
 import com.google.common.collect.Lists;
 import com.google.genai.types.Content;
 import com.google.genai.types.Part;
@@ -19,6 +20,7 @@ import io.reactivex.rxjava3.core.Flowable;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationContext;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -30,7 +32,7 @@ public class PlanningAgent extends BaseAgent {
 
   private static String NAME = "trip_planning_agent";
 
-  private static BaseAgent INSTANCE;
+  private static PlanningAgent INSTANCE;
   
   // 静态引用ApplicationContext，用于获取Spring Bean
   private static ApplicationContext applicationContext;
@@ -48,7 +50,7 @@ public class PlanningAgent extends BaseAgent {
         null);
   }
 
-  public static BaseAgent instance() {
+  public static PlanningAgent instance() {
     if (null == INSTANCE){
       INSTANCE = new PlanningAgent();
     }
@@ -78,7 +80,6 @@ public class PlanningAgent extends BaseAgent {
       // 从会话状态中获取数据
       TripDemand tripDemand = (TripDemand)invocationContext.session().state().get("trip_demand");
       List<TripRoute> tripRoutes = (List<TripRoute>)invocationContext.session().state().get("trip_route");
-
       /**
       if (tripDemand == null || tripRoutes == null) {
         log.error("TripDemand or TripRoutes is null in session state");
@@ -157,7 +158,7 @@ public class PlanningAgent extends BaseAgent {
     
     // 第一个事件：摘要事件
     if (planResult.getSummary() != null && !planResult.getSummary().isEmpty()) {
-      Content summaryContent = Content.fromParts(Part.fromText(planResult.getSummary()));
+      Content summaryContent = Content.builder().parts(Lists.newArrayList(Part.fromText(planResult.getSummary()))).build();
       Event summaryEvent = Event.builder()
           .invocationId(invocationContext.invocationId())
           .author("agent")
@@ -202,7 +203,6 @@ public class PlanningAgent extends BaseAgent {
           .build();
       events.add(errorEvent);
     }
-    
     return Flowable.fromIterable(events);
   }
 
