@@ -172,12 +172,12 @@ public class PlanningAgent extends BaseAgent {
     
     // 第二个事件：完整计划结果事件
     try {
-//      ObjectMapper mapper = new ObjectMapper();
-//      mapper.registerModule(new JavaTimeModule());
-//      mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
-//      String planResultJson = mapper.writeValueAsString(planResult);
+      ObjectMapper mapper = new ObjectMapper();
+      mapper.registerModule(new JavaTimeModule());
+      mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+      String planResultJson = mapper.writeValueAsString(planResult);
 
-      String planResultJson = new Gson().toJson(planResult);
+      //String planResultJson = new Gson().toJson(planResult);
 
       Content planContent = Content.builder().role("planner").parts(Lists.newArrayList(Part.fromText(planResultJson))).build();
       Event planEvent = Event.builder()

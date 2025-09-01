@@ -191,11 +191,11 @@ public class GeneratePlanService {
         ((ThreadPoolExecutor) tripPlanExecutor).getCorePoolSize());
 
     // 1. 并发搜索航班
-    CompletableFuture<List<FlightInfo>> flightsFuture = CompletableFuture
+    CompletableFuture<Map<String,List<FlightInfo>>> flightsFuture = CompletableFuture
         .supplyAsync(() -> {
           long start = System.currentTimeMillis();
           try {
-            List<FlightInfo> flights = flightSearchService.searchFlightOffers(param, dateResult, preciseTravel, roundTrip);
+            Map<String,List<FlightInfo>> flights = flightSearchService.searchFlightOffers(param, dateResult, preciseTravel, roundTrip);
             log.info("[{}] Flight search completed in {} ms, found {} flights", 
                 Thread.currentThread().getName(), System.currentTimeMillis() - start, flights.size());
             return flights;
@@ -259,7 +259,7 @@ public class GeneratePlanService {
           long start = System.currentTimeMillis();
           try {
             List<HotelInfo> hotels = hotelSearchService.searchHotels(
-                param, concurrentResult.flights, concurrentResult.hotelIds);
+                param, concurrentResult.flights.get("preferred"), concurrentResult.hotelIds);
             log.info("[{}] Hotel details search completed in {} ms, found {} hotels", 
                 Thread.currentThread().getName(), System.currentTimeMillis() - start, hotels.size());
             return hotels;
@@ -288,7 +288,7 @@ public class GeneratePlanService {
     // 等待依赖任务完成
     return CompletableFuture.allOf(hotelsFuture, activitiesFuture)
         .thenApply(v -> new DependentSearchResult(
-            concurrentResult.flights,
+            concurrentResult.flights.get("preferred"),
             hotelsFuture.join(),
             activitiesFuture.join()
         ));
@@ -343,11 +343,11 @@ public class GeneratePlanService {
    * 并发搜索结果数据结构
    */
   private static class ConcurrentSearchResult {
-    final List<FlightInfo> flights;
+    final Map<String,List<FlightInfo>> flights;
     final Map<String, List<String>> hotelIds;
     final List<CityLocationInfo> locations;
 
-    ConcurrentSearchResult(List<FlightInfo> flights, 
+    ConcurrentSearchResult(Map<String,List<FlightInfo>> flights,
                           Map<String, List<String>> hotelIds, 
                           List<CityLocationInfo> locations) {
       this.flights = flights;

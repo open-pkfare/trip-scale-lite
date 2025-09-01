@@ -32,8 +32,8 @@ public class GeneratePlanServiceTest {
   void testPlan_preciseTravel_onewaytrip() {
     GeneratePlanParam param = buildPreciseTravelRoundTripParam("2025-10-01", "2025-10-07", 7);
     TripRoutePlanResult result = generatePlanService.generatePlan(param);
-    log.info("****************************************************   第二次请求    ***************************************************************");
-    TripRoutePlanResult result1 = generatePlanService.generatePlan(param);
+    // log.info("****************************************************   第二次请求    ***************************************************************");
+    // TripRoutePlanResult result1 = generatePlanService.generatePlan(param);
     assertNotNull(result);
   }
 
