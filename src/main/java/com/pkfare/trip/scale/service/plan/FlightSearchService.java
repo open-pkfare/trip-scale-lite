@@ -1,11 +1,7 @@
 package com.pkfare.trip.scale.service.plan;
 
 import com.amadeus.resources.FlightDate;
-import com.amadeus.resources.FlightOfferSearch;
-import com.amadeus.resources.FlightOfferSearch.Itinerary;
-import com.amadeus.resources.FlightOfferSearch.SearchSegment;
 import com.amadeus.resources.Location;
-import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.pkfare.trip.scale.api.amadeus.airportlocations.AmadeusFlightAirportLocationSearchAPI;
 import com.pkfare.trip.scale.api.amadeus.airportlocations.request.FlightAirportLocationSearchRequest;
@@ -13,6 +9,9 @@ import com.pkfare.trip.scale.api.amadeus.flightdates.request.FlightDatesRequest;
 import com.pkfare.trip.scale.api.amadeus.flightoffers.request.FlightOffersSearchRequest;
 
 
+import com.pkfare.trip.scale.api.amadeus.flightoffers.response.FlightOfferDto;
+import com.pkfare.trip.scale.api.amadeus.flightoffers.response.ItineraryDto;
+import com.pkfare.trip.scale.api.amadeus.flightoffers.response.SearchSegmentDto;
 import com.pkfare.trip.scale.model.dto.FlightSearchResult;
 import com.pkfare.trip.scale.plan.service.param.GeneratePlanParam;
 import com.pkfare.trip.scale.plan.service.param.TripRouteParam;
@@ -171,7 +170,7 @@ public class FlightSearchService {
      * 将位置信息补充到航班信息中
      * 
      * @param flightInfoList 航班信息列表
-     * @param locations 位置信息列表
+     * @param airportLocationMap 位置信息列表
      * @return 补充了位置信息的航班信息列表
      */
     private List<FlightInfo> supplementFlightLocations(List<FlightInfo> flightInfoList, Map<String, GeoInfo> airportLocationMap) {
@@ -331,10 +330,10 @@ public class FlightSearchService {
         if (roundTrip) {
             // 往返航班搜索
             FlightOffersSearchRequest request = buildFlightOffersRequest(param, dateResult, preciseTravel, true);
-            FlightOfferSearch[] offers = amadeusFlightService.searchFlightOffers(request);
+            List<FlightOfferDto> offers = amadeusFlightService.searchFlightOffers(request);
             
-            if (offers != null && offers.length > 0) {
-                List<FlightInfo> bestFlights = filterBestFlights(Arrays.asList(offers), true, true);
+            if (offers != null && offers.size() > 0) {
+                List<FlightInfo> bestFlights = filterBestFlights(offers, true, true);
                 flights.addAll(bestFlights);
             }
         } else {
@@ -371,24 +370,24 @@ public class FlightSearchService {
         // 去程航班搜索
         FlightOffersSearchRequest outboundRequest = buildOneWayFlightOffersRequest(
             param, dateResult, preciseTravel, true);
-        FlightOfferSearch[] outboundOffers = amadeusFlightService.searchFlightOffers(outboundRequest);
+        List<FlightOfferDto> outboundOffers = amadeusFlightService.searchFlightOffers(outboundRequest);
         
         // 返程航班搜索
         FlightOffersSearchRequest returnRequest = buildOneWayFlightOffersRequest(
             param, dateResult, preciseTravel, false);
-        FlightOfferSearch[] returnOffers = amadeusFlightService.searchFlightOffers(returnRequest);
+        List<FlightOfferDto> returnOffers = amadeusFlightService.searchFlightOffers(returnRequest);
         
         // 组合去程和返程航班，生成完整的往返航班组合
         List<FlightInfo> preferredFlights = new ArrayList<>();
         List<FlightInfo> alternativeFlights = new ArrayList<>();
         
-        if (outboundOffers != null && outboundOffers.length > 0 && 
-            returnOffers != null && returnOffers.length > 0) {
+        if (outboundOffers != null && outboundOffers.size() > 0 &&
+            returnOffers != null && returnOffers.size() > 0) {
             
             // 筛选去程最佳航班
-            List<FlightOfferSearch> bestOutboundOffers = filterBestOffers(Arrays.asList(outboundOffers), true);
+            List<FlightOfferDto> bestOutboundOffers = filterBestOffers(outboundOffers, true);
             // 筛选返程最佳航班
-            List<FlightOfferSearch> bestReturnOffers = filterBestOffers(Arrays.asList(returnOffers), false);
+            List<FlightOfferDto> bestReturnOffers = filterBestOffers(returnOffers, false);
             
             // 生成首选航班组合（最佳去程 + 最佳返程）
             if (!bestOutboundOffers.isEmpty() && !bestReturnOffers.isEmpty()) {
@@ -399,7 +398,7 @@ public class FlightSearchService {
             
             // 生成备选航班组合
             alternativeFlights = generateAlternativeFlightCombinations(
-                Arrays.asList(outboundOffers), Arrays.asList(returnOffers), 
+                outboundOffers, returnOffers,
                 bestOutboundOffers.isEmpty() ? null : bestOutboundOffers.get(0),
                 bestReturnOffers.isEmpty() ? null : bestReturnOffers.get(0),
                 param.getCurrency());
@@ -419,7 +418,7 @@ public class FlightSearchService {
      * @param isOutward 是否为去程
      * @return 筛选后的航班报价列表
      */
-    private List<FlightOfferSearch> filterBestOffers(List<FlightOfferSearch> offers, boolean isOutward) {
+    private List<FlightOfferDto> filterBestOffers(List<FlightOfferDto> offers, boolean isOutward) {
         if (offers == null || offers.isEmpty()) {
             return new ArrayList<>();
         }
@@ -432,11 +431,11 @@ public class FlightSearchService {
         });
         
         // 在价格最低的几个选项中，选择时间最合适的
-        List<FlightOfferSearch> topOffers = offers.stream()
+        List<FlightOfferDto> topOffers = offers.stream()
             .limit(Math.min(10, offers.size()))
             .collect(Collectors.toList());
         
-        FlightOfferSearch bestOffer = findBestTimeSlotFlight(topOffers, false, isOutward);
+        FlightOfferDto bestOffer = findBestTimeSlotFlight(topOffers, false, isOutward);
         
         if (bestOffer != null) {
             return Collections.singletonList(bestOffer);
@@ -453,7 +452,7 @@ public class FlightSearchService {
      * @param currency 币种
      * @return 组合后的航班信息
      */
-    private FlightInfo combineOutboundAndReturn(FlightOfferSearch outboundOffer, FlightOfferSearch returnOffer, String currency) {
+    private FlightInfo combineOutboundAndReturn(FlightOfferDto outboundOffer, FlightOfferDto returnOffer, String currency) {
         FlightInfo flightInfo = new FlightInfo();
         flightInfo.setOneWay(false); // 往返航班
         flightInfo.setCurrency(currency);
@@ -468,14 +467,14 @@ public class FlightSearchService {
         List<ItineraryInfo> itineraries = new ArrayList<>();
         
         // 添加去程行程
-        if (outboundOffer.getItineraries() != null && outboundOffer.getItineraries().length > 0) {
-            ItineraryInfo outboundItinerary = convertItinerary(outboundOffer.getItineraries()[0]);
+        if (outboundOffer.getItineraries() != null && outboundOffer.getItineraries().size() > 0) {
+            ItineraryInfo outboundItinerary = convertItinerary(outboundOffer.getItineraries().get(0));
             itineraries.add(outboundItinerary);
         }
         
         // 添加返程行程
-        if (returnOffer.getItineraries() != null && returnOffer.getItineraries().length > 0) {
-            ItineraryInfo returnItinerary = convertItinerary(returnOffer.getItineraries()[0]);
+        if (returnOffer.getItineraries() != null && returnOffer.getItineraries().size() > 0) {
+            ItineraryInfo returnItinerary = convertItinerary(returnOffer.getItineraries().get(0));
             itineraries.add(returnItinerary);
         }
         
@@ -494,8 +493,8 @@ public class FlightSearchService {
      * @return 备选航班组合列表
      */
     private List<FlightInfo> generateAlternativeFlightCombinations(
-            List<FlightOfferSearch> outboundOffers, List<FlightOfferSearch> returnOffers,
-            FlightOfferSearch preferredOutbound, FlightOfferSearch preferredReturn, String currency) {
+            List<FlightOfferDto> outboundOffers, List<FlightOfferDto> returnOffers,
+            FlightOfferDto preferredOutbound, FlightOfferDto preferredReturn, String currency) {
         
         List<FlightInfo> alternatives = new ArrayList<>();
         Set<String> usedCombinations = new HashSet<>();
@@ -508,8 +507,8 @@ public class FlightSearchService {
         
         // 按总价格排序所有可能的组合
         List<FlightCombination> allCombinations = new ArrayList<>();
-        for (FlightOfferSearch outbound : outboundOffers) {
-            for (FlightOfferSearch returnFlight : returnOffers) {
+        for (FlightOfferDto outbound : outboundOffers) {
+            for (FlightOfferDto returnFlight : returnOffers) {
                 String combinationId = generateOfferIdentifier(outbound) + "_" + generateOfferIdentifier(returnFlight);
                 if (!usedCombinations.contains(combinationId)) {
                     BigDecimal totalPrice = PriceUtil.parsePrice(outbound.getPrice().getTotal())
@@ -536,17 +535,17 @@ public class FlightSearchService {
     /**
      * 生成航班报价的标识符
      */
-    private String generateOfferIdentifier(FlightOfferSearch offer) {
-        if (offer == null || offer.getItineraries() == null || offer.getItineraries().length == 0) {
+    private String generateOfferIdentifier(FlightOfferDto offer) {
+        if (offer == null || offer.getItineraries() == null || offer.getItineraries().size() == 0) {
             return "";
         }
         
         StringBuilder identifier = new StringBuilder();
         identifier.append(offer.getPrice().getTotal()).append("_");
         
-        var firstItinerary = offer.getItineraries()[0];
-        if (firstItinerary.getSegments() != null && firstItinerary.getSegments().length > 0) {
-            var firstSegment = firstItinerary.getSegments()[0];
+        var firstItinerary = offer.getItineraries().get(0);
+        if (firstItinerary.getSegments() != null && firstItinerary.getSegments().size() > 0) {
+            var firstSegment = firstItinerary.getSegments().get(0);
             identifier.append(firstSegment.getDeparture().getIataCode()).append("_")
                      .append(firstSegment.getArrival().getIataCode()).append("_")
                      .append(firstSegment.getDeparture().getAt()).append("_")
@@ -560,7 +559,7 @@ public class FlightSearchService {
     /**
      * 转换Amadeus Itinerary为ItineraryInfo
      */
-    private ItineraryInfo convertItinerary(com.amadeus.resources.FlightOfferSearch.Itinerary itinerary) {
+    private ItineraryInfo convertItinerary(ItineraryDto itinerary) {
         ItineraryInfo itineraryInfo = new ItineraryInfo();
         itineraryInfo.setDuration(itinerary.getDuration());
         
@@ -589,18 +588,18 @@ public class FlightSearchService {
      * 航班组合内部类
      */
     private static class FlightCombination {
-        private final FlightOfferSearch outbound;
-        private final FlightOfferSearch returnFlight;
+        private final FlightOfferDto outbound;
+        private final FlightOfferDto returnFlight;
         private final BigDecimal totalPrice;
         
-        public FlightCombination(FlightOfferSearch outbound, FlightOfferSearch returnFlight, BigDecimal totalPrice) {
+        public FlightCombination(FlightOfferDto outbound, FlightOfferDto returnFlight, BigDecimal totalPrice) {
             this.outbound = outbound;
             this.returnFlight = returnFlight;
             this.totalPrice = totalPrice;
         }
         
-        public FlightOfferSearch getOutbound() { return outbound; }
-        public FlightOfferSearch getReturnFlight() { return returnFlight; }
+        public FlightOfferDto getOutbound() { return outbound; }
+        public FlightOfferDto getReturnFlight() { return returnFlight; }
         public BigDecimal getTotalPrice() { return totalPrice; }
     }
     
@@ -611,7 +610,7 @@ public class FlightSearchService {
      * @param isRoundTrip 是否往返
      * @return 筛选后的航班信息列表
      */
-    private List<FlightInfo> filterBestFlights(List<FlightOfferSearch> offers, boolean isRoundTrip, boolean isOutward) {
+    private List<FlightInfo> filterBestFlights(List<FlightOfferDto> offers, boolean isRoundTrip, boolean isOutward) {
         if (offers == null || offers.isEmpty()) {
             return new ArrayList<>();
         }
@@ -624,11 +623,11 @@ public class FlightSearchService {
         });
         
         // 在价格最低的几个选项中，选择时间最合适的
-        List<FlightOfferSearch> topOffers = offers.stream()
+        List<FlightOfferDto> topOffers = offers.stream()
             .limit(Math.min(10, offers.size()))
             .collect(Collectors.toList());
         
-        FlightOfferSearch bestOffer = findBestTimeSlotFlight(topOffers,isRoundTrip,isOutward);
+        FlightOfferDto bestOffer = findBestTimeSlotFlight(topOffers,isRoundTrip,isOutward);
         
         if (bestOffer != null) {
             FlightInfo flightInfo = convertToFlightInfo(bestOffer);
@@ -824,9 +823,9 @@ public class FlightSearchService {
     /**
      * 找到最佳时间段的航班
      */
-    private FlightOfferSearch findBestTimeSlotFlight(List<FlightOfferSearch> offers, boolean isRoundTrip,boolean isOutward) {
+    private FlightOfferDto findBestTimeSlotFlight(List<FlightOfferDto> offers, boolean isRoundTrip,boolean isOutward) {
         // 优先选择去程早上6-11点，返程17-22点的航班
-        for (FlightOfferSearch offer : offers) {
+        for (FlightOfferDto offer : offers) {
             if (isPreferredTimeSlot(offer,isRoundTrip,isOutward)) {
                 return offer;
             }
@@ -843,24 +842,24 @@ public class FlightSearchService {
      * @param isOutward 是否为去程（仅在单程时使用）
      * @return 是否为首选时间段
      */
-    private boolean isPreferredTimeSlot(FlightOfferSearch offer, boolean isRoundTrip, boolean isOutward) {
-        if (offer == null || offer.getItineraries() == null || offer.getItineraries().length == 0) {
+    private boolean isPreferredTimeSlot(FlightOfferDto offer, boolean isRoundTrip, boolean isOutward) {
+        if (offer == null || offer.getItineraries() == null || offer.getItineraries().size() == 0) {
             return false;
         }
 
         
         if (isRoundTrip) {
             // 往返航班：检查去程早上6-11点，返程17-22点
-            return checkOutboundTimeSlot(offer.getItineraries()[0]) && 
-                   checkInboundTimeSlot(offer.getItineraries()[1]);
+            return checkOutboundTimeSlot(offer.getItineraries().get(0)) &&
+                   checkInboundTimeSlot(offer.getItineraries().get(1));
         } else {
             // 单程航班
             if (isOutward) {
                 // 去程：检查早上6-11点
-                return checkOutboundTimeSlot(offer.getItineraries()[0]);
+                return checkOutboundTimeSlot(offer.getItineraries().get(0));
             } else {
                 // 返程：检查17-22点
-                return checkInboundTimeSlot(offer.getItineraries()[0]);
+                return checkInboundTimeSlot(offer.getItineraries().get(0));
             }
         }
     }
@@ -871,13 +870,13 @@ public class FlightSearchService {
      * @param itinerary 行程
      * @return 是否在去程首选时间段
      */
-    private boolean checkOutboundTimeSlot(Itinerary itinerary) {
-        if (itinerary == null || itinerary.getSegments() == null || itinerary.getSegments().length == 0) {
+    private boolean checkOutboundTimeSlot(ItineraryDto itinerary) {
+        if (itinerary == null || itinerary.getSegments() == null || itinerary.getSegments().size() == 0) {
             return false;
         }
         
         // 取第一个航段的出发时间
-        var firstSegment = itinerary.getSegments()[0];
+        SearchSegmentDto firstSegment = itinerary.getSegments().get(0);
         if (firstSegment.getDeparture() == null || firstSegment.getDeparture().getAt() == null) {
             return false;
         }
@@ -894,13 +893,13 @@ public class FlightSearchService {
      * @param itinerary 行程
      * @return 是否在返程首选时间段
      */
-    private boolean checkInboundTimeSlot(Itinerary itinerary) {
-        if (itinerary == null || itinerary.getSegments() == null || itinerary.getSegments().length == 0) {
+    private boolean checkInboundTimeSlot(ItineraryDto itinerary) {
+        if (itinerary == null || itinerary.getSegments() == null || itinerary.getSegments().size() == 0) {
             return false;
         }
         
         // 取第一个航段的出发时间（对于返程航班，这是从目的地出发的时间）
-        var firstSegment = itinerary.getSegments()[0];
+        SearchSegmentDto firstSegment = itinerary.getSegments().get(0);
         if (firstSegment.getDeparture() == null || firstSegment.getDeparture().getAt() == null) {
             return false;
         }
@@ -941,9 +940,9 @@ public class FlightSearchService {
     /**
      * 转换为FlightInfo
      */
-    public FlightInfo convertToFlightInfo(FlightOfferSearch offer) {
+    private FlightInfo convertToFlightInfo(FlightOfferDto offer) {
         FlightInfo flightInfo = new FlightInfo();
-        flightInfo.setOneWay(offer.isOneWay());
+        flightInfo.setOneWay(offer.getOneWay());
         flightInfo.setTotal(offer.getPrice().getTotal());
         flightInfo.setCurrency(offer.getPrice().getCurrency());
         List<ItineraryInfo> itineraries = new ArrayList<>();
@@ -954,7 +953,7 @@ public class FlightSearchService {
                 List<SegmentInfo> segments = new ArrayList<>();
                 
                 if (itinerary.getSegments() != null) {
-                    for (SearchSegment segment : itinerary.getSegments()) {
+                    for (SearchSegmentDto segment : itinerary.getSegments()) {
                         SegmentInfo segmentInfo = new SegmentInfo();
                         segmentInfo.setDeparture(segment.getDeparture().getIataCode());
                         segmentInfo.setDepartureTerminal(segment.getDeparture().getTerminal());

@@ -1,23 +1,30 @@
 package com.pkfare.trip.scale.api.amadeus;
 
 import com.amadeus.exceptions.ResponseException;
-import com.amadeus.resources.FlightOfferSearch;
 import com.pkfare.trip.scale.api.amadeus.flightoffers.AmadeusFlightOffersSearchAPI;
 import com.pkfare.trip.scale.api.amadeus.flightoffers.request.FlightOffersSearchRequest;
-
-
+import com.pkfare.trip.scale.api.amadeus.flightoffers.response.FlightOfferDto;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class AmadeusFlightOffersAPITest {
 
+  @Configuration
+  @ComponentScan(basePackages = "com.pkfare.trip.scale.api.amadeus")
+  static class TestConfig {
+  }
 
   public static void main(String[] args) throws ResponseException {
     // 测试/v2/shopping/flight-offers 接口
-    AmadeusFlightOffersSearchAPI amadeusFlightOffersSearchAPI = new AmadeusFlightOffersSearchAPI();
-    FlightOfferSearch[] FlightOffersSearchResponse = amadeusFlightOffersSearchAPI.flightOffersSearch(buildFlightOffersSearch());
-    log.info("response : {}",FlightOffersSearchResponse);
-
+    try (AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(TestConfig.class)) {
+      AmadeusFlightOffersSearchAPI amadeusFlightOffersSearchAPI = context.getBean(AmadeusFlightOffersSearchAPI.class);
+      List<FlightOfferDto> FlightOffersSearchResponse = amadeusFlightOffersSearchAPI.flightOffersSearch(buildFlightOffersSearch());
+      log.info("response : {}",FlightOffersSearchResponse);
+    }
   }
 
   private static FlightOffersSearchRequest buildFlightOffersSearch() {

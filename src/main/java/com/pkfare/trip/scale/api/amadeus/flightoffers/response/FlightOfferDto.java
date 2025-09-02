@@ -2,23 +2,24 @@ package com.pkfare.trip.scale.api.amadeus.flightoffers.response;
 
 
 
+import java.util.List;
 import lombok.Data;
 
 @Data
-public class FlightOfferSearch {
+public class FlightOfferDto {
 
   private String type;
   private String id;
   private String source;
-  private boolean instantTicketingRequired;
-  private boolean disablePricing;
-  private boolean nonHomogeneous;
-  private boolean oneWay;
-  private boolean paymentCardRequired;
+  private Boolean instantTicketingRequired;
+  private Boolean disablePricing;
+  private Boolean nonHomogeneous;
+  private Boolean oneWay;
+  private Boolean paymentCardRequired;
   private String lastTicketingDate;
-  private int numberOfBookableSeats;
-  private Itinerary[] itineraries;
-  private SearchPrice price;
+  private Integer numberOfBookableSeats;
+  private List<ItineraryDto> itineraries;
+  private SearchPriceDto price;
   //private PricingOptions pricingOptions;
   //private String[] validatingAirlineCodes;
   // private TravelerPricing[] travelerPricings;

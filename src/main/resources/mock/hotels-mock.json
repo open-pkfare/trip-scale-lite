@@ -1,0 +1,116 @@
+{
+  "data": [
+    {
+      "type": "hotel-offers",
+      "hotel": {
+        "type": "hotel",
+        "hotelId": "MCLONGHM",
+        "chainCode": "MC",
+        "brandCode": "JW",
+        "dupeId": "700027130",
+        "name": "JW Marriott Hotel London",
+        "cityCode": "LON",
+        "latitude": 51.50988,
+        "longitude": -0.14298
+      },
+      "available": true,
+      "offers": [
+        {
+          "type": "hotel-offer",
+          "id": "NRPQNQBOJM",
+          "checkInDate": "2025-10-02",
+          "checkOutDate": "2025-10-05",
+          "roomQuantity": 1,
+          "rateCode": "RAC",
+          "category": "SUPERIOR_ROOM",
+          "description": {
+            "lang": "en",
+            "text": "Marriott Prepaid Rate - Book Now Pay Later - Non-refundable"
+          },
+          "price": {
+            "currency": "EUR",
+            "total": "1083.00",
+            "base": "902.50",
+            "sellingTotal": "1083.00"
+          }
+        },
+        {
+          "type": "hotel-offer",
+          "id": "NRPQNQBOJN",
+          "checkInDate": "2025-10-02",
+          "checkOutDate": "2025-10-05",
+          "roomQuantity": 1,
+          "rateCode": "S9R",
+          "category": "DELUXE_ROOM",
+          "description": {
+            "lang": "en",
+            "text": "Senior Rate 65+ - Advance Purchase Required - Breakfast included"
+          },
+          "price": {
+            "currency": "EUR",
+            "total": "1350.90",
+            "base": "1125.75",
+            "sellingTotal": "1350.90"
+          }
+        }
+      ],
+      "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=MCLONGHM"
+    },
+    {
+      "type": "hotel-offers",
+      "hotel": {
+        "type": "hotel",
+        "hotelId": "HNPARKGU",
+        "chainCode": "HN",
+        "brandCode": "PG",
+        "dupeId": "700009988",
+        "name": "Park Grand London Paddington",
+        "cityCode": "LON",
+        "latitude": 51.51509,
+        "longitude": -0.17551
+      },
+      "available": true,
+      "offers": [
+        {
+          "type": "hotel-offer",
+          "id": "HNPARKGU01",
+          "checkInDate": "2025-10-02",
+          "checkOutDate": "2025-10-05",
+          "roomQuantity": 1,
+          "rateCode": "BAR",
+          "category": "STANDARD_ROOM",
+          "description": {
+            "lang": "en",
+            "text": "Best Available Rate - Flexible booking - Free cancellation"
+          },
+          "price": {
+            "currency": "EUR",
+            "total": "540.00",
+            "base": "450.00",
+            "sellingTotal": "540.00"
+          }
+        },
+        {
+          "type": "hotel-offer",
+          "id": "HNPARKGU02",
+          "checkInDate": "2025-10-02",
+          "checkOutDate": "2025-10-05",
+          "roomQuantity": 1,
+          "rateCode": "BB",
+          "category": "SUPERIOR_ROOM",
+          "description": {
+            "lang": "en",
+            "text": "Bed & Breakfast Rate - Breakfast included - Free WiFi"
+          },
+          "price": {
+            "currency": "EUR",
+            "total": "630.00",
+            "base": "525.00",
+            "sellingTotal": "630.00"
+          }
+        }
+      ],
+      "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=HNPARKGU"
+    }
+  ]
+}

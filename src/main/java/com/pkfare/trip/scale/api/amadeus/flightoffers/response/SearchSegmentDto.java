@@ -5,9 +5,9 @@ import lombok.Data;
 
 
 @Data
-public class SearchSegment {
-  private AirportInfo departure;
-  private AirportInfo arrival;
+public class SearchSegmentDto {
+  private AirportInfoDto departure;
+  private AirportInfoDto arrival;
   private String carrierCode;
   private String number;
   // private Aircraft aircraft;
@@ -17,5 +17,6 @@ public class SearchSegment {
   private String id;
   private int numberOfStops;
   private boolean blacklistedInEU;
+
 
 }

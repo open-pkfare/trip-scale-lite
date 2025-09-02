@@ -8,8 +8,10 @@ import com.pkfare.trip.scale.api.amadeus.hotelbycity.request.QueryHotelByCityReq
 import com.pkfare.trip.scale.api.amadeus.hotelbycity.request.QueryHotelByGeocodeRequest;
 import com.pkfare.trip.scale.api.amadeus.hoteloffers.AmadeusHotelOffersSearchAPI;
 import com.pkfare.trip.scale.api.amadeus.hoteloffers.request.HotelOffersSearchRequest;
+import com.pkfare.trip.scale.api.amadeus.hoteloffers.response.HotelOfferDto;
 import com.pkfare.trip.scale.exception.ExternalApiException;
 import com.pkfare.trip.scale.util.CacheKeyUtil;
+import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -90,7 +92,7 @@ public class AmadeusHotelService {
      * @param request 酒店报价搜索请求
      * @return 酒店报价数组
      */
-    public HotelOfferSearch[] searchHotelOffers(HotelOffersSearchRequest request) {
+    public List<HotelOfferDto> searchHotelOffers(HotelOffersSearchRequest request) {
         log.info("Searching hotel offers with request: {}", request);
         
         // 生成缓存键
@@ -101,23 +103,23 @@ public class AmadeusHotelService {
         }
         
         // 1. 先尝试从缓存获取
-        HotelOfferSearch[] cachedResult = getCachedHotelOffers(cacheKey);
+        List<HotelOfferDto> cachedResult = getCachedHotelOffers(cacheKey);
         if (cachedResult != null) {
             log.info("Cache hit! Returning {} cached hotel offers for key: {}", 
-                cachedResult.length, cacheKey);
+                cachedResult.size(), cacheKey);
             logHotelOffersCacheStats();
             return cachedResult;
         }
         
         // 2. 缓存未命中，调用API获取数据
         log.info("Cache miss for key: {}, calling API", cacheKey);
-        HotelOfferSearch[] apiResult = searchHotelOffersWithoutCache(request);
+        List<HotelOfferDto> apiResult = searchHotelOffersWithoutCache(request);
         
         // 3. 将API结果缓存起来
-        if (apiResult != null && apiResult.length > 0) {
+        if (apiResult != null && apiResult.size() > 0) {
             cacheHotelOffersResult(cacheKey, apiResult);
             log.info("API result cached successfully - {} hotel offers for key: {}", 
-                apiResult.length, cacheKey);
+                apiResult.size(), cacheKey);
         } else {
             log.warn("API returned empty result, not caching for key: {}", cacheKey);
         }
@@ -132,12 +134,12 @@ public class AmadeusHotelService {
      * @param cacheKey 缓存键
      * @return 缓存的酒店报价，如果不存在返回null
      */
-    private HotelOfferSearch[] getCachedHotelOffers(String cacheKey) {
+    private List<HotelOfferDto> getCachedHotelOffers(String cacheKey) {
         try {
             Object cached = hotelOffersCache.getIfPresent(cacheKey);
             if (cached instanceof HotelOfferSearch[]) {
-                HotelOfferSearch[] cachedResult = (HotelOfferSearch[]) cached;
-                log.debug("Cache hit for key: {}, found {} results", cacheKey, cachedResult.length);
+                List<HotelOfferDto> cachedResult = (List<HotelOfferDto>) cached;
+                log.debug("Cache hit for key: {}, found {} results", cacheKey, cachedResult.size());
                 return cachedResult;
             } else if (cached != null) {
                 log.warn("Invalid cached object type: {}, removing from cache", cached.getClass());
@@ -157,10 +159,10 @@ public class AmadeusHotelService {
      * @param cacheKey 缓存键
      * @param result API查询结果
      */
-    private void cacheHotelOffersResult(String cacheKey, HotelOfferSearch[] result) {
+    private void cacheHotelOffersResult(String cacheKey, List<HotelOfferDto> result) {
         try {
             hotelOffersCache.put(cacheKey, result);
-            log.debug("Cached {} hotel offers for key: {}", result.length, cacheKey);
+            log.debug("Cached {} hotel offers for key: {}", result.size(), cacheKey);
         } catch (Exception e) {
             log.error("Failed to cache result for key: {}", cacheKey, e);
         }
@@ -172,11 +174,12 @@ public class AmadeusHotelService {
      * @param request 酒店报价搜索请求
      * @return 酒店报价数组
      */
-    private HotelOfferSearch[] searchHotelOffersWithoutCache(HotelOffersSearchRequest request) {
+    private List<HotelOfferDto> searchHotelOffersWithoutCache(HotelOffersSearchRequest request) {
         return retryApiCall(() -> {
             try {
-                HotelOfferSearch[] result = hotelOffersAPI.hotelOffersSearch(request);
-                log.debug("API call completed, found {} results", result != null ? result.length : 0);
+                List<HotelOfferDto> result = hotelOffersAPI.hotelOffersSearch(request);
+                log.debug("API call completed, found {} results", result != null ? result.size() : 0);
+                log.info("Returning hotels:{}", result );
                 return result;
             } catch (Exception e) {
                 log.error("Failed to search hotel offers via API", e);
