@@ -2,11 +2,12 @@ package com.pkfare.trip.scale.agent.optimizing;
 
 /**
  * 旅行计划生成提示词
- * 
+ *
  * @author Trip Scale Team
  */
-public class PlanningPrompt {
-    
+// todo
+public class OptimizingPrompt {
+
     public static final String PLANNING_PROMPT = """
         你是一个专业的旅行计划助手，需要根据提供的航班、酒店、活动信息生成详细的旅行计划。
         
@@ -36,15 +37,15 @@ public class PlanningPrompt {
         
         请确保计划的可行性和实用性。
         """;
-    
+
     /**
      * 构建具体的提示词
-     * 
+     *
      * @param planInfo 计划信息JSON字符串
      * @return 完整的提示词
      */
     public static String buildPrompt(String planInfo) {
-        return PLANNING_PROMPT + "\n\n旅行信息：\n" + planInfo + 
+        return PLANNING_PROMPT + "\n\n旅行信息：\n" + planInfo +
                "\n\n请基于以上信息生成详细的旅行计划。";
     }
 }

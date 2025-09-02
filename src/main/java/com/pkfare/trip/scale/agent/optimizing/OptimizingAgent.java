@@ -89,9 +89,9 @@ public class OptimizingAgent extends BaseAgent {
       TripPlanAdjustService tripPlanAdjustService = getTripPlanAdjustService();
       long start = System.currentTimeMillis();
       TripRoutePlanResult planResult = tripPlanAdjustService.adjustPlan(param, tripRoutePlanResult, null);
-      log.info("*******************************************************Time taken to generate plan: {} ms", System.currentTimeMillis() - start   );
+      log.info("*******************************************************Time taken to optimizing plan: {} ms", System.currentTimeMillis() - start   );
       
-      log.info("Generated trip plan with status: {}", planResult.getStatus());
+      log.info("optimize trip plan with status: {}", planResult.getStatus());
 
       // 拆成两个event：TripRoutePlanResult.summary 摘要是单独的一个Event，TripRoutePlanResult是一个单独的event
       return createPlanEvents(planResult, invocationContext);

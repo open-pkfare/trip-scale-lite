@@ -4304,3 +4304,478 @@ org.springframework.web.HttpMediaTypeNotAcceptableException: No acceptable repre
 2025-09-02 15:55:11 [main] INFO  c.p.t.s.config.AsyncExecutorConfig - Creating custom thread pool for trip plan generation: corePoolSize=16, maxPoolSize=16, queueCapacity=100, keepAliveSeconds=60
 2025-09-02 15:55:11 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
 2025-09-02 15:55:11 [main] INFO  c.p.trip.scale.TripScaleApplication - Started TripScaleApplication in 4.371 seconds (process running for 6.365)
+2025-09-02 17:37:27 [main] INFO  c.p.trip.scale.TripScaleApplication - Starting TripScaleApplication using Java 21.0.8 with PID 37712 (D:\workspace\trip-scale-lite\target\classes started by 25302 in D:\workspace\trip-scale-lite)
+2025-09-02 17:37:27 [main] DEBUG c.p.trip.scale.TripScaleApplication - Running with Spring Boot v3.2.0, Spring v6.1.1
+2025-09-02 17:37:27 [main] INFO  c.p.trip.scale.TripScaleApplication - No active profile set, falling back to 1 default profile: "default"
+2025-09-02 17:37:29 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-09-02 17:37:30 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2488 ms
+2025-09-02 17:37:30 [main] INFO  c.p.trip.scale.config.CacheConfig - Creating flight dates cache with expireAfterWrite: 120 minutes, maximumSize: 1000, initialCapacity: 100
+2025-09-02 17:37:30 [main] INFO  c.p.trip.scale.config.CacheConfig - Creating flight offers cache with expireAfterWrite: 120 minutes, maximumSize: 1000, initialCapacity: 100
+2025-09-02 17:37:30 [main] INFO  c.p.t.s.s.e.a.AmadeusFlightService - AmadeusFlightService initialized with flight dates and flight offers cache
+2025-09-02 17:37:30 [main] INFO  c.p.trip.scale.config.CacheConfig - Creating hotel offers cache with expireAfterWrite: 120 minutes, maximumSize: 1000, initialCapacity: 100
+2025-09-02 17:37:30 [main] INFO  c.p.t.s.s.e.a.AmadeusHotelService - AmadeusHotelService initialized with hotel offers cache
+2025-09-02 17:37:30 [main] INFO  c.p.trip.scale.config.CacheConfig - Creating activities cache with expireAfterWrite: 120 minutes, maximumSize: 1000, initialCapacity: 100
+2025-09-02 17:37:30 [main] INFO  c.p.t.s.s.e.a.AmadeusActivityService - AmadeusActivityService initialized with activities cache
+2025-09-02 17:37:30 [main] INFO  c.p.t.s.c.ParentChildContextConfig - Creating loadedAgentRegistry bean for parent-child context
+2025-09-02 17:37:30 [main] INFO  c.p.t.s.c.ParentChildContextConfig - Creating BaseSessionService bean for parent-child context
+2025-09-02 17:37:30 [main] INFO  c.p.t.s.config.AsyncExecutorConfig - Creating custom thread pool for trip plan generation: corePoolSize=16, maxPoolSize=16, queueCapacity=100, keepAliveSeconds=60
+2025-09-02 17:37:30 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-09-02 17:37:30 [main] INFO  c.p.trip.scale.TripScaleApplication - Started TripScaleApplication in 3.76 seconds (process running for 5.756)
+2025-09-02 17:37:38 [main] INFO  c.p.trip.scale.TripScaleApplication - Starting TripScaleApplication using Java 21.0.8 with PID 31684 (D:\workspace\trip-scale-lite\target\classes started by 25302 in D:\workspace\trip-scale-lite)
+2025-09-02 17:37:38 [main] DEBUG c.p.trip.scale.TripScaleApplication - Running with Spring Boot v3.2.0, Spring v6.1.1
+2025-09-02 17:37:38 [main] INFO  c.p.trip.scale.TripScaleApplication - No active profile set, falling back to 1 default profile: "default"
+2025-09-02 17:37:39 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-09-02 17:37:39 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-09-02 17:37:39 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-09-02 17:37:39 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-09-02 17:37:39 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 878 ms
+2025-09-02 17:37:39 [main] INFO  c.p.trip.scale.config.CacheConfig - Creating flight dates cache with expireAfterWrite: 120 minutes, maximumSize: 1000, initialCapacity: 100
+2025-09-02 17:37:39 [main] INFO  c.p.trip.scale.config.CacheConfig - Creating flight offers cache with expireAfterWrite: 120 minutes, maximumSize: 1000, initialCapacity: 100
+2025-09-02 17:37:39 [main] INFO  c.p.t.s.s.e.a.AmadeusFlightService - AmadeusFlightService initialized with flight dates and flight offers cache
+2025-09-02 17:37:39 [main] INFO  c.p.trip.scale.config.CacheConfig - Creating hotel offers cache with expireAfterWrite: 120 minutes, maximumSize: 1000, initialCapacity: 100
+2025-09-02 17:37:39 [main] INFO  c.p.t.s.s.e.a.AmadeusHotelService - AmadeusHotelService initialized with hotel offers cache
+2025-09-02 17:37:39 [main] INFO  c.p.trip.scale.config.CacheConfig - Creating activities cache with expireAfterWrite: 120 minutes, maximumSize: 1000, initialCapacity: 100
+2025-09-02 17:37:39 [main] INFO  c.p.t.s.s.e.a.AmadeusActivityService - AmadeusActivityService initialized with activities cache
+2025-09-02 17:37:39 [main] INFO  c.p.t.s.c.ParentChildContextConfig - Creating loadedAgentRegistry bean for parent-child context
+2025-09-02 17:37:39 [main] INFO  c.p.t.s.c.ParentChildContextConfig - Creating BaseSessionService bean for parent-child context
+2025-09-02 17:37:39 [main] INFO  c.p.t.s.config.AsyncExecutorConfig - Creating custom thread pool for trip plan generation: corePoolSize=16, maxPoolSize=16, queueCapacity=100, keepAliveSeconds=60
+2025-09-02 17:37:40 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-09-02 17:37:40 [main] INFO  c.p.trip.scale.TripScaleApplication - Started TripScaleApplication in 2.111 seconds (process running for 3.324)
+2025-09-02 17:47:25 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-09-02 17:47:25 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-09-02 17:47:25 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-09-02 17:47:25 [http-nio-8080-exec-1] INFO  c.p.t.s.entrance.TripScaleController - 收到聊天请求，会话ID: null
+2025-09-02 17:47:25 [http-nio-8080-exec-1] INFO  c.p.t.s.entrance.TripScaleController - 生成新的会话ID: 71dfedef-48ce-4011-9a63-7c32aeaa70c1
+2025-09-02 17:47:25 [http-nio-8080-exec-1] INFO  c.p.t.s.a.o.AnotherRootAgent - start init a new session for conversation 71dfedef-48ce-4011-9a63-7c32aeaa70c1
+2025-09-02 17:47:25 [http-nio-8080-exec-1] INFO  c.p.t.s.e.CoordinationEntrance - current session [user:userId=123, current_stage=demand]
+2025-09-02 17:47:27 [http-nio-8080-exec-1] INFO  c.p.t.s.a.o.AnotherRootAgent - inner event 2ecea9b7-923b-40df-b451-2606e0ca299b
+2025-09-02 17:47:27 [http-nio-8080-exec-1] INFO  c.p.t.s.a.o.AnotherRootAgent - parse error text : What are your must-go destinations?
+2025-09-02 17:47:27 [http-nio-8080-exec-1] INFO  c.p.t.s.e.CoordinationEntrance - event {"id":"2ecea9b7-923b-40df-b451-2606e0ca299b","invocationId":"e-63493272-9096-4c6f-9fcc-ebbcad1c4b10","author":"trip_demand_agent","content":{"parts":[{"text":"What are your must-go destinations?"}],"role":"model"},"actions":{"stateDelta":{},"artifactDelta":{},"requestedAuthConfigs":{}},"timestamp":1756806445290}
+2025-09-02 17:47:27 [http-nio-8080-exec-1] INFO  c.p.t.s.e.CoordinationEntrance - state : {"user:userId":"123","current_stage":"demand"}
+2025-09-02 17:47:38 [http-nio-8080-exec-2] INFO  c.p.t.s.entrance.TripScaleController - 收到聊天请求，会话ID: null
+2025-09-02 17:47:38 [http-nio-8080-exec-2] INFO  c.p.t.s.entrance.TripScaleController - 生成新的会话ID: c8296282-1127-49c3-98fa-f34ff5ee63c6
+2025-09-02 17:47:38 [http-nio-8080-exec-2] INFO  c.p.t.s.a.o.AnotherRootAgent - start init a new session for conversation c8296282-1127-49c3-98fa-f34ff5ee63c6
+2025-09-02 17:47:38 [http-nio-8080-exec-2] INFO  c.p.t.s.e.CoordinationEntrance - current session [user:userId=123, current_stage=demand]
+2025-09-02 17:47:39 [http-nio-8080-exec-2] INFO  c.p.t.s.a.o.AnotherRootAgent - inner event 7f48bdbe-a9f8-40e1-b984-fb8631f60aae
+2025-09-02 17:47:39 [http-nio-8080-exec-2] INFO  c.p.t.s.a.o.AnotherRootAgent - parse error text : What are your must-go destinations?
+2025-09-02 17:47:39 [http-nio-8080-exec-2] INFO  c.p.t.s.e.CoordinationEntrance - event {"id":"7f48bdbe-a9f8-40e1-b984-fb8631f60aae","invocationId":"e-77d1c454-3e1d-483a-960b-ce2f684bf3b4","author":"trip_demand_agent","content":{"parts":[{"text":"What are your must-go destinations?"}],"role":"model"},"actions":{"stateDelta":{},"artifactDelta":{},"requestedAuthConfigs":{}},"timestamp":1756806458277}
+2025-09-02 17:47:39 [http-nio-8080-exec-2] INFO  c.p.t.s.e.CoordinationEntrance - state : {"user:userId":"123","current_stage":"demand"}
+2025-09-02 17:49:06 [http-nio-8080-exec-5] INFO  c.p.t.s.entrance.TripScaleController - 收到聊天请求，会话ID: null
+2025-09-02 17:49:06 [http-nio-8080-exec-5] INFO  c.p.t.s.entrance.TripScaleController - 生成新的会话ID: 18da04e6-8087-4a48-9822-b08548a64099
+2025-09-02 17:49:06 [http-nio-8080-exec-5] INFO  c.p.t.s.a.o.AnotherRootAgent - start init a new session for conversation 18da04e6-8087-4a48-9822-b08548a64099
+2025-09-02 17:49:06 [http-nio-8080-exec-5] INFO  c.p.t.s.e.CoordinationEntrance - current session [user:userId=123, current_stage=demand]
+2025-09-02 17:49:07 [http-nio-8080-exec-5] INFO  c.p.t.s.a.o.AnotherRootAgent - inner event 7c548ca1-135c-4765-bdd2-29c4eb8e2d7f
+2025-09-02 17:49:07 [http-nio-8080-exec-5] INFO  c.p.t.s.a.o.AnotherRootAgent - parse error text : Where would you be departing from?
+2025-09-02 17:49:07 [http-nio-8080-exec-5] INFO  c.p.t.s.e.CoordinationEntrance - event {"id":"7c548ca1-135c-4765-bdd2-29c4eb8e2d7f","invocationId":"e-5d8c63a1-2ea8-4c08-8c7e-06ad4722a8db","author":"trip_demand_agent","content":{"parts":[{"text":"Where would you be departing from?"}],"role":"model"},"actions":{"stateDelta":{},"artifactDelta":{},"requestedAuthConfigs":{}},"timestamp":1756806546525}
+2025-09-02 17:49:07 [http-nio-8080-exec-5] INFO  c.p.t.s.e.CoordinationEntrance - state : {"user:userId":"123","current_stage":"demand"}
+2025-09-02 17:49:41 [http-nio-8080-exec-3] INFO  c.p.t.s.entrance.TripScaleController - 收到聊天请求，会话ID: 18da04e6-8087-4a48-9822-b08548a64099
+2025-09-02 17:49:41 [http-nio-8080-exec-3] INFO  c.p.t.s.e.CoordinationEntrance - current session [user:userId=123, current_stage=demand]
+2025-09-02 17:49:42 [http-nio-8080-exec-3] INFO  c.p.t.s.a.o.AnotherRootAgent - inner event 813c7fd1-b805-4507-8941-4abfe67190d1
+2025-09-02 17:49:42 [http-nio-8080-exec-3] INFO  c.p.t.s.a.o.AnotherRootAgent - parse error text : When are you looking to travel?
+2025-09-02 17:49:42 [http-nio-8080-exec-3] INFO  c.p.t.s.e.CoordinationEntrance - event {"id":"813c7fd1-b805-4507-8941-4abfe67190d1","invocationId":"e-9587817b-aec7-4fbd-94fa-1cc6d9b62664","author":"trip_demand_agent","content":{"parts":[{"text":"When are you looking to travel?"}],"role":"model"},"actions":{"stateDelta":{},"artifactDelta":{},"requestedAuthConfigs":{}},"timestamp":1756806581405}
+2025-09-02 17:49:42 [http-nio-8080-exec-3] INFO  c.p.t.s.e.CoordinationEntrance - state : {"user:userId":"123","current_stage":"demand"}
+2025-09-02 17:49:59 [http-nio-8080-exec-9] INFO  c.p.t.s.entrance.TripScaleController - 收到聊天请求，会话ID: 18da04e6-8087-4a48-9822-b08548a64099
+2025-09-02 17:49:59 [http-nio-8080-exec-9] INFO  c.p.t.s.e.CoordinationEntrance - current session [user:userId=123, current_stage=demand]
+2025-09-02 17:50:00 [http-nio-8080-exec-9] INFO  c.p.t.s.a.o.AnotherRootAgent - inner event a2bed07e-376e-4390-81b5-1ca3be7baf07
+2025-09-02 17:50:00 [http-nio-8080-exec-9] INFO  c.p.t.s.a.o.AnotherRootAgent - parse error text : How many people are traveling, and what's your estimated budget with currency?
+2025-09-02 17:50:00 [http-nio-8080-exec-9] INFO  c.p.t.s.e.CoordinationEntrance - event {"id":"a2bed07e-376e-4390-81b5-1ca3be7baf07","invocationId":"e-4e5f1d3f-0f6a-45ac-bffb-6acc6d5da37d","author":"trip_demand_agent","content":{"parts":[{"text":"How many people are traveling, and what's your estimated budget with currency?"}],"role":"model"},"actions":{"stateDelta":{},"artifactDelta":{},"requestedAuthConfigs":{}},"timestamp":1756806599625}
+2025-09-02 17:50:00 [http-nio-8080-exec-9] INFO  c.p.t.s.e.CoordinationEntrance - state : {"user:userId":"123","current_stage":"demand"}
+2025-09-02 17:50:32 [http-nio-8080-exec-1] INFO  c.p.t.s.entrance.TripScaleController - 收到聊天请求，会话ID: 18da04e6-8087-4a48-9822-b08548a64099
+2025-09-02 17:50:32 [http-nio-8080-exec-1] INFO  c.p.t.s.e.CoordinationEntrance - current session [user:userId=123, current_stage=demand]
+2025-09-02 17:50:35 [http-nio-8080-exec-1] INFO  c.p.t.s.a.o.AnotherRootAgent - inner event 4d1d5ce1-402a-464b-94a3-6ddf65a70c51
+2025-09-02 17:50:35 [http-nio-8080-exec-1] INFO  c.p.t.s.e.CoordinationEntrance - event {"id":"4d1d5ce1-402a-464b-94a3-6ddf65a70c51","invocationId":"e-48446504-b40a-4d6f-ba92-8453872d5b51","author":"trip_demand_agent","content":{"parts":[{"text":"I will start planning your 4-day trip to Tokyo from Beijing for 2 people, with a budget of 500 USD, departing on October 1st."}],"role":"model"},"actions":{"stateDelta":{},"artifactDelta":{},"requestedAuthConfigs":{}},"timestamp":1756806632354}
+2025-09-02 17:50:35 [http-nio-8080-exec-1] INFO  c.p.t.s.e.CoordinationEntrance - state : {"user:userId":"123","current_stage":"demand"}
+2025-09-02 17:50:52 [http-nio-8080-exec-7] INFO  c.p.t.s.entrance.TripScaleController - 收到聊天请求，会话ID: 18da04e6-8087-4a48-9822-b08548a64099
+2025-09-02 17:50:52 [http-nio-8080-exec-7] INFO  c.p.t.s.e.CoordinationEntrance - current session [trip_demand=TripDemand(must_go_destinations=[Tokyo], passenger_number=2, origin=PEK, origin_country_code=CN, days=4, budgets=500, currency=USD, brief=I will start planning your 4-day trip to Tokyo from Beijing for 2 people, with a budget of 500 USD, departing on October 1st., start_period=2024-10-01, end_period=2024-10-04), user:userId=123, current_stage=inspiration]
+2025-09-02 17:50:57 [http-nio-8080-exec-7] INFO  c.p.t.s.a.o.AnotherRootAgent - inner event 13bb7e2e-9cc3-41e0-8a64-bdbbb2c4faa0
+2025-09-02 17:50:57 [http-nio-8080-exec-7] INFO  c.p.t.s.a.o.AnotherRootAgent - parse error text : Your 4-day trip to Tokyo from Beijing for 2 people, from October 1st to October 4th, with a budget of 500 USD is a bit challenging, especially considering the budget. 500 USD for 2 people for 4 days, including flights and accommodation, would be extremely tight for Tokyo. However, I can suggest a route focusing purely on Tokyo.
+
+Here's a possible plan for your trip to Tokyo:
+
+*   **Day 1: Arrival in Tokyo & Shibuya/Shinjuku Exploration**
+    *   Arrive at Narita (NRT) or Haneda (HND) airport, transfer to your accommodation.
+    *   Spend the afternoon exploring the vibrant Shibuya crossing, Hachiko statue, and the fashionable shops.
+    *   In the evening, experience the bustling nightlife and skyscrapers of Shinjuku, perhaps visiting the Tokyo Metropolitan Government Building for free panoramic views.
+
+*   **Day 2: Traditional Tokyo & City Views**
+    *   Start your day with a visit to Asakusa, home to the iconic Senso-ji Temple, Tokyo's oldest temple, and Nakamise-dori market.
+    *   Afterward, head to the Tokyo Skytree for breathtaking views of the city.
+    *   You could also consider a peaceful stroll through Ueno Park, which houses several museums and the Ueno Zoo.
+
+*   **Day 3: Culture, Fashion & Imperial History**
+    *   Immerse yourself in the unique youth culture of Harajuku, exploring Takeshita Street and the serene Meiji Jingu Shrine.
+    *   Later, visit the upscale shopping district of Ginza.
+    *   Conclude your day with a visit to the East Garden of the Imperial Palace, a tranquil oasis in the city center.
+
+*   **Day 4: Departure**
+    *   Enjoy some last-minute souvenir shopping or revisit a favorite spot before heading to the airport for your departure.
+
+Please note that a budget of 500 USD for two people for 4 days in Tokyo is very low and might only cover a small portion of your expenses, especially flights from Beijing and accommodation. I highly recommend reconsidering your budget to ensure a comfortable trip.
+
+Does this itinerary for Tokyo sound good to you?
+2025-09-02 17:50:57 [http-nio-8080-exec-7] INFO  c.p.t.s.e.CoordinationEntrance - event {"id":"13bb7e2e-9cc3-41e0-8a64-bdbbb2c4faa0","invocationId":"e-196321ee-f642-46ea-ad74-2063ada6285d","author":"trip_inspiration_agent","content":{"parts":[{"text":"Your 4-day trip to Tokyo from Beijing for 2 people, from October 1st to October 4th, with a budget of 500 USD is a bit challenging, especially considering the budget. 500 USD for 2 people for 4 days, including flights and accommodation, would be extremely tight for Tokyo. However, I can suggest a route focusing purely on Tokyo.\n\nHere's a possible plan for your trip to Tokyo:\n\n*   **Day 1: Arrival in Tokyo & Shibuya/Shinjuku Exploration**\n    *   Arrive at Narita (NRT) or Haneda (HND) airport, transfer to your accommodation.\n    *   Spend the afternoon exploring the vibrant Shibuya crossing, Hachiko statue, and the fashionable shops.\n    *   In the evening, experience the bustling nightlife and skyscrapers of Shinjuku, perhaps visiting the Tokyo Metropolitan Government Building for free panoramic views.\n\n*   **Day 2: Traditional Tokyo & City Views**\n    *   Start your day with a visit to Asakusa, home to the iconic Senso-ji Temple, Tokyo's oldest temple, and Nakamise-dori market.\n    *   Afterward, head to the Tokyo Skytree for breathtaking views of the city.\n    *   You could also consider a peaceful stroll through Ueno Park, which houses several museums and the Ueno Zoo.\n\n*   **Day 3: Culture, Fashion & Imperial History**\n    *   Immerse yourself in the unique youth culture of Harajuku, exploring Takeshita Street and the serene Meiji Jingu Shrine.\n    *   Later, visit the upscale shopping district of Ginza.\n    *   Conclude your day with a visit to the East Garden of the Imperial Palace, a tranquil oasis in the city center.\n\n*   **Day 4: Departure**\n    *   Enjoy some last-minute souvenir shopping or revisit a favorite spot before heading to the airport for your departure.\n\nPlease note that a budget of 500 USD for two people for 4 days in Tokyo is very low and might only cover a small portion of your expenses, especially flights from Beijing and accommodation. I highly recommend reconsidering your budget to ensure a comfortable trip.\n\nDoes this itinerary for Tokyo sound good to you?"}],"role":"model"},"actions":{"stateDelta":{},"artifactDelta":{},"requestedAuthConfigs":{}},"timestamp":1756806652569}
+2025-09-02 17:50:57 [http-nio-8080-exec-7] INFO  c.p.t.s.e.CoordinationEntrance - state : {"trip_demand":{"must_go_destinations":["Tokyo"],"passenger_number":2,"origin":"PEK","origin_country_code":"CN","days":4,"budgets":"500","currency":"USD","brief":"I will start planning your 4-day trip to Tokyo from Beijing for 2 people, with a budget of 500 USD, departing on October 1st.","start_period":"2024-10-01","end_period":"2024-10-04"},"user:userId":"123","current_stage":"inspiration"}
+2025-09-02 17:51:30 [http-nio-8080-exec-5] INFO  c.p.t.s.entrance.TripScaleController - 收到聊天请求，会话ID: 18da04e6-8087-4a48-9822-b08548a64099
+2025-09-02 17:51:30 [http-nio-8080-exec-5] INFO  c.p.t.s.e.CoordinationEntrance - current session [trip_demand=TripDemand(must_go_destinations=[Tokyo], passenger_number=2, origin=PEK, origin_country_code=CN, days=4, budgets=500, currency=USD, brief=I will start planning your 4-day trip to Tokyo from Beijing for 2 people, with a budget of 500 USD, departing on October 1st., start_period=2024-10-01, end_period=2024-10-04), user:userId=123, current_stage=inspiration]
+2025-09-02 17:51:31 [http-nio-8080-exec-5] INFO  c.p.t.s.a.o.AnotherRootAgent - inner event 0df5a7f0-ede1-44e1-b8c7-811f13430569
+2025-09-02 17:51:31 [http-nio-8080-exec-5] INFO  c.p.t.s.e.CoordinationEntrance - event {"id":"0df5a7f0-ede1-44e1-b8c7-811f13430569","invocationId":"e-67358fb1-2a24-445a-ba77-5619963ddfe2","author":"trip_inspiration_agent","actions":{"stateDelta":{},"artifactDelta":{},"requestedAuthConfigs":{}},"errorCode":"MALFORMED_FUNCTION_CALL","timestamp":1756806690549}
+2025-09-02 17:51:31 [http-nio-8080-exec-5] INFO  c.p.t.s.e.CoordinationEntrance - state : {"trip_demand":{"must_go_destinations":["Tokyo"],"passenger_number":2,"origin":"PEK","origin_country_code":"CN","days":4,"budgets":"500","currency":"USD","brief":"I will start planning your 4-day trip to Tokyo from Beijing for 2 people, with a budget of 500 USD, departing on October 1st.","start_period":"2024-10-01","end_period":"2024-10-04"},"user:userId":"123","current_stage":"inspiration"}
+2025-09-02 17:55:36 [http-nio-8080-exec-3] INFO  c.p.t.s.entrance.TripScaleController - 收到聊天请求，会话ID: 18da04e6-8087-4a48-9822-b08548a64099
+2025-09-02 17:55:36 [http-nio-8080-exec-3] INFO  c.p.t.s.e.CoordinationEntrance - current session [trip_demand=TripDemand(must_go_destinations=[Tokyo], passenger_number=2, origin=PEK, origin_country_code=CN, days=4, budgets=500, currency=USD, brief=I will start planning your 4-day trip to Tokyo from Beijing for 2 people, with a budget of 500 USD, departing on October 1st., start_period=2024-10-01, end_period=2024-10-04), user:userId=123, current_stage=inspiration]
+2025-09-02 17:55:38 [http-nio-8080-exec-3] INFO  c.p.t.s.a.o.AnotherRootAgent - inner event d5877a7a-939d-4c2f-9aab-bcfec238ee36
+2025-09-02 17:55:38 [http-nio-8080-exec-3] INFO  c.p.t.s.e.CoordinationEntrance - event {"id":"d5877a7a-939d-4c2f-9aab-bcfec238ee36","invocationId":"e-a92ae69f-3330-49af-b08e-e45c5c186a6c","author":"trip_inspiration_agent","content":{"parts":[{"text":"Let's will start planning details for it!"}],"role":"model"},"actions":{"stateDelta":{},"artifactDelta":{},"requestedAuthConfigs":{}},"timestamp":1756806936113}
+2025-09-02 17:55:38 [http-nio-8080-exec-3] INFO  c.p.t.s.e.CoordinationEntrance - state : {"trip_demand":{"must_go_destinations":["Tokyo"],"passenger_number":2,"origin":"PEK","origin_country_code":"CN","days":4,"budgets":"500","currency":"USD","brief":"I will start planning your 4-day trip to Tokyo from Beijing for 2 people, with a budget of 500 USD, departing on October 1st.","start_period":"2024-10-01","end_period":"2024-10-04"},"user:userId":"123","current_stage":"inspiration"}
+2025-09-02 17:56:26 [http-nio-8080-exec-9] INFO  c.p.t.s.entrance.TripScaleController - 收到聊天请求，会话ID: 18da04e6-8087-4a48-9822-b08548a64099
+2025-09-02 17:56:26 [http-nio-8080-exec-9] INFO  c.p.t.s.e.CoordinationEntrance - current session [trip_route=[TripRoute(stay_days=4, destination_city=Tokyo, country_code=JP, location_code=TYO, reason_for_recommendation=Tokyo offers a blend of vibrant city life, rich culture, and historical sites, including Shibuya Crossing, Senso-ji Temple, Meiji Jingu Shrine, and the Imperial Palace East Garden.)], trip_demand=TripDemand(must_go_destinations=[Tokyo], passenger_number=2, origin=PEK, origin_country_code=CN, days=4, budgets=500, currency=USD, brief=I will start planning your 4-day trip to Tokyo from Beijing for 2 people, with a budget of 500 USD, departing on October 1st., start_period=2024-10-01, end_period=2024-10-04), user:userId=123, current_stage=planning]
+2025-09-02 17:56:26 [http-nio-8080-exec-9] INFO  c.p.t.s.agent.planning.PlanningAgent - Starting PlanningAgent runAsyncImpl
+2025-09-02 17:58:42 [http-nio-8080-exec-9] INFO  c.p.t.s.agent.planning.PlanningAgent - Retrieved trip demand: origin=PEK, days=4, passengers=2
+2025-09-02 17:58:42 [http-nio-8080-exec-9] INFO  c.p.t.s.agent.planning.PlanningAgent - Retrieved 1 trip routes
+2025-09-02 17:58:42 [http-nio-8080-exec-9] INFO  c.p.t.s.p.s.GeneratePlanService - Starting concurrent trip plan generation for origin: PEK, destinations: 1
+2025-09-02 17:58:42 [http-nio-8080-exec-9] DEBUG c.p.t.s.p.s.GeneratePlanService - Validating parameters
+2025-09-02 17:58:42 [http-nio-8080-exec-9] DEBUG c.p.t.s.p.s.GeneratePlanService - Precise travel calculation: daysBetween=4, tripDays=4, preciseTravel=true
+2025-09-02 17:58:42 [http-nio-8080-exec-9] DEBUG c.p.t.s.p.s.GeneratePlanService - Round trip calculation: first=TYO, last=TYO, roundTrip=true
+2025-09-02 17:58:42 [http-nio-8080-exec-9] INFO  c.p.t.s.p.s.GeneratePlanService - Trip configuration: preciseTravel=true, roundTrip=true
+2025-09-02 17:58:42 [http-nio-8080-exec-9] DEBUG c.p.t.s.p.s.GeneratePlanService - Thread Pool Status - Active: 0, Pool Size: 0, Queue Size: 0, Completed Tasks: 0, Total Tasks: 0
+2025-09-02 17:58:42 [http-nio-8080-exec-9] INFO  c.p.t.s.p.s.GeneratePlanService - Starting concurrent searches with 16 threads
+2025-09-02 17:58:42 [TripPlan-1] INFO  c.p.t.s.s.plan.FlightSearchService - Searching flight offers
+2025-09-02 17:58:42 [TripPlan-2] INFO  c.p.t.s.s.plan.HotelSearchService - Getting hotels by city for 1 routes
+2025-09-02 17:58:42 [TripPlan-2] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Searching hotels by city with request: QueryHotelByCityRequest(cityCode=TYO, radius=10, radiusUnit=KM, amenities=null, ratings=[1, 2, 3, 4, 5])
+2025-09-02 17:58:42 [TripPlan-3] INFO  c.p.t.s.s.plan.LocationSearchService - Searching city locations for 1 cities: [Tokyo]
+2025-09-02 17:58:42 [TripPlan-3] DEBUG c.p.t.s.s.plan.LocationSearchService - Processed city list: 1 unique cities
+2025-09-02 17:58:42 [TripPlan-3] DEBUG c.p.t.s.s.plan.LocationSearchService - Cache miss for city: Tokyo
+2025-09-02 17:58:42 [TripPlan-3] INFO  c.p.t.s.s.plan.LocationSearchService - Cache statistics - hits: 0, misses: 1, total: 1
+2025-09-02 17:58:42 [TripPlan-3] INFO  c.p.t.s.s.plan.LocationSearchService - Querying 1 cities from API: [Tokyo]
+2025-09-02 17:58:42 [TripPlan-1] INFO  c.p.t.s.s.e.a.AmadeusFlightService - Searching flight offers with request: FlightOffersSearchRequest(origin=PEK, destination=TYO, departureDate=2024-10-01, returnDate=2024-10-04, adults=2, children=0, infants=0, travelClass=null, nonStop=true, currency=USD, maxPrice=250, max=50)
+2025-09-02 17:58:42 [TripPlan-3] DEBUG c.p.t.s.s.plan.LocationSearchService - Searching location for city from API: Tokyo
+2025-09-02 17:58:42 [TripPlan-1] DEBUG c.p.trip.scale.util.CacheKeyUtil - Generated cache key: fo_7fa50d055ffe2a5ba8af84ee21403369 for request: flight_offers|PEK|TYO|2024-10-01|2024-10-04|2|0|0|true|USD|250|50
+2025-09-02 17:58:42 [TripPlan-1] DEBUG c.p.t.s.s.e.a.AmadeusFlightService - Cache miss for key: fo_7fa50d055ffe2a5ba8af84ee21403369
+2025-09-02 17:58:42 [TripPlan-1] INFO  c.p.t.s.s.e.a.AmadeusFlightService - Cache miss for key: fo_7fa50d055ffe2a5ba8af84ee21403369, calling API
+2025-09-02 17:58:43 [TripPlan-3] INFO  c.p.t.s.s.plan.LocationSearchService - Successfully found and cached location for city Tokyo: lat=35.6764225, lng=139.650027
+2025-09-02 17:58:43 [TripPlan-3] INFO  c.p.t.s.s.plan.LocationSearchService - API query completed, found 1 out of 1 cities
+2025-09-02 17:58:43 [TripPlan-3] INFO  c.p.t.s.s.plan.LocationSearchService - Successfully found locations for 1 out of 1 cities (cached: 0, api: 1)
+2025-09-02 17:58:43 [TripPlan-3] INFO  c.p.t.s.p.s.GeneratePlanService - [TripPlan-3] City locations search completed in 1553 ms, found 1 locations
+2025-09-02 17:58:44 [TripPlan-1] ERROR c.p.t.s.a.a.f.AmadeusFlightOffersSearchAPI - call AmadeusFlightOffersSearchAPI failed
+com.amadeus.exceptions.ClientException: [400]
+Date/Time is in the past
+	at com.amadeus.Response.detectError(Response.java:78)
+	at com.amadeus.HTTPClient.execute(HTTPClient.java:361)
+	at com.amadeus.HTTPClient.unauthenticatedRequest(HTTPClient.java:253)
+	at com.amadeus.HTTPClient.request(HTTPClient.java:339)
+	at com.amadeus.HTTPClient.get(HTTPClient.java:67)
+	at com.amadeus.shopping.FlightOffersSearch.get(FlightOffersSearch.java:58)
+	at com.pkfare.trip.scale.api.amadeus.flightoffers.AmadeusFlightOffersSearchAPI.flightOffersSearch(AmadeusFlightOffersSearchAPI.java:39)
+	at com.pkfare.trip.scale.service.external.amadeus.AmadeusFlightService.lambda$searchFlightOffersWithoutCache$1(AmadeusFlightService.java:280)
+	at com.pkfare.trip.scale.service.external.amadeus.AmadeusFlightService.retryApiCall(AmadeusFlightService.java:378)
+	at com.pkfare.trip.scale.service.external.amadeus.AmadeusFlightService.searchFlightOffersWithoutCache(AmadeusFlightService.java:278)
+	at com.pkfare.trip.scale.service.external.amadeus.AmadeusFlightService.searchFlightOffers(AmadeusFlightService.java:216)
+	at com.pkfare.trip.scale.service.plan.FlightSearchService.searchFlightOffers(FlightSearchService.java:334)
+	at com.pkfare.trip.scale.plan.service.GeneratePlanService.lambda$executeConcurrentSearches$0(GeneratePlanService.java:200)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run$$$capture(CompletableFuture.java:1768)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-09-02 17:58:44 [TripPlan-1] ERROR c.p.t.s.s.e.a.AmadeusFlightService - Failed to search flight offers via API
+com.pkfare.trip.scale.api.amadeus.exception.AmadeusApiException: null
+	at com.pkfare.trip.scale.api.amadeus.flightoffers.AmadeusFlightOffersSearchAPI.flightOffersSearch(AmadeusFlightOffersSearchAPI.java:51)
+	at com.pkfare.trip.scale.service.external.amadeus.AmadeusFlightService.lambda$searchFlightOffersWithoutCache$1(AmadeusFlightService.java:280)
+	at com.pkfare.trip.scale.service.external.amadeus.AmadeusFlightService.retryApiCall(AmadeusFlightService.java:378)
+	at com.pkfare.trip.scale.service.external.amadeus.AmadeusFlightService.searchFlightOffersWithoutCache(AmadeusFlightService.java:278)
+	at com.pkfare.trip.scale.service.external.amadeus.AmadeusFlightService.searchFlightOffers(AmadeusFlightService.java:216)
+	at com.pkfare.trip.scale.service.plan.FlightSearchService.searchFlightOffers(FlightSearchService.java:334)
+	at com.pkfare.trip.scale.plan.service.GeneratePlanService.lambda$executeConcurrentSearches$0(GeneratePlanService.java:200)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run$$$capture(CompletableFuture.java:1768)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-09-02 17:58:44 [TripPlan-1] WARN  c.p.t.s.s.e.a.AmadeusFlightService - API call attempt 1 failed: Failed to search flight offers: null
+2025-09-02 17:58:44 [TripPlan-2] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Hotels by city search completed, found 57 results
+2025-09-02 17:58:44 [TripPlan-2] INFO  c.p.t.s.s.plan.HotelSearchService - Found 57 hotels in city TYO
+2025-09-02 17:58:44 [TripPlan-2] INFO  c.p.t.s.p.s.GeneratePlanService - [TripPlan-2] Hotel IDs search completed in 2631 ms, found 1 cities
+2025-09-02 17:58:46 [TripPlan-1] ERROR c.p.t.s.a.a.f.AmadeusFlightOffersSearchAPI - call AmadeusFlightOffersSearchAPI failed
+com.amadeus.exceptions.ClientException: [400]
+Date/Time is in the past
+	at com.amadeus.Response.detectError(Response.java:78)
+	at com.amadeus.HTTPClient.execute(HTTPClient.java:361)
+	at com.amadeus.HTTPClient.unauthenticatedRequest(HTTPClient.java:253)
+	at com.amadeus.HTTPClient.request(HTTPClient.java:339)
+	at com.amadeus.HTTPClient.get(HTTPClient.java:67)
+	at com.amadeus.shopping.FlightOffersSearch.get(FlightOffersSearch.java:58)
+	at com.pkfare.trip.scale.api.amadeus.flightoffers.AmadeusFlightOffersSearchAPI.flightOffersSearch(AmadeusFlightOffersSearchAPI.java:39)
+	at com.pkfare.trip.scale.service.external.amadeus.AmadeusFlightService.lambda$searchFlightOffersWithoutCache$1(AmadeusFlightService.java:280)
+	at com.pkfare.trip.scale.service.external.amadeus.AmadeusFlightService.retryApiCall(AmadeusFlightService.java:378)
+	at com.pkfare.trip.scale.service.external.amadeus.AmadeusFlightService.searchFlightOffersWithoutCache(AmadeusFlightService.java:278)
+	at com.pkfare.trip.scale.service.external.amadeus.AmadeusFlightService.searchFlightOffers(AmadeusFlightService.java:216)
+	at com.pkfare.trip.scale.service.plan.FlightSearchService.searchFlightOffers(FlightSearchService.java:334)
+	at com.pkfare.trip.scale.plan.service.GeneratePlanService.lambda$executeConcurrentSearches$0(GeneratePlanService.java:200)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run$$$capture(CompletableFuture.java:1768)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-09-02 17:58:46 [TripPlan-1] ERROR c.p.t.s.s.e.a.AmadeusFlightService - Failed to search flight offers via API
+com.pkfare.trip.scale.api.amadeus.exception.AmadeusApiException: null
+	at com.pkfare.trip.scale.api.amadeus.flightoffers.AmadeusFlightOffersSearchAPI.flightOffersSearch(AmadeusFlightOffersSearchAPI.java:51)
+	at com.pkfare.trip.scale.service.external.amadeus.AmadeusFlightService.lambda$searchFlightOffersWithoutCache$1(AmadeusFlightService.java:280)
+	at com.pkfare.trip.scale.service.external.amadeus.AmadeusFlightService.retryApiCall(AmadeusFlightService.java:378)
+	at com.pkfare.trip.scale.service.external.amadeus.AmadeusFlightService.searchFlightOffersWithoutCache(AmadeusFlightService.java:278)
+	at com.pkfare.trip.scale.service.external.amadeus.AmadeusFlightService.searchFlightOffers(AmadeusFlightService.java:216)
+	at com.pkfare.trip.scale.service.plan.FlightSearchService.searchFlightOffers(FlightSearchService.java:334)
+	at com.pkfare.trip.scale.plan.service.GeneratePlanService.lambda$executeConcurrentSearches$0(GeneratePlanService.java:200)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run$$$capture(CompletableFuture.java:1768)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-09-02 17:58:46 [TripPlan-1] WARN  c.p.t.s.s.e.a.AmadeusFlightService - API call attempt 2 failed: Failed to search flight offers: null
+2025-09-02 17:58:49 [TripPlan-1] ERROR c.p.t.s.a.a.f.AmadeusFlightOffersSearchAPI - call AmadeusFlightOffersSearchAPI failed
+com.amadeus.exceptions.ClientException: [400]
+Date/Time is in the past
+	at com.amadeus.Response.detectError(Response.java:78)
+	at com.amadeus.HTTPClient.execute(HTTPClient.java:361)
+	at com.amadeus.HTTPClient.unauthenticatedRequest(HTTPClient.java:253)
+	at com.amadeus.HTTPClient.request(HTTPClient.java:339)
+	at com.amadeus.HTTPClient.get(HTTPClient.java:67)
+	at com.amadeus.shopping.FlightOffersSearch.get(FlightOffersSearch.java:58)
+	at com.pkfare.trip.scale.api.amadeus.flightoffers.AmadeusFlightOffersSearchAPI.flightOffersSearch(AmadeusFlightOffersSearchAPI.java:39)
+	at com.pkfare.trip.scale.service.external.amadeus.AmadeusFlightService.lambda$searchFlightOffersWithoutCache$1(AmadeusFlightService.java:280)
+	at com.pkfare.trip.scale.service.external.amadeus.AmadeusFlightService.retryApiCall(AmadeusFlightService.java:378)
+	at com.pkfare.trip.scale.service.external.amadeus.AmadeusFlightService.searchFlightOffersWithoutCache(AmadeusFlightService.java:278)
+	at com.pkfare.trip.scale.service.external.amadeus.AmadeusFlightService.searchFlightOffers(AmadeusFlightService.java:216)
+	at com.pkfare.trip.scale.service.plan.FlightSearchService.searchFlightOffers(FlightSearchService.java:334)
+	at com.pkfare.trip.scale.plan.service.GeneratePlanService.lambda$executeConcurrentSearches$0(GeneratePlanService.java:200)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run$$$capture(CompletableFuture.java:1768)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-09-02 17:58:49 [TripPlan-1] ERROR c.p.t.s.s.e.a.AmadeusFlightService - Failed to search flight offers via API
+com.pkfare.trip.scale.api.amadeus.exception.AmadeusApiException: null
+	at com.pkfare.trip.scale.api.amadeus.flightoffers.AmadeusFlightOffersSearchAPI.flightOffersSearch(AmadeusFlightOffersSearchAPI.java:51)
+	at com.pkfare.trip.scale.service.external.amadeus.AmadeusFlightService.lambda$searchFlightOffersWithoutCache$1(AmadeusFlightService.java:280)
+	at com.pkfare.trip.scale.service.external.amadeus.AmadeusFlightService.retryApiCall(AmadeusFlightService.java:378)
+	at com.pkfare.trip.scale.service.external.amadeus.AmadeusFlightService.searchFlightOffersWithoutCache(AmadeusFlightService.java:278)
+	at com.pkfare.trip.scale.service.external.amadeus.AmadeusFlightService.searchFlightOffers(AmadeusFlightService.java:216)
+	at com.pkfare.trip.scale.service.plan.FlightSearchService.searchFlightOffers(FlightSearchService.java:334)
+	at com.pkfare.trip.scale.plan.service.GeneratePlanService.lambda$executeConcurrentSearches$0(GeneratePlanService.java:200)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run$$$capture(CompletableFuture.java:1768)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-09-02 17:58:49 [TripPlan-1] WARN  c.p.t.s.s.e.a.AmadeusFlightService - API call attempt 3 failed: Failed to search flight offers: null
+2025-09-02 17:58:49 [TripPlan-1] ERROR c.p.t.s.s.e.a.AmadeusFlightService - Amadeus API call failed
+com.pkfare.trip.scale.exception.ExternalApiException: Failed to search flight offers: null
+	at com.pkfare.trip.scale.service.external.amadeus.AmadeusFlightService.lambda$searchFlightOffersWithoutCache$1(AmadeusFlightService.java:286)
+	at com.pkfare.trip.scale.service.external.amadeus.AmadeusFlightService.retryApiCall(AmadeusFlightService.java:378)
+	at com.pkfare.trip.scale.service.external.amadeus.AmadeusFlightService.searchFlightOffersWithoutCache(AmadeusFlightService.java:278)
+	at com.pkfare.trip.scale.service.external.amadeus.AmadeusFlightService.searchFlightOffers(AmadeusFlightService.java:216)
+	at com.pkfare.trip.scale.service.plan.FlightSearchService.searchFlightOffers(FlightSearchService.java:334)
+	at com.pkfare.trip.scale.plan.service.GeneratePlanService.lambda$executeConcurrentSearches$0(GeneratePlanService.java:200)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run$$$capture(CompletableFuture.java:1768)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: com.pkfare.trip.scale.api.amadeus.exception.AmadeusApiException: null
+	at com.pkfare.trip.scale.api.amadeus.flightoffers.AmadeusFlightOffersSearchAPI.flightOffersSearch(AmadeusFlightOffersSearchAPI.java:51)
+	at com.pkfare.trip.scale.service.external.amadeus.AmadeusFlightService.lambda$searchFlightOffersWithoutCache$1(AmadeusFlightService.java:280)
+	... 10 common frames omitted
+2025-09-02 17:58:49 [TripPlan-1] ERROR c.p.t.s.p.s.GeneratePlanService - [TripPlan-1] Flight search failed
+com.pkfare.trip.scale.exception.ExternalApiException: Failed to search flight offers: null
+	at com.pkfare.trip.scale.service.external.amadeus.AmadeusFlightService.lambda$searchFlightOffersWithoutCache$1(AmadeusFlightService.java:286)
+	at com.pkfare.trip.scale.service.external.amadeus.AmadeusFlightService.retryApiCall(AmadeusFlightService.java:378)
+	at com.pkfare.trip.scale.service.external.amadeus.AmadeusFlightService.searchFlightOffersWithoutCache(AmadeusFlightService.java:278)
+	at com.pkfare.trip.scale.service.external.amadeus.AmadeusFlightService.searchFlightOffers(AmadeusFlightService.java:216)
+	at com.pkfare.trip.scale.service.plan.FlightSearchService.searchFlightOffers(FlightSearchService.java:334)
+	at com.pkfare.trip.scale.plan.service.GeneratePlanService.lambda$executeConcurrentSearches$0(GeneratePlanService.java:200)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run$$$capture(CompletableFuture.java:1768)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: com.pkfare.trip.scale.api.amadeus.exception.AmadeusApiException: null
+	at com.pkfare.trip.scale.api.amadeus.flightoffers.AmadeusFlightOffersSearchAPI.flightOffersSearch(AmadeusFlightOffersSearchAPI.java:51)
+	at com.pkfare.trip.scale.service.external.amadeus.AmadeusFlightService.lambda$searchFlightOffersWithoutCache$1(AmadeusFlightService.java:280)
+	... 10 common frames omitted
+2025-09-02 17:58:49 [http-nio-8080-exec-9] ERROR c.p.t.s.p.s.GeneratePlanService - Failed to generate trip plan
+java.util.concurrent.ExecutionException: java.lang.RuntimeException: Flight search failed
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:396)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2073)
+	at com.pkfare.trip.scale.plan.service.GeneratePlanService.generatePlan(GeneratePlanService.java:96)
+	at com.pkfare.trip.scale.agent.planning.PlanningAgent.runAsyncImpl(PlanningAgent.java:102)
+	at com.google.adk.agents.BaseAgent.lambda$runAsync$3(BaseAgent.java:199)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableDefer.subscribeActual(FlowableDefer.java:35)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15863)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableConcatArray$ConcatArraySubscriber.onComplete(FlowableConcatArray.java:141)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableConcatArray.subscribeActual(FlowableConcatArray.java:41)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15863)
+	at io.reactivex.rxjava3.internal.operators.single.SingleFlatMapPublisher$SingleFlatMapPublisherObserver.onSuccess(SingleFlatMapPublisher.java:96)
+	at io.reactivex.rxjava3.internal.operators.single.SingleJust.subscribeActual(SingleJust.java:30)
+	at io.reactivex.rxjava3.core.Single.subscribe(Single.java:4855)
+	at io.reactivex.rxjava3.internal.operators.single.SingleFlatMapPublisher.subscribeActual(SingleFlatMapPublisher.java:59)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableDoFinally.subscribeActual(FlowableDoFinally.java:47)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15863)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableDefer.subscribeActual(FlowableDefer.java:42)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableDoOnEach.subscribeActual(FlowableDoOnEach.java:50)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableDoOnEach.subscribeActual(FlowableDoOnEach.java:50)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15863)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableDefer.subscribeActual(FlowableDefer.java:42)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15863)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableConcatArray$ConcatArraySubscriber.onComplete(FlowableConcatArray.java:141)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableConcatArray.subscribeActual(FlowableConcatArray.java:41)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15863)
+	at io.reactivex.rxjava3.internal.operators.single.SingleFlatMapPublisher$SingleFlatMapPublisherObserver.onSuccess(SingleFlatMapPublisher.java:96)
+	at io.reactivex.rxjava3.internal.operators.single.SingleJust.subscribeActual(SingleJust.java:30)
+	at io.reactivex.rxjava3.core.Single.subscribe(Single.java:4855)
+	at io.reactivex.rxjava3.internal.operators.single.SingleFlatMapPublisher.subscribeActual(SingleFlatMapPublisher.java:59)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableDoFinally.subscribeActual(FlowableDoFinally.java:47)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15863)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableDefer.subscribeActual(FlowableDefer.java:42)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableDoOnEach.subscribeActual(FlowableDoOnEach.java:50)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15863)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableScalarXMap$ScalarXMapFlowable.subscribeActual(FlowableScalarXMap.java:160)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableDoOnEach.subscribeActual(FlowableDoOnEach.java:50)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableDoFinally.subscribeActual(FlowableDoFinally.java:47)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15863)
+	at io.reactivex.rxjava3.internal.operators.single.SingleFlatMapPublisher$SingleFlatMapPublisherObserver.onSuccess(SingleFlatMapPublisher.java:96)
+	at io.reactivex.rxjava3.internal.operators.maybe.MaybeSwitchIfEmptySingle$SwitchIfEmptyMaybeObserver.onSuccess(MaybeSwitchIfEmptySingle.java:82)
+	at io.reactivex.rxjava3.internal.operators.maybe.MaybeJust.subscribeActual(MaybeJust.java:36)
+	at io.reactivex.rxjava3.core.Maybe.subscribe(Maybe.java:5375)
+	at io.reactivex.rxjava3.internal.operators.maybe.MaybeSwitchIfEmptySingle.subscribeActual(MaybeSwitchIfEmptySingle.java:45)
+	at io.reactivex.rxjava3.core.Single.subscribe(Single.java:4855)
+	at io.reactivex.rxjava3.internal.operators.single.SingleFlatMapPublisher.subscribeActual(SingleFlatMapPublisher.java:59)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableFilter.subscribeActual(FlowableFilter.java:38)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.internal.operators.flowable.BlockingFlowableIterable.iterator(BlockingFlowableIterable.java:42)
+	at io.reactivex.rxjava3.core.Flowable.blockingForEach(Flowable.java:6162)
+	at io.reactivex.rxjava3.core.Flowable.blockingForEach(Flowable.java:6118)
+	at com.pkfare.trip.scale.entrance.CoordinationEntrance.chat(CoordinationEntrance.java:58)
+	at com.pkfare.trip.scale.entrance.TripScaleController.chat(TripScaleController.java:34)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:254)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:182)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:917)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:829)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.lang.RuntimeException: Flight search failed
+	at com.pkfare.trip.scale.plan.service.GeneratePlanService.lambda$executeConcurrentSearches$0(GeneratePlanService.java:206)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run$$$capture(CompletableFuture.java:1768)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	... 1 common frames omitted
+Caused by: com.pkfare.trip.scale.exception.ExternalApiException: Failed to search flight offers: null
+	at com.pkfare.trip.scale.service.external.amadeus.AmadeusFlightService.lambda$searchFlightOffersWithoutCache$1(AmadeusFlightService.java:286)
+	at com.pkfare.trip.scale.service.external.amadeus.AmadeusFlightService.retryApiCall(AmadeusFlightService.java:378)
+	at com.pkfare.trip.scale.service.external.amadeus.AmadeusFlightService.searchFlightOffersWithoutCache(AmadeusFlightService.java:278)
+	at com.pkfare.trip.scale.service.external.amadeus.AmadeusFlightService.searchFlightOffers(AmadeusFlightService.java:216)
+	at com.pkfare.trip.scale.service.plan.FlightSearchService.searchFlightOffers(FlightSearchService.java:334)
+	at com.pkfare.trip.scale.plan.service.GeneratePlanService.lambda$executeConcurrentSearches$0(GeneratePlanService.java:200)
+	... 5 common frames omitted
+Caused by: com.pkfare.trip.scale.api.amadeus.exception.AmadeusApiException: null
+	at com.pkfare.trip.scale.api.amadeus.flightoffers.AmadeusFlightOffersSearchAPI.flightOffersSearch(AmadeusFlightOffersSearchAPI.java:51)
+	at com.pkfare.trip.scale.service.external.amadeus.AmadeusFlightService.lambda$searchFlightOffersWithoutCache$1(AmadeusFlightService.java:280)
+	... 10 common frames omitted
+2025-09-02 17:58:49 [http-nio-8080-exec-9] DEBUG c.p.t.s.p.s.GeneratePlanService - Thread Pool Status - Active: 0, Pool Size: 3, Queue Size: 0, Completed Tasks: 3, Total Tasks: 3
+2025-09-02 17:58:49 [http-nio-8080-exec-9] INFO  c.p.t.s.agent.planning.PlanningAgent - *******************************************************Time taken to generate plan: 6868 ms
+2025-09-02 17:58:49 [http-nio-8080-exec-9] INFO  c.p.t.s.agent.planning.PlanningAgent - Generated trip plan with status: API call failed
+2025-09-02 17:58:59 [http-nio-8080-exec-9] INFO  c.p.t.s.agent.planning.PlanningAgent - Created plan result event with 0 daily plans
+2025-09-02 17:59:01 [http-nio-8080-exec-9] INFO  c.p.t.s.a.o.AnotherRootAgent - inner event null
+2025-09-02 17:59:01 [http-nio-8080-exec-9] INFO  c.p.t.s.e.CoordinationEntrance - event {"invocationId":"e-e83af15b-838b-44b1-b90a-9fb7f7ec7f4a","author":"agent","content":{"parts":[{"text":"{\"status\":\"API call failed\",\"errorMessage\":\"生成旅行计划时发生错误: java.lang.RuntimeException: Flight search failed\"}"}],"role":"planner"},"actions":{"stateDelta":{},"artifactDelta":{},"requestedAuthConfigs":{}},"timestamp":1756807139685}
+2025-09-02 17:59:01 [http-nio-8080-exec-9] INFO  c.p.t.s.e.CoordinationEntrance - state : {"trip_route":[{"stay_days":4,"destination_city":"Tokyo","country_code":"JP","location_code":"TYO","reason_for_recommendation":"Tokyo offers a blend of vibrant city life, rich culture, and historical sites, including Shibuya Crossing, Senso-ji Temple, Meiji Jingu Shrine, and the Imperial Palace East Garden."}],"trip_demand":{"must_go_destinations":["Tokyo"],"passenger_number":2,"origin":"PEK","origin_country_code":"CN","days":4,"budgets":"500","currency":"USD","brief":"I will start planning your 4-day trip to Tokyo from Beijing for 2 people, with a budget of 500 USD, departing on October 1st.","start_period":"2024-10-01","end_period":"2024-10-04"},"user:userId":"123","current_stage":"planning"}
+2025-09-02 18:01:53 [main] INFO  c.p.trip.scale.TripScaleApplication - Starting TripScaleApplication using Java 21.0.8 with PID 13260 (D:\workspace\trip-scale-lite\target\classes started by 25302 in D:\workspace\trip-scale-lite)
+2025-09-02 18:01:53 [main] DEBUG c.p.trip.scale.TripScaleApplication - Running with Spring Boot v3.2.0, Spring v6.1.1
+2025-09-02 18:01:53 [main] INFO  c.p.trip.scale.TripScaleApplication - No active profile set, falling back to 1 default profile: "default"
+2025-09-02 18:01:54 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-09-02 18:01:54 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-09-02 18:01:54 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-09-02 18:01:54 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-09-02 18:01:54 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 941 ms
+2025-09-02 18:01:54 [main] INFO  c.p.trip.scale.config.CacheConfig - Creating flight dates cache with expireAfterWrite: 120 minutes, maximumSize: 1000, initialCapacity: 100
+2025-09-02 18:01:54 [main] INFO  c.p.trip.scale.config.CacheConfig - Creating flight offers cache with expireAfterWrite: 120 minutes, maximumSize: 1000, initialCapacity: 100
+2025-09-02 18:01:54 [main] INFO  c.p.t.s.s.e.a.AmadeusFlightService - AmadeusFlightService initialized with flight dates and flight offers cache
+2025-09-02 18:01:54 [main] INFO  c.p.trip.scale.config.CacheConfig - Creating hotel offers cache with expireAfterWrite: 120 minutes, maximumSize: 1000, initialCapacity: 100
+2025-09-02 18:01:54 [main] INFO  c.p.t.s.s.e.a.AmadeusHotelService - AmadeusHotelService initialized with hotel offers cache
+2025-09-02 18:01:54 [main] INFO  c.p.trip.scale.config.CacheConfig - Creating activities cache with expireAfterWrite: 120 minutes, maximumSize: 1000, initialCapacity: 100
+2025-09-02 18:01:54 [main] INFO  c.p.t.s.s.e.a.AmadeusActivityService - AmadeusActivityService initialized with activities cache
+2025-09-02 18:01:54 [main] INFO  c.p.t.s.c.ParentChildContextConfig - Creating loadedAgentRegistry bean for parent-child context
+2025-09-02 18:01:54 [main] INFO  c.p.t.s.c.ParentChildContextConfig - Creating BaseSessionService bean for parent-child context
+2025-09-02 18:01:54 [main] INFO  c.p.t.s.config.AsyncExecutorConfig - Creating custom thread pool for trip plan generation: corePoolSize=16, maxPoolSize=16, queueCapacity=100, keepAliveSeconds=60
+2025-09-02 18:01:55 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-09-02 18:01:55 [main] INFO  c.p.trip.scale.TripScaleApplication - Started TripScaleApplication in 2.242 seconds (process running for 3.171)
+2025-09-02 18:02:42 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-09-02 18:02:42 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-09-02 18:02:42 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-09-02 18:02:42 [http-nio-8080-exec-1] INFO  c.p.t.s.entrance.TripScaleController - 收到聊天请求，会话ID: 18da04e6-8087-4a48-9822-b08548a64099
+2025-09-02 18:02:42 [http-nio-8080-exec-1] INFO  c.p.t.s.a.o.AnotherRootAgent - start init a new session for conversation 18da04e6-8087-4a48-9822-b08548a64099
+2025-09-02 18:02:42 [http-nio-8080-exec-1] INFO  c.p.t.s.e.CoordinationEntrance - current session [user:userId=123, current_stage=demand]
+2025-09-02 18:02:44 [http-nio-8080-exec-1] INFO  c.p.t.s.a.o.AnotherRootAgent - inner event aa53fd52-9b8a-4927-a428-bd3c977c9212
+2025-09-02 18:02:44 [http-nio-8080-exec-1] INFO  c.p.t.s.a.o.AnotherRootAgent - parse error text : Hello! To help you plan your trip, I need a few details. First, where are you hoping to go?
+2025-09-02 18:02:44 [http-nio-8080-exec-1] INFO  c.p.t.s.e.CoordinationEntrance - event {"id":"aa53fd52-9b8a-4927-a428-bd3c977c9212","invocationId":"e-90e4e9fe-a906-4172-a595-0d2f396a9f19","author":"trip_demand_agent","content":{"parts":[{"text":"Hello! To help you plan your trip, I need a few details. First, where are you hoping to go?"}],"role":"model"},"actions":{"stateDelta":{},"artifactDelta":{},"requestedAuthConfigs":{}},"timestamp":1756807362530}
+2025-09-02 18:02:44 [http-nio-8080-exec-1] INFO  c.p.t.s.e.CoordinationEntrance - state : {"user:userId":"123","current_stage":"demand"}
+2025-09-02 18:02:52 [http-nio-8080-exec-7] INFO  c.p.t.s.entrance.TripScaleController - 收到聊天请求，会话ID: 18da04e6-8087-4a48-9822-b08548a64099
+2025-09-02 18:02:52 [http-nio-8080-exec-7] INFO  c.p.t.s.e.CoordinationEntrance - current session [user:userId=123, current_stage=demand]
+2025-09-02 18:02:55 [http-nio-8080-exec-7] INFO  c.p.t.s.a.o.AnotherRootAgent - inner event 01ee01fc-d42d-477b-b9be-d946a09a69cd
+2025-09-02 18:02:55 [http-nio-8080-exec-7] INFO  c.p.t.s.e.CoordinationEntrance - event {"id":"01ee01fc-d42d-477b-b9be-d946a09a69cd","invocationId":"e-4a2c672d-07b0-414c-992a-1379408664d0","author":"trip_demand_agent","content":{"parts":[{"text":"I will start trip planning for your 3-day trip to Hong Kong from Shenzhen, starting on October 14th, for 1 passenger with a budget of 10000 HKD."}],"role":"model"},"actions":{"stateDelta":{},"artifactDelta":{},"requestedAuthConfigs":{}},"timestamp":1756807372039}
+2025-09-02 18:02:55 [http-nio-8080-exec-7] INFO  c.p.t.s.e.CoordinationEntrance - state : {"user:userId":"123","current_stage":"demand"}
