@@ -4,6 +4,8 @@ import com.amadeus.exceptions.ResponseException;
 import com.amadeus.resources.Activity;
 import com.pkfare.trip.scale.api.amadeus.activities.AmadeusActivitiesSearchApi;
 import com.pkfare.trip.scale.api.amadeus.activities.request.ActivitiesSearchRequest;
+import com.pkfare.trip.scale.api.amadeus.activities.response.ActivityDto;
+import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 
 
@@ -13,7 +15,7 @@ public class AmadeusActivitiesSearchApiTest {
   public static void main(String[] args) throws ResponseException {
     // 测试/v3/shopping/hotel-offers
     AmadeusActivitiesSearchApi searchAPI = new AmadeusActivitiesSearchApi();
-    Activity[] response = searchAPI.searchActivities(buildActivitiesSearchRequest());
+    List<ActivityDto> response = searchAPI.searchActivities(buildActivitiesSearchRequest());
     log.info("response : {}",response);
 
   }

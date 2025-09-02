@@ -2,6 +2,7 @@ package com.pkfare.trip.scale.service.plan;
 
 import com.amadeus.resources.Activity;
 import com.pkfare.trip.scale.api.amadeus.activities.request.ActivitiesSearchRequest;
+import com.pkfare.trip.scale.api.amadeus.activities.response.ActivityDto;
 import com.pkfare.trip.scale.model.dto.HotelLocationInfo;
 import com.pkfare.trip.scale.plan.service.param.TripRouteParam;
 import com.pkfare.trip.scale.plan.service.response.ActivityInfo;
@@ -117,10 +118,10 @@ public class ActivitySearchService {
     request.setRadius(DEFAULT_RADIUS);
 
     try {
-      Activity[] activities = amadeusActivityService.searchActivities(request);
+      List<ActivityDto>  activities = amadeusActivityService.searchActivities(request);
 
-      if (activities != null && activities.length > 0) {
-        List<ActivityInfo> activityInfos = Arrays.stream(activities)
+      if (activities != null && activities.size() > 0) {
+        List<ActivityInfo> activityInfos = activities.stream()
             .map(activity -> convertToActivityInfo(activity, tripRoute.getDestination_city()))
             .filter(Objects::nonNull)
             .collect(Collectors.toList());
@@ -204,7 +205,7 @@ public class ActivitySearchService {
    * @param cityCode 城市代码
    * @return 活动信息
    */
-  private ActivityInfo convertToActivityInfo(Activity activity, String cityCode) {
+  private ActivityInfo convertToActivityInfo(ActivityDto activity, String cityCode) {
     if (activity == null) {
       return null;
     }
@@ -242,7 +243,7 @@ public class ActivitySearchService {
       activityInfo.setType("General");
     }
 
-    activityInfo.setPictures(Arrays.asList(activity.getPictures()));
+    activityInfo.setPictures(activity.getPictures());
 
     return activityInfo;
   }

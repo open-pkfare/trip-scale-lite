@@ -4,8 +4,10 @@ import com.amadeus.resources.Activity;
 import com.github.benmanes.caffeine.cache.Cache;
 import com.pkfare.trip.scale.api.amadeus.activities.AmadeusActivitiesSearchApi;
 import com.pkfare.trip.scale.api.amadeus.activities.request.ActivitiesSearchRequest;
+import com.pkfare.trip.scale.api.amadeus.activities.response.ActivityDto;
 import com.pkfare.trip.scale.exception.ExternalApiException;
 import com.pkfare.trip.scale.util.CacheKeyUtil;
+import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -40,7 +42,7 @@ public class AmadeusActivityService {
      * @param request 活动搜索请求
      * @return 活动数组
      */
-    public Activity[] searchActivities(ActivitiesSearchRequest request) {
+    public List<ActivityDto>  searchActivities(ActivitiesSearchRequest request) {
         log.info("Searching activities with request: {}", request);
         
         // 生成缓存键
@@ -51,23 +53,23 @@ public class AmadeusActivityService {
         }
         
         // 1. 先尝试从缓存获取
-        Activity[] cachedResult = getCachedActivities(cacheKey);
+        List<ActivityDto>  cachedResult = getCachedActivities(cacheKey);
         if (cachedResult != null) {
             log.info("Cache hit! Returning {} cached activities for key: {}", 
-                cachedResult.length, cacheKey);
+                cachedResult.size(), cacheKey);
             logActivitiesCacheStats();
             return cachedResult;
         }
         
         // 2. 缓存未命中，调用API获取数据
         log.info("Cache miss for key: {}, calling API", cacheKey);
-        Activity[] apiResult = searchActivitiesWithoutCache(request);
+        List<ActivityDto>  apiResult = searchActivitiesWithoutCache(request);
         
         // 3. 将API结果缓存起来
-        if (apiResult != null && apiResult.length > 0) {
+        if (apiResult != null && apiResult.size() > 0) {
             cacheActivitiesResult(cacheKey, apiResult);
             log.info("API result cached successfully - {} activities for key: {}", 
-                apiResult.length, cacheKey);
+                apiResult.size(), cacheKey);
         } else {
             log.warn("API returned empty result, not caching for key: {}", cacheKey);
         }
@@ -82,12 +84,12 @@ public class AmadeusActivityService {
      * @param cacheKey 缓存键
      * @return 缓存的活动数据，如果不存在返回null
      */
-    private Activity[] getCachedActivities(String cacheKey) {
+    private List<ActivityDto>  getCachedActivities(String cacheKey) {
         try {
             Object cached = activitiesCache.getIfPresent(cacheKey);
             if (cached instanceof Activity[]) {
-                Activity[] cachedResult = (Activity[]) cached;
-                log.debug("Cache hit for key: {}, found {} results", cacheKey, cachedResult.length);
+                List<ActivityDto>  cachedResult = (List<ActivityDto> ) cached;
+                log.debug("Cache hit for key: {}, found {} results", cacheKey, cachedResult.size());
                 return cachedResult;
             } else if (cached != null) {
                 log.warn("Invalid cached object type: {}, removing from cache", cached.getClass());
@@ -107,10 +109,10 @@ public class AmadeusActivityService {
      * @param cacheKey 缓存键
      * @param result API查询结果
      */
-    private void cacheActivitiesResult(String cacheKey, Activity[] result) {
+    private void cacheActivitiesResult(String cacheKey, List<ActivityDto>  result) {
         try {
             activitiesCache.put(cacheKey, result);
-            log.debug("Cached {} activities for key: {}", result.length, cacheKey);
+            log.debug("Cached {} activities for key: {}", result.size(), cacheKey);
         } catch (Exception e) {
             log.error("Failed to cache result for key: {}", cacheKey, e);
         }
@@ -122,11 +124,11 @@ public class AmadeusActivityService {
      * @param request 活动搜索请求
      * @return 活动数组
      */
-    private Activity[] searchActivitiesWithoutCache(ActivitiesSearchRequest request) {
+    private List<ActivityDto>  searchActivitiesWithoutCache(ActivitiesSearchRequest request) {
         return retryApiCall(() -> {
             try {
-                Activity[] result = activitiesSearchApi.searchActivities(request);
-                log.debug("API call completed, found {} results", result != null ? result.length : 0);
+                List<ActivityDto> result = activitiesSearchApi.searchActivities(request);
+                log.debug("API call completed, found {} results", result != null ? result.size() : 0);
                 return result;
             } catch (Exception e) {
                 log.error("Failed to search activities via API", e);
