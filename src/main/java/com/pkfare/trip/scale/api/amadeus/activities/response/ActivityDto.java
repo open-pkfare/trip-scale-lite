@@ -11,7 +11,7 @@ public class ActivityDto {
   private String name;
   private String shortDescription;
   private String description;
-  private GeoCode geoCode;
+  private GeoCodeDto geoCode;
   private String rating;
   private String bookingLink;
   private String minimumDuration;

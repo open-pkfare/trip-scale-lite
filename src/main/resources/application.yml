@@ -66,6 +66,9 @@ amadeus:
     offers:
       mock:
         enabled: ${AMADEUS_HOTEL_OFFERS_MOCK_ENABLED:true}
+  activities:
+    mock:
+      enabled: ${AMADEUS_ACTIVITIES_MOCK_ENABLED:true}
 
 # 日志配置
 logging:
