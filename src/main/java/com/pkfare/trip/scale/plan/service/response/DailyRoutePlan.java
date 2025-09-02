@@ -28,9 +28,14 @@ public class DailyRoutePlan {
     private String cityName;
     
     /**
-     * 当日住宿酒店
+     * 首选当日住宿酒店
      */
-    private HotelInfo hotel;
+    private HotelInfo preferredHotel;
+
+    /**
+     * 备选当日住宿酒店
+     */
+    private List<HotelInfo> alternativeHotels;
     
     /**
      * 当日活动列表（按时间顺序）

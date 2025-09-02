@@ -55,4 +55,9 @@ public class RouteSegment {
      * 路线概览
      */
     private String overview;
+
+    /**
+     * google 返回routes全量信息
+     */
+    private String routesJson;
 }

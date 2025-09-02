@@ -15,6 +15,7 @@ import com.pkfare.trip.scale.service.plan.FlightSearchService;
 import com.pkfare.trip.scale.service.plan.HotelSearchService;
 import com.pkfare.trip.scale.service.plan.LocationSearchService;
 import com.pkfare.trip.scale.util.DateUtil;
+import com.pkfare.trip.scale.util.JsonUtil;
 import com.pkfare.trip.scale.util.ValidationUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -115,7 +116,8 @@ public class GeneratePlanService {
       log.info("Found {} flights, {} hotels, {} activities", 
           finalResult.flights.size(), finalResult.hotels.size(), finalResult.activities.size());
       logThreadPoolStatus();
-
+      String resultJson = JsonUtil.toJson(tripRoutePlanResult);
+      log.info("Generated trip plan JSON: {}", resultJson);
       return tripRoutePlanResult;
 
     } catch (Exception e) {
@@ -288,7 +290,7 @@ public class GeneratePlanService {
     // 等待依赖任务完成
     return CompletableFuture.allOf(hotelsFuture, activitiesFuture)
         .thenApply(v -> new DependentSearchResult(
-            concurrentResult.flights.get("preferred"),
+            concurrentResult.flights,
             hotelsFuture.join(),
             activitiesFuture.join()
         ));
@@ -320,13 +322,13 @@ public class GeneratePlanService {
    * @return AI生成的计划文本
    */
   private TripRoutePlanResult generateAiPlan(GeneratePlanParam param,
-      List<FlightInfo> flights,
+      Map<String,List<FlightInfo>> flights,
       List<HotelInfo> hotels,
       List<ActivityInfo> activities) {
     try {
       SubmitAiPlanInfo planInfo = new SubmitAiPlanInfo();
       planInfo.setGeneratePlanParam(param);
-      planInfo.setFlightInfos(flights);
+      planInfo.setFlightMap(flights);
       planInfo.setHotelInfos(hotels);
       planInfo.setActivityInfos(activities);
 
@@ -360,11 +362,11 @@ public class GeneratePlanService {
    * 依赖搜索结果数据结构
    */
   private static class DependentSearchResult {
-    final List<FlightInfo> flights;
+    final Map<String,List<FlightInfo>> flights;
     final List<HotelInfo> hotels;
     final List<ActivityInfo> activities;
 
-    DependentSearchResult(List<FlightInfo> flights, 
+    DependentSearchResult(Map<String,List<FlightInfo>> flights,
                          List<HotelInfo> hotels, 
                          List<ActivityInfo> activities) {
       this.flights = flights;
