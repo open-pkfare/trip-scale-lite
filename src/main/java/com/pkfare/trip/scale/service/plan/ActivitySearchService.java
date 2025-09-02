@@ -274,4 +274,40 @@ public class ActivitySearchService {
         })
         .collect(Collectors.toList());
   }
+
+  public List<ActivityInfo> searchActivitiesNearby(HotelInfo hotel) {
+    ActivitiesSearchRequest request = new ActivitiesSearchRequest();
+    request.setLatitude(hotel.getLatitude());
+    request.setLongitude(hotel.getLongitude());
+    request.setRadius(DEFAULT_RADIUS);
+
+    try {
+      Activity[] activities = amadeusActivityService.searchActivities(request);
+      if (activities == null || activities.length == 0) {
+        return Collections.emptyList();
+      }
+
+      List<ActivityInfo> activityInfos = Arrays.stream(activities)
+          .map(activity -> convertToActivityInfo(activity, hotel.getCityCode()))
+          .filter(Objects::nonNull)
+          .collect(Collectors.toList());
+
+      // 筛选在合理距离内的活动
+      List<ActivityInfo> activityInfoList = filterActivitiesByDistance(activityInfos,
+          new HotelLocationInfo(hotel.getLatitude(), hotel.getLongitude()), ACTIVITY_SEARCH_RADIUS_KM);
+
+      // 筛选评分最高的活动
+      List<ActivityInfo> topActivities = activityInfoList.stream()
+          .sorted((a1, a2) -> Double.compare(a2.getRating(), a1.getRating()))
+          .collect(Collectors.toList());
+
+      log.info("Found {} activities for city {}, filtered to {} top activities",
+          activityInfos.size(), hotel.getCityCode(), topActivities.size());
+
+      return topActivities;
+    } catch (Exception e) {
+      log.error("Failed to search activities for city {}", hotel.getCityCode(), e);
+      return Collections.emptyList();
+    }
+  }
 }

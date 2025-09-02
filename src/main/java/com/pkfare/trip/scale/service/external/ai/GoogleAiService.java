@@ -167,29 +167,32 @@ public class GoogleAiService {
         // 选择当日活动（平均分配活动到各天）
         List<ActivityInfo> dayActivities = selectDayActivities(cityData.getActivities(), dayIndex, cityData.getStayDays());
         dailyPlan.setActivities(dayActivities);
-        
-        // 生成路线
-        List<RouteSegment> routes = generateRoutes(dailyPlan.getPreferredHotel(), dayActivities);
-        dailyPlan.setRoutes(routes);
-        
-        // 计算总距离和时间
-        long totalDistance = routes.stream()
-                .filter(route -> route.getDistance() != null)
-                .mapToLong(RouteSegment::getDistance)
-                .sum();
-        long totalDuration = routes.stream()
-                .filter(route -> route.getDuration() != null)
-                .mapToLong(RouteSegment::getDuration)
-                .sum();
-        
-        dailyPlan.setTotalDistance(totalDistance);
-        dailyPlan.setTotalDuration(totalDuration);
-        dailyPlan.setNotes(generateDayNotes(dayActivities, totalDistance, totalDuration));
-        
-        return dailyPlan;
+
+      generateRoutes(dailyPlan, dayActivities);
+      return dailyPlan;
     }
 
-    /**
+  public void generateRoutes(DailyRoutePlan dailyPlan, List<ActivityInfo> dayActivities) throws Exception {
+    // 生成路线
+    List<RouteSegment> routes = generateRoutes(dailyPlan.getPreferredHotel(), dayActivities);
+    dailyPlan.setRoutes(routes);
+
+    // 计算总距离和时间
+    long totalDistance = routes.stream()
+            .filter(route -> route.getDistance() != null)
+            .mapToLong(RouteSegment::getDistance)
+            .sum();
+    long totalDuration = routes.stream()
+            .filter(route -> route.getDuration() != null)
+            .mapToLong(RouteSegment::getDuration)
+            .sum();
+
+    dailyPlan.setTotalDistance(totalDistance);
+    dailyPlan.setTotalDuration(totalDuration);
+    dailyPlan.setNotes(generateDayNotes(dayActivities, totalDistance, totalDuration));
+  }
+
+  /**
      * 选择当日活动
      */
     private List<ActivityInfo> selectDayActivities(List<ActivityInfo> allActivities, int dayIndex, int totalDays) {
@@ -329,7 +332,7 @@ public class GoogleAiService {
     /**
      * 生成总结
      */
-    private String generateSummary(List<DailyRoutePlan> dailyPlans) {
+    public String generateSummary(List<DailyRoutePlan> dailyPlans) {
         StringBuilder summary = new StringBuilder();
         summary.append("This trip spans ").append(dailyPlans.size()).append(" days, ");
         

@@ -5,6 +5,7 @@ import com.amadeus.resources.HotelOfferSearch;
 import com.github.benmanes.caffeine.cache.Cache;
 import com.pkfare.trip.scale.api.amadeus.hotelbycity.AmadeusSearchHotelsByCityAPI;
 import com.pkfare.trip.scale.api.amadeus.hotelbycity.request.QueryHotelByCityRequest;
+import com.pkfare.trip.scale.api.amadeus.hotelbycity.request.QueryHotelByGeocodeRequest;
 import com.pkfare.trip.scale.api.amadeus.hoteloffers.AmadeusHotelOffersSearchAPI;
 import com.pkfare.trip.scale.api.amadeus.hoteloffers.request.HotelOffersSearchRequest;
 import com.pkfare.trip.scale.api.amadeus.hoteloffers.response.HotelOfferDto;
@@ -61,6 +62,28 @@ public class AmadeusHotelService {
             }
         }, MAX_RETRY_ATTEMPTS);
     }
+
+  /**
+   * 根据坐标搜索酒店
+   *
+   * @param request 酒店搜索请求
+   * @return 酒店数组
+   */
+  public Hotel[] searchHotelsByGeocode(QueryHotelByGeocodeRequest request) {
+    log.info("Searching hotels by geocode with request: {}", request);
+
+    return retryApiCall(() -> {
+      try {
+        Hotel[] result = hotelsByCityAPI.queryHotelByGeocode(request);
+        log.info("Hotels by geocode search completed, found {} results", result != null ? result.length : 0);
+        return result;
+      } catch (Exception e) {
+        log.error("Failed to search hotels by geocode", e);
+        throw new ExternalApiException("AMADEUS_HOTELS_BY_CITY_ERROR",
+            "Failed to search hotels by geocode: " + e.getMessage(), 500, "AmadeusSearchHotelsByCityAPI", e);
+      }
+    }, MAX_RETRY_ATTEMPTS);
+  }
     
     /**
      * 搜索酒店报价 - 带缓存功能

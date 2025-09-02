@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 
 
 @Slf4j
@@ -41,10 +42,12 @@ public class AmadeusFlightOffersSearchAPI {
       return mockApiResponse(flightOffersSearchRequest);
     }
     Amadeus amadeus = AmadeusClient.get();
+    String travelClass = flightOffersSearchRequest.getTravelClass();
     Params params = Params.with("originLocationCode", flightOffersSearchRequest.getOrigin())
         .and("destinationLocationCode", flightOffersSearchRequest.getDestination())
         .and("departureDate", flightOffersSearchRequest.getDepartureDate())
         .and("adults", flightOffersSearchRequest.getAdults()).and("children", flightOffersSearchRequest.getChildren())
+        .and("travelClass", StringUtils.isBlank(travelClass) ? "ECONOMY" : travelClass)
         .and("infants", flightOffersSearchRequest.getInfants()).and("nonStop", flightOffersSearchRequest.getNonStop())
         .and("currencyCode", flightOffersSearchRequest.getCurrency()).and("maxPrice", flightOffersSearchRequest.getMaxPrice())
         .and("max", flightOffersSearchRequest.getMax());

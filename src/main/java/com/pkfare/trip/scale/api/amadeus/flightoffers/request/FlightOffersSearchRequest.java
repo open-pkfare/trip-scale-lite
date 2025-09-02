@@ -11,6 +11,7 @@ public class FlightOffersSearchRequest {
   private int adults;
   private int children;
   private int infants;
+  private String travelClass; // 舱等 ECONOMY, PREMIUM_ECONOMY, BUSINESS, FIRST
   private Boolean nonStop;         // 是否只显示直飞航班 (可选)
   private String currency;     // 航班提供的首选货币。货币以ISO 4217格式指定，例如EUR表示欧元
   private int maxPrice;          // 定义每个返回报价的价格限制。该值应该是一个正数，没有小数

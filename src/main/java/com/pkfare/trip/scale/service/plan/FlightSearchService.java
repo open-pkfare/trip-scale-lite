@@ -940,7 +940,7 @@ public class FlightSearchService {
     /**
      * 转换为FlightInfo
      */
-    private FlightInfo convertToFlightInfo(FlightOfferDto offer) {
+    public FlightInfo convertToFlightInfo(FlightOfferDto offer) {
         FlightInfo flightInfo = new FlightInfo();
         flightInfo.setOneWay(offer.getOneWay());
         flightInfo.setTotal(offer.getPrice().getTotal());
