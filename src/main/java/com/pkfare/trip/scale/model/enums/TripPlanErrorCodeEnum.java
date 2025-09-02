@@ -30,6 +30,11 @@ public enum TripPlanErrorCodeEnum {
      * 计划不存在
      */
     PLAN_NOT_EXIST("TP005", "计划不存在"),
+        
+    /**
+     * 不支持的活动调整类型
+     */
+    UNSUPPORTED_ACTIVITY_ADJUSTMENT_TYPE("TP006", "不支持的活动调整类型"),
     
     /**
      * 服务器内部错误

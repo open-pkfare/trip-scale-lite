@@ -1,11 +1,8 @@
 package com.pkfare.trip.scale.plan.service;
 
 import com.google.gson.JsonObject;
-import com.pkfare.trip.scale.plan.service.param.AdjustPlanParam;
 import com.pkfare.trip.scale.plan.service.param.GeneratePlanParam;
 import com.pkfare.trip.scale.plan.service.response.TripPlan;
-
-import java.util.List;
 
 /**
  * 旅行计划调整服务接口

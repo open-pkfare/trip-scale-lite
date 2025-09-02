@@ -1,6 +1,5 @@
 package com.pkfare.trip.scale.plan.service.param;
 
-import java.util.List;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -33,7 +32,7 @@ public class AdjustFlightParam {
   private boolean noStop;
 
   /**
-   * 时间变更（小时），机票、活动调整时使用
+   * 时间变更（小时），航班调整时使用（暂未实现）
    */
   private Integer timeChange;
 

@@ -11,6 +11,7 @@ import com.pkfare.trip.scale.model.enums.TripPlanErrorCodeEnum;
 import com.pkfare.trip.scale.plan.service.TripPlanAdjustInterface;
 import com.pkfare.trip.scale.plan.service.param.AdjustHotelParam;
 import com.pkfare.trip.scale.plan.service.param.GeneratePlanParam;
+import com.pkfare.trip.scale.plan.service.response.DailySchedule;
 import com.pkfare.trip.scale.plan.service.response.HotelInfo;
 import com.pkfare.trip.scale.plan.service.response.TripPlan;
 import com.pkfare.trip.scale.service.external.amadeus.AmadeusHotelService;
@@ -56,6 +57,12 @@ public class HotelAdjustServiceImpl implements TripPlanAdjustInterface {
           throw new TripPlanException(TripPlanErrorCodeEnum.NO_HOTEL_FOUND);
         }
         hotels.set(i, newHotel);
+
+        for (DailySchedule dailySchedule : tripPlan.getDailySchedules()) {
+          if (dailySchedule.getHotel().getHotelId().equals(newHotel.getHotelId())) {
+            dailySchedule.setHotel(newHotel);
+          }
+        }
         log.info("Hotel adjusted successfully: {}", hotel.getHotelId());
         break;
       }
@@ -94,7 +101,11 @@ public class HotelAdjustServiceImpl implements TripPlanAdjustInterface {
     request.setAdults(generatePlanParam.getAdult_number() + generatePlanParam.getChild_number());
     request.setCountryOfResidence(countryCode);
     request.setRoomQuantity(adjustHotelParam.getRoomQuantity());
-    request.setPriceRange("10-" + adjustHotelParam.getMaxPrice());
+    BigDecimal maxPrice = adjustHotelParam.getMaxPrice();
+    if (Objects.isNull(maxPrice)) {
+      maxPrice = oldHotel.getTotalPrice();
+    }
+    request.setPriceRange("1-" + maxPrice.toString());
     request.setCurrency(oldHotel.getCurrency());
     try {
       HotelOfferSearch[] offers = amadeusHotelService.searchHotelOffers(request);
