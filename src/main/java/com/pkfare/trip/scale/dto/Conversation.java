@@ -10,5 +10,4 @@ public class Conversation {
   private List<String> files;
   private String conversationId;
   private String userId;
-
 }
