@@ -24,7 +24,7 @@ public class AdjustHotelParam {
   /**
    * 调整项ID，必填
    */
-  private String hotelId;
+  private String id;
   /**
    * 酒店星级，1-5
    */
