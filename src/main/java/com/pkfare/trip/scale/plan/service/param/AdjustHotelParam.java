@@ -1,6 +1,7 @@
 package com.pkfare.trip.scale.plan.service.param;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,6 +17,10 @@ public class AdjustHotelParam {
    * @see AdjustItemEnum
    */
   private String item;
+  /**
+   * 日期
+   */
+  private LocalDate date;
   /**
    * 调整项ID，必填
    */

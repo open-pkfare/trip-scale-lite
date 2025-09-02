@@ -12,9 +12,9 @@ import com.pkfare.trip.scale.plan.service.impl.HotelAdjustServiceImpl;
 import com.pkfare.trip.scale.plan.service.param.AdjustItemEnum;
 import com.pkfare.trip.scale.plan.service.param.GeneratePlanParam;
 import com.pkfare.trip.scale.plan.service.response.TripPlan;
+import com.pkfare.trip.scale.plan.service.response.TripRoutePlanResult;
 import java.io.IOException;
 import java.util.Optional;
-import javax.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,12 +39,11 @@ public class TripPlanAdjustService {
   @Autowired
   private ObjectMapper objectMapper;
 
-  public TripPlan adjustPlan(GeneratePlanParam generatePlanParam, TripPlan tripPlan, @Valid JsonArray adjustPlanParams) {
-    log.info("Adjusting trip plan: {}", tripPlan.getPlanId());
-    TripPlan adjustedPlan;
+  public TripRoutePlanResult adjustPlan(GeneratePlanParam generatePlanParam, TripRoutePlanResult tripPlan, JsonArray adjustPlanParams) {
+    TripRoutePlanResult adjustedPlan;
     try {
       // 先序列化为JSON，再反序列化为新对象，实现深拷贝
-      adjustedPlan = objectMapper.readValue(objectMapper.writeValueAsString(tripPlan), TripPlan.class);
+      adjustedPlan = objectMapper.readValue(objectMapper.writeValueAsString(tripPlan), TripRoutePlanResult.class);
     } catch (IOException e) {
       throw new TripPlanException(TripPlanErrorCodeEnum.NO_FLIGHT_FOUND, e);
     }
@@ -78,9 +77,8 @@ public class TripPlanAdjustService {
         log.warn("Failed to process adjust item: {}", element, e);
       }
     }
-    // 重新计算总费用
-    recalculateTotalCost(adjustedPlan);
-    log.info("Trip plan adjusted successfully: {}", adjustedPlan.getPlanId());
+    // todo 重新计算总费用
+//    recalculateTotalCost(adjustedPlan);
     return adjustedPlan;
   }
 

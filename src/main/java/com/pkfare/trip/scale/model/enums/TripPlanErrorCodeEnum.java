@@ -35,8 +35,15 @@ public enum TripPlanErrorCodeEnum {
      * 不支持的活动调整类型
      */
     UNSUPPORTED_ACTIVITY_ADJUSTMENT_TYPE("TP006", "不支持的活动调整类型"),
-    
-    /**
+  /**
+   * 优化活动失败
+   */
+  OPTIMIZE_ACTIVITY_FAILED("TP007", "优化活动失败"),
+  /**
+   * 优化酒店失败
+   */
+  OPTIMIZE_HOTEL_FAILED("TP008", "优化酒店失败"),
+  /**
      * 服务器内部错误
      */
     SERVER_ERROR("TP999", "服务器内部错误");

@@ -267,10 +267,6 @@ public class HotelSearchService {
     return new ArrayList<>();
   }
 
-  private HotelInfo convertToHotelInfo(HotelOfferSearch offer, TripRouteParam route, LocalDate checkIn, LocalDate checkOut) {
-    return convertToHotelInfo(offer, route.getLocation_code(), route.getDestination_city(), checkIn, checkOut);
-  }
-
   /**
    * 转换为HotelInfo
    *

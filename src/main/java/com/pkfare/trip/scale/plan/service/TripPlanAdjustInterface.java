@@ -3,6 +3,7 @@ package com.pkfare.trip.scale.plan.service;
 import com.google.gson.JsonObject;
 import com.pkfare.trip.scale.plan.service.param.GeneratePlanParam;
 import com.pkfare.trip.scale.plan.service.response.TripPlan;
+import com.pkfare.trip.scale.plan.service.response.TripRoutePlanResult;
 
 /**
  * 旅行计划调整服务接口
@@ -18,5 +19,5 @@ public interface TripPlanAdjustInterface {
      * @param adjustParam 调整参数列表
      * @return 调整后的旅行计划
      */
-    void adjust(GeneratePlanParam generatePlanParam, TripPlan tripPlan, JsonObject adjustParam);
+    void adjust(GeneratePlanParam generatePlanParam, TripRoutePlanResult tripPlan, JsonObject adjustParam);
 }

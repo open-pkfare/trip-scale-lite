@@ -16,6 +16,8 @@ import com.pkfare.trip.scale.plan.service.response.FlightInfo;
 import com.pkfare.trip.scale.plan.service.response.ItineraryInfo;
 import com.pkfare.trip.scale.plan.service.response.SegmentInfo;
 import com.pkfare.trip.scale.plan.service.response.TripPlan;
+import com.pkfare.trip.scale.plan.service.response.TripRoutePlanResult;
+import com.pkfare.trip.scale.service.external.ai.GoogleAiService;
 import com.pkfare.trip.scale.service.external.amadeus.AmadeusFlightService;
 import com.pkfare.trip.scale.service.plan.FlightSearchService;
 import com.pkfare.trip.scale.util.PriceUtil;
@@ -42,12 +44,14 @@ public class FlightAdjustServiceImpl implements TripPlanAdjustInterface {
   private FlightSearchService flightSearchService;
   @Autowired
   private AmadeusFlightService amadeusFlightService;
+  @Autowired
+  private GoogleAiService googleAiService;
 
   @Override
-  public void adjust(GeneratePlanParam generatePlanParam, TripPlan tripPlan,  JsonObject adjustParam) {
+  public void adjust(GeneratePlanParam generatePlanParam, TripRoutePlanResult tripPlan,  JsonObject adjustParam) {
     AdjustFlightParam adjustFlightParam = gson.fromJson(adjustParam, AdjustFlightParam.class);
     log.info("Adjusting flight param: {}", adjustFlightParam);
-    List<FlightInfo> flights = tripPlan.getFlights();
+    List<FlightInfo> flights = tripPlan.getPreferredFlights();
     boolean found = false;
     for (int i = 0; i < flights.size(); i++) {
       FlightInfo flight = flights.get(i);

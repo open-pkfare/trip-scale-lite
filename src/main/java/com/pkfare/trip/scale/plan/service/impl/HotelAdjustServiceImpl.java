@@ -11,9 +11,10 @@ import com.pkfare.trip.scale.model.enums.TripPlanErrorCodeEnum;
 import com.pkfare.trip.scale.plan.service.TripPlanAdjustInterface;
 import com.pkfare.trip.scale.plan.service.param.AdjustHotelParam;
 import com.pkfare.trip.scale.plan.service.param.GeneratePlanParam;
-import com.pkfare.trip.scale.plan.service.response.DailySchedule;
+import com.pkfare.trip.scale.plan.service.response.DailyRoutePlan;
 import com.pkfare.trip.scale.plan.service.response.HotelInfo;
-import com.pkfare.trip.scale.plan.service.response.TripPlan;
+import com.pkfare.trip.scale.plan.service.response.TripRoutePlanResult;
+import com.pkfare.trip.scale.service.external.ai.GoogleAiService;
 import com.pkfare.trip.scale.service.external.amadeus.AmadeusHotelService;
 import com.pkfare.trip.scale.service.plan.HotelSearchService;
 import com.pkfare.trip.scale.util.DateUtil;
@@ -40,30 +41,33 @@ public class HotelAdjustServiceImpl implements TripPlanAdjustInterface {
   public static final Integer DEFAULT_RADIUS = 1;
   @Autowired
   private AmadeusHotelService amadeusHotelService;
+  @Autowired
+  private GoogleAiService googleAiService;
 
   @Override
-  public void adjust(GeneratePlanParam generatePlanParam, TripPlan tripPlan, JsonObject adjustParam) {
+  public void adjust(GeneratePlanParam generatePlanParam, TripRoutePlanResult tripPlan, JsonObject adjustParam) {
     AdjustHotelParam adjustHotelParam = gson.fromJson(adjustParam, AdjustHotelParam.class);
     log.info("Adjusting hotel param: {}", adjustHotelParam);
 
-    List<HotelInfo> hotels = tripPlan.getHotels();
+    List<DailyRoutePlan> dailyPlans = tripPlan.getDailyPlans();
     boolean found = false;
-    for (int i = 0; i < hotels.size(); i++) {
-      HotelInfo hotel = hotels.get(i);
+    for (int i = 0; i < dailyPlans.size(); i++) {
+      DailyRoutePlan dailyRoutePlan = dailyPlans.get(i);
+      HotelInfo hotel = dailyRoutePlan.getPreferredHotel();
       if (hotel.getHotelId().equals(adjustHotelParam.getHotelId())) {
         found = true;
         HotelInfo newHotel = searchHotel(generatePlanParam, hotel, adjustHotelParam);
         if (Objects.isNull(newHotel)) {
           throw new TripPlanException(TripPlanErrorCodeEnum.NO_HOTEL_FOUND);
         }
-        hotels.set(i, newHotel);
+        dailyRoutePlan.setPreferredHotel(newHotel);
 
-        for (DailySchedule dailySchedule : tripPlan.getDailySchedules()) {
-          if (dailySchedule.getHotel().getHotelId().equals(newHotel.getHotelId())) {
-            dailySchedule.setHotel(newHotel);
-          }
+        try {
+          googleAiService.generateRoutes(dailyRoutePlan, dailyRoutePlan.getActivities());
+        } catch (Exception e) {
+          throw new TripPlanException(TripPlanErrorCodeEnum.OPTIMIZE_HOTEL_FAILED, e);
         }
-        log.info("Hotel adjusted successfully: {}", hotel.getHotelId());
+        log.info("Hotel adjusted successfully: {}", dailyRoutePlan.getPreferredHotel().getHotelId());
         break;
       }
     }

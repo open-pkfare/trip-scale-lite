@@ -9,8 +9,9 @@ import com.pkfare.trip.scale.plan.service.param.ActivityAdjustTypeEnum;
 import com.pkfare.trip.scale.plan.service.param.AdjustActivityParam;
 import com.pkfare.trip.scale.plan.service.param.GeneratePlanParam;
 import com.pkfare.trip.scale.plan.service.response.ActivityInfo;
-import com.pkfare.trip.scale.plan.service.response.DailySchedule;
-import com.pkfare.trip.scale.plan.service.response.TripPlan;
+import com.pkfare.trip.scale.plan.service.response.DailyRoutePlan;
+import com.pkfare.trip.scale.plan.service.response.TripRoutePlanResult;
+import com.pkfare.trip.scale.service.external.ai.GoogleAiService;
 import com.pkfare.trip.scale.service.plan.ActivitySearchService;
 import java.util.Comparator;
 import java.util.Iterator;
@@ -36,20 +37,21 @@ public class ActivityAdjustServiceImpl implements TripPlanAdjustInterface {
   private static final Gson gson = new Gson();
   @Autowired
   private ActivitySearchService activitySearchService;
+  @Autowired
+  private GoogleAiService googleAiService;
 
   @Override
-  public void adjust(GeneratePlanParam generatePlanParam, TripPlan tripPlan, JsonObject adjustParam) {
-    // todo 参数检查
+  public void adjust(GeneratePlanParam generatePlanParam, TripRoutePlanResult tripPlan, JsonObject adjustParam) {
     if (Objects.isNull(generatePlanParam) || Objects.isNull(tripPlan) || Objects.isNull(adjustParam)) {
       throw new TripPlanException(TripPlanErrorCodeEnum.PARAM_ERROR);
     }
     AdjustActivityParam adjustActivityParam = gson.fromJson(adjustParam, AdjustActivityParam.class);
     log.info("Adjusting activity param: {}", adjustActivityParam);
 
-    List<DailySchedule> dailySchedules = tripPlan.getDailySchedules();
-    for (DailySchedule schedule : dailySchedules) {
+    List<DailyRoutePlan> dailySchedules = tripPlan.getDailyPlans();
+    for (DailyRoutePlan routePlan : dailySchedules) {
       // 日期检查
-      if (!schedule.getDate().equals(adjustActivityParam.getDate())) {
+      if (!routePlan.getDate().equals(adjustActivityParam.getDate())) {
         continue;
       }
       Optional<ActivityAdjustTypeEnum> optional = ActivityAdjustTypeEnum.getByCode(adjustActivityParam.getAdjustType());
@@ -59,23 +61,26 @@ public class ActivityAdjustServiceImpl implements TripPlanAdjustInterface {
       // 区分adjustType
       ActivityAdjustTypeEnum adjustTypeEnum = optional.get();
       if (ActivityAdjustTypeEnum.REPLACE.equals(adjustTypeEnum)) {
-        doReplace(tripPlan, schedule, adjustActivityParam);
+        doReplace(tripPlan, routePlan, adjustActivityParam);
       } else if (ActivityAdjustTypeEnum.ADD.equals(adjustTypeEnum)) {
-        doAdd(tripPlan, schedule, adjustActivityParam);
+        doAdd(tripPlan, routePlan, adjustActivityParam);
       } else if (ActivityAdjustTypeEnum.REDUCE.equals(adjustTypeEnum)) {
-        doReduce(tripPlan, schedule, adjustActivityParam);
+        doReduce(tripPlan, routePlan, adjustActivityParam);
       } else if (ActivityAdjustTypeEnum.CHEAPER.equals(adjustTypeEnum)) {
-        doCheaper(tripPlan, schedule, adjustActivityParam);
+        doCheaper(tripPlan, routePlan, adjustActivityParam);
       } else {
         throw new TripPlanException(TripPlanErrorCodeEnum.UNSUPPORTED_ACTIVITY_ADJUSTMENT_TYPE);
       }
+      try {
+        googleAiService.generateRoutes(routePlan, routePlan.getActivities());
+      } catch (Exception e) {
+        throw new TripPlanException(TripPlanErrorCodeEnum.OPTIMIZE_ACTIVITY_FAILED, e);
+      }
       break;
     }
-    // todo 刷新行程
-
   }
 
-  private void doReplace(TripPlan tripPlan, DailySchedule schedule, AdjustActivityParam adjustActivityParam) {
+  private void doReplace(TripRoutePlanResult tripPlan, DailyRoutePlan schedule, AdjustActivityParam adjustActivityParam) {
     boolean found = false;
     List<ActivityInfo> activities = schedule.getActivities();
 
@@ -90,12 +95,12 @@ public class ActivityAdjustServiceImpl implements TripPlanAdjustInterface {
         activities.set(i, newActivity);
         found = true;
 
-        List<ActivityInfo> activities1 = tripPlan.getActivities();
-        for (int j = 0; j < activities1.size(); j++) {
-          if (activities1.get(j).getActivityId().equals(activity.getActivityId())) {
-            activities1.set(j, newActivity);
-          }
-        }
+//        List<ActivityInfo> activities1 = tripPlan.getActivities();
+//        for (int j = 0; j < activities1.size(); j++) {
+//          if (activities1.get(j).getActivityId().equals(activity.getActivityId())) {
+//            activities1.set(j, newActivity);
+//          }
+//        }
         break;
       }
     }
@@ -104,12 +109,14 @@ public class ActivityAdjustServiceImpl implements TripPlanAdjustInterface {
     }
   }
 
-  private Optional<ActivityInfo> searchActivities(TripPlan tripPlan, DailySchedule schedule, AdjustActivityParam adjustActivityParam) {
-    List<ActivityInfo> activities = activitySearchService.searchActivitiesNearby(schedule.getHotel());
+  private Optional<ActivityInfo> searchActivities(TripRoutePlanResult tripPlan, DailyRoutePlan schedule, AdjustActivityParam adjustActivityParam) {
+    List<ActivityInfo> activities = activitySearchService.searchActivitiesNearby(schedule.getPreferredHotel());
     if (activities.isEmpty()) {
       return Optional.empty();
     }
-    Set<String> idSet = tripPlan.getActivities().stream().map(ActivityInfo::getActivityId).collect(Collectors.toSet());
+    Set<String> idSet = tripPlan.getDailyPlans().stream()
+        .flatMap(dailyPlan -> dailyPlan.getActivities().stream())
+        .map(ActivityInfo::getActivityId).collect(Collectors.toSet());
     for (ActivityInfo activityInfo : activities) {
       if (idSet.contains(activityInfo.getActivityId())) {
         continue;
@@ -122,22 +129,22 @@ public class ActivityAdjustServiceImpl implements TripPlanAdjustInterface {
     return Optional.empty();
   }
 
-  private void doAdd(TripPlan tripPlan, DailySchedule schedule, AdjustActivityParam adjustActivityParam) {
+  private void doAdd(TripRoutePlanResult tripPlan, DailyRoutePlan schedule, AdjustActivityParam adjustActivityParam) {
     Optional<ActivityInfo> optional = searchActivities(tripPlan, schedule, adjustActivityParam);
     if (optional.isEmpty()) {
       throw new TripPlanException(TripPlanErrorCodeEnum.NO_ACTIVITY_FOUND);
     }
     ActivityInfo newActivity = optional.get();
     schedule.getActivities().add(newActivity);
-    tripPlan.setActivities(schedule.getActivities());
+//    tripPlan.setActivities(schedule.getActivities());
   }
 
-  private void doReduce(TripPlan tripPlan, DailySchedule schedule, AdjustActivityParam adjustActivityParam) {
+  private void doReduce(TripRoutePlanResult tripPlan, DailyRoutePlan schedule, AdjustActivityParam adjustActivityParam) {
     List<ActivityInfo> activities = schedule.getActivities();
     // 随机移除一个
     if (adjustActivityParam.getId() == null) {
       int randomIndex = ThreadLocalRandom.current().nextInt(activities.size());
-      tripPlan.getActivities().remove(activities.get(randomIndex));
+//      tripPlan.getActivities().remove(activities.get(randomIndex));
       activities.remove(randomIndex);
       return;
     }
@@ -146,13 +153,13 @@ public class ActivityAdjustServiceImpl implements TripPlanAdjustInterface {
       ActivityInfo activity = iterator.next();
       if (activity.getActivityId().equals(adjustActivityParam.getId())) {
         iterator.remove();
-        tripPlan.getActivities().remove(activity);
+//        tripPlan.getActivities().remove(activity);
         break;
       }
     }
   }
 
-  private void doCheaper(TripPlan tripPlan, DailySchedule schedule, AdjustActivityParam adjustActivityParam) {
+  private void doCheaper(TripRoutePlanResult tripPlan, DailyRoutePlan schedule, AdjustActivityParam adjustActivityParam) {
     List<ActivityInfo> activities = schedule.getActivities();
     // 设置限价
     ActivityInfo oldActivity = null;
@@ -180,15 +187,15 @@ public class ActivityAdjustServiceImpl implements TripPlanAdjustInterface {
       activities.set(activities.indexOf(oldActivity), newActivity);
     } else {
       activities.sort(Comparator.comparing(ActivityInfo::getPrice));
-      oldActivity = activities.getLast();
+//      oldActivity = activities.getLast();
       activities.set(activities.size() - 1, newActivity);
     }
 
-    List<ActivityInfo> activities1 = tripPlan.getActivities();
-    for (int j = 0; j < activities1.size(); j++) {
-      if (activities1.get(j).getActivityId().equals(oldActivity.getActivityId())) {
-        activities1.set(j, newActivity);
-      }
-    }
+//    List<ActivityInfo> activities1 = tripPlan.getActivities();
+//    for (int j = 0; j < activities1.size(); j++) {
+//      if (activities1.get(j).getActivityId().equals(oldActivity.getActivityId())) {
+//        activities1.set(j, newActivity);
+//      }
+//    }
   }
 }
