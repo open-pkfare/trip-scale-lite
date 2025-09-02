@@ -1,0 +1,116 @@
+{
+  "data": [
+    {
+      "type": "hotel-offers",
+      "hotel": {
+        "type": "hotel",
+        "hotelId": "BWFCO336",
+        "chainCode": "BW",
+        "dupeId": "700193275",
+        "name": "Best Western Hotel Rome Airport",
+        "cityCode": "FCO",
+        "latitude": 41.77279,
+        "longitude": 12.2415
+      },
+      "available": true,
+      "offers": [
+        {
+          "id": "5J6W557V9S",
+          "checkInDate": "2025-10-01",
+          "checkOutDate": "2025-10-02",
+          "rateCode": "H1Q",
+          "rateFamilyEstimated": {
+            "code": "PRO",
+            "type": "P"
+          },
+          "commission": {
+            "percentage": "10"
+          },
+          "room": {
+            "type": "A1Q",
+            "typeEstimated": {
+              "category": "STANDARD_ROOM",
+              "beds": 1,
+              "bedType": "QUEEN"
+            },
+            "description": {
+              "text": "HOT DEAL*3 DAY ADV BKG*NO CNCL\n1 QUEEN BED,STND\nSTANDARD",
+              "lang": "EN"
+            }
+          },
+          "guests": {
+            "adults": 1
+          },
+          "price": {
+            "currency": "EUR",
+            "base": "162.00",
+            "total": "165.00",
+            "taxes": [
+              {
+                "code": "TOTAL_TAX",
+                "amount": "3.00",
+                "currency": "EUR",
+                "included": false
+              }
+            ],
+            "variations": {
+              "average": {
+                "base": "162.00"
+              },
+              "changes": [
+                {
+                  "startDate": "2025-10-01",
+                  "endDate": "2025-10-02",
+                  "base": "162.00"
+                }
+              ]
+            }
+          },
+          "policies": {
+            "cancellations": [
+              {
+                "description": {
+                  "text": "NON-REFUNDABLE RATE"
+                },
+                "policyType": "CANCELLATION"
+              }
+            ],
+            "paymentType": "deposit",
+            "refundable": {
+              "cancellationRefund": "NON_REFUNDABLE"
+            }
+          },
+          "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers/5J6W557V9S",
+          "roomInformation": {
+            "description": "HOT DEAL*3 DAY ADV BKG*NO CNCL\n1 QUEEN BED,STND\nSTANDARD",
+            "type": "A1Q",
+            "typeEstimated": {
+              "bedType": "QUEEN",
+              "beds": 1,
+              "category": "STANDARD_ROOM"
+            }
+          }
+        }
+      ],
+      "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=BWFCO336&adults=1&checkInDate=2025-10-01&paymentPolicy=NONE&roomQuantity=1"
+    }
+  ],
+  "warnings": [
+    {
+      "code": 3664,
+      "title": "NO ROOMS AVAILABLE AT REQUESTED PROPERTY",
+      "detail": "Provider Error - NO ROOMS AVAILABLE AT REQUESTED PROPERTY",
+      "source": {
+        "parameter": "hotelIds=OIROMBLV,ONROMBEL"
+      }
+    },
+    {
+      "code": 1257,
+      "title": "INVALID PROPERTY CODE",
+      "detail": "Provider Error - INVALID PROPERTY CODE",
+      "source": {
+        "parameter": "hotelIds=BNROMABH,CIFCO058,YXFCOLCH,YXROMDLI,YXROMSEC,YXROMTIB"
+      }
+    }
+  ]
+}

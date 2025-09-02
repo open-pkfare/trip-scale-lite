@@ -1,11 +1,11 @@
 package com.pkfare.trip.scale.service.plan;
 
 import com.amadeus.resources.Hotel;
-import com.amadeus.resources.HotelOfferSearch;
-import com.amadeus.resources.HotelOfferSearch.Offer;
 import com.google.common.collect.Lists;
 import com.pkfare.trip.scale.api.amadeus.hotelbycity.request.QueryHotelByCityRequest;
 import com.pkfare.trip.scale.api.amadeus.hoteloffers.request.HotelOffersSearchRequest;
+import com.pkfare.trip.scale.api.amadeus.hoteloffers.response.HotelOfferDto;
+import com.pkfare.trip.scale.api.amadeus.hoteloffers.response.OfferDto;
 import com.pkfare.trip.scale.plan.service.param.GeneratePlanParam;
 import com.pkfare.trip.scale.plan.service.param.TripRouteParam;
 import com.pkfare.trip.scale.plan.service.response.FlightInfo;
@@ -220,10 +220,10 @@ public class HotelSearchService {
     request.setCurrency(param.getCurrency());
 
     try {
-      HotelOfferSearch[] offers = amadeusHotelService.searchHotelOffers(request);
+      List<HotelOfferDto> offers = amadeusHotelService.searchHotelOffers(request);
 
-      if (offers != null && offers.length > 0) {
-        List<HotelInfo> hotelInfos = filterCheapestHotels(Arrays.asList(offers), route, checkIn, checkOut);
+      if (offers != null && offers.size() > 0) {
+        List<HotelInfo> hotelInfos = filterCheapestHotels(offers, route, checkIn, checkOut);
         log.info("Found {} hotel offers for city {}", hotelInfos.size(), route.getLocation_code());
         return hotelInfos;
       } else {
@@ -245,17 +245,17 @@ public class HotelSearchService {
    * @param checkOut 退房日期
    * @return 筛选后的酒店信息列表
    */
-  private List<HotelInfo> filterCheapestHotels(List<HotelOfferSearch> offers, TripRouteParam route,
+  private List<HotelInfo> filterCheapestHotels(List<HotelOfferDto> offers, TripRouteParam route,
       LocalDate checkIn, LocalDate checkOut) {
     if (offers == null || offers.isEmpty()) {
       return new ArrayList<>();
     }
 
     // 按价格排序，选择最便宜的
-    List<HotelOfferSearch> cheapestOfferList = offers.stream()
+    List<HotelOfferDto> cheapestOfferList = offers.stream()
         .sorted(Comparator.comparing(offer -> {
-          if (offer.getOffers() != null && offer.getOffers().length > 0) {
-            return PriceUtil.parsePrice(offer.getOffers()[0].getPrice().getTotal());
+          if (offer.getOffers() != null && offer.getOffers().size() > 0) {
+            return PriceUtil.parsePrice(offer.getOffers().get(0).getPrice().getTotal());
           }
           return BigDecimal.valueOf(Double.MAX_VALUE);
         })).collect(Collectors.toList());
@@ -270,13 +270,13 @@ public class HotelSearchService {
   /**
    * 转换为HotelInfo
    *
-   * @param offer    酒店报价
+   * @param hotelOfferSearchList 酒店报价
    * @param route    路线
    * @param checkIn  入住日期
    * @param checkOut 退房日期
    * @return 酒店信息
    */
-  private List<HotelInfo> convertToHotelInfo(List<HotelOfferSearch> hotelOfferSearchList, TripRouteParam route,
+  private List<HotelInfo> convertToHotelInfo(List<HotelOfferDto> hotelOfferSearchList, TripRouteParam route,
       LocalDate checkIn, LocalDate checkOut) {
     List<HotelInfo> hotelInfoList = Lists.newArrayList();
     for (int i = 0; i < hotelOfferSearchList.size(); i++) {
@@ -285,7 +285,7 @@ public class HotelSearchService {
     return hotelInfoList;
   }
 
-  private HotelInfo buildHotelInfo(HotelOfferSearch offer, TripRouteParam route, LocalDate checkIn, LocalDate checkOut, int i) {
+  private HotelInfo buildHotelInfo(HotelOfferDto offer, TripRouteParam route, LocalDate checkIn, LocalDate checkOut, int i) {
     HotelInfo hotelInfo = new HotelInfo();
     if (offer == null || offer.getHotel() == null) {
       return null;
@@ -304,8 +304,8 @@ public class HotelSearchService {
     hotelInfo.setNights((int) DateUtil.daysBetween(checkIn, checkOut));
 
     // 报价信息
-    if (offer.getOffers().length > 0) {
-      Offer firstOffer = offer.getOffers()[0];
+    if (offer.getOffers().size() > 0) {
+      OfferDto firstOffer = offer.getOffers().get(0);
       hotelInfo.setOfferId(firstOffer.getId());
       hotelInfo.setTotalPrice(PriceUtil.parsePrice(firstOffer.getPrice().getTotal()));
       hotelInfo.setCurrency(firstOffer.getPrice().getCurrency());

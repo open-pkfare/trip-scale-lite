@@ -2,19 +2,23 @@ package com.pkfare.trip.scale.api.amadeus.hoteloffers;
 
 import com.amadeus.Amadeus;
 import com.amadeus.Params;
-import com.amadeus.resources.Hotel;
 import com.amadeus.resources.HotelOfferSearch;
+import com.google.common.collect.Lists;
 import com.pkfare.trip.scale.api.amadeus.config.AmadeusClient;
 import com.pkfare.trip.scale.api.amadeus.exception.AmadeusApiException;
 import com.pkfare.trip.scale.api.amadeus.hoteloffers.request.HotelOffersSearchRequest;
-import com.pkfare.trip.scale.api.amadeus.hotelbycity.request.QueryHotelByCityRequest;
+import com.pkfare.trip.scale.api.amadeus.hoteloffers.response.HotelOfferDto;
+import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 
 
 @Slf4j
 public class AmadeusHotelOffersSearchAPI {
 
-  public HotelOfferSearch[] hotelOffersSearch(HotelOffersSearchRequest hotelOffersSearchRequest) {
+  public List<HotelOfferDto> hotelOffersSearch(HotelOffersSearchRequest hotelOffersSearchRequest) {
+    if(needMock(hotelOffersSearchRequest)){
+      return mockApiResponse(hotelOffersSearchRequest);
+    }
     Amadeus amadeus = AmadeusClient.get();
     Params params = Params.with("hotelIds", hotelOffersSearchRequest.getHotelIds())
         .and("adults", hotelOffersSearchRequest.getAdults())
@@ -27,18 +31,30 @@ public class AmadeusHotelOffersSearchAPI {
       HotelOfferSearch[] hotelOffers = amadeus.shopping.hotelOffersSearch.get(params);
       if (hotelOffers == null || hotelOffers.length == 0) {
         log.error("call AmadeusHotelOffersSearchAPI return empty，resonse:{} ", hotelOffers);
-        return hotelOffers;
+        return Lists.newArrayList();
       }
       if (hotelOffers[0].getResponse().getStatusCode() != 200) {
         log.error("call AmadeusHotelOffersSearchAPI failed，resonse：{}", hotelOffers[0].getResponse());
         throw new AmadeusApiException(hotelOffers[0].getResponse().getStatusCode(), hotelOffers[0].getResponse().getResult().toString());
       }
-      return hotelOffers;
+      return convert2Dtos(hotelOffers);
     } catch (Exception e) {
       log.error("call AmadeusHotelOffersSearchAPI failed", e);
       throw new AmadeusApiException(500, "call AmadeusHotelOffersSearchAPI failed");
     }
 
+  }
+
+  private List<HotelOfferDto> mockApiResponse(HotelOffersSearchRequest hotelOffersSearchRequest) {
+    return Lists.newArrayList();
+  }
+
+  private boolean needMock(HotelOffersSearchRequest hotelOffersSearchRequest) {
+    return false;
+  }
+
+  private List<HotelOfferDto> convert2Dtos(HotelOfferSearch[] hotelOffers) {
+    return Lists.newArrayList();
   }
 
 }

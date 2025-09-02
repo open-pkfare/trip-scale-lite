@@ -4284,3 +4284,691 @@ org.springframework.web.HttpMediaTypeNotAcceptableException: No acceptable repre
 2025-09-02 11:41:44 [http-nio-8080-exec-5] INFO  c.g.a.w.AdkWebServer$AgentController - Request received for GET /apps/Coordinator/users/user/sessions/1ad20223-f926-49ba-81e8-9ffefe1e48d6
 2025-09-02 11:41:44 [http-nio-8080-exec-4] INFO  c.g.a.w.AdkWebServer$AgentController - Request received for GET /debug/trace/session/1ad20223-f926-49ba-81e8-9ffefe1e48d6
 2025-09-02 11:41:44 [http-nio-8080-exec-4] INFO  c.g.a.w.AdkWebServer$AgentController - Returning 8 spans for session ID: 1ad20223-f926-49ba-81e8-9ffefe1e48d6
+2025-09-02 15:00:22 [main] INFO  c.p.trip.scale.TripScaleApplication - Starting TripScaleApplication using Java 21.0.3 with PID 18880 (/Users/liuyang/ideaProjects/pkfare/trip-scale-lite/target/classes started by liuyang in /Users/liuyang/ideaProjects/pkfare/trip-scale-lite)
+2025-09-02 15:00:22 [main] DEBUG c.p.trip.scale.TripScaleApplication - Running with Spring Boot v3.2.0, Spring v6.1.1
+2025-09-02 15:00:22 [main] INFO  c.p.trip.scale.TripScaleApplication - No active profile set, falling back to 1 default profile: "default"
+2025-09-02 15:00:23 [main] INFO  c.p.t.s.c.ParentChildContextConfig - Creating loadedAgentRegistry bean for parent-child context
+2025-09-02 15:00:23 [main] INFO  c.p.t.s.c.ParentChildContextConfig - Creating BaseSessionService bean for parent-child context
+2025-09-02 15:00:23 [main] INFO  c.p.trip.scale.config.CacheConfig - Creating flight dates cache with expireAfterWrite: 120 minutes, maximumSize: 1000, initialCapacity: 100
+2025-09-02 15:00:23 [main] INFO  c.p.trip.scale.config.CacheConfig - Creating flight offers cache with expireAfterWrite: 120 minutes, maximumSize: 1000, initialCapacity: 100
+2025-09-02 15:00:23 [main] INFO  c.p.t.s.s.e.a.AmadeusFlightService - AmadeusFlightService initialized with flight dates and flight offers cache
+2025-09-02 15:00:23 [main] INFO  c.p.trip.scale.config.CacheConfig - Creating hotel offers cache with expireAfterWrite: 120 minutes, maximumSize: 1000, initialCapacity: 100
+2025-09-02 15:00:23 [main] INFO  c.p.t.s.s.e.a.AmadeusHotelService - AmadeusHotelService initialized with hotel offers cache
+2025-09-02 15:00:23 [main] INFO  c.p.trip.scale.config.CacheConfig - Creating activities cache with expireAfterWrite: 120 minutes, maximumSize: 1000, initialCapacity: 100
+2025-09-02 15:00:23 [main] INFO  c.p.t.s.s.e.a.AmadeusActivityService - AmadeusActivityService initialized with activities cache
+2025-09-02 15:00:24 [main] INFO  c.p.t.s.config.AsyncExecutorConfig - Creating custom thread pool for trip plan generation: corePoolSize=16, maxPoolSize=16, queueCapacity=100, keepAliveSeconds=60
+2025-09-02 15:00:26 [main] INFO  c.p.trip.scale.TripScaleApplication - Started TripScaleApplication in 3.38 seconds (process running for 10.782)
+2025-09-02 15:00:26 [main] INFO  c.p.trip.scale.TripScaleApplication - Parent context created with 133 beans
+2025-09-02 15:00:26 [main] INFO  c.p.trip.scale.TripScaleApplication - No active profile set, falling back to 1 default profile: "default"
+2025-09-02 15:00:30 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-09-02 15:00:31 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-09-02 15:00:31 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-09-02 15:00:31 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-09-02 15:00:31 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 5066 ms
+2025-09-02 15:00:32 [main] WARN  c.google.adk.web.AgentCompilerLoader - No classpath entries derived from classloader hierarchy. Falling back to System.getProperty("java.class.path").
+2025-09-02 15:01:33 [main] ERROR c.google.adk.web.AgentCompilerLoader - ECJ Compilation failed. See console output for details.
+2025-09-02 15:01:33 [main] ERROR c.google.adk.web.AgentCompilerLoader - Compilation failed for agent unit: com
+2025-09-02 15:01:33 [main] INFO  com.google.adk.web.AdkWebServer - Loaded 0 dynamic agent(s): []
+2025-09-02 15:01:33 [main] INFO  com.google.adk.web.AdkWebServer - Using InMemorySessionService
+2025-09-02 15:01:33 [main] INFO  com.google.adk.web.AdkWebServer - Using InMemoryArtifactService
+2025-09-02 15:01:33 [main] INFO  c.g.a.w.AdkWebServer$AgentController - AgentController initialized with 1 dynamic agents: [Coordinator]
+2025-09-02 15:01:37 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-09-02 15:01:37 [main] INFO  c.p.trip.scale.TripScaleApplication - Started TripScaleApplication in 71.559 seconds (process running for 82.361)
+2025-09-02 15:01:37 [main] INFO  c.p.trip.scale.TripScaleApplication - Child context created with 155 beans
+2025-09-02 15:01:39 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-09-02 15:01:39 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-09-02 15:01:39 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 22 ms
+2025-09-02 15:01:40 [http-nio-8080-exec-10] INFO  c.g.a.w.AdkWebServer$AgentController - Listing apps from dynamic registry. Found: [Coordinator]
+2025-09-02 15:01:40 [http-nio-8080-exec-6] WARN  c.g.a.w.AdkWebServer$AgentController - Endpoint /apps/Coordinator/eval_results (GET) is not implemented
+2025-09-02 15:01:40 [http-nio-8080-exec-4] WARN  c.g.a.w.AdkWebServer$AgentController - Endpoint /apps/Coordinator/eval_sets (GET) is not implemented
+2025-09-02 15:01:40 [http-nio-8080-exec-2] INFO  c.g.a.w.AdkWebServer$AgentController - Request received for POST /apps/Coordinator/users/user/sessions (service generates ID) with state: null
+2025-09-02 15:01:40 [http-nio-8080-exec-2] INFO  c.g.a.w.AdkWebServer$AgentController - Session created successfully with generated id: d7c6ad79-9a12-4c21-b1b3-fc47a259de9f
+2025-09-02 15:01:40 [http-nio-8080-exec-3] INFO  c.g.a.w.AdkWebServer$AgentController - Request received for GET /apps/Coordinator/users/user/sessions
+2025-09-02 15:01:40 [http-nio-8080-exec-3] INFO  c.g.a.w.AdkWebServer$AgentController - Found 1 non-evaluation sessions for app=Coordinator, user=user
+2025-09-02 15:01:41 [http-nio-8080-exec-7] INFO  c.g.a.w.AdkWebServer$AgentController - Request received for GET /apps/Coordinator/users/user/sessions
+2025-09-02 15:01:41 [http-nio-8080-exec-7] INFO  c.g.a.w.AdkWebServer$AgentController - Found 1 non-evaluation sessions for app=Coordinator, user=user
+2025-09-02 15:02:21 [http-nio-8080-exec-5] INFO  c.g.a.w.AdkWebServer$AgentController - SseEmitter Request received for POST /run_sse_emitter for session: d7c6ad79-9a12-4c21-b1b3-fc47a259de9f
+2025-09-02 15:02:21 [pool-2-thread-1] INFO  c.g.a.web.AdkWebServer$RunnerService - RunnerService: Creating Runner for appName: Coordinator, using agent definition: Coordinator
+2025-09-02 15:02:26 [pool-2-thread-1] INFO  c.p.t.s.a.o.AnotherRootAgent - inner event c11b679a-5dce-43f3-aa8d-cb78c2bdc029
+2025-09-02 15:02:26 [pool-2-thread-1] INFO  c.p.t.s.a.o.AnotherRootAgent - parse error text : Hello! To help you plan your trip, I need a few details. First, what are your must-go destinations?
+2025-09-02 15:02:26 [http-nio-8080-exec-1] INFO  c.g.a.w.AdkWebServer$AgentController - Request received for GET /debug/trace/session/d7c6ad79-9a12-4c21-b1b3-fc47a259de9f
+2025-09-02 15:02:26 [http-nio-8080-exec-1] INFO  c.g.a.w.AdkWebServer$AgentController - Returning 1 spans for session ID: d7c6ad79-9a12-4c21-b1b3-fc47a259de9f
+2025-09-02 15:02:26 [http-nio-8080-exec-9] INFO  c.g.a.w.AdkWebServer$AgentController - Request received for GET /apps/Coordinator/users/user/sessions/d7c6ad79-9a12-4c21-b1b3-fc47a259de9f
+2025-09-02 15:03:44 [http-nio-8080-exec-2] INFO  c.g.a.w.AdkWebServer$AgentController - SseEmitter Request received for POST /run_sse_emitter for session: d7c6ad79-9a12-4c21-b1b3-fc47a259de9f
+2025-09-02 15:03:45 [pool-2-thread-2] INFO  c.p.t.s.a.o.AnotherRootAgent - inner event fc23fdd6-ab4b-4639-8269-02996a2fb7b2
+2025-09-02 15:03:45 [pool-2-thread-2] INFO  c.p.t.s.a.o.AnotherRootAgent - parse error text : Great! Where will you be traveling from?
+2025-09-02 15:03:45 [http-nio-8080-exec-8] INFO  c.g.a.w.AdkWebServer$AgentController - Request received for GET /debug/trace/session/d7c6ad79-9a12-4c21-b1b3-fc47a259de9f
+2025-09-02 15:03:45 [http-nio-8080-exec-5] INFO  c.g.a.w.AdkWebServer$AgentController - Request received for GET /apps/Coordinator/users/user/sessions/d7c6ad79-9a12-4c21-b1b3-fc47a259de9f
+2025-09-02 15:03:45 [http-nio-8080-exec-8] INFO  c.g.a.w.AdkWebServer$AgentController - Returning 2 spans for session ID: d7c6ad79-9a12-4c21-b1b3-fc47a259de9f
+2025-09-02 15:04:09 [http-nio-8080-exec-1] INFO  c.g.a.w.AdkWebServer$AgentController - SseEmitter Request received for POST /run_sse_emitter for session: d7c6ad79-9a12-4c21-b1b3-fc47a259de9f
+2025-09-02 15:04:10 [pool-2-thread-2] INFO  c.p.t.s.a.o.AnotherRootAgent - inner event e91b9a2e-3f19-4e03-a951-68b5ad64d036
+2025-09-02 15:04:10 [pool-2-thread-2] WARN  com.google.genai.types.Content - There are non-text parts functionCall in the content, returning concatenation of all text parts. Please refer to the non text parts for a full response from model.
+2025-09-02 15:04:10 [pool-2-thread-2] INFO  c.p.t.s.a.o.AnotherRootAgent - inner event dd29f504-1d44-4c3c-ae00-99074fb6df9a
+2025-09-02 15:04:10 [pool-2-thread-2] WARN  com.google.genai.types.Content - There are non-text parts functionResponse in the content, returning concatenation of all text parts. Please refer to the non text parts for a full response from model.
+2025-09-02 15:04:12 [pool-2-thread-2] INFO  c.p.t.s.a.o.AnotherRootAgent - inner event 15d53f4d-adea-4a72-b019-22de97697acb
+2025-09-02 15:04:12 [pool-2-thread-2] WARN  com.google.genai.types.Content - There are non-text parts functionCall, functionCall in the content, returning concatenation of all text parts. Please refer to the non text parts for a full response from model.
+2025-09-02 15:04:12 [pool-2-thread-2] INFO  c.p.t.s.a.o.AnotherRootAgent - inner event abc67319-f1e6-4837-88c0-38ac3619be61
+2025-09-02 15:04:12 [pool-2-thread-2] WARN  com.google.genai.types.Content - There are non-text parts functionResponse, functionResponse in the content, returning concatenation of all text parts. Please refer to the non text parts for a full response from model.
+2025-09-02 15:04:25 [pool-2-thread-2] INFO  c.p.t.s.a.o.AnotherRootAgent - inner event cfc932b3-9907-436f-8d57-b8e6bab18162
+2025-09-02 15:04:25 [pool-2-thread-2] INFO  c.p.t.s.a.o.AnotherRootAgent - parse error text : Here are a few suggestions for your trip, keeping in mind your must-go destinations, your origin in Florence, and your preferences:
+
+1.  **Siena, Italy:**
+    *   **Recommendation Reason:** Siena is a magnificent medieval city that perfectly aligns with your love for "ancient building," "history," "art," and "city walk." Its stunning Piazza del Campo and Gothic cathedral are testaments to its rich past. While popular, it often feels less overwhelmingly "crowded" than Florence or Rome, appealing to your dislike of such environments. You'll find fantastic "local food" and it's a wonderful place for a "lone ranger" to "adventure" through history, and it can be explored in a "price-sensitive" manner. It's also conveniently located near Florence.
+
+2.  **Assisi, Italy:**
+    *   **Recommendation Reason:** Assisi, the birthplace of St. Francis, is a deeply spiritual and historical town nestled in Umbria. It's a perfect fit for your interest in "religious story," "ancient building," and "history." The Basilica of Saint Francis is a true masterpiece of art and architecture. Assisi offers a peaceful atmosphere, avoiding "noisy environments," and is ideal for "city walk" amidst its charming streets. It provides a unique "adventure" for a "lone ranger" seeking historical and spiritual insights, and is generally "price-sensitive."
+2025-09-02 15:04:25 [http-nio-8080-exec-6] INFO  c.g.a.w.AdkWebServer$AgentController - Request received for GET /debug/trace/session/d7c6ad79-9a12-4c21-b1b3-fc47a259de9f
+2025-09-02 15:04:25 [http-nio-8080-exec-10] INFO  c.g.a.w.AdkWebServer$AgentController - Request received for GET /apps/Coordinator/users/user/sessions/d7c6ad79-9a12-4c21-b1b3-fc47a259de9f
+2025-09-02 15:04:25 [http-nio-8080-exec-6] INFO  c.g.a.w.AdkWebServer$AgentController - Returning 5 spans for session ID: d7c6ad79-9a12-4c21-b1b3-fc47a259de9f
+2025-09-02 15:04:26 [http-nio-8080-exec-4] INFO  c.g.a.w.AdkWebServer$AgentController - SseEmitter Request received for POST /run_sse_emitter for session: d7c6ad79-9a12-4c21-b1b3-fc47a259de9f
+2025-09-02 15:04:27 [pool-2-thread-2] INFO  c.p.t.s.a.o.AnotherRootAgent - inner event 0b5ba365-d66d-4849-92ba-1efef7e61a2a
+2025-09-02 15:04:27 [pool-2-thread-2] INFO  c.p.t.s.a.o.AnotherRootAgent - parse error text : Okay, so you're planning to travel around October 1st, 2025, for 7 days. How many people will be traveling?
+2025-09-02 15:04:27 [http-nio-8080-exec-2] INFO  c.g.a.w.AdkWebServer$AgentController - Request received for GET /debug/trace/session/d7c6ad79-9a12-4c21-b1b3-fc47a259de9f
+2025-09-02 15:04:27 [http-nio-8080-exec-7] INFO  c.g.a.w.AdkWebServer$AgentController - Request received for GET /apps/Coordinator/users/user/sessions/d7c6ad79-9a12-4c21-b1b3-fc47a259de9f
+2025-09-02 15:04:27 [http-nio-8080-exec-2] INFO  c.g.a.w.AdkWebServer$AgentController - Returning 6 spans for session ID: d7c6ad79-9a12-4c21-b1b3-fc47a259de9f
+2025-09-02 15:04:40 [http-nio-8080-exec-5] INFO  c.g.a.w.AdkWebServer$AgentController - SseEmitter Request received for POST /run_sse_emitter for session: d7c6ad79-9a12-4c21-b1b3-fc47a259de9f
+2025-09-02 15:04:41 [pool-2-thread-2] INFO  c.p.t.s.a.o.AnotherRootAgent - inner event ac02ea28-9445-49a6-adcc-7562eb843406
+2025-09-02 15:04:41 [pool-2-thread-2] INFO  c.p.t.s.a.o.AnotherRootAgent - parse error text : And what's your estimated budget for this trip, including the currency?
+2025-09-02 15:04:41 [http-nio-8080-exec-9] INFO  c.g.a.w.AdkWebServer$AgentController - Request received for GET /debug/trace/session/d7c6ad79-9a12-4c21-b1b3-fc47a259de9f
+2025-09-02 15:04:41 [http-nio-8080-exec-1] INFO  c.g.a.w.AdkWebServer$AgentController - Request received for GET /apps/Coordinator/users/user/sessions/d7c6ad79-9a12-4c21-b1b3-fc47a259de9f
+2025-09-02 15:04:41 [http-nio-8080-exec-9] INFO  c.g.a.w.AdkWebServer$AgentController - Returning 7 spans for session ID: d7c6ad79-9a12-4c21-b1b3-fc47a259de9f
+2025-09-02 15:04:52 [http-nio-8080-exec-6] INFO  c.g.a.w.AdkWebServer$AgentController - SseEmitter Request received for POST /run_sse_emitter for session: d7c6ad79-9a12-4c21-b1b3-fc47a259de9f
+2025-09-02 15:04:54 [pool-2-thread-2] INFO  c.p.t.s.a.o.AnotherRootAgent - inner event 7fbd7386-69fe-4cae-a825-1f4cd6250524
+2025-09-02 15:04:54 [http-nio-8080-exec-3] INFO  c.g.a.w.AdkWebServer$AgentController - Request received for GET /debug/trace/session/d7c6ad79-9a12-4c21-b1b3-fc47a259de9f
+2025-09-02 15:04:54 [http-nio-8080-exec-4] INFO  c.g.a.w.AdkWebServer$AgentController - Request received for GET /apps/Coordinator/users/user/sessions/d7c6ad79-9a12-4c21-b1b3-fc47a259de9f
+2025-09-02 15:04:54 [http-nio-8080-exec-3] INFO  c.g.a.w.AdkWebServer$AgentController - Returning 8 spans for session ID: d7c6ad79-9a12-4c21-b1b3-fc47a259de9f
+2025-09-02 15:05:21 [http-nio-8080-exec-7] INFO  c.g.a.w.AdkWebServer$AgentController - SseEmitter Request received for POST /run_sse_emitter for session: d7c6ad79-9a12-4c21-b1b3-fc47a259de9f
+2025-09-02 15:05:32 [pool-2-thread-2] INFO  c.p.t.s.a.o.AnotherRootAgent - inner event 6f232faf-7edf-41c8-9e49-41f63f654295
+2025-09-02 15:05:32 [pool-2-thread-2] INFO  c.p.t.s.a.o.AnotherRootAgent - parse error text : Here is a possible 7-day itinerary based on your preferences and must-go destinations:
+
+*   **Day 1-2: Rome, Italy**
+    *   **Attractions:** Explore the Colosseum, Roman Forum, Palatine Hill, Pantheon, and Piazza Navona.
+    *   **Reason for Recommendation:** These sites offer a deep dive into "ancient building," "history," and "art," with opportunities for "city walk" and experiencing "local food."
+*   **Day 3: Ostia Antica, Italy (Day trip from Rome)**
+    *   **Attractions:** Discover the ancient port city of Ostia Antica.
+    *   **Reason for Recommendation:** This perfectly aligns with your interest in "ancient building" and "history," providing an "adventure" for a "lone ranger" in a less "crowded place" than central Rome.
+*   **Day 4: Rome, Italy**
+    *   **Attractions:** Visit Vatican City, including St. Peter's Basilica and the Vatican Museums (Sistine Chapel).
+    *   **Reason for Recommendation:** This offers significant "religious story," "art," and "ancient building" experiences.
+*   **Day 5-7: Paris, France**
+    *   **Attractions:** Explore the Louvre Museum, Notre Dame Cathedral (exterior view), take a "city walk" along the Seine River, visit Montmartre and the Sacré-Cœur Basilica, and see the Eiffel Tower (from a distance).
+    *   **Reason for Recommendation:** Paris is rich in "art," "ancient building," and offers numerous opportunities for "city walk" and enjoying "local food." The Sacré-Cœur also caters to your interest in "religious story."
+
+How does this route sound for your trip?
+2025-09-02 15:05:32 [http-nio-8080-exec-5] INFO  c.g.a.w.AdkWebServer$AgentController - Request received for GET /debug/trace/session/d7c6ad79-9a12-4c21-b1b3-fc47a259de9f
+2025-09-02 15:05:32 [http-nio-8080-exec-8] INFO  c.g.a.w.AdkWebServer$AgentController - Request received for GET /apps/Coordinator/users/user/sessions/d7c6ad79-9a12-4c21-b1b3-fc47a259de9f
+2025-09-02 15:05:32 [http-nio-8080-exec-5] INFO  c.g.a.w.AdkWebServer$AgentController - Returning 9 spans for session ID: d7c6ad79-9a12-4c21-b1b3-fc47a259de9f
+2025-09-02 15:05:34 [http-nio-8080-exec-1] INFO  c.g.a.w.AdkWebServer$AgentController - SseEmitter Request received for POST /run_sse_emitter for session: d7c6ad79-9a12-4c21-b1b3-fc47a259de9f
+2025-09-02 15:05:45 [pool-2-thread-2] INFO  c.p.t.s.a.o.AnotherRootAgent - inner event 165065a7-e5d8-40e2-aabe-563c43921074
+2025-09-02 15:05:45 [http-nio-8080-exec-10] INFO  c.g.a.w.AdkWebServer$AgentController - Request received for GET /debug/trace/session/d7c6ad79-9a12-4c21-b1b3-fc47a259de9f
+2025-09-02 15:05:45 [http-nio-8080-exec-6] INFO  c.g.a.w.AdkWebServer$AgentController - Request received for GET /apps/Coordinator/users/user/sessions/d7c6ad79-9a12-4c21-b1b3-fc47a259de9f
+2025-09-02 15:05:45 [http-nio-8080-exec-10] INFO  c.g.a.w.AdkWebServer$AgentController - Returning 10 spans for session ID: d7c6ad79-9a12-4c21-b1b3-fc47a259de9f
+2025-09-02 15:05:56 [http-nio-8080-exec-3] INFO  c.g.a.w.AdkWebServer$AgentController - SseEmitter Request received for POST /run_sse_emitter for session: d7c6ad79-9a12-4c21-b1b3-fc47a259de9f
+2025-09-02 15:05:56 [pool-2-thread-2] INFO  c.p.t.s.agent.planning.PlanningAgent - Starting PlanningAgent runAsyncImpl
+2025-09-02 15:05:56 [pool-2-thread-2] INFO  c.p.t.s.agent.planning.PlanningAgent - Retrieved trip demand: origin=FLR, days=7, passengers=1
+2025-09-02 15:05:56 [pool-2-thread-2] INFO  c.p.t.s.agent.planning.PlanningAgent - Retrieved 3 trip routes
+2025-09-02 15:06:00 [pool-2-thread-2] INFO  c.p.t.s.p.s.GeneratePlanService - Starting concurrent trip plan generation for origin: FLR, destinations: 3
+2025-09-02 15:06:00 [pool-2-thread-2] DEBUG c.p.t.s.p.s.GeneratePlanService - Validating parameters
+2025-09-02 15:06:00 [pool-2-thread-2] ERROR c.p.t.s.p.s.GeneratePlanService - Failed to generate trip plan
+com.pkfare.trip.scale.exception.ParameterValidationException: Location code cannot be empty
+	at com.pkfare.trip.scale.util.ValidationUtil.validateTripRouteParam(ValidationUtil.java:151)
+	at com.pkfare.trip.scale.util.ValidationUtil.validateGeneratePlanParam(ValidationUtil.java:104)
+	at com.pkfare.trip.scale.plan.service.GeneratePlanService.validateParams(GeneratePlanService.java:142)
+	at com.pkfare.trip.scale.plan.service.GeneratePlanService.generatePlan(GeneratePlanService.java:74)
+	at com.pkfare.trip.scale.agent.planning.PlanningAgent.runAsyncImpl(PlanningAgent.java:102)
+	at com.google.adk.agents.BaseAgent.lambda$runAsync$3(BaseAgent.java:199)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableDefer.subscribeActual(FlowableDefer.java:35)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15863)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableConcatArray$ConcatArraySubscriber.onComplete(FlowableConcatArray.java:141)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableConcatArray.subscribeActual(FlowableConcatArray.java:41)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15863)
+	at io.reactivex.rxjava3.internal.operators.single.SingleFlatMapPublisher$SingleFlatMapPublisherObserver.onSuccess(SingleFlatMapPublisher.java:96)
+	at io.reactivex.rxjava3.internal.operators.single.SingleJust.subscribeActual(SingleJust.java:30)
+	at io.reactivex.rxjava3.core.Single.subscribe(Single.java:4855)
+	at io.reactivex.rxjava3.internal.operators.single.SingleFlatMapPublisher.subscribeActual(SingleFlatMapPublisher.java:59)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableDoFinally.subscribeActual(FlowableDoFinally.java:47)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15863)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableDefer.subscribeActual(FlowableDefer.java:42)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableDoOnEach.subscribeActual(FlowableDoOnEach.java:50)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableDoOnEach.subscribeActual(FlowableDoOnEach.java:50)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15863)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableDefer.subscribeActual(FlowableDefer.java:42)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15863)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableConcatArray$ConcatArraySubscriber.onComplete(FlowableConcatArray.java:141)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableConcatArray.subscribeActual(FlowableConcatArray.java:41)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15863)
+	at io.reactivex.rxjava3.internal.operators.single.SingleFlatMapPublisher$SingleFlatMapPublisherObserver.onSuccess(SingleFlatMapPublisher.java:96)
+	at io.reactivex.rxjava3.internal.operators.single.SingleJust.subscribeActual(SingleJust.java:30)
+	at io.reactivex.rxjava3.core.Single.subscribe(Single.java:4855)
+	at io.reactivex.rxjava3.internal.operators.single.SingleFlatMapPublisher.subscribeActual(SingleFlatMapPublisher.java:59)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableDoFinally.subscribeActual(FlowableDoFinally.java:47)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15863)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableDefer.subscribeActual(FlowableDefer.java:42)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableDoOnEach.subscribeActual(FlowableDoOnEach.java:50)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15863)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableScalarXMap$ScalarXMapFlowable.subscribeActual(FlowableScalarXMap.java:160)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableDoOnEach.subscribeActual(FlowableDoOnEach.java:50)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableDoFinally.subscribeActual(FlowableDoFinally.java:47)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15863)
+	at io.reactivex.rxjava3.internal.operators.single.SingleFlatMapPublisher$SingleFlatMapPublisherObserver.onSuccess(SingleFlatMapPublisher.java:96)
+	at io.reactivex.rxjava3.internal.operators.maybe.MaybeSwitchIfEmptySingle$SwitchIfEmptyMaybeObserver.onSuccess(MaybeSwitchIfEmptySingle.java:82)
+	at io.reactivex.rxjava3.internal.operators.maybe.MaybeJust.subscribeActual(MaybeJust.java:36)
+	at io.reactivex.rxjava3.core.Maybe.subscribe(Maybe.java:5375)
+	at io.reactivex.rxjava3.internal.operators.maybe.MaybeSwitchIfEmptySingle.subscribeActual(MaybeSwitchIfEmptySingle.java:45)
+	at io.reactivex.rxjava3.core.Single.subscribe(Single.java:4855)
+	at io.reactivex.rxjava3.internal.operators.single.SingleFlatMapPublisher.subscribeActual(SingleFlatMapPublisher.java:59)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableObserveOn.subscribeActual(FlowableObserveOn.java:58)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15808)
+	at com.google.adk.web.AdkWebServer$AgentController.lambda$agentRunSse$0(AdkWebServer.java:1241)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-09-02 15:06:00 [pool-2-thread-2] DEBUG c.p.t.s.p.s.GeneratePlanService - Thread Pool Status - Active: 0, Pool Size: 0, Queue Size: 0, Completed Tasks: 0, Total Tasks: 0
+2025-09-02 15:06:00 [pool-2-thread-2] INFO  c.p.t.s.agent.planning.PlanningAgent - *******************************************************Time taken to generate plan: 24 ms
+2025-09-02 15:06:00 [pool-2-thread-2] INFO  c.p.t.s.agent.planning.PlanningAgent - Generated trip plan with status: API call failed
+2025-09-02 15:06:00 [pool-2-thread-2] INFO  c.p.t.s.agent.planning.PlanningAgent - Created plan result event with 0 daily plans
+2025-09-02 15:06:00 [pool-2-thread-2] INFO  c.p.t.s.a.o.AnotherRootAgent - inner event null
+2025-09-02 15:06:00 [http-nio-8080-exec-2] INFO  c.g.a.w.AdkWebServer$AgentController - Request received for GET /debug/trace/session/d7c6ad79-9a12-4c21-b1b3-fc47a259de9f
+2025-09-02 15:06:00 [http-nio-8080-exec-7] INFO  c.g.a.w.AdkWebServer$AgentController - Request received for GET /apps/Coordinator/users/user/sessions/d7c6ad79-9a12-4c21-b1b3-fc47a259de9f
+2025-09-02 15:06:00 [http-nio-8080-exec-2] INFO  c.g.a.w.AdkWebServer$AgentController - Returning 10 spans for session ID: d7c6ad79-9a12-4c21-b1b3-fc47a259de9f
+2025-09-02 15:07:47 [http-nio-8080-exec-1] INFO  c.g.a.w.AdkWebServer$AgentController - SseEmitter Request received for POST /run_sse_emitter for session: d7c6ad79-9a12-4c21-b1b3-fc47a259de9f
+2025-09-02 15:07:47 [RxCachedThreadScheduler-2] ERROR c.g.a.w.AdkWebServer$AgentController - SseEmitter: Stream error for session d7c6ad79-9a12-4c21-b1b3-fc47a259de9f: Cannot invoke "com.google.adk.agents.BaseAgent.runAsync(com.google.adk.agents.InvocationContext)" because the return value of "com.google.adk.agents.BaseAgent.findAgent(String)" is null
+java.lang.NullPointerException: Cannot invoke "com.google.adk.agents.BaseAgent.runAsync(com.google.adk.agents.InvocationContext)" because the return value of "com.google.adk.agents.BaseAgent.findAgent(String)" is null
+	at com.pkfare.trip.scale.agent.orchestration.AnotherRootAgent.runAsyncImpl(AnotherRootAgent.java:89)
+	at com.google.adk.agents.BaseAgent.lambda$runAsync$3(BaseAgent.java:199)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableDefer.subscribeActual(FlowableDefer.java:35)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15863)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableConcatArray$ConcatArraySubscriber.onComplete(FlowableConcatArray.java:141)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableConcatArray.subscribeActual(FlowableConcatArray.java:41)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15863)
+	at io.reactivex.rxjava3.internal.operators.single.SingleFlatMapPublisher$SingleFlatMapPublisherObserver.onSuccess(SingleFlatMapPublisher.java:96)
+	at io.reactivex.rxjava3.internal.operators.single.SingleJust.subscribeActual(SingleJust.java:30)
+	at io.reactivex.rxjava3.core.Single.subscribe(Single.java:4855)
+	at io.reactivex.rxjava3.internal.operators.single.SingleFlatMapPublisher.subscribeActual(SingleFlatMapPublisher.java:59)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableDoFinally.subscribeActual(FlowableDoFinally.java:47)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15863)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableDefer.subscribeActual(FlowableDefer.java:42)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableDoOnEach.subscribeActual(FlowableDoOnEach.java:50)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15863)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableScalarXMap$ScalarXMapFlowable.subscribeActual(FlowableScalarXMap.java:160)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableDoOnEach.subscribeActual(FlowableDoOnEach.java:50)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableDoFinally.subscribeActual(FlowableDoFinally.java:47)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15863)
+	at io.reactivex.rxjava3.internal.operators.single.SingleFlatMapPublisher$SingleFlatMapPublisherObserver.onSuccess(SingleFlatMapPublisher.java:96)
+	at io.reactivex.rxjava3.internal.operators.maybe.MaybeSwitchIfEmptySingle$SwitchIfEmptyMaybeObserver.onSuccess(MaybeSwitchIfEmptySingle.java:82)
+	at io.reactivex.rxjava3.internal.operators.maybe.MaybeJust.subscribeActual(MaybeJust.java:36)
+	at io.reactivex.rxjava3.core.Maybe.subscribe(Maybe.java:5375)
+	at io.reactivex.rxjava3.internal.operators.maybe.MaybeSwitchIfEmptySingle.subscribeActual(MaybeSwitchIfEmptySingle.java:45)
+	at io.reactivex.rxjava3.core.Single.subscribe(Single.java:4855)
+	at io.reactivex.rxjava3.internal.operators.single.SingleFlatMapPublisher.subscribeActual(SingleFlatMapPublisher.java:59)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableObserveOn.subscribeActual(FlowableObserveOn.java:58)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15808)
+	at com.google.adk.web.AdkWebServer$AgentController.lambda$agentRunSse$0(AdkWebServer.java:1241)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-09-02 15:07:47 [http-nio-8080-exec-9] ERROR c.p.t.s.e.GlobalExceptionHandler - Unexpected exception occurred: Cannot invoke "com.google.adk.agents.BaseAgent.runAsync(com.google.adk.agents.InvocationContext)" because the return value of "com.google.adk.agents.BaseAgent.findAgent(String)" is null
+java.lang.NullPointerException: Cannot invoke "com.google.adk.agents.BaseAgent.runAsync(com.google.adk.agents.InvocationContext)" because the return value of "com.google.adk.agents.BaseAgent.findAgent(String)" is null
+	at com.pkfare.trip.scale.agent.orchestration.AnotherRootAgent.runAsyncImpl(AnotherRootAgent.java:89)
+	at com.google.adk.agents.BaseAgent.lambda$runAsync$3(BaseAgent.java:199)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableDefer.subscribeActual(FlowableDefer.java:35)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15863)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableConcatArray$ConcatArraySubscriber.onComplete(FlowableConcatArray.java:141)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableConcatArray.subscribeActual(FlowableConcatArray.java:41)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15863)
+	at io.reactivex.rxjava3.internal.operators.single.SingleFlatMapPublisher$SingleFlatMapPublisherObserver.onSuccess(SingleFlatMapPublisher.java:96)
+	at io.reactivex.rxjava3.internal.operators.single.SingleJust.subscribeActual(SingleJust.java:30)
+	at io.reactivex.rxjava3.core.Single.subscribe(Single.java:4855)
+	at io.reactivex.rxjava3.internal.operators.single.SingleFlatMapPublisher.subscribeActual(SingleFlatMapPublisher.java:59)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableDoFinally.subscribeActual(FlowableDoFinally.java:47)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15863)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableDefer.subscribeActual(FlowableDefer.java:42)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableDoOnEach.subscribeActual(FlowableDoOnEach.java:50)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15863)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableScalarXMap$ScalarXMapFlowable.subscribeActual(FlowableScalarXMap.java:160)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableDoOnEach.subscribeActual(FlowableDoOnEach.java:50)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableDoFinally.subscribeActual(FlowableDoFinally.java:47)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15863)
+	at io.reactivex.rxjava3.internal.operators.single.SingleFlatMapPublisher$SingleFlatMapPublisherObserver.onSuccess(SingleFlatMapPublisher.java:96)
+	at io.reactivex.rxjava3.internal.operators.maybe.MaybeSwitchIfEmptySingle$SwitchIfEmptyMaybeObserver.onSuccess(MaybeSwitchIfEmptySingle.java:82)
+	at io.reactivex.rxjava3.internal.operators.maybe.MaybeJust.subscribeActual(MaybeJust.java:36)
+	at io.reactivex.rxjava3.core.Maybe.subscribe(Maybe.java:5375)
+	at io.reactivex.rxjava3.internal.operators.maybe.MaybeSwitchIfEmptySingle.subscribeActual(MaybeSwitchIfEmptySingle.java:45)
+	at io.reactivex.rxjava3.core.Single.subscribe(Single.java:4855)
+	at io.reactivex.rxjava3.internal.operators.single.SingleFlatMapPublisher.subscribeActual(SingleFlatMapPublisher.java:59)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableObserveOn.subscribeActual(FlowableObserveOn.java:58)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15808)
+	at com.google.adk.web.AdkWebServer$AgentController.lambda$agentRunSse$0(AdkWebServer.java:1241)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-09-02 15:07:47 [http-nio-8080-exec-9] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.pkfare.trip.scale.exception.GlobalExceptionHandler#handleGenericException(Exception, WebRequest)
+org.springframework.web.HttpMediaTypeNotAcceptableException: No acceptable representation
+	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:256)
+	at org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor.handleReturnValue(HttpEntityMethodProcessor.java:245)
+	at org.springframework.web.method.support.HandlerMethodReturnValueHandlerComposite.handleReturnValue(HandlerMethodReturnValueHandlerComposite.java:78)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:136)
+	at org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver.doResolveHandlerMethodException(ExceptionHandlerExceptionResolver.java:432)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodExceptionResolver.doResolveException(AbstractHandlerMethodExceptionResolver.java:74)
+	at org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver.resolveException(AbstractHandlerExceptionResolver.java:161)
+	at org.springframework.web.servlet.handler.HandlerExceptionResolverComposite.resolveException(HandlerExceptionResolverComposite.java:80)
+	at org.springframework.web.servlet.DispatcherServlet.processHandlerException(DispatcherServlet.java:1357)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1160)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1106)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:642)
+	at org.apache.catalina.core.ApplicationDispatcher.doDispatch(ApplicationDispatcher.java:570)
+	at org.apache.catalina.core.ApplicationDispatcher.dispatch(ApplicationDispatcher.java:541)
+	at org.apache.catalina.core.AsyncContextImpl$AsyncRunnable.run(AsyncContextImpl.java:570)
+	at org.apache.catalina.core.AsyncContextImpl.doInternalDispatch(AsyncContextImpl.java:340)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.asyncDispatch(CoyoteAdapter.java:235)
+	at org.apache.coyote.AbstractProcessor.dispatch(AbstractProcessor.java:243)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:57)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-09-02 15:07:47 [http-nio-8080-exec-9] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] threw exception
+java.lang.NullPointerException: Cannot invoke "com.google.adk.agents.BaseAgent.runAsync(com.google.adk.agents.InvocationContext)" because the return value of "com.google.adk.agents.BaseAgent.findAgent(String)" is null
+	at com.pkfare.trip.scale.agent.orchestration.AnotherRootAgent.runAsyncImpl(AnotherRootAgent.java:89)
+	at com.google.adk.agents.BaseAgent.lambda$runAsync$3(BaseAgent.java:199)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableDefer.subscribeActual(FlowableDefer.java:35)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15863)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableConcatArray$ConcatArraySubscriber.onComplete(FlowableConcatArray.java:141)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableConcatArray.subscribeActual(FlowableConcatArray.java:41)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15863)
+	at io.reactivex.rxjava3.internal.operators.single.SingleFlatMapPublisher$SingleFlatMapPublisherObserver.onSuccess(SingleFlatMapPublisher.java:96)
+	at io.reactivex.rxjava3.internal.operators.single.SingleJust.subscribeActual(SingleJust.java:30)
+	at io.reactivex.rxjava3.core.Single.subscribe(Single.java:4855)
+	at io.reactivex.rxjava3.internal.operators.single.SingleFlatMapPublisher.subscribeActual(SingleFlatMapPublisher.java:59)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableDoFinally.subscribeActual(FlowableDoFinally.java:47)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15863)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableDefer.subscribeActual(FlowableDefer.java:42)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableDoOnEach.subscribeActual(FlowableDoOnEach.java:50)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15863)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableScalarXMap$ScalarXMapFlowable.subscribeActual(FlowableScalarXMap.java:160)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableDoOnEach.subscribeActual(FlowableDoOnEach.java:50)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableDoFinally.subscribeActual(FlowableDoFinally.java:47)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15863)
+	at io.reactivex.rxjava3.internal.operators.single.SingleFlatMapPublisher$SingleFlatMapPublisherObserver.onSuccess(SingleFlatMapPublisher.java:96)
+	at io.reactivex.rxjava3.internal.operators.maybe.MaybeSwitchIfEmptySingle$SwitchIfEmptyMaybeObserver.onSuccess(MaybeSwitchIfEmptySingle.java:82)
+	at io.reactivex.rxjava3.internal.operators.maybe.MaybeJust.subscribeActual(MaybeJust.java:36)
+	at io.reactivex.rxjava3.core.Maybe.subscribe(Maybe.java:5375)
+	at io.reactivex.rxjava3.internal.operators.maybe.MaybeSwitchIfEmptySingle.subscribeActual(MaybeSwitchIfEmptySingle.java:45)
+	at io.reactivex.rxjava3.core.Single.subscribe(Single.java:4855)
+	at io.reactivex.rxjava3.internal.operators.single.SingleFlatMapPublisher.subscribeActual(SingleFlatMapPublisher.java:59)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableObserveOn.subscribeActual(FlowableObserveOn.java:58)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15808)
+	at com.google.adk.web.AdkWebServer$AgentController.lambda$agentRunSse$0(AdkWebServer.java:1241)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-09-02 15:07:47 [http-nio-8080-exec-9] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.NullPointerException: Cannot invoke "com.google.adk.agents.BaseAgent.runAsync(com.google.adk.agents.InvocationContext)" because the return value of "com.google.adk.agents.BaseAgent.findAgent(String)" is null] with root cause
+java.lang.NullPointerException: Cannot invoke "com.google.adk.agents.BaseAgent.runAsync(com.google.adk.agents.InvocationContext)" because the return value of "com.google.adk.agents.BaseAgent.findAgent(String)" is null
+	at com.pkfare.trip.scale.agent.orchestration.AnotherRootAgent.runAsyncImpl(AnotherRootAgent.java:89)
+	at com.google.adk.agents.BaseAgent.lambda$runAsync$3(BaseAgent.java:199)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableDefer.subscribeActual(FlowableDefer.java:35)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15863)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableConcatArray$ConcatArraySubscriber.onComplete(FlowableConcatArray.java:141)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableConcatArray.subscribeActual(FlowableConcatArray.java:41)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15863)
+	at io.reactivex.rxjava3.internal.operators.single.SingleFlatMapPublisher$SingleFlatMapPublisherObserver.onSuccess(SingleFlatMapPublisher.java:96)
+	at io.reactivex.rxjava3.internal.operators.single.SingleJust.subscribeActual(SingleJust.java:30)
+	at io.reactivex.rxjava3.core.Single.subscribe(Single.java:4855)
+	at io.reactivex.rxjava3.internal.operators.single.SingleFlatMapPublisher.subscribeActual(SingleFlatMapPublisher.java:59)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableDoFinally.subscribeActual(FlowableDoFinally.java:47)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15863)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableDefer.subscribeActual(FlowableDefer.java:42)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableDoOnEach.subscribeActual(FlowableDoOnEach.java:50)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15863)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableScalarXMap$ScalarXMapFlowable.subscribeActual(FlowableScalarXMap.java:160)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableDoOnEach.subscribeActual(FlowableDoOnEach.java:50)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableDoFinally.subscribeActual(FlowableDoFinally.java:47)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15863)
+	at io.reactivex.rxjava3.internal.operators.single.SingleFlatMapPublisher$SingleFlatMapPublisherObserver.onSuccess(SingleFlatMapPublisher.java:96)
+	at io.reactivex.rxjava3.internal.operators.maybe.MaybeSwitchIfEmptySingle$SwitchIfEmptyMaybeObserver.onSuccess(MaybeSwitchIfEmptySingle.java:82)
+	at io.reactivex.rxjava3.internal.operators.maybe.MaybeJust.subscribeActual(MaybeJust.java:36)
+	at io.reactivex.rxjava3.core.Maybe.subscribe(Maybe.java:5375)
+	at io.reactivex.rxjava3.internal.operators.maybe.MaybeSwitchIfEmptySingle.subscribeActual(MaybeSwitchIfEmptySingle.java:45)
+	at io.reactivex.rxjava3.core.Single.subscribe(Single.java:4855)
+	at io.reactivex.rxjava3.internal.operators.single.SingleFlatMapPublisher.subscribeActual(SingleFlatMapPublisher.java:59)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.internal.operators.flowable.FlowableObserveOn.subscribeActual(FlowableObserveOn.java:58)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15917)
+	at io.reactivex.rxjava3.core.Flowable.subscribe(Flowable.java:15808)
+	at com.google.adk.web.AdkWebServer$AgentController.lambda$agentRunSse$0(AdkWebServer.java:1241)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-09-02 15:07:47 [http-nio-8080-exec-10] INFO  c.g.a.w.AdkWebServer$AgentController - Request received for GET /apps/Coordinator/users/user/sessions/d7c6ad79-9a12-4c21-b1b3-fc47a259de9f
+2025-09-02 15:07:47 [http-nio-8080-exec-6] INFO  c.g.a.w.AdkWebServer$AgentController - Request received for GET /debug/trace/session/d7c6ad79-9a12-4c21-b1b3-fc47a259de9f
+2025-09-02 15:07:47 [http-nio-8080-exec-6] INFO  c.g.a.w.AdkWebServer$AgentController - Returning 10 spans for session ID: d7c6ad79-9a12-4c21-b1b3-fc47a259de9f
+2025-09-02 15:07:57 [http-nio-8080-exec-10] INFO  c.g.a.w.AdkWebServer$AgentController - Listing apps from dynamic registry. Found: [Coordinator]
+2025-09-02 15:07:57 [http-nio-8080-exec-3] WARN  c.g.a.w.AdkWebServer$AgentController - Endpoint /apps/Coordinator/eval_sets (GET) is not implemented
+2025-09-02 15:07:57 [http-nio-8080-exec-4] WARN  c.g.a.w.AdkWebServer$AgentController - Endpoint /apps/Coordinator/eval_results (GET) is not implemented
+2025-09-02 15:07:57 [http-nio-8080-exec-6] INFO  c.g.a.w.AdkWebServer$AgentController - Request received for POST /apps/Coordinator/users/user/sessions (service generates ID) with state: null
+2025-09-02 15:07:57 [http-nio-8080-exec-6] INFO  c.g.a.w.AdkWebServer$AgentController - Session created successfully with generated id: fa2a0446-87fa-4586-b5bd-d0c1d78b54a8
+2025-09-02 15:07:57 [http-nio-8080-exec-7] INFO  c.g.a.w.AdkWebServer$AgentController - Request received for GET /apps/Coordinator/users/user/sessions
+2025-09-02 15:07:57 [http-nio-8080-exec-7] INFO  c.g.a.w.AdkWebServer$AgentController - Found 2 non-evaluation sessions for app=Coordinator, user=user
+2025-09-02 15:07:58 [http-nio-8080-exec-5] INFO  c.g.a.w.AdkWebServer$AgentController - Request received for GET /apps/Coordinator/users/user/sessions
+2025-09-02 15:07:58 [http-nio-8080-exec-5] INFO  c.g.a.w.AdkWebServer$AgentController - Found 2 non-evaluation sessions for app=Coordinator, user=user
+2025-09-02 15:07:59 [http-nio-8080-exec-1] INFO  c.g.a.w.AdkWebServer$AgentController - SseEmitter Request received for POST /run_sse_emitter for session: fa2a0446-87fa-4586-b5bd-d0c1d78b54a8
+2025-09-02 15:08:00 [pool-2-thread-3] INFO  c.p.t.s.a.o.AnotherRootAgent - inner event 49d31ddb-8e11-48c7-8d91-daf71e9daf38
+2025-09-02 15:08:00 [pool-2-thread-3] INFO  c.p.t.s.a.o.AnotherRootAgent - parse error text : Hello! To help me plan your trip, could you please tell me where you'd like to go?
+2025-09-02 15:08:00 [http-nio-8080-exec-3] INFO  c.g.a.w.AdkWebServer$AgentController - Request received for GET /debug/trace/session/fa2a0446-87fa-4586-b5bd-d0c1d78b54a8
+2025-09-02 15:08:00 [http-nio-8080-exec-10] INFO  c.g.a.w.AdkWebServer$AgentController - Request received for GET /apps/Coordinator/users/user/sessions/fa2a0446-87fa-4586-b5bd-d0c1d78b54a8
+2025-09-02 15:08:00 [http-nio-8080-exec-3] INFO  c.g.a.w.AdkWebServer$AgentController - Returning 1 spans for session ID: fa2a0446-87fa-4586-b5bd-d0c1d78b54a8
+2025-09-02 15:08:10 [http-nio-8080-exec-4] INFO  c.g.a.w.AdkWebServer$AgentController - SseEmitter Request received for POST /run_sse_emitter for session: fa2a0446-87fa-4586-b5bd-d0c1d78b54a8
+2025-09-02 15:08:11 [pool-2-thread-3] INFO  c.p.t.s.a.o.AnotherRootAgent - inner event b26096d4-adaf-441f-a47c-d2686f3f93ce
+2025-09-02 15:08:11 [pool-2-thread-3] INFO  c.p.t.s.a.o.AnotherRootAgent - parse error text : Great choices! Where will you be traveling from?
+2025-09-02 15:08:11 [http-nio-8080-exec-6] INFO  c.g.a.w.AdkWebServer$AgentController - Request received for GET /debug/trace/session/fa2a0446-87fa-4586-b5bd-d0c1d78b54a8
+2025-09-02 15:08:11 [http-nio-8080-exec-7] INFO  c.g.a.w.AdkWebServer$AgentController - Request received for GET /apps/Coordinator/users/user/sessions/fa2a0446-87fa-4586-b5bd-d0c1d78b54a8
+2025-09-02 15:08:11 [http-nio-8080-exec-6] INFO  c.g.a.w.AdkWebServer$AgentController - Returning 2 spans for session ID: fa2a0446-87fa-4586-b5bd-d0c1d78b54a8
+2025-09-02 15:08:16 [http-nio-8080-exec-8] INFO  c.g.a.w.AdkWebServer$AgentController - SseEmitter Request received for POST /run_sse_emitter for session: fa2a0446-87fa-4586-b5bd-d0c1d78b54a8
+2025-09-02 15:08:17 [pool-2-thread-3] INFO  c.p.t.s.a.o.AnotherRootAgent - inner event 6fe3cc52-a237-4ee9-a1ce-3f42ab539521
+2025-09-02 15:08:17 [pool-2-thread-3] INFO  c.p.t.s.a.o.AnotherRootAgent - parse error text : Understood. What are your potential travel dates and how long do you plan to travel?
+2025-09-02 15:08:17 [http-nio-8080-exec-9] INFO  c.g.a.w.AdkWebServer$AgentController - Request received for GET /debug/trace/session/fa2a0446-87fa-4586-b5bd-d0c1d78b54a8
+2025-09-02 15:08:17 [http-nio-8080-exec-1] INFO  c.g.a.w.AdkWebServer$AgentController - Request received for GET /apps/Coordinator/users/user/sessions/fa2a0446-87fa-4586-b5bd-d0c1d78b54a8
+2025-09-02 15:08:17 [http-nio-8080-exec-9] INFO  c.g.a.w.AdkWebServer$AgentController - Returning 3 spans for session ID: fa2a0446-87fa-4586-b5bd-d0c1d78b54a8
+2025-09-02 15:08:20 [http-nio-8080-exec-10] INFO  c.g.a.w.AdkWebServer$AgentController - SseEmitter Request received for POST /run_sse_emitter for session: fa2a0446-87fa-4586-b5bd-d0c1d78b54a8
+2025-09-02 15:08:21 [pool-2-thread-3] INFO  c.p.t.s.a.o.AnotherRootAgent - inner event 97c44d1d-fddd-461c-87c2-976212b3036f
+2025-09-02 15:08:21 [pool-2-thread-3] INFO  c.p.t.s.a.o.AnotherRootAgent - parse error text : Got it. How many people will be traveling?
+2025-09-02 15:08:21 [http-nio-8080-exec-2] INFO  c.g.a.w.AdkWebServer$AgentController - Request received for GET /debug/trace/session/fa2a0446-87fa-4586-b5bd-d0c1d78b54a8
+2025-09-02 15:08:21 [http-nio-8080-exec-4] INFO  c.g.a.w.AdkWebServer$AgentController - Request received for GET /apps/Coordinator/users/user/sessions/fa2a0446-87fa-4586-b5bd-d0c1d78b54a8
+2025-09-02 15:08:21 [http-nio-8080-exec-2] INFO  c.g.a.w.AdkWebServer$AgentController - Returning 4 spans for session ID: fa2a0446-87fa-4586-b5bd-d0c1d78b54a8
+2025-09-02 15:08:25 [http-nio-8080-exec-7] INFO  c.g.a.w.AdkWebServer$AgentController - SseEmitter Request received for POST /run_sse_emitter for session: fa2a0446-87fa-4586-b5bd-d0c1d78b54a8
+2025-09-02 15:08:26 [pool-2-thread-3] INFO  c.p.t.s.a.o.AnotherRootAgent - inner event fe76f3e0-06c9-4291-bf9e-ab0e63e4f6b5
+2025-09-02 15:08:26 [pool-2-thread-3] INFO  c.p.t.s.a.o.AnotherRootAgent - parse error text : And what's your estimated budget for this trip, including the currency?
+2025-09-02 15:08:26 [http-nio-8080-exec-5] INFO  c.g.a.w.AdkWebServer$AgentController - Request received for GET /debug/trace/session/fa2a0446-87fa-4586-b5bd-d0c1d78b54a8
+2025-09-02 15:08:26 [http-nio-8080-exec-8] INFO  c.g.a.w.AdkWebServer$AgentController - Request received for GET /apps/Coordinator/users/user/sessions/fa2a0446-87fa-4586-b5bd-d0c1d78b54a8
+2025-09-02 15:08:26 [http-nio-8080-exec-5] INFO  c.g.a.w.AdkWebServer$AgentController - Returning 5 spans for session ID: fa2a0446-87fa-4586-b5bd-d0c1d78b54a8
+2025-09-02 15:08:26 [http-nio-8080-exec-1] INFO  c.g.a.w.AdkWebServer$AgentController - SseEmitter Request received for POST /run_sse_emitter for session: fa2a0446-87fa-4586-b5bd-d0c1d78b54a8
+2025-09-02 15:08:28 [pool-2-thread-3] INFO  c.p.t.s.a.o.AnotherRootAgent - inner event e8296939-a945-463d-9188-e07b51357eea
+2025-09-02 15:08:28 [http-nio-8080-exec-3] INFO  c.g.a.w.AdkWebServer$AgentController - Request received for GET /debug/trace/session/fa2a0446-87fa-4586-b5bd-d0c1d78b54a8
+2025-09-02 15:08:28 [http-nio-8080-exec-10] INFO  c.g.a.w.AdkWebServer$AgentController - Request received for GET /apps/Coordinator/users/user/sessions/fa2a0446-87fa-4586-b5bd-d0c1d78b54a8
+2025-09-02 15:08:28 [http-nio-8080-exec-3] INFO  c.g.a.w.AdkWebServer$AgentController - Returning 6 spans for session ID: fa2a0446-87fa-4586-b5bd-d0c1d78b54a8
+2025-09-02 15:08:30 [http-nio-8080-exec-4] INFO  c.g.a.w.AdkWebServer$AgentController - SseEmitter Request received for POST /run_sse_emitter for session: fa2a0446-87fa-4586-b5bd-d0c1d78b54a8
+2025-09-02 15:08:38 [pool-2-thread-3] INFO  c.p.t.s.a.o.AnotherRootAgent - inner event e5987a1e-40c1-4480-9804-cfd258074cab
+2025-09-02 15:08:38 [pool-2-thread-3] INFO  c.p.t.s.a.o.AnotherRootAgent - parse error text : Here is a proposed route for your 7-day trip:
+
+**Day 1-3: Rome, Italy (FCO)**
+*   **Stay days:** 3 days
+*   **Attractions:** Explore the ancient wonders like the Colosseum, Roman Forum, and Pantheon. Visit the Vatican City, including St. Peter's Basilica and the Vatican Museums. On one of these days, you can take a day trip to Ostia Antica to explore the remarkably preserved ruins of an ancient Roman port city.
+*   **Reason for recommendation:** Rome is a must-go destination with immense historical and cultural significance. Including Ostia as a day trip is efficient given its proximity and your interest.
+
+**Day 4-7: Paris, France (CDG)**
+*   **Stay days:** 4 days
+*   **Attractions:** Discover iconic landmarks such as the Eiffel Tower, the Louvre Museum, Notre Dame Cathedral, and stroll along the Champs-Élysées. Enjoy the unique charm of Parisian neighborhoods and world-class cuisine.
+*   **Reason for recommendation:** Paris is your other must-go destination and a major European capital offering a wealth of art, culture, and iconic sights.
+
+This itinerary ensures you visit all your preferred destinations while providing a balanced amount of time in each major city. The travel flow from Florence to Rome, then to Paris, is geographically logical.
+
+How does this sound for your trip?
+2025-09-02 15:08:38 [http-nio-8080-exec-6] INFO  c.g.a.w.AdkWebServer$AgentController - Request received for GET /debug/trace/session/fa2a0446-87fa-4586-b5bd-d0c1d78b54a8
+2025-09-02 15:08:38 [http-nio-8080-exec-7] INFO  c.g.a.w.AdkWebServer$AgentController - Request received for GET /apps/Coordinator/users/user/sessions/fa2a0446-87fa-4586-b5bd-d0c1d78b54a8
+2025-09-02 15:08:38 [http-nio-8080-exec-6] INFO  c.g.a.w.AdkWebServer$AgentController - Returning 7 spans for session ID: fa2a0446-87fa-4586-b5bd-d0c1d78b54a8
+2025-09-02 15:08:58 [http-nio-8080-exec-1] INFO  c.g.a.w.AdkWebServer$AgentController - SseEmitter Request received for POST /run_sse_emitter for session: fa2a0446-87fa-4586-b5bd-d0c1d78b54a8
+2025-09-02 15:09:00 [pool-2-thread-3] INFO  c.p.t.s.a.o.AnotherRootAgent - inner event b99cc02b-a50d-46ba-93f9-cf579a4c74c7
+2025-09-02 15:09:00 [http-nio-8080-exec-3] INFO  c.g.a.w.AdkWebServer$AgentController - Request received for GET /debug/trace/session/fa2a0446-87fa-4586-b5bd-d0c1d78b54a8
+2025-09-02 15:09:00 [http-nio-8080-exec-10] INFO  c.g.a.w.AdkWebServer$AgentController - Request received for GET /apps/Coordinator/users/user/sessions/fa2a0446-87fa-4586-b5bd-d0c1d78b54a8
+2025-09-02 15:09:00 [http-nio-8080-exec-3] INFO  c.g.a.w.AdkWebServer$AgentController - Returning 8 spans for session ID: fa2a0446-87fa-4586-b5bd-d0c1d78b54a8
+2025-09-02 15:09:02 [http-nio-8080-exec-4] INFO  c.g.a.w.AdkWebServer$AgentController - SseEmitter Request received for POST /run_sse_emitter for session: fa2a0446-87fa-4586-b5bd-d0c1d78b54a8
+2025-09-02 15:09:02 [pool-2-thread-3] INFO  c.p.t.s.agent.planning.PlanningAgent - Starting PlanningAgent runAsyncImpl
+2025-09-02 15:09:02 [pool-2-thread-3] INFO  c.p.t.s.agent.planning.PlanningAgent - Retrieved trip demand: origin=FLR, days=7, passengers=1
+2025-09-02 15:09:02 [pool-2-thread-3] INFO  c.p.t.s.agent.planning.PlanningAgent - Retrieved 2 trip routes
+2025-09-02 15:10:20 [pool-2-thread-3] INFO  c.p.t.s.p.s.GeneratePlanService - Starting concurrent trip plan generation for origin: FLR, destinations: 2
+2025-09-02 15:10:21 [pool-2-thread-3] DEBUG c.p.t.s.p.s.GeneratePlanService - Validating parameters
+2025-09-02 15:10:34 [http-nio-8080-exec-2] ERROR c.p.t.s.e.GlobalExceptionHandler - Unexpected exception occurred: null
+org.springframework.web.context.request.async.AsyncRequestTimeoutException: null
+	at org.springframework.web.context.request.async.TimeoutDeferredResultProcessingInterceptor.handleTimeout(TimeoutDeferredResultProcessingInterceptor.java:42)
+	at org.springframework.web.context.request.async.DeferredResultInterceptorChain.triggerAfterTimeout(DeferredResultInterceptorChain.java:81)
+	at org.springframework.web.context.request.async.WebAsyncManager.lambda$startDeferredResultProcessing$5(WebAsyncManager.java:414)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.springframework.web.context.request.async.StandardServletAsyncWebRequest.onTimeout(StandardServletAsyncWebRequest.java:154)
+	at org.apache.catalina.core.AsyncListenerWrapper.fireOnTimeout(AsyncListenerWrapper.java:44)
+	at org.apache.catalina.core.AsyncContextImpl.timeout(AsyncContextImpl.java:135)
+	at org.apache.catalina.connector.CoyoteAdapter.asyncDispatch(CoyoteAdapter.java:135)
+	at org.apache.coyote.AbstractProcessor.dispatch(AbstractProcessor.java:243)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:57)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-09-02 15:11:02 [pool-2-thread-3] DEBUG c.p.t.s.p.s.GeneratePlanService - Precise travel calculation: daysBetween=7, tripDays=7, preciseTravel=true
+2025-09-02 15:11:02 [pool-2-thread-3] DEBUG c.p.t.s.p.s.GeneratePlanService - Round trip calculation: first=FCO, last=CDG, roundTrip=false
+2025-09-02 15:11:02 [pool-2-thread-3] INFO  c.p.t.s.p.s.GeneratePlanService - Trip configuration: preciseTravel=true, roundTrip=false
+2025-09-02 15:11:02 [pool-2-thread-3] DEBUG c.p.t.s.p.s.GeneratePlanService - Thread Pool Status - Active: 0, Pool Size: 0, Queue Size: 0, Completed Tasks: 0, Total Tasks: 0
+2025-09-02 15:11:02 [pool-2-thread-3] INFO  c.p.t.s.p.s.GeneratePlanService - Starting concurrent searches with 16 threads
+2025-09-02 15:11:02 [http-nio-8080-exec-2] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.pkfare.trip.scale.exception.GlobalExceptionHandler#handleGenericException(Exception, WebRequest)
+org.springframework.web.HttpMediaTypeNotAcceptableException: No acceptable representation
+	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:256)
+	at org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor.handleReturnValue(HttpEntityMethodProcessor.java:245)
+	at org.springframework.web.method.support.HandlerMethodReturnValueHandlerComposite.handleReturnValue(HandlerMethodReturnValueHandlerComposite.java:78)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:136)
+	at org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver.doResolveHandlerMethodException(ExceptionHandlerExceptionResolver.java:432)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodExceptionResolver.doResolveException(AbstractHandlerMethodExceptionResolver.java:74)
+	at org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver.resolveException(AbstractHandlerExceptionResolver.java:161)
+	at org.springframework.web.servlet.handler.HandlerExceptionResolverComposite.resolveException(HandlerExceptionResolverComposite.java:80)
+	at org.springframework.web.servlet.DispatcherServlet.processHandlerException(DispatcherServlet.java:1357)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1160)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1106)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:642)
+	at org.apache.catalina.core.ApplicationDispatcher.doDispatch(ApplicationDispatcher.java:570)
+	at org.apache.catalina.core.ApplicationDispatcher.dispatch(ApplicationDispatcher.java:541)
+	at org.apache.catalina.core.AsyncContextImpl$AsyncRunnable.run(AsyncContextImpl.java:570)
+	at org.apache.catalina.core.AsyncContextImpl.doInternalDispatch(AsyncContextImpl.java:340)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.asyncDispatch(CoyoteAdapter.java:235)
+	at org.apache.coyote.AbstractProcessor.dispatch(AbstractProcessor.java:243)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:57)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-09-02 15:11:02 [http-nio-8080-exec-2] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.context.request.async.AsyncRequestTimeoutException]
+2025-09-02 15:11:02 [TripPlan-1] INFO  c.p.t.s.s.plan.FlightSearchService - Searching flight offers
+2025-09-02 15:11:07 [TripPlan-1] INFO  c.p.t.s.s.e.a.AmadeusFlightService - Searching flight offers with request: FlightOffersSearchRequest(origin=FLR, destination=FCO, departureDate=2025-10-01, returnDate=null, adults=1, children=0, infants=0, nonStop=true, currency=CNY, maxPrice=5000, max=50)
+2025-09-02 15:11:07 [TripPlan-2] INFO  c.p.t.s.s.plan.HotelSearchService - Getting hotels by city for 2 routes
+2025-09-02 15:11:07 [TripPlan-3] INFO  c.p.t.s.s.plan.LocationSearchService - Searching city locations for 2 cities: [Rome, Paris]
+2025-09-02 15:11:07 [TripPlan-3] DEBUG c.p.t.s.s.plan.LocationSearchService - Processed city list: 2 unique cities
+2025-09-02 15:11:07 [TripPlan-1] DEBUG c.p.trip.scale.util.CacheKeyUtil - Generated cache key: fo_42a2c354907fb2c8b629512ded2e6036 for request: flight_offers|FLR|FCO|2025-10-01||1|0|0|true|CNY|5000|50
+2025-09-02 15:11:07 [http-nio-8080-exec-8] INFO  c.g.a.w.AdkWebServer$AgentController - Request received for GET /debug/trace/session/fa2a0446-87fa-4586-b5bd-d0c1d78b54a8
+2025-09-02 15:11:07 [TripPlan-3] DEBUG c.p.t.s.s.plan.LocationSearchService - Cache miss for city: Rome
+2025-09-02 15:11:07 [http-nio-8080-exec-6] INFO  c.g.a.w.AdkWebServer$AgentController - Request received for GET /apps/Coordinator/users/user/sessions/fa2a0446-87fa-4586-b5bd-d0c1d78b54a8
+2025-09-02 15:11:07 [TripPlan-1] DEBUG c.p.t.s.s.e.a.AmadeusFlightService - Cache miss for key: fo_42a2c354907fb2c8b629512ded2e6036
+2025-09-02 15:11:07 [TripPlan-3] DEBUG c.p.t.s.s.plan.LocationSearchService - Cache miss for city: Paris
+2025-09-02 15:11:07 [TripPlan-3] INFO  c.p.t.s.s.plan.LocationSearchService - Cache statistics - hits: 0, misses: 2, total: 2
+2025-09-02 15:11:07 [TripPlan-1] INFO  c.p.t.s.s.e.a.AmadeusFlightService - Cache miss for key: fo_42a2c354907fb2c8b629512ded2e6036, calling API
+2025-09-02 15:11:07 [http-nio-8080-exec-8] INFO  c.g.a.w.AdkWebServer$AgentController - Returning 8 spans for session ID: fa2a0446-87fa-4586-b5bd-d0c1d78b54a8
+2025-09-02 15:11:07 [TripPlan-3] INFO  c.p.t.s.s.plan.LocationSearchService - Querying 2 cities from API: [Rome, Paris]
+2025-09-02 15:11:17 [ForkJoinPool.commonPool-worker-6] DEBUG c.p.t.s.s.plan.LocationSearchService - Searching location for city from API: Rome
+2025-09-02 15:11:17 [TripPlan-3] DEBUG c.p.t.s.s.plan.LocationSearchService - Searching location for city from API: Paris
+2025-09-02 15:11:07 [ForkJoinPool.commonPool-worker-5] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Searching hotels by city with request: QueryHotelByCityRequest(cityCode=FCO, radius=10, radiusUnit=KM, amenities=null, ratings=[1, 2, 3, 4, 5])
+2025-09-02 15:11:07 [TripPlan-2] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Searching hotels by city with request: QueryHotelByCityRequest(cityCode=CDG, radius=10, radiusUnit=KM, amenities=null, ratings=[1, 2, 3, 4, 5])
+2025-09-02 15:11:19 [ForkJoinPool.commonPool-worker-6] INFO  c.p.t.s.s.plan.LocationSearchService - Successfully found and cached location for city Rome: lat=41.8967068, lng=12.4822025
+2025-09-02 15:11:19 [TripPlan-3] INFO  c.p.t.s.s.plan.LocationSearchService - Successfully found and cached location for city Paris: lat=48.8575475, lng=2.3513765
+2025-09-02 15:11:19 [TripPlan-3] INFO  c.p.t.s.s.plan.LocationSearchService - API query completed, found 2 out of 2 cities
+2025-09-02 15:11:19 [TripPlan-3] INFO  c.p.t.s.s.plan.LocationSearchService - Successfully found locations for 2 out of 2 cities (cached: 0, api: 2)
+2025-09-02 15:11:19 [TripPlan-3] INFO  c.p.t.s.p.s.GeneratePlanService - [TripPlan-3] City locations search completed in 11572 ms, found 2 locations
+2025-09-02 15:11:21 [TripPlan-2] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Hotels by city search completed, found 35 results
+2025-09-02 15:11:21 [TripPlan-2] INFO  c.p.t.s.s.plan.HotelSearchService - Found 35 hotels in city CDG
+2025-09-02 15:11:21 [TripPlan-1] ERROR c.p.t.s.a.a.f.AmadeusFlightOffersSearchAPI - call AmadeusFlightOffersSearchAPI return empty，resonse:{} 
+2025-09-02 15:11:21 [TripPlan-1] DEBUG c.p.t.s.s.e.a.AmadeusFlightService - API call completed, found 0 results
+2025-09-02 15:11:21 [TripPlan-1] WARN  c.p.t.s.s.e.a.AmadeusFlightService - API returned empty result, not caching for key: fo_42a2c354907fb2c8b629512ded2e6036
+2025-09-02 15:11:21 [TripPlan-1] DEBUG c.p.t.s.s.e.a.AmadeusFlightService - Flight offers cache stats - size: 0, hitRate: {:.2f}%, evictionCount: 0.0
+2025-09-02 15:11:26 [TripPlan-1] INFO  c.p.t.s.s.e.a.AmadeusFlightService - Searching flight offers with request: FlightOffersSearchRequest(origin=CDG, destination=FLR, departureDate=2025-10-07, returnDate=null, adults=1, children=0, infants=0, nonStop=true, currency=CNY, maxPrice=5000, max=50)
+2025-09-02 15:11:26 [TripPlan-1] DEBUG c.p.trip.scale.util.CacheKeyUtil - Generated cache key: fo_15dcfe7cf07326b7b5f0ace64c0f1c82 for request: flight_offers|CDG|FLR|2025-10-07||1|0|0|true|CNY|5000|50
+2025-09-02 15:11:26 [TripPlan-1] DEBUG c.p.t.s.s.e.a.AmadeusFlightService - Cache miss for key: fo_15dcfe7cf07326b7b5f0ace64c0f1c82
+2025-09-02 15:11:26 [TripPlan-1] INFO  c.p.t.s.s.e.a.AmadeusFlightService - Cache miss for key: fo_15dcfe7cf07326b7b5f0ace64c0f1c82, calling API
+2025-09-02 15:11:26 [ForkJoinPool.commonPool-worker-5] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Hotels by city search completed, found 11 results
+2025-09-02 15:11:26 [ForkJoinPool.commonPool-worker-5] INFO  c.p.t.s.s.plan.HotelSearchService - Found 11 hotels in city FCO
+2025-09-02 15:11:26 [TripPlan-2] INFO  c.p.t.s.p.s.GeneratePlanService - [TripPlan-2] Hotel IDs search completed in 18848 ms, found 2 cities
+2025-09-02 15:11:27 [TripPlan-1] ERROR c.p.t.s.a.a.f.AmadeusFlightOffersSearchAPI - call AmadeusFlightOffersSearchAPI return empty，resonse:{} 
+2025-09-02 15:11:27 [TripPlan-1] DEBUG c.p.t.s.s.e.a.AmadeusFlightService - API call completed, found 0 results
+2025-09-02 15:11:27 [TripPlan-1] WARN  c.p.t.s.s.e.a.AmadeusFlightService - API returned empty result, not caching for key: fo_15dcfe7cf07326b7b5f0ace64c0f1c82
+2025-09-02 15:11:27 [TripPlan-1] DEBUG c.p.t.s.s.e.a.AmadeusFlightService - Flight offers cache stats - size: 0, hitRate: {:.2f}%, evictionCount: 0.0
+2025-09-02 15:11:45 [TripPlan-1] INFO  c.p.t.s.s.plan.FlightSearchService - Flight info list is empty, returning empty location list
+2025-09-02 15:11:45 [TripPlan-1] WARN  c.p.t.s.s.plan.FlightSearchService - Location info list is empty, cannot supplement flight locations
+2025-09-02 15:11:45 [TripPlan-1] INFO  c.p.t.s.p.s.GeneratePlanService - [TripPlan-1] Flight search completed in 42478 ms, found 2 flights
+2025-09-02 15:11:45 [pool-2-thread-3] INFO  c.p.t.s.p.s.GeneratePlanService - All concurrent searches completed in 42513 ms
+2025-09-02 15:11:45 [TripPlan-4] INFO  c.p.t.s.s.plan.HotelSearchService - Searching hotels for 2 routes
+2025-09-02 15:11:45 [TripPlan-4] INFO  c.p.t.s.s.plan.HotelSearchService - City FCO: CheckIn=2025-10-01, CheckOut=2025-10-04
+2025-09-02 15:11:45 [TripPlan-4] INFO  c.p.t.s.s.plan.HotelSearchService - City CDG: CheckIn=2025-10-04, CheckOut=2025-10-08
+2025-09-02 15:11:45 [TripPlan-5] INFO  c.p.t.s.s.plan.ActivitySearchService - Searching activities for 2 cityLocationInfos
+2025-09-02 15:11:45 [TripPlan-5] DEBUG c.p.t.s.s.plan.ActivitySearchService - hotelCity Rome location: lat=41.8967068, lon=12.4822025
+2025-09-02 15:11:45 [TripPlan-5] DEBUG c.p.t.s.s.plan.ActivitySearchService - hotelCity Paris location: lat=48.8575475, lon=2.3513765
+2025-09-02 15:11:45 [TripPlan-4] INFO  c.p.t.s.s.plan.HotelSearchService - Searching hotel offers for city CDG with 20 hotels
+2025-09-02 15:11:45 [ForkJoinPool.commonPool-worker-5] INFO  c.p.t.s.s.plan.HotelSearchService - Searching hotel offers for city FCO with 11 hotels
+2025-09-02 15:11:45 [TripPlan-5] INFO  c.p.t.s.s.plan.ActivitySearchService - Searching activities for city Paris ，location HotelLocationInfo(latitude=48.8575475, longitude=2.3513765)
+2025-09-02 15:11:45 [ForkJoinPool.commonPool-worker-6] INFO  c.p.t.s.s.plan.ActivitySearchService - Searching activities for city Rome ，location HotelLocationInfo(latitude=41.8967068, longitude=12.4822025)
+2025-09-02 15:11:45 [ForkJoinPool.commonPool-worker-6] INFO  c.p.t.s.s.e.a.AmadeusActivityService - Searching activities with request: ActivitiesSearchRequest(latitude=41.8967068, longitude=12.4822025, radius=20)
+2025-09-02 15:11:45 [TripPlan-5] INFO  c.p.t.s.s.e.a.AmadeusActivityService - Searching activities with request: ActivitiesSearchRequest(latitude=48.8575475, longitude=2.3513765, radius=20)
+2025-09-02 15:11:45 [ForkJoinPool.commonPool-worker-5] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Searching hotel offers with request: HotelOffersSearchRequest(hotelIds=[BWFCO336, YXROMSEC, YXROMDLI, YXROMTIB, CIFCO058, WVFCO548, BWFCO270, BNROMABH, ONROMBEL, OIROMBLV, YXFCOLCH], adults=1, checkInDate=2025-10-01, checkOutDate=2025-10-04, countryOfResidence=IT, roomQuantity=1, priceRange=10-5000, currency=CNY, paymentPolicy=NONE, bestRateOnly=true)
+2025-09-02 15:11:45 [TripPlan-4] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Searching hotel offers with request: HotelOffersSearchRequest(hotelIds=[RTCDGAIR, RTCDGALT, MUCDGCOP, BWCDG714, PTCDG951, HICDG0E0, NNPARP08, RTCDGHOT, CICDG290, GTCDG352, FGCDGRES, EUCDGSUI, NNPARC55, HSCDGACS, FGPARRRP, RTCDGSTH, RDCDG588, HSPARBWB, NNPARP12, NNPARP52], adults=1, checkInDate=2025-10-04, checkOutDate=2025-10-08, countryOfResidence=FR, roomQuantity=1, priceRange=10-5000, currency=CNY, paymentPolicy=NONE, bestRateOnly=true)
+2025-09-02 15:11:45 [ForkJoinPool.commonPool-worker-6] DEBUG c.p.trip.scale.util.CacheKeyUtil - Generated cache key: ac_4924dd02687f3f173ef1ef8466affe9a for request: activities|41.8967068|12.4822025|20
+2025-09-02 15:11:45 [ForkJoinPool.commonPool-worker-6] DEBUG c.p.t.s.s.e.a.AmadeusActivityService - Cache miss for key: ac_4924dd02687f3f173ef1ef8466affe9a
+2025-09-02 15:11:45 [TripPlan-5] DEBUG c.p.trip.scale.util.CacheKeyUtil - Generated cache key: ac_373944abba1f88ac302d46a6ba91e657 for request: activities|48.8575475|2.3513765|20
+2025-09-02 15:11:45 [TripPlan-5] DEBUG c.p.t.s.s.e.a.AmadeusActivityService - Cache miss for key: ac_373944abba1f88ac302d46a6ba91e657
+2025-09-02 15:11:45 [ForkJoinPool.commonPool-worker-6] INFO  c.p.t.s.s.e.a.AmadeusActivityService - Cache miss for key: ac_4924dd02687f3f173ef1ef8466affe9a, calling API
+2025-09-02 15:11:45 [TripPlan-5] INFO  c.p.t.s.s.e.a.AmadeusActivityService - Cache miss for key: ac_373944abba1f88ac302d46a6ba91e657, calling API
+2025-09-02 15:11:45 [ForkJoinPool.commonPool-worker-5] DEBUG c.p.trip.scale.util.CacheKeyUtil - Generated cache key: ho_5e0f4d45e7133f3a9300ab80333a1e9e for request: hotel_offers|BNROMABH,BWFCO270,BWFCO336,CIFCO058,OIROMBLV,ONROMBEL,WVFCO548,YXFCOLCH,YXROMDLI,YXROMSEC,YXROMTIB|1|2025-10-01|2025-10-04|IT|1|10-5000|CNY|NONE|true
+2025-09-02 15:11:45 [TripPlan-4] DEBUG c.p.trip.scale.util.CacheKeyUtil - Generated cache key: ho_d6c8e13b17eef4f1974bee614a70b64f for request: hotel_offers|BWCDG714,CICDG290,EUCDGSUI,FGCDGRES,FGPARRRP,GTCDG352,HICDG0E0,HSCDGACS,HSPARBWB,MUCDGCOP,NNPARC55,NNPARP08,NNPARP12,NNPARP52,PTCDG951,RDCDG588,RTCDGAIR,RTCDGALT,RTCDGHOT,RTCDGSTH|1|2025-10-04|2025-10-08|FR|1|10-5000|CNY|NONE|true
+2025-09-02 15:11:45 [ForkJoinPool.commonPool-worker-5] DEBUG c.p.t.s.s.e.a.AmadeusHotelService - Cache miss for key: ho_5e0f4d45e7133f3a9300ab80333a1e9e
+2025-09-02 15:11:45 [TripPlan-4] DEBUG c.p.t.s.s.e.a.AmadeusHotelService - Cache miss for key: ho_d6c8e13b17eef4f1974bee614a70b64f
+2025-09-02 15:11:45 [ForkJoinPool.commonPool-worker-5] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Cache miss for key: ho_5e0f4d45e7133f3a9300ab80333a1e9e, calling API
+2025-09-02 15:11:45 [TripPlan-4] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Cache miss for key: ho_d6c8e13b17eef4f1974bee614a70b64f, calling API
+2025-09-02 15:11:48 [ForkJoinPool.commonPool-worker-5] DEBUG c.p.t.s.s.e.a.AmadeusHotelService - API call completed, found 1 results
+2025-09-02 15:20:36 [ForkJoinPool.commonPool-worker-5] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Returning hotels:HotelOfferSearch(type=hotel-offers, hotel=HotelOfferSearch.Hotel(type=hotel, hotelId=BWFCO336, chainCode=BW, brandCode=null, dupeId=700193275, name=Best Western Hotel Rome Airport, cityCode=FCO, latitude=41.77279, longitude=12.2415), available=true, offers=[HotelOfferSearch.Offer(type=null, id=7MHFG3FAUB, checkInDate=2025-10-01, checkOutDate=2025-10-04, roomQuantity=null, rateCode=H1Q, rateFamilyEstimated=HotelOfferSearch.RateFamily(code=PRO, type=P), category=null, description=null, commission=HotelOfferSearch.Commission(percentage=10, amount=null, description=null), boardType=null, room=HotelOfferSearch.RoomDetails(type=A1Q, typeEstimated=HotelOfferSearch.EstimatedRoomType(category=STANDARD_ROOM, beds=1, bedType=QUEEN), description=HotelOfferSearch.QualifiedFreeText(lang=EN, text=HOT DEAL*3 DAY ADV BKG*NO CNCL
+1 QUEEN BED,STND
+STANDARD)), guests=HotelOfferSearch.Guests(adults=1, childAges=null), price=HotelOfferSearch.HotelPrice(currency=EUR, sellingTotal=null, total=495.00, base=486.00, taxes=[HotelOfferSearch.HotelTax(currency=EUR, amount=9.00, code=TOTAL_TAX, percentage=null, included=false, description=null, pricingFrequency=null, pricingMode=null)], markups=null, variations=HotelOfferSearch.PriceVariations(average=HotelOfferSearch.Price(currency=null, sellingTotal=null, base=162.00, total=null, markups=null), changes=[HotelOfferSearch.PriceVariation(startDate=2025-10-01, endDate=2025-10-04, currency=null, sellingTotal=null, base=162.00, total=null, markups=null)])), policies=HotelOfferSearch.PolicyDetails(paymentType=deposit, guarantee=null, deposit=null, prepay=null, holdTime=null, cancellation=null, checkInOut=null), self=https://test.api.amadeus.com/v3/shopping/hotel-offers/7MHFG3FAUB)], self=https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=BWFCO336&adults=1&checkInDate=2025-10-01&checkOutDate=2025-10-04&countryOfResidence=IT&currency=CNY&paymentPolicy=NONE&roomQuantity=1)
+2025-09-02 15:20:36 [ForkJoinPool.commonPool-worker-5] DEBUG c.p.t.s.s.e.a.AmadeusHotelService - Cached 1 hotel offers for key: ho_5e0f4d45e7133f3a9300ab80333a1e9e
+2025-09-02 15:20:36 [ForkJoinPool.commonPool-worker-5] INFO  c.p.t.s.s.e.a.AmadeusHotelService - API result cached successfully - 1 hotel offers for key: ho_5e0f4d45e7133f3a9300ab80333a1e9e
+2025-09-02 15:20:36 [ForkJoinPool.commonPool-worker-5] DEBUG c.p.t.s.s.e.a.AmadeusHotelService - Hotel offers cache stats - size: 1, hitRate: {:.2f}%, evictionCount: 0.0
+2025-09-02 15:20:36 [ForkJoinPool.commonPool-worker-5] INFO  c.p.t.s.s.plan.HotelSearchService - Found 1 hotel offers for city FCO
+2025-09-02 15:20:36 [ForkJoinPool.commonPool-worker-5] DEBUG c.p.t.s.s.plan.HotelSearchService - Found 1 hotels for route FCO
+2025-09-02 15:20:36 [TripPlan-4] DEBUG c.p.t.s.s.e.a.AmadeusHotelService - API call completed, found 3 results
+2025-09-02 15:20:36 [TripPlan-4] INFO  c.p.t.s.s.e.a.AmadeusHotelService - Returning hotels:HotelOfferSearch(type=hotel-offers, hotel=HotelOfferSearch.Hotel(type=hotel, hotelId=BWCDG714, chainCode=BW, brandCode=null, dupeId=700044772, name=Best Western Paris CDG Airport, cityCode=CDG, latitude=49.00315, longitude=2.52003), available=true, offers=[HotelOfferSearch.Offer(type=null, id=JRNFYTDIFX, checkInDate=2025-10-04, checkOutDate=2025-10-08, roomQuantity=null, rateCode=AAA, rateFamilyEstimated=HotelOfferSearch.RateFamily(code=AAA, type=C), category=null, description=null, commission=HotelOfferSearch.Commission(percentage=10, amount=null, description=null), boardType=null, room=HotelOfferSearch.RoomDetails(type=B1Q, typeEstimated=HotelOfferSearch.EstimatedRoomType(category=STANDARD_ROOM, beds=1, bedType=QUEEN), description=HotelOfferSearch.QualifiedFreeText(lang=EN, text=AAA CAA RATE 
+1 QUEEN BED,STANDARD
+STANDARD)), guests=HotelOfferSearch.Guests(adults=1, childAges=null), price=HotelOfferSearch.HotelPrice(currency=EUR, sellingTotal=null, total=407.52, base=396.00, taxes=[HotelOfferSearch.HotelTax(currency=EUR, amount=11.52, code=TOTAL_TAX, percentage=null, included=false, description=null, pricingFrequency=null, pricingMode=null)], markups=null, variations=HotelOfferSearch.PriceVariations(average=HotelOfferSearch.Price(currency=null, sellingTotal=null, base=99.00, total=null, markups=null), changes=[HotelOfferSearch.PriceVariation(startDate=2025-10-04, endDate=2025-10-08, currency=null, sellingTotal=null, base=99.00, total=null, markups=null)])), policies=HotelOfferSearch.PolicyDetails(paymentType=guarantee, guarantee=null, deposit=null, prepay=null, holdTime=null, cancellation=null, checkInOut=null), self=https://test.api.amadeus.com/v3/shopping/hotel-offers/JRNFYTDIFX)], self=https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=BWCDG714&adults=1&checkInDate=2025-10-04&checkOutDate=2025-10-08&countryOfResidence=FR&currency=CNY&paymentPolicy=NONE&roomQuantity=1)
+2025-09-02 15:20:36 [TripPlan-4] DEBUG c.p.t.s.s.e.a.AmadeusHotelService - Cached 3 hotel offers for key: ho_d6c8e13b17eef4f1974bee614a70b64f
+2025-09-02 15:20:36 [TripPlan-4] INFO  c.p.t.s.s.e.a.AmadeusHotelService - API result cached successfully - 3 hotel offers for key: ho_d6c8e13b17eef4f1974bee614a70b64f
+2025-09-02 15:20:36 [TripPlan-4] DEBUG c.p.t.s.s.e.a.AmadeusHotelService - Hotel offers cache stats - size: 2, hitRate: {:.2f}%, evictionCount: 0.0
+2025-09-02 15:20:36 [TripPlan-4] INFO  c.p.t.s.s.plan.HotelSearchService - Found 3 hotel offers for city CDG
+2025-09-02 15:20:36 [TripPlan-4] DEBUG c.p.t.s.s.plan.HotelSearchService - Found 3 hotels for route CDG
+2025-09-02 15:20:36 [TripPlan-4] INFO  c.p.t.s.s.plan.HotelSearchService - Found 4 hotels in total
+2025-09-02 15:20:36 [TripPlan-4] INFO  c.p.t.s.p.s.GeneratePlanService - [TripPlan-4] Hotel details search completed in 530951 ms, found 4 hotels
