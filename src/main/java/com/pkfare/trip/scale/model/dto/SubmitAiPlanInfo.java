@@ -4,6 +4,7 @@ import com.pkfare.trip.scale.plan.service.param.GeneratePlanParam;
 import com.pkfare.trip.scale.plan.service.response.ActivityInfo;
 import com.pkfare.trip.scale.plan.service.response.FlightInfo;
 import com.pkfare.trip.scale.plan.service.response.HotelInfo;
+import java.util.Map;
 import lombok.Data;
 import java.util.List;
 
@@ -23,7 +24,7 @@ public class SubmitAiPlanInfo {
     /**
      * 航班信息
      */
-    private List<FlightInfo> flightInfos;
+    private Map<String,List<FlightInfo>> flightMap;
     
     /**
      * 酒店信息列表

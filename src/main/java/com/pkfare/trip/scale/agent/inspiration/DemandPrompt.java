@@ -22,7 +22,7 @@ public class DemandPrompt {
       + "3. origin_country_code follow ISO3166-1 standard with 2 letters, it is not a required input from the user."
       + "\n"
       + "if everything is collected, only filled all the items and briefly output as below, remember the field 'brief' is a sentence of summary of user's demand and tell him you will start trip planning for his demand.\n"
-      + "{\n"
+      + "------{\n"
       + "    \"must_go_destinations\":Array[String],\n"
       + "    \"origin\":String,\n"
       + "    \"origin_country_code\":String,\n"

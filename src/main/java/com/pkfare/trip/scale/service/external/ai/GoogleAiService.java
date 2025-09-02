@@ -1,9 +1,7 @@
 package com.pkfare.trip.scale.service.external.ai;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.Lists;
 import com.google.maps.DirectionsApi;
 import com.google.maps.GeoApiContext;
 import com.google.maps.model.*;
@@ -12,6 +10,7 @@ import com.pkfare.trip.scale.model.dto.SubmitAiPlanInfo;
 import com.pkfare.trip.scale.plan.service.param.GeneratePlanParam;
 import com.pkfare.trip.scale.plan.service.param.TripRouteParam;
 import com.pkfare.trip.scale.plan.service.response.*;
+import com.pkfare.trip.scale.util.JsonUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -61,7 +60,8 @@ public class GoogleAiService {
             TripRoutePlanResult result = new TripRoutePlanResult();
             result.setStatus("SUCCESS");
             result.setDailyPlans(dailyPlans);
-            result.setFlights(planInfo.getFlightInfos());
+            result.setPreferredFlights(planInfo.getFlightMap().getOrDefault("preferred", Lists.newArrayList()));
+            result.setAlternativeFlights(planInfo.getFlightMap().getOrDefault("alternative", Lists.newArrayList()));
             
             // 计算总距离和总时间
             long totalDistance = dailyPlans.stream()
@@ -76,11 +76,6 @@ public class GoogleAiService {
             result.setTotalDistance(totalDistance);
             result.setTotalDuration(totalDuration);
             result.setSummary(generateSummary(dailyPlans));
-            ObjectMapper mapper = new ObjectMapper();
-            mapper.registerModule(new JavaTimeModule());
-            mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
-            String jsonResult = mapper.writeValueAsString(result);
-            
             log.info("Daily route planning generation completed successfully");
             return result;
             
@@ -117,7 +112,7 @@ public class GoogleAiService {
             // 添加该城市的活动
             if (planInfo.getActivityInfos() != null) {
                 List<ActivityInfo> cityActivities = planInfo.getActivityInfos().stream()
-                        .filter(activity -> cityCode.equals(activity.getCityCode()))
+                        .filter(activity -> cityData.getCityName().equals(activity.getCityCode()))
                         .collect(Collectors.toList());
                 cityData.setActivities(cityActivities);
             }
@@ -165,7 +160,8 @@ public class GoogleAiService {
         
         // 选择酒店（通常选择第一个）
         if (cityData.getHotels() != null && !cityData.getHotels().isEmpty()) {
-            dailyPlan.setHotel(cityData.getHotels().get(0));
+            dailyPlan.setPreferredHotel(cityData.getHotels().get(0));
+            dailyPlan.setAlternativeHotels(cityData.getHotels().subList(1, cityData.getHotels().size()));
         }
         
         // 选择当日活动（平均分配活动到各天）
@@ -173,7 +169,7 @@ public class GoogleAiService {
         dailyPlan.setActivities(dayActivities);
         
         // 生成路线
-        List<RouteSegment> routes = generateRoutes(dailyPlan.getHotel(), dayActivities);
+        List<RouteSegment> routes = generateRoutes(dailyPlan.getPreferredHotel(), dayActivities);
         dailyPlan.setRoutes(routes);
         
         // 计算总距离和时间
@@ -288,6 +284,7 @@ public class GoogleAiService {
                 }
                 segment.setSteps(steps);
                 segment.setOverview(route.summary);
+                segment.setRoutesJson(JsonUtil.toJson(result.routes));
                 
                 return segment;
             }

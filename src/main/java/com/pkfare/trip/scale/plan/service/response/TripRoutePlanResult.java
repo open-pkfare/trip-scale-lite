@@ -22,9 +22,14 @@ public class TripRoutePlanResult {
     private List<DailyRoutePlan> dailyPlans;
 
     /**
-     * 航班信息列表
+     * 首选航班信息列表
      */
-    private List<FlightInfo> flights;
+    private List<FlightInfo> preferredFlights;
+
+    /**
+     * 备选航班信息列表
+     */
+    private List<FlightInfo> alternativeFlights;
     
     /**
      * 总距离（米）

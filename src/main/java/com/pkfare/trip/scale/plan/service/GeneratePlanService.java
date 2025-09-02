@@ -15,6 +15,7 @@ import com.pkfare.trip.scale.service.plan.FlightSearchService;
 import com.pkfare.trip.scale.service.plan.HotelSearchService;
 import com.pkfare.trip.scale.service.plan.LocationSearchService;
 import com.pkfare.trip.scale.util.DateUtil;
+import com.pkfare.trip.scale.util.JsonUtil;
 import com.pkfare.trip.scale.util.ValidationUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -115,7 +116,8 @@ public class GeneratePlanService {
       log.info("Found {} flights, {} hotels, {} activities", 
           finalResult.flights.size(), finalResult.hotels.size(), finalResult.activities.size());
       logThreadPoolStatus();
-
+      String resultJson = JsonUtil.toJson(tripRoutePlanResult);
+      log.info("Generated trip plan JSON: {}", resultJson);
       return tripRoutePlanResult;
 
     } catch (Exception e) {
@@ -191,11 +193,11 @@ public class GeneratePlanService {
         ((ThreadPoolExecutor) tripPlanExecutor).getCorePoolSize());
 
     // 1. 并发搜索航班
-    CompletableFuture<List<FlightInfo>> flightsFuture = CompletableFuture
+    CompletableFuture<Map<String,List<FlightInfo>>> flightsFuture = CompletableFuture
         .supplyAsync(() -> {
           long start = System.currentTimeMillis();
           try {
-            List<FlightInfo> flights = flightSearchService.searchFlightOffers(param, dateResult, preciseTravel, roundTrip);
+            Map<String,List<FlightInfo>> flights = flightSearchService.searchFlightOffers(param, dateResult, preciseTravel, roundTrip);
             log.info("[{}] Flight search completed in {} ms, found {} flights", 
                 Thread.currentThread().getName(), System.currentTimeMillis() - start, flights.size());
             return flights;
@@ -259,7 +261,7 @@ public class GeneratePlanService {
           long start = System.currentTimeMillis();
           try {
             List<HotelInfo> hotels = hotelSearchService.searchHotels(
-                param, concurrentResult.flights, concurrentResult.hotelIds);
+                param, concurrentResult.flights.get("preferred"), concurrentResult.hotelIds);
             log.info("[{}] Hotel details search completed in {} ms, found {} hotels", 
                 Thread.currentThread().getName(), System.currentTimeMillis() - start, hotels.size());
             return hotels;
@@ -320,13 +322,13 @@ public class GeneratePlanService {
    * @return AI生成的计划文本
    */
   private TripRoutePlanResult generateAiPlan(GeneratePlanParam param,
-      List<FlightInfo> flights,
+      Map<String,List<FlightInfo>> flights,
       List<HotelInfo> hotels,
       List<ActivityInfo> activities) {
     try {
       SubmitAiPlanInfo planInfo = new SubmitAiPlanInfo();
       planInfo.setGeneratePlanParam(param);
-      planInfo.setFlightInfos(flights);
+      planInfo.setFlightMap(flights);
       planInfo.setHotelInfos(hotels);
       planInfo.setActivityInfos(activities);
 
@@ -343,11 +345,11 @@ public class GeneratePlanService {
    * 并发搜索结果数据结构
    */
   private static class ConcurrentSearchResult {
-    final List<FlightInfo> flights;
+    final Map<String,List<FlightInfo>> flights;
     final Map<String, List<String>> hotelIds;
     final List<CityLocationInfo> locations;
 
-    ConcurrentSearchResult(List<FlightInfo> flights, 
+    ConcurrentSearchResult(Map<String,List<FlightInfo>> flights,
                           Map<String, List<String>> hotelIds, 
                           List<CityLocationInfo> locations) {
       this.flights = flights;
@@ -360,11 +362,11 @@ public class GeneratePlanService {
    * 依赖搜索结果数据结构
    */
   private static class DependentSearchResult {
-    final List<FlightInfo> flights;
+    final Map<String,List<FlightInfo>> flights;
     final List<HotelInfo> hotels;
     final List<ActivityInfo> activities;
 
-    DependentSearchResult(List<FlightInfo> flights, 
+    DependentSearchResult(Map<String,List<FlightInfo>> flights,
                          List<HotelInfo> hotels, 
                          List<ActivityInfo> activities) {
       this.flights = flights;

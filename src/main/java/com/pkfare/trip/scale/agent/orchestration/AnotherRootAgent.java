@@ -1,5 +1,9 @@
 package com.pkfare.trip.scale.agent.orchestration;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.google.adk.agents.BaseAgent;
 import com.google.adk.agents.Callbacks.AfterAgentCallback;
 import com.google.adk.agents.Callbacks.BeforeAgentCallback;
@@ -57,7 +61,7 @@ public class AnotherRootAgent extends BaseAgent {
     super(name, description, subAgents, beforeAgentCallback, afterAgentCallback);
   }
 
-  public static AnotherRootAgent instance() {
+  public static synchronized AnotherRootAgent instance() {
     if (null == ROOT_AGENT){
       ROOT_AGENT = new AnotherRootAgent();
     }
@@ -81,9 +85,12 @@ public class AnotherRootAgent extends BaseAgent {
       case "planning":
         eventFlowable = invocationContext.agent().findAgent("trip_planning_agent").runAsync(invocationContext);
         break;
-
+      case "adjustment":
+        eventFlowable = invocationContext.agent().findAgent("adjustment_agent").runAsync(invocationContext);
+        break;
     }
-    return eventFlowable
+    assert eventFlowable != null;
+    return eventFlowable.doOnNext(event-> log.info("inner event {}", event.id()))
 //        .mergeWith(Single.fromSupplier(()-> Event.builder().author("system").content(Content.fromParts(Part.fromText("hi night."))).build()))
         .doOnNext(event -> stageTransition(event, invocationContext));
   }
@@ -92,7 +99,6 @@ public class AnotherRootAgent extends BaseAgent {
     if (event.content().isPresent()) {
       Content content = event.content().get();
       String text = content.text();
-      String role = content.role().get();
       if (StringUtils.isNotEmpty(text)) {
         Session session = invocationContext.session();
         String currentStage = (String) session.state().get("current_stage");
@@ -100,16 +106,22 @@ public class AnotherRootAgent extends BaseAgent {
         String pref = null;
         try {
           if (text.contains("------")) {
-            text = text.split("------")[1];
-            pref = text.split("------")[0];
+            String[] tt = text.split("------");
+            pref = tt[0];
+            text = tt[1];
           }
           text = text.replace("```json","").replace("```","");
-          JsonElement jsonElement = JsonParser.parseString(text);
+
+          ObjectMapper mapper = new ObjectMapper();
+          mapper.registerModule(new JavaTimeModule());
+          mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+
+          //JsonElement jsonElement = JsonParser.parseString(text);
           List<Part> parts = content.parts().get();
           Part part;
           switch (currentStage) {
             case "demand":
-              TripDemand tripDemand = new Gson().fromJson(jsonElement, TripDemand.class);
+              TripDemand tripDemand = mapper.readValue(text, TripDemand.class);
               states.put("current_stage", "inspiration");
               states.put("trip_demand", tripDemand);
               part = Part.builder().text(tripDemand.getBrief()).build();
@@ -117,8 +129,7 @@ public class AnotherRootAgent extends BaseAgent {
               parts.add(part);
               break;
             case "inspiration":
-              List<TripRoute> tripRoutes = new Gson().fromJson(jsonElement, new TypeToken<List<TripRoute>>() {
-              }.getType());
+              List<TripRoute> tripRoutes = mapper.readValue(text, new TypeReference<List<TripRoute>>() {});
               states.put("current_stage", "planning");
               states.put("trip_route", tripRoutes);
               part = Part.builder().text(Optional.ofNullable(pref).orElse("Let's will start planning details for it!")).build();
@@ -126,15 +137,24 @@ public class AnotherRootAgent extends BaseAgent {
               parts.add(part);
               break;
             case "planning":
-              if ("planner".equals(content.role().get())){
-                TripRoutePlanResult tripRoutePlanResult = new Gson().fromJson(text, TripRoutePlanResult.class);
+              if (content.role().isPresent() && "planner".equals(content.role().get())){
+//                TripRoutePlanResult tripRoutePlanResult = JSON.parseObject(text,TripRoutePlanResult.class);
+                //TripRoutePlanResult tripRoutePlanResult = new Gson().fromJson(text, TripRoutePlanResult.class);
+                TripRoutePlanResult tripRoutePlanResult = mapper.readValue(text, TripRoutePlanResult.class);
+                states.put("current_stage", "adjustment");
                 states.put("plan_result", tripRoutePlanResult);
+//                Part part1 = Part.builder().text(tripRoutePlanResult.getSummary()).build();
+                part = Part.builder().text(text).build();
+                parts.removeFirst();
+//                parts.add(part1);
+                parts.add(part);
               }
 
             default:
           }
         } catch (Throwable e) {
-          log.info("error {}", ExceptionUtils.getStackTrace(e));
+//          log.info("error {}", ExceptionUtils.getStackTrace(e));
+          log.info("parse error text : {}", text);
           return;
         }
 

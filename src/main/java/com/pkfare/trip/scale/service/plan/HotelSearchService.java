@@ -3,6 +3,7 @@ package com.pkfare.trip.scale.service.plan;
 import com.amadeus.resources.Hotel;
 import com.amadeus.resources.HotelOfferSearch;
 import com.amadeus.resources.HotelOfferSearch.Offer;
+import com.google.common.collect.Lists;
 import com.pkfare.trip.scale.api.amadeus.hotelbycity.request.QueryHotelByCityRequest;
 import com.pkfare.trip.scale.api.amadeus.hoteloffers.request.HotelOffersSearchRequest;
 import com.pkfare.trip.scale.plan.service.param.GeneratePlanParam;
@@ -13,6 +14,7 @@ import com.pkfare.trip.scale.plan.service.response.SegmentInfo;
 import com.pkfare.trip.scale.service.external.amadeus.AmadeusHotelService;
 import com.pkfare.trip.scale.util.DateUtil;
 import com.pkfare.trip.scale.util.PriceUtil;
+import java.util.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,8 +23,8 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.*;
 import java.util.stream.Collectors;
+import org.springframework.util.CollectionUtils;
 
 /**
  * 酒店搜索服务
@@ -47,7 +49,7 @@ public class HotelSearchService {
    * @param flights 航班信息（用于确定入住时间）
    * @return 酒店信息列表
    */
-  public List<HotelInfo> searchHotels(GeneratePlanParam param, List<FlightInfo> flights,Map<String, List<String>> localHotelIdMap) {
+  public List<HotelInfo> searchHotels(GeneratePlanParam param, List<FlightInfo> flights, Map<String, List<String>> localHotelIdMap) {
     log.info("Searching hotels for {} routes", param.getTrip_routes().size());
 
     // 1. 计算入住和退房时间
@@ -87,7 +89,7 @@ public class HotelSearchService {
 
     Map<String, List<String>> localHotelIdMap = new HashMap<>();
 
-    routes.parallelStream().forEach(route->{
+    routes.parallelStream().forEach(route -> {
       String locationCode = route.getLocation_code();
 
       QueryHotelByCityRequest request = new QueryHotelByCityRequest();
@@ -250,18 +252,16 @@ public class HotelSearchService {
     }
 
     // 按价格排序，选择最便宜的
-    HotelOfferSearch cheapestOffer = offers.stream()
-        .min(Comparator.comparing(offer -> {
+    List<HotelOfferSearch> cheapestOfferList = offers.stream()
+        .sorted(Comparator.comparing(offer -> {
           if (offer.getOffers() != null && offer.getOffers().length > 0) {
             return PriceUtil.parsePrice(offer.getOffers()[0].getPrice().getTotal());
           }
           return BigDecimal.valueOf(Double.MAX_VALUE);
-        }))
-        .orElse(null);
+        })).collect(Collectors.toList());
 
-    if (cheapestOffer != null) {
-      HotelInfo hotelInfo = convertToHotelInfo(cheapestOffer, route, checkIn, checkOut);
-      return Collections.singletonList(hotelInfo);
+    if (!CollectionUtils.isEmpty(cheapestOfferList)) {
+      return convertToHotelInfo(cheapestOfferList, route, checkIn, checkOut);
     }
 
     return new ArrayList<>();
@@ -275,24 +275,34 @@ public class HotelSearchService {
    * 转换为HotelInfo
    *
    * @param offer    酒店报价
-   * @param cityCode 城市代码
-   * @param cityName 城市名称
+   * @param route    路线
    * @param checkIn  入住日期
    * @param checkOut 退房日期
    * @return 酒店信息
    */
-  public static HotelInfo convertToHotelInfo(HotelOfferSearch offer, String cityCode, String cityName,
+  private List<HotelInfo> convertToHotelInfo(List<HotelOfferSearch> hotelOfferSearchList, TripRouteParam route,
       LocalDate checkIn, LocalDate checkOut) {
+    List<HotelInfo> hotelInfoList = Lists.newArrayList();
+    for (int i = 0; i < hotelOfferSearchList.size(); i++) {
+      hotelInfoList.add(buildHotelInfo(hotelOfferSearchList.get(i), route, checkIn, checkOut, i));
+    }
+    return hotelInfoList;
+  }
+
+  private HotelInfo buildHotelInfo(HotelOfferSearch offer, TripRouteParam route, LocalDate checkIn, LocalDate checkOut, int i) {
     HotelInfo hotelInfo = new HotelInfo();
     if (offer == null || offer.getHotel() == null) {
       return null;
+    }
+    if (i == 0) {
+      hotelInfo.setPreferred(true);
     }
 
     // 基本信息
     hotelInfo.setHotelId(offer.getHotel().getHotelId());
     hotelInfo.setHotelName(offer.getHotel().getName());
-    hotelInfo.setCityCode(cityCode);
-    hotelInfo.setCityName(cityName);
+    hotelInfo.setCityCode(route.getLocation_code());
+    hotelInfo.setCityName(route.getDestination_city());
     hotelInfo.setCheckInDate(checkIn);
     hotelInfo.setCheckOutDate(checkOut);
     hotelInfo.setNights((int) DateUtil.daysBetween(checkIn, checkOut));
@@ -304,7 +314,7 @@ public class HotelSearchService {
       hotelInfo.setTotalPrice(PriceUtil.parsePrice(firstOffer.getPrice().getTotal()));
       hotelInfo.setCurrency(firstOffer.getPrice().getCurrency());
       // 描述信息
-      if(Objects.nonNull(firstOffer.getDescription())){
+      if (Objects.nonNull(firstOffer.getDescription())) {
         hotelInfo.setDescriptionLang(firstOffer.getDescription().getLang());
         hotelInfo.setDescriptionText(firstOffer.getDescription().getText());
       }
@@ -331,7 +341,7 @@ public class HotelSearchService {
    * @param address 地址对象
    * @return 地址字符串
    */
-  private static String buildAddressString(Object address) {
+  private String buildAddressString(Object address) {
     // 这里需要根据实际的Address对象结构来实现
     // 简化实现
     return address != null ? address.toString() : "";

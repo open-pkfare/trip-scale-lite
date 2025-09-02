@@ -17,6 +17,11 @@ public class SegmentInfo {
      * 出发地址
      */
     private String departure;
+
+    /**
+     * 航站楼
+     */
+    private String departureTerminal;
     
     /**
      * 出发时间
@@ -29,6 +34,11 @@ public class SegmentInfo {
      * 到达地址
      */
     private String arrival;
+
+    /**
+     * 航站楼
+     */
+    private String arrivalTerminal;
     
     /**
      * 到达时间
@@ -46,4 +56,10 @@ public class SegmentInfo {
      * 航班号
      */
     private String number;
+
+
+    /**
+     * 行程时间
+     */
+    private String duration;
 }

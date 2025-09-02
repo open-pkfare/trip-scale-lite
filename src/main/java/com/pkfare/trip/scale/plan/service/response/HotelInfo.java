@@ -91,4 +91,9 @@ public class HotelInfo {
      * 描述文案
      */
     private String descriptionText;
+
+    /**
+     * 是否首选
+     */
+    private Boolean preferred = false;
 }
