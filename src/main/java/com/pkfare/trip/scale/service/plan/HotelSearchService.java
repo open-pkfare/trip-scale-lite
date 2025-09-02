@@ -267,29 +267,30 @@ public class HotelSearchService {
     return new ArrayList<>();
   }
 
-  private HotelInfo convertToHotelInfo(HotelOfferSearch offer, TripRouteParam route,
-      LocalDate checkIn, LocalDate checkOut) {
+  private HotelInfo convertToHotelInfo(HotelOfferSearch offer, TripRouteParam route, LocalDate checkIn, LocalDate checkOut) {
     return convertToHotelInfo(offer, route.getLocation_code(), route.getDestination_city(), checkIn, checkOut);
   }
+
   /**
    * 转换为HotelInfo
    *
-   * @param offer    酒店报价
+   * @param hotelOfferSearchList    酒店报价
    * @param route    路线
    * @param checkIn  入住日期
    * @param checkOut 退房日期
    * @return 酒店信息
    */
-  private List<HotelInfo> convertToHotelInfo(List<HotelOfferSearch> hotelOfferSearchList, TripRouteParam route,
-      LocalDate checkIn, LocalDate checkOut) {
+  private List<HotelInfo> convertToHotelInfo(List<HotelOfferSearch> hotelOfferSearchList, TripRouteParam route, LocalDate checkIn,
+      LocalDate checkOut) {
     List<HotelInfo> hotelInfoList = Lists.newArrayList();
     for (int i = 0; i < hotelOfferSearchList.size(); i++) {
-      hotelInfoList.add(buildHotelInfo(hotelOfferSearchList.get(i), route, checkIn, checkOut, i));
+      hotelInfoList.add(buildHotelInfo(hotelOfferSearchList.get(i), route.getLocation_code(), route.getDestination_city(), checkIn, checkOut, i));
     }
     return hotelInfoList;
   }
 
-  private HotelInfo buildHotelInfo(HotelOfferSearch offer, TripRouteParam route, LocalDate checkIn, LocalDate checkOut, int i) {
+  public static HotelInfo buildHotelInfo(HotelOfferSearch offer, String locationCode, String destinationCity, LocalDate checkIn, LocalDate checkOut,
+      int i) {
     HotelInfo hotelInfo = new HotelInfo();
     if (offer == null || offer.getHotel() == null) {
       return null;
@@ -301,8 +302,8 @@ public class HotelSearchService {
     // 基本信息
     hotelInfo.setHotelId(offer.getHotel().getHotelId());
     hotelInfo.setHotelName(offer.getHotel().getName());
-    hotelInfo.setCityCode(route.getLocation_code());
-    hotelInfo.setCityName(route.getDestination_city());
+    hotelInfo.setCityCode(locationCode);
+    hotelInfo.setCityName(destinationCity);
     hotelInfo.setCheckInDate(checkIn);
     hotelInfo.setCheckOutDate(checkOut);
     hotelInfo.setNights((int) DateUtil.daysBetween(checkIn, checkOut));
@@ -341,7 +342,7 @@ public class HotelSearchService {
    * @param address 地址对象
    * @return 地址字符串
    */
-  private String buildAddressString(Object address) {
+  private static String buildAddressString(Object address) {
     // 这里需要根据实际的Address对象结构来实现
     // 简化实现
     return address != null ? address.toString() : "";

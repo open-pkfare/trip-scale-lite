@@ -121,8 +121,8 @@ public class HotelAdjustServiceImpl implements TripPlanAdjustInterface {
         return BigDecimal.valueOf(Double.MAX_VALUE);
       })).orElse(null);
 
-      return HotelSearchService.convertToHotelInfo(cheapestOffer, oldHotel.getCityCode(), oldHotel.getCityName(), oldHotel.getCheckInDate(),
-          oldHotel.getCheckOutDate());
+      return HotelSearchService.buildHotelInfo(cheapestOffer, oldHotel.getCityCode(), oldHotel.getCityName(), oldHotel.getCheckInDate(),
+          oldHotel.getCheckOutDate(), 0);
     } catch (Exception e) {
       throw new TripPlanException(TripPlanErrorCodeEnum.NO_HOTEL_FOUND);
     }
