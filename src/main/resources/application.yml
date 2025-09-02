@@ -57,6 +57,15 @@ amadeus:
   base-url: https://test.api.amadeus.com/v1
   timeout-ms: 30000
   max-connections: 100
+  # Mock配置
+  flight:
+    offers:
+      mock:
+        enabled: ${AMADEUS_FLIGHT_OFFERS_MOCK_ENABLED:false}
+  hotel:
+    offers:
+      mock:
+        enabled: ${AMADEUS_HOTEL_OFFERS_MOCK_ENABLED:false}
 
 # 日志配置
 logging:
