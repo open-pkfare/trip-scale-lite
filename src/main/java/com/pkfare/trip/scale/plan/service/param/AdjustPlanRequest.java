@@ -2,6 +2,7 @@ package com.pkfare.trip.scale.plan.service.param;
 
 import com.google.gson.JsonArray;
 import com.pkfare.trip.scale.plan.service.response.TripPlan;
+import com.pkfare.trip.scale.plan.service.response.TripRoutePlanResult;
 import lombok.Data;
 
 import javax.validation.Valid;
@@ -24,7 +25,7 @@ public class AdjustPlanRequest {
      * 原始旅行计划
      */
     @Valid
-    private TripPlan tripPlan;
+    private TripRoutePlanResult tripPlan;
 
     /**
      * 调整参数列表

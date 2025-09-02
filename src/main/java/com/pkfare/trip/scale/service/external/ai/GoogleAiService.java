@@ -332,7 +332,7 @@ public class GoogleAiService {
     /**
      * 生成总结
      */
-    private String generateSummary(List<DailyRoutePlan> dailyPlans) {
+    public String generateSummary(List<DailyRoutePlan> dailyPlans) {
         StringBuilder summary = new StringBuilder();
         summary.append("This trip spans ").append(dailyPlans.size()).append(" days, ");
         

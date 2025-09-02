@@ -2,8 +2,7 @@ package com.pkfare.trip.scale.controller;
 
 import com.pkfare.trip.scale.plan.service.TripPlanAdjustService;
 import com.pkfare.trip.scale.plan.service.param.AdjustPlanRequest;
-import com.pkfare.trip.scale.plan.service.response.TripPlan;
-import java.time.LocalDateTime;
+import com.pkfare.trip.scale.plan.service.response.TripRoutePlanResult;
 import javax.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,26 +34,20 @@ public class TripPlanAdjustController {
    * @return 调整后的旅行计划
    */
   @PostMapping("/adjust")
-  public ResponseEntity<TripPlan> adjustPlan(@Valid @RequestBody AdjustPlanRequest request) {
-
-    TripPlan tripPlan = request.getTripPlan();
-    log.info("Received trip plan adjustment request for planId: {}", tripPlan.getPlanId());
-
+  public ResponseEntity<TripRoutePlanResult> adjustPlan(@Valid @RequestBody AdjustPlanRequest request) {
+    TripRoutePlanResult tripPlan = request.getTripPlan();
     try {
-      TripPlan adjustedPlan = tripPlanAdjustService.adjustPlan(request.getGeneratePlanParam(), tripPlan, request.getAdjustPlanParams());
-      log.info("Trip plan adjusted successfully: planId={}, status={}",
-          adjustedPlan.getPlanId(), adjustedPlan.getStatus());
+      TripRoutePlanResult adjustedPlan = tripPlanAdjustService.adjustPlan(request.getGeneratePlanParam(), tripPlan, request.getAdjustPlanParams());
+      log.info("Trip plan adjusted successfully");
       return ResponseEntity.ok(adjustedPlan);
     } catch (Exception e) {
       log.error("Failed to adjust trip plan", e);
 
       // 返回错误响应
-      TripPlan errorPlan = new TripPlan();
-      errorPlan.setPlanId(tripPlan.getPlanId() != null ? tripPlan.getPlanId() : java.util.UUID.randomUUID().toString());
-      errorPlan.setStatus(com.pkfare.trip.scale.model.enums.PlanStatus.API_ERROR);
-      errorPlan.setErrorMessage("调整旅行计划时发生错误: " + e.getMessage());
-      errorPlan.setCreatedTime(LocalDateTime.now());
-      return ResponseEntity.status(500).body(errorPlan);
+      TripRoutePlanResult error = new TripRoutePlanResult();
+      error.setStatus("ERROR");
+      error.setErrorMessage("调整旅行计划时发生错误: " + e.getMessage());
+      return ResponseEntity.status(500).body(error);
     }
   }
 }
