@@ -276,7 +276,7 @@ public class HotelSearchService {
    * @param checkOut 退房日期
    * @return 酒店信息
    */
-  private List<HotelInfo> convertToHotelInfo(List<HotelOfferSearch> hotelOfferSearchList, TripRouteParam route, LocalDate checkIn,
+  private List<HotelInfo> convertToHotelInfo(List<HotelOfferDto> hotelOfferSearchList, TripRouteParam route, LocalDate checkIn,
       LocalDate checkOut) {
     List<HotelInfo> hotelInfoList = Lists.newArrayList();
     for (int i = 0; i < hotelOfferSearchList.size(); i++) {
@@ -285,7 +285,7 @@ public class HotelSearchService {
     return hotelInfoList;
   }
 
-  public static HotelInfo buildHotelInfo(HotelOfferSearch offer, String locationCode, String destinationCity, LocalDate checkIn, LocalDate checkOut,
+  public static HotelInfo buildHotelInfo(HotelOfferDto offer, String locationCode, String destinationCity, LocalDate checkIn, LocalDate checkOut,
       int i) {
     HotelInfo hotelInfo = new HotelInfo();
     if (offer == null || offer.getHotel() == null) {

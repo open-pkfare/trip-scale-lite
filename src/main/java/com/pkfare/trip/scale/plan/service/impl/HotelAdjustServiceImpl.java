@@ -6,6 +6,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.pkfare.trip.scale.api.amadeus.hotelbycity.request.QueryHotelByGeocodeRequest;
 import com.pkfare.trip.scale.api.amadeus.hoteloffers.request.HotelOffersSearchRequest;
+import com.pkfare.trip.scale.api.amadeus.hoteloffers.response.HotelOfferDto;
 import com.pkfare.trip.scale.exception.TripPlanException;
 import com.pkfare.trip.scale.model.enums.TripPlanErrorCodeEnum;
 import com.pkfare.trip.scale.plan.service.TripPlanAdjustInterface;
@@ -112,20 +113,20 @@ public class HotelAdjustServiceImpl implements TripPlanAdjustInterface {
     request.setPriceRange("1-" + maxPrice.toString());
     request.setCurrency(oldHotel.getCurrency());
     try {
-      HotelOfferSearch[] offers = amadeusHotelService.searchHotelOffers(request);
-      if (offers == null || offers.length == 0) {
+      List<HotelOfferDto> offers = amadeusHotelService.searchHotelOffers(request);
+      if (offers == null || offers.isEmpty()) {
         throw new TripPlanException(TripPlanErrorCodeEnum.NO_HOTEL_FOUND);
       }
 
       // 按价格排序，选择最便宜的
-      HotelOfferSearch cheapestOffer = Arrays.stream(offers).min(Comparator.comparing(offer -> {
-        if (offer.getOffers() != null && offer.getOffers().length > 0) {
-          return PriceUtil.parsePrice(offer.getOffers()[0].getPrice().getTotal());
+      HotelOfferDto offerDto = offers.stream().min(Comparator.comparing(offer -> {
+        if (offer.getOffers() != null && !offer.getOffers().isEmpty()) {
+          return PriceUtil.parsePrice(offer.getOffers().getFirst().getPrice().getTotal());
         }
         return BigDecimal.valueOf(Double.MAX_VALUE);
       })).orElse(null);
 
-      return HotelSearchService.buildHotelInfo(cheapestOffer, oldHotel.getCityCode(), oldHotel.getCityName(), oldHotel.getCheckInDate(),
+      return HotelSearchService.buildHotelInfo(offerDto, oldHotel.getCityCode(), oldHotel.getCityName(), oldHotel.getCheckInDate(),
           oldHotel.getCheckOutDate(), 0);
     } catch (Exception e) {
       throw new TripPlanException(TripPlanErrorCodeEnum.NO_HOTEL_FOUND);
