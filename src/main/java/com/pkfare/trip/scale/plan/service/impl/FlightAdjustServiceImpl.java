@@ -1,11 +1,11 @@
 package com.pkfare.trip.scale.plan.service.impl;
 
-import com.amadeus.resources.FlightOfferSearch;
-import com.amadeus.resources.FlightOfferSearch.Itinerary;
-import com.amadeus.resources.FlightOfferSearch.SearchSegment;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.pkfare.trip.scale.api.amadeus.flightoffers.request.FlightOffersSearchRequest;
+import com.pkfare.trip.scale.api.amadeus.flightoffers.response.FlightOfferDto;
+import com.pkfare.trip.scale.api.amadeus.flightoffers.response.ItineraryDto;
+import com.pkfare.trip.scale.api.amadeus.flightoffers.response.SearchSegmentDto;
 import com.pkfare.trip.scale.exception.TripPlanException;
 import com.pkfare.trip.scale.model.enums.TripPlanErrorCodeEnum;
 import com.pkfare.trip.scale.plan.service.TripPlanAdjustInterface;
@@ -15,14 +15,12 @@ import com.pkfare.trip.scale.plan.service.param.GeneratePlanParam;
 import com.pkfare.trip.scale.plan.service.response.FlightInfo;
 import com.pkfare.trip.scale.plan.service.response.ItineraryInfo;
 import com.pkfare.trip.scale.plan.service.response.SegmentInfo;
-import com.pkfare.trip.scale.plan.service.response.TripPlan;
 import com.pkfare.trip.scale.plan.service.response.TripRoutePlanResult;
 import com.pkfare.trip.scale.service.external.ai.GoogleAiService;
 import com.pkfare.trip.scale.service.external.amadeus.AmadeusFlightService;
 import com.pkfare.trip.scale.service.plan.FlightSearchService;
 import com.pkfare.trip.scale.util.PriceUtil;
 import java.math.BigDecimal;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -39,6 +37,7 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @Service
 public class FlightAdjustServiceImpl implements TripPlanAdjustInterface {
+
   private static final Gson gson = new Gson();
   @Autowired
   private FlightSearchService flightSearchService;
@@ -48,7 +47,7 @@ public class FlightAdjustServiceImpl implements TripPlanAdjustInterface {
   private GoogleAiService googleAiService;
 
   @Override
-  public void adjust(GeneratePlanParam generatePlanParam, TripRoutePlanResult tripPlan,  JsonObject adjustParam) {
+  public void adjust(GeneratePlanParam generatePlanParam, TripRoutePlanResult tripPlan, JsonObject adjustParam) {
     AdjustFlightParam adjustFlightParam = gson.fromJson(adjustParam, AdjustFlightParam.class);
     log.info("Adjusting flight param: {}", adjustFlightParam);
     List<FlightInfo> flights = tripPlan.getPreferredFlights();
@@ -91,29 +90,28 @@ public class FlightAdjustServiceImpl implements TripPlanAdjustInterface {
       request.setMaxPrice(new BigDecimal(oldFlightInfo.getTotal()).multiply(new BigDecimal("0.8")).intValue());
     }
 
-    FlightOfferSearch[] offers = amadeusFlightService.searchFlightOffers(request);
-    if (offers == null || offers.length == 0) {
+    List<FlightOfferDto> offers = amadeusFlightService.searchFlightOffers(request);
+    if (offers.isEmpty()) {
       throw new TripPlanException(TripPlanErrorCodeEnum.NO_FLIGHT_FOUND);
     }
     // 按价格升序排序
-    List<FlightOfferSearch> offerSearches = Arrays.asList(offers);
-    offerSearches.sort((o1, o2) -> {
+    offers.sort((o1, o2) -> {
       BigDecimal price1 = PriceUtil.parsePrice(o1.getPrice().getTotal());
       BigDecimal price2 = PriceUtil.parsePrice(o2.getPrice().getTotal());
       return price1.compareTo(price2);
     });
 
     // 根据adjustTypeEnum不同，从offers找出不同的航班
-    FlightOfferSearch target = offerSearches.getFirst();
+    FlightOfferDto target = offers.getFirst();
     if (adjustTypeEnum.equals(FlightAdjustTypeEnum.REPLACE)
         || adjustTypeEnum.equals(FlightAdjustTypeEnum.CHEAPER)) {
       // 从offers找出与flightInfo不同航班号的一个航班
       Set<String> oldSegmentSet = oldFlightInfo.getItineraries().stream().flatMap(itinerary -> itinerary.getSegments().stream())
           .map(segment -> segment.getCarrierCode().concat(segment.getNumber()))
           .collect(Collectors.toSet());
-      Optional<FlightOfferSearch> optional = offerSearches.stream()
+      Optional<FlightOfferDto> optional = offers.stream()
           .filter(offer -> {
-            return Arrays.stream(offer.getItineraries()).flatMap(itinerary -> Arrays.stream(itinerary.getSegments()))
+            return offer.getItineraries().stream().flatMap(itinerary -> itinerary.getSegments().stream())
                 .anyMatch(segment -> !oldSegmentSet.contains(segment.getCarrierCode().concat(segment.getNumber())));
           })
           .findFirst();
@@ -121,18 +119,18 @@ public class FlightAdjustServiceImpl implements TripPlanAdjustInterface {
         target = optional.get();
       }
     } else if (adjustTypeEnum.equals(FlightAdjustTypeEnum.ADVANCE)) {
-      for (FlightOfferSearch offerSearch : offerSearches) {
-        String newDepartureTime = offerSearch.getItineraries()[0].getSegments()[0].getDeparture().getAt();
+      for (FlightOfferDto offerSearch : offers) {
+        String newDepartureTime = offerSearch.getItineraries().getFirst().getSegments().getFirst().getDeparture().getAt();
         if (newDepartureTime.compareTo(departureTime) < 0) {
           target = offerSearch;
           break;
         }
       }
     } else if (adjustTypeEnum.equals(FlightAdjustTypeEnum.DELAY)) {
-      for (FlightOfferSearch offerSearch : offerSearches) {
-        Itinerary[] itineraries1 = offerSearch.getItineraries();
-        SearchSegment[] segments1 = itineraries1[itineraries1.length - 1].getSegments();
-        String newArrivalTime = segments1[segments1.length - 1].getArrival().getAt();
+      for (FlightOfferDto offerSearch : offers) {
+        List<ItineraryDto> itineraries1 = offerSearch.getItineraries();
+        List<SearchSegmentDto> segments1 = itineraries1.getLast().getSegments();
+        String newArrivalTime = segments1.getLast().getArrival().getAt();
         if (newArrivalTime.compareTo(arrivalTime) > 0) {
           target = offerSearch;
           break;
