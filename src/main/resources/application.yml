@@ -58,8 +58,14 @@ amadeus:
   timeout-ms: 30000
   max-connections: 100
   # Mock配置
-  mock:
-    enabled: ${AMADEUS_FLIGHT_OFFERS_MOCK_ENABLED:false}
+  flight:
+    offers:
+      mock:
+        enabled: ${AMADEUS_FLIGHT_OFFERS_MOCK_ENABLED:false}
+  hotel:
+    offers:
+      mock:
+        enabled: ${AMADEUS_HOTEL_OFFERS_MOCK_ENABLED:false}
 
 # 日志配置
 logging:
