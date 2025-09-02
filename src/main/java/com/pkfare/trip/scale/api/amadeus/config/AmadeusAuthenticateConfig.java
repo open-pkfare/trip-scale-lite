@@ -3,9 +3,9 @@ package com.pkfare.trip.scale.api.amadeus.config;
 
 public class AmadeusAuthenticateConfig {
 
-  private static String clientKey = "fXHWa5iB5dJTTdh3yUAgK6ed24smDaeY";
+  private static String clientKey = "D0nDPXkByL2Cmhke57NrjFeBYPkH4u9p";
 
-  private static String clientSecret = "SCkPgnVQ3lGbBog2";
+  private static String clientSecret = "dtUERyvKwUnvvcBY";
 
   public static String getClientKey() {
     return clientKey;

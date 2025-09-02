@@ -1,0 +1,71 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: trip-scale-lite
+  
+  # Jackson配置
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    default-property-inclusion: non_null
+
+# 旅行计划配置
+trip:
+  plan:
+    max-retry-attempts: 3
+    retry-delay-ms: 1000
+    max-activities-per-city: 5
+    activity-search-radius-km: 20.0
+    activity-filter-radius-km: 100.0
+    default-price-range: "10,5000"
+    default-hotel-radius: 20
+    default-hotel-radius-unit: "KM"
+    # 异步执行配置
+    async:
+      core-pool-size: 16
+      max-pool-size: 16
+      queue-capacity: 100
+      keep-alive-seconds: 60
+      thread-name-prefix: "TripPlan-"
+    # 缓存配置
+    cache:
+      flight-dates:
+        expire-after-write-minutes: 120
+        maximum-size: 1000
+        initial-capacity: 100
+      flight-offers:
+        expire-after-write-minutes: 120
+        maximum-size: 1000
+        initial-capacity: 100
+      hotel-offers:
+        expire-after-write-minutes: 120
+        maximum-size: 1000
+        initial-capacity: 100
+      activities:
+        expire-after-write-minutes: 120
+        maximum-size: 1000
+        initial-capacity: 100
+
+# Amadeus API配置
+amadeus:
+  client-id: ${AMADEUS_CLIENT_ID:your_client_id}
+  client-secret: ${AMADEUS_CLIENT_SECRET:your_client_secret}
+  base-url: https://test.api.amadeus.com/v1
+  timeout-ms: 30000
+  max-connections: 100
+
+# 日志配置
+logging:
+  level:
+    com.pkfare.trip.scale: DEBUG
+    com.amadeus: INFO
+    org.springframework: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: logs/trip-scale-lite.log
