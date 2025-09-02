@@ -7,7 +7,6 @@ import lombok.Data;
 public class Conversation {
 
   private String content;
-  private List<String> files;
   private String conversationId;
   private String userId;
 }
