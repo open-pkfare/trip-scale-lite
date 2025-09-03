@@ -50,7 +50,7 @@ public class DevConfig {
 
   @Bean
   public AppRunner runner(){
-    return new AppRunner(AnotherRootAgent.instance(), APP_NAME, sessionService);
+    return new AppRunner(RootAgent.instance(), APP_NAME, sessionService);
   }
 
   /**

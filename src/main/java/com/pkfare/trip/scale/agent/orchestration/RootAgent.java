@@ -1,7 +1,10 @@
 package com.pkfare.trip.scale.agent.orchestration;
 
 import com.google.adk.agents.BaseAgent;
+import com.google.adk.agents.Callbacks.AfterAgentCallback;
+import com.google.adk.agents.Callbacks.BeforeAgentCallback;
 import com.google.adk.agents.Instruction;
+import com.google.adk.agents.InvocationContext;
 import com.google.adk.agents.LlmAgent;
 import com.google.adk.events.Event;
 import com.google.adk.events.EventActions;
@@ -41,11 +44,29 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 
 @Slf4j
-public class RootAgent {
+public class RootAgent extends BaseAgent {
 
   private static String NAME = "Coordinator";
 
-  public static BaseAgent ROOT_AGENT;
+  public static BaseAgent LLM_AGENT = instance();
+
+  public static RootAgent ROOT_AGENT;
+  @Setter
+  private static DevConfig devConfig;
+
+  public RootAgent() {
+    super(NAME, "Agent to coordinate different agents to work together with different steps to finish a trip planning.",
+        Lists.newArrayList(DemandAgent.instance(), InspirationAgent.instance(), PlanningAgent.instance(), OptimizingAgent.instance(),
+            BookingAgent.instance()),
+        null,
+        null);
+  }
+
+  public RootAgent(String name, String description, List<? extends BaseAgent> subAgents,
+      List<BeforeAgentCallback> beforeAgentCallback,
+      List<AfterAgentCallback> afterAgentCallback) {
+    super(name, description, subAgents, beforeAgentCallback, afterAgentCallback);
+  }
 
   public static synchronized BaseAgent instance() {
     if (null == ROOT_AGENT){
@@ -54,8 +75,7 @@ public class RootAgent {
         String prompt = StringUtils.replace(RootPrompt.INTRO,"{{current_stage}}", current_stage);
         return Single.just(prompt);
       });
-
-      ROOT_AGENT = LlmAgent.builder()
+      LLM_AGENT = LlmAgent.builder()
           .name(NAME)
           .model(GoogleConfig.GEMINI_2_5_FLASH)
           .description("Agent to coordinate different agents to work together with different steps to finish a trip planning.")
@@ -63,8 +83,42 @@ public class RootAgent {
           .subAgents(DemandAgent.instance(), InspirationAgent.instance(), PlanningAgent.instance(), OptimizingAgent.instance(),
               BookingAgent.instance())
           .build();
+      ROOT_AGENT = new RootAgent();
     }
     return ROOT_AGENT;
   }
 
+
+  private void initSession(Session session){
+    if (!session.state().containsKey("current_stage")){
+      ConcurrentMap<String, Object> states = Maps.newConcurrentMap();
+      states.put("current_stage", "demand");
+      states.put("user:userId", session.userId());
+      EventActions actionsWithUpdate = EventActions.builder().stateDelta(states).build();
+      long currentTimeMillis = Instant.now().toEpochMilli(); // Use milliseconds for Java Event
+      Event systemEvent =
+          Event.builder()
+              .invocationId("init")
+              .author("system") // Or 'agent', 'tool' etc.
+              .actions(actionsWithUpdate)
+              .timestamp(currentTimeMillis)
+              // content might be None or represent the action taken
+              .build();
+      Event updatedSession =
+          devConfig.appendEvent(session, systemEvent);
+    }
+  }
+
+
+  @Override
+  protected Flowable<Event> runAsyncImpl(InvocationContext invocationContext) {
+    Session session = invocationContext.session();
+    initSession(session);
+    return devConfig.runner().runAsync(invocationContext.userId(), invocationContext.session().id(), invocationContext.userContent().get());
+  }
+
+  @Override
+  protected Flowable<Event> runLiveImpl(InvocationContext invocationContext) {
+    return null;
+  }
 }
