@@ -1,14 +1,5 @@
 package com.pkfare.trip.scale.agent.inspiration;
 
-import com.google.adk.events.Event;
-import com.google.adk.runner.InMemoryRunner;
-import com.google.adk.sessions.Session;
-import com.google.genai.types.Content;
-import com.google.genai.types.Part;
-import io.reactivex.rxjava3.core.Flowable;
-import java.nio.charset.StandardCharsets;
-import java.util.Scanner;
-
 public class InspirationPrompt {
 
   public static String TRIP_ROUTES_INSPIRATION = "### BACKGROUND\n"

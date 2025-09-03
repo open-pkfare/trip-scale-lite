@@ -12,6 +12,7 @@ import com.google.adk.events.Event;
 import com.google.adk.events.EventActions;
 import com.google.adk.sessions.BaseSessionService;
 import com.google.adk.sessions.Session;
+import com.google.adk.web.config.DevConfig;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.errorprone.annotations.CanIgnoreReturnValue;
@@ -21,6 +22,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
+import com.pkfare.trip.scale.agent.booking.BookingAgent;
 import com.pkfare.trip.scale.agent.inspiration.DemandAgent;
 import com.pkfare.trip.scale.agent.inspiration.InspirationAgent;
 import com.pkfare.trip.scale.agent.optimizing.OptimizingAgent;
@@ -47,11 +49,12 @@ public class AnotherRootAgent extends BaseAgent {
   private static AnotherRootAgent ROOT_AGENT;
 
   @Setter
-  private BaseSessionService sessionService;
+  private DevConfig devConfig;
 
   public AnotherRootAgent() {
     super(NAME, "Agent to coordinate different agents to work together with different steps to finish a trip planning.",
-        Lists.newArrayList(DemandAgent.instance(), InspirationAgent.instance(), PlanningAgent.instance(), OptimizingAgent.instance()),
+        Lists.newArrayList(DemandAgent.instance(), InspirationAgent.instance(), PlanningAgent.instance(), OptimizingAgent.instance(),
+            BookingAgent.instance()),
         null,
         null);
   }
@@ -73,7 +76,6 @@ public class AnotherRootAgent extends BaseAgent {
   protected Flowable<Event> runAsyncImpl(InvocationContext invocationContext) {
     Session session = invocationContext.session();
     initSession(session);
-    getSession(session.id(), session.userId());
     String currentStage = (String) session.state().get("current_stage");
     Flowable<Event> eventFlowable = null;
     switch (currentStage) {
@@ -88,6 +90,9 @@ public class AnotherRootAgent extends BaseAgent {
         break;
       case "optimizing":
         eventFlowable = invocationContext.agent().findAgent("trip_optimizing_agent").runAsync(invocationContext);
+        break;
+      case "booking":
+        eventFlowable = invocationContext.agent().findAgent("booking_agent").runAsync(invocationContext);
         break;
     }
     assert eventFlowable != null;
@@ -117,7 +122,6 @@ public class AnotherRootAgent extends BaseAgent {
           mapper.registerModule(new JavaTimeModule());
           mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
 
-          //JsonElement jsonElement = JsonParser.parseString(text);
           List<Part> parts = content.parts().get();
           Part part;
           switch (currentStage) {
@@ -133,21 +137,17 @@ public class AnotherRootAgent extends BaseAgent {
               List<TripRoute> tripRoutes = mapper.readValue(text, new TypeReference<List<TripRoute>>() {});
               states.put("current_stage", "planning");
               states.put("trip_route", tripRoutes);
-              part = Part.builder().text(Optional.ofNullable(pref).orElse("Let's will start planning details for it!")).build();
+              part = Part.builder().text(Optional.ofNullable(pref).orElse("Okay, let's start planning details for it!")).build();
               parts.removeFirst();
               parts.add(part);
               break;
             case "planning":
               if (content.role().isPresent() && "planner".equals(content.role().get())){
-//                TripRoutePlanResult tripRoutePlanResult = JSON.parseObject(text,TripRoutePlanResult.class);
-                //TripRoutePlanResult tripRoutePlanResult = new Gson().fromJson(text, TripRoutePlanResult.class);
                 TripRoutePlanResult tripRoutePlanResult = mapper.readValue(text, TripRoutePlanResult.class);
                 states.put("current_stage", "optimizing");
                 states.put("plan_result", tripRoutePlanResult);
-//                Part part1 = Part.builder().text(tripRoutePlanResult.getSummary()).build();
                 part = Part.builder().text(text).build();
                 parts.removeFirst();
-//                parts.add(part1);
                 parts.add(part);
               }
             case "optimizing":
@@ -161,7 +161,7 @@ public class AnotherRootAgent extends BaseAgent {
           }
         } catch (Throwable e) {
 //          log.info("error {}", ExceptionUtils.getStackTrace(e));
-          log.info("parse error text : {}", text);
+//          log.info("parse error text : {}", text);
           return;
         }
 
@@ -176,7 +176,7 @@ public class AnotherRootAgent extends BaseAgent {
                 // content might be None or represent the action taken
                 .build();
         Event updatedSession =
-            sessionService.appendEvent(session, systemEvent).blockingGet();
+            devConfig.appendEvent(session, systemEvent);
       }
     }
   }
@@ -184,30 +184,6 @@ public class AnotherRootAgent extends BaseAgent {
   @Override
   protected Flowable<Event> runLiveImpl(InvocationContext invocationContext) {
     return null;
-  }
-
-  /**
-   * init session dialog
-   *
-   * @param conversationId
-   * @param userId
-   * @return
-   */
-  @CanIgnoreReturnValue
-  public Session getSession(String conversationId, String userId) {
-    Maybe<Session> sessionMaybe = sessionService.getSession(NAME, userId, conversationId, Optional.empty());
-    Session session;
-    if (null == (session = sessionMaybe.blockingGet())) {
-      log.info("start init a new session for conversation {}", conversationId);
-      ConcurrentMap<String, Object> states = Maps.newConcurrentMap();
-      states.put("current_stage", "demand");
-      states.put("user:userId", userId);
-
-      session = sessionService
-          .createSession(NAME, userId, states, conversationId)
-          .blockingGet();
-    }
-    return session;
   }
 
   private void initSession(Session session){
@@ -226,7 +202,7 @@ public class AnotherRootAgent extends BaseAgent {
               // content might be None or represent the action taken
               .build();
       Event updatedSession =
-          sessionService.appendEvent(session, systemEvent).blockingGet();
+          devConfig.appendEvent(session, systemEvent);
     }
   }
 
