@@ -192,7 +192,6 @@ public class FlightSearchService {
                                 GeoInfo departureGeo = airportLocationMap.get(segment.getDeparture().trim());
                                 if (departureGeo != null) {
                                     segment.setDepartureGeo(copyGeoInfo(departureGeo));
-                                    log.debug("Supplemented departure geo for airport: {}", segment.getDeparture());
                                 }
                             }
                             
@@ -201,7 +200,6 @@ public class FlightSearchService {
                                 GeoInfo arrivalGeo = airportLocationMap.get(segment.getArrival().trim());
                                 if (arrivalGeo != null) {
                                     segment.setArrivalGeo(copyGeoInfo(arrivalGeo));
-                                    log.debug("Supplemented arrival geo for airport: {}", segment.getArrival());
                                 }
                             }
                         }
