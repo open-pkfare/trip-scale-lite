@@ -36,10 +36,8 @@ public class CoordinationEntrance {
    */
   public List<RespConversation> chat(List<byte[]> files, Conversation conversation) {
     Session session = devConfig.getSession(conversation.getConversationId(), conversation.getUserId());
-
-    log.info("current session {} {}", session.id(), session.state().entrySet());
-
-    Builder builder = Content.builder();
+    log.info("current session {} {}", conversation.getConversationId(), session.state().entrySet());
+    Builder builder = Content.builder().role("user");
     List<Part> parts = Lists.newArrayList();
     if (StringUtils.isNotEmpty(conversation.getContent())){
       parts.add(Part.fromText(conversation.getContent()));

@@ -34,10 +34,10 @@ public class TripScaleController {
       @RequestParam(value = "file3", required = false) MultipartFile file3,
       @RequestParam("conversation") String conversationStr) {
     Conversation conversation = JSON.parseObject(conversationStr, Conversation.class);
-    logger.info("收到聊天请求，会话ID: {}", conversation.getConversationId());
+    logger.info("receive conversation ID: {}", conversation.getConversationId());
     if (StringUtils.isEmpty(conversation.getConversationId())) {
       conversation.setConversationId(UUID.randomUUID().toString());
-      logger.info("生成新的会话ID: {}", conversation.getConversationId());
+      logger.info("generate new conversation ID: {}", conversation.getConversationId());
     }
     List<byte[]> files = Lists.newArrayList();
     try {
