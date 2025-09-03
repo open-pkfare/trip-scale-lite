@@ -48,6 +48,9 @@ public class FlightSearchService {
     @Autowired
     private AmadeusFlightService amadeusFlightService;
     
+    @Autowired
+    private AmadeusFlightAirportLocationSearchAPI locationSearchAPI;
+    
     private static final LocalTime MORNING_START = LocalTime.of(6, 0);
     private static final LocalTime MORNING_END = LocalTime.of(11, 0);
     private static final LocalTime EVENING_START = LocalTime.of(17, 0);
@@ -72,7 +75,6 @@ public class FlightSearchService {
         
         // 2. 查询机场位置信息
         List<FlightLocationInfo> locationInfoList = new ArrayList<>();
-        AmadeusFlightAirportLocationSearchAPI locationSearchAPI = new AmadeusFlightAirportLocationSearchAPI();
         
         for (String airportCode : airportCodes) {
             try {
