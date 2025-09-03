@@ -71,7 +71,7 @@ amadeus:
         enabled: true
   activities:
     mock:
-      enabled: false
+      enabled: true
   locations:
     mock:
       enabled: true
