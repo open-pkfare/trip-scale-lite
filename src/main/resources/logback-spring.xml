@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Apache HttpClient 日志配置 -->
+    <!-- 打印请求和响应头信息 -->
+<!--    <logger name="org.apache.http.headers" level="DEBUG" />-->
+    
+    <!-- 打印请求和响应的完整内容（包括payload） -->
+<!--    <logger name="org.apache.http.wire" level="DEBUG" />-->
+    
+    <!-- HttpClient 连接管理日志 -->
+<!--    <logger name="org.apache.http.impl.conn" level="DEBUG" />-->
+    
+    <!-- HttpClient 请求执行日志 -->
+<!--    <logger name="org.apache.http.impl.client" level="DEBUG" />-->
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE" />
+    </root>
+</configuration>
