@@ -1,9 +1,9 @@
 package com.pkfare.trip.scale.service.plan;
 
-import com.amadeus.resources.Location;
 import com.google.common.collect.Maps;
 import com.pkfare.trip.scale.api.amadeus.airportlocations.AmadeusFlightAirportLocationSearchAPI;
 import com.pkfare.trip.scale.api.amadeus.airportlocations.request.FlightAirportLocationSearchRequest;
+import com.pkfare.trip.scale.api.amadeus.airportlocations.response.LocationDto;
 import com.pkfare.trip.scale.api.amadeus.flightdates.request.FlightDatesRequest;
 import com.pkfare.trip.scale.api.amadeus.flightdates.response.FlightDateDto;
 import com.pkfare.trip.scale.api.amadeus.flightoffers.request.FlightOffersSearchRequest;
@@ -78,10 +78,10 @@ public class FlightSearchService {
             try {
                 FlightAirportLocationSearchRequest request = new FlightAirportLocationSearchRequest();
                 request.setKeyword(airportCode);
+
+                List<LocationDto> locations = locationSearchAPI.queryFlightLocation(request);
                 
-                Location[] locations = locationSearchAPI.queryFlightLocation(request);
-                
-                if (locations != null && locations.length > 0) {
+                if (locations != null && locations.size() > 0) {
                     // 3. 转换为FlightLocationInfo
                     List<FlightLocationInfo> convertedLocations = convertToFlightLocationInfo(locations, airportCode);
                     locationInfoList.addAll(convertedLocations);
@@ -134,10 +134,10 @@ public class FlightSearchService {
      * @param airportCode 查询的机场代码
      * @return FlightLocationInfo列表
      */
-    private List<FlightLocationInfo> convertToFlightLocationInfo(Location[] locations, String airportCode) {
+    private List<FlightLocationInfo> convertToFlightLocationInfo(List<LocationDto> locations, String airportCode) {
         List<FlightLocationInfo> locationInfoList = new ArrayList<>();
         
-        for (Location location : locations) {
+        for (LocationDto location : locations) {
             try {
                 FlightLocationInfo locationInfo = new FlightLocationInfo();
                 

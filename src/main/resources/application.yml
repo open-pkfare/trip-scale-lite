@@ -72,6 +72,9 @@ amadeus:
   activities:
     mock:
       enabled: true
+  locations:
+    mock:
+      enabled: true
 
 # 日志配置
 logging:
