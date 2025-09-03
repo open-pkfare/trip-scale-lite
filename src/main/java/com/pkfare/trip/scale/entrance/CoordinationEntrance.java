@@ -1,26 +1,21 @@
 package com.pkfare.trip.scale.entrance;
 
 import com.google.adk.events.Event;
-import com.google.adk.runner.InMemoryRunner;
 import com.google.adk.sessions.Session;
+import com.google.adk.web.config.DevConfig;
 import com.google.common.collect.Lists;
-import com.google.common.collect.Maps;
 import com.google.genai.types.Content;
 import com.google.genai.types.Content.Builder;
 import com.google.genai.types.Part;
-import com.pkfare.trip.scale.agent.orchestration.AnotherRootAgent;
 import com.pkfare.trip.scale.dto.Conversation;
 import com.pkfare.trip.scale.dto.RespConversation;
+import com.pkfare.trip.scale.function.AppRunner;
 import com.pkfare.trip.scale.function.UserEventFilter;
 import io.reactivex.rxjava3.core.Flowable;
-import io.reactivex.rxjava3.core.Maybe;
-import jakarta.annotation.PostConstruct;
-import java.util.Base64;
 import java.util.List;
-import java.util.Optional;
-import java.util.concurrent.ConcurrentMap;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
@@ -28,14 +23,11 @@ import org.springframework.util.CollectionUtils;
 @Component
 public class CoordinationEntrance {
 
-  private static final String NAME = "tripScale";
+  @Autowired
+  private AppRunner runner;
 
-  public static InMemoryRunner runner = new InMemoryRunner(AnotherRootAgent.instance());
-
-  @PostConstruct
-  public void init(){
-    AnotherRootAgent.instance().setSessionService(runner.sessionService());
-  }
+  @Autowired
+  private DevConfig devConfig;
 
   /**
    * chat with agents
@@ -43,9 +35,9 @@ public class CoordinationEntrance {
    * @return
    */
   public List<RespConversation> chat(List<byte[]> files, Conversation conversation) {
-    Session session = AnotherRootAgent.instance().getSession(conversation.getConversationId(), conversation.getUserId());
+    Session session = devConfig.getSession(conversation.getConversationId(), conversation.getUserId());
 
-    log.info("current session {}", session.state().entrySet());
+    log.info("current session {} {}", session.id(), session.state().entrySet());
 
     Builder builder = Content.builder();
     List<Part> parts = Lists.newArrayList();
@@ -76,6 +68,5 @@ public class CoordinationEntrance {
     respConversations.add(respConversation);
     return respConversations;
   }
-
 
 }
