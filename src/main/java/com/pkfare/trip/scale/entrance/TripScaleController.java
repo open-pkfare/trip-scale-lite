@@ -32,8 +32,10 @@ public class TripScaleController {
 
   @RequestMapping(value = "/chat")
   @ResponseBody
-  public List<RespConversation> chat(@RequestParam("file1") MultipartFile file1, @RequestParam("file2") MultipartFile file2,
-      @RequestParam("file3") MultipartFile file3, @RequestParam("conversation") String conversationStr) {
+  public List<RespConversation> chat(@RequestParam(value = "file1", required = false) MultipartFile file1,
+      @RequestParam(value = "file2", required = false) MultipartFile file2,
+      @RequestParam(value = "file3", required = false) MultipartFile file3,
+      @RequestParam("conversation") String conversationStr) {
     Conversation conversation = JSON.parseObject(conversationStr, Conversation.class);
     logger.info("收到聊天请求，会话ID: {}", conversation.getConversationId());
     if (StringUtils.isEmpty(conversation.getConversationId())) {
@@ -42,16 +44,16 @@ public class TripScaleController {
     }
     List<byte[]> files = Lists.newArrayList();
     try {
-      if (!file1.isEmpty()){
+      if (null != file1 && !file1.isEmpty()) {
         files.add(file1.getBytes());
       }
-      if (!file2.isEmpty()){
+      if (null != file2 && !file2.isEmpty()) {
         files.add(file2.getBytes());
       }
-      if (!file3.isEmpty()){
+      if (null != file3 && !file3.isEmpty()) {
         files.add(file3.getBytes());
       }
-    }catch (Throwable e){
+    } catch (Throwable e) {
       log.info("file read error {}", ExceptionUtils.getStackTrace(e));
     }
     return coordinationEntrance.chat(files, conversation);
