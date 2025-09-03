@@ -1,11 +1,11 @@
 package com.pkfare.trip.scale.service.plan;
 
-import com.amadeus.resources.FlightDate;
-import com.amadeus.resources.Location;
 import com.google.common.collect.Maps;
 import com.pkfare.trip.scale.api.amadeus.airportlocations.AmadeusFlightAirportLocationSearchAPI;
 import com.pkfare.trip.scale.api.amadeus.airportlocations.request.FlightAirportLocationSearchRequest;
+import com.pkfare.trip.scale.api.amadeus.airportlocations.response.LocationDto;
 import com.pkfare.trip.scale.api.amadeus.flightdates.request.FlightDatesRequest;
+import com.pkfare.trip.scale.api.amadeus.flightdates.response.FlightDateDto;
 import com.pkfare.trip.scale.api.amadeus.flightoffers.request.FlightOffersSearchRequest;
 
 
@@ -48,6 +48,9 @@ public class FlightSearchService {
     @Autowired
     private AmadeusFlightService amadeusFlightService;
     
+    @Autowired
+    private AmadeusFlightAirportLocationSearchAPI locationSearchAPI;
+    
     private static final LocalTime MORNING_START = LocalTime.of(6, 0);
     private static final LocalTime MORNING_END = LocalTime.of(11, 0);
     private static final LocalTime EVENING_START = LocalTime.of(17, 0);
@@ -72,16 +75,15 @@ public class FlightSearchService {
         
         // 2. 查询机场位置信息
         List<FlightLocationInfo> locationInfoList = new ArrayList<>();
-        AmadeusFlightAirportLocationSearchAPI locationSearchAPI = new AmadeusFlightAirportLocationSearchAPI();
         
         for (String airportCode : airportCodes) {
             try {
                 FlightAirportLocationSearchRequest request = new FlightAirportLocationSearchRequest();
                 request.setKeyword(airportCode);
+
+                List<LocationDto> locations = locationSearchAPI.queryFlightLocation(request);
                 
-                Location[] locations = locationSearchAPI.queryFlightLocation(request);
-                
-                if (locations != null && locations.length > 0) {
+                if (locations != null && locations.size() > 0) {
                     // 3. 转换为FlightLocationInfo
                     List<FlightLocationInfo> convertedLocations = convertToFlightLocationInfo(locations, airportCode);
                     locationInfoList.addAll(convertedLocations);
@@ -134,10 +136,10 @@ public class FlightSearchService {
      * @param airportCode 查询的机场代码
      * @return FlightLocationInfo列表
      */
-    private List<FlightLocationInfo> convertToFlightLocationInfo(Location[] locations, String airportCode) {
+    private List<FlightLocationInfo> convertToFlightLocationInfo(List<LocationDto> locations, String airportCode) {
         List<FlightLocationInfo> locationInfoList = new ArrayList<>();
         
-        for (Location location : locations) {
+        for (LocationDto location : locations) {
             try {
                 FlightLocationInfo locationInfo = new FlightLocationInfo();
                 
@@ -268,11 +270,11 @@ public class FlightSearchService {
         if (roundTrip) {
             // 往返航班搜索
             FlightDatesRequest request = buildFlightDatesRequest(param, true);
-            FlightDate[] flightDates = amadeusFlightService.searchFlightDates(request);
+            List<FlightDateDto> flightDates = amadeusFlightService.searchFlightDates(request);
             
-            if (flightDates != null && flightDates.length > 0) {
+            if (flightDates != null && flightDates.size() > 0) {
                 // 筛选出去程和返程间隔等于trip_days且价格最低的航班
-                FlightDate bestFlight = findBestRoundTripFlightDate(flightDates, param.getTrip_days());
+                FlightDateDto bestFlight = findBestRoundTripFlightDate(flightDates, param.getTrip_days());
                 if (bestFlight != null) {
                     result.setDepartureDate(convertToLocalDate(bestFlight.getDepartureDate()));
                     result.setReturnDate(convertToLocalDate(bestFlight.getReturnDate()));
@@ -300,12 +302,12 @@ public class FlightSearchService {
         // 搜索去程
         FlightDatesRequest outboundRequest = buildOneWayFlightDatesRequest(
             param.getOrigin(), firstDestination, param.getStart_period(), param.getEnd_period(), param.getTrip_days(), true,param.getBudgets());
-        FlightDate[] outboundDates = amadeusFlightService.searchFlightDates(outboundRequest);
+        List<FlightDateDto> outboundDates = amadeusFlightService.searchFlightDates(outboundRequest);
         
         // 搜索返程
         FlightDatesRequest returnRequest = buildOneWayFlightDatesRequest(
             lastDestination, param.getOrigin(), param.getStart_period(), param.getEnd_period(), param.getTrip_days(), false,param.getBudgets());
-        FlightDate[] returnDates = amadeusFlightService.searchFlightDates(returnRequest);
+        List<FlightDateDto> returnDates = amadeusFlightService.searchFlightDates(returnRequest);
         
         // 找到最佳组合
         findBestOneWayFlightDates(outboundDates, returnDates, param.getTrip_days(), result);
@@ -766,8 +768,8 @@ public class FlightSearchService {
     /**
      * 找到最佳往返航班日期
      */
-    private FlightDate findBestRoundTripFlightDate(FlightDate[] flightDates, int tripDays) {
-        return Arrays.stream(flightDates)
+    private FlightDateDto findBestRoundTripFlightDate(List<FlightDateDto> flightDates, int tripDays) {
+        return flightDates.stream()
             .filter(fd -> {
                 if (fd.getDepartureDate() == null || fd.getReturnDate() == null) {
                     return false;
@@ -783,19 +785,19 @@ public class FlightSearchService {
     /**
      * 找到最佳单程航班日期组合
      */
-    private void findBestOneWayFlightDates(FlightDate[] outboundDates, FlightDate[] returnDates, 
+    private void findBestOneWayFlightDates(List<FlightDateDto> outboundDates, List<FlightDateDto> returnDates,
                                          int tripDays, FlightSearchResult result) {
         if (outboundDates == null || returnDates == null || 
-            outboundDates.length == 0 || returnDates.length == 0) {
+            outboundDates.size() == 0 || returnDates.size() == 0) {
             return;
         }
         
         BigDecimal bestTotalPrice = null;
-        FlightDate bestOutbound = null;
-        FlightDate bestReturn = null;
+        FlightDateDto bestOutbound = null;
+        FlightDateDto bestReturn = null;
         
-        for (FlightDate outbound : outboundDates) {
-            for (FlightDate returnFlight : returnDates) {
+        for (FlightDateDto outbound : outboundDates) {
+            for (FlightDateDto returnFlight : returnDates) {
                 LocalDate outDate = convertToLocalDate(outbound.getDepartureDate());
                 LocalDate retDate = convertToLocalDate(returnFlight.getDepartureDate());
                 
