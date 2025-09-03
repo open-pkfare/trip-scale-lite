@@ -86,7 +86,7 @@ public class AnotherRootAgent extends BaseAgent {
       case "planning":
         eventFlowable = invocationContext.agent().findAgent("trip_planning_agent").runAsync(invocationContext);
         break;
-      case "adjustment":
+      case "optimizing":
         eventFlowable = invocationContext.agent().findAgent("trip_optimizing_agent").runAsync(invocationContext);
         break;
     }
@@ -142,7 +142,7 @@ public class AnotherRootAgent extends BaseAgent {
 //                TripRoutePlanResult tripRoutePlanResult = JSON.parseObject(text,TripRoutePlanResult.class);
                 //TripRoutePlanResult tripRoutePlanResult = new Gson().fromJson(text, TripRoutePlanResult.class);
                 TripRoutePlanResult tripRoutePlanResult = mapper.readValue(text, TripRoutePlanResult.class);
-                states.put("current_stage", "adjustment");
+                states.put("current_stage", "optimizing");
                 states.put("plan_result", tripRoutePlanResult);
 //                Part part1 = Part.builder().text(tripRoutePlanResult.getSummary()).build();
                 part = Part.builder().text(text).build();
@@ -150,7 +150,13 @@ public class AnotherRootAgent extends BaseAgent {
 //                parts.add(part1);
                 parts.add(part);
               }
-
+            case "optimizing":
+              TripRoutePlanResult tripRoutePlanResult = mapper.readValue(text, TripRoutePlanResult.class);
+              states.put("current_stage", "booking");
+              states.put("optimize_result", tripRoutePlanResult);
+              part = Part.builder().text(text).build();
+              parts.removeFirst();
+              parts.add(part);
             default:
           }
         } catch (Throwable e) {

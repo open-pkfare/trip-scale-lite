@@ -4,10 +4,12 @@ import com.google.adk.agents.BaseAgent;
 import com.google.adk.agents.Callbacks.AfterAgentCallback;
 import com.google.adk.agents.Callbacks.BeforeAgentCallback;
 import com.google.adk.agents.InvocationContext;
+import com.google.adk.agents.LlmAgent;
 import com.google.adk.events.Event;
 import com.google.common.collect.Lists;
 import com.google.genai.types.Content;
 import com.google.genai.types.Part;
+import com.pkfare.trip.scale.config.GoogleConfig;
 import com.pkfare.trip.scale.dto.TripDemand;
 import com.pkfare.trip.scale.dto.TripRoute;
 import com.pkfare.trip.scale.plan.service.TripPlanAdjustService;
@@ -27,7 +29,7 @@ public class OptimizingAgent extends BaseAgent {
 
   private static final String NAME = "trip_optimizing_agent";
 
-  private static OptimizingAgent INSTANCE;
+  private static BaseAgent INSTANCE;
   
   // 静态引用ApplicationContext，用于获取Spring Bean
   private static ApplicationContext applicationContext;
@@ -45,9 +47,14 @@ public class OptimizingAgent extends BaseAgent {
         null);
   }
 
-  public static OptimizingAgent instance() {
-    if (null == INSTANCE){
-      INSTANCE = new OptimizingAgent();
+  public static BaseAgent instance() {
+    if (null == INSTANCE) {
+      INSTANCE = LlmAgent.builder()
+          .name(NAME)
+          .model(GoogleConfig.GEMINI_2_5_FLASH)
+          .description("A client that helps travelers optimize their itinerary plans and output solutions.")
+          .instruction(OptimizingPrompt.OPTIMIZING_PROMPT)
+          .build();
     }
     return INSTANCE;
   }
@@ -90,19 +97,17 @@ public class OptimizingAgent extends BaseAgent {
       long start = System.currentTimeMillis();
       TripRoutePlanResult planResult = tripPlanAdjustService.adjustPlan(param, tripRoutePlanResult, null);
       log.info("*******************************************************Time taken to optimizing plan: {} ms", System.currentTimeMillis() - start   );
-      
       log.info("optimize trip plan with status: {}", planResult.getStatus());
 
       // 拆成两个event：TripRoutePlanResult.summary 摘要是单独的一个Event，TripRoutePlanResult是一个单独的event
       return createPlanEvents(planResult, invocationContext);
-      
     } catch (Exception e) {
       log.error("Error in PlanningAgent runAsyncImpl", e);
       return Flowable.error(e);
     }
   }
 
-  private GeneratePlanParam mockGeneratePlanParam() {
+  /*private GeneratePlanParam mockGeneratePlanParam() {
     GeneratePlanParam param = new GeneratePlanParam();
     param.setOrigin("FLR");
     param.setLocation_code("IT");
@@ -135,7 +140,7 @@ public class OptimizingAgent extends BaseAgent {
     param.setReason_for_recommendation("recommendation");
     return param;
   }
-
+*/
   /**
    * 创建计划事件
    * 
