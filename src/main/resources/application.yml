@@ -59,13 +59,25 @@ amadeus:
   max-connections: 100
   # Mock配置
   flight:
+    dates:
+      mock:
+        enabled: true
     offers:
       mock:
-        enabled: ${AMADEUS_FLIGHT_OFFERS_MOCK_ENABLED:true}
+        enabled: true
   hotel:
     offers:
       mock:
-        enabled: ${AMADEUS_HOTEL_OFFERS_MOCK_ENABLED:true}
+        enabled: true
+  activities:
+    mock:
+      enabled: true
+  locations:
+    mock:
+      enabled: true
+  hotelofcity:
+    mock:
+      enabled: true
 
 # 日志配置
 logging:

@@ -75,7 +75,7 @@ public class GeneratePlanService {
 
       // 2. 计算 preciseTravel 和 roundTrip
       boolean preciseTravel = calculatePreciseTravel(param);
-      boolean roundTrip = calculateRoundTrip(param);
+      boolean roundTrip = false;// calculateRoundTrip(param);
 
       log.info("Trip configuration: preciseTravel={}, roundTrip={}", preciseTravel, roundTrip);
       logThreadPoolStatus();
@@ -254,6 +254,7 @@ public class GeneratePlanService {
    */
   private CompletableFuture<DependentSearchResult> executeDependentSearches(
       GeneratePlanParam param, ConcurrentSearchResult concurrentResult) {
+    log.info("executeDependentSearches begin");
     
     // 1. 基于航班信息搜索酒店详情
     CompletableFuture<List<HotelInfo>> hotelsFuture = CompletableFuture

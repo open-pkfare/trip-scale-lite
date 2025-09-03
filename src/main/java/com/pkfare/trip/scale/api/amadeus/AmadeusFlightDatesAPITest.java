@@ -4,6 +4,8 @@ import com.amadeus.exceptions.ResponseException;
 import com.amadeus.resources.FlightDate;
 import com.pkfare.trip.scale.api.amadeus.flightdates.AmadeusFlightDatesAPI;
 import com.pkfare.trip.scale.api.amadeus.flightdates.request.FlightDatesRequest;
+import com.pkfare.trip.scale.api.amadeus.flightdates.response.FlightDateDto;
+import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -13,7 +15,7 @@ public class AmadeusFlightDatesAPITest {
   public static void main(String[] args) throws ResponseException {
     // 测试/v1/shopping/flight-dates 接口
     AmadeusFlightDatesAPI amadeusFlightDatesAPI = new AmadeusFlightDatesAPI();
-    FlightDate[] response = amadeusFlightDatesAPI.flightDates(buildFlightDatesRequest());
+    List<FlightDateDto> response = amadeusFlightDatesAPI.flightDates(buildFlightDatesRequest());
     log.info("response : {}", response);
   }
 
