@@ -277,7 +277,7 @@ public class ActivitySearchService {
         .collect(Collectors.toList());
   }
 
-  public List<ActivityInfo> searchActivitiesNearby(HotelInfo hotel, String activityType) {
+  public List<ActivityInfo> searchActivitiesNearby(HotelInfo hotel, String activityType, String currency) {
     ActivitiesSearchRequest request = new ActivitiesSearchRequest();
     request.setLatitude(hotel.getLatitude());
     request.setLongitude(hotel.getLongitude());
@@ -285,10 +285,13 @@ public class ActivitySearchService {
     if (StringUtils.isNotBlank(activityType)) {
       request.setCategoryGroup(activityType);
     }
+    if (StringUtils.isNotBlank(currency)) {
+      request.setCurrency(currency);
+    }
 
     try {
       List<ActivityDto> activities = amadeusActivityService.searchActivities(request);
-      if (activities == null || activities.size()  == 0) {
+      if (activities == null || activities.isEmpty()) {
         return Collections.emptyList();
       }
 

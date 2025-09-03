@@ -45,6 +45,7 @@ public class TripPlanAdjustService {
   private ObjectMapper objectMapper;
 
   public TripRoutePlanResult adjustPlan(GeneratePlanParam generatePlanParam, TripRoutePlanResult tripPlan, JsonNode adjustPlanParams) {
+    log.info("Adjust plan request: {}", adjustPlanParams);
     long start = System.currentTimeMillis();
     TripRoutePlanResult adjustedPlan;
     try {
@@ -100,10 +101,10 @@ public class TripPlanAdjustService {
     adjustedPlan.setSummary(googleAiService.generateSummary(dailyPlans));
 
     long totalTime = System.currentTimeMillis() - start;
-    log.info("=== PERFORMANCE SUMMARY ===");
-    log.info("Total trip plan generation time: {} ms", totalTime);
-    String resultJson = JsonUtil.toJson(adjustedPlan);
-    log.info("Generated trip plan JSON: {}", resultJson);
+    log.info("Total trip plan adjust time: {} ms", totalTime);
+    log.info("Generated trip plan JSON: {}",  JsonUtil.toJson(dailyPlans.getFirst()));
+//    String resultJson = JsonUtil.toJson(adjustedPlan);
+//    log.info("Generated trip plan JSON: {}", resultJson);
     return adjustedPlan;
   }
 }
