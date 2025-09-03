@@ -81,19 +81,16 @@ public class PlanningAgent extends BaseAgent {
       // 从会话状态中获取数据
       TripDemand tripDemand = (TripDemand)invocationContext.session().state().get("trip_demand");
       List<TripRoute> tripRoutes = (List<TripRoute>)invocationContext.session().state().get("trip_route");
+      log.info("tripDemand:{},tripRoutes:{}",tripDemand,tripRoutes);
 
       if (tripDemand == null || tripRoutes == null) {
-        log.error("TripDemand or TripRoutes is null in session state");
         return Flowable.error(new IllegalStateException("Missing required data in session"));
       }
-      
-      log.info("Retrieved trip demand: origin={}, days={}, passengers={}", 
-          tripDemand.getOrigin(), tripDemand.getDays(), tripDemand.getPassenger_number());
-      log.info("Retrieved {} trip routes", tripRoutes.size());
+
 
       // 通过tripDemand和tripRoutes构建GeneratePlanParam
       GeneratePlanParam param = buildGeneratePlanParam(tripDemand, tripRoutes);
-
+      log.info("GeneratePlanParam:{}",param);
       // GeneratePlanParam param = mockGeneratePlanParam();
 
       // 调用GeneratePlanService.generatePlan接口

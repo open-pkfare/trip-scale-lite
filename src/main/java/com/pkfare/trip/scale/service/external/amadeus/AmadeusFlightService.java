@@ -35,9 +35,10 @@ public class AmadeusFlightService {
     private static final long RETRY_DELAY_MS = 1000;
     
     public AmadeusFlightService(@Qualifier("flightDatesCache") Cache<String, Object> flightDatesCache,
-                               @Qualifier("flightOffersCache") Cache<String, Object> flightOffersCache) {
+                               @Qualifier("flightOffersCache") Cache<String, Object> flightOffersCache,
+                               AmadeusFlightOffersSearchAPI flightOffersAPI) {
         this.flightDatesAPI = new AmadeusFlightDatesAPI();
-        this.flightOffersAPI = new AmadeusFlightOffersSearchAPI();
+        this.flightOffersAPI = flightOffersAPI;
         this.flightDatesCache = flightDatesCache;
         this.flightOffersCache = flightOffersCache;
         log.info("AmadeusFlightService initialized with flight dates and flight offers cache");

@@ -32,6 +32,7 @@ public class AmadeusActivitiesSearchApi {
   
   private final ObjectMapper objectMapper = new ObjectMapper();
 
+
   public List<ActivityDto> searchActivities(ActivitiesSearchRequest activitiesSearchRequest) {
     if(needMock(activitiesSearchRequest)){
       return mockApiResponse(activitiesSearchRequest);

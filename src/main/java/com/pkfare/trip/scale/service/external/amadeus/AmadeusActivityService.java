@@ -29,8 +29,9 @@ public class AmadeusActivityService {
     private static final int MAX_RETRY_ATTEMPTS = 3;
     private static final long RETRY_DELAY_MS = 1000;
     
-    public AmadeusActivityService(@Qualifier("activitiesCache") Cache<String, Object> activitiesCache) {
-        this.activitiesSearchApi = new AmadeusActivitiesSearchApi();
+    public AmadeusActivityService(@Qualifier("activitiesCache") Cache<String, Object> activitiesCache,
+                                  AmadeusActivitiesSearchApi activitiesSearchApi) {
+        this.activitiesSearchApi = activitiesSearchApi;
         this.activitiesCache = activitiesCache;
         log.info("AmadeusActivityService initialized with activities cache");
     }

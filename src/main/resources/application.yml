@@ -61,14 +61,14 @@ amadeus:
   flight:
     offers:
       mock:
-        enabled: ${AMADEUS_FLIGHT_OFFERS_MOCK_ENABLED:true}
+        enabled: false
   hotel:
     offers:
       mock:
-        enabled: ${AMADEUS_HOTEL_OFFERS_MOCK_ENABLED:true}
+        enabled: false
   activities:
     mock:
-      enabled: ${AMADEUS_ACTIVITIES_MOCK_ENABLED:true}
+      enabled: false
 
 # 日志配置
 logging:

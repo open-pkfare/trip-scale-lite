@@ -33,9 +33,10 @@ public class AmadeusHotelService {
     private static final int MAX_RETRY_ATTEMPTS = 3;
     private static final long RETRY_DELAY_MS = 1000;
     
-    public AmadeusHotelService(@Qualifier("hotelOffersCache") Cache<String, Object> hotelOffersCache) {
+    public AmadeusHotelService(@Qualifier("hotelOffersCache") Cache<String, Object> hotelOffersCache,
+                               AmadeusHotelOffersSearchAPI hotelOffersAPI) {
         this.hotelsByCityAPI = new AmadeusSearchHotelsByCityAPI();
-        this.hotelOffersAPI = new AmadeusHotelOffersSearchAPI();
+        this.hotelOffersAPI = hotelOffersAPI;
         this.hotelOffersCache = hotelOffersCache;
         log.info("AmadeusHotelService initialized with hotel offers cache");
     }

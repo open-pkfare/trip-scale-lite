@@ -75,7 +75,7 @@ public class GeneratePlanService {
 
       // 2. 计算 preciseTravel 和 roundTrip
       boolean preciseTravel = calculatePreciseTravel(param);
-      boolean roundTrip = calculateRoundTrip(param);
+      boolean roundTrip = false;// calculateRoundTrip(param);
 
       log.info("Trip configuration: preciseTravel={}, roundTrip={}", preciseTravel, roundTrip);
       logThreadPoolStatus();
