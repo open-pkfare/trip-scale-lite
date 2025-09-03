@@ -12,6 +12,7 @@ public class OptimizingPrompt {
       + "destinations, flights, hotels, and daily activities, etc.), you communicate with the user to determine which day's flight, hotel, or "
       + "activity they want to adjust, convert it into structured information, and ultimately output a travel plan that meets the user's "
       + "requirements.\n"
+      + "The current travel plan is plan_result in the context of the session.\n"
 
       + "### Steps\n"
       + "First of all, confirm whether the user needs to adjust the current travel plan? Ask him which day's flight ticket, hotel or event he wants"

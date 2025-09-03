@@ -28,16 +28,16 @@ public class AdjustHotelParam {
   /**
    * 酒店星级，1-5
    */
-  private List<String> ratings;
+  private List<String> hotelRatings;
   /**
    * 酒店偏好
    * @see com.pkfare.trip.scale.model.enums.HotelAmenityEnum
    */
-  private List<String> amenities;
+  private List<String> hotelAmenities;
   /**
    * 房间数量，1-9
    */
-  private int roomQuantity;
+  private int hotelRoomQuantity;
   /**
    * 最高价格，最低价格
    */

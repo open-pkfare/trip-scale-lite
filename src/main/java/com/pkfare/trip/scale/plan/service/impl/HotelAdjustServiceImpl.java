@@ -82,8 +82,8 @@ public class HotelAdjustServiceImpl implements TripPlanAdjustInterface {
     geocodeRequest.setLongitude(oldHotel.getLongitude());
     geocodeRequest.setRadius(DEFAULT_RADIUS);
     geocodeRequest.setRadiusUnit("KM");
-    geocodeRequest.setRatings(adjustHotelParam.getRatings());
-    geocodeRequest.setAmenities(adjustHotelParam.getAmenities());
+    geocodeRequest.setRatings(adjustHotelParam.getHotelRatings());
+    geocodeRequest.setAmenities(adjustHotelParam.getHotelAmenities());
     Hotel[] hotels;
     do {
       hotels = amadeusHotelService.searchHotelsByGeocode(geocodeRequest);
@@ -104,7 +104,7 @@ public class HotelAdjustServiceImpl implements TripPlanAdjustInterface {
     request.setCheckOutDate(DateUtil.formatDate(oldHotel.getCheckOutDate()));
     request.setAdults(generatePlanParam.getAdult_number() + generatePlanParam.getChild_number());
     request.setCountryOfResidence(countryCode);
-    request.setRoomQuantity(adjustHotelParam.getRoomQuantity());
+    request.setRoomQuantity(adjustHotelParam.getHotelRoomQuantity());
     BigDecimal maxPrice = adjustHotelParam.getMaxPrice();
     if (Objects.isNull(maxPrice)) {
       maxPrice = oldHotel.getTotalPrice();
