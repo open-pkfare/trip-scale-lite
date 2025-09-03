@@ -8,6 +8,7 @@ import com.pkfare.trip.scale.api.amadeus.activities.request.ActivitiesSearchRequ
 import com.pkfare.trip.scale.api.amadeus.config.AmadeusClient;
 import com.pkfare.trip.scale.api.amadeus.exception.AmadeusApiException;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 
 @Slf4j
 public class AmadeusActivitiesSearchApi {
@@ -17,6 +18,12 @@ public class AmadeusActivitiesSearchApi {
     Params params = Params.with("latitude", activitiesSearchRequest.getLatitude())
         .and("longitude", activitiesSearchRequest.getLongitude())
         .and("radius", activitiesSearchRequest.getRadius());
+    if (StringUtils.isNotBlank(activitiesSearchRequest.getCurrency())) {
+      params.and("currency", activitiesSearchRequest.getCurrency());
+    }
+    if (StringUtils.isNotBlank(activitiesSearchRequest.getCategoryGroup())) {
+      params.and("categoryGroup", activitiesSearchRequest.getCategoryGroup());
+    }
 
     try {
       Activity[] activities = amadeus.shopping.activities.get(params);
