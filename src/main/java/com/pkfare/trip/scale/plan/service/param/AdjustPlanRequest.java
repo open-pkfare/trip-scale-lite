@@ -1,12 +1,9 @@
 package com.pkfare.trip.scale.plan.service.param;
 
-import com.google.gson.JsonArray;
-import com.pkfare.trip.scale.plan.service.response.TripPlan;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.pkfare.trip.scale.plan.service.response.TripRoutePlanResult;
-import lombok.Data;
-
 import javax.validation.Valid;
-import java.util.List;
+import lombok.Data;
 
 /**
  * 调整旅行计划请求包装类
@@ -31,5 +28,5 @@ public class AdjustPlanRequest {
      * 调整参数列表
      */
     @Valid
-    private JsonArray adjustPlanParams;
+    private JsonNode adjustPlanParams;
 }

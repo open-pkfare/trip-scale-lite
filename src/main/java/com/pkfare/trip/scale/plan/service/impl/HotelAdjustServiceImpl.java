@@ -1,8 +1,8 @@
 package com.pkfare.trip.scale.plan.service.impl;
 
 import com.amadeus.resources.Hotel;
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pkfare.trip.scale.api.amadeus.hotelbycity.request.QueryHotelByGeocodeRequest;
 import com.pkfare.trip.scale.api.amadeus.hoteloffers.request.HotelOffersSearchRequest;
 import com.pkfare.trip.scale.api.amadeus.hoteloffers.response.HotelOfferDto;
@@ -37,16 +37,17 @@ import org.springframework.stereotype.Service;
 @Service
 public class HotelAdjustServiceImpl implements TripPlanAdjustInterface {
 
-  private static final Gson gson = new Gson();
   public static final Integer DEFAULT_RADIUS = 1;
   @Autowired
   private AmadeusHotelService amadeusHotelService;
   @Autowired
   private GoogleAiService googleAiService;
+  @Autowired
+  private ObjectMapper objectMapper;
 
   @Override
-  public void adjust(GeneratePlanParam generatePlanParam, TripRoutePlanResult tripPlan, JsonObject adjustParam) {
-    AdjustHotelParam adjustHotelParam = gson.fromJson(adjustParam, AdjustHotelParam.class);
+  public void adjust(GeneratePlanParam generatePlanParam, TripRoutePlanResult tripPlan, JsonNode adjustParam) {
+    AdjustHotelParam adjustHotelParam = objectMapper.convertValue(adjustParam, AdjustHotelParam.class);
     log.info("Adjusting hotel param: {}", adjustHotelParam);
 
     List<DailyRoutePlan> dailyPlans = tripPlan.getDailyPlans();

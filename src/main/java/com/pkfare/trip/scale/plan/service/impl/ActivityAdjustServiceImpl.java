@@ -1,7 +1,7 @@
 package com.pkfare.trip.scale.plan.service.impl;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pkfare.trip.scale.exception.TripPlanException;
 import com.pkfare.trip.scale.model.enums.TripPlanErrorCodeEnum;
 import com.pkfare.trip.scale.plan.service.TripPlanAdjustInterface;
@@ -34,18 +34,19 @@ import org.springframework.stereotype.Service;
 @Service
 public class ActivityAdjustServiceImpl implements TripPlanAdjustInterface {
 
-  private static final Gson gson = new Gson();
   @Autowired
   private ActivitySearchService activitySearchService;
   @Autowired
   private GoogleAiService googleAiService;
+  @Autowired
+  private ObjectMapper objectMapper;
 
   @Override
-  public void adjust(GeneratePlanParam generatePlanParam, TripRoutePlanResult tripPlan, JsonObject adjustParam) {
+  public void adjust(GeneratePlanParam generatePlanParam, TripRoutePlanResult tripPlan, JsonNode adjustParam) {
     if (Objects.isNull(generatePlanParam) || Objects.isNull(tripPlan) || Objects.isNull(adjustParam)) {
       throw new TripPlanException(TripPlanErrorCodeEnum.PARAM_ERROR);
     }
-    AdjustActivityParam adjustActivityParam = gson.fromJson(adjustParam, AdjustActivityParam.class);
+    AdjustActivityParam adjustActivityParam = objectMapper.convertValue(adjustParam, AdjustActivityParam.class);
     log.info("Adjusting activity param: {}", adjustActivityParam);
 
     List<DailyRoutePlan> dailySchedules = tripPlan.getDailyPlans();
