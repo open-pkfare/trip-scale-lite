@@ -1,7 +1,6 @@
 package com.pkfare.trip.scale.plan.service.impl;
 
 import com.amadeus.resources.Hotel;
-import com.amadeus.resources.HotelOfferSearch;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.pkfare.trip.scale.api.amadeus.hotelbycity.request.QueryHotelByGeocodeRequest;
@@ -55,7 +54,7 @@ public class HotelAdjustServiceImpl implements TripPlanAdjustInterface {
     for (int i = 0; i < dailyPlans.size(); i++) {
       DailyRoutePlan dailyRoutePlan = dailyPlans.get(i);
       HotelInfo hotel = dailyRoutePlan.getPreferredHotel();
-      if (hotel.getHotelId().equals(adjustHotelParam.getHotelId())) {
+      if (hotel.getHotelId().equals(adjustHotelParam.getId())) {
         found = true;
         HotelInfo newHotel = searchHotel(generatePlanParam, hotel, adjustHotelParam);
         if (Objects.isNull(newHotel)) {

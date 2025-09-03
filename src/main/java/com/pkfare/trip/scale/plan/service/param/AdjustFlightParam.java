@@ -1,5 +1,6 @@
 package com.pkfare.trip.scale.plan.service.param;
 
+import java.math.BigDecimal;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -32,12 +33,12 @@ public class AdjustFlightParam {
   private boolean noStop;
 
   /**
-   * 时间变更（小时），航班调整时使用（暂未实现）
+   * 时间变更（小时），航班调整时使用（暂未实现），负数表示提前，正数表示推迟，0表示不调整
    */
   private Integer timeChange;
 
   /**
    * 最高价格
    */
-  private Double maxPrice;
+  private BigDecimal maxPrice;
 }
