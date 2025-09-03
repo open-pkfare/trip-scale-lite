@@ -110,7 +110,7 @@ public class ActivityAdjustServiceImpl implements TripPlanAdjustInterface {
   }
 
   private Optional<ActivityInfo> searchActivities(TripRoutePlanResult tripPlan, DailyRoutePlan schedule, AdjustActivityParam adjustActivityParam) {
-    List<ActivityInfo> activities = activitySearchService.searchActivitiesNearby(schedule.getPreferredHotel());
+    List<ActivityInfo> activities = activitySearchService.searchActivitiesNearby(schedule.getPreferredHotel(), adjustActivityParam.getActivityType());
     if (activities.isEmpty()) {
       return Optional.empty();
     }

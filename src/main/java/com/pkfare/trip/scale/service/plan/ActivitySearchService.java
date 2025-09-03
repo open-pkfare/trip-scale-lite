@@ -275,11 +275,14 @@ public class ActivitySearchService {
         .collect(Collectors.toList());
   }
 
-  public List<ActivityInfo> searchActivitiesNearby(HotelInfo hotel) {
+  public List<ActivityInfo> searchActivitiesNearby(HotelInfo hotel, String activityType) {
     ActivitiesSearchRequest request = new ActivitiesSearchRequest();
     request.setLatitude(hotel.getLatitude());
     request.setLongitude(hotel.getLongitude());
     request.setRadius(DEFAULT_RADIUS);
+    if (StringUtils.isNotBlank(activityType)) {
+      request.setCategoryGroup(activityType);
+    }
 
     try {
       Activity[] activities = amadeusActivityService.searchActivities(request);
