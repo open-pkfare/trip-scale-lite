@@ -1,0 +1,137 @@
+{
+  "data": [
+    {
+      "type": "activity",
+      "id": "23642",
+      "name": "Skip the line: Sagrada Familia Guided Tour",
+      "shortDescription": "Discover Gaudi's masterpiece with a guided tour",
+      "description": "Join a guided tour of Antoni Gaudi's most famous work, the Sagrada Familia. Skip the long lines and explore this architectural wonder with an expert guide who will explain the history, symbolism, and ongoing construction of this UNESCO World Heritage site.",
+      "geoCode": {
+        "latitude": 41.4036,
+        "longitude": 2.1744
+      },
+      "rating": "4.5",
+      "bookingLink": "https://b2c.tourdiez.com/tour/sagrada-familia",
+      "minimumDuration": "PT1H30M",
+      "price": {
+        "amount": "25.00",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.tourdiez.com/sagrada-familia-1.jpg",
+        "https://images.tourdiez.com/sagrada-familia-2.jpg"
+      ]
+    },
+    {
+      "type": "activity",
+      "id": "23643",
+      "name": "Park Güell Guided Tour",
+      "shortDescription": "Explore Gaudi's colorful park with stunning city views",
+      "description": "Visit Park Güell, one of Barcelona's most iconic attractions designed by Antoni Gaudi. This guided tour will take you through the park's most famous areas, including the colorful mosaic benches, the Hansel and Gretel houses, and the stunning terrace with panoramic views of Barcelona.",
+      "geoCode": {
+        "latitude": 41.4145,
+        "longitude": 2.1527
+      },
+      "rating": "4.3",
+      "bookingLink": "https://b2c.tourdiez.com/tour/park-guell",
+      "minimumDuration": "PT2H",
+      "price": {
+        "amount": "18.00",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.tourdiez.com/park-guell-1.jpg",
+        "https://images.tourdiez.com/park-guell-2.jpg"
+      ]
+    },
+    {
+      "type": "activity",
+      "id": "23644",
+      "name": "Gothic Quarter Walking Tour",
+      "shortDescription": "Discover medieval Barcelona's hidden gems",
+      "description": "Explore the heart of old Barcelona on this walking tour through the Gothic Quarter. Discover narrow medieval streets, hidden squares, and historic buildings while learning about the city's rich history from Roman times to the present day.",
+      "geoCode": {
+        "latitude": 41.3825,
+        "longitude": 2.1769
+      },
+      "rating": "4.7",
+      "bookingLink": "https://b2c.tourdiez.com/tour/gothic-quarter",
+      "minimumDuration": "PT2H30M",
+      "price": {
+        "amount": "15.00",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.tourdiez.com/gothic-quarter-1.jpg",
+        "https://images.tourdiez.com/gothic-quarter-2.jpg"
+      ]
+    },
+    {
+      "type": "activity",
+      "id": "23645",
+      "name": "Casa Batlló Audio Guide Tour",
+      "shortDescription": "Self-guided tour of Gaudi's architectural masterpiece",
+      "description": "Explore Casa Batlló, one of Gaudi's most creative buildings, with an innovative audio guide. Discover the house's unique architecture, colorful facades, and imaginative interior design that showcases Gaudi's genius and creativity.",
+      "geoCode": {
+        "latitude": 41.3916,
+        "longitude": 2.1649
+      },
+      "rating": "4.4",
+      "bookingLink": "https://b2c.tourdiez.com/tour/casa-batllo",
+      "minimumDuration": "PT1H15M",
+      "price": {
+        "amount": "35.00",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.tourdiez.com/casa-batllo-1.jpg",
+        "https://images.tourdiez.com/casa-batllo-2.jpg"
+      ]
+    },
+    {
+      "type": "activity",
+      "id": "23646",
+      "name": "Barcelona Tapas and Wine Tasting Tour",
+      "shortDescription": "Taste authentic Spanish tapas and local wines",
+      "description": "Experience Barcelona's culinary culture on this guided tapas and wine tasting tour. Visit traditional tapas bars and restaurants, taste authentic Spanish dishes, and learn about local wine varieties while exploring different neighborhoods.",
+      "geoCode": {
+        "latitude": 41.3851,
+        "longitude": 2.1734
+      },
+      "rating": "4.6",
+      "bookingLink": "https://b2c.tourdiez.com/tour/tapas-wine-tour",
+      "minimumDuration": "PT3H",
+      "price": {
+        "amount": "45.00",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.tourdiez.com/tapas-tour-1.jpg",
+        "https://images.tourdiez.com/tapas-tour-2.jpg"
+      ]
+    },
+    {
+      "type": "activity",
+      "id": "23647",
+      "name": "Montjuïc Cable Car and Castle Tour",
+      "shortDescription": "Scenic cable car ride with panoramic city views",
+      "description": "Take a scenic cable car ride up Montjuïc hill and visit the historic Montjuïc Castle. Enjoy breathtaking panoramic views of Barcelona, the Mediterranean Sea, and the surrounding mountains while learning about the castle's military history.",
+      "geoCode": {
+        "latitude": 41.3640,
+        "longitude": 2.1660
+      },
+      "rating": "4.2",
+      "bookingLink": "https://b2c.tourdiez.com/tour/montjuic-castle",
+      "minimumDuration": "PT2H",
+      "price": {
+        "amount": "22.00",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.tourdiez.com/montjuic-1.jpg",
+        "https://images.tourdiez.com/montjuic-2.jpg"
+      ]
+    }
+  ]
+}
+
