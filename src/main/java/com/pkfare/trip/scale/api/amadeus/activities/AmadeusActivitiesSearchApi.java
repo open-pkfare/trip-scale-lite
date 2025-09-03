@@ -34,6 +34,7 @@ public class AmadeusActivitiesSearchApi {
 
 
   public List<ActivityDto> searchActivities(ActivitiesSearchRequest activitiesSearchRequest) {
+    log.info("activitiesSearchRequest:{}",activitiesSearchRequest);
     if(needMock(activitiesSearchRequest)){
       return mockApiResponse(activitiesSearchRequest);
     }

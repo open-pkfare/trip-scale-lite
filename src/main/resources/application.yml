@@ -75,6 +75,9 @@ amadeus:
   locations:
     mock:
       enabled: true
+  hotelofcity:
+    mock:
+      enabled: true
 
 # 日志配置
 logging:

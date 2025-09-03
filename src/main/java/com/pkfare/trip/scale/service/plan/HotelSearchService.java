@@ -1,8 +1,8 @@
 package com.pkfare.trip.scale.service.plan;
 
-import com.amadeus.resources.Hotel;
 import com.google.common.collect.Lists;
 import com.pkfare.trip.scale.api.amadeus.hotelbycity.request.QueryHotelByCityRequest;
+import com.pkfare.trip.scale.api.amadeus.hotelbycity.response.HotelInfoDto;
 import com.pkfare.trip.scale.api.amadeus.hoteloffers.request.HotelOffersSearchRequest;
 import com.pkfare.trip.scale.api.amadeus.hoteloffers.response.HotelOfferDto;
 import com.pkfare.trip.scale.api.amadeus.hoteloffers.response.OfferDto;
@@ -98,11 +98,11 @@ public class HotelSearchService {
       request.setRadiusUnit(DEFAULT_RADIUS_UNIT);
 
       try {
-        Hotel[] hotels = amadeusHotelService.searchHotelsByCity(request);
+        List<HotelInfoDto> hotels = amadeusHotelService.searchHotelsByCity(request);
 
-        if (hotels != null && hotels.length > 0) {
-          List<String> hotelIds = Arrays.stream(hotels)
-              .map(Hotel::getHotelId)
+        if (hotels != null && hotels.size() > 0) {
+          List<String> hotelIds = hotels.stream()
+              .map(HotelInfoDto::getHotelId)
               .filter(Objects::nonNull)
               .collect(Collectors.toList());
 

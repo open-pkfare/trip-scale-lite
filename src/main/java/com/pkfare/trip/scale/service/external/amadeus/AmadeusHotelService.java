@@ -1,10 +1,10 @@
 package com.pkfare.trip.scale.service.external.amadeus;
 
-import com.amadeus.resources.Hotel;
 import com.amadeus.resources.HotelOfferSearch;
 import com.github.benmanes.caffeine.cache.Cache;
 import com.pkfare.trip.scale.api.amadeus.hotelbycity.AmadeusSearchHotelsByCityAPI;
 import com.pkfare.trip.scale.api.amadeus.hotelbycity.request.QueryHotelByCityRequest;
+import com.pkfare.trip.scale.api.amadeus.hotelbycity.response.HotelInfoDto;
 import com.pkfare.trip.scale.api.amadeus.hoteloffers.AmadeusHotelOffersSearchAPI;
 import com.pkfare.trip.scale.api.amadeus.hoteloffers.request.HotelOffersSearchRequest;
 import com.pkfare.trip.scale.api.amadeus.hoteloffers.response.HotelOfferDto;
@@ -34,8 +34,9 @@ public class AmadeusHotelService {
     private static final long RETRY_DELAY_MS = 1000;
     
     public AmadeusHotelService(@Qualifier("hotelOffersCache") Cache<String, Object> hotelOffersCache,
-                               AmadeusHotelOffersSearchAPI hotelOffersAPI) {
-        this.hotelsByCityAPI = new AmadeusSearchHotelsByCityAPI();
+                               AmadeusHotelOffersSearchAPI hotelOffersAPI,
+                               AmadeusSearchHotelsByCityAPI hotelsByCityAPI) {
+        this.hotelsByCityAPI = hotelsByCityAPI;
         this.hotelOffersAPI = hotelOffersAPI;
         this.hotelOffersCache = hotelOffersCache;
         log.info("AmadeusHotelService initialized with hotel offers cache");
@@ -47,13 +48,13 @@ public class AmadeusHotelService {
      * @param request 城市酒店搜索请求
      * @return 酒店数组
      */
-    public Hotel[] searchHotelsByCity(QueryHotelByCityRequest request) {
+    public List<HotelInfoDto> searchHotelsByCity(QueryHotelByCityRequest request) {
         log.info("Searching hotels by city with request: {}", request);
         
         return retryApiCall(() -> {
             try {
-                Hotel[] result = hotelsByCityAPI.queryHotelByCity(request);
-                log.info("Hotels by city search completed, found {} results", result != null ? result.length : 0);
+                List<HotelInfoDto> result = hotelsByCityAPI.queryHotelByCity(request);
+                log.info("Hotels by city search completed, found {} results", result != null ? result.size() : 0);
                 return result;
             } catch (Exception e) {
                 log.error("Failed to search hotels by city", e);

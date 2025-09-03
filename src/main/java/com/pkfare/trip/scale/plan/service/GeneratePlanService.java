@@ -254,6 +254,7 @@ public class GeneratePlanService {
    */
   private CompletableFuture<DependentSearchResult> executeDependentSearches(
       GeneratePlanParam param, ConcurrentSearchResult concurrentResult) {
+    log.info("executeDependentSearches begin");
     
     // 1. 基于航班信息搜索酒店详情
     CompletableFuture<List<HotelInfo>> hotelsFuture = CompletableFuture
