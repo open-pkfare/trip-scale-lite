@@ -5,6 +5,7 @@ import com.amadeus.resources.FlightOfferSearch;
 import com.github.benmanes.caffeine.cache.Cache;
 import com.pkfare.trip.scale.api.amadeus.flightdates.AmadeusFlightDatesAPI;
 import com.pkfare.trip.scale.api.amadeus.flightdates.request.FlightDatesRequest;
+import com.pkfare.trip.scale.api.amadeus.flightdates.response.FlightDateDto;
 import com.pkfare.trip.scale.api.amadeus.flightoffers.AmadeusFlightOffersSearchAPI;
 import com.pkfare.trip.scale.api.amadeus.flightoffers.request.FlightOffersSearchRequest;
 import com.pkfare.trip.scale.api.amadeus.flightoffers.response.FlightOfferDto;
@@ -36,8 +37,9 @@ public class AmadeusFlightService {
     
     public AmadeusFlightService(@Qualifier("flightDatesCache") Cache<String, Object> flightDatesCache,
                                @Qualifier("flightOffersCache") Cache<String, Object> flightOffersCache,
+                               AmadeusFlightDatesAPI flightDatesAPI,
                                AmadeusFlightOffersSearchAPI flightOffersAPI) {
-        this.flightDatesAPI = new AmadeusFlightDatesAPI();
+        this.flightDatesAPI = flightDatesAPI;
         this.flightOffersAPI = flightOffersAPI;
         this.flightDatesCache = flightDatesCache;
         this.flightOffersCache = flightOffersCache;
@@ -51,7 +53,7 @@ public class AmadeusFlightService {
      * @param request 航班日期搜索请求
      * @return 航班日期数组
      */
-    public FlightDate[] searchFlightDates(FlightDatesRequest request) {
+    public List<FlightDateDto> searchFlightDates(FlightDatesRequest request) {
         log.info("Searching flight dates with request: {}", request);
         
         // 生成缓存键
@@ -62,23 +64,23 @@ public class AmadeusFlightService {
         }
         
         // 1. 先尝试从缓存获取
-        FlightDate[] cachedResult = getCachedFlightDates(cacheKey);
+        List<FlightDateDto> cachedResult = getCachedFlightDates(cacheKey);
         if (cachedResult != null) {
             log.info("Cache hit! Returning {} cached flight dates for key: {}", 
-                cachedResult.length, cacheKey);
+                cachedResult.size(), cacheKey);
             logCacheStats();
             return cachedResult;
         }
         
         // 2. 缓存未命中，调用API获取数据
         log.info("Cache miss for key: {}, calling API", cacheKey);
-        FlightDate[] apiResult = searchFlightDatesWithoutCache(request);
+        List<FlightDateDto> apiResult = searchFlightDatesWithoutCache(request);
         
         // 3. 将API结果缓存起来
-        if (apiResult != null && apiResult.length > 0) {
+        if (apiResult != null && apiResult.size() > 0) {
             cacheFlightDatesResult(cacheKey, apiResult);
             log.info("API result cached successfully - {} flight dates for key: {}", 
-                apiResult.length, cacheKey);
+                apiResult.size(), cacheKey);
         } else {
             log.warn("API returned empty result, not caching for key: {}", cacheKey);
         }
@@ -93,12 +95,12 @@ public class AmadeusFlightService {
      * @param cacheKey 缓存键
      * @return 缓存的航班日期，如果不存在返回null
      */
-    private FlightDate[] getCachedFlightDates(String cacheKey) {
+    private List<FlightDateDto> getCachedFlightDates(String cacheKey) {
         try {
             Object cached = flightDatesCache.getIfPresent(cacheKey);
             if (cached instanceof FlightDate[]) {
-                FlightDate[] cachedResult = (FlightDate[]) cached;
-                log.debug("Cache hit for key: {}, found {} results", cacheKey, cachedResult.length);
+                List<FlightDateDto> cachedResult = (List<FlightDateDto>) cached;
+                log.debug("Cache hit for key: {}, found {} results", cacheKey, cachedResult.size());
                 return cachedResult;
             } else if (cached != null) {
                 log.warn("Invalid cached object type: {}, removing from cache", cached.getClass());
@@ -118,10 +120,10 @@ public class AmadeusFlightService {
      * @param cacheKey 缓存键
      * @param result API查询结果
      */
-    private void cacheFlightDatesResult(String cacheKey, FlightDate[] result) {
+    private void cacheFlightDatesResult(String cacheKey,List<FlightDateDto> result) {
         try {
             flightDatesCache.put(cacheKey, result);
-            log.debug("Cached {} flight dates for key: {}", result.length, cacheKey);
+            log.debug("Cached {} flight dates for key: {}", result.size(), cacheKey);
         } catch (Exception e) {
             log.error("Failed to cache result for key: {}", cacheKey, e);
         }
@@ -133,11 +135,11 @@ public class AmadeusFlightService {
      * @param request 航班日期搜索请求
      * @return 航班日期数组
      */
-    private FlightDate[] searchFlightDatesWithoutCache(FlightDatesRequest request) {
+    private List<FlightDateDto> searchFlightDatesWithoutCache(FlightDatesRequest request) {
         return retryApiCall(() -> {
             try {
-                FlightDate[] result = flightDatesAPI.flightDates(request);
-                log.debug("API call completed, found {} results", result != null ? result.length : 0);
+                List<FlightDateDto> result = flightDatesAPI.flightDates(request);
+                log.debug("API call completed, found {} results", result != null ? result.size() : 0);
                 return result;
             } catch (Exception e) {
                 log.error("Failed to search flight dates via API", e);
