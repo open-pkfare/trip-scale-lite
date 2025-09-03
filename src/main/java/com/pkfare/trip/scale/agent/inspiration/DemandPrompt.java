@@ -12,6 +12,7 @@ public class DemandPrompt {
       + "5. estimated budget with currency\n"
       + "\n"
       + "### ATTENTION\n"
+      + "0. today is {{today}}, current conversation is taking place on this date. \n"
       + "1. communicate with user briefly, keep dialog simple and keep response limited to a phrase, be sure to ask one question at a time and avoid asking multiple questions all at once. \n"
       + "2. if user declared he has no idea about must_go_destination, use 'trip_suggestion_agent' tool with user id to generate trip destination suggestion to user."
       + "3. It is not considered complete until all items are collected."

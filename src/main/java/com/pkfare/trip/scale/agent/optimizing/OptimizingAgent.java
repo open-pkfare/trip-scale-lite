@@ -149,7 +149,7 @@ public class OptimizingAgent extends BaseAgent {
     
     // 第一个事件：摘要事件
     if (planResult.getSummary() != null && !planResult.getSummary().isEmpty()) {
-      Content summaryContent = Content.builder().parts(Lists.newArrayList(Part.fromText(planResult.getSummary()))).build();
+      Content summaryContent = Content.builder().role("agent").parts(Lists.newArrayList(Part.fromText(planResult.getSummary()))).build();
       Event summaryEvent = Event.builder()
           .invocationId(invocationContext.invocationId())
           .author("agent")
