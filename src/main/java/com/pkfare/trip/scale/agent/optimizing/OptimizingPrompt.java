@@ -26,6 +26,8 @@ public class OptimizingPrompt {
       + " time, and avoid asking multiple questions simultaneously.\n"
       + "2. It is not considered complete until all the information has been collected.\n"
 
+      + "here's specific day trip plan :\n"
+      + "{{day_trip_result}}"
       + "### Output\n"
       + "{\n"
       + "\"item\": String,\n"

@@ -1,11 +1,16 @@
 package com.pkfare.trip.scale.agent.optimizing;
 
+import com.alibaba.fastjson.JSON;
 import com.google.adk.agents.BaseAgent;
 import com.google.adk.agents.Callbacks.AfterAgentCallback;
 import com.google.adk.agents.Callbacks.BeforeAgentCallback;
+import com.google.adk.agents.Instruction;
+import com.google.adk.agents.Instruction.Provider;
 import com.google.adk.agents.InvocationContext;
 import com.google.adk.agents.LlmAgent;
 import com.google.adk.events.Event;
+import com.google.adk.runner.InMemoryRunner;
+import com.google.adk.sessions.Session;
 import com.google.common.collect.Lists;
 import com.google.genai.types.Content;
 import com.google.genai.types.Part;
@@ -18,10 +23,14 @@ import com.pkfare.trip.scale.plan.service.param.TripRouteParam;
 import com.pkfare.trip.scale.plan.service.response.TripRoutePlanResult;
 import com.pkfare.trip.scale.util.JsonUtil;
 import io.reactivex.rxjava3.core.Flowable;
+import io.reactivex.rxjava3.core.Single;
+import java.nio.charset.StandardCharsets;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.context.ApplicationContext;
 
 @Slf4j
@@ -49,11 +58,16 @@ public class OptimizingAgent extends BaseAgent {
 
   public static BaseAgent instance() {
     if (null == INSTANCE) {
+      Instruction instruction = new Provider(rc-> {
+        TripRoutePlanResult result = (TripRoutePlanResult)rc.state().get("trip_plan");
+        String prompt = StringUtils.replace(OptimizingPrompt.OPTIMIZING_PROMPT,"{{day_trip_result}}", JSON.toJSONString(result));
+        return Single.just(prompt);
+      });
       INSTANCE = LlmAgent.builder()
           .name(NAME)
           .model(GoogleConfig.GEMINI_2_5_FLASH)
           .description("A client that helps travelers optimize their itinerary plans and output solutions.")
-          .instruction(OptimizingPrompt.OPTIMIZING_PROMPT)
+          .instruction(instruction)
           .build();
     }
     return INSTANCE;
@@ -239,4 +253,30 @@ public class OptimizingAgent extends BaseAgent {
     return null;
   }
 
+
+  public static void main(String[] args) {
+    InMemoryRunner runner = new InMemoryRunner(instance());
+    Session session =
+        runner
+            .sessionService()
+            .createSession(NAME, "test_inspiration")
+            .blockingGet();
+
+    try (Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8)) {
+      while (true) {
+        System.out.print("\nYou > ");
+        String userInput = scanner.nextLine();
+
+        if ("quit".equalsIgnoreCase(userInput)) {
+          break;
+        }
+
+        Content userMsg = Content.fromParts(Part.fromText(userInput));
+        Flowable<Event> events = runner.runAsync("test_inspiration", session.id(), userMsg);
+
+        System.out.print("\nTripScale > ");
+        events.blockingForEach(event -> System.out.println(event.stringifyContent()));
+      }
+    }
+  }
 }
