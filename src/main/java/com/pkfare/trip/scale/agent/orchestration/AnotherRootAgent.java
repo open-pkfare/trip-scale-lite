@@ -12,6 +12,7 @@ import com.google.adk.events.Event;
 import com.google.adk.events.EventActions;
 import com.google.adk.sessions.BaseSessionService;
 import com.google.adk.sessions.Session;
+import com.google.adk.web.config.DevConfig;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.errorprone.annotations.CanIgnoreReturnValue;
@@ -47,7 +48,7 @@ public class AnotherRootAgent extends BaseAgent {
   private static AnotherRootAgent ROOT_AGENT;
 
   @Setter
-  private BaseSessionService sessionService;
+  private DevConfig devConfig;
 
   public AnotherRootAgent() {
     super(NAME, "Agent to coordinate different agents to work together with different steps to finish a trip planning.",
@@ -73,7 +74,7 @@ public class AnotherRootAgent extends BaseAgent {
   protected Flowable<Event> runAsyncImpl(InvocationContext invocationContext) {
     Session session = invocationContext.session();
     initSession(session);
-    getSession(session.id(), session.userId());
+    devConfig.getSession(session.id(), session.userId());
     String currentStage = (String) session.state().get("current_stage");
     Flowable<Event> eventFlowable = null;
     switch (currentStage) {
@@ -155,7 +156,7 @@ public class AnotherRootAgent extends BaseAgent {
           }
         } catch (Throwable e) {
 //          log.info("error {}", ExceptionUtils.getStackTrace(e));
-          log.info("parse error text : {}", text);
+//          log.info("parse error text : {}", text);
           return;
         }
 
@@ -170,7 +171,7 @@ public class AnotherRootAgent extends BaseAgent {
                 // content might be None or represent the action taken
                 .build();
         Event updatedSession =
-            sessionService.appendEvent(session, systemEvent).blockingGet();
+            devConfig.appendEvent(session, systemEvent);
       }
     }
   }
@@ -178,30 +179,6 @@ public class AnotherRootAgent extends BaseAgent {
   @Override
   protected Flowable<Event> runLiveImpl(InvocationContext invocationContext) {
     return null;
-  }
-
-  /**
-   * init session dialog
-   *
-   * @param conversationId
-   * @param userId
-   * @return
-   */
-  @CanIgnoreReturnValue
-  public Session getSession(String conversationId, String userId) {
-    Maybe<Session> sessionMaybe = sessionService.getSession(NAME, userId, conversationId, Optional.empty());
-    Session session;
-    if (null == (session = sessionMaybe.blockingGet())) {
-      log.info("start init a new session for conversation {}", conversationId);
-      ConcurrentMap<String, Object> states = Maps.newConcurrentMap();
-      states.put("current_stage", "demand");
-      states.put("user:userId", userId);
-
-      session = sessionService
-          .createSession(NAME, userId, states, conversationId)
-          .blockingGet();
-    }
-    return session;
   }
 
   private void initSession(Session session){
@@ -220,7 +197,7 @@ public class AnotherRootAgent extends BaseAgent {
               // content might be None or represent the action taken
               .build();
       Event updatedSession =
-          sessionService.appendEvent(session, systemEvent).blockingGet();
+          devConfig.appendEvent(session, systemEvent);
     }
   }
 
