@@ -1,5 +1,6 @@
 package com.pkfare.trip.scale.service.external.amadeus;
 
+import com.amadeus.resources.Hotel;
 import com.amadeus.resources.HotelOfferSearch;
 import com.github.benmanes.caffeine.cache.Cache;
 import com.pkfare.trip.scale.api.amadeus.hotelbycity.AmadeusSearchHotelsByCityAPI;

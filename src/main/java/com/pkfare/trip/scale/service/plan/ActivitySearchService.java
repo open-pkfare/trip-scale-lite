@@ -284,12 +284,12 @@ public class ActivitySearchService {
     request.setRadius(DEFAULT_RADIUS);
 
     try {
-      Activity[] activities = amadeusActivityService.searchActivities(request);
-      if (activities == null || activities.length == 0) {
+      List<ActivityDto> activities = amadeusActivityService.searchActivities(request);
+      if (activities == null || activities.size()  == 0) {
         return Collections.emptyList();
       }
 
-      List<ActivityInfo> activityInfos = Arrays.stream(activities)
+      List<ActivityInfo> activityInfos = activities.stream()
           .map(activity -> convertToActivityInfo(activity, hotel.getCityCode()))
           .filter(Objects::nonNull)
           .collect(Collectors.toList());
