@@ -1,182 +1,70 @@
-//package com.pkfare.trip.scale.agent.orchestration;
-//
-//import com.google.adk.agents.BaseAgent;
-//import com.google.adk.agents.LlmAgent;
-//import com.google.adk.events.Event;
-//import com.google.adk.events.EventActions;
-//import com.google.adk.models.Gemini;
-//import com.google.adk.runner.InMemoryRunner;
-//import com.google.adk.sessions.BaseSessionService;
-//import com.google.adk.sessions.InMemorySessionService;
-//import com.google.adk.sessions.Session;
-//import com.google.common.collect.Lists;
-//import com.google.common.collect.Maps;
-//import com.google.genai.types.Content;
-//import com.google.genai.types.Part;
-//import com.google.gson.Gson;
-//import com.google.gson.JsonElement;
-//import com.google.gson.JsonParser;
-//import com.google.gson.reflect.TypeToken;
-//import com.pkfare.trip.scale.agent.inspiration.DemandAgent;
-//import com.pkfare.trip.scale.agent.inspiration.InspirationAgent;
-//import com.pkfare.trip.scale.config.GoogleConfig;
-//import com.pkfare.trip.scale.dto.Conversation;
-//import com.pkfare.trip.scale.dto.RespConversation;
-//import com.pkfare.trip.scale.dto.TripDemand;
-//import com.pkfare.trip.scale.dto.TripRoute;
-//import com.pkfare.trip.scale.function.UserEventFilter;
-//import io.reactivex.rxjava3.core.Flowable;
-//import io.reactivex.rxjava3.core.Maybe;
-//import java.nio.charset.StandardCharsets;
-//import java.time.Instant;
-//import java.util.List;
-//import java.util.Map;
-//import java.util.Optional;
-//import java.util.Scanner;
-//import java.util.concurrent.ConcurrentMap;
-//import lombok.extern.slf4j.Slf4j;
-//import org.apache.commons.lang3.StringUtils;
-//import org.springframework.stereotype.Component;
-//
-//@Slf4j
-//@Component
-//public class RootAgent {
-//
-//  private static String NAME = "Coordinator";
-//
-//  public static BaseAgent ROOT_AGENT = initAgent();
-//
-//  public static InMemoryRunner runner = new InMemoryRunner(ROOT_AGENT);
-//
-//  public static BaseAgent initAgent() {
-//    return LlmAgent.builder()
-//        .name(NAME)
-//        .model(GoogleConfig.GEMINI_2_5_FLASH)
-//        .description("Agent to coordinate different agents to work together with different steps to finish a trip planning.")
-//        .instruction(RootPrompt.INTRO)
-//        .subAgents(DemandAgent.instance(), InspirationAgent.instance())
-//        .build();
-//  }
-//
-//  public List<RespConversation> chat(Conversation conversation) {
-//    Session session = initSession(conversation.getConversationId(), conversation.getUserId());
-//
-//    Session updatedSession = runner.sessionService().getSession(NAME, conversation.getUserId(), session.id(), Optional.empty()).blockingGet();
-//    log.info("current session {}", updatedSession.state().entrySet());
-//
-//    Content userMsg = Content.fromParts(Part.fromText(conversation.getContent()));
-//
-//    Flowable<Event> events = runner.runAsync(conversation.getUserId(), session.id(), userMsg);
-//    StringBuilder stringBuilder = new StringBuilder();
-//    events.filter(UserEventFilter.instance()).blockingForEach(event -> {
-//      setDone(event, conversation.getUserId(), conversation.getConversationId());
-//      log.info("event {}", event);
-//      if(event.content().isPresent()){
-//        Content content = event.content().get();
-//        stringBuilder.append(content.text());
-//      }
-//    });
-//
-//    RespConversation respConversation = new RespConversation();
-//    respConversation.setType("string");
-//    respConversation.setContent(stringBuilder.toString());
-//    respConversation.setConversationId(conversation.getConversationId());
-//
-//    List<RespConversation> respConversations = Lists.newArrayList();
-//    respConversations.add(respConversation);
-//    return respConversations;
-//  }
-//
-//  /**
-//   * init session dialog
-//   * @param conversationId
-//   * @param userId
-//   * @return
-//   */
-//  private static Session initSession(String conversationId, String userId) {
-//    Maybe<Session> sessionMaybe = runner.sessionService().getSession(NAME, userId, conversationId, Optional.empty());
-//    Session session;
-//    if (null == (session = sessionMaybe.blockingGet())){
-//      log.info("start init a new session for conversation {}", conversationId);
-//      ConcurrentMap<String, Object> states = Maps.newConcurrentMap();
-//      states.put("current_stage", "demand");
-//      states.put("user:userId", userId);
-//
-//      session = runner.sessionService()
-//          .createSession(NAME, userId, states, conversationId)
-//          .blockingGet();
-//    }
-//    return session;
-//  }
-//
-//  public Event setDone(Event event, String userId, String conversationId){
-//    Event updatedSession = event;
-//    if(event.content().isPresent()){
-//      Content content = event.content().get();
-//      String text = content.text();
-//      if (StringUtils.isNotEmpty(text)){
-//        Session session = runner.sessionService().getSession(NAME, userId, conversationId, Optional.empty()).blockingGet();
-//        String currentStage = (String) session.state().get("current_stage");
-//        ConcurrentMap<String, Object> states = Maps.newConcurrentMap();
-//
-//        JsonElement jsonElement = null;
-//        try {
-//          jsonElement = JsonParser.parseString(text);
-//        }catch (Throwable e){
-//          return event;
-//        }
-//        switch (currentStage){
-//          case "demand" :
-//            TripDemand tripDemand = new Gson().fromJson(jsonElement, TripDemand.class);
-//            states.put("current_stage","inspiration");
-//            states.put("trip_demand", tripDemand);
-//            break;
-//          case "inspiration" :
-//            List<TripRoute> tripRoutes = new Gson().fromJson(jsonElement, new TypeToken<List<TripRoute>>(){}.getType());
-//            states.put("current_stage","inspiration");
-//            states.put("trip_routes", tripRoutes);
-//            break;
-//          default:
-//        }
-//
-//
-//      EventActions actionsWithUpdate = EventActions.builder().stateDelta(states).build();
-//      long currentTimeMillis = Instant.now().toEpochMilli(); // Use milliseconds for Java Event
-//      Event systemEvent =
-//          Event.builder()
-//              .invocationId("init")
-//              .author("system") // Or 'agent', 'tool' etc.
-//              .actions(actionsWithUpdate)
-//              .timestamp(currentTimeMillis)
-//              // content might be None or represent the action taken
-//              .build();
-//        updatedSession =
-//          runner.sessionService().appendEvent(session, systemEvent).blockingGet();
-//      }
-//    }
-//    return updatedSession;
-//  }
-//
-//
-//  public static void main(String[] args) {
-//    Session session = initSession("1234567890","123");
-//
-//    try (Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8)) {
-//      while (true) {
-//        System.out.print("\nYou > ");
-//        String userInput = scanner.nextLine();
-//
-//        if ("quit".equalsIgnoreCase(userInput)) {
-//          break;
-//        }
-//
-//        Content userMsg = Content.fromParts(Part.fromText(userInput));
-//        Flowable<Event> events = runner.runAsync("123", session.id(), userMsg);
-//
-//        System.out.print("\nTripScale > ");
-//        events.blockingForEach(event -> System.out.println(event.stringifyContent()));
-//      }
-//    }
-//  }
-//
-//}
+package com.pkfare.trip.scale.agent.orchestration;
+
+import com.google.adk.agents.BaseAgent;
+import com.google.adk.agents.Instruction;
+import com.google.adk.agents.LlmAgent;
+import com.google.adk.events.Event;
+import com.google.adk.events.EventActions;
+import com.google.adk.runner.InMemoryRunner;
+import com.google.adk.sessions.Session;
+import com.google.adk.web.config.DevConfig;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
+import com.google.genai.types.Content;
+import com.google.genai.types.Part;
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
+import com.google.gson.reflect.TypeToken;
+import com.pkfare.trip.scale.agent.booking.BookingAgent;
+import com.pkfare.trip.scale.agent.inspiration.DemandAgent;
+import com.pkfare.trip.scale.agent.inspiration.InspirationAgent;
+import com.pkfare.trip.scale.agent.optimizing.OptimizingAgent;
+import com.pkfare.trip.scale.agent.planning.PlanningAgent;
+import com.pkfare.trip.scale.config.GoogleConfig;
+import com.pkfare.trip.scale.dto.Conversation;
+import com.pkfare.trip.scale.dto.RespConversation;
+import com.pkfare.trip.scale.dto.TripDemand;
+import com.pkfare.trip.scale.dto.TripRoute;
+import com.pkfare.trip.scale.function.UserEventFilter;
+import io.reactivex.rxjava3.core.Flowable;
+import io.reactivex.rxjava3.core.Maybe;
+import io.reactivex.rxjava3.core.Single;
+import java.nio.charset.StandardCharsets;
+import java.time.Instant;
+import java.util.List;
+import java.util.Optional;
+import java.util.Scanner;
+import java.util.concurrent.ConcurrentMap;
+import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
+
+@Slf4j
+public class RootAgent {
+
+  private static String NAME = "Coordinator";
+
+  public static BaseAgent ROOT_AGENT;
+
+  public static synchronized BaseAgent instance() {
+    if (null == ROOT_AGENT){
+      Instruction instruction = new Instruction.Provider(rc-> {
+        String current_stage = (String) rc.state().get("current_stage");
+        String prompt = StringUtils.replace(RootPrompt.INTRO,"{{current_stage}}", current_stage);
+        return Single.just(prompt);
+      });
+
+      ROOT_AGENT = LlmAgent.builder()
+          .name(NAME)
+          .model(GoogleConfig.GEMINI_2_5_FLASH)
+          .description("Agent to coordinate different agents to work together with different steps to finish a trip planning.")
+          .instruction(instruction)
+          .subAgents(DemandAgent.instance(), InspirationAgent.instance(), PlanningAgent.instance(), OptimizingAgent.instance(),
+              BookingAgent.instance())
+          .build();
+    }
+    return ROOT_AGENT;
+  }
+
+}

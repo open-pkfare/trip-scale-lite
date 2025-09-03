@@ -7,6 +7,7 @@ import com.google.adk.sessions.Session;
 import com.google.common.collect.Maps;
 import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import com.pkfare.trip.scale.agent.orchestration.AnotherRootAgent;
+import com.pkfare.trip.scale.agent.orchestration.RootAgent;
 import com.pkfare.trip.scale.function.AppRunner;
 import io.reactivex.rxjava3.core.Maybe;
 import jakarta.annotation.PostConstruct;
@@ -29,11 +30,22 @@ public class DevConfig {
 
   public static final String APP_NAME = "Coordinator";
 
+//  @PostConstruct
+//  public void init(){
+//    AnotherRootAgent anotherRootAgent = AnotherRootAgent.instance();
+//    loadedAgentRegistry.put(anotherRootAgent.name(), anotherRootAgent);
+//    anotherRootAgent.setDevConfig(this);
+//  }
+//
+//  @Bean
+//  public AppRunner runner(){
+//    return new AppRunner(AnotherRootAgent.instance(), APP_NAME, sessionService);
+//  }
+
   @PostConstruct
   public void init(){
-    AnotherRootAgent anotherRootAgent = AnotherRootAgent.instance();
-    loadedAgentRegistry.put(anotherRootAgent.name(), anotherRootAgent);
-    anotherRootAgent.setDevConfig(this);
+    BaseAgent rootAgent = RootAgent.instance();
+    loadedAgentRegistry.put(rootAgent.name(), rootAgent);
   }
 
   @Bean
