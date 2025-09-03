@@ -1,0 +1,71 @@
+{
+  "meta": {
+    "count": 1,
+    "links": {
+      "self": "https://test.api.amadeus.com/v1/reference-data/locations?subType=AIRPORT&keyword=SZX&sort=analytics.travelers.score&view=FULL&page%5Boffset%5D=0&page%5Blimit%5D=10"
+    }
+  },
+  "data": [
+    {
+      "type": "location",
+      "subType": "AIRPORT",
+      "name": "BAO AN INTL",
+      "detailedName": "SHENZHEN/CN:BAO AN INTL",
+      "id": "ASZX",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/reference-data/locations/ASZX",
+        "methods": [
+          "GET"
+        ]
+      },
+      "timeZoneOffset": "+08:00",
+      "iataCode": "SZX",
+      "geoCode": {
+        "latitude": 22.63917,
+        "longitude": 113.8106
+      },
+      "address": {
+        "cityName": "SHENZHEN",
+        "cityCode": "SZX",
+        "countryName": "CHINA",
+        "countryCode": "CN",
+        "regionCode": "ASIA"
+      },
+      "analytics": {
+        "travelers": {
+          "score": 17
+        }
+      }
+    },{
+      "type": "location",
+      "subType": "AIRPORT",
+      "name": "FIUMICINO",
+      "detailedName": "ROME/IT:FIUMICINO",
+      "id": "AFCO",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/reference-data/locations/AFCO",
+        "methods": [
+          "GET"
+        ]
+      },
+      "timeZoneOffset": "+02:00",
+      "iataCode": "FCO",
+      "geoCode": {
+        "latitude": 41.79362,
+        "longitude": 12.2525
+      },
+      "address": {
+        "cityName": "ROME",
+        "cityCode": "ROM",
+        "countryName": "ITALY",
+        "countryCode": "IT",
+        "regionCode": "EUROP"
+      },
+      "analytics": {
+        "travelers": {
+          "score": 26
+        }
+      }
+    }
+  ]
+}

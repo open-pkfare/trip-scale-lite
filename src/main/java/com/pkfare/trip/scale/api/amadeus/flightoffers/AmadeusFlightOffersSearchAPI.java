@@ -27,7 +27,6 @@ import java.util.Objects;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 
-
 @Slf4j
 @Component
 public class AmadeusFlightOffersSearchAPI {
@@ -175,6 +174,7 @@ public class AmadeusFlightOffersSearchAPI {
    * 判断是否需要使用Mock数据
    */
   private boolean needMock(FlightOffersSearchRequest request) {
+    log.debug("AmadeusFlightOffersSearchAPI mockEnabled value: {}", mockEnabled);
     return mockEnabled;
   }
 
