@@ -1,7 +1,9 @@
 package com.pkfare.trip.scale.agent.inspiration;
 
 import com.google.adk.agents.BaseAgent;
+import com.google.adk.agents.Instruction;
 import com.google.adk.agents.LlmAgent;
+import com.google.adk.agents.ReadonlyContext;
 import com.google.adk.events.Event;
 import com.google.adk.runner.InMemoryRunner;
 import com.google.adk.sessions.Session;
@@ -15,11 +17,14 @@ import com.pkfare.trip.scale.config.GoogleConfig;
 import com.pkfare.trip.scale.dto.TripDemand;
 import io.reactivex.rxjava3.core.Flowable;
 import io.reactivex.rxjava3.core.Maybe;
+import io.reactivex.rxjava3.core.Single;
 import java.nio.charset.StandardCharsets;
+import java.time.LocalDate;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Scanner;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 
 @Slf4j
@@ -32,14 +37,20 @@ public class DemandAgent {
 
   public static BaseAgent instance() {
     if (null == INSTANCE) {
+      Instruction instruction = new Instruction.Provider(rc-> {
+        String today = LocalDate.now().toString();
+        String prompt = StringUtils.replace(DemandPrompt.DEMAND_AND_PREFERENCE_INSPIRATION,"{{today}}", today);
+        return Single.just(prompt);
+      });
       INSTANCE = LlmAgent.builder()
           .name(NAME)
           .model(GoogleConfig.GEMINI_2_5_FLASH)
           .description("Agent to help user to inspire and collect trip demand info.")
-          .instruction(DemandPrompt.DEMAND_AND_PREFERENCE_INSPIRATION)
+          .instruction(instruction)
           .subAgents(SuggestionAgent.instance())
 //          .tools(AgentTool.create(SuggestionAgent.instance(), true))
           .build();
+
     }
     return INSTANCE;
   }
