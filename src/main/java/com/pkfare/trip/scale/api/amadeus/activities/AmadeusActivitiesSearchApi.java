@@ -6,7 +6,6 @@ import com.amadeus.Params;
 import com.amadeus.resources.Activity;
 import com.amadeus.resources.Activity.GeoCode;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.Lists;
 import com.pkfare.trip.scale.api.amadeus.activities.request.ActivitiesSearchRequest;
 import com.pkfare.trip.scale.api.amadeus.activities.response.ActivityDto;
@@ -14,11 +13,10 @@ import com.pkfare.trip.scale.api.amadeus.activities.response.ElementaryPriceDto;
 import com.pkfare.trip.scale.api.amadeus.activities.response.GeoCodeDto;
 import com.pkfare.trip.scale.api.amadeus.config.AmadeusClient;
 import com.pkfare.trip.scale.api.amadeus.exception.AmadeusApiException;
+import com.pkfare.trip.scale.cache.AbstractMockDataProcessor;
 import java.util.Objects;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
@@ -26,12 +24,10 @@ import org.apache.commons.lang3.StringUtils;
 
 @Slf4j
 @Component
-public class AmadeusActivitiesSearchApi {
+public class AmadeusActivitiesSearchApi extends AbstractMockDataProcessor {
 
   @Value("${amadeus.activities.mock.enabled:true}")
   private boolean mockEnabled;
-  
-  private final ObjectMapper objectMapper = new ObjectMapper();
 
 
   public List<ActivityDto> searchActivities(ActivitiesSearchRequest activitiesSearchRequest) {
@@ -77,36 +73,31 @@ public class AmadeusActivitiesSearchApi {
 
   /**
    * 返回Mock API响应
+   * 优化：优先从缓存获取数据，缓存未命中时回退到文件读取
    */
   private List<ActivityDto> mockApiResponse(ActivitiesSearchRequest request) {
+    long startTime = System.currentTimeMillis();
+    
     try {
-      // 读取mock JSON文件
-      ClassPathResource resource = new ClassPathResource("mock/activities-mock.json");
-      JsonNode rootNode = objectMapper.readTree(resource.getInputStream());
-      JsonNode dataNode = rootNode.get("data");
+      // 使用缓存优化：优先从缓存获取，缓存未命中时自动回退到文件读取
+      JsonNode dataNode = getMockDataArray("activities", "mock/activities-mock.json");
       
-      if (dataNode == null || !dataNode.isArray()) {
-        log.warn("Mock activities data format is invalid, returning empty list");
+      if (dataNode == null) {
+        log.warn("Mock activities data not available, returning empty list");
         return new ArrayList<>();
       }
       
-      List<ActivityDto> mockActivities = new ArrayList<>();
+      // 保持原有业务逻辑：解析每个活动
+      List<ActivityDto> mockActivities = parseMockDataArray(dataNode, this::parseMockActivity);
       
-      // 解析每个活动
-      for (JsonNode activityNode : dataNode) {
-        ActivityDto dto = parseMockActivity(activityNode);
-        if (dto != null) {
-          mockActivities.add(dto);
-        }
-      }
-      
-      log.info("Returned {} mock activities for latitude: {}, longitude: {}, radius: {}", 
-               mockActivities.size(), request.getLatitude(), request.getLongitude(), request.getRadius());
+      long duration = System.currentTimeMillis() - startTime;
+      log.info("Returned {} mock activities for latitude: {}, longitude: {}, radius: {} in {} ms", 
+               mockActivities.size(), request.getLatitude(), request.getLongitude(), request.getRadius(), duration);
       
       return mockActivities;
       
-    } catch (IOException e) {
-      log.error("Failed to read mock activities data", e);
+    } catch (Exception e) {
+      log.error("Failed to get mock activities data", e);
       return new ArrayList<>();
     }
   }
@@ -235,12 +226,5 @@ public class AmadeusActivitiesSearchApi {
     dto.setLongitude(geoCode.getLongitude());
     return dto;
   }
-
-  // 辅助方法：安全获取字符串值
-  private String getStringValue(JsonNode node, String fieldName) {
-    JsonNode fieldNode = node.get(fieldName);
-    return fieldNode != null && !fieldNode.isNull() ? fieldNode.asText() : null;
-  }
-
 
 }
