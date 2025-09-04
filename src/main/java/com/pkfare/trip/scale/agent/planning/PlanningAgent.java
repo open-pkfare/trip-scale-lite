@@ -109,7 +109,7 @@ public class PlanningAgent extends BaseAgent {
     param.setOrigin("SZX");
     param.setLocation_code("CN");
     param.setStart_period("2025-10-01");
-    param.setEnd_period("2025-10-07");
+    param.setEnd_period("2025-10-30");
     param.setTrip_days(7);
     param.setAdult_number(1);
     param.setChild_number(0);

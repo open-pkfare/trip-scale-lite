@@ -159,7 +159,7 @@ public class ActivitySearchService {
   private List<ActivityInfo> filterActivitiesByDistance(List<ActivityInfo> activities,
       HotelLocationInfo hotelLocation,
       double maxDistanceKm) {
-    return activities.stream().filter(activityInfo -> !CollectionUtils.isEmpty(activityInfo.getPictures()))
+    return activities.stream()
         .filter(activity -> {
           if (activity.getLatitude() == 0.0 || activity.getLongitude() == 0.0) {
             return false;
@@ -210,6 +210,9 @@ public class ActivitySearchService {
     if (activity == null) {
       return null;
     }
+    if(CollectionUtils.isEmpty(activity.getPictures())){
+      return null;
+    }
 
     ActivityInfo activityInfo = new ActivityInfo();
 
@@ -244,7 +247,7 @@ public class ActivitySearchService {
       activityInfo.setType("General");
     }
 
-    activityInfo.setPictures(activity.getPictures());
+    activityInfo.setPictures(activity.getPictures().subList(0,1));
 
     return activityInfo;
   }

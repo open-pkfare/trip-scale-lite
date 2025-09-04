@@ -15,7 +15,6 @@ import com.pkfare.trip.scale.service.plan.FlightSearchService;
 import com.pkfare.trip.scale.service.plan.HotelSearchService;
 import com.pkfare.trip.scale.service.plan.LocationSearchService;
 import com.pkfare.trip.scale.util.DateUtil;
-import com.pkfare.trip.scale.util.JsonUtil;
 import com.pkfare.trip.scale.util.ValidationUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
