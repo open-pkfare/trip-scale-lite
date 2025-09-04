@@ -2,6 +2,7 @@ package com.pkfare.trip.scale.model.dto;
 
 import com.pkfare.trip.scale.plan.service.response.FlightInfo;
 import com.pkfare.trip.scale.plan.service.response.TripRoutePlanResult;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.Getter;
@@ -25,6 +26,7 @@ public class BriefTripRoutePlan {
 
   public BriefTripRoutePlan(TripRoutePlanResult dailyRoutePlan) {
     this.dailyPlans = dailyRoutePlan.getDailyPlans().stream().map(BriefDailyRoutePlan::new).collect(Collectors.toList());
-    this.preferredFlights = dailyRoutePlan.getPreferredFlights();
+    // todo 先设置为空集合
+    this.preferredFlights = Collections.emptyList();
   }
 }
