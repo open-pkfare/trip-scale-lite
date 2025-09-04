@@ -22,7 +22,6 @@ import com.pkfare.trip.scale.model.dto.TripDayInfo;
 import com.pkfare.trip.scale.plan.service.TripPlanAdjustService;
 import com.pkfare.trip.scale.plan.service.param.GeneratePlanParam;
 import com.pkfare.trip.scale.plan.service.param.TripRouteParam;
-import com.pkfare.trip.scale.plan.service.response.DailyRoutePlan;
 import com.pkfare.trip.scale.plan.service.response.TripRoutePlanResult;
 import com.pkfare.trip.scale.util.JsonUtil;
 import io.reactivex.rxjava3.core.Flowable;
@@ -31,7 +30,6 @@ import java.nio.charset.StandardCharsets;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.Scanner;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -40,7 +38,8 @@ import org.springframework.context.ApplicationContext;
 @Slf4j
 public class DailyOptimizingAgent extends BaseAgent {
 
-  private static final String NAME = "trip_daily_optimizing_agent";
+  public static final String CURRENT_AGENT = "trip_daily_optimizing_agent";
+  private static final String BASE_AGENT = "trip_daily_optimizing_base_agent";
 
   private static DailyOptimizingAgent dailyOptimizingAgent;
 
@@ -56,7 +55,7 @@ public class DailyOptimizingAgent extends BaseAgent {
   }
 
   public DailyOptimizingAgent() {
-    super("doa", "Agent to help user to optimize a travel plans, including adjusting flights, hotels and activities, etc.",
+    super(CURRENT_AGENT, "Agent to help user to optimize a travel plans, including adjusting flights, hotels and activities, etc.",
         Lists.newArrayList(INSTANCE),
         null,
         null);
@@ -66,19 +65,19 @@ public class DailyOptimizingAgent extends BaseAgent {
     if (null == INSTANCE) {
       Instruction instruction = new Provider(rc -> {
         TripRoutePlanResult result = (TripRoutePlanResult) rc.state().get("plan_result");
-        TripDayInfo chooseDayPlan = (TripDayInfo) rc.state().get("chose_day_plan");
-//        DailyRoutePlan dailyRoutePlan = new DailyRoutePlan();
-//        if (Objects.nonNull(chooseDayPlan) && chooseDayPlan.getDayOfTrip() != -1
-//            && chooseDayPlan.getDayOfTrip() <= result.getDailyPlans().size()) {
-//          dailyRoutePlan = result.getDailyPlans().get(chooseDayPlan.getDayOfTrip() - 1);
-//        }
-         BriefDailyRoutePlan briefPlan = mockDailyPlans();
-//        BriefDailyRoutePlan briefPlan = new BriefDailyRoutePlan(dailyRoutePlan);
+        TripDayInfo chooseDayPlan = (TripDayInfo) rc.state().get(DailyChoseAgent.CHOSE_DAY_PLAN);
+        //        DailyRoutePlan dailyRoutePlan = new DailyRoutePlan();
+        //        if (Objects.nonNull(chooseDayPlan) && chooseDayPlan.getDayOfTrip() != -1
+        //            && chooseDayPlan.getDayOfTrip() <= result.getDailyPlans().size()) {
+        //          dailyRoutePlan = result.getDailyPlans().get(chooseDayPlan.getDayOfTrip() - 1);
+        //        }
+        BriefDailyRoutePlan briefPlan = mockDailyPlans();
+        //        BriefDailyRoutePlan briefPlan = new BriefDailyRoutePlan(dailyRoutePlan);
         String prompt = StringUtils.replace(DailyOptimizingPrompt.PROMPT, "{{daily_route_plan}}", JsonUtil.toJson(briefPlan));
         return Single.just(prompt);
       });
       INSTANCE = LlmAgent.builder()
-          .name(NAME)
+          .name(BASE_AGENT)
           .model(GoogleConfig.GEMINI_2_5_FLASH)
           .description("A client that helps travelers optimize their itinerary plans and output solutions.")
           .instruction(instruction)
@@ -106,8 +105,6 @@ public class DailyOptimizingAgent extends BaseAgent {
   @Override
   protected Flowable<Event> runAsyncImpl(InvocationContext invocationContext) {
     log.info("Starting PlanningAgent runAsyncImpl");
-
-
 
     try {
       // todo 空数组则不做调整
@@ -239,7 +236,7 @@ public class DailyOptimizingAgent extends BaseAgent {
     Session session =
         runner
             .sessionService()
-            .createSession(NAME, "test_daily_optimizing")
+            .createSession(CURRENT_AGENT, "test_daily_optimizing")
             .blockingGet();
 
     try (Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8)) {

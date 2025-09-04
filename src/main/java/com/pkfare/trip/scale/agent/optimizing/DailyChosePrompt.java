@@ -36,5 +36,5 @@ public class DailyChosePrompt {
       + "2. dayOfTrip refers to the day of the trip, starting from 1, and dayOfTrip is no more than the total number of days of the journey.\n"
       + "\n"
       + "### Exception\n\n"
-      + "If the user is satisfied with the current travel plan, no adjustments are needed, output \"{\"date\": \"\", \"dayOfTrip\": -1}\".\n";
+      + "If the user is satisfied with the current travel plan, no adjustments are needed, output \"------{\"date\": \"\", \"dayOfTrip\": -1}\".\n";
 }

@@ -1,8 +1,6 @@
 package com.pkfare.trip.scale.agent.optimizing;
 
 import com.google.adk.agents.BaseAgent;
-import com.google.adk.agents.Callbacks.AfterAgentCallback;
-import com.google.adk.agents.Callbacks.BeforeAgentCallback;
 import com.google.adk.agents.Instruction;
 import com.google.adk.agents.Instruction.Provider;
 import com.google.adk.agents.InvocationContext;
@@ -24,31 +22,31 @@ import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 import java.util.Scanner;
-import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 @Slf4j
+@Component
 public class DailyChoseAgent extends BaseAgent {
 
-  private static final String NAME = "trip_daily_chose_agent";
+  private static final String CURRENT_AGENT = "trip_daily_chose_agent";
+  private static final String BASE_AGENT = "trip_daily_chose_base_agent";
+  public static final String CHOSE_DAY_PLAN = "chose_day_plan";
 
   private static BaseAgent INSTANCE;
 
   private static DailyChoseAgent dailyChoseAgent;
 
-  @Setter
+  @Autowired
   private DevConfig devConfig;
 
-  public DailyChoseAgent(String name, String description, List<? extends BaseAgent> subAgents,
-      List<BeforeAgentCallback> beforeAgentCallback,
-      List<AfterAgentCallback> afterAgentCallback) {
-    super(name, description, subAgents, beforeAgentCallback, afterAgentCallback);
-  }
-
   public DailyChoseAgent() {
-    super("dca", "Agent to help user to optimize a travel plans, including adjusting flights, hotels and activities, etc.",
+    super(CURRENT_AGENT, "Agent to help user to optimize a travel plans, including adjusting flights, hotels and activities, etc.",
         Lists.newArrayList(INSTANCE, DailyOptimizingAgent.instance()),
         null,
         null);
@@ -58,24 +56,24 @@ public class DailyChoseAgent extends BaseAgent {
     if (null == INSTANCE) {
       Instruction instruction = new Provider(rc -> {
         TripRoutePlanResult result = (TripRoutePlanResult) rc.state().get("plan_result");
-        // List<TripDayInfo> tripDayInfos = mockDailyPlans();
-        List<TripDayInfo> tripDayInfos = new ArrayList<>();
-        for (int i = 0; i < result.getDailyPlans().size(); i++) {
-          tripDayInfos.add(new TripDayInfo(result.getDailyPlans().get(i), i + 1));
-        }
+         List<TripDayInfo> tripDayInfos = mockDailyPlans();
+//        List<TripDayInfo> tripDayInfos = new ArrayList<>();
+//        for (int i = 0; i < result.getDailyPlans().size(); i++) {
+//          tripDayInfos.add(new TripDayInfo(result.getDailyPlans().get(i), i + 1));
+//        }
         String prompt = StringUtils.replace(DailyChosePrompt.PROMPT, "{{trip_day_infos}}",
             JsonUtil.toJson(tripDayInfos));
         return Single.just(prompt);
       });
       INSTANCE = LlmAgent.builder()
-          .name(NAME)
+          .name(BASE_AGENT)
           .model(GoogleConfig.GEMINI_2_5_FLASH)
           .description("Agent to help user to optimize a travel plans, including adjusting flights, hotels and activities, etc.")
           .instruction(instruction)
           .build();
       dailyChoseAgent = new DailyChoseAgent();
     }
-    return INSTANCE;
+    return dailyChoseAgent;
   }
 
   private static List<TripDayInfo> mockDailyPlans() {
@@ -88,24 +86,25 @@ public class DailyChoseAgent extends BaseAgent {
 
   @Override
   protected Flowable<Event> runAsyncImpl(InvocationContext invocationContext) {
-    invocationContext.agent().findAgent("trip_daily_chose_agent").runAsync(invocationContext).doOnNext(event -> {
+   return invocationContext.agent().findAgent(BASE_AGENT).runAsync(invocationContext).doOnNext(event -> {
       Content content = event.content().get();
-      String text = content.text();
-      parse(text);
-      if (!exists(day is null)){//用户需要改内容
-
-        //
-        invocationContext.session();
-
-        devConfig.appendEvent(session);
-        return invocationContext.agent().findAgent("doa").runAsync(invocationContext);
+      Optional<String> optional = parse(Objects.requireNonNull(content.text()));
+      if (optional.isPresent()) {
+        invocationContext.session().state().put(CHOSE_DAY_PLAN, optional.get());
+//        devConfig.appendEvent(invocationContext.session(), event);
+        invocationContext.agent().findAgent(DailyOptimizingAgent.CURRENT_AGENT).runAsync(invocationContext);
       }
     });
-    return Flowable.empty();
   }
 
-  private parse(){
-
+  private Optional<String> parse(String text) {
+    if (!text.contains("------")) {
+      return Optional.empty();
+    }
+    String[] tt = text.split("------");
+    text = tt[1];
+    text = text.replace("```json", "").replace("```", "");
+    return Optional.of(text);
   }
 
   @Override
@@ -119,7 +118,7 @@ public class DailyChoseAgent extends BaseAgent {
     Session session =
         runner
             .sessionService()
-            .createSession(NAME, "test_daily_chose")
+            .createSession(CURRENT_AGENT, "test_daily_chose")
             .blockingGet();
 
     try (Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8)) {
