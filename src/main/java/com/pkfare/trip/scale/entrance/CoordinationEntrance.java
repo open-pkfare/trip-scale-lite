@@ -57,7 +57,7 @@ public class CoordinationEntrance {
 
     events.filter(UserEventFilter.instance()).blockingForEach(event -> {
 //      setDone(event, conversation.getUserId(), conversation.getConversationId());
-      log.info("event {}", event);
+      // log.info("event {}", event);
 
       if (event.content().isPresent()) {
         Content content = event.content().get();
@@ -84,7 +84,7 @@ public class CoordinationEntrance {
       respConversations.add(respConversation);
     });
 
-    log.info("state : {}", new Gson().toJson(session.state()));
+    //log.info("state : {}", new Gson().toJson(session.state()));
     return respConversations;
   }
 
