@@ -1,5 +1,9 @@
 package com.pkfare.trip.scale.agent.orchestration;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.google.adk.agents.BaseAgent;
 import com.google.adk.agents.Callbacks.AfterAgentCallback;
 import com.google.adk.agents.Callbacks.BeforeAgentCallback;
@@ -30,6 +34,7 @@ import com.pkfare.trip.scale.dto.RespConversation;
 import com.pkfare.trip.scale.dto.TripDemand;
 import com.pkfare.trip.scale.dto.TripRoute;
 import com.pkfare.trip.scale.function.UserEventFilter;
+import com.pkfare.trip.scale.plan.service.response.TripRoutePlanResult;
 import io.reactivex.rxjava3.core.Flowable;
 import io.reactivex.rxjava3.core.Maybe;
 import io.reactivex.rxjava3.core.Single;
@@ -46,7 +51,7 @@ import org.apache.commons.lang3.StringUtils;
 @Slf4j
 public class RootAgent extends BaseAgent {
 
-  private static String NAME = "Coordinator";
+  private static String NAME = "ROOT";
 
   public static BaseAgent LLM_AGENT = instance();
 
@@ -56,8 +61,7 @@ public class RootAgent extends BaseAgent {
 
   public RootAgent() {
     super(NAME, "Agent to coordinate different agents to work together with different steps to finish a trip planning.",
-        Lists.newArrayList(DemandAgent.instance(), InspirationAgent.instance(), PlanningAgent.instance(), OptimizingAgent.instance(),
-            BookingAgent.instance()),
+        Lists.newArrayList(LLM_AGENT),
         null,
         null);
   }
@@ -68,7 +72,7 @@ public class RootAgent extends BaseAgent {
     super(name, description, subAgents, beforeAgentCallback, afterAgentCallback);
   }
 
-  public static synchronized BaseAgent instance() {
+  public static synchronized RootAgent instance() {
     if (null == ROOT_AGENT){
       Instruction instruction = new Instruction.Provider(rc-> {
         String current_stage = (String) rc.state().get("current_stage");
@@ -76,7 +80,7 @@ public class RootAgent extends BaseAgent {
         return Single.just(prompt);
       });
       LLM_AGENT = LlmAgent.builder()
-          .name(NAME)
+          .name("Coordinator")
           .model(GoogleConfig.GEMINI_2_5_FLASH)
           .description("Agent to coordinate different agents to work together with different steps to finish a trip planning.")
           .instruction(instruction)
@@ -114,11 +118,87 @@ public class RootAgent extends BaseAgent {
   protected Flowable<Event> runAsyncImpl(InvocationContext invocationContext) {
     Session session = invocationContext.session();
     initSession(session);
-    return devConfig.runner().runAsync(invocationContext.userId(), invocationContext.session().id(), invocationContext.userContent().get());
+    return invocationContext.agent().findAgent("Coordinator").runAsync(invocationContext).doOnNext(event -> stageTransition(event, invocationContext));
+//    return devConfig.runner().runAsync(invocationContext.userId(), invocationContext.session().id(), invocationContext.userContent().get());
   }
 
   @Override
   protected Flowable<Event> runLiveImpl(InvocationContext invocationContext) {
     return null;
+  }
+
+
+  public void stageTransition(Event event, InvocationContext invocationContext) {
+    if (event.content().isPresent()) {
+      Content content = event.content().get();
+      String text = content.text();
+      if (StringUtils.isNotEmpty(text)) {
+        Session session = invocationContext.session();
+        String currentStage = (String) session.state().get("current_stage");
+        ConcurrentMap<String, Object> states = Maps.newConcurrentMap();
+        String pref = null;
+        try {
+          if (text.contains("------")) {
+            String[] tt = text.split("------");
+            pref = tt[0];
+            text = tt[1];
+          }
+          text = text.replace("```json","").replace("```","");
+
+          ObjectMapper mapper = new ObjectMapper();
+          mapper.registerModule(new JavaTimeModule());
+          mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+
+          List<Part> parts = content.parts().get();
+          Part part;
+          switch (currentStage) {
+            case "demand":
+              TripDemand tripDemand = mapper.readValue(text, TripDemand.class);
+              states.put("current_stage", "inspiration");
+              states.put("trip_demand", tripDemand);
+              part = Part.builder().text(tripDemand.getBrief()).build();
+              parts.removeFirst();
+              parts.add(part);
+              break;
+            case "inspiration":
+              List<TripRoute> tripRoutes = mapper.readValue(text, new TypeReference<List<TripRoute>>() {});
+              states.put("current_stage", "planning");
+              states.put("trip_route", tripRoutes);
+              part = Part.builder().text(Optional.ofNullable(pref).orElse("Okay, let's start planning details for it!")).build();
+              parts.removeFirst();
+              parts.add(part);
+              break;
+            case "planning":
+              if (content.role().isPresent() && "planner".equals(content.role().get())){
+                TripRoutePlanResult tripRoutePlanResult = mapper.readValue(text, TripRoutePlanResult.class);
+                states.put("current_stage", "adjustment");
+                states.put("plan_result", tripRoutePlanResult);
+                part = Part.builder().text(text).build();
+                parts.removeFirst();
+                parts.add(part);
+              }
+
+            default:
+          }
+        } catch (Throwable e) {
+//          log.info("error {}", ExceptionUtils.getStackTrace(e));
+//          log.info("parse error text : {}", text);
+          return;
+        }
+
+        EventActions actionsWithUpdate = EventActions.builder().stateDelta(states).build();
+        long currentTimeMillis = Instant.now().toEpochMilli(); // Use milliseconds for Java Event
+        Event systemEvent =
+            Event.builder()
+                .invocationId("init")
+                .author("system") // Or 'agent', 'tool' etc.
+                .actions(actionsWithUpdate)
+                .timestamp(currentTimeMillis)
+                // content might be None or represent the action taken
+                .build();
+        Event updatedSession =
+            devConfig.appendEvent(session, systemEvent);
+      }
+    }
   }
 }

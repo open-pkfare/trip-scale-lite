@@ -44,8 +44,9 @@ public class DevConfig {
 
   @PostConstruct
   public void init(){
-    BaseAgent rootAgent = RootAgent.instance();
+    RootAgent rootAgent = RootAgent.instance();
     loadedAgentRegistry.put(rootAgent.name(), rootAgent);
+    rootAgent.setDevConfig(this);
   }
 
   @Bean

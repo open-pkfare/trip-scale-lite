@@ -11,7 +11,7 @@
 <!--    <logger name="org.apache.http.headers" level="DEBUG" />-->
     
     <!-- 打印请求和响应的完整内容（包括payload） -->
-<!--    <logger name="org.apache.http.wire" level="DEBUG" />-->
+    <logger name="org.apache.http.wire" level="DEBUG" />
     
     <!-- HttpClient 连接管理日志 -->
 <!--    <logger name="org.apache.http.impl.conn" level="DEBUG" />-->
