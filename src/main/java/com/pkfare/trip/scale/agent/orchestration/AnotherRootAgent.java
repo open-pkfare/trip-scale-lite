@@ -143,6 +143,7 @@ public class AnotherRootAgent extends BaseAgent {
                 parts.removeFirst();
                 parts.add(part);
               }
+              break;
             case "optimizing":
               TripRoutePlanResult optimizeResult = mapper.readValue(text, TripRoutePlanResult.class);
               states.put("current_stage", "booking");
@@ -150,6 +151,7 @@ public class AnotherRootAgent extends BaseAgent {
               part = Part.builder().text(text).build();
               parts.removeFirst();
               parts.add(part);
+              break;
             default:
           }
         } catch (Throwable e) {

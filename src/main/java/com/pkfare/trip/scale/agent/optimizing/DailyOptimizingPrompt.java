@@ -5,6 +5,7 @@ package com.pkfare.trip.scale.agent.optimizing;
  *
  * @author Trip Scale Team
  */
+@Deprecated
 public class DailyOptimizingPrompt {
 
   public static final String PROMPT = "### Background\n"

@@ -43,7 +43,7 @@ public class OptimizingAgent extends BaseAgent {
   public static final String PREFIX = "------";
   private static final String CURRENT_AGENT = "trip_optimizing_agent";
   private static final String BASE_AGENT = "trip_base_agent";
-
+  public static final String OPTIMIZER_ROLE = "optimizer";
   private static BaseAgent INSTANCE;
 
   private static OptimizingAgent optimizingAgent;
@@ -54,7 +54,7 @@ public class OptimizingAgent extends BaseAgent {
   }
 
   public OptimizingAgent() {
-    super(CURRENT_AGENT, "Agent to help user to optimize a travel plans, including adjusting flights, hotels and activities, etc.",
+    super(CURRENT_AGENT, "Agent to help user to optimize a travel plans.",
         Lists.newArrayList(INSTANCE),
         null,
         null);
@@ -65,15 +65,15 @@ public class OptimizingAgent extends BaseAgent {
       Instruction instruction = new Provider(rc -> {
         TripRoutePlanResult result = (TripRoutePlanResult) rc.state().get("plan_result");
         BriefTripRoutePlan briefTripRoutePlan = new BriefTripRoutePlan(result);
-        //        BriefTripRoutePlan briefTripRoutePlan = mockDailyPlans();
+//                BriefTripRoutePlan briefTripRoutePlan = mockDailyPlans();
         String prompt = StringUtils.replace(OptimizingPrompt.PROMPT, "{{trip_plan}}",
-            JsonUtil.toJson(briefTripRoutePlan));
+            JsonUtil.toJson(briefTripRoutePlan.getDailyPlans().getFirst()));
         return Single.just(prompt);
       });
       INSTANCE = LlmAgent.builder()
           .name(BASE_AGENT)
           .model(GoogleConfig.GEMINI_2_5_FLASH)
-          .description("Agent to help user to optimize a travel plans, including adjusting flights, hotels and activities, etc.")
+          .description("Agent to help user to optimize a travel plans.")
           .instruction(instruction)
           .build();
       optimizingAgent = new OptimizingAgent();
@@ -188,7 +188,7 @@ public class OptimizingAgent extends BaseAgent {
 
     // 第一个事件：摘要事件
     if (planResult.getSummary() != null && !planResult.getSummary().isEmpty()) {
-      Content summaryContent = Content.builder().role("agent").parts(Lists.newArrayList(Part.fromText(planResult.getSummary()))).build();
+      Content summaryContent = Content.builder().parts(Lists.newArrayList(Part.fromText(planResult.getSummary()))).build();
       Event summaryEvent = Event.builder()
           .invocationId(invocationContext.invocationId())
           .author("agent")
@@ -203,7 +203,7 @@ public class OptimizingAgent extends BaseAgent {
     // 第二个事件：完整计划结果事件
     try {
       String planResultJson = JsonUtil.toJson(planResult);
-      Content planContent = Content.builder().role("planner").parts(Lists.newArrayList(Part.fromText(planResultJson))).build();
+      Content planContent = Content.builder().parts(Lists.newArrayList(Part.fromText(planResultJson))).build();
       Event planEvent = Event.builder()
           .invocationId(invocationContext.invocationId())
           .author("agent")
