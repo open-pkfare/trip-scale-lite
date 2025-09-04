@@ -22,6 +22,7 @@ import com.pkfare.trip.scale.model.dto.TripDayInfo;
 import com.pkfare.trip.scale.plan.service.TripPlanAdjustService;
 import com.pkfare.trip.scale.plan.service.param.GeneratePlanParam;
 import com.pkfare.trip.scale.plan.service.param.TripRouteParam;
+import com.pkfare.trip.scale.plan.service.response.DailyRoutePlan;
 import com.pkfare.trip.scale.plan.service.response.TripRoutePlanResult;
 import com.pkfare.trip.scale.util.JsonUtil;
 import io.reactivex.rxjava3.core.Flowable;
@@ -30,12 +31,14 @@ import java.nio.charset.StandardCharsets;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Scanner;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.context.ApplicationContext;
 
 @Slf4j
+@Deprecated
 public class DailyOptimizingAgent extends BaseAgent {
 
   public static final String CURRENT_AGENT = "trip_daily_optimizing_agent";
@@ -66,11 +69,11 @@ public class DailyOptimizingAgent extends BaseAgent {
       Instruction instruction = new Provider(rc -> {
         TripRoutePlanResult result = (TripRoutePlanResult) rc.state().get("plan_result");
         TripDayInfo chooseDayPlan = (TripDayInfo) rc.state().get(DailyChoseAgent.CHOSE_DAY_PLAN);
-        //        DailyRoutePlan dailyRoutePlan = new DailyRoutePlan();
-        //        if (Objects.nonNull(chooseDayPlan) && chooseDayPlan.getDayOfTrip() != -1
-        //            && chooseDayPlan.getDayOfTrip() <= result.getDailyPlans().size()) {
-        //          dailyRoutePlan = result.getDailyPlans().get(chooseDayPlan.getDayOfTrip() - 1);
-        //        }
+                DailyRoutePlan dailyRoutePlan = new DailyRoutePlan();
+                if (Objects.nonNull(chooseDayPlan) && chooseDayPlan.getDayOfTrip() != -1
+                    && chooseDayPlan.getDayOfTrip() <= result.getDailyPlans().size()) {
+                  dailyRoutePlan = result.getDailyPlans().get(chooseDayPlan.getDayOfTrip() - 1);
+                }
         BriefDailyRoutePlan briefPlan = mockDailyPlans();
         //        BriefDailyRoutePlan briefPlan = new BriefDailyRoutePlan(dailyRoutePlan);
         String prompt = StringUtils.replace(DailyOptimizingPrompt.PROMPT, "{{daily_route_plan}}", JsonUtil.toJson(briefPlan));
@@ -104,8 +107,6 @@ public class DailyOptimizingAgent extends BaseAgent {
 
   @Override
   protected Flowable<Event> runAsyncImpl(InvocationContext invocationContext) {
-    log.info("Starting PlanningAgent runAsyncImpl");
-
     try {
       // todo 空数组则不做调整
       JsonNode adjustPlanParams = null;

@@ -18,7 +18,7 @@ public class DailyChosePrompt {
       + "### Steps\n"
       + "First of all, confirm whether the user needs to adjust the current travel plan? Ask him which day's flight ticket, hotel or event he wants"
       + " to adjust.\n"
-      + "Then, Then output the result.\n"
+      + "Then, after reaching the user again, output the result.\n"
       + "\n"
       + "### Attention\n"
       + "1. Communicate concisely with users, keep the conversation simple, limit the responses to one phrase, make sure to ask only one question at a"

@@ -8,7 +8,6 @@ import com.google.adk.agents.LlmAgent;
 import com.google.adk.events.Event;
 import com.google.adk.runner.InMemoryRunner;
 import com.google.adk.sessions.Session;
-import com.google.adk.web.config.DevConfig;
 import com.google.common.collect.Lists;
 import com.google.genai.types.Content;
 import com.google.genai.types.Part;
@@ -19,6 +18,7 @@ import com.pkfare.trip.scale.util.JsonUtil;
 import io.reactivex.rxjava3.core.Flowable;
 import io.reactivex.rxjava3.core.Single;
 import java.nio.charset.StandardCharsets;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,13 +27,13 @@ import java.util.Optional;
 import java.util.Scanner;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Slf4j
-@Component
+@Deprecated
 public class DailyChoseAgent extends BaseAgent {
 
+  public static final String prefix = "------";
   private static final String CURRENT_AGENT = "trip_daily_chose_agent";
   private static final String BASE_AGENT = "trip_daily_chose_base_agent";
   public static final String CHOSE_DAY_PLAN = "chose_day_plan";
@@ -41,9 +41,6 @@ public class DailyChoseAgent extends BaseAgent {
   private static BaseAgent INSTANCE;
 
   private static DailyChoseAgent dailyChoseAgent;
-
-  @Autowired
-  private DevConfig devConfig;
 
   public DailyChoseAgent() {
     super(CURRENT_AGENT, "Agent to help user to optimize a travel plans, including adjusting flights, hotels and activities, etc.",
@@ -56,11 +53,11 @@ public class DailyChoseAgent extends BaseAgent {
     if (null == INSTANCE) {
       Instruction instruction = new Provider(rc -> {
         TripRoutePlanResult result = (TripRoutePlanResult) rc.state().get("plan_result");
-         List<TripDayInfo> tripDayInfos = mockDailyPlans();
-//        List<TripDayInfo> tripDayInfos = new ArrayList<>();
-//        for (int i = 0; i < result.getDailyPlans().size(); i++) {
-//          tripDayInfos.add(new TripDayInfo(result.getDailyPlans().get(i), i + 1));
-//        }
+        List<TripDayInfo> tripDayInfos = mockDailyPlans();
+        //        List<TripDayInfo> tripDayInfos = new ArrayList<>();
+        //        for (int i = 0; i < result.getDailyPlans().size(); i++) {
+        //          tripDayInfos.add(new TripDayInfo(result.getDailyPlans().get(i), i + 1));
+        //        }
         String prompt = StringUtils.replace(DailyChosePrompt.PROMPT, "{{trip_day_infos}}",
             JsonUtil.toJson(tripDayInfos));
         return Single.just(prompt);
@@ -95,21 +92,23 @@ public class DailyChoseAgent extends BaseAgent {
     Optional<String> optional = parse(Objects.requireNonNull(content[0]));
     if (optional.isPresent()) {
       invocationContext.session().state().put(CHOSE_DAY_PLAN, optional.get());
-//        devConfig.appendEvent(invocationContext.session(), event);
       return invocationContext.agent().findAgent(DailyOptimizingAgent.CURRENT_AGENT).runAsync(invocationContext);
     }
-
-    //return 无意图
-    return Flowable.just();
+    Event errorEvent = Event.builder()
+        .invocationId(invocationContext.invocationId())
+        .author("agent")
+        .content(Content.builder().role("agent").parts(Lists.newArrayList(Part.fromText(content[0]))).build())
+        .timestamp(Instant.now().toEpochMilli())
+        .build();
+    return Flowable.just(errorEvent);
   }
 
   private Optional<String> parse(String text) {
-    if (!text.contains("------")) {
+    if (!text.contains(prefix)) {
       return Optional.empty();
     }
-    String[] tt = text.split("------");
-    text = tt[1];
-    text = text.replace("```json", "").replace("```", "");
+    String[] tt = text.split(prefix);
+    text = tt[1].replace("```json", "").replace("```", "");
     return Optional.of(text);
   }
 

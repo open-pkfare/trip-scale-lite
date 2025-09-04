@@ -4,13 +4,13 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.fasterxml.jackson.module.paramnames.ParameterNamesModule;
 import java.text.SimpleDateFormat;
 import java.util.TimeZone;
-import com.fasterxml.jackson.databind.MapperFeature;
 
 public class JsonUtil {
 
@@ -80,5 +80,8 @@ public class JsonUtil {
     }
   }
 
-
+  public static JsonNode toJsonNode(String jsonString) throws Exception {
+    // 将JSON字符串解析为JsonNode对象
+    return INSTANCE.readTree(jsonString);
+  }
 }

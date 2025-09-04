@@ -22,8 +22,7 @@ import com.google.gson.reflect.TypeToken;
 import com.pkfare.trip.scale.agent.booking.BookingAgent;
 import com.pkfare.trip.scale.agent.inspiration.DemandAgent;
 import com.pkfare.trip.scale.agent.inspiration.InspirationAgent;
-import com.pkfare.trip.scale.agent.optimizing.DailyChoseAgent;
-import com.pkfare.trip.scale.agent.optimizing.DailyOptimizingAgent;
+import com.pkfare.trip.scale.agent.optimizing.OptimizingAgent;
 import com.pkfare.trip.scale.agent.planning.PlanningAgent;
 import com.pkfare.trip.scale.config.GoogleConfig;
 import com.pkfare.trip.scale.dto.Conversation;
@@ -57,8 +56,7 @@ public class RootAgent extends BaseAgent {
 
   public RootAgent() {
     super(NAME, "Agent to coordinate different agents to work together with different steps to finish a trip planning.",
-        Lists.newArrayList(DemandAgent.instance(), InspirationAgent.instance(), PlanningAgent.instance(), DailyChoseAgent.instance(),
-            DailyOptimizingAgent.instance(),
+        Lists.newArrayList(DemandAgent.instance(), InspirationAgent.instance(), PlanningAgent.instance(), OptimizingAgent.instance(),
             BookingAgent.instance()),
         null,
         null);
@@ -82,7 +80,7 @@ public class RootAgent extends BaseAgent {
           .model(GoogleConfig.GEMINI_2_5_FLASH)
           .description("Agent to coordinate different agents to work together with different steps to finish a trip planning.")
           .instruction(instruction)
-          .subAgents(DemandAgent.instance(), InspirationAgent.instance(), PlanningAgent.instance(), DailyChoseAgent.instance(), DailyOptimizingAgent.instance(),
+          .subAgents(DemandAgent.instance(), InspirationAgent.instance(), PlanningAgent.instance(), OptimizingAgent.instance(),
               BookingAgent.instance())
           .build();
       ROOT_AGENT = new RootAgent();
