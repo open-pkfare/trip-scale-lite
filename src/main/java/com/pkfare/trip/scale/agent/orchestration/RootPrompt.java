@@ -10,7 +10,7 @@ public class RootPrompt {
           + "### command\n"
           + "\n"
 //          + "- Comprehensively evaluate the historical chat and the user's current focus, and route the conversation to the appropriate agent."
-          + "- transfer the dialog to suitable agent refer to present stage:\n"
+          + "- transfer the dialog base on user's present purpose, then consider to suitable agent refer to present stage and follow below:\n"
           + "\n"
           + "| current_stage | transfer_to            | goals                                                   |\n"
           + "|-------------|------------------------|---------------------------------------------------------|\n"
@@ -20,9 +20,10 @@ public class RootPrompt {
           + "\n"
           + "\n"
           + "### attention\n"
+          + "1. Sometimes user wants to jump into specific stage with his sudden impulse, try to understand user's intent first."
           + "1. You must transfer to an agent every time; there must be no cases where forwarding does not occur."
           + "2. If user wants to know the stage, output present stage.\n"
           + "\n"
-          + "current stage is : {current_stage}\n";
+          + "current stage is : {{current_stage}}\n";
 
 }
