@@ -1,7 +1,7 @@
 package com.pkfare.trip.scale.plan.service.impl;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pkfare.trip.scale.api.amadeus.flightoffers.request.FlightOffersSearchRequest;
 import com.pkfare.trip.scale.api.amadeus.flightoffers.response.FlightOfferDto;
 import com.pkfare.trip.scale.api.amadeus.flightoffers.response.ItineraryDto;
@@ -38,17 +38,18 @@ import org.springframework.stereotype.Service;
 @Service
 public class FlightAdjustServiceImpl implements TripPlanAdjustInterface {
 
-  private static final Gson gson = new Gson();
   @Autowired
   private FlightSearchService flightSearchService;
   @Autowired
   private AmadeusFlightService amadeusFlightService;
   @Autowired
   private GoogleAiService googleAiService;
+  @Autowired
+  private ObjectMapper objectMapper;
 
   @Override
-  public void adjust(GeneratePlanParam generatePlanParam, TripRoutePlanResult tripPlan, JsonObject adjustParam) {
-    AdjustFlightParam adjustFlightParam = gson.fromJson(adjustParam, AdjustFlightParam.class);
+  public void adjust(GeneratePlanParam generatePlanParam, TripRoutePlanResult tripPlan, JsonNode adjustParam) {
+    AdjustFlightParam adjustFlightParam = objectMapper.convertValue(adjustParam, AdjustFlightParam.class);
     log.info("Adjusting flight param: {}", adjustFlightParam);
     List<FlightInfo> flights = tripPlan.getPreferredFlights();
     boolean found = false;

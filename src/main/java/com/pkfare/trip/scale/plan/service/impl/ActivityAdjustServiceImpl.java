@@ -1,7 +1,8 @@
 package com.pkfare.trip.scale.plan.service.impl;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pkfare.trip.scale.exception.TripPlanException;
 import com.pkfare.trip.scale.model.enums.TripPlanErrorCodeEnum;
 import com.pkfare.trip.scale.plan.service.TripPlanAdjustInterface;
@@ -34,18 +35,19 @@ import org.springframework.stereotype.Service;
 @Service
 public class ActivityAdjustServiceImpl implements TripPlanAdjustInterface {
 
-  private static final Gson gson = new Gson();
   @Autowired
   private ActivitySearchService activitySearchService;
   @Autowired
   private GoogleAiService googleAiService;
+  @Autowired
+  private ObjectMapper objectMapper;
 
   @Override
-  public void adjust(GeneratePlanParam generatePlanParam, TripRoutePlanResult tripPlan, JsonObject adjustParam) {
+  public void adjust(GeneratePlanParam generatePlanParam, TripRoutePlanResult tripPlan, JsonNode adjustParam) {
     if (Objects.isNull(generatePlanParam) || Objects.isNull(tripPlan) || Objects.isNull(adjustParam)) {
       throw new TripPlanException(TripPlanErrorCodeEnum.PARAM_ERROR);
     }
-    AdjustActivityParam adjustActivityParam = gson.fromJson(adjustParam, AdjustActivityParam.class);
+    AdjustActivityParam adjustActivityParam = objectMapper.convertValue(adjustParam, AdjustActivityParam.class);
     log.info("Adjusting activity param: {}", adjustActivityParam);
 
     List<DailyRoutePlan> dailySchedules = tripPlan.getDailyPlans();
@@ -94,23 +96,18 @@ public class ActivityAdjustServiceImpl implements TripPlanAdjustInterface {
         ActivityInfo newActivity = optional.get();
         activities.set(i, newActivity);
         found = true;
-
-//        List<ActivityInfo> activities1 = tripPlan.getActivities();
-//        for (int j = 0; j < activities1.size(); j++) {
-//          if (activities1.get(j).getActivityId().equals(activity.getActivityId())) {
-//            activities1.set(j, newActivity);
-//          }
-//        }
         break;
       }
     }
     if (!found) {
       throw new TripPlanException(TripPlanErrorCodeEnum.NO_ACTIVITY_FOUND);
     }
+    log.info("Replace activity successful");
   }
 
   private Optional<ActivityInfo> searchActivities(TripRoutePlanResult tripPlan, DailyRoutePlan schedule, AdjustActivityParam adjustActivityParam) {
-    List<ActivityInfo> activities = activitySearchService.searchActivitiesNearby(schedule.getPreferredHotel());
+    List<ActivityInfo> activities = activitySearchService.searchActivitiesNearby(schedule.getPreferredHotel(), adjustActivityParam.getActivityType(),
+        schedule.getPreferredHotel().getCurrency());
     if (activities.isEmpty()) {
       return Optional.empty();
     }
@@ -124,6 +121,10 @@ public class ActivityAdjustServiceImpl implements TripPlanAdjustInterface {
       if (Objects.nonNull(adjustActivityParam.getMaxPrice()) && activityInfo.getPrice().compareTo(adjustActivityParam.getMaxPrice()) > 0) {
         continue;
       }
+      try {
+        log.info("Found activity: {}", objectMapper.writeValueAsString(activityInfo));
+      } catch (JsonProcessingException e) {
+      }
       return Optional.of(activityInfo);
     }
     return Optional.empty();
@@ -136,7 +137,7 @@ public class ActivityAdjustServiceImpl implements TripPlanAdjustInterface {
     }
     ActivityInfo newActivity = optional.get();
     schedule.getActivities().add(newActivity);
-//    tripPlan.setActivities(schedule.getActivities());
+    log.info("Add activity successful");
   }
 
   private void doReduce(TripRoutePlanResult tripPlan, DailyRoutePlan schedule, AdjustActivityParam adjustActivityParam) {
@@ -144,7 +145,6 @@ public class ActivityAdjustServiceImpl implements TripPlanAdjustInterface {
     // 随机移除一个
     if (adjustActivityParam.getId() == null) {
       int randomIndex = ThreadLocalRandom.current().nextInt(activities.size());
-//      tripPlan.getActivities().remove(activities.get(randomIndex));
       activities.remove(randomIndex);
       return;
     }
@@ -153,7 +153,6 @@ public class ActivityAdjustServiceImpl implements TripPlanAdjustInterface {
       ActivityInfo activity = iterator.next();
       if (activity.getActivityId().equals(adjustActivityParam.getId())) {
         iterator.remove();
-//        tripPlan.getActivities().remove(activity);
         break;
       }
     }
@@ -187,15 +186,8 @@ public class ActivityAdjustServiceImpl implements TripPlanAdjustInterface {
       activities.set(activities.indexOf(oldActivity), newActivity);
     } else {
       activities.sort(Comparator.comparing(ActivityInfo::getPrice));
-//      oldActivity = activities.getLast();
       activities.set(activities.size() - 1, newActivity);
     }
-
-//    List<ActivityInfo> activities1 = tripPlan.getActivities();
-//    for (int j = 0; j < activities1.size(); j++) {
-//      if (activities1.get(j).getActivityId().equals(oldActivity.getActivityId())) {
-//        activities1.set(j, newActivity);
-//      }
-//    }
+    log.info("doCheaper  activity successful");
   }
 }

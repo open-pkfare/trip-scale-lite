@@ -40,7 +40,8 @@ public class AdjustActivityParam {
   private BigDecimal maxPrice;
 
   /**
-   * 活动类型，如natural scenery、history、art等，暂未实现
+   * 活动类型
+   * @see ActivityTypeEnum
    */
-  private String type;
+  private String activityType;
 }

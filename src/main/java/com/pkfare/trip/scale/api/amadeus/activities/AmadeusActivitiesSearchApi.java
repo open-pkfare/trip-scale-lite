@@ -20,6 +20,7 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 
 @Slf4j
 @Component
@@ -38,6 +39,12 @@ public class AmadeusActivitiesSearchApi extends AbstractMockDataProcessor {
     Params params = Params.with("latitude", activitiesSearchRequest.getLatitude())
         .and("longitude", activitiesSearchRequest.getLongitude())
         .and("radius", activitiesSearchRequest.getRadius());
+    if (StringUtils.isNotBlank(activitiesSearchRequest.getCurrency())) {
+      params.and("currency", activitiesSearchRequest.getCurrency());
+    }
+    if (StringUtils.isNotBlank(activitiesSearchRequest.getCategoryGroup())) {
+      params.and("categoryGroup", activitiesSearchRequest.getCategoryGroup());
+    }
 
     try {
       Activity[] activities = amadeus.shopping.activities.get(params);

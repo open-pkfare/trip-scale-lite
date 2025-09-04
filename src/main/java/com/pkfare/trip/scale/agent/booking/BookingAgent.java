@@ -11,6 +11,7 @@ import com.google.adk.agents.LlmAgent;
 import com.google.adk.agents.RunConfig;
 import com.google.adk.events.Event;
 import com.google.adk.runner.InMemoryRunner;
+import com.google.adk.sessions.Session;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.genai.types.Content;
@@ -25,8 +26,10 @@ import com.pkfare.trip.scale.plan.service.response.DailySchedule;
 import com.pkfare.trip.scale.plan.service.response.TripRoutePlanResult;
 import io.reactivex.rxjava3.core.Flowable;
 import io.reactivex.rxjava3.core.Single;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
@@ -121,6 +124,32 @@ public class BookingAgent extends BaseAgent {
       all.add(daily);
     }
     return all;
+  }
+
+  public static void main(String[] args) {
+    InMemoryRunner runner = new InMemoryRunner(instance());
+    Session session =
+        runner
+            .sessionService()
+            .createSession(NAME, "test_inspiration")
+            .blockingGet();
+
+    try (Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8)) {
+      while (true) {
+        System.out.print("\nYou > ");
+        String userInput = scanner.nextLine();
+
+        if ("quit".equalsIgnoreCase(userInput)) {
+          break;
+        }
+
+        Content userMsg = Content.fromParts(Part.fromText(userInput));
+        Flowable<Event> events = runner.runAsync("test_inspiration", session.id(), userMsg);
+
+        System.out.print("\nTripScale > ");
+        events.blockingForEach(event -> System.out.println(event.stringifyContent()));
+      }
+    }
   }
 
 }

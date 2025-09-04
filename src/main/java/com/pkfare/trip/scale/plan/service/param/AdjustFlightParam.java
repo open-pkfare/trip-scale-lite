@@ -33,7 +33,8 @@ public class AdjustFlightParam {
   private boolean noStop;
 
   /**
-   * 时间变更（小时），航班调整时使用（暂未实现），负数表示提前，正数表示推迟，0表示不调整
+   * 航班时间变更（小时），负数表示提前，正数表示推迟，0表示不调整
+   * 暂未实现
    */
   private Integer timeChange;
 

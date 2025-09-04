@@ -23,6 +23,7 @@ import com.pkfare.trip.scale.agent.optimizing.OptimizingAgent;
 import com.pkfare.trip.scale.agent.planning.PlanningAgent;
 import com.pkfare.trip.scale.dto.TripDemand;
 import com.pkfare.trip.scale.dto.TripRoute;
+import com.pkfare.trip.scale.model.dto.TripDayInfo;
 import com.pkfare.trip.scale.plan.service.response.TripRoutePlanResult;
 import io.reactivex.rxjava3.core.Flowable;
 import java.time.Instant;
@@ -80,7 +81,7 @@ public class AnotherRootAgent extends BaseAgent {
       case "planning":
         eventFlowable = invocationContext.agent().findAgent("trip_planning_agent").runAsync(invocationContext);
         break;
-      case "adjustment":
+      case "optimizing":
         eventFlowable = invocationContext.agent().findAgent("trip_optimizing_agent").runAsync(invocationContext);
         break;
       case "booking":
@@ -136,13 +137,19 @@ public class AnotherRootAgent extends BaseAgent {
             case "planning":
               if (content.role().isPresent() && "planner".equals(content.role().get())){
                 TripRoutePlanResult tripRoutePlanResult = mapper.readValue(text, TripRoutePlanResult.class);
-                states.put("current_stage", "adjustment");
+                states.put("current_stage", "optimizing");
                 states.put("plan_result", tripRoutePlanResult);
                 part = Part.builder().text(text).build();
                 parts.removeFirst();
                 parts.add(part);
               }
-
+            case "optimizing":
+              TripRoutePlanResult optimizeResult = mapper.readValue(text, TripRoutePlanResult.class);
+              states.put("current_stage", "booking");
+              states.put("plan_result", optimizeResult);
+              part = Part.builder().text(text).build();
+              parts.removeFirst();
+              parts.add(part);
             default:
           }
         } catch (Throwable e) {

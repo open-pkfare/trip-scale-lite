@@ -1,8 +1,8 @@
 package com.pkfare.trip.scale.plan.service.impl;
 
 import com.amadeus.resources.Hotel;
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pkfare.trip.scale.api.amadeus.hotelbycity.request.QueryHotelByGeocodeRequest;
 import com.pkfare.trip.scale.api.amadeus.hoteloffers.request.HotelOffersSearchRequest;
 import com.pkfare.trip.scale.api.amadeus.hoteloffers.response.HotelOfferDto;
@@ -37,16 +37,17 @@ import org.springframework.stereotype.Service;
 @Service
 public class HotelAdjustServiceImpl implements TripPlanAdjustInterface {
 
-  private static final Gson gson = new Gson();
   public static final Integer DEFAULT_RADIUS = 1;
   @Autowired
   private AmadeusHotelService amadeusHotelService;
   @Autowired
   private GoogleAiService googleAiService;
+  @Autowired
+  private ObjectMapper objectMapper;
 
   @Override
-  public void adjust(GeneratePlanParam generatePlanParam, TripRoutePlanResult tripPlan, JsonObject adjustParam) {
-    AdjustHotelParam adjustHotelParam = gson.fromJson(adjustParam, AdjustHotelParam.class);
+  public void adjust(GeneratePlanParam generatePlanParam, TripRoutePlanResult tripPlan, JsonNode adjustParam) {
+    AdjustHotelParam adjustHotelParam = objectMapper.convertValue(adjustParam, AdjustHotelParam.class);
     log.info("Adjusting hotel param: {}", adjustHotelParam);
 
     List<DailyRoutePlan> dailyPlans = tripPlan.getDailyPlans();
@@ -82,8 +83,8 @@ public class HotelAdjustServiceImpl implements TripPlanAdjustInterface {
     geocodeRequest.setLongitude(oldHotel.getLongitude());
     geocodeRequest.setRadius(DEFAULT_RADIUS);
     geocodeRequest.setRadiusUnit("KM");
-    geocodeRequest.setRatings(adjustHotelParam.getRatings());
-    geocodeRequest.setAmenities(adjustHotelParam.getAmenities());
+    geocodeRequest.setRatings(adjustHotelParam.getHotelRatings());
+    geocodeRequest.setAmenities(adjustHotelParam.getHotelAmenities());
     Hotel[] hotels;
     do {
       hotels = amadeusHotelService.searchHotelsByGeocode(geocodeRequest);
@@ -104,9 +105,9 @@ public class HotelAdjustServiceImpl implements TripPlanAdjustInterface {
     request.setCheckOutDate(DateUtil.formatDate(oldHotel.getCheckOutDate()));
     request.setAdults(generatePlanParam.getAdult_number() + generatePlanParam.getChild_number());
     request.setCountryOfResidence(countryCode);
-    request.setRoomQuantity(adjustHotelParam.getRoomQuantity());
+    request.setRoomQuantity(generatePlanParam.getRoom_quantity());
     BigDecimal maxPrice = adjustHotelParam.getMaxPrice();
-    if (Objects.isNull(maxPrice)) {
+    if (Objects.isNull(maxPrice) || maxPrice.compareTo(BigDecimal.ZERO) <= 0) {
       maxPrice = oldHotel.getTotalPrice();
     }
     request.setPriceRange("1-" + maxPrice.toString());
