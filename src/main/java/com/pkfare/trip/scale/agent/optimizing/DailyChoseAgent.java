@@ -86,15 +86,21 @@ public class DailyChoseAgent extends BaseAgent {
 
   @Override
   protected Flowable<Event> runAsyncImpl(InvocationContext invocationContext) {
-   return invocationContext.agent().findAgent(BASE_AGENT).runAsync(invocationContext).doOnNext(event -> {
-      Content content = event.content().get();
-      Optional<String> optional = parse(Objects.requireNonNull(content.text()));
-      if (optional.isPresent()) {
-        invocationContext.session().state().put(CHOSE_DAY_PLAN, optional.get());
-//        devConfig.appendEvent(invocationContext.session(), event);
-        invocationContext.agent().findAgent(DailyOptimizingAgent.CURRENT_AGENT).runAsync(invocationContext);
-      }
+
+    final String[] content = new String[1];
+    invocationContext.agent().findAgent(BASE_AGENT).runAsync(invocationContext).blockingForEach(event -> {
+      content[0] = event.content().get().text();
     });
+
+    Optional<String> optional = parse(Objects.requireNonNull(content[0]));
+    if (optional.isPresent()) {
+      invocationContext.session().state().put(CHOSE_DAY_PLAN, optional.get());
+//        devConfig.appendEvent(invocationContext.session(), event);
+      return invocationContext.agent().findAgent(DailyOptimizingAgent.CURRENT_AGENT).runAsync(invocationContext);
+    }
+
+    //return 无意图
+    return Flowable.just();
   }
 
   private Optional<String> parse(String text) {
