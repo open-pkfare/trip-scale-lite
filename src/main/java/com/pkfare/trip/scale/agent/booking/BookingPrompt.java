@@ -10,7 +10,7 @@ public class BookingPrompt {
       + "2. If it is a tour attraction or activity item, focus on feasible transportation way.\n"
       + "\n"
       + "## Output\n"
-      + "{\n"
+      + "------{\n"
       + "    \"item_id\":String,\n"
       + "    \"summary\":String\n"
       + "}\n";

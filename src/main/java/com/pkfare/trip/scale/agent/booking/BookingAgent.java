@@ -46,6 +46,7 @@ public class BookingAgent extends BaseAgent {
 
   private static BaseAgent SUMMARY_AGENT;
 
+  InMemoryRunner runner = new InMemoryRunner(SUMMARY_AGENT);
   @Setter
   private DevConfig devConfig;
 
@@ -99,12 +100,20 @@ public class BookingAgent extends BaseAgent {
           Map<String, String> map = dailyPlan.getActivities().stream()
               .collect(Collectors.toMap(ActivityInfo::getActivityId, ai -> ai.getName() + " " + ai.getDescription()));
 
-//          Content content = Content.fromParts(Part.fromText("here are activities: \n" + JSON.toJSONString(map)));
-          invocationContext.userContent().get().toBuilder().role("user").parts(Lists.newArrayList(Part.fromText("here are activities: \n" + JSON.toJSONString(map)))).build();
-          invocationContext.agent().findAgent("booking_agent").runAsync(invocationContext)
+          Content content = Content.fromParts(Part.fromText("here are activities: \n" + JSON.toJSONString(map)));
+
+          Session session = runner.sessionService().createSession(NAME, UUID.randomUUID().toString()).blockingGet();
+          runner.runAsync(session.userId(), session.id(), content)
               .blockingForEach(event -> {
                 String text = event.content().get().text();
-                Map<String, String> activitySummary = JSON.parseObject(text, Map.class);
+                if (text.contains("------")){
+                  text = text.split("------")[1].replace("```json","").replace("```","");
+                }
+                JSONArray activitySummary = JSON.parseArray(text);
+                for (Object o : activitySummary) {
+                  JSONObject jsonObject = (JSONObject) o;
+                  jsonObject.get("")
+                }
                 all.putAll(activitySummary);
               });
         }))
