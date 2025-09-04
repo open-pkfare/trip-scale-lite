@@ -42,6 +42,8 @@ public class DailyOptimizingAgent extends BaseAgent {
 
   private static final String NAME = "trip_daily_optimizing_agent";
 
+  private static DailyOptimizingAgent dailyOptimizingAgent;
+
   private static BaseAgent INSTANCE;
 
   // 静态引用ApplicationContext，用于获取Spring Bean
@@ -54,8 +56,8 @@ public class DailyOptimizingAgent extends BaseAgent {
   }
 
   public DailyOptimizingAgent() {
-    super(NAME, "Agent to help user to optimize a travel plans, including adjusting flights, hotels and activities, etc.",
-        null,
+    super("doa", "Agent to help user to optimize a travel plans, including adjusting flights, hotels and activities, etc.",
+        Lists.newArrayList(INSTANCE),
         null,
         null);
   }
@@ -81,8 +83,9 @@ public class DailyOptimizingAgent extends BaseAgent {
           .description("A client that helps travelers optimize their itinerary plans and output solutions.")
           .instruction(instruction)
           .build();
+      dailyOptimizingAgent = new DailyOptimizingAgent();
     }
-    return INSTANCE;
+    return dailyOptimizingAgent;
   }
 
   public static void setApplicationContext(ApplicationContext context) {
@@ -103,6 +106,8 @@ public class DailyOptimizingAgent extends BaseAgent {
   @Override
   protected Flowable<Event> runAsyncImpl(InvocationContext invocationContext) {
     log.info("Starting PlanningAgent runAsyncImpl");
+
+
 
     try {
       // todo 空数组则不做调整

@@ -26,7 +26,7 @@ public class DailyChosePrompt {
       + "2. It is not considered complete until all the information has been collected.\n"
       + "\n"
       + "### Output\n"
-      + "{\n"
+      + "------{\n"
       + "  \"date\": \"2025-03-15\",\n"
       + "  \"dayOfTrip\": 3\n"
       + "}"

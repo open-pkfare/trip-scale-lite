@@ -10,6 +10,8 @@ import com.google.adk.agents.LlmAgent;
 import com.google.adk.events.Event;
 import com.google.adk.runner.InMemoryRunner;
 import com.google.adk.sessions.Session;
+import com.google.adk.web.config.DevConfig;
+import com.google.common.collect.Lists;
 import com.google.genai.types.Content;
 import com.google.genai.types.Part;
 import com.pkfare.trip.scale.config.GoogleConfig;
@@ -23,6 +25,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 
@@ -33,6 +36,11 @@ public class DailyChoseAgent extends BaseAgent {
 
   private static BaseAgent INSTANCE;
 
+  private static DailyChoseAgent dailyChoseAgent;
+
+  @Setter
+  private DevConfig devConfig;
+
   public DailyChoseAgent(String name, String description, List<? extends BaseAgent> subAgents,
       List<BeforeAgentCallback> beforeAgentCallback,
       List<AfterAgentCallback> afterAgentCallback) {
@@ -40,8 +48,8 @@ public class DailyChoseAgent extends BaseAgent {
   }
 
   public DailyChoseAgent() {
-    super(NAME, "Agent to help user to optimize a travel plans, including adjusting flights, hotels and activities, etc.",
-        null,
+    super("dca", "Agent to help user to optimize a travel plans, including adjusting flights, hotels and activities, etc.",
+        Lists.newArrayList(INSTANCE, DailyOptimizingAgent.instance()),
         null,
         null);
   }
@@ -65,6 +73,7 @@ public class DailyChoseAgent extends BaseAgent {
           .description("Agent to help user to optimize a travel plans, including adjusting flights, hotels and activities, etc.")
           .instruction(instruction)
           .build();
+      dailyChoseAgent = new DailyChoseAgent();
     }
     return INSTANCE;
   }
@@ -79,7 +88,24 @@ public class DailyChoseAgent extends BaseAgent {
 
   @Override
   protected Flowable<Event> runAsyncImpl(InvocationContext invocationContext) {
+    invocationContext.agent().findAgent("trip_daily_chose_agent").runAsync(invocationContext).doOnNext(event -> {
+      Content content = event.content().get();
+      String text = content.text();
+      parse(text);
+      if (!exists(day is null)){//用户需要改内容
+
+        //
+        invocationContext.session();
+
+        devConfig.appendEvent(session);
+        return invocationContext.agent().findAgent("doa").runAsync(invocationContext);
+      }
+    });
     return Flowable.empty();
+  }
+
+  private parse(){
+
   }
 
   @Override
