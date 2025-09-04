@@ -1,12 +1,17 @@
 package com.pkfare.trip.scale.model.dto;
 
 import com.pkfare.trip.scale.plan.service.response.ActivityInfo;
+import com.pkfare.trip.scale.plan.service.response.DailyRoutePlan;
 import com.pkfare.trip.scale.plan.service.response.HotelInfo;
 import java.time.LocalDate;
 import java.util.List;
-import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
 public class BriefDailyRoutePlan {
 
   /**
@@ -33,4 +38,12 @@ public class BriefDailyRoutePlan {
    * 当日活动列表（按时间顺序）
    */
   private List<ActivityInfo> activities;
+
+  public BriefDailyRoutePlan(DailyRoutePlan dailyRoutePlan) {
+    this.date = dailyRoutePlan.getDate();
+    this.cityCode = dailyRoutePlan.getCityCode();
+    this.cityName = dailyRoutePlan.getCityName();
+    this.preferredHotel = dailyRoutePlan.getPreferredHotel();
+    this.activities = dailyRoutePlan.getActivities();
+  }
 }

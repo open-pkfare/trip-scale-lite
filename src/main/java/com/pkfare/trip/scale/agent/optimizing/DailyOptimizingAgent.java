@@ -1,5 +1,6 @@
 package com.pkfare.trip.scale.agent.optimizing;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.google.adk.agents.BaseAgent;
 import com.google.adk.agents.Callbacks.AfterAgentCallback;
 import com.google.adk.agents.Callbacks.BeforeAgentCallback;
@@ -64,13 +65,14 @@ public class DailyOptimizingAgent extends BaseAgent {
       Instruction instruction = new Provider(rc -> {
         TripRoutePlanResult result = (TripRoutePlanResult) rc.state().get("plan_result");
         TripDayInfo chooseDayPlan = (TripDayInfo) rc.state().get("chose_day_plan");
-        DailyRoutePlan dailyRoutePlan = new DailyRoutePlan();
-        if (Objects.nonNull(chooseDayPlan) && chooseDayPlan.getDayOfTrip() != -1
-            && chooseDayPlan.getDayOfTrip() <= result.getDailyPlans().size()) {
-          dailyRoutePlan = result.getDailyPlans().get(chooseDayPlan.getDayOfTrip() - 1);
-        }
-        // BriefDailyRoutePlan dailyRoutePlan = mockDailyPlans();
-        String prompt = StringUtils.replace(DailyOptimizingPrompt.PROMPT, "{{daily_route_plan}}", JsonUtil.toJson(dailyRoutePlan));
+//        DailyRoutePlan dailyRoutePlan = new DailyRoutePlan();
+//        if (Objects.nonNull(chooseDayPlan) && chooseDayPlan.getDayOfTrip() != -1
+//            && chooseDayPlan.getDayOfTrip() <= result.getDailyPlans().size()) {
+//          dailyRoutePlan = result.getDailyPlans().get(chooseDayPlan.getDayOfTrip() - 1);
+//        }
+         BriefDailyRoutePlan briefPlan = mockDailyPlans();
+//        BriefDailyRoutePlan briefPlan = new BriefDailyRoutePlan(dailyRoutePlan);
+        String prompt = StringUtils.replace(DailyOptimizingPrompt.PROMPT, "{{daily_route_plan}}", JsonUtil.toJson(briefPlan));
         return Single.just(prompt);
       });
       INSTANCE = LlmAgent.builder()
@@ -103,9 +105,9 @@ public class DailyOptimizingAgent extends BaseAgent {
     log.info("Starting PlanningAgent runAsyncImpl");
 
     try {
+      // todo 空数组则不做调整
+      JsonNode adjustPlanParams = null;
       // 从会话状态中获取数据
-//      TripRoutePlanResult tripRoutePlanResult = (TripRoutePlanResult) invocationContext.session().state().get("plan_result");
-
       TripDemand tripDemand = (TripDemand) invocationContext.session().state().get("trip_demand");
       List<TripRoute> tripRoutes = (List<TripRoute>) invocationContext.session().state().get("trip_route");
       TripRoutePlanResult tripRoutePlanResult = (TripRoutePlanResult) invocationContext.session().state().get("plan_result");
