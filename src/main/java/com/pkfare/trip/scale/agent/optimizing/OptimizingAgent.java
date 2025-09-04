@@ -103,7 +103,7 @@ public class OptimizingAgent extends BaseAgent {
   }
 
   private Flowable<Event> doOptimize(InvocationContext invocationContext, String param) {
-    log.info("optimize param: {}", param);
+    log.info("the optimize param is: {}", param);
     try {
       TripDemand tripDemand = (TripDemand) invocationContext.session().state().get("trip_demand");
       List<TripRoute> tripRoutes = (List<TripRoute>) invocationContext.session().state().get("trip_route");
@@ -125,7 +125,7 @@ public class OptimizingAgent extends BaseAgent {
         return createPlanEvents(planResult, invocationContext);
       }
     } catch (Exception e) {
-      log.error("Error in PlanningAgent runAsyncImpl", e);
+      log.error("Error in optimizingAgent runAsyncImpl", e);
       return Flowable.error(e);
     }
   }

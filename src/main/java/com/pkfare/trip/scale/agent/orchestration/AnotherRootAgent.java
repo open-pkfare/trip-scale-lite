@@ -137,16 +137,16 @@ public class AnotherRootAgent extends BaseAgent {
             case "planning":
               if (content.role().isPresent() && "planner".equals(content.role().get())){
                 TripRoutePlanResult tripRoutePlanResult = mapper.readValue(text, TripRoutePlanResult.class);
-                states.put("current_stage", "dailyChose");
+                states.put("current_stage", "optimizing");
                 states.put("plan_result", tripRoutePlanResult);
                 part = Part.builder().text(text).build();
                 parts.removeFirst();
                 parts.add(part);
               }
             case "optimizing":
-              TripDayInfo tripDayInfo = mapper.readValue(text, TripDayInfo.class);
-              states.put("current_stage", "optimizing");
-              states.put("optimize_result", tripDayInfo);
+              TripRoutePlanResult optimizeResult = mapper.readValue(text, TripRoutePlanResult.class);
+              states.put("current_stage", "booking");
+              states.put("plan_result", optimizeResult);
               part = Part.builder().text(text).build();
               parts.removeFirst();
               parts.add(part);
