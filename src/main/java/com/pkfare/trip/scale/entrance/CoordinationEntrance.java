@@ -46,9 +46,9 @@ public class CoordinationEntrance {
       parts.add(Part.fromText(conversation.getContent()));
     }
     if (!CollectionUtils.isEmpty(files)){
-      parts.addAll(files.stream().map(str-> Part.fromBytes(str,"jpeg")).toList());
+      parts.addAll(files.stream().map(bts-> Part.fromBytes(bts,"image/jpeg")).toList());
     }
-    Content userMsg = builder.parts(parts).build();
+    Content userMsg = builder.role("user").parts(parts).build();
     Flowable<Event> events = runner.runAsync(conversation.getUserId(), session.id(), userMsg);
     //    StringBuilder stringBuilder = new StringBuilder();
     List<RespConversation> respConversations = Lists.newArrayList();
