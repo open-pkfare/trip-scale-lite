@@ -17,6 +17,8 @@ public class RootPrompt {
           + "| demand      | trip_demand_agent      | collecting user's trip demand on this stage             |\n"
           + "| inspiration | trip_inspiration_agent | inspire user to plan a trip routes                      | \n"
           + "| planning    | trip_planning_agent    | extent user's trip route to feasible trip plan schedule |\n"
+          + "| optimizing  | trip_optimizing_agent  | optimize user's trip plan schedule                     |\n"
+          + "| booking     | trip_booking_agent     | book user's trip plan schedule                          |\n"
           + "\n"
           + "\n"
           + "### attention\n"
