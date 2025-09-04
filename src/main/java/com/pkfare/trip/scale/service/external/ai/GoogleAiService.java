@@ -282,12 +282,12 @@ public class GoogleAiService {
                 
                 // 提取步骤说明
                 List<String> steps = new ArrayList<>();
-                for (DirectionsStep step : leg.steps) {
-                    steps.add(step.htmlInstructions);
-                }
+                //for (DirectionsStep step : leg.steps) {
+                //    steps.add(step.htmlInstructions);
+                //}
                 segment.setSteps(steps);
                 segment.setOverview(route.summary);
-                segment.setRoutesJson(JsonUtil.toJson(result.routes));
+                // segment.setRoutesJson(JsonUtil.toJson(result.routes));
                 
                 return segment;
             }
