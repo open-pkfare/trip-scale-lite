@@ -105,9 +105,9 @@ public class HotelAdjustServiceImpl implements TripPlanAdjustInterface {
     request.setCheckOutDate(DateUtil.formatDate(oldHotel.getCheckOutDate()));
     request.setAdults(generatePlanParam.getAdult_number() + generatePlanParam.getChild_number());
     request.setCountryOfResidence(countryCode);
-    request.setRoomQuantity(adjustHotelParam.getHotelRoomQuantity());
+    request.setRoomQuantity(generatePlanParam.getRoom_quantity());
     BigDecimal maxPrice = adjustHotelParam.getMaxPrice();
-    if (Objects.isNull(maxPrice)) {
+    if (Objects.isNull(maxPrice) || maxPrice.compareTo(BigDecimal.ZERO) <= 0) {
       maxPrice = oldHotel.getTotalPrice();
     }
     request.setPriceRange("1-" + maxPrice.toString());

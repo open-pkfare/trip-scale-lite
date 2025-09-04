@@ -35,7 +35,7 @@ public class AdjustHotelParam {
    */
   private List<String> hotelAmenities;
   /**
-   * 房间数量，1-9
+   * 房间数量，1-9；暂不支持
    */
   private int hotelRoomQuantity;
   /**

@@ -1,6 +1,5 @@
 package com.pkfare.trip.scale.agent.optimizing;
 
-import com.alibaba.fastjson.JSON;
 import com.google.adk.agents.BaseAgent;
 import com.google.adk.agents.Callbacks.AfterAgentCallback;
 import com.google.adk.agents.Callbacks.BeforeAgentCallback;
@@ -17,9 +16,12 @@ import com.google.genai.types.Part;
 import com.pkfare.trip.scale.config.GoogleConfig;
 import com.pkfare.trip.scale.dto.TripDemand;
 import com.pkfare.trip.scale.dto.TripRoute;
+import com.pkfare.trip.scale.model.dto.BriefDailyRoutePlan;
+import com.pkfare.trip.scale.model.dto.TripDayInfo;
 import com.pkfare.trip.scale.plan.service.TripPlanAdjustService;
 import com.pkfare.trip.scale.plan.service.param.GeneratePlanParam;
 import com.pkfare.trip.scale.plan.service.param.TripRouteParam;
+import com.pkfare.trip.scale.plan.service.response.DailyRoutePlan;
 import com.pkfare.trip.scale.plan.service.response.TripRoutePlanResult;
 import com.pkfare.trip.scale.util.JsonUtil;
 import io.reactivex.rxjava3.core.Flowable;
@@ -28,28 +30,29 @@ import java.nio.charset.StandardCharsets;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Scanner;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.context.ApplicationContext;
 
 @Slf4j
-public class OptimizingAgent extends BaseAgent {
+public class DailyOptimizingAgent extends BaseAgent {
 
-  private static final String NAME = "trip_optimizing_agent";
+  private static final String NAME = "trip_daily_optimizing_agent";
 
   private static BaseAgent INSTANCE;
-  
+
   // 静态引用ApplicationContext，用于获取Spring Bean
   private static ApplicationContext applicationContext;
 
-  public OptimizingAgent(String name, String description, List<? extends BaseAgent> subAgents,
+  public DailyOptimizingAgent(String name, String description, List<? extends BaseAgent> subAgents,
       List<BeforeAgentCallback> beforeAgentCallback,
       List<AfterAgentCallback> afterAgentCallback) {
     super(name, description, subAgents, beforeAgentCallback, afterAgentCallback);
   }
 
-  public OptimizingAgent() {
+  public DailyOptimizingAgent() {
     super(NAME, "Agent to help user to optimize a travel plans, including adjusting flights, hotels and activities, etc.",
         null,
         null,
@@ -58,9 +61,16 @@ public class OptimizingAgent extends BaseAgent {
 
   public static BaseAgent instance() {
     if (null == INSTANCE) {
-      Instruction instruction = new Provider(rc-> {
-        TripRoutePlanResult result = (TripRoutePlanResult)rc.state().get("trip_plan");
-        String prompt = StringUtils.replace(OptimizingPrompt.OPTIMIZING_PROMPT,"{{day_trip_result}}", JSON.toJSONString(result));
+      Instruction instruction = new Provider(rc -> {
+        TripRoutePlanResult result = (TripRoutePlanResult) rc.state().get("plan_result");
+        TripDayInfo chooseDayPlan = (TripDayInfo) rc.state().get("chose_day_plan");
+        DailyRoutePlan dailyRoutePlan = new DailyRoutePlan();
+        if (Objects.nonNull(chooseDayPlan) && chooseDayPlan.getDayOfTrip() != -1
+            && chooseDayPlan.getDayOfTrip() <= result.getDailyPlans().size()) {
+          dailyRoutePlan = result.getDailyPlans().get(chooseDayPlan.getDayOfTrip() - 1);
+        }
+        // BriefDailyRoutePlan dailyRoutePlan = mockDailyPlans();
+        String prompt = StringUtils.replace(DailyOptimizingPrompt.PROMPT, "{{daily_route_plan}}", JsonUtil.toJson(dailyRoutePlan));
         return Single.just(prompt);
       });
       INSTANCE = LlmAgent.builder()
@@ -91,26 +101,25 @@ public class OptimizingAgent extends BaseAgent {
   @Override
   protected Flowable<Event> runAsyncImpl(InvocationContext invocationContext) {
     log.info("Starting PlanningAgent runAsyncImpl");
-    
+
     try {
       // 从会话状态中获取数据
-      TripDemand tripDemand = (TripDemand)invocationContext.session().state().get("trip_demand");
-      List<TripRoute> tripRoutes = (List<TripRoute>)invocationContext.session().state().get("trip_route");
-      TripRoutePlanResult tripRoutePlanResult = (TripRoutePlanResult)invocationContext.session().state().get("plan_result");
+//      TripRoutePlanResult tripRoutePlanResult = (TripRoutePlanResult) invocationContext.session().state().get("plan_result");
 
-      if (tripDemand == null || tripRoutes == null) {
-        log.error("TripDemand or TripRoutes is null in session state");
+      TripDemand tripDemand = (TripDemand) invocationContext.session().state().get("trip_demand");
+      List<TripRoute> tripRoutes = (List<TripRoute>) invocationContext.session().state().get("trip_route");
+      TripRoutePlanResult tripRoutePlanResult = (TripRoutePlanResult) invocationContext.session().state().get("plan_result");
+      if (tripDemand == null || tripRoutes == null || tripRoutePlanResult == null) {
+        log.error("TripDemand, TripRoutes or TripRoutePlanResult is null in session state");
         return Flowable.error(new IllegalStateException("Missing required data in session"));
       }
-
       // 通过tripDemand和tripRoutes构建GeneratePlanParam
       GeneratePlanParam param = buildGeneratePlanParam(tripDemand, tripRoutes);
 
-      // GeneratePlanParam param = mockGeneratePlanParam();
       TripPlanAdjustService tripPlanAdjustService = getTripPlanAdjustService();
       long start = System.currentTimeMillis();
       TripRoutePlanResult planResult = tripPlanAdjustService.adjustPlan(param, tripRoutePlanResult, null);
-      log.info("*******************************************************Time taken to optimizing plan: {} ms", System.currentTimeMillis() - start   );
+      log.info("*******************************************************Time taken to optimizing plan: {} ms", System.currentTimeMillis() - start);
       log.info("optimize trip plan with status: {}", planResult.getStatus());
 
       // 拆成两个event：TripRoutePlanResult.summary 摘要是单独的一个Event，TripRoutePlanResult是一个单独的event
@@ -121,51 +130,17 @@ public class OptimizingAgent extends BaseAgent {
     }
   }
 
-  /*private GeneratePlanParam mockGeneratePlanParam() {
-    GeneratePlanParam param = new GeneratePlanParam();
-    param.setOrigin("FLR");
-    param.setLocation_code("IT");
-    param.setStart_period("2025-10-01");
-    param.setEnd_period("2025-10-07");
-    param.setTrip_days(7);
-    param.setAdult_number(1);
-    param.setChild_number(0);
-    param.setRoom_quantity(1);
-    param.setBudgets("50000");
-    param.setCurrency("CNY");
-    param.setTrip_routes(buildOneWayTripRoutes());
-    return param;
-  }
-
-  private List<TripRouteParam> buildOneWayTripRoutes() {
-    List<TripRouteParam> tripRouteParams = Lists.newArrayList();
-    tripRouteParams.add(buildRouteTrip(2, "Rome", "IT", "FCO"));
-    tripRouteParams.add(buildRouteTrip(2, "Ostia", "IT", "OST"));
-    tripRouteParams.add(buildRouteTrip(3, "Paris", "FR", "ORY"));
-    return tripRouteParams;
-  }
-
-  private TripRouteParam buildRouteTrip(int days, String destinationCity, String countryCode, String locationCode) {
-    TripRouteParam param = new TripRouteParam();
-    param.setStay_days(days);
-    param.setDestination_city(destinationCity);
-    param.setLocation_code(locationCode);
-    param.setCountry_code(countryCode);
-    param.setReason_for_recommendation("recommendation");
-    return param;
-  }
-*/
   /**
    * 创建计划事件
-   * 
-   * @param planResult 计划结果
+   *
+   * @param planResult        计划结果
    * @param invocationContext 调用上下文
    * @return 事件流
    */
   private Flowable<Event> createPlanEvents(TripRoutePlanResult planResult, InvocationContext invocationContext) {
     List<Event> events = new ArrayList<>();
     long currentTimeMillis = Instant.now().toEpochMilli();
-    
+
     // 第一个事件：摘要事件
     if (planResult.getSummary() != null && !planResult.getSummary().isEmpty()) {
       Content summaryContent = Content.builder().role("agent").parts(Lists.newArrayList(Part.fromText(planResult.getSummary()))).build();
@@ -176,10 +151,10 @@ public class OptimizingAgent extends BaseAgent {
           .timestamp(currentTimeMillis)
           .build();
       events.add(summaryEvent);
-      
+
       log.info("Created summary event with content length: {}", planResult.getSummary().length());
     }
-    
+
     // 第二个事件：完整计划结果事件
     try {
       String planResultJson = JsonUtil.toJson(planResult);
@@ -191,10 +166,10 @@ public class OptimizingAgent extends BaseAgent {
           .timestamp(currentTimeMillis + 1) // 稍微延后一毫秒确保顺序
           .build();
       events.add(planEvent);
-      
-      log.info("Created plan result event with {} daily plans", 
+
+      log.info("Created plan result event with {} daily plans",
           planResult.getDailyPlans() != null ? planResult.getDailyPlans().size() : 0);
-      
+
     } catch (Exception e) {
       log.error("Failed to serialize plan result to JSON", e);
       // 如果序列化失败，创建一个错误事件
@@ -214,23 +189,23 @@ public class OptimizingAgent extends BaseAgent {
     if (tripDemand == null || tripRoutes == null || tripRoutes.isEmpty()) {
       throw new IllegalArgumentException("TripDemand and TripRoutes cannot be null or empty");
     }
-    
+
     GeneratePlanParam param = new GeneratePlanParam();
-    
+
     // 基本信息
     param.setOrigin(tripDemand.getOrigin());
     param.setLocation_code(tripDemand.getOrigin_country_code()); // 默认设置为美国，可根据实际需求调整
     param.setTrip_days(tripDemand.getDays());
     param.setBudgets(tripDemand.getBudgets());
     param.setCurrency(tripDemand.getCurrency()); // 默认美元
-    
+
     // 乘客信息
     param.setAdult_number(Math.max(1, tripDemand.getPassenger_number())); // 至少1个成人
     param.setChild_number(0); // 默认无儿童
     param.setRoom_quantity(1); // 默认1个房间
     param.setStart_period(tripDemand.getStart_period());
     param.setEnd_period(tripDemand.getEnd_period());
-    
+
     // 转换路线信息
     List<TripRouteParam> routeParams = new ArrayList<>();
     for (TripRoute tripRoute : tripRoutes) {
@@ -243,23 +218,21 @@ public class OptimizingAgent extends BaseAgent {
       routeParams.add(routeParam);
     }
     param.setTrip_routes(routeParams);
-    
+
     return param;
   }
-
 
   @Override
   protected Flowable<Event> runLiveImpl(InvocationContext invocationContext) {
     return null;
   }
 
-
   public static void main(String[] args) {
     InMemoryRunner runner = new InMemoryRunner(instance());
     Session session =
         runner
             .sessionService()
-            .createSession(NAME, "test_inspiration")
+            .createSession(NAME, "test_daily_optimizing")
             .blockingGet();
 
     try (Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8)) {
@@ -272,11 +245,113 @@ public class OptimizingAgent extends BaseAgent {
         }
 
         Content userMsg = Content.fromParts(Part.fromText(userInput));
-        Flowable<Event> events = runner.runAsync("test_inspiration", session.id(), userMsg);
+        Flowable<Event> events = runner.runAsync("test_daily_optimizing", session.id(), userMsg);
 
         System.out.print("\nTripScale > ");
         events.blockingForEach(event -> System.out.println(event.stringifyContent()));
       }
     }
+  }
+
+  private static BriefDailyRoutePlan mockDailyPlans() {
+    String dailyRoutePlanJson = "{\n"
+        + "    \"date\": \"2025-10-01\",\n"
+        + "    \"cityCode\": \"FCO\",\n"
+        + "    \"cityName\": \"Rome\",\n"
+        + "    \"preferredHotel\": {\n"
+        + "        \"hotelId\": \"BWFCO336\",\n"
+        + "        \"dupeId\": \"700193275\",\n"
+        + "        \"offerId\": \"23O43KCF30\",\n"
+        + "        \"hotelName\": \"Best Western Hotel Rome Airport\",\n"
+        + "        \"cityCode\": \"FCO\",\n"
+        + "        \"cityName\": \"Rome\",\n"
+        + "        \"checkInDate\": \"2025-10-01\",\n"
+        + "        \"checkOutDate\": \"2025-10-04\",\n"
+        + "        \"nights\": 3,\n"
+        + "        \"totalPrice\": 495.0,\n"
+        + "        \"currency\": \"EUR\",\n"
+        + "        \"latitude\": 41.77279,\n"
+        + "        \"longitude\": 12.2415,\n"
+        + "        \"address\": \"\",\n"
+        + "        \"preferred\": true\n"
+        + "    },\n"
+        + "    \"alternativeHotels\": [],\n"
+        + "    \"activities\": [\n"
+        + "        {\n"
+        + "            \"activityId\": \"139507783\",\n"
+        + "            \"name\": \"Vatican & Sistine Chapel: Family-Friendly Private Half-Day Tour\",\n"
+        + "            \"cityCode\": \"Rome\",\n"
+        + "            \"rating\": 0.0,\n"
+        + "            \"price\": 1043.0,\n"
+        + "            \"currency\": \"EUR\",\n"
+        + "            \"latitude\": 41.9076932,\n"
+        + "            \"longitude\": 12.452998,\n"
+        + "            \"pictures\": [\n"
+        + "                \"https://images.holibob"
+        + ".tech"
+        +
+        "/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzQ5NjVlOTg3LTQxNzktNDgyMi1iZjVkLWNkNDA1OWY2ZjQzNiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=\",\n"
+        + "                \"https://images.holibob"
+        + ".tech"
+        +
+        "/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzAwOTJlNWJmLTA4NzktNDg0NC1iYmQ0LTUyNjNlNTI1YWY3ZiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=\"\n"
+        + "            ]\n"
+        + "        },\n"
+        + "        {\n"
+        + "            \"activityId\": \"339666\",\n"
+        + "            \"name\": \"Rome  - Walking Tour  - 'Roma Barocca'  - 5 ore  \",\n"
+        + "            \"description\": \"<p>Meet&nbsp;by your local guide and enjoy a guided tour of Rome - the Eternal City (approx. 3 hours). "
+        + "The tour begins at the Trevi Fountain, which has become an iconic spot thanks to the movie &lsquo;La Dolce Vita&rsquo;, directed by "
+        + "Federico Fellini. The tour will take you to the streets of the old town, visiting famous sites such as the Pantheon; the Palazzo Madama,"
+        + " which houses the Senate of the Italian Republic (entrance not included); and Navona Square, which was built on the ruins of the "
+        + "Domitian Circus. Once the tour finishes you can enjoy the rest of the afternoon at leisure.&nbsp;</p>\\r\\n<p>Possibility to reserve "
+        + "half day or full day&nbsp;</p>\",\n"
+        + "            \"cityCode\": \"Rome\",\n"
+        + "            \"rating\": 0.0,\n"
+        + "            \"price\": 80.0,\n"
+        + "            \"currency\": \"EUR\",\n"
+        + "            \"latitude\": 41.900996383806347,\n"
+        + "            \"longitude\": 12.484257137605939,\n"
+        + "            \"pictures\": [\n"
+        + "                \"https://cdn.bookingkit.de/vendor_images/c6fdb94b5e41f0c79d38643809bafd9a/detail/1609693666michele-bitetto-2y6ojwauKJI"
+        + "-unsplash.jpg\"\n"
+        + "            ]\n"
+        + "        },\n"
+        + "        {\n"
+        + "            \"activityId\": \"168748\",\n"
+        + "            \"name\": \"Shared Transfer From the Civitavecchia Port to Fiumicino airport\",\n"
+        + "            \"cityCode\": \"Rome\",\n"
+        + "            \"rating\": 0.0,\n"
+        + "            \"price\": 87.0,\n"
+        + "            \"currency\": \"EUR\",\n"
+        + "            \"latitude\": 41.9027835,\n"
+        + "            \"longitude\": 12.4963655,\n"
+        + "            \"pictures\": [\n"
+        + "                \"https://images.holibob"
+        + ".tech"
+        +
+        "/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2E2NmM1MTQ3LWY5NjQtMTFlYi04MDFmLTA2YjgxYWQ0YzU3OSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=\",\n"
+        + "                \"https://images.holibob"
+        + ".tech"
+        +
+        "/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2E2NmM1NzliLWY5NjQtMTFlYi04MDFmLTA2YjgxYWQ0YzU3OSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=\",\n"
+        + "                \"https://images.holibob"
+        + ".tech"
+        +
+        "/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2E2NmM1NTZlLWY5NjQtMTFlYi04MDFmLTA2YjgxYWQ0YzU3OSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=\",\n"
+        + "                \"https://images.holibob"
+        + ".tech"
+        +
+        "/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2E2NmM0NmM0LWY5NjQtMTFlYi04MDFmLTA2YjgxYWQ0YzU3OSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=\",\n"
+        + "                \"https://images.holibob"
+        + ".tech"
+        +
+        "/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2E2NmM1OWE4LWY5NjQtMTFlYi04MDFmLTA2YjgxYWQ0YzU3OSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=\"\n"
+        + "            ]\n"
+        + "        }\n"
+        + "    ]\n"
+        + "}";
+
+    return JsonUtil.fromJson(dailyRoutePlanJson, BriefDailyRoutePlan.class);
   }
 }

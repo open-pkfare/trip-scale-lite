@@ -10,28 +10,23 @@ import com.google.adk.agents.Callbacks.BeforeAgentCallback;
 import com.google.adk.agents.InvocationContext;
 import com.google.adk.events.Event;
 import com.google.adk.events.EventActions;
-import com.google.adk.sessions.BaseSessionService;
 import com.google.adk.sessions.Session;
 import com.google.adk.web.config.DevConfig;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
-import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import com.google.genai.types.Content;
 import com.google.genai.types.Part;
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParser;
-import com.google.gson.reflect.TypeToken;
 import com.pkfare.trip.scale.agent.booking.BookingAgent;
 import com.pkfare.trip.scale.agent.inspiration.DemandAgent;
 import com.pkfare.trip.scale.agent.inspiration.InspirationAgent;
-import com.pkfare.trip.scale.agent.optimizing.OptimizingAgent;
+import com.pkfare.trip.scale.agent.optimizing.DailyOptimizingAgent;
+import com.pkfare.trip.scale.agent.optimizing.DailyChoseAgent;
 import com.pkfare.trip.scale.agent.planning.PlanningAgent;
 import com.pkfare.trip.scale.dto.TripDemand;
 import com.pkfare.trip.scale.dto.TripRoute;
+import com.pkfare.trip.scale.model.dto.TripDayInfo;
 import com.pkfare.trip.scale.plan.service.response.TripRoutePlanResult;
 import io.reactivex.rxjava3.core.Flowable;
-import io.reactivex.rxjava3.core.Maybe;
 import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
@@ -39,7 +34,6 @@ import java.util.concurrent.ConcurrentMap;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.exception.ExceptionUtils;
 
 @Slf4j
 public class AnotherRootAgent extends BaseAgent {
@@ -53,8 +47,8 @@ public class AnotherRootAgent extends BaseAgent {
 
   public AnotherRootAgent() {
     super(NAME, "Agent to coordinate different agents to work together with different steps to finish a trip planning.",
-        Lists.newArrayList(DemandAgent.instance(), InspirationAgent.instance(), PlanningAgent.instance(), OptimizingAgent.instance(),
-            BookingAgent.instance()),
+        Lists.newArrayList(DemandAgent.instance(), InspirationAgent.instance(), PlanningAgent.instance(), DailyChoseAgent.instance(),
+            DailyOptimizingAgent.instance(), BookingAgent.instance()),
         null,
         null);
   }
@@ -88,8 +82,11 @@ public class AnotherRootAgent extends BaseAgent {
       case "planning":
         eventFlowable = invocationContext.agent().findAgent("trip_planning_agent").runAsync(invocationContext);
         break;
-      case "optimizing":
-        eventFlowable = invocationContext.agent().findAgent("trip_optimizing_agent").runAsync(invocationContext);
+      case "dailyChose":
+        eventFlowable = invocationContext.agent().findAgent("trip_daily_chose_agent").runAsync(invocationContext);
+        break;
+        case "dailyOptimizing":
+        eventFlowable = invocationContext.agent().findAgent("trip_daily_optimizing_agent").runAsync(invocationContext);
         break;
       case "booking":
         eventFlowable = invocationContext.agent().findAgent("booking_agent").runAsync(invocationContext);
@@ -144,13 +141,20 @@ public class AnotherRootAgent extends BaseAgent {
             case "planning":
               if (content.role().isPresent() && "planner".equals(content.role().get())){
                 TripRoutePlanResult tripRoutePlanResult = mapper.readValue(text, TripRoutePlanResult.class);
-                states.put("current_stage", "optimizing");
+                states.put("current_stage", "dailyChose");
                 states.put("plan_result", tripRoutePlanResult);
                 part = Part.builder().text(text).build();
                 parts.removeFirst();
                 parts.add(part);
               }
-            case "optimizing":
+            case "dailyChose":
+              TripDayInfo tripDayInfo = mapper.readValue(text, TripDayInfo.class);
+              states.put("current_stage", "dailyOptimizing");
+              states.put("chose_day_plan", tripDayInfo);
+              part = Part.builder().text(text).build();
+              parts.removeFirst();
+              parts.add(part);
+            case "dailyOptimizing":
               TripRoutePlanResult tripRoutePlanResult = mapper.readValue(text, TripRoutePlanResult.class);
               states.put("current_stage", "booking");
               states.put("optimize_result", tripRoutePlanResult);
