@@ -30,28 +30,28 @@ public class DevConfig {
 
   public static final String APP_NAME = "Coordinator";
 
-//  @PostConstruct
-//  public void init(){
-//    AnotherRootAgent anotherRootAgent = AnotherRootAgent.instance();
-//    loadedAgentRegistry.put(anotherRootAgent.name(), anotherRootAgent);
-//    anotherRootAgent.setDevConfig(this);
-//  }
-//
-//  @Bean
-//  public AppRunner runner(){
-//    return new AppRunner(AnotherRootAgent.instance(), APP_NAME, sessionService);
-//  }
-
   @PostConstruct
   public void init(){
-    BaseAgent rootAgent = RootAgent.instance();
-    loadedAgentRegistry.put(rootAgent.name(), rootAgent);
+    AnotherRootAgent anotherRootAgent = AnotherRootAgent.instance();
+    loadedAgentRegistry.put(anotherRootAgent.name(), anotherRootAgent);
+    anotherRootAgent.setDevConfig(this);
   }
 
   @Bean
   public AppRunner runner(){
-    return new AppRunner(RootAgent.instance(), APP_NAME, sessionService);
+    return new AppRunner(AnotherRootAgent.instance(), APP_NAME, sessionService);
   }
+
+//  @PostConstruct
+//  public void init(){
+//    BaseAgent rootAgent = RootAgent.instance();
+//    loadedAgentRegistry.put(rootAgent.name(), rootAgent);
+//  }
+//
+//  @Bean
+//  public AppRunner runner(){
+//    return new AppRunner(RootAgent.instance(), APP_NAME, sessionService);
+//  }
 
   /**
    * init session dialog
