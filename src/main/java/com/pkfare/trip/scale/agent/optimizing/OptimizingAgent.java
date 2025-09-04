@@ -43,7 +43,7 @@ public class OptimizingAgent extends BaseAgent {
   public static final String PREFIX = "------";
   private static final String CURRENT_AGENT = "trip_optimizing_agent";
   private static final String BASE_AGENT = "trip_base_agent";
-
+  public static final String OPTIMIZER_ROLE = "optimizer";
   private static BaseAgent INSTANCE;
 
   private static OptimizingAgent optimizingAgent;
@@ -203,7 +203,7 @@ public class OptimizingAgent extends BaseAgent {
     // 第二个事件：完整计划结果事件
     try {
       String planResultJson = JsonUtil.toJson(planResult);
-      Content planContent = Content.builder().role("planner").parts(Lists.newArrayList(Part.fromText(planResultJson))).build();
+      Content planContent = Content.builder().role(OPTIMIZER_ROLE).parts(Lists.newArrayList(Part.fromText(planResultJson))).build();
       Event planEvent = Event.builder()
           .invocationId(invocationContext.invocationId())
           .author("agent")

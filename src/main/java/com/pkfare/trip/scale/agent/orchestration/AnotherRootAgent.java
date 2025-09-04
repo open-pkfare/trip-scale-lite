@@ -144,12 +144,14 @@ public class AnotherRootAgent extends BaseAgent {
                 parts.add(part);
               }
             case "optimizing":
-              TripRoutePlanResult optimizeResult = mapper.readValue(text, TripRoutePlanResult.class);
-              states.put("current_stage", "booking");
-              states.put("plan_result", optimizeResult);
-              part = Part.builder().text(text).build();
-              parts.removeFirst();
-              parts.add(part);
+              if (content.role().isPresent() && OptimizingAgent.OPTIMIZER_ROLE.equals(content.role().get())) {
+                TripRoutePlanResult optimizeResult = mapper.readValue(text, TripRoutePlanResult.class);
+                states.put("current_stage", "booking");
+                states.put("plan_result", optimizeResult);
+                part = Part.builder().text(text).build();
+                parts.removeFirst();
+                parts.add(part);
+              }
             default:
           }
         } catch (Throwable e) {
