@@ -157,6 +157,10 @@ public class BookingAgent extends BaseAgent {
     return all;
   }
 
+  public JSON roadbook(String id){
+    return ROAD_BOOK_MAP.get(id);
+  }
+
   public static void main(String[] args) {
     InMemoryRunner runner = new InMemoryRunner(instance());
     Session session =
