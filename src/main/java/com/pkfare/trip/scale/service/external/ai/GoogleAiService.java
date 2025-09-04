@@ -121,20 +121,20 @@ public class GoogleAiService {
       cityData.setCityName(routeParam.getDestination_city());
       cityData.setStayDays(routeParam.getStay_days());
 
-      // 添加该城市的酒店
+      // 添加该城市的酒店（创建新列表，避免共享引用）
       if (planInfo.getHotelInfos() != null) {
         List<HotelInfo> cityHotels = planInfo.getHotelInfos().stream()
             .filter(hotel -> cityCode.equals(hotel.getCityCode()))
             .collect(Collectors.toList());
-        cityData.setHotels(cityHotels);
+        cityData.setHotels(new ArrayList<>(cityHotels));
       }
 
-      // 添加该城市的活动
+      // 添加该城市的活动（创建新列表，避免共享引用）
       if (planInfo.getActivityInfos() != null) {
         List<ActivityInfo> cityActivities = planInfo.getActivityInfos().stream()
             .filter(activity -> cityData.getCityName().equals(activity.getCityCode()))
             .collect(Collectors.toList());
-        cityData.setActivities(cityActivities);
+        cityData.setActivities(new ArrayList<>(cityActivities));
       }
     }
 
@@ -147,7 +147,6 @@ public class GoogleAiService {
   private List<DailyRoutePlan> generateDailyRoutePlans(Map<String, CityPlanData> cityPlanMap,
       GeneratePlanParam param) throws Exception {
     List<CompletableFuture<DailyRoutePlan>> futures = new ArrayList<>();
-    List<DailyRoutePlan> dailyPlans = new ArrayList<>();
     LocalDate currentDate = LocalDate.parse(param.getStart_period());
 
     for (TripRouteParam routeParam : param.getTrip_routes()) {
@@ -433,26 +432,30 @@ public class GoogleAiService {
 
   /**
    * 选择当日活动
+   * 修复：避免ConcurrentModificationException，先创建副本再排序
    */
   private List<ActivityInfo> selectDayActivities(List<ActivityInfo> allActivities, int dayIndex, int totalDays) {
     if (allActivities == null || allActivities.isEmpty()) {
       return new ArrayList<>();
     }
 
-    // 按评分排序
-    allActivities.sort((a, b) -> Double.compare(b.getRating(), a.getRating()));
+    // 创建活动列表的副本，避免并发修改异常
+    List<ActivityInfo> activitiesCopy = new ArrayList<>(allActivities);
+
+    // 按评分排序（现在是对副本进行排序，线程安全）
+    activitiesCopy.sort((a, b) -> Double.compare(b.getRating(), a.getRating()));
 
     // 平均分配活动到各天，每天最多3个活动
-    int activitiesPerDay = Math.min(3, Math.max(1, allActivities.size() / totalDays));
+    int activitiesPerDay = Math.min(3, Math.max(1, activitiesCopy.size() / totalDays));
     int startIndex = dayIndex * activitiesPerDay;
-    int endIndex = Math.min(startIndex + activitiesPerDay, allActivities.size());
+    int endIndex = Math.min(startIndex + activitiesPerDay, activitiesCopy.size());
 
-    if (startIndex >= allActivities.size()) {
+    if (startIndex >= activitiesCopy.size()) {
       return new ArrayList<>();
     }
 
-    List<ActivityInfo> copy = ImmutableList.copyOf(allActivities);
-    return copy.subList(startIndex, endIndex);
+    // 返回子列表，使用已排序的副本
+    return new ArrayList<>(activitiesCopy.subList(startIndex, endIndex));
   }
 
   /**
