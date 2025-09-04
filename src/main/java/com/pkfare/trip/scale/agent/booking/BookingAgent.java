@@ -28,14 +28,17 @@ import com.pkfare.trip.scale.plan.service.response.TripRoutePlanResult;
 import io.reactivex.rxjava3.core.Flowable;
 import io.reactivex.rxjava3.core.Single;
 import java.nio.charset.StandardCharsets;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Scanner;
 import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.util.CollectionUtils;
 
 @Slf4j
 public class BookingAgent extends BaseAgent {
@@ -47,6 +50,11 @@ public class BookingAgent extends BaseAgent {
   private static BaseAgent SUMMARY_AGENT;
 
   InMemoryRunner runner = new InMemoryRunner(SUMMARY_AGENT);
+
+  private static Map<String, JSON> ROAD_BOOK_MAP = Maps.newConcurrentMap();
+
+  private static final String path = "http://localhost:8080/roadbook/";
+
   @Setter
   private DevConfig devConfig;
 
@@ -79,10 +87,11 @@ public class BookingAgent extends BaseAgent {
   protected Flowable<Event> runAsyncImpl(InvocationContext invocationContext) {
     TripRoutePlanResult tripRoutePlanResult = (TripRoutePlanResult) invocationContext.session().state().get("plan_result");
     tripRoutePlanResult = mockDailyPlans();
-    Map<String, String> summaries = summarize(invocationContext, tripRoutePlanResult);
+    Map<LocalDate, JSONObject> summaries = summarize(invocationContext, tripRoutePlanResult);
     JSON json = generateRoadBook(tripRoutePlanResult, summaries);
+    ROAD_BOOK_MAP.put(invocationContext.session().id(), json);
     Event event = Event.builder().author("agent")
-        .content(Content.builder().role("planner").parts(Lists.newArrayList(Part.fromText(json.toJSONString()))).build())
+        .content(Content.builder().role("planner").parts(Lists.newArrayList(Part.fromText("Booking successful, here is the route information for this trip. \n"+ path + invocationContext.session().id()))).build())
         .build();
     return Flowable.just(event);
   }
@@ -92,8 +101,8 @@ public class BookingAgent extends BaseAgent {
     return null;
   }
 
-  private Map<String, String> summarize(InvocationContext invocationContext, TripRoutePlanResult tripRoutePlanResult) {
-    Map<String, String> all = Maps.newConcurrentMap();
+  private Map<LocalDate, JSONObject> summarize(InvocationContext invocationContext, TripRoutePlanResult tripRoutePlanResult) {
+    Map<LocalDate, JSONObject> all = Maps.newConcurrentMap();
 
     List<CompletableFuture<Void>> futures = tripRoutePlanResult.getDailyPlans().stream()
         .map(dailyPlan -> CompletableFuture.runAsync(() -> {
@@ -107,14 +116,13 @@ public class BookingAgent extends BaseAgent {
               .blockingForEach(event -> {
                 String text = event.content().get().text();
                 if (text.contains("------")){
-                  text = text.split("------")[1].replace("```json","").replace("```","");
+                  text = text.split("------")[1];
                 }
-                JSONArray activitySummary = JSON.parseArray(text);
-                for (Object o : activitySummary) {
-                  JSONObject jsonObject = (JSONObject) o;
-                  jsonObject.get("")
-                }
-                all.putAll(activitySummary);
+                text = text.replace("```json","").replace("```","");
+                JSONObject object = JSON.parseObject(text);
+                object.put("date", dailyPlan.getDate().toString());
+                object.put("city", dailyPlan.getCityName());
+                all.put(dailyPlan.getDate(), object);
               });
         }))
         .toList();
@@ -123,21 +131,28 @@ public class BookingAgent extends BaseAgent {
     return all;
   }
 
-  private JSON generateRoadBook(TripRoutePlanResult tripRoutePlanResult, Map<String, String> summaries) {
+  private JSON generateRoadBook(TripRoutePlanResult tripRoutePlanResult, Map<LocalDate, JSONObject> summaries) {
     JSONArray all = new JSONArray();
     List<DailyRoutePlan> dailyPlans = tripRoutePlanResult.getDailyPlans();
     for (DailyRoutePlan dailyPlan : dailyPlans) {
-      JSONArray daily = new JSONArray();
+      JSONObject daySum = summaries.get(dailyPlan.getDate());
+      JSONArray arrangements = daySum.getJSONArray("arrangement");
       List<ActivityInfo> activities = dailyPlan.getActivities();
-      activities.forEach(activityInfo -> {
-        JSONObject object = new JSONObject();
-        object.put("name", activityInfo.getName());
-        object.put("summary", summaries.get(activityInfo.getActivityId()));
-        object.put("type", "act");
-        daily.add(object);
+      Map<String,ActivityInfo> activityInfoMap = activities.stream().collect(Collectors.toMap(ActivityInfo::getActivityId, a->a));
+      arrangements.forEach(o -> {
+        JSONObject arrangement = (JSONObject)o;
+        ActivityInfo activityInfo = activityInfoMap.get(arrangement.getString("item_id"));
+        if (null == activityInfo){
+          return;
+        }
+        arrangement.put("name", activityInfo.getName());
+        arrangement.put("type", "activity");
+        arrangement.put("lat", activityInfo.getLatitude());
+        arrangement.put("lan",activityInfo.getLongitude());
+        arrangement.put("img",CollectionUtils.isEmpty(activityInfo.getPictures())?"":activityInfo.getPictures().getFirst());
       });
 
-      all.add(daily);
+      all.add(daySum);
     }
     return all;
   }
