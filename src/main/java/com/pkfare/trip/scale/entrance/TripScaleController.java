@@ -60,6 +60,10 @@ public class TripScaleController {
 
   @RequestMapping("/roadbook/{id}")
   public String roadbook(@PathVariable("id") String id){
+    JSON json= BookingAgent.instance().roadbook(id);
+    if (json == null) {
+      return "not exist roadbook id "+ id;
+    }
     return BookingAgent.instance().roadbook(id).toString();
   }
 }
