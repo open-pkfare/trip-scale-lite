@@ -23,7 +23,6 @@ import com.pkfare.trip.scale.agent.optimizing.OptimizingAgent;
 import com.pkfare.trip.scale.agent.planning.PlanningAgent;
 import com.pkfare.trip.scale.dto.TripDemand;
 import com.pkfare.trip.scale.dto.TripRoute;
-import com.pkfare.trip.scale.model.dto.TripDayInfo;
 import com.pkfare.trip.scale.plan.service.response.TripRoutePlanResult;
 import com.pkfare.trip.scale.service.PlanResultCacheService;
 import com.pkfare.trip.scale.util.JsonUtil;
@@ -158,18 +157,20 @@ public class AnotherRootAgent extends BaseAgent {
               }
               break;
             case "optimizing":
-              if (content.role().isPresent() && OptimizingAgent.OPTIMIZER_ROLE.equals(content.role().get())) {
-                String planResult = applicationContext.getBean(PlanResultCacheService.class).getPlanResult(text);
-                states.put("current_stage", "booking");
-                states.put("plan_result", JsonUtil.fromJson(planResult, TripRoutePlanResult.class));
-                part = Part.builder().text(text).build();
-                parts.removeFirst();
-                parts.add(part);
-              } else if (content.role().isPresent() && OptimizingAgent.NO_ADJUST_ROLE.equals(content.role().get())) {
-                states.put("current_stage", "booking");
-                part = Part.builder().text(text).build();
-                parts.removeFirst();
-                parts.add(part);
+              if (content.role().isPresent()) {
+                if (OptimizingAgent.OPTIMIZER_ROLE.equals(content.role().get())) {
+                  String planResult = applicationContext.getBean(PlanResultCacheService.class).getPlanResult(text);
+                  states.put("plan_result", JsonUtil.fromJson(planResult, TripRoutePlanResult.class));
+                  states.put("current_stage", "booking");
+                  part = Part.builder().text(text).build();
+                  parts.removeFirst();
+                  parts.add(part);
+                } else if(OptimizingAgent.NO_ADJUST_ROLE.equals(content.role().get())){
+                  states.put("current_stage", "booking");
+                  part = Part.builder().text(text).build();
+                  parts.removeFirst();
+                  parts.add(part);
+                }
               }
               break;
             default:
