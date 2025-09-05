@@ -64,7 +64,7 @@ public class HotelAdjustServiceImpl implements TripPlanAdjustInterface {
         dailyRoutePlan.setPreferredHotel(newHotel);
 
         try {
-          googleAiService.generateRoutes(dailyRoutePlan, dailyRoutePlan.getActivities());
+          googleAiService.generateRoutesOptimized(dailyRoutePlan, dailyRoutePlan.getActivities());
         } catch (Exception e) {
           throw new TripPlanException(TripPlanErrorCodeEnum.OPTIMIZE_HOTEL_FAILED, e);
         }

@@ -284,6 +284,7 @@ public class ActivitySearchService {
     ActivitiesSearchRequest request = new ActivitiesSearchRequest();
     request.setLatitude(hotel.getLatitude());
     request.setLongitude(hotel.getLongitude());
+    // todo 需要调整radius加重试
     request.setRadius(DEFAULT_RADIUS);
     if (StringUtils.isNotBlank(activityType)) {
       request.setCategoryGroup(activityType);
@@ -305,7 +306,8 @@ public class ActivitySearchService {
 
       // 筛选在合理距离内的活动
       List<ActivityInfo> activityInfoList = filterActivitiesByDistance(activityInfos,
-          new HotelLocationInfo(hotel.getLatitude(), hotel.getLongitude()), ACTIVITY_SEARCH_RADIUS_KM);
+          // todo  因为是mock数据，将距离限制放宽
+          new HotelLocationInfo(hotel.getLatitude(), hotel.getLongitude()), 1000);
 
       // 筛选评分最高的活动
       List<ActivityInfo> topActivities = activityInfoList.stream()

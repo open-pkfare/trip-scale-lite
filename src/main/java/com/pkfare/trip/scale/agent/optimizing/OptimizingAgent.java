@@ -7,6 +7,7 @@ import com.google.adk.agents.Instruction;
 import com.google.adk.agents.Instruction.Provider;
 import com.google.adk.agents.InvocationContext;
 import com.google.adk.agents.LlmAgent;
+import com.google.adk.agents.LlmAgent.IncludeContents;
 import com.google.adk.events.Event;
 import com.google.adk.runner.InMemoryRunner;
 import com.google.adk.sessions.Session;
@@ -76,6 +77,7 @@ public class OptimizingAgent extends BaseAgent {
           .model(GoogleConfig.GEMINI_2_5_FLASH)
           .description("Agent to help user to optimize a travel plans.")
           .instruction(instruction)
+          .includeContents(IncludeContents.NONE)
           .build();
       optimizingAgent = new OptimizingAgent();
     }
