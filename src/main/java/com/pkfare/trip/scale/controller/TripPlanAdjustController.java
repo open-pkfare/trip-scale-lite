@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @Slf4j
 @RestController
-@RequestMapping("/api/trip-plan")
+@RequestMapping("/trip-plan")
 @CrossOrigin(origins = "*")
 public class TripPlanAdjustController {
 
