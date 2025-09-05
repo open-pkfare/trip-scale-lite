@@ -93,7 +93,7 @@ public class AnotherRootAgent extends BaseAgent {
         eventFlowable = invocationContext.agent().findAgent("trip_optimizing_agent").runAsync(invocationContext);
         break;
       case "booking":
-        eventFlowable = invocationContext.agent().findAgent("booking_agent").runAsync(invocationContext);
+        eventFlowable = invocationContext.agent().findAgent("p_booking_agent").runAsync(invocationContext);
         break;
     }
     assert eventFlowable != null;
