@@ -25,6 +25,8 @@ import com.pkfare.trip.scale.dto.TripDemand;
 import com.pkfare.trip.scale.dto.TripRoute;
 import com.pkfare.trip.scale.model.dto.TripDayInfo;
 import com.pkfare.trip.scale.plan.service.response.TripRoutePlanResult;
+import com.pkfare.trip.scale.service.PlanResultCacheService;
+import com.pkfare.trip.scale.util.JsonUtil;
 import io.reactivex.rxjava3.core.Flowable;
 import java.time.Instant;
 import java.util.List;
@@ -33,6 +35,8 @@ import java.util.concurrent.ConcurrentMap;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.exception.ExceptionUtils;
+import org.springframework.context.ApplicationContext;
 
 @Slf4j
 public class AnotherRootAgent extends BaseAgent {
@@ -40,9 +44,14 @@ public class AnotherRootAgent extends BaseAgent {
   private static String NAME = "Coordinator";
 
   private static AnotherRootAgent ROOT_AGENT;
+  private static ApplicationContext applicationContext;
 
   @Setter
   private DevConfig devConfig;
+
+  public static void setApplicationContext(ApplicationContext context) {
+    applicationContext = context;
+  }
 
   public AnotherRootAgent() {
     super(NAME, "Agent to coordinate different agents to work together with different steps to finish a trip planning.",
@@ -136,18 +145,20 @@ public class AnotherRootAgent extends BaseAgent {
               break;
             case "planning":
               if (content.role().isPresent() && "planner".equals(content.role().get())){
-                TripRoutePlanResult tripRoutePlanResult = mapper.readValue(text, TripRoutePlanResult.class);
+                String planId = mapper.readValue(text, String.class);
+                String planResult = applicationContext.getBean(PlanResultCacheService.class).getPlanResult(planId);
                 states.put("current_stage", "optimizing");
-                states.put("plan_result", tripRoutePlanResult);
+                states.put("plan_result", JsonUtil.fromJson(planResult, TripRoutePlanResult.class));
                 part = Part.builder().text(text).build();
                 parts.removeFirst();
                 parts.add(part);
               }
               break;
             case "optimizing":
-              TripRoutePlanResult optimizeResult = mapper.readValue(text, TripRoutePlanResult.class);
+              String planId = mapper.readValue(text, String.class);
+              String planResult = applicationContext.getBean(PlanResultCacheService.class).getPlanResult(planId);
               states.put("current_stage", "booking");
-              states.put("plan_result", optimizeResult);
+              states.put("plan_result", JsonUtil.fromJson(planResult, TripRoutePlanResult.class));
               part = Part.builder().text(text).build();
               parts.removeFirst();
               parts.add(part);
@@ -155,8 +166,8 @@ public class AnotherRootAgent extends BaseAgent {
             default:
           }
         } catch (Throwable e) {
-//          log.info("error {}", ExceptionUtils.getStackTrace(e));
-//          log.info("parse error text : {}", text);
+          log.info("error {}", ExceptionUtils.getStackTrace(e));
+          log.info("parse error text : {}", text);
           return;
         }
 
