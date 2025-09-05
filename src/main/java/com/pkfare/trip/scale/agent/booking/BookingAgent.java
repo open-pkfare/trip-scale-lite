@@ -158,6 +158,7 @@ public class BookingAgent extends BaseAgent {
         arrangement.put("lan",activityInfo.getLongitude());
         arrangement.put("img",CollectionUtils.isEmpty(activityInfo.getPictures())?"":activityInfo.getPictures().getFirst());
       });
+      daySum.put("routes",dailyPlan.getRoutes());
 
       all.add(daySum);
     }
