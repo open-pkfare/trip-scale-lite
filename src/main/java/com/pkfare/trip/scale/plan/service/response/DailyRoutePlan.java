@@ -46,6 +46,11 @@ public class DailyRoutePlan {
      * 路线信息列表
      */
     private List<RouteSegment> routes;
+
+    /**
+     * 路线信息列表
+     */
+    private List<LocationPoint> waypoints;
     
     /**
      * 总距离（米）
