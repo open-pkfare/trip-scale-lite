@@ -14,6 +14,7 @@ import com.pkfare.trip.scale.plan.service.response.TripRoutePlanResult;
 import com.pkfare.trip.scale.service.external.ai.GoogleAiService;
 import com.pkfare.trip.scale.util.JsonUtil;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import lombok.extern.slf4j.Slf4j;
@@ -55,7 +56,8 @@ public class TripPlanAdjustService {
       throw new TripPlanException(TripPlanErrorCodeEnum.NO_FLIGHT_FOUND, e);
     }
 
-    for (JsonNode element : adjustPlanParams) {
+    List<JsonNode> sortedList = sort(adjustPlanParams);
+    for (JsonNode element : sortedList) {
       try {
         if (!element.isObject()) {
           log.warn("Invalid adjust param format: {}", element);
@@ -81,7 +83,7 @@ public class TripPlanAdjustService {
         }
       } catch (Exception e) {
         log.error("Failed to process adjust item: {}", element, e);
-        throw  new TripPlanException(TripPlanErrorCodeEnum.SERVER_ERROR, e);
+        throw new TripPlanException(TripPlanErrorCodeEnum.SERVER_ERROR, e);
       }
     }
 
@@ -102,9 +104,28 @@ public class TripPlanAdjustService {
 
     long totalTime = System.currentTimeMillis() - start;
     log.info("Total trip plan adjust time: {} ms", totalTime);
-    log.info("Generated trip plan JSON: {}",  JsonUtil.toJson(dailyPlans.getFirst()));
-//    String resultJson = JsonUtil.toJson(adjustedPlan);
-//    log.info("Generated trip plan JSON: {}", resultJson);
+    log.info("Generated trip plan JSON: {}", JsonUtil.toJson(dailyPlans.getFirst()));
     return adjustedPlan;
+  }
+
+  // 按照调整项类型的优先级排序：航班 -> 酒店 -> 活动
+  private List<JsonNode> sort(JsonNode adjustPlanParams) {
+    List<JsonNode> resultList = new ArrayList<>();
+    if (adjustPlanParams.isArray()) {
+      for (JsonNode node : adjustPlanParams) {
+        resultList.add(node);
+      }
+
+      resultList.sort((param1, param2) -> {
+        String item1 = param1.get("item").asText();
+        String item2 = param2.get("item").asText();
+
+        // 定义调整项的优先级
+        int priority1 = AdjustItemEnum.getByCode(item1).map(AdjustItemEnum::getPriority).orElse(0);
+        int priority2 = AdjustItemEnum.getByCode(item2).map(AdjustItemEnum::getPriority).orElse(0);
+        return Integer.compare(priority1, priority2);
+      });
+    }
+    return resultList;
   }
 }

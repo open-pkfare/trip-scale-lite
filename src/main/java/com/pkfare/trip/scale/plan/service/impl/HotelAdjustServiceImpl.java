@@ -61,6 +61,7 @@ public class HotelAdjustServiceImpl implements TripPlanAdjustInterface {
         if (Objects.isNull(newHotel)) {
           throw new TripPlanException(TripPlanErrorCodeEnum.NO_HOTEL_FOUND);
         }
+        newHotel.setPreferred(Boolean.TRUE);
         dailyRoutePlan.setPreferredHotel(newHotel);
 
         try {
@@ -98,8 +99,8 @@ public class HotelAdjustServiceImpl implements TripPlanAdjustInterface {
     }
     // 不能重复之前酒店
     List<String> hotelIds = Arrays.stream(hotels)
-        .filter(hotel -> !hotel.getHotelId().equals(oldHotel.getHotelId()))
-        .map(Hotel::getHotelId).toList();
+        .map(Hotel::getHotelId)
+        .filter(hotelId -> !hotelId.equals(oldHotel.getHotelId())).toList();
     if (hotelIds.isEmpty()) {
       throw new TripPlanException(TripPlanErrorCodeEnum.NO_HOTEL_FOUND);
     }
