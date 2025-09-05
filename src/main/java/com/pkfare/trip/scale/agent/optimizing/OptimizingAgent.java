@@ -77,7 +77,6 @@ public class OptimizingAgent extends BaseAgent {
           .model(GoogleConfig.GEMINI_2_5_FLASH)
           .description("Agent to help user to optimize a travel plans.")
           .instruction(instruction)
-          .includeContents(IncludeContents.NONE)
           .build();
       optimizingAgent = new OptimizingAgent();
     }
@@ -206,7 +205,7 @@ public class OptimizingAgent extends BaseAgent {
     // 第二个事件：完整计划结果事件
     try {
       String planResultJson = JsonUtil.toJson(planResult);
-      Content planContent = Content.builder().parts(Lists.newArrayList(Part.fromText(planResultJson))).build();
+      Content planContent = Content.builder().role(OPTIMIZER_ROLE).parts(Lists.newArrayList(Part.fromText(planResultJson))).build();
       Event planEvent = Event.builder()
           .invocationId(invocationContext.invocationId())
           .author("agent")

@@ -96,8 +96,14 @@ public class HotelAdjustServiceImpl implements TripPlanAdjustInterface {
     if (hotels == null || hotels.length == 0) {
       throw new TripPlanException(TripPlanErrorCodeEnum.NO_HOTEL_FOUND);
     }
+    // 不能重复之前酒店
+    List<String> hotelIds = Arrays.stream(hotels)
+        .filter(hotel -> !hotel.getHotelId().equals(oldHotel.getHotelId()))
+        .map(Hotel::getHotelId).toList();
+    if (hotelIds.isEmpty()) {
+      throw new TripPlanException(TripPlanErrorCodeEnum.NO_HOTEL_FOUND);
+    }
 
-    List<String> hotelIds = Arrays.stream(hotels).map(Hotel::getHotelId).toList();
     String countryCode = hotels[0].getAddress().getCountryCode();
     HotelOffersSearchRequest request = new HotelOffersSearchRequest();
     request.setHotelIds(hotelIds);
