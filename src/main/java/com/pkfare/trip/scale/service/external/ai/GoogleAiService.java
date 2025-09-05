@@ -219,7 +219,7 @@ public class GoogleAiService {
 
     // 批量并发计算路线
     List<RouteSegment> routes = generateRoutesBatch(dailyPlan.getPreferredHotel(), dayActivities);
-    dailyPlan.setRoutes(routes);
+//    dailyPlan.setRoutes(routes);
 
     // 计算总距离和时间
     long totalDistance = routes.stream()
