@@ -67,7 +67,8 @@ public class OptimizingAgent extends BaseAgent {
         BriefTripRoutePlan briefTripRoutePlan = new BriefTripRoutePlan(result);
 //                BriefTripRoutePlan briefTripRoutePlan = mockDailyPlans();
         String prompt = StringUtils.replace(OptimizingPrompt.PROMPT, "{{trip_plan}}",
-            JsonUtil.toJson(briefTripRoutePlan.getDailyPlans().getFirst()));
+            JsonUtil.toJson(briefTripRoutePlan));
+        log.info("the prompt is: {}", prompt);
         return Single.just(prompt);
       });
       INSTANCE = LlmAgent.builder()
