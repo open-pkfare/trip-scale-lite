@@ -45,6 +45,7 @@ public class OptimizingAgent extends BaseAgent {
   private static final String CURRENT_AGENT = "trip_optimizing_agent";
   private static final String BASE_AGENT = "trip_base_agent";
   public static final String OPTIMIZER_ROLE = "optimizer";
+  public static final String NO_ADJUST_ROLE = "no_adjust";
   private static BaseAgent INSTANCE;
 
   private static OptimizingAgent optimizingAgent;
@@ -115,7 +116,14 @@ public class OptimizingAgent extends BaseAgent {
         return Flowable.error(new IllegalStateException("Missing required data in session"));
       }
       if ("[]".equals(param)) {
-        return Flowable.empty();
+        Content planContent = Content.builder().role(NO_ADJUST_ROLE).parts(Lists.newArrayList(Part.fromText("Ok, I'll book this trip for you!"))).build();
+        Event planEvent = Event.builder()
+            .invocationId(invocationContext.invocationId())
+            .author("agent")
+            .content(planContent)
+            .timestamp(System.currentTimeMillis() + 1)
+            .build();
+        return Flowable.just(planEvent);
       } else {
         JsonNode adjustPlanParams = JsonUtil.toJsonNode(param);
         GeneratePlanParam planParam = buildGeneratePlanParam(tripDemand, tripRoutes);
@@ -150,15 +158,15 @@ public class OptimizingAgent extends BaseAgent {
 
     // 基本信息
     param.setOrigin(tripDemand.getOrigin());
-    param.setLocation_code(tripDemand.getOrigin_country_code()); // 默认设置为美国，可根据实际需求调整
+    param.setLocation_code(tripDemand.getOrigin_country_code());
     param.setTrip_days(tripDemand.getDays());
     param.setBudgets(tripDemand.getBudgets());
-    param.setCurrency(tripDemand.getCurrency()); // 默认美元
+    param.setCurrency(tripDemand.getCurrency());
 
     // 乘客信息
-    param.setAdult_number(Math.max(1, tripDemand.getPassenger_number())); // 至少1个成人
-    param.setChild_number(0); // 默认无儿童
-    param.setRoom_quantity(1); // 默认1个房间
+    param.setAdult_number(Math.max(1, tripDemand.getPassenger_number()));
+    param.setChild_number(0);
+    param.setRoom_quantity(1);
     param.setStart_period(tripDemand.getStart_period());
     param.setEnd_period(tripDemand.getEnd_period());
 
@@ -169,8 +177,8 @@ public class OptimizingAgent extends BaseAgent {
       routeParam.setDestination_city(tripRoute.getDestination_city());
       routeParam.setStay_days(tripRoute.getStay_days());
       routeParam.setReason_for_recommendation(tripRoute.getReason_for_recommendation());
-      routeParam.setCountry_code(tripRoute.getCountry_code()); // 默认美国
-      routeParam.setLocation_code(tripRoute.getLocation_code()); // 生成位置代码
+      routeParam.setCountry_code(tripRoute.getCountry_code());
+      routeParam.setLocation_code(tripRoute.getLocation_code());
       routeParams.add(routeParam);
     }
     param.setTrip_routes(routeParams);
