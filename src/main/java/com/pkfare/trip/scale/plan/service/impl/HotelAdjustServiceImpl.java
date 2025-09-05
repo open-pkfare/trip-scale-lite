@@ -126,7 +126,8 @@ public class HotelAdjustServiceImpl implements TripPlanAdjustInterface {
       }
 
       // 按价格排序，选择最便宜的
-      HotelOfferDto offerDto = offers.stream().min(Comparator.comparing(offer -> {
+      HotelOfferDto offerDto = offers.stream()
+          .min(Comparator.comparing(offer -> {
         if (offer.getOffers() != null && !offer.getOffers().isEmpty()) {
           return PriceUtil.parsePrice(offer.getOffers().getFirst().getPrice().getTotal());
         }
