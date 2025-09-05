@@ -374,7 +374,7 @@ public class GoogleAiService {
     clone.setDuration(original.getDuration());
     clone.setTravelMode(original.getTravelMode());
     clone.setOverview(original.getOverview());
-    clone.setRoutesJson(original.getRoutesJson());
+    //clone.setRoutesJson(original.getRoutesJson());
     return clone;
   }
 
@@ -529,7 +529,7 @@ public class GoogleAiService {
         //}
         segment.setSteps(steps);
         segment.setOverview(route.summary);
-        segment.setRoutesJson(JsonUtil.toJson(result.routes));
+        // segment.setRoutesJson(JsonUtil.toJson(result.routes));
 
         return segment;
       }
