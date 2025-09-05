@@ -91,9 +91,16 @@ public class BookingAgent extends BaseAgent {
     JSON json = generateRoadBook(tripRoutePlanResult, summaries);
     ROAD_BOOK_MAP.put(invocationContext.session().id(), json);
     Event event = Event.builder().author("agent")
-        .content(Content.builder().role("planner").parts(Lists.newArrayList(Part.fromText("Booking successful, here is the route information for this trip. \n"+ path + invocationContext.session().id()))).build())
+        .content(Content.builder().role("agent").parts(Lists.newArrayList(Part.fromText("Booking successful, and i had prepared the road book for you~!"))).build())
         .build();
-    return Flowable.just(event);
+
+    Event event1 = Event.builder().author("agent")
+        .content(Content.builder().role("planner").parts(Lists.newArrayList(Part.fromText("booking"))).build())
+        .build();
+    List<Event> events = Lists.newArrayList();
+    events.add(event);
+    events.add(event1);
+    return Flowable.fromIterable(events);
   }
 
   @Override
