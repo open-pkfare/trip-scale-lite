@@ -206,8 +206,7 @@ public class GoogleAiService {
     dailyPlan.setActivities(dayActivities);
 
     // 优化版路线生成
-    generateRoutesLocations(dailyPlan, dayActivities);
-    // generateRoutesOptimized(dailyPlan, dayActivities);
+    generateRoutesOptimized(dailyPlan, dayActivities);
     return dailyPlan;
   }
 
@@ -567,7 +566,7 @@ public class GoogleAiService {
         //}
         segment.setSteps(steps);
         segment.setOverview(route.summary);
-        segment.setRoutesJson(JsonUtil.toJson(result.routes));
+        //segment.setRoutesJson(JsonUtil.toJson(result.routes));
 
         return segment;
       }
