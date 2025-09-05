@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
  *
  * @author Trip Scale Team
  */
+@Deprecated
 @Slf4j
 @RestController
 @RequestMapping("/trip-plan")

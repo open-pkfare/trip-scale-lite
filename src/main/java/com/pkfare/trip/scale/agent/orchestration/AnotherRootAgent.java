@@ -165,6 +165,11 @@ public class AnotherRootAgent extends BaseAgent {
                 part = Part.builder().text(text).build();
                 parts.removeFirst();
                 parts.add(part);
+              } else if (content.role().isPresent() && OptimizingAgent.NO_ADJUST_ROLE.equals(content.role().get())) {
+                states.put("current_stage", "booking");
+                part = Part.builder().text(text).build();
+                parts.removeFirst();
+                parts.add(part);
               }
               break;
             default:
