@@ -9,6 +9,7 @@ import com.google.genai.types.Content;
 import com.google.genai.types.Content.Builder;
 import com.google.genai.types.Part;
 import com.google.gson.Gson;
+import com.pkfare.trip.scale.agent.optimizing.OptimizingAgent;
 import com.pkfare.trip.scale.dto.Conversation;
 import com.pkfare.trip.scale.dto.RespConversation;
 import com.pkfare.trip.scale.function.AppRunner;
@@ -67,6 +68,7 @@ public class CoordinationEntrance {
         }
         switch (role){
           case "planner":
+          case OptimizingAgent.OPTIMIZER_ROLE:
             map.computeIfAbsent("object", k-> new StringBuilder()).append(content.text());
             break;
           default:

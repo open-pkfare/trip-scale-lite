@@ -14,6 +14,7 @@ import com.pkfare.trip.scale.plan.service.param.GeneratePlanParam;
 import com.pkfare.trip.scale.plan.service.param.TripRouteParam;
 import com.pkfare.trip.scale.plan.service.GeneratePlanService;
 import com.pkfare.trip.scale.plan.service.response.TripRoutePlanResult;
+import com.pkfare.trip.scale.service.PlanResultCacheService;
 import com.pkfare.trip.scale.util.JsonUtil;
 import io.reactivex.rxjava3.core.Flowable;
 import java.time.Instant;
@@ -65,6 +66,16 @@ public class PlanningAgent extends BaseAgent {
       throw new IllegalStateException("ApplicationContext not set. Please call setApplicationContext() first.");
     }
     return applicationContext.getBean(GeneratePlanService.class);
+  }
+
+  /**
+   * 获取PlanResultCacheService实例
+   */
+  private PlanResultCacheService getPlanResultCacheService() {
+    if (applicationContext == null) {
+      throw new IllegalStateException("ApplicationContext not set. Please call setApplicationContext() first.");
+    }
+    return applicationContext.getBean(PlanResultCacheService.class);
   }
 
   @Override
@@ -163,7 +174,7 @@ public class PlanningAgent extends BaseAgent {
     List<Event> events = new ArrayList<>();
     long currentTimeMillis = Instant.now().toEpochMilli();
     
-    // 第一个事件：摘要事件
+    // 第一个事件：摘要事件（逻辑不变）
     if (planResult.getSummary() != null && !planResult.getSummary().isEmpty()) {
       Content summaryContent = Content.builder().role("agent").parts(Lists.newArrayList(Part.fromText(planResult.getSummary()))).build();
       Event summaryEvent = Event.builder()
@@ -177,10 +188,17 @@ public class PlanningAgent extends BaseAgent {
       log.info("Created summary event with content length: {}", planResult.getSummary().length());
     }
     
-    // 第二个事件：完整计划结果事件
+    // 第二个事件：调整后的计划结果事件
     try {
       String planResultJson = JsonUtil.toJson(planResult);
-      Content planContent = Content.builder().role("planner").parts(Lists.newArrayList(Part.fromText(planResultJson))).build();
+      
+      // 生成planResultId并缓存planResultJson
+      PlanResultCacheService cacheService = getPlanResultCacheService();
+      String planResultId = cacheService.cachePlanResult(planResultJson);
+      
+
+      // 第二个event的parts设置为planResultId
+      Content planContent = Content.builder().role("planner").parts(Lists.newArrayList(Part.fromText(planResultId))).build();
       Event planEvent = Event.builder()
           .invocationId(invocationContext.invocationId())
           .author("agent")
@@ -188,9 +206,10 @@ public class PlanningAgent extends BaseAgent {
           .timestamp(currentTimeMillis + 1) // 稍微延后一毫秒确保顺序
           .build();
       events.add(planEvent);
-      
-      log.info("Created plan result event with {} daily plans", 
-          planResult.getDailyPlans() != null ? planResult.getDailyPlans().size() : 0);
+
+      log.info("Created plan result event with planResultId: {}, cached {} daily plans",
+          planResultId, planResult.getDailyPlans() != null ? planResult.getDailyPlans().size() : 0);
+
       
     } catch (Exception e) {
       log.error("Failed to serialize plan result to JSON", e);

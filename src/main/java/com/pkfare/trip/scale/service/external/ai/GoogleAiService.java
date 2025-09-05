@@ -567,7 +567,7 @@ public class GoogleAiService {
         //}
         segment.setSteps(steps);
         segment.setOverview(route.summary);
-        // segment.setRoutesJson(JsonUtil.toJson(result.routes));
+        segment.setRoutesJson(JsonUtil.toJson(result.routes));
 
         return segment;
       }
