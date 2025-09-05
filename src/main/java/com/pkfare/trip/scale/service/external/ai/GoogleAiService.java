@@ -3,6 +3,7 @@ package com.pkfare.trip.scale.service.external.ai;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import com.google.maps.DirectionsApi;
+import com.google.maps.DirectionsApiRequest.Waypoint;
 import com.google.maps.GeoApiContext;
 import com.google.maps.model.*;
 import com.pkfare.trip.scale.config.GoogleConfig;
@@ -205,8 +206,26 @@ public class GoogleAiService {
     dailyPlan.setActivities(dayActivities);
 
     // 优化版路线生成
-    generateRoutesOptimized(dailyPlan, dayActivities);
+    generateRoutesLocations(dailyPlan, dayActivities);
+    // generateRoutesOptimized(dailyPlan, dayActivities);
     return dailyPlan;
+  }
+
+  private void generateRoutesLocations(DailyRoutePlan dailyPlan, List<ActivityInfo> dayActivities) {
+    if (dailyPlan.getPreferredHotel() == null || dayActivities == null || dayActivities.isEmpty()) {
+      dailyPlan.setRoutes(new ArrayList<>());
+      dailyPlan.setTotalDistance(0L);
+      dailyPlan.setTotalDuration(0L);
+      return;
+    }
+
+    // 批量并发计算路线
+    List<LocationPoint> waypoints = generateRouteLocationPoints(dailyPlan.getPreferredHotel(), dayActivities);
+    dailyPlan.setWaypoints(waypoints);
+
+    dailyPlan.setTotalDistance(0L);
+    dailyPlan.setTotalDuration(0L);
+    dailyPlan.setNotes(generateDayNotes(dayActivities, 0, 0));
   }
 
   public void generateRoutesOptimized(DailyRoutePlan dailyPlan, List<ActivityInfo> dayActivities) throws Exception {
@@ -274,6 +293,25 @@ public class GoogleAiService {
             .filter(Objects::nonNull)
             .collect(Collectors.toList())
     ).get();
+  }
+
+  private List<LocationPoint> generateRouteLocationPoints(HotelInfo hotel, List<ActivityInfo> activities) {
+    if (hotel == null || activities == null || activities.isEmpty()) {
+      return new ArrayList<>();
+    }
+
+    // 创建位置点列表：酒店 -> 活动1 -> 活动2 -> ... -> 酒店
+    List<LocationPoint> waypoints = new ArrayList<>();
+    waypoints.add(new LocationPoint(hotel.getHotelName(), hotel.getLatitude(), hotel.getLongitude()));
+
+    for (ActivityInfo activity : activities) {
+      waypoints.add(new LocationPoint(activity.getName(), activity.getLatitude(), activity.getLongitude()));
+    }
+
+    // 回到酒店
+    waypoints.add(new LocationPoint(hotel.getHotelName(), hotel.getLatitude(), hotel.getLongitude()));
+
+    return waypoints;
   }
 
 
@@ -609,87 +647,6 @@ public class GoogleAiService {
     return result;
   }
 
-  /**
-   * 城市计划数据内部类
-   */
-  private static class CityPlanData {
-
-    private String cityCode;
-    private String cityName;
-    private int stayDays;
-    private List<HotelInfo> hotels;
-    private List<ActivityInfo> activities;
-
-    // Getters and Setters
-    public String getCityCode() {
-      return cityCode;
-    }
-
-    public void setCityCode(String cityCode) {
-      this.cityCode = cityCode;
-    }
-
-    public String getCityName() {
-      return cityName;
-    }
-
-    public void setCityName(String cityName) {
-      this.cityName = cityName;
-    }
-
-    public int getStayDays() {
-      return stayDays;
-    }
-
-    public void setStayDays(int stayDays) {
-      this.stayDays = stayDays;
-    }
-
-    public List<HotelInfo> getHotels() {
-      return hotels;
-    }
-
-    public void setHotels(List<HotelInfo> hotels) {
-      this.hotels = hotels;
-    }
-
-    public List<ActivityInfo> getActivities() {
-      return activities;
-    }
-
-    public void setActivities(List<ActivityInfo> activities) {
-      this.activities = activities;
-    }
-  }
-
-  /**
-   * 位置点内部类
-   */
-  private static class LocationPoint {
-
-    private String name;
-    private double latitude;
-    private double longitude;
-
-    public LocationPoint(String name, double latitude, double longitude) {
-      this.name = name;
-      this.latitude = latitude;
-      this.longitude = longitude;
-    }
-
-    // Getters
-    public String getName() {
-      return name;
-    }
-
-    public double getLatitude() {
-      return latitude;
-    }
-
-    public double getLongitude() {
-      return longitude;
-    }
-  }
 
   private DailyRoutePlan createEmptyDayPlan(CityPlanData cityData, LocalDate date) {
     DailyRoutePlan plan = new DailyRoutePlan();
