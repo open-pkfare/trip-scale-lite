@@ -162,14 +162,8 @@ public class AnotherRootAgent extends BaseAgent {
                   String planResult = applicationContext.getBean(PlanResultCacheService.class).getPlanResult(text);
                   states.put("plan_result", JsonUtil.fromJson(planResult, TripRoutePlanResult.class));
                   states.put("current_stage", "booking");
-                  part = Part.builder().text(text).build();
-                  parts.removeFirst();
-                  parts.add(part);
                 } else if(OptimizingAgent.NO_ADJUST_ROLE.equals(content.role().get())){
                   states.put("current_stage", "booking");
-                  part = Part.builder().text(text).build();
-                  parts.removeFirst();
-                  parts.add(part);
                 }
               }
               break;
