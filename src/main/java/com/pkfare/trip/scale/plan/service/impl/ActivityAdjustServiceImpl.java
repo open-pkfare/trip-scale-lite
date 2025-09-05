@@ -74,7 +74,7 @@ public class ActivityAdjustServiceImpl implements TripPlanAdjustInterface {
         throw new TripPlanException(TripPlanErrorCodeEnum.UNSUPPORTED_ACTIVITY_ADJUSTMENT_TYPE);
       }
       try {
-        googleAiService.generateRoutes(routePlan, routePlan.getActivities());
+        googleAiService.generateRoutesOptimized(routePlan, routePlan.getActivities());
       } catch (Exception e) {
         throw new TripPlanException(TripPlanErrorCodeEnum.OPTIMIZE_ACTIVITY_FAILED, e);
       }

@@ -61,10 +61,11 @@ public class HotelAdjustServiceImpl implements TripPlanAdjustInterface {
         if (Objects.isNull(newHotel)) {
           throw new TripPlanException(TripPlanErrorCodeEnum.NO_HOTEL_FOUND);
         }
+        newHotel.setPreferred(Boolean.TRUE);
         dailyRoutePlan.setPreferredHotel(newHotel);
 
         try {
-          googleAiService.generateRoutes(dailyRoutePlan, dailyRoutePlan.getActivities());
+          googleAiService.generateRoutesOptimized(dailyRoutePlan, dailyRoutePlan.getActivities());
         } catch (Exception e) {
           throw new TripPlanException(TripPlanErrorCodeEnum.OPTIMIZE_HOTEL_FAILED, e);
         }
@@ -96,8 +97,14 @@ public class HotelAdjustServiceImpl implements TripPlanAdjustInterface {
     if (hotels == null || hotels.length == 0) {
       throw new TripPlanException(TripPlanErrorCodeEnum.NO_HOTEL_FOUND);
     }
+    // 不能重复之前酒店
+    List<String> hotelIds = Arrays.stream(hotels)
+        .map(Hotel::getHotelId)
+        .filter(hotelId -> !hotelId.equals(oldHotel.getHotelId())).toList();
+    if (hotelIds.isEmpty()) {
+      throw new TripPlanException(TripPlanErrorCodeEnum.NO_HOTEL_FOUND);
+    }
 
-    List<String> hotelIds = Arrays.stream(hotels).map(Hotel::getHotelId).toList();
     String countryCode = hotels[0].getAddress().getCountryCode();
     HotelOffersSearchRequest request = new HotelOffersSearchRequest();
     request.setHotelIds(hotelIds);

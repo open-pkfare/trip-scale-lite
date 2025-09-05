@@ -23,6 +23,7 @@ import com.pkfare.trip.scale.plan.service.param.GeneratePlanParam;
 import com.pkfare.trip.scale.plan.service.param.TripRouteParam;
 import com.pkfare.trip.scale.plan.service.response.FlightInfo;
 import com.pkfare.trip.scale.plan.service.response.TripRoutePlanResult;
+import com.pkfare.trip.scale.service.PlanResultCacheService;
 import com.pkfare.trip.scale.util.JsonUtil;
 import io.reactivex.rxjava3.core.Flowable;
 import io.reactivex.rxjava3.core.Single;
@@ -67,7 +68,8 @@ public class OptimizingAgent extends BaseAgent {
         BriefTripRoutePlan briefTripRoutePlan = new BriefTripRoutePlan(result);
 //                BriefTripRoutePlan briefTripRoutePlan = mockDailyPlans();
         String prompt = StringUtils.replace(OptimizingPrompt.PROMPT, "{{trip_plan}}",
-            JsonUtil.toJson(briefTripRoutePlan.getDailyPlans().getFirst()));
+            JsonUtil.toJson(briefTripRoutePlan));
+        log.info("the prompt is: {}", prompt);
         return Single.just(prompt);
       });
       INSTANCE = LlmAgent.builder()
@@ -203,7 +205,8 @@ public class OptimizingAgent extends BaseAgent {
     // 第二个事件：完整计划结果事件
     try {
       String planResultJson = JsonUtil.toJson(planResult);
-      Content planContent = Content.builder().parts(Lists.newArrayList(Part.fromText(planResultJson))).build();
+      String planResultId = applicationContext.getBean(PlanResultCacheService.class).cachePlanResult(planResultJson);
+      Content planContent = Content.builder().role(OPTIMIZER_ROLE).parts(Lists.newArrayList(Part.fromText(planResultId))).build();
       Event planEvent = Event.builder()
           .invocationId(invocationContext.invocationId())
           .author("agent")

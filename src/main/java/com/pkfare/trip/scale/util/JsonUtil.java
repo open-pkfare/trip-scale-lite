@@ -75,7 +75,7 @@ public class JsonUtil {
   public static <T> T fromJson(String json, TypeReference<T> typeReference) {
     try {
       return INSTANCE.readValue(json, typeReference);
-    } catch (JsonProcessingException e) {
+    } catch (Exception e) {
       throw new RuntimeException("JSON反序列化失败", e);
     }
   }
