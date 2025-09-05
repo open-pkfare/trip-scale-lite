@@ -144,30 +144,34 @@ public class AnotherRootAgent extends BaseAgent {
               parts.add(part);
               break;
             case "planning":
-              if (content.role().isPresent() && "planner".equals(content.role().get())){
-                String planId = mapper.readValue(text, String.class);
-                String planResult = applicationContext.getBean(PlanResultCacheService.class).getPlanResult(planId);
-                states.put("current_stage", "optimizing");
+              try {
+                if (content.role().isPresent() && "planner".equals(content.role().get())){
+                  String planResult = applicationContext.getBean(PlanResultCacheService.class).getPlanResult(text);
+                  states.put("current_stage", "optimizing");
+                  states.put("plan_result", JsonUtil.fromJson(planResult, TripRoutePlanResult.class));
+                  part = Part.builder().text(text).build();
+                  parts.removeFirst();
+                  parts.add(part);
+                }
+              } catch(Exception e) {
+                log.info("planning error {}", ExceptionUtils.getStackTrace(e));
+              }
+              break;
+            case "optimizing":
+              if (content.role().isPresent() && OptimizingAgent.OPTIMIZER_ROLE.equals(content.role().get())) {
+                String planResult = applicationContext.getBean(PlanResultCacheService.class).getPlanResult(text);
+                states.put("current_stage", "booking");
                 states.put("plan_result", JsonUtil.fromJson(planResult, TripRoutePlanResult.class));
                 part = Part.builder().text(text).build();
                 parts.removeFirst();
                 parts.add(part);
               }
               break;
-            case "optimizing":
-              String planId = mapper.readValue(text, String.class);
-              String planResult = applicationContext.getBean(PlanResultCacheService.class).getPlanResult(planId);
-              states.put("current_stage", "booking");
-              states.put("plan_result", JsonUtil.fromJson(planResult, TripRoutePlanResult.class));
-              part = Part.builder().text(text).build();
-              parts.removeFirst();
-              parts.add(part);
-              break;
             default:
           }
         } catch (Throwable e) {
-          log.info("error {}", ExceptionUtils.getStackTrace(e));
-          log.info("parse error text : {}", text);
+//          log.info("error {}", ExceptionUtils.getStackTrace(e));
+//          log.info("parse error text : {}", text);
           return;
         }
 
