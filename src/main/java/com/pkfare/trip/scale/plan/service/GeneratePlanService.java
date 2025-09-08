@@ -11,6 +11,8 @@ import com.pkfare.trip.scale.plan.service.response.HotelInfo;
 import com.pkfare.trip.scale.plan.service.response.TripRoutePlanResult;
 import com.pkfare.trip.scale.service.external.ai.GoogleAiService;
 import com.pkfare.trip.scale.service.plan.ActivitySearchService;
+import com.pkfare.trip.scale.service.plan.ActivityFilteringService;
+import com.pkfare.trip.scale.service.plan.dto.DailyActivityPlan;
 import com.pkfare.trip.scale.service.plan.FlightSearchService;
 import com.pkfare.trip.scale.service.plan.HotelSearchService;
 import com.pkfare.trip.scale.service.plan.LocationSearchService;
@@ -28,6 +30,8 @@ import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ThreadPoolExecutor;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import java.util.stream.Collectors;
 
 /**
@@ -47,6 +51,9 @@ public class GeneratePlanService {
 
   @Autowired
   private ActivitySearchService activitySearchService;
+
+  @Autowired
+  private ActivityFilteringService activityFilteringService;
 
   @Autowired
   private GoogleAiService googleAiService;
@@ -104,17 +111,28 @@ public class GeneratePlanService {
       DependentSearchResult finalResult = dependentResult.get();
       log.info("Dependent searches completed in {} ms", System.currentTimeMillis() - dependentStart);
 
-      // 6. AI 生成计划
+      // 6. 根据查询出来的航班、酒店和活动，基于google adk大模型，参考航班的时间段，结合用户喜好，推荐合适的活动，规划每日适合游客游玩的活动，包括游玩的活动和活动数量（每天2到6个活动之间），相当于对活动做二次筛选
+      long filteringStart = System.currentTimeMillis();
+      List<DailyActivityPlan> dailyActivityPlans = activityFilteringService.filterActivitiesWithDailyAllocation(
+          param, finalResult.flights, finalResult.activities);
+      log.info("Daily activity allocation completed in {} ms, generated {} daily plans", 
+          System.currentTimeMillis() - filteringStart, dailyActivityPlans.size());
+
+      // 7. AI 生成路线规划（基于已分配的每日活动）
       long aiStart = System.currentTimeMillis();
-      TripRoutePlanResult tripRoutePlanResult = generateAiPlan(param, 
-          finalResult.flights, finalResult.hotels, finalResult.activities);
-      log.info("AI plan generation completed in {} ms", System.currentTimeMillis() - aiStart);
+      TripRoutePlanResult tripRoutePlanResult = generateAiPlanWithDailyAllocation(param, 
+          finalResult.flights, finalResult.hotels, dailyActivityPlans);
+      log.info("AI route planning generation completed in {} ms", System.currentTimeMillis() - aiStart);
 
       long totalTime = System.currentTimeMillis() - start;
       log.info("=== PERFORMANCE SUMMARY ===");
       log.info("Total trip plan generation time: {} ms", totalTime);
-      log.info("Found {} flights, {} hotels, {} activities", 
-          finalResult.flights.size(), finalResult.hotels.size(), finalResult.activities.size());
+      int totalAllocatedActivities = dailyActivityPlans.stream()
+          .mapToInt(plan -> plan.getActivities() != null ? plan.getActivities().size() : 0)
+          .sum();
+      log.info("Found {} flights, {} hotels, {} activities (allocated {} across {} days)", 
+          finalResult.flights.size(), finalResult.hotels.size(), finalResult.activities.size(), 
+          totalAllocatedActivities, dailyActivityPlans.size());
       logThreadPoolStatus();
       String resultJson = JsonUtil.toJson(tripRoutePlanResult);
       log.info("Generated trip plan JSON: {}", resultJson);
@@ -314,7 +332,44 @@ public class GeneratePlanService {
   }
 
   /**
-   * 生成AI计划
+   * 生成AI路线规划（基于已分配的每日活动）
+   *
+   * @param param             参数
+   * @param flights           航班信息
+   * @param hotels            酒店信息
+   * @param dailyActivityPlans 每日活动分配
+   * @return AI生成的路线规划结果
+   */
+  private TripRoutePlanResult generateAiPlanWithDailyAllocation(GeneratePlanParam param,
+      Map<String,List<FlightInfo>> flights,
+      List<HotelInfo> hotels,
+      List<DailyActivityPlan> dailyActivityPlans) {
+    try {
+      SubmitAiPlanInfo planInfo = new SubmitAiPlanInfo();
+      planInfo.setGeneratePlanParam(param);
+      planInfo.setFlightMap(flights);
+      planInfo.setHotelInfos(hotels);
+      
+      // 将每日活动分配信息传递给GoogleAiService
+      planInfo.setDailyActivityPlans(dailyActivityPlans);
+      
+      // 为了兼容，也设置原有的activities字段（从每日分配中提取所有活动）
+      //List<ActivityInfo> allActivities = dailyActivityPlans.stream()
+      //    .flatMap(plan -> plan.getActivities() != null ? plan.getActivities().stream() : Stream.empty())
+      //    .collect(Collectors.toList());
+      //planInfo.setActivityInfos(allActivities);
+
+      return googleAiService.generateAiPlanWithDailyAllocation(planInfo);
+    } catch (Exception e) {
+      log.error("Failed to generate AI route plan with daily allocation", e);
+      TripRoutePlanResult result = new TripRoutePlanResult();
+      result.setErrorMessage("生成路线图失败");
+      return result;
+    }
+  }
+
+  /**
+   * 生成AI计划（兼容旧接口）
    *
    * @param param      参数
    * @param flights    航班信息
@@ -331,7 +386,7 @@ public class GeneratePlanService {
       planInfo.setGeneratePlanParam(param);
       planInfo.setFlightMap(flights);
       planInfo.setHotelInfos(hotels);
-      planInfo.setActivityInfos(activities);
+      //planInfo.setActivityInfos(activities);
 
       return googleAiService.generateAiPlan(planInfo);
     } catch (Exception e) {

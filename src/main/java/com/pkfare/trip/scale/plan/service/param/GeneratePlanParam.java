@@ -22,6 +22,4 @@ public class GeneratePlanParam {
   private int room_quantity;
   private List<TripRouteParam> trip_routes;
 
-
-
 }

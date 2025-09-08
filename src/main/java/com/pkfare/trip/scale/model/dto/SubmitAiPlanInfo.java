@@ -1,9 +1,9 @@
 package com.pkfare.trip.scale.model.dto;
 
 import com.pkfare.trip.scale.plan.service.param.GeneratePlanParam;
-import com.pkfare.trip.scale.plan.service.response.ActivityInfo;
 import com.pkfare.trip.scale.plan.service.response.FlightInfo;
 import com.pkfare.trip.scale.plan.service.response.HotelInfo;
+import com.pkfare.trip.scale.service.plan.dto.DailyActivityPlan;
 import java.util.Map;
 import lombok.Data;
 import java.util.List;
@@ -34,5 +34,10 @@ public class SubmitAiPlanInfo {
     /**
      * 活动信息列表
      */
-    private List<ActivityInfo> activityInfos;
+    //private List<ActivityInfo> activityInfos;
+    
+    /**
+     * 每日活动分配计划（新增字段）
+     */
+    private List<DailyActivityPlan> dailyActivityPlans;
 }

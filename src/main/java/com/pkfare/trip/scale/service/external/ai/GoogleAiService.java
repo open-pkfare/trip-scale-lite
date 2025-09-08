@@ -11,7 +11,7 @@ import com.pkfare.trip.scale.model.dto.SubmitAiPlanInfo;
 import com.pkfare.trip.scale.plan.service.param.GeneratePlanParam;
 import com.pkfare.trip.scale.plan.service.param.TripRouteParam;
 import com.pkfare.trip.scale.plan.service.response.*;
-import com.pkfare.trip.scale.util.JsonUtil;
+import com.pkfare.trip.scale.service.plan.dto.DailyActivityPlan;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.Executor;
@@ -57,7 +57,58 @@ public class GoogleAiService {
   }
 
   /**
-   * 基于航班、酒店、景点活动等信息生成每日路线规划
+   * 基于已分配的每日活动生成路线规划
+   *
+   * @param planInfo 计划信息，包含每日活动分配
+   * @return 旅行路线规划结果
+   */
+  public TripRoutePlanResult generateAiPlanWithDailyAllocation(SubmitAiPlanInfo planInfo) {
+    log.info("Starting route planning generation with pre-allocated daily activities");
+
+    if (planInfo == null || planInfo.getGeneratePlanParam() == null || planInfo.getDailyActivityPlans() == null) {
+      log.error("Plan info, generate plan param, or daily activity plans is null");
+      return createErrorResult("Plan info or daily activity plans is invalid");
+    }
+
+    try {
+      // 1. 直接使用已分配的每日活动，无需重新组织
+      List<DailyActivityPlan> dailyActivityPlans = planInfo.getDailyActivityPlans();
+      
+      // 2. 生成每日路线规划（基于已分配的活动）
+      List<DailyRoutePlan> dailyPlans = generateDailyRoutePlansFromAllocation(
+          dailyActivityPlans, planInfo.getHotelInfos(), planInfo.getGeneratePlanParam());
+
+      // 3. 构建最终结果
+      TripRoutePlanResult result = new TripRoutePlanResult();
+      result.setStatus("SUCCESS");
+      result.setDailyPlans(dailyPlans);
+      result.setPreferredFlights(planInfo.getFlightMap().getOrDefault("preferred", Lists.newArrayList()));
+      result.setAlternativeFlights(planInfo.getFlightMap().getOrDefault("alternative", Lists.newArrayList()));
+
+      // 计算总距离和总时间
+      long totalDistance = dailyPlans.stream()
+          .filter(plan -> plan.getTotalDistance() != null)
+          .mapToLong(DailyRoutePlan::getTotalDistance)
+          .sum();
+      long totalDuration = dailyPlans.stream()
+          .filter(plan -> plan.getTotalDuration() != null)
+          .mapToLong(DailyRoutePlan::getTotalDuration)
+          .sum();
+
+      result.setTotalDistance(totalDistance);
+      result.setTotalDuration(totalDuration);
+      result.setSummary(generateSummary(dailyPlans));
+      log.info("Route planning generation with daily allocation completed successfully");
+      return result;
+
+    } catch (Exception e) {
+      log.error("Failed to generate route planning with daily allocation", e);
+      return createErrorResult("Failed to generate route planning: " + e.getMessage());
+    }
+  }
+
+  /**
+   * 基于航班、酒店、景点活动等信息生成每日路线规划（兼容旧接口）
    *
    * @param planInfo 计划信息，包含航班、酒店、景点活动等信息（包含经纬度）
    * @return 旅行路线规划结果
@@ -130,12 +181,11 @@ public class GoogleAiService {
         cityData.setHotels(new ArrayList<>(cityHotels));
       }
 
-      // 添加该城市的活动（创建新列表，避免共享引用）
-      if (planInfo.getActivityInfos() != null) {
-        List<ActivityInfo> cityActivities = planInfo.getActivityInfos().stream()
-            .filter(activity -> cityData.getCityName().equals(activity.getCityCode()))
-            .collect(Collectors.toList());
-        cityData.setActivities(new ArrayList<>(cityActivities));
+      // 从每日活动计划中提取该城市的活动，按日期组织到Map中（创建新列表，避免共享引用）
+      if (planInfo.getDailyActivityPlans() != null && !planInfo.getDailyActivityPlans().isEmpty()) {
+        Map<String, List<ActivityInfo>> dailyActivitiesMap = extractCityActivitiesByDate(
+            planInfo.getDailyActivityPlans(), cityCode);
+        cityData.setActivities(dailyActivitiesMap);
       }
     }
 
@@ -143,7 +193,93 @@ public class GoogleAiService {
   }
 
   /**
-   * 生成每日路线规划
+   * 从每日活动计划中提取指定城市的活动，按日期组织到Map中
+   * 
+   * @param dailyActivityPlans 每日活动计划列表
+   * @param cityCode 城市代码
+   * @return 按日期组织的活动Map（线程安全，避免共享引用）
+   */
+  private Map<String, List<ActivityInfo>> extractCityActivitiesByDate(
+      List<DailyActivityPlan> dailyActivityPlans, String cityCode) {
+    
+    // 使用ConcurrentHashMap来确保线程安全
+    Map<String, List<ActivityInfo>> dailyActivitiesMap = new ConcurrentHashMap<>();
+    
+    // 并行处理每日计划，提取指定城市的活动
+    dailyActivityPlans.parallelStream()
+        .filter(dailyPlan -> cityCode.equals(dailyPlan.getCityCode()))
+        .filter(dailyPlan -> dailyPlan.getActivities() != null)
+        .forEach(dailyPlan -> {
+          String dateKey = dailyPlan.getDate().toString(); // LocalDate转换为字符串
+          
+          // 创建该日期的活动列表（深度拷贝，避免共享引用）
+          List<ActivityInfo> dayActivities = dailyPlan.getActivities().stream()
+              .map(this::createActivityCopy)
+              .collect(Collectors.toCollection(ArrayList::new));
+          
+          // 线程安全地添加到Map中
+          dailyActivitiesMap.put(dateKey, dayActivities);
+        });
+    
+    return dailyActivitiesMap;
+  }
+
+  /**
+   * 创建ActivityInfo的深度拷贝，避免共享引用
+   * 
+   * @param original 原始活动信息
+   * @return 新的ActivityInfo实例
+   */
+  private ActivityInfo createActivityCopy(ActivityInfo original) {
+    ActivityInfo copy = new ActivityInfo();
+    copy.setActivityId(original.getActivityId());
+    copy.setName(original.getName());
+    copy.setDescription(original.getDescription());
+    copy.setCityCode(original.getCityCode());
+    copy.setRating(original.getRating());
+    copy.setPrice(original.getPrice());
+    copy.setCurrency(original.getCurrency());
+    copy.setLatitude(original.getLatitude());
+    copy.setLongitude(original.getLongitude());
+    copy.setType(original.getType());
+    copy.setPictures(original.getPictures() != null ? new ArrayList<>(original.getPictures()) : null);
+    return copy;
+  }
+
+  /**
+   * 基于已分配的每日活动生成路线规划
+   */
+  private List<DailyRoutePlan> generateDailyRoutePlansFromAllocation(
+      List<DailyActivityPlan> dailyActivityPlans, List<HotelInfo> hotelInfos, GeneratePlanParam param) throws Exception {
+    
+    List<CompletableFuture<DailyRoutePlan>> futures = new ArrayList<>();
+    
+    for (DailyActivityPlan dailyActivityPlan : dailyActivityPlans) {
+      CompletableFuture<DailyRoutePlan> future = CompletableFuture.supplyAsync(() -> {
+        try {
+          return generateSingleDayPlanFromAllocation(dailyActivityPlan, hotelInfos);
+        } catch (Exception e) {
+          log.error("Failed to generate route plan for day {} in city {}", 
+              dailyActivityPlan.getDate(), dailyActivityPlan.getCityName(), e);
+          return createEmptyDayPlanFromAllocation(dailyActivityPlan);
+        }
+      }, routeCalculationExecutor);
+      
+      futures.add(future);
+    }
+    
+    // 等待所有任务完成
+    CompletableFuture<Void> allFutures = CompletableFuture.allOf(futures.toArray(new CompletableFuture[0]));
+    
+    return allFutures.thenApply(v ->
+        futures.stream()
+            .map(CompletableFuture::join)
+            .collect(Collectors.toList())
+    ).get();
+  }
+
+  /**
+   * 生成每日路线规划（兼容旧接口）
    */
   private List<DailyRoutePlan> generateDailyRoutePlans(Map<String, CityPlanData> cityPlanMap,
       GeneratePlanParam param) throws Exception {
@@ -201,8 +337,10 @@ public class GoogleAiService {
       dailyPlan.setAlternativeHotels(cityData.getHotels().subList(1, cityData.getHotels().size()));
     }
 
-    // 选择当日活动（平均分配活动到各天）
-    List<ActivityInfo> dayActivities = selectDayActivities(cityData.getActivities(), dayIndex, cityData.getStayDays());
+    // 获取当日已分配的活动
+    String dateKey = date.toString();
+    List<ActivityInfo> dayActivities = cityData.getActivities() != null ? 
+        cityData.getActivities().getOrDefault(dateKey, new ArrayList<>()) : new ArrayList<>();
     dailyPlan.setActivities(dayActivities);
 
     // 优化版路线生成
@@ -439,8 +577,10 @@ public class GoogleAiService {
       dailyPlan.setAlternativeHotels(cityData.getHotels().subList(1, cityData.getHotels().size()));
     }
 
-    // 选择当日活动（平均分配活动到各天）
-    List<ActivityInfo> dayActivities = selectDayActivities(cityData.getActivities(), dayIndex, cityData.getStayDays());
+    // 获取当日已分配的活动
+    String dateKey = date.toString();
+    List<ActivityInfo> dayActivities = cityData.getActivities() != null ? 
+        cityData.getActivities().getOrDefault(dateKey, new ArrayList<>()) : new ArrayList<>();
     dailyPlan.setActivities(dayActivities);
 
     generateRoutes(dailyPlan, dayActivities);
@@ -646,6 +786,60 @@ public class GoogleAiService {
     return result;
   }
 
+
+  /**
+   * 基于已分配的每日活动生成单日路线规划
+   */
+  private DailyRoutePlan generateSingleDayPlanFromAllocation(
+      DailyActivityPlan dailyActivityPlan, List<HotelInfo> hotelInfos) throws Exception {
+    
+    DailyRoutePlan dailyPlan = new DailyRoutePlan();
+    dailyPlan.setDate(dailyActivityPlan.getDate());
+    dailyPlan.setCityCode(dailyActivityPlan.getCityCode());
+    dailyPlan.setCityName(dailyActivityPlan.getCityName());
+    
+    // 直接使用已分配的活动
+    dailyPlan.setActivities(dailyActivityPlan.getActivities());
+    
+    // 选择该城市的酒店
+    if (hotelInfos != null && !hotelInfos.isEmpty()) {
+      List<HotelInfo> cityHotels = hotelInfos.stream()
+          .filter(hotel -> dailyActivityPlan.getCityCode().equals(hotel.getCityName()))
+          .collect(Collectors.toList());
+      
+      if (!cityHotels.isEmpty()) {
+        dailyPlan.setPreferredHotel(cityHotels.get(0));
+        if (cityHotels.size() > 1) {
+          dailyPlan.setAlternativeHotels(cityHotels);
+        }
+      }
+    }
+    
+    // 生成路线规划
+    if (dailyActivityPlan.getActivities() != null && !dailyActivityPlan.getActivities().isEmpty()) {
+      generateRoutesOptimized(dailyPlan, dailyActivityPlan.getActivities());
+    } else {
+      dailyPlan.setRoutes(new ArrayList<>());
+      dailyPlan.setTotalDistance(0L);
+      dailyPlan.setTotalDuration(0L);
+    }
+    
+    return dailyPlan;
+  }
+  
+  /**
+   * 创建空的每日路线规划（基于已分配活动）
+   */
+  private DailyRoutePlan createEmptyDayPlanFromAllocation(DailyActivityPlan dailyActivityPlan) {
+    DailyRoutePlan plan = new DailyRoutePlan();
+    plan.setDate(dailyActivityPlan.getDate());
+    plan.setCityCode(dailyActivityPlan.getCityCode());
+    plan.setCityName(dailyActivityPlan.getCityName());
+    plan.setRoutes(new ArrayList<>());
+    plan.setActivities(dailyActivityPlan.getActivities() != null ? 
+        dailyActivityPlan.getActivities() : new ArrayList<>());
+    return plan;
+  }
 
   private DailyRoutePlan createEmptyDayPlan(CityPlanData cityData, LocalDate date) {
     DailyRoutePlan plan = new DailyRoutePlan();

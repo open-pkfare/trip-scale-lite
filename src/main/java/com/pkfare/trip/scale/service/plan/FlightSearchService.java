@@ -402,6 +402,7 @@ public class FlightSearchService {
                 bestOutboundOffers.isEmpty() ? null : bestOutboundOffers.get(0),
                 bestReturnOffers.isEmpty() ? null : bestReturnOffers.get(0),
                 param.getCurrency());
+            alternativeFlights.addAll(preferredFlights);
         }
         
         Map<String,List<FlightInfo>> result = new HashMap<>();
