@@ -10,6 +10,7 @@ import com.pkfare.trip.scale.plan.service.param.GeneratePlanParam;
 import com.pkfare.trip.scale.plan.service.param.TripRouteParam;
 import com.pkfare.trip.scale.plan.service.response.FlightInfo;
 import com.pkfare.trip.scale.plan.service.response.HotelInfo;
+import com.pkfare.trip.scale.plan.service.response.RoomDetails;
 import com.pkfare.trip.scale.plan.service.response.SegmentInfo;
 import com.pkfare.trip.scale.service.external.amadeus.AmadeusHotelService;
 import com.pkfare.trip.scale.util.DateUtil;
@@ -310,10 +311,21 @@ public class HotelSearchService {
       hotelInfo.setOfferId(firstOffer.getId());
       hotelInfo.setTotalPrice(PriceUtil.parsePrice(firstOffer.getPrice().getTotal()));
       hotelInfo.setCurrency(firstOffer.getPrice().getCurrency());
-      // 描述信息
-      if (Objects.nonNull(firstOffer.getDescription())) {
-        hotelInfo.setDescriptionLang(firstOffer.getDescription().getLang());
-        hotelInfo.setDescriptionText(firstOffer.getDescription().getText());
+      RoomDetails roomDetails = new RoomDetails();
+      hotelInfo.setRoomDetails(roomDetails);
+      if(firstOffer.getRoom()!=null ){
+        roomDetails.setType(firstOffer.getRoom().getType());
+        if(firstOffer.getRoom().getTypeEstimated()!=null){
+          roomDetails.setBedType(firstOffer.getRoom().getTypeEstimated().getBedType());
+          roomDetails.setBeds(firstOffer.getRoom().getTypeEstimated().getBeds());
+          roomDetails.setCategory(firstOffer.getRoom().getTypeEstimated().getCategory());
+        }
+
+        // 描述信息
+        if (Objects.nonNull(firstOffer.getRoom().getDescription())) {
+          roomDetails.setDescriptionLang(firstOffer.getRoom().getDescription().getLang());
+          roomDetails.setDescriptionText(firstOffer.getRoom().getDescription().getText());
+        }
       }
     }
 

@@ -11,8 +11,7 @@ public class OfferDto {
   private Integer roomQuantity;
   private String rateCode;
   private String category;
-  private QualifiedFreeTextDto description;
-  //private RoomDetails room;
+  private RoomDetailsDto room;
   //private Guests guests;
   private HotelPriceDto price;
   //private PolicyDetails policies;

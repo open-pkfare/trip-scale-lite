@@ -9,11 +9,13 @@ import com.google.common.collect.Lists;
 import com.pkfare.trip.scale.api.amadeus.config.AmadeusClient;
 import com.pkfare.trip.scale.api.amadeus.exception.AmadeusApiException;
 import com.pkfare.trip.scale.api.amadeus.hoteloffers.request.HotelOffersSearchRequest;
+import com.pkfare.trip.scale.api.amadeus.hoteloffers.response.EstimatedRoomTypeDto;
 import com.pkfare.trip.scale.api.amadeus.hoteloffers.response.HotelOfferDto;
 import com.pkfare.trip.scale.api.amadeus.hoteloffers.response.HotelDto;
 import com.pkfare.trip.scale.api.amadeus.hoteloffers.response.OfferDto;
 import com.pkfare.trip.scale.api.amadeus.hoteloffers.response.HotelPriceDto;
 import com.pkfare.trip.scale.api.amadeus.hoteloffers.response.QualifiedFreeTextDto;
+import com.pkfare.trip.scale.api.amadeus.hoteloffers.response.RoomDetailsDto;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
@@ -28,11 +30,11 @@ public class AmadeusHotelOffersSearchAPI {
 
   @Value("${amadeus.hotel.offers.mock.enabled:true}")
   private boolean mockEnabled;
-  
+
   private final ObjectMapper objectMapper = new ObjectMapper();
 
   public List<HotelOfferDto> hotelOffersSearch(HotelOffersSearchRequest hotelOffersSearchRequest) {
-    if(needMock(hotelOffersSearchRequest)){
+    if (needMock(hotelOffersSearchRequest)) {
       return mockApiResponse(hotelOffersSearchRequest);
     }
     Amadeus amadeus = AmadeusClient.get();
@@ -77,14 +79,14 @@ public class AmadeusHotelOffersSearchAPI {
       ClassPathResource resource = new ClassPathResource("mock/hotels-mock.json");
       JsonNode rootNode = objectMapper.readTree(resource.getInputStream());
       JsonNode dataNode = rootNode.get("data");
-      
+
       if (dataNode == null || !dataNode.isArray()) {
         log.warn("Mock hotel data format is invalid, returning empty list");
         return new ArrayList<>();
       }
-      
+
       List<HotelOfferDto> mockHotels = new ArrayList<>();
-      
+
       // 解析每个酒店offer并替换日期
       for (JsonNode hotelNode : dataNode) {
         HotelOfferDto dto = parseMockHotelOffer(hotelNode, request);
@@ -92,12 +94,12 @@ public class AmadeusHotelOffersSearchAPI {
           mockHotels.add(dto);
         }
       }
-      
-      log.info("Returned {} mock hotel offers for checkIn: {}, checkOut: {}", 
-               mockHotels.size(), request.getCheckInDate(), request.getCheckOutDate());
-      
+
+      log.info("Returned {} mock hotel offers for checkIn: {}, checkOut: {}",
+          mockHotels.size(), request.getCheckInDate(), request.getCheckOutDate());
+
       return mockHotels;
-      
+
     } catch (IOException e) {
       log.error("Failed to read mock hotels data", e);
       return new ArrayList<>();
@@ -110,36 +112,36 @@ public class AmadeusHotelOffersSearchAPI {
   private HotelOfferDto parseMockHotelOffer(JsonNode hotelNode, HotelOffersSearchRequest request) {
     try {
       HotelOfferDto dto = new HotelOfferDto();
-      
+
       // 设置基本属性
       dto.setType(getStringValue(hotelNode, "type"));
       dto.setAvailable(getBooleanValue(hotelNode, "available"));
       dto.setSelf(getStringValue(hotelNode, "self"));
-      
+
       // 解析酒店信息
       JsonNode hotelInfoNode = hotelNode.get("hotel");
       if (hotelInfoNode != null) {
         HotelDto hotelDto = parseHotelInfo(hotelInfoNode);
         dto.setHotel(hotelDto);
       }
-      
+
       // 解析offers信息并替换日期
       JsonNode offersNode = hotelNode.get("offers");
       if (offersNode != null && offersNode.isArray()) {
         List<OfferDto> offerDtos = new ArrayList<>();
-        
+
         for (JsonNode offerNode : offersNode) {
           OfferDto offerDto = parseOffer(offerNode, request);
           if (offerDto != null) {
             offerDtos.add(offerDto);
           }
         }
-        
+
         dto.setOffers(offerDtos);
       }
-      
+
       return dto;
-      
+
     } catch (Exception e) {
       log.error("Failed to parse mock hotel offer", e);
       return null;
@@ -168,27 +170,18 @@ public class AmadeusHotelOffersSearchAPI {
    */
   private OfferDto parseOffer(JsonNode offerNode, HotelOffersSearchRequest request) {
     OfferDto offerDto = new OfferDto();
-    
+
     offerDto.setType(getStringValue(offerNode, "type"));
     offerDto.setId(getStringValue(offerNode, "id"));
-    
+
     // 替换checkInDate和checkOutDate
     offerDto.setCheckInDate(request.getCheckInDate());
     offerDto.setCheckOutDate(request.getCheckOutDate());
-    
+
     offerDto.setRoomQuantity(getIntValue(offerNode, "roomQuantity"));
     offerDto.setRateCode(getStringValue(offerNode, "rateCode"));
     offerDto.setCategory(getStringValue(offerNode, "category"));
-    
-    // 解析描述信息
-    JsonNode descriptionNode = offerNode.get("description");
-    if (descriptionNode != null) {
-      QualifiedFreeTextDto description = new QualifiedFreeTextDto();
-      description.setLang(getStringValue(descriptionNode, "lang"));
-      description.setText(getStringValue(descriptionNode, "text"));
-      offerDto.setDescription(description);
-    }
-    
+
     // 解析价格信息
     JsonNode priceNode = offerNode.get("price");
     if (priceNode != null) {
@@ -199,7 +192,30 @@ public class AmadeusHotelOffersSearchAPI {
       priceDto.setSellingTotal(getStringValue(priceNode, "sellingTotal"));
       offerDto.setPrice(priceDto);
     }
-    
+
+
+    JsonNode roomNode = offerNode.get("room");
+    if(roomNode!=null){
+      RoomDetailsDto roomDetailsDto = new  RoomDetailsDto();
+      roomDetailsDto.setType(getStringValue(roomNode, "type"));
+      JsonNode typeEstimatedNode = offerNode.get("typeEstimated");
+      if(typeEstimatedNode!=null){
+        EstimatedRoomTypeDto estimatedRoomTypeDto = new EstimatedRoomTypeDto();
+        roomDetailsDto.setTypeEstimated(estimatedRoomTypeDto);
+        estimatedRoomTypeDto.setBedType(getStringValue(typeEstimatedNode, "bedType"));
+        estimatedRoomTypeDto.setBeds(getIntValue(typeEstimatedNode, "beds"));
+        estimatedRoomTypeDto.setCategory(getStringValue(typeEstimatedNode, "category"));
+      }
+      JsonNode descriptionNode = offerNode.get("description");
+      if(descriptionNode!=null){
+        QualifiedFreeTextDto description = new QualifiedFreeTextDto();
+        roomDetailsDto.setDescription(description);
+        description.setLang(getStringValue(descriptionNode, "lang"));
+        description.setText(getStringValue(descriptionNode, "text"));
+      }
+
+    }
+
     return offerDto;
   }
 
@@ -212,19 +228,19 @@ public class AmadeusHotelOffersSearchAPI {
     }
 
     List<HotelOfferDto> hotelOfferDtos = new ArrayList<>();
-    
+
     for (HotelOfferSearch hotelOffer : hotelOffers) {
       if (hotelOffer == null) {
         continue;
       }
-      
+
       HotelOfferDto dto = new HotelOfferDto();
-      
+
       // 设置基本属性
       dto.setType(hotelOffer.getType());
       dto.setAvailable(hotelOffer.isAvailable());
       dto.setSelf(hotelOffer.getSelf());
-      
+
       // 转换酒店信息
       if (hotelOffer.getHotel() != null) {
         HotelDto hotelDto = new HotelDto();
@@ -239,16 +255,16 @@ public class AmadeusHotelOffersSearchAPI {
         hotelDto.setLongitude(hotelOffer.getHotel().getLongitude());
         dto.setHotel(hotelDto);
       }
-      
+
       // 转换offers信息
       if (hotelOffer.getOffers() != null && hotelOffer.getOffers().length > 0) {
         List<OfferDto> offerDtos = new ArrayList<>();
-        
+
         for (com.amadeus.resources.HotelOfferSearch.Offer offer : hotelOffer.getOffers()) {
           if (offer == null) {
             continue;
           }
-          
+
           OfferDto offerDto = new OfferDto();
           offerDto.setType(offer.getType());
           offerDto.setId(offer.getId());
@@ -257,7 +273,7 @@ public class AmadeusHotelOffersSearchAPI {
           offerDto.setRoomQuantity(offer.getRoomQuantity());
           offerDto.setRateCode(offer.getRateCode());
           offerDto.setCategory(offer.getCategory());
-          
+
           // 转换价格信息
           if (offer.getPrice() != null) {
             HotelPriceDto priceDto = new HotelPriceDto();
@@ -267,16 +283,33 @@ public class AmadeusHotelOffersSearchAPI {
             priceDto.setSellingTotal(offer.getPrice().getSellingTotal());
             offerDto.setPrice(priceDto);
           }
-          
+          if (offer.getRoom() != null) {
+            RoomDetailsDto roomDetails = new RoomDetailsDto();
+            roomDetails.setType(offer.getRoom().getType());
+            if(offer.getRoom().getTypeEstimated() !=null){
+              EstimatedRoomTypeDto typeEstimated = new EstimatedRoomTypeDto();
+              roomDetails.setTypeEstimated(typeEstimated);
+              typeEstimated.setCategory(offer.getRoom().getTypeEstimated().getCategory());
+              typeEstimated.setBedType(offer.getRoom().getTypeEstimated().getBedType());
+              typeEstimated.setBeds(offer.getRoom().getTypeEstimated().getBeds());
+            }
+            if(offer.getRoom().getDescription() !=null){
+              roomDetails.setDescription(roomDetails.getDescription());
+              QualifiedFreeTextDto text = new QualifiedFreeTextDto();
+              text.setLang(offer.getRoom().getDescription().getLang());
+              text.setText(offer.getRoom().getDescription().getText());
+            }
+          }
+
           offerDtos.add(offerDto);
         }
-        
+
         dto.setOffers(offerDtos);
       }
-      
+
       hotelOfferDtos.add(dto);
     }
-    
+
     return hotelOfferDtos;
   }
 

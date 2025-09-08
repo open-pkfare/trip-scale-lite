@@ -82,18 +82,12 @@ public class HotelInfo {
      */
     private String address;
     
-    /**
-     * 描述语言
-     */
-    private String descriptionLang;
-    
-    /**
-     * 描述文案
-     */
-    private String descriptionText;
+
 
     /**
      * 是否首选
      */
     private Boolean preferred = false;
+
+    private RoomDetails roomDetails;
 }
