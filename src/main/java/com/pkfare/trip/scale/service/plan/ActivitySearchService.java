@@ -92,16 +92,6 @@ public class ActivitySearchService {
   }
 
   /**
-   * 构建酒店唯一标识
-   *
-   * @param hotel 酒店信息
-   * @return 酒店唯一标识
-   */
-  private String buildHotelKey(HotelInfo hotel) {
-    return hotel.getHotelId() + "_" + hotel.getDupeId() + "_" + hotel.getOfferId();
-  }
-
-  /**
    * 为指定城市搜索活动
    *
    * @param tripRoute 路线信息
@@ -282,8 +272,8 @@ public class ActivitySearchService {
 
   public List<ActivityInfo> searchActivitiesNearby(HotelInfo hotel, String activityType, String currency) {
     ActivitiesSearchRequest request = new ActivitiesSearchRequest();
-    request.setLatitude(hotel.getLatitude());
-    request.setLongitude(hotel.getLongitude());
+    request.setLatitude(hotel.getHotel().getLatitude());
+    request.setLongitude(hotel.getHotel().getLongitude());
     // todo 需要调整radius加重试
     request.setRadius(DEFAULT_RADIUS);
     if (StringUtils.isNotBlank(activityType)) {
@@ -300,14 +290,14 @@ public class ActivitySearchService {
       }
 
       List<ActivityInfo> activityInfos = activities.stream()
-          .map(activity -> convertToActivityInfo(activity, hotel.getCityCode()))
+          .map(activity -> convertToActivityInfo(activity, hotel.getHotel().getCityCode()))
           .filter(Objects::nonNull)
           .collect(Collectors.toList());
 
       // 筛选在合理距离内的活动
       List<ActivityInfo> activityInfoList = filterActivitiesByDistance(activityInfos,
           // todo  因为是mock数据，将距离限制放宽
-          new HotelLocationInfo(hotel.getLatitude(), hotel.getLongitude()), 2000);
+          new HotelLocationInfo(hotel.getHotel().getLatitude(), hotel.getHotel().getLongitude()), 2000);
 
       // 筛选评分最高的活动
       List<ActivityInfo> topActivities = activityInfoList.stream()
@@ -315,11 +305,11 @@ public class ActivitySearchService {
           .collect(Collectors.toList());
 
       log.info("Found {} activities for city {}, filtered to {} top activities",
-          activityInfos.size(), hotel.getCityCode(), topActivities.size());
+          activityInfos.size(), hotel.getHotel().getCityCode(), topActivities.size());
 
       return topActivities;
     } catch (Exception e) {
-      log.error("Failed to search activities for city {}", hotel.getCityCode(), e);
+      log.error("Failed to search activities for city {}", hotel.getHotel().getCityCode(), e);
       return Collections.emptyList();
     }
   }

@@ -176,7 +176,7 @@ public class GoogleAiService {
       // 添加该城市的酒店（创建新列表，避免共享引用）
       if (planInfo.getHotelInfos() != null) {
         List<HotelInfo> cityHotels = planInfo.getHotelInfos().stream()
-            .filter(hotel -> cityCode.equals(hotel.getCityCode()))
+            .filter(hotel -> cityCode.equals(hotel.getHotel().getCityCode()))
             .collect(Collectors.toList());
         cityData.setHotels(new ArrayList<>(cityHotels));
       }
@@ -400,14 +400,14 @@ public class GoogleAiService {
 
     // 创建位置点列表：酒店 -> 活动1 -> 活动2 -> ... -> 酒店
     List<LocationPoint> waypoints = new ArrayList<>();
-    waypoints.add(new LocationPoint(hotel.getHotelName(), hotel.getLatitude(), hotel.getLongitude()));
+    waypoints.add(new LocationPoint(hotel.getHotel().getName(), hotel.getHotel().getLatitude(), hotel.getHotel().getLongitude()));
 
     for (ActivityInfo activity : activities) {
       waypoints.add(new LocationPoint(activity.getName(), activity.getLatitude(), activity.getLongitude()));
     }
 
     // 回到酒店
-    waypoints.add(new LocationPoint(hotel.getHotelName(), hotel.getLatitude(), hotel.getLongitude()));
+    waypoints.add(new LocationPoint(hotel.getHotel().getName(), hotel.getHotel().getLatitude(), hotel.getHotel().getLongitude()));
 
     // 并发计算所有路线段
     List<CompletableFuture<RouteSegment>> routeFutures = new ArrayList<>();
@@ -439,14 +439,14 @@ public class GoogleAiService {
 
     // 创建位置点列表：酒店 -> 活动1 -> 活动2 -> ... -> 酒店
     List<LocationPoint> waypoints = new ArrayList<>();
-    waypoints.add(new LocationPoint(hotel.getHotelName(), hotel.getLatitude(), hotel.getLongitude()));
+    waypoints.add(new LocationPoint(hotel.getHotel().getName(), hotel.getHotel().getLatitude(), hotel.getHotel().getLongitude()));
 
     for (ActivityInfo activity : activities) {
       waypoints.add(new LocationPoint(activity.getName(), activity.getLatitude(), activity.getLongitude()));
     }
 
     // 回到酒店
-    waypoints.add(new LocationPoint(hotel.getHotelName(), hotel.getLatitude(), hotel.getLongitude()));
+    waypoints.add(new LocationPoint(hotel.getHotel().getName(), hotel.getHotel().getLatitude(), hotel.getHotel().getLongitude()));
 
     return waypoints;
   }
@@ -647,14 +647,14 @@ public class GoogleAiService {
 
     // 创建位置点列表：酒店 -> 活动1 -> 活动2 -> ... -> 酒店
     List<LocationPoint> waypoints = new ArrayList<>();
-    waypoints.add(new LocationPoint(hotel.getHotelName(), hotel.getLatitude(), hotel.getLongitude()));
+    waypoints.add(new LocationPoint(hotel.getHotel().getName(), hotel.getHotel().getLatitude(), hotel.getHotel().getLongitude()));
 
     for (ActivityInfo activity : activities) {
       waypoints.add(new LocationPoint(activity.getName(), activity.getLatitude(), activity.getLongitude()));
     }
 
     // 回到酒店
-    waypoints.add(new LocationPoint(hotel.getHotelName(), hotel.getLatitude(), hotel.getLongitude()));
+    waypoints.add(new LocationPoint(hotel.getHotel().getName(), hotel.getHotel().getLatitude(), hotel.getHotel().getLongitude()));
 
     // 生成每段路线
     for (int i = 0; i < waypoints.size() - 1; i++) {
@@ -804,7 +804,7 @@ public class GoogleAiService {
     // 选择该城市的酒店
     if (hotelInfos != null && !hotelInfos.isEmpty()) {
       List<HotelInfo> cityHotels = hotelInfos.stream()
-          .filter(hotel -> dailyActivityPlan.getCityCode().equals(hotel.getCityName()))
+          .filter(hotel -> dailyActivityPlan.getCityCode().equals(hotel.getHotel().getCityName()))
           .collect(Collectors.toList());
       
       if (!cityHotels.isEmpty()) {

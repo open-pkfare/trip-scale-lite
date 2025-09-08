@@ -10,6 +10,11 @@ import com.pkfare.trip.scale.plan.service.param.GeneratePlanParam;
 import com.pkfare.trip.scale.plan.service.param.TripRouteParam;
 import com.pkfare.trip.scale.plan.service.response.FlightInfo;
 import com.pkfare.trip.scale.plan.service.response.HotelInfo;
+import com.pkfare.trip.scale.plan.service.response.EstimatedRoomType;
+import com.pkfare.trip.scale.plan.service.response.HotelDetail;
+import com.pkfare.trip.scale.plan.service.response.HotelOffer;
+import com.pkfare.trip.scale.plan.service.response.HotelPrice;
+import com.pkfare.trip.scale.plan.service.response.QualifiedFreeText;
 import com.pkfare.trip.scale.plan.service.response.RoomDetails;
 import com.pkfare.trip.scale.plan.service.response.SegmentInfo;
 import com.pkfare.trip.scale.service.external.amadeus.AmadeusHotelService;
@@ -281,67 +286,130 @@ public class HotelSearchService {
       LocalDate checkOut) {
     List<HotelInfo> hotelInfoList = Lists.newArrayList();
     for (int i = 0; i < hotelOfferSearchList.size(); i++) {
-      hotelInfoList.add(buildHotelInfo(hotelOfferSearchList.get(i), route.getLocation_code(), route.getDestination_city(), checkIn, checkOut, i));
+      hotelInfoList.add(buildHotelInfo(hotelOfferSearchList.get(i), route.getLocation_code(), route.getDestination_city(), i));
     }
     return hotelInfoList;
   }
 
-  public static HotelInfo buildHotelInfo(HotelOfferDto offer, String locationCode, String destinationCity, LocalDate checkIn, LocalDate checkOut,
-      int i) {
-    HotelInfo hotelInfo = new HotelInfo();
+  /**
+   * 构建酒店信息对象（6参数版本）
+   *
+   * @param offer 酒店报价DTO
+   * @param cityCode 城市代码
+   * @param cityName 城市名称
+   * @param checkIn 入住日期
+   * @param checkOut 退房日期
+   * @param index 索引（用于确定是否为首选）
+   * @return 酒店信息对象
+   */
+  public static HotelInfo buildHotelInfo(HotelOfferDto offer, String cityCode, String cityName, 
+                                         int index) {
     if (offer == null || offer.getHotel() == null) {
       return null;
     }
-    if (i == 0) {
-      hotelInfo.setPreferred(true);
-    }
 
-    // 基本信息
-    hotelInfo.setHotelId(offer.getHotel().getHotelId());
-    hotelInfo.setHotelName(offer.getHotel().getName());
-    hotelInfo.setCityCode(locationCode);
-    hotelInfo.setCityName(destinationCity);
-    hotelInfo.setCheckInDate(checkIn);
-    hotelInfo.setCheckOutDate(checkOut);
-    hotelInfo.setNights((int) DateUtil.daysBetween(checkIn, checkOut));
+    HotelInfo hotelInfo = new HotelInfo();
+    hotelInfo.setType("hotel-offers");
+    hotelInfo.setAvailable(true);
+    hotelInfo.setPreferred(index == 0);
 
-    // 报价信息
-    if (offer.getOffers().size() > 0) {
-      OfferDto firstOffer = offer.getOffers().get(0);
-      hotelInfo.setOfferId(firstOffer.getId());
-      hotelInfo.setTotalPrice(PriceUtil.parsePrice(firstOffer.getPrice().getTotal()));
-      hotelInfo.setCurrency(firstOffer.getPrice().getCurrency());
-      RoomDetails roomDetails = new RoomDetails();
-      hotelInfo.setRoomDetails(roomDetails);
-      if(firstOffer.getRoom()!=null ){
-        roomDetails.setType(firstOffer.getRoom().getType());
-        if(firstOffer.getRoom().getTypeEstimated()!=null){
-          roomDetails.setBedType(firstOffer.getRoom().getTypeEstimated().getBedType());
-          roomDetails.setBeds(firstOffer.getRoom().getTypeEstimated().getBeds());
-          roomDetails.setCategory(firstOffer.getRoom().getTypeEstimated().getCategory());
-        }
+    // 构建酒店详情
+    HotelDetail hotelDetail = buildHotelDetail(offer, cityCode, cityName);
+    hotelInfo.setHotel(hotelDetail);
 
-        // 描述信息
-        if (Objects.nonNull(firstOffer.getRoom().getDescription())) {
-          roomDetails.setDescriptionLang(firstOffer.getRoom().getDescription().getLang());
-          roomDetails.setDescriptionText(firstOffer.getRoom().getDescription().getText());
-        }
-      }
-    }
-
-    // 位置信息
-    if (offer.getHotel() != null) {
-      hotelInfo.setLatitude(offer.getHotel().getLatitude());
-      hotelInfo.setLongitude(offer.getHotel().getLongitude());
-    }
-
-    // 地址信息
-    hotelInfo.setAddress(buildAddressString(""));
-
-    // dupeId处理
-    hotelInfo.setDupeId(offer.getHotel().getDupeId());
+    // 构建酒店报价列表
+    List<HotelOffer> hotelOffers = buildHotelOffers(offer);
+    hotelInfo.setOffers(hotelOffers);
 
     return hotelInfo;
+  }
+
+  /**
+   * 构建酒店详情对象
+   *
+   * @param offer 酒店报价DTO
+   * @param cityCode 城市代码
+   * @param cityName 城市名称
+   * @return 酒店详情对象
+   */
+  private static HotelDetail buildHotelDetail(HotelOfferDto offer, String cityCode, String cityName) {
+    HotelDetail hotelDetail = new HotelDetail();
+    
+    if (offer.getHotel() != null) {
+      hotelDetail.setType(offer.getHotel().getType());
+      hotelDetail.setHotelId(offer.getHotel().getHotelId());
+      hotelDetail.setChainCode(offer.getHotel().getChainCode());
+      hotelDetail.setBrandCode(offer.getHotel().getBrandCode());
+      hotelDetail.setDupeId(offer.getHotel().getDupeId());
+      hotelDetail.setName(offer.getHotel().getName());
+      hotelDetail.setCityCode(cityCode);
+      hotelDetail.setCityName(cityName);
+      hotelDetail.setLatitude(offer.getHotel().getLatitude());
+      hotelDetail.setLongitude(offer.getHotel().getLongitude());
+    }
+    
+    return hotelDetail;
+  }
+
+  /**
+   * 构建酒店报价列表
+   *
+   * @param offer 酒店报价DTO
+   * @return 酒店报价列表
+   */
+  private static List<HotelOffer> buildHotelOffers(HotelOfferDto offer) {
+    List<HotelOffer> hotelOffers = new ArrayList<>();
+    
+    if (offer.getOffers() != null && !offer.getOffers().isEmpty()) {
+      for (OfferDto offerDto : offer.getOffers()) {
+        HotelOffer hotelOffer = new HotelOffer();
+        
+        hotelOffer.setType(offerDto.getType());
+        hotelOffer.setId(offerDto.getId());
+        hotelOffer.setCheckInDate(offerDto.getCheckInDate());
+        hotelOffer.setCheckOutDate(offerDto.getCheckOutDate());
+        hotelOffer.setRoomQuantity(offerDto.getRoomQuantity());
+        hotelOffer.setRateCode(offerDto.getRateCode());
+        hotelOffer.setCategory(offerDto.getCategory());
+        
+        // 构建房间详情
+        if (offerDto.getRoom() != null) {
+          RoomDetails roomDetails = new RoomDetails();
+          roomDetails.setType(offerDto.getRoom().getType());
+          
+          if (offerDto.getRoom().getTypeEstimated() != null) {
+            EstimatedRoomType estimatedRoomType = new EstimatedRoomType();
+            estimatedRoomType.setBedType(offerDto.getRoom().getTypeEstimated().getBedType());
+            estimatedRoomType.setBeds(offerDto.getRoom().getTypeEstimated().getBeds());
+            estimatedRoomType.setCategory(offerDto.getRoom().getTypeEstimated().getCategory());
+            roomDetails.setTypeEstimated(estimatedRoomType);
+          }
+          
+          if (offerDto.getRoom().getDescription() != null) {
+            QualifiedFreeText description = new QualifiedFreeText();
+            description.setLang(offerDto.getRoom().getDescription().getLang());
+            description.setText(offerDto.getRoom().getDescription().getText());
+            roomDetails.setDescription(description);
+          }
+          
+          hotelOffer.setRoom(roomDetails);
+        }
+        
+        // 构建价格信息
+        if (offerDto.getPrice() != null) {
+          HotelPrice hotelPrice = new HotelPrice();
+          hotelPrice.setCurrency(offerDto.getPrice().getCurrency());
+          hotelPrice.setTotal(offerDto.getPrice().getTotal());
+          hotelPrice.setBase(offerDto.getPrice().getBase());
+          hotelPrice.setSellingTotal(offerDto.getPrice().getSellingTotal());
+          hotelOffer.setPrice(hotelPrice);
+        }
+        
+        hotelOffers.add(hotelOffer);
+      }
+    }
+    
+    return hotelOffers;
   }
 
   /**

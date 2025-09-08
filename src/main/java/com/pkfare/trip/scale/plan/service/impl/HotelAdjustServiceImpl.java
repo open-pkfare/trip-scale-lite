@@ -17,7 +17,6 @@ import com.pkfare.trip.scale.plan.service.response.TripRoutePlanResult;
 import com.pkfare.trip.scale.service.external.ai.GoogleAiService;
 import com.pkfare.trip.scale.service.external.amadeus.AmadeusHotelService;
 import com.pkfare.trip.scale.service.plan.HotelSearchService;
-import com.pkfare.trip.scale.util.DateUtil;
 import com.pkfare.trip.scale.util.PriceUtil;
 import java.math.BigDecimal;
 import java.util.Arrays;
@@ -55,7 +54,7 @@ public class HotelAdjustServiceImpl implements TripPlanAdjustInterface {
     for (int i = 0; i < dailyPlans.size(); i++) {
       DailyRoutePlan dailyRoutePlan = dailyPlans.get(i);
       HotelInfo hotel = dailyRoutePlan.getPreferredHotel();
-      if (hotel.getHotelId().equals(adjustHotelParam.getId())) {
+      if (hotel.getHotel().getHotelId().equals(adjustHotelParam.getId())) {
         found = true;
         HotelInfo newHotel = searchHotel(generatePlanParam, hotel, adjustHotelParam);
         if (Objects.isNull(newHotel)) {
@@ -69,7 +68,7 @@ public class HotelAdjustServiceImpl implements TripPlanAdjustInterface {
         } catch (Exception e) {
           throw new TripPlanException(TripPlanErrorCodeEnum.OPTIMIZE_HOTEL_FAILED, e);
         }
-        log.info("Hotel adjusted successfully: {}", dailyRoutePlan.getPreferredHotel().getHotelId());
+        log.info("Hotel adjusted successfully: {}", dailyRoutePlan.getPreferredHotel().getHotel().getHotelId());
         break;
       }
     }
@@ -80,8 +79,8 @@ public class HotelAdjustServiceImpl implements TripPlanAdjustInterface {
 
   private HotelInfo searchHotel(GeneratePlanParam generatePlanParam, HotelInfo oldHotel, AdjustHotelParam adjustHotelParam) {
     QueryHotelByGeocodeRequest geocodeRequest = new QueryHotelByGeocodeRequest();
-    geocodeRequest.setLatitude(oldHotel.getLatitude());
-    geocodeRequest.setLongitude(oldHotel.getLongitude());
+    geocodeRequest.setLatitude(oldHotel.getHotel().getLatitude());
+    geocodeRequest.setLongitude(oldHotel.getHotel().getLongitude());
     geocodeRequest.setRadius(DEFAULT_RADIUS);
     geocodeRequest.setRadiusUnit("KM");
     geocodeRequest.setRatings(adjustHotelParam.getHotelRatings());
@@ -100,7 +99,7 @@ public class HotelAdjustServiceImpl implements TripPlanAdjustInterface {
     // 不能重复之前酒店
     List<String> hotelIds = Arrays.stream(hotels)
         .map(Hotel::getHotelId)
-        .filter(hotelId -> !hotelId.equals(oldHotel.getHotelId())).toList();
+        .filter(hotelId -> !hotelId.equals(oldHotel.getHotel().getHotelId())).toList();
     if (hotelIds.isEmpty()) {
       throw new TripPlanException(TripPlanErrorCodeEnum.NO_HOTEL_FOUND);
     }
@@ -108,17 +107,17 @@ public class HotelAdjustServiceImpl implements TripPlanAdjustInterface {
     String countryCode = hotels[0].getAddress().getCountryCode();
     HotelOffersSearchRequest request = new HotelOffersSearchRequest();
     request.setHotelIds(hotelIds);
-    request.setCheckInDate(DateUtil.formatDate(oldHotel.getCheckInDate()));
-    request.setCheckOutDate(DateUtil.formatDate(oldHotel.getCheckOutDate()));
+    request.setCheckInDate(oldHotel.getOffers().get(0).getCheckInDate());
+    request.setCheckOutDate(oldHotel.getOffers().get(0).getCheckOutDate());
     request.setAdults(generatePlanParam.getAdult_number() + generatePlanParam.getChild_number());
     request.setCountryOfResidence(countryCode);
     request.setRoomQuantity(generatePlanParam.getRoom_quantity());
     BigDecimal maxPrice = adjustHotelParam.getMaxPrice();
     if (Objects.isNull(maxPrice) || maxPrice.compareTo(BigDecimal.ZERO) <= 0) {
-      maxPrice = oldHotel.getTotalPrice();
+      maxPrice = PriceUtil.parsePrice(oldHotel.getOffers().get(0).getPrice().getTotal());
     }
     request.setPriceRange("1-" + maxPrice.toString());
-    request.setCurrency(oldHotel.getCurrency());
+    request.setCurrency(oldHotel.getOffers().get(0).getPrice().getCurrency());
     try {
       List<HotelOfferDto> offers = amadeusHotelService.searchHotelOffers(request);
       if (offers == null || offers.isEmpty()) {
@@ -127,7 +126,7 @@ public class HotelAdjustServiceImpl implements TripPlanAdjustInterface {
 
       // 按价格排序，选择最便宜的
       HotelOfferDto offerDto = offers.stream()
-          .filter(offer -> !offer.getHotel().getHotelId().equals(oldHotel.getHotelId()))
+          .filter(offer -> !offer.getHotel().getHotelId().equals(oldHotel.getHotel().getHotelId()))
           .min(Comparator.comparing(offer -> {
         if (offer.getOffers() != null && !offer.getOffers().isEmpty()) {
           return PriceUtil.parsePrice(offer.getOffers().getFirst().getPrice().getTotal());
@@ -135,8 +134,7 @@ public class HotelAdjustServiceImpl implements TripPlanAdjustInterface {
         return BigDecimal.valueOf(Double.MAX_VALUE);
       })).orElse(null);
 
-      return HotelSearchService.buildHotelInfo(offerDto, oldHotel.getCityCode(), oldHotel.getCityName(), oldHotel.getCheckInDate(),
-          oldHotel.getCheckOutDate(), 0);
+      return HotelSearchService.buildHotelInfo(offerDto,  oldHotel.getHotel().getCityCode(), oldHotel.getHotel().getCityName(),0);
     } catch (Exception e) {
       throw new TripPlanException(TripPlanErrorCodeEnum.NO_HOTEL_FOUND);
     }

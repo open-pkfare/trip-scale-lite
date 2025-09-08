@@ -20,7 +20,7 @@ public class BriefHotelInfo {
   private String hotelName;
 
   public BriefHotelInfo(HotelInfo hotelInfo) {
-    this.hotelId = hotelInfo.getHotelId();
-    this.hotelName = hotelInfo.getHotelName();
+    this.hotelId = hotelInfo.getHotel().getHotelId();
+    this.hotelName = hotelInfo.getHotel().getName();
   }
 }
