@@ -2,6 +2,7 @@ package com.pkfare.trip.scale.entrance;
 
 import com.alibaba.fastjson.JSON;
 import com.google.common.collect.Lists;
+import com.pkfare.trip.scale.agent.booking.BookingAgent;
 import com.pkfare.trip.scale.dto.Conversation;
 import com.pkfare.trip.scale.dto.RespConversation;
 import java.util.List;
@@ -12,6 +13,7 @@ import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -54,5 +56,14 @@ public class TripScaleController {
       log.info("file read error {}", ExceptionUtils.getStackTrace(e));
     }
     return coordinationEntrance.chat(files, conversation);
+  }
+
+  @RequestMapping("/roadbook/{id}")
+  public String roadbook(@PathVariable("id") String id){
+    JSON json= BookingAgent.instance().roadbook(id);
+    if (json == null) {
+      return "not exist roadbook id "+ id;
+    }
+    return BookingAgent.instance().roadbook(id).toString();
   }
 }

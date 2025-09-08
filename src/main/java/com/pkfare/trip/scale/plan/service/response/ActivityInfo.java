@@ -1,8 +1,10 @@
 package com.pkfare.trip.scale.plan.service.response;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import java.math.BigDecimal;
 import java.util.List;
+import lombok.NoArgsConstructor;
 
 /**
  * 活动信息实体
@@ -10,6 +12,8 @@ import java.util.List;
  * @author Trip Scale Team
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class ActivityInfo {
     
     /**

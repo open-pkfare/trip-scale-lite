@@ -13,6 +13,7 @@ import com.pkfare.trip.scale.api.amadeus.exception.AmadeusApiException;
 import com.pkfare.trip.scale.api.amadeus.hotelbycity.request.QueryHotelByCityRequest;
 import com.pkfare.trip.scale.api.amadeus.hotelbycity.response.HotelAddressDto;
 import com.pkfare.trip.scale.api.amadeus.hotelbycity.response.HotelInfoDto;
+import java.util.Collections;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
@@ -22,6 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 import com.pkfare.trip.scale.api.amadeus.hotelbycity.request.QueryHotelByGeocodeRequest;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.util.CollectionUtils;
 
 @Slf4j
 @Component
@@ -65,8 +67,10 @@ public class AmadeusSearchHotelsByCityAPI {
         .and("longitude", request.getLongitude())
         .and("radius", request.getRadius())
         .and("radiusUnit", request.getRadiusUnit())
-        .and("ratings", request.getRatings())
-        .and("amenities", request.getAmenities());
+        .and("ratings", request.getRatings());
+    if (!CollectionUtils.isEmpty(request.getAmenities())) {
+      params.and("amenities", request.getAmenities());
+    }
 
     try {
       Hotel[] hotels = amadeus.referenceData.locations.hotels.byGeocode.get(params);

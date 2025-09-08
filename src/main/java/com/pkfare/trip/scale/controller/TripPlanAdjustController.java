@@ -18,9 +18,10 @@ import org.springframework.web.bind.annotation.RestController;
  *
  * @author Trip Scale Team
  */
+@Deprecated
 @Slf4j
 @RestController
-@RequestMapping("/api/trip-plan")
+@RequestMapping("/trip-plan")
 @CrossOrigin(origins = "*")
 public class TripPlanAdjustController {
 

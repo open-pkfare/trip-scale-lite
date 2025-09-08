@@ -24,6 +24,8 @@ import com.pkfare.trip.scale.agent.planning.PlanningAgent;
 import com.pkfare.trip.scale.dto.TripDemand;
 import com.pkfare.trip.scale.dto.TripRoute;
 import com.pkfare.trip.scale.plan.service.response.TripRoutePlanResult;
+import com.pkfare.trip.scale.service.PlanResultCacheService;
+import com.pkfare.trip.scale.util.JsonUtil;
 import io.reactivex.rxjava3.core.Flowable;
 import java.time.Instant;
 import java.util.List;
@@ -32,6 +34,8 @@ import java.util.concurrent.ConcurrentMap;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.exception.ExceptionUtils;
+import org.springframework.context.ApplicationContext;
 
 @Slf4j
 public class AnotherRootAgent extends BaseAgent {
@@ -39,9 +43,14 @@ public class AnotherRootAgent extends BaseAgent {
   private static String NAME = "Coordinator";
 
   private static AnotherRootAgent ROOT_AGENT;
+  private static ApplicationContext applicationContext;
 
   @Setter
   private DevConfig devConfig;
+
+  public static void setApplicationContext(ApplicationContext context) {
+    applicationContext = context;
+  }
 
   public AnotherRootAgent() {
     super(NAME, "Agent to coordinate different agents to work together with different steps to finish a trip planning.",
@@ -80,11 +89,11 @@ public class AnotherRootAgent extends BaseAgent {
       case "planning":
         eventFlowable = invocationContext.agent().findAgent("trip_planning_agent").runAsync(invocationContext);
         break;
-      case "adjustment":
+      case "optimizing":
         eventFlowable = invocationContext.agent().findAgent("trip_optimizing_agent").runAsync(invocationContext);
         break;
       case "booking":
-        eventFlowable = invocationContext.agent().findAgent("booking_agent").runAsync(invocationContext);
+        eventFlowable = invocationContext.agent().findAgent("p_booking_agent").runAsync(invocationContext);
         break;
     }
     assert eventFlowable != null;
@@ -134,15 +143,30 @@ public class AnotherRootAgent extends BaseAgent {
               parts.add(part);
               break;
             case "planning":
-              if (content.role().isPresent() && "planner".equals(content.role().get())){
-                TripRoutePlanResult tripRoutePlanResult = mapper.readValue(text, TripRoutePlanResult.class);
-                states.put("current_stage", "adjustment");
-                states.put("plan_result", tripRoutePlanResult);
-                part = Part.builder().text(text).build();
-                parts.removeFirst();
-                parts.add(part);
+              try {
+                if (content.role().isPresent() && "planner".equals(content.role().get())){
+                  String planResult = applicationContext.getBean(PlanResultCacheService.class).getPlanResult(text);
+                  states.put("current_stage", "optimizing");
+                  states.put("plan_result", JsonUtil.fromJson(planResult, TripRoutePlanResult.class));
+                  part = Part.builder().text(text).build();
+                  parts.removeFirst();
+                  parts.add(part);
+                }
+              } catch(Exception e) {
+                log.info("planning error {}", ExceptionUtils.getStackTrace(e));
               }
-
+              break;
+            case "optimizing":
+              if (content.role().isPresent()) {
+                if (OptimizingAgent.OPTIMIZER_ROLE.equals(content.role().get())) {
+                  String planResult = applicationContext.getBean(PlanResultCacheService.class).getPlanResult(text);
+                  states.put("plan_result", JsonUtil.fromJson(planResult, TripRoutePlanResult.class));
+                  states.put("current_stage", "booking");
+                } else if(OptimizingAgent.NO_ADJUST_ROLE.equals(content.role().get())){
+                  states.put("current_stage", "booking");
+                }
+              }
+              break;
             default:
           }
         } catch (Throwable e) {

@@ -6,20 +6,27 @@ import lombok.Getter;
 /**
  * 调整项类型枚举
  */
+@Getter
 public enum AdjustItemEnum {
-    FLIGHT("flight", "航班"),
-    HOTEL("hotel", "酒店"),
-    ACTIVITY("activity", "活动");
+    FLIGHT("flight", "航班", 0),
+    HOTEL("hotel", "酒店", 1),
+    ACTIVITY("activity", "活动", 2);
 
     @Getter
     private final String code;
     
     @Getter
     private final String name;
+    /**
+     * 调整项类型的优先级
+     */
+    @Getter
+    private final int priority;
 
-    AdjustItemEnum(String code, String name) {
+    AdjustItemEnum(String code, String name, int priority) {
         this.code = code;
         this.name = name;
+        this.priority = priority;
     }
 
     /**

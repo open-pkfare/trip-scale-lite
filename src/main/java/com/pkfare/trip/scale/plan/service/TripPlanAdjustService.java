@@ -1,9 +1,7 @@
 package com.pkfare.trip.scale.plan.service;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 import com.pkfare.trip.scale.exception.TripPlanException;
 import com.pkfare.trip.scale.model.enums.TripPlanErrorCodeEnum;
 import com.pkfare.trip.scale.plan.service.impl.ActivityAdjustServiceImpl;
@@ -12,11 +10,11 @@ import com.pkfare.trip.scale.plan.service.impl.HotelAdjustServiceImpl;
 import com.pkfare.trip.scale.plan.service.param.AdjustItemEnum;
 import com.pkfare.trip.scale.plan.service.param.GeneratePlanParam;
 import com.pkfare.trip.scale.plan.service.response.DailyRoutePlan;
-import com.pkfare.trip.scale.plan.service.response.TripPlan;
 import com.pkfare.trip.scale.plan.service.response.TripRoutePlanResult;
 import com.pkfare.trip.scale.service.external.ai.GoogleAiService;
 import com.pkfare.trip.scale.util.JsonUtil;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import lombok.extern.slf4j.Slf4j;
@@ -47,7 +45,8 @@ public class TripPlanAdjustService {
   @Autowired
   private ObjectMapper objectMapper;
 
-  public TripRoutePlanResult adjustPlan(GeneratePlanParam generatePlanParam, TripRoutePlanResult tripPlan, JsonArray adjustPlanParams) {
+  public TripRoutePlanResult adjustPlan(GeneratePlanParam generatePlanParam, TripRoutePlanResult tripPlan, JsonNode adjustPlanParams) {
+    log.info("Adjust plan request: {}", adjustPlanParams);
     long start = System.currentTimeMillis();
     TripRoutePlanResult adjustedPlan;
     try {
@@ -57,14 +56,14 @@ public class TripPlanAdjustService {
       throw new TripPlanException(TripPlanErrorCodeEnum.NO_FLIGHT_FOUND, e);
     }
 
-    for (JsonElement element : adjustPlanParams) {
+    List<JsonNode> sortedList = sort(adjustPlanParams);
+    for (JsonNode element : sortedList) {
       try {
-        if (!element.isJsonObject()) {
+        if (!element.isObject()) {
           log.warn("Invalid adjust param format: {}", element);
           continue;
         }
-        JsonObject adjustParam = element.getAsJsonObject();
-        String item = adjustParam.get("item").getAsString();
+        String item = element.get("item").asText();
         Optional<AdjustItemEnum> itemEnum = AdjustItemEnum.getByCode(item);
         if (itemEnum.isEmpty()) {
           log.warn("Unknown adjust item type: {}", item);
@@ -73,17 +72,18 @@ public class TripPlanAdjustService {
 
         switch (itemEnum.get()) {
           case FLIGHT:
-            flightAdjustService.adjust(generatePlanParam, adjustedPlan, adjustParam);
+            flightAdjustService.adjust(generatePlanParam, adjustedPlan, element);
             break;
           case HOTEL:
-            hotelAdjustService.adjust(generatePlanParam, adjustedPlan, adjustParam);
+            hotelAdjustService.adjust(generatePlanParam, adjustedPlan, element);
             break;
           case ACTIVITY:
-            activityAdjustService.adjust(generatePlanParam, adjustedPlan, adjustParam);
+            activityAdjustService.adjust(generatePlanParam, adjustedPlan, element);
             break;
         }
       } catch (Exception e) {
-        log.warn("Failed to process adjust item: {}", element, e);
+        log.error("Failed to process adjust item: {}", element, e);
+        throw new TripPlanException(TripPlanErrorCodeEnum.SERVER_ERROR, e);
       }
     }
 
@@ -103,10 +103,29 @@ public class TripPlanAdjustService {
     adjustedPlan.setSummary(googleAiService.generateSummary(dailyPlans));
 
     long totalTime = System.currentTimeMillis() - start;
-    log.info("=== PERFORMANCE SUMMARY ===");
-    log.info("Total trip plan generation time: {} ms", totalTime);
-    String resultJson = JsonUtil.toJson(adjustedPlan);
-    log.info("Generated trip plan JSON: {}", resultJson);
+    log.info("Total trip plan adjust time: {} ms", totalTime);
+    log.info("Generated trip plan JSON: {}", JsonUtil.toJson(dailyPlans.getFirst()));
     return adjustedPlan;
+  }
+
+  // 按照调整项类型的优先级排序：航班 -> 酒店 -> 活动
+  private List<JsonNode> sort(JsonNode adjustPlanParams) {
+    List<JsonNode> resultList = new ArrayList<>();
+    if (adjustPlanParams.isArray()) {
+      for (JsonNode node : adjustPlanParams) {
+        resultList.add(node);
+      }
+
+      resultList.sort((param1, param2) -> {
+        String item1 = param1.get("item").asText();
+        String item2 = param2.get("item").asText();
+
+        // 定义调整项的优先级
+        int priority1 = AdjustItemEnum.getByCode(item1).map(AdjustItemEnum::getPriority).orElse(0);
+        int priority2 = AdjustItemEnum.getByCode(item2).map(AdjustItemEnum::getPriority).orElse(0);
+        return Integer.compare(priority1, priority2);
+      });
+    }
+    return resultList;
   }
 }

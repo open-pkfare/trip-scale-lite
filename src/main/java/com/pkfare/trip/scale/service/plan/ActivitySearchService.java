@@ -159,7 +159,7 @@ public class ActivitySearchService {
   private List<ActivityInfo> filterActivitiesByDistance(List<ActivityInfo> activities,
       HotelLocationInfo hotelLocation,
       double maxDistanceKm) {
-    return activities.stream().filter(activityInfo -> !CollectionUtils.isEmpty(activityInfo.getPictures()))
+    return activities.stream()
         .filter(activity -> {
           if (activity.getLatitude() == 0.0 || activity.getLongitude() == 0.0) {
             return false;
@@ -210,6 +210,9 @@ public class ActivitySearchService {
     if (activity == null) {
       return null;
     }
+    if(CollectionUtils.isEmpty(activity.getPictures())){
+      return null;
+    }
 
     ActivityInfo activityInfo = new ActivityInfo();
 
@@ -244,7 +247,7 @@ public class ActivitySearchService {
       activityInfo.setType("General");
     }
 
-    activityInfo.setPictures(activity.getPictures());
+    activityInfo.setPictures(activity.getPictures().subList(0,1));
 
     return activityInfo;
   }
@@ -277,15 +280,22 @@ public class ActivitySearchService {
         .collect(Collectors.toList());
   }
 
-  public List<ActivityInfo> searchActivitiesNearby(HotelInfo hotel) {
+  public List<ActivityInfo> searchActivitiesNearby(HotelInfo hotel, String activityType, String currency) {
     ActivitiesSearchRequest request = new ActivitiesSearchRequest();
     request.setLatitude(hotel.getLatitude());
     request.setLongitude(hotel.getLongitude());
+    // todo 需要调整radius加重试
     request.setRadius(DEFAULT_RADIUS);
+    if (StringUtils.isNotBlank(activityType)) {
+      request.setCategoryGroup(activityType);
+    }
+    if (StringUtils.isNotBlank(currency)) {
+      request.setCurrency(currency);
+    }
 
     try {
       List<ActivityDto> activities = amadeusActivityService.searchActivities(request);
-      if (activities == null || activities.size()  == 0) {
+      if (activities == null || activities.isEmpty()) {
         return Collections.emptyList();
       }
 
@@ -296,7 +306,8 @@ public class ActivitySearchService {
 
       // 筛选在合理距离内的活动
       List<ActivityInfo> activityInfoList = filterActivitiesByDistance(activityInfos,
-          new HotelLocationInfo(hotel.getLatitude(), hotel.getLongitude()), ACTIVITY_SEARCH_RADIUS_KM);
+          // todo  因为是mock数据，将距离限制放宽
+          new HotelLocationInfo(hotel.getLatitude(), hotel.getLongitude()), 2000);
 
       // 筛选评分最高的活动
       List<ActivityInfo> topActivities = activityInfoList.stream()

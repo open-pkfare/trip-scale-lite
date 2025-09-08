@@ -799,7 +799,7 @@ public class FlightSearchService {
                 LocalDate outDate = convertToLocalDate(outbound.getDepartureDate());
                 LocalDate retDate = convertToLocalDate(returnFlight.getDepartureDate());
                 
-                if (DateUtil.daysBetween(outDate, retDate) == tripDays) {
+                if (DateUtil.daysBetween(outDate, retDate) == tripDays-1) {
                     BigDecimal totalPrice = PriceUtil.add(
                         PriceUtil.parsePrice(outbound.getPrice().getTotal()),
                         PriceUtil.parsePrice(returnFlight.getPrice().getTotal())
