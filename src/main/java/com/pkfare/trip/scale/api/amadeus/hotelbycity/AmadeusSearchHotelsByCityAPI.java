@@ -4,6 +4,7 @@ package com.pkfare.trip.scale.api.amadeus.hotelbycity;
 import com.amadeus.Amadeus;
 import com.amadeus.Params;
 import com.amadeus.resources.Hotel;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.Lists;
@@ -13,6 +14,7 @@ import com.pkfare.trip.scale.api.amadeus.exception.AmadeusApiException;
 import com.pkfare.trip.scale.api.amadeus.hotelbycity.request.QueryHotelByCityRequest;
 import com.pkfare.trip.scale.api.amadeus.hotelbycity.response.HotelAddressDto;
 import com.pkfare.trip.scale.api.amadeus.hotelbycity.response.HotelInfoDto;
+import com.pkfare.trip.scale.util.JsonUtil;
 import java.util.Collections;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ClassPathResource;
@@ -35,7 +37,7 @@ public class AmadeusSearchHotelsByCityAPI {
   private final ObjectMapper objectMapper = new ObjectMapper();
 
   public List<HotelInfoDto> queryHotelByCity(QueryHotelByCityRequest queryHotelByCityRequest) throws AmadeusApiException {
-    if(needMock(queryHotelByCityRequest)){
+    if(needMock()){
       return mockApiResponse(queryHotelByCityRequest);
     }
     Amadeus amadeus = AmadeusClient.get();
@@ -61,13 +63,19 @@ public class AmadeusSearchHotelsByCityAPI {
 
   }
 
-  public Hotel[] queryHotelByGeocode(QueryHotelByGeocodeRequest request) throws AmadeusApiException {
+  public List<HotelInfoDto> queryHotelByGeocode(QueryHotelByGeocodeRequest request) throws AmadeusApiException {
+    if (needMock()) {
+      return mockHotelByGeocode(request);
+    }
     Amadeus amadeus = AmadeusClient.get();
     Params params = Params.with("latitude", request.getLatitude())
         .and("longitude", request.getLongitude())
         .and("radius", request.getRadius())
         .and("radiusUnit", request.getRadiusUnit())
         .and("ratings", request.getRatings());
+    if (!CollectionUtils.isEmpty(request.getRatings())) {
+      params.and("ratings", request.getRatings());
+    }
     if (!CollectionUtils.isEmpty(request.getAmenities())) {
       params.and("amenities", request.getAmenities());
     }
@@ -76,16 +84,51 @@ public class AmadeusSearchHotelsByCityAPI {
       Hotel[] hotels = amadeus.referenceData.locations.hotels.byGeocode.get(params);
       if (hotels == null || hotels.length == 0) {
         log.error("call AmadeusHotelOffersSearchAPI return empty，resonse:{} ", hotels);
-        return hotels;
+        return convert2Dtos(hotels);
       }
       if (hotels[0].getResponse().getStatusCode() != 200) {
         log.error("call AmadeusHotelOffersSearchAPI failed，resonse：{}", hotels[0].getResponse());
         throw new AmadeusApiException(hotels[0].getResponse().getStatusCode(), hotels[0].getResponse().getResult().toString());
       }
-      return hotels;
+      return convert2Dtos(hotels);
     } catch (Exception e) {
       log.error("call AmadeusHotelOffersSearchAPI failed", e);
       throw new AmadeusApiException(500, "call AmadeusHotelOffersSearchAPI failed");
+    }
+  }
+
+  /**
+   * 返回Mock API响应
+   */
+  private List<HotelInfoDto> mockHotelByGeocode(QueryHotelByGeocodeRequest request) {
+    try {
+      // 读取mock JSON文件
+      ClassPathResource resource = new ClassPathResource("mock/hotelbygeocode/hotel-by-geocode.json");
+      JsonNode rootNode = objectMapper.readTree(resource.getInputStream());
+      JsonNode dataNode = rootNode.get("data");
+
+      if (dataNode == null || !dataNode.isArray()) {
+        log.warn("Mock hotel of city data format is invalid, returning empty list");
+        return new ArrayList<>();
+      }
+
+      // 解析每个酒店
+      List<HotelInfoDto> resultList = new ArrayList<>();
+      for (JsonNode hotelNode : dataNode) {
+        HotelInfoDto dto = parseMockHotel(hotelNode);
+        if (dto != null) {
+          resultList.add(dto);
+        }
+      }
+
+      log.info("Returned {} mock hotels for geocode", resultList.size());
+      return resultList;
+    } catch (IOException e) {
+      log.error("Failed to read mock hotel of city file", e);
+      return new ArrayList<>();
+    } catch (Exception e) {
+      log.error("Failed to parse mock hotel of city data", e);
+      return new ArrayList<>();
     }
   }
 
@@ -191,7 +234,7 @@ public class AmadeusSearchHotelsByCityAPI {
   /**
    * 判断是否需要使用Mock数据
    */
-  private boolean needMock(QueryHotelByCityRequest queryHotelByCityRequest) {
+  private boolean needMock() {
     return mockEnabled;
   }
 
