@@ -72,13 +72,13 @@ public class AmadeusHotelService {
    * @param request 酒店搜索请求
    * @return 酒店数组
    */
-  public Hotel[] searchHotelsByGeocode(QueryHotelByGeocodeRequest request) {
+  public List<HotelInfoDto> searchHotelsByGeocode(QueryHotelByGeocodeRequest request) {
     log.info("Searching hotels by geocode with request: {}", request);
 
     return retryApiCall(() -> {
       try {
-        Hotel[] result = hotelsByCityAPI.queryHotelByGeocode(request);
-        log.info("Hotels by geocode search completed, found {} results", result != null ? result.length : 0);
+        List<HotelInfoDto> result = hotelsByCityAPI.queryHotelByGeocode(request);
+        log.info("Hotels by geocode search completed, found {} results", result != null ? result.size() : 0);
         return result;
       } catch (Exception e) {
         log.error("Failed to search hotels by geocode", e);
