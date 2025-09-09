@@ -1,6 +1,6 @@
 {
   "meta": {
-    "count": 1,
+    "count": 5,
     "links": {
       "self": "https://test.api.amadeus.com/v1/reference-data/locations?subType=AIRPORT&keyword=SZX&sort=analytics.travelers.score&view=FULL&page%5Boffset%5D=0&page%5Blimit%5D=10"
     }
@@ -64,6 +64,96 @@
       "analytics": {
         "travelers": {
           "score": 26
+        }
+      }
+    },{
+      "type": "location",
+      "subType": "AIRPORT",
+      "name": "MARCO POLO",
+      "detailedName": "VENICE/IT:MARCO POLO",
+      "id": "AVCE",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/reference-data/locations/AVCE",
+        "methods": [
+          "GET"
+        ]
+      },
+      "timeZoneOffset": "+02:00",
+      "iataCode": "VCE",
+      "geoCode": {
+        "latitude": 45.50528,
+        "longitude": 12.35194
+      },
+      "address": {
+        "cityName": "VENICE",
+        "cityCode": "VCE",
+        "countryName": "ITALY",
+        "countryCode": "IT",
+        "regionCode": "EUROP"
+      },
+      "analytics": {
+        "travelers": {
+          "score": 22
+        }
+      }
+    },{
+      "type": "location",
+      "subType": "AIRPORT",
+      "name": "MALPENSA",
+      "detailedName": "MILAN/IT:MALPENSA",
+      "id": "AMXP",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/reference-data/locations/AMXP",
+        "methods": [
+          "GET"
+        ]
+      },
+      "timeZoneOffset": "+02:00",
+      "iataCode": "MXP",
+      "geoCode": {
+        "latitude": 45.63056,
+        "longitude": 8.72811
+      },
+      "address": {
+        "cityName": "MILAN",
+        "cityCode": "MIL",
+        "countryName": "ITALY",
+        "countryCode": "IT",
+        "regionCode": "EUROP"
+      },
+      "analytics": {
+        "travelers": {
+          "score": 28
+        }
+      }
+    },{
+      "type": "location",
+      "subType": "AIRPORT",
+      "name": "PERETOLA",
+      "detailedName": "FLORENCE/IT:PERETOLA",
+      "id": "AFLR",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/reference-data/locations/AFLR",
+        "methods": [
+          "GET"
+        ]
+      },
+      "timeZoneOffset": "+02:00",
+      "iataCode": "FLR",
+      "geoCode": {
+        "latitude": 43.80972,
+        "longitude": 11.20528
+      },
+      "address": {
+        "cityName": "FLORENCE",
+        "cityCode": "FLR",
+        "countryName": "ITALY",
+        "countryCode": "IT",
+        "regionCode": "EUROP"
+      },
+      "analytics": {
+        "travelers": {
+          "score": 18
         }
       }
     }

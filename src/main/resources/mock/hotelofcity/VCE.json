@@ -1,0 +1,3255 @@
+{
+  "data": [
+    {
+      "chainCode": "HA",
+      "iataCode": "VCE",
+      "dupeId": 700020931,
+      "name": "CANAL & WALTER",
+      "hotelId": "HAVCECAN",
+      "geoCode": {
+        "latitude": 45.4392,
+        "longitude": 12.32115
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30135",
+        "cityName": "VENEZIA",
+        "lines": [
+          "SANTA CROCE 553-240"
+        ]
+      },
+      "distance": {
+        "value": 0.25,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:16:39"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "VCE",
+      "dupeId": 700097424,
+      "name": "ALLA CORTE ROSSA",
+      "hotelId": "YXVCEACR",
+      "geoCode": {
+        "latitude": 45.43473,
+        "longitude": 12.32038
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30123",
+        "cityName": "VENICE",
+        "lines": [
+          "DORSODURO 2518"
+        ]
+      },
+      "distance": {
+        "value": 0.32,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:19:05"
+    },
+    {
+      "chainCode": "EP",
+      "iataCode": "VCE",
+      "dupeId": 700049546,
+      "name": "CA'NIGRA LAGOON RESORT",
+      "hotelId": "EPVCECAN",
+      "geoCode": {
+        "latitude": 45.4409,
+        "longitude": 12.32391
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30135",
+        "cityName": "VENICE",
+        "lines": [
+          "SANTA CROCE 927"
+        ]
+      },
+      "distance": {
+        "value": 0.54,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:19:39"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "VCE",
+      "dupeId": 700010858,
+      "name": "PANTALON",
+      "hotelId": "HSVCEAQT",
+      "geoCode": {
+        "latitude": 45.43566,
+        "longitude": 12.32599
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30123",
+        "cityName": "VENEDIG",
+        "lines": [
+          "SESTIERE DORSODURO 3942"
+        ]
+      },
+      "distance": {
+        "value": 0.58,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:07"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "VCE",
+      "dupeId": 700128235,
+      "name": "CANAL GRANDE HOTEL",
+      "hotelId": "YXVCECGR",
+      "geoCode": {
+        "latitude": 45.44138,
+        "longitude": 12.32404
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30135",
+        "cityName": "VENICE",
+        "lines": [
+          "932 SANTA CROCE"
+        ]
+      },
+      "distance": {
+        "value": 0.59,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:19:05"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "VCE",
+      "dupeId": 700013636,
+      "name": "TIVOLI",
+      "hotelId": "HSVCEATQ",
+      "geoCode": {
+        "latitude": 45.43558,
+        "longitude": 12.32604
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30123",
+        "cityName": "VENEZIA",
+        "lines": [
+          "CALLE CROSERA SAN PANTALON DORSODURO 3838"
+        ]
+      },
+      "distance": {
+        "value": 0.59,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:08"
+    },
+    {
+      "chainCode": "BX",
+      "iataCode": "VCE",
+      "dupeId": 700006221,
+      "name": "CONTINENTAL HOTEL",
+      "hotelId": "BXVCECON",
+      "geoCode": {
+        "latitude": 45.44212,
+        "longitude": 12.32355
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30121",
+        "cityName": "VENICE",
+        "lines": [
+          "LISTA DI SPAGNA 166"
+        ]
+      },
+      "distance": {
+        "value": 0.63,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:19:21"
+    },
+    {
+      "chainCode": "BX",
+      "iataCode": "XXX",
+      "dupeId": 501102472,
+      "name": "BX TEST HOTEL 1",
+      "hotelId": "BXXXX001",
+      "geoCode": {
+        "latitude": 45.44212,
+        "longitude": 12.32355
+      },
+      "address": {
+        "countryCode": "ZZ",
+        "postalCode": "T7A1S4",
+        "cityName": "FICTITIOUS POINT",
+        "lines": [
+          "3727 - 50TH STREET",
+          "PO BOX 7110"
+        ]
+      },
+      "distance": {
+        "value": 0.63,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:19:21"
+    },
+    {
+      "chainCode": "BX",
+      "iataCode": "XXX",
+      "dupeId": 501102875,
+      "name": "BX TEST PROPERTY",
+      "hotelId": "BXXXX002",
+      "geoCode": {
+        "latitude": 45.44212,
+        "longitude": 12.32355
+      },
+      "address": {
+        "countryCode": "ZZ",
+        "cityName": "FICTITIOUS POINT",
+        "lines": [
+          "21 SMITH STREET"
+        ]
+      },
+      "distance": {
+        "value": 0.63,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:19:21"
+    },
+    {
+      "chainCode": "CH",
+      "iataCode": "VCE",
+      "dupeId": 700010250,
+      "name": "HOTEL MODERNO",
+      "hotelId": "CHVCEHMO",
+      "geoCode": {
+        "latitude": 45.44223,
+        "longitude": 12.32356
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30121",
+        "cityName": "VENICE",
+        "lines": [
+          "LISTA DI SPAGNA 154"
+        ]
+      },
+      "distance": {
+        "value": 0.64,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:19:19"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "VCE",
+      "dupeId": 700004435,
+      "name": "AMADEUS",
+      "hotelId": "HSVCEAJM",
+      "geoCode": {
+        "latitude": 45.44264,
+        "longitude": 12.32429
+      },
+      "address": {
+        "countryCode": "IT",
+        "cityName": "VENEDIG",
+        "lines": [
+          "LISTA DI SPAGNA CANNAREGIO 227"
+        ]
+      },
+      "distance": {
+        "value": 0.71,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:05"
+    },
+    {
+      "chainCode": "FG",
+      "iataCode": "VCE",
+      "dupeId": 700097735,
+      "name": "DOMINA HOME CA'ZUSTO",
+      "hotelId": "FGVCEZUS",
+      "geoCode": {
+        "latitude": 45.44122,
+        "longitude": 12.32652
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30135",
+        "cityName": "VENICE",
+        "lines": [
+          "VIA CAMPIELLO RIELO 1358 SANTA CROCE"
+        ]
+      },
+      "distance": {
+        "value": 0.72,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:16:41"
+    },
+    {
+      "chainCode": "BW",
+      "iataCode": "VCE",
+      "dupeId": 700010643,
+      "name": "BEST WESTERN HOTEL OLIMPIA",
+      "hotelId": "BWVCE261",
+      "geoCode": {
+        "latitude": 45.43868,
+        "longitude": 12.30967
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30135",
+        "cityName": "VENEZIA",
+        "lines": [
+          "SANTA CROCE 395"
+        ]
+      },
+      "distance": {
+        "value": 0.73,
+        "unit": "KM"
+      },
+      "masterChainCode": "EW",
+      "lastUpdate": "2025-06-03T10:19:18"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "VCE",
+      "dupeId": 700083612,
+      "name": "AI DUE LEONI",
+      "hotelId": "YXVCEADL",
+      "geoCode": {
+        "latitude": 45.44457,
+        "longitude": 12.32087
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30124",
+        "cityName": "VENICE",
+        "lines": [
+          "CANNAREGIO 565"
+        ]
+      },
+      "distance": {
+        "value": 0.8,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:19:05"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "VCE",
+      "dupeId": 700140980,
+      "name": "AL DUCA DI VENEZIA",
+      "hotelId": "YXVCEADV",
+      "geoCode": {
+        "latitude": 45.4414,
+        "longitude": 12.32818
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30135",
+        "cityName": "VENICE",
+        "lines": [
+          "FONTEGO DEI TUCHI 1739 SANTA CROCE"
+        ]
+      },
+      "distance": {
+        "value": 0.84,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:19:05"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "VCE",
+      "dupeId": 700130162,
+      "name": "HOTEL CA PAGAN",
+      "hotelId": "YXVCECAP",
+      "geoCode": {
+        "latitude": 45.43385,
+        "longitude": 12.32871
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30124",
+        "cityName": "VENICE",
+        "lines": [
+          "SAN MARCO 3268"
+        ]
+      },
+      "distance": {
+        "value": 0.86,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:19:05"
+    },
+    {
+      "chainCode": "BA",
+      "iataCode": "VCE",
+      "dupeId": 700005184,
+      "name": "BOSCOLO BELLINI",
+      "hotelId": "BAVCEBLN",
+      "geoCode": {
+        "latitude": 45.44534,
+        "longitude": 12.32073
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30121",
+        "cityName": "VENICE",
+        "lines": [
+          "CANNAREGIO 116"
+        ]
+      },
+      "distance": {
+        "value": 0.88,
+        "unit": "KM"
+      },
+      "masterChainCode": "EM",
+      "lastUpdate": "2025-06-03T10:19:27"
+    },
+    {
+      "chainCode": "HA",
+      "iataCode": "VCE",
+      "dupeId": 700013710,
+      "name": "TRE ARCHI",
+      "hotelId": "HAVCETRE",
+      "geoCode": {
+        "latitude": 45.44582,
+        "longitude": 12.32061
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30121",
+        "cityName": "VENICE",
+        "lines": [
+          "CANNAREGIO 923"
+        ]
+      },
+      "distance": {
+        "value": 0.93,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:16:36"
+    },
+    {
+      "chainCode": "OI",
+      "iataCode": "VCE",
+      "dupeId": 700166888,
+      "name": "LOCANDA ANTICO FIORE",
+      "hotelId": "OIVCEDHT",
+      "geoCode": {
+        "latitude": 45.43488,
+        "longitude": 12.33036
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30124",
+        "cityName": "Venice",
+        "lines": [
+          "SAN MARCO 3486"
+        ]
+      },
+      "distance": {
+        "value": 0.93,
+        "unit": "KM"
+      },
+      "masterChainCode": "LK",
+      "lastUpdate": "2025-06-03T10:20:15"
+    },
+    {
+      "chainCode": "HA",
+      "iataCode": "VCE",
+      "dupeId": 700144313,
+      "name": "HOTEL AL NIDO DI GIULIETTA E ROMEO",
+      "hotelId": "HAVCENID",
+      "geoCode": {
+        "latitude": 45.43822,
+        "longitude": 12.33105
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30125",
+        "cityName": "VENICE",
+        "lines": [
+          "SAN POLO 1858 CAMPO S.CASSIANO"
+        ]
+      },
+      "distance": {
+        "value": 0.95,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:16:36"
+    },
+    {
+      "chainCode": "BW",
+      "iataCode": "VCE",
+      "dupeId": 700010312,
+      "name": "BEST WESTERN HTL MONTECARLO",
+      "hotelId": "BWVCE157",
+      "geoCode": {
+        "latitude": 45.4351,
+        "longitude": 12.33112
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "00000",
+        "cityName": "VENEZIA",
+        "lines": [
+          "CALLE SPECCHIERE 463 SAN MARCO"
+        ]
+      },
+      "distance": {
+        "value": 0.98,
+        "unit": "KM"
+      },
+      "masterChainCode": "EW",
+      "lastUpdate": "2025-06-03T10:19:18"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "VCE",
+      "dupeId": 700166889,
+      "name": "SETTIMO CIELO - BLOOM B-B",
+      "hotelId": "HSVCEATM",
+      "geoCode": {
+        "latitude": 45.43397,
+        "longitude": 12.33076
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30124",
+        "cityName": "VENEZIA",
+        "lines": [
+          "CALLE QUARTIER SAN MARCO 3470"
+        ]
+      },
+      "distance": {
+        "value": 1,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:08"
+    },
+    {
+      "chainCode": "EP",
+      "iataCode": "VCE",
+      "dupeId": 700127866,
+      "name": "HOTEL PALAZZO GIOVANELLI",
+      "hotelId": "EPVCEHPG",
+      "geoCode": {
+        "latitude": 45.44113,
+        "longitude": 12.33084
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30135",
+        "cityName": "VENICE",
+        "lines": [
+          "SANTA CROCE 2070A"
+        ]
+      },
+      "distance": {
+        "value": 1.01,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:19:39"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "VCE",
+      "dupeId": 700030743,
+      "name": "ALLE GUGLIE",
+      "hotelId": "HSVCEAMV",
+      "geoCode": {
+        "latitude": 45.44671,
+        "longitude": 12.32012
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30121",
+        "cityName": "VENEDIG",
+        "lines": [
+          "RIO TERA SAN LEONARDO CANNAREGIO 1523"
+        ]
+      },
+      "distance": {
+        "value": 1.03,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:07"
+    },
+    {
+      "chainCode": "DS",
+      "iataCode": "VCE",
+      "dupeId": 700005594,
+      "name": "CA PISANI",
+      "hotelId": "DSVCECAP",
+      "geoCode": {
+        "latitude": 45.43005,
+        "longitude": 12.32784
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30123",
+        "cityName": "VENICE",
+        "lines": [
+          "DORSODURO 979/A"
+        ]
+      },
+      "distance": {
+        "value": 1.08,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:00"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "VCE",
+      "dupeId": 700166867,
+      "name": "KOSHER HOUSE GIARDINO DEI MELOGRANI",
+      "hotelId": "HSVCEABM",
+      "geoCode": {
+        "latitude": 45.44549,
+        "longitude": 12.32723
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30121",
+        "cityName": "VENEZIA",
+        "lines": [
+          "SESTIERE CANNAREGIO 2873-C"
+        ]
+      },
+      "distance": {
+        "value": 1.1,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:03"
+    },
+    {
+      "chainCode": "HA",
+      "iataCode": "VCE",
+      "dupeId": 700028161,
+      "name": "LA FORCOLA",
+      "hotelId": "HAVCEFOR",
+      "geoCode": {
+        "latitude": 45.4438,
+        "longitude": 12.32995
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30121",
+        "cityName": "VENICE",
+        "lines": [
+          "CANAREGGIO 2283"
+        ]
+      },
+      "distance": {
+        "value": 1.11,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:16:39"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "VCE",
+      "dupeId": 501424634,
+      "name": "EDEN",
+      "hotelId": "HSVCEAMP",
+      "geoCode": {
+        "latitude": 45.44382,
+        "longitude": 12.3301
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30121",
+        "cityName": "VENEDIG",
+        "lines": [
+          "CAMPIELLO SANTO CANNAREGIO 2357"
+        ]
+      },
+      "distance": {
+        "value": 1.12,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:07"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "VCE",
+      "dupeId": 700133934,
+      "name": "CA' GOTTARDI",
+      "hotelId": "HSVCEATW",
+      "geoCode": {
+        "latitude": 45.44271,
+        "longitude": 12.33155
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30121",
+        "cityName": "VENICE",
+        "lines": [
+          "SESTIERE CANNAREGIO 2283"
+        ]
+      },
+      "distance": {
+        "value": 1.14,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:08"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "VCE",
+      "dupeId": 700043679,
+      "name": "LOCANDA POSTE VECIE",
+      "hotelId": "HSVCEASF",
+      "geoCode": {
+        "latitude": 45.43971,
+        "longitude": 12.33331
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30131",
+        "cityName": "VENEDIG",
+        "lines": [
+          "S. POLO 1612"
+        ]
+      },
+      "distance": {
+        "value": 1.15,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:08"
+    },
+    {
+      "chainCode": "HA",
+      "iataCode": "VCE",
+      "dupeId": 501284105,
+      "name": "HOTEL CA ALVISE",
+      "hotelId": "HAVCEALV",
+      "geoCode": {
+        "latitude": 45.43442,
+        "longitude": 12.33338
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30124",
+        "cityName": "VENICE",
+        "lines": [
+          "DEL VERONA S.MARCO 3673"
+        ]
+      },
+      "distance": {
+        "value": 1.17,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:16:39"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "VCE",
+      "dupeId": 700077204,
+      "name": "LOCANDA STURION",
+      "hotelId": "HSVCEARU",
+      "geoCode": {
+        "latitude": 45.4375,
+        "longitude": 12.33441
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30125",
+        "cityName": "VENEDIG",
+        "lines": [
+          "CALLE DE STURION , SAN POLO 679"
+        ]
+      },
+      "distance": {
+        "value": 1.2,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:08"
+    },
+    {
+      "chainCode": "HA",
+      "iataCode": "VCE",
+      "dupeId": 700015544,
+      "name": "TINTORETTO",
+      "hotelId": "HAVCETIN",
+      "geoCode": {
+        "latitude": 45.44292,
+        "longitude": 12.33245
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30121",
+        "cityName": "VENICE",
+        "lines": [
+          "CANNAREGIO 2316"
+        ]
+      },
+      "distance": {
+        "value": 1.21,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:16:36"
+    },
+    {
+      "chainCode": "BW",
+      "iataCode": "VCE",
+      "dupeId": 700004231,
+      "name": "BEST WESTERN HOTEL ALA",
+      "hotelId": "BWVCE203",
+      "geoCode": {
+        "latitude": 45.43232,
+        "longitude": 12.33278
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30124",
+        "cityName": "VENEZIA",
+        "lines": [
+          "SAN MARCO 2494",
+          "CAMPO SANTA MARIA DEL GIGLIO"
+        ]
+      },
+      "distance": {
+        "value": 1.22,
+        "unit": "KM"
+      },
+      "masterChainCode": "EW",
+      "lastUpdate": "2025-06-03T10:19:18"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "VCE",
+      "dupeId": 700005138,
+      "name": "BEL SITO E BERLINO",
+      "hotelId": "HSVCEAPN",
+      "geoCode": {
+        "latitude": 45.43248,
+        "longitude": 12.3331
+      },
+      "address": {
+        "countryCode": "IT",
+        "cityName": "VENEDIG",
+        "lines": [
+          "SAN MARCO 2517"
+        ]
+      },
+      "distance": {
+        "value": 1.23,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:07"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "VCE",
+      "dupeId": 700021513,
+      "name": "DUODO PALACE HOTEL",
+      "hotelId": "YXVCEDUO",
+      "geoCode": {
+        "latitude": 45.4342,
+        "longitude": 12.33413
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30124",
+        "cityName": "VENICE",
+        "lines": [
+          "CALLE MINELLI"
+        ]
+      },
+      "distance": {
+        "value": 1.24,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:19:05"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "VCE",
+      "dupeId": 700120513,
+      "name": "AL CANAL REGIO",
+      "hotelId": "HSVCEAGT",
+      "geoCode": {
+        "latitude": 45.44227,
+        "longitude": 12.33347
+      },
+      "address": {
+        "countryCode": "IT",
+        "cityName": "VENICE",
+        "lines": [
+          "CANNAREGIO 3632-A"
+        ]
+      },
+      "distance": {
+        "value": 1.25,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:05"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "VCE",
+      "dupeId": 700056363,
+      "name": "ANTICA LOCANDA AL GAMBERO",
+      "hotelId": "HSVCEARI",
+      "geoCode": {
+        "latitude": 45.43407,
+        "longitude": 12.33447
+      },
+      "address": {
+        "countryCode": "IT",
+        "cityName": "VENEDIG",
+        "lines": [
+          "CALLE DEI FABBRI SAN MARCO 4687"
+        ]
+      },
+      "distance": {
+        "value": 1.27,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:07"
+    },
+    {
+      "chainCode": "HA",
+      "iataCode": "VCE",
+      "dupeId": 700009788,
+      "name": "HOTEL MARCONI",
+      "hotelId": "HAVCEH13",
+      "geoCode": {
+        "latitude": 45.43788,
+        "longitude": 12.3352
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30100",
+        "cityName": "VENICE",
+        "lines": [
+          "RIVA DEL VIN, SAN POLO 729"
+        ]
+      },
+      "distance": {
+        "value": 1.27,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:16:39"
+    },
+    {
+      "chainCode": "LX",
+      "iataCode": "VCE",
+      "dupeId": 700072403,
+      "name": "CA SAGREDO HOTEL",
+      "hotelId": "LXVCECAS",
+      "geoCode": {
+        "latitude": 45.44058,
+        "longitude": 12.33461
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30121",
+        "cityName": "VENICE",
+        "lines": [
+          "CAMPO SANTA SOFIA 4198/99",
+          "CA D ORO"
+        ]
+      },
+      "distance": {
+        "value": 1.27,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:17:40"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "VCE",
+      "dupeId": 700166893,
+      "name": "CASA SUL MOLO LOCANDA",
+      "hotelId": "HSVCEARS",
+      "geoCode": {
+        "latitude": 45.43407,
+        "longitude": 12.33447
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30100",
+        "cityName": "VENEDIG",
+        "lines": [
+          "SAN MARCO 744"
+        ]
+      },
+      "distance": {
+        "value": 1.27,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:07"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "VCE",
+      "dupeId": 700097821,
+      "name": "FOSCARI PALACE",
+      "hotelId": "YXVCEFOS",
+      "geoCode": {
+        "latitude": 45.44051,
+        "longitude": 12.33471
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30131",
+        "cityName": "VENICE",
+        "lines": [
+          "CAMPO SANTA SOFIA 4201 1 1A"
+        ]
+      },
+      "distance": {
+        "value": 1.27,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:19:05"
+    },
+    {
+      "chainCode": "ON",
+      "iataCode": "VCE",
+      "dupeId": 700140875,
+      "name": "HOTEL VILLA COSTANZA",
+      "hotelId": "ONVCEHVC",
+      "geoCode": {
+        "latitude": 45.43252,
+        "longitude": 12.33427
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30171",
+        "cityName": "MESTRE",
+        "lines": [
+          "VIA MONTENERO 25"
+        ]
+      },
+      "distance": {
+        "value": 1.31,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:16:11"
+    },
+    {
+      "chainCode": "ON",
+      "iataCode": "VCE",
+      "dupeId": 700080632,
+      "name": "HOTEL LOCANDA AL PIAVE-SAN DONA DI PIAVE",
+      "hotelId": "ONVCEHLA",
+      "geoCode": {
+        "latitude": 45.43252,
+        "longitude": 12.33427
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30027",
+        "cityName": "SAN DONA DI PIAVE",
+        "lines": [
+          "CORSO SILVIO TRENTIN 6"
+        ]
+      },
+      "distance": {
+        "value": 1.31,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:16:11"
+    },
+    {
+      "chainCode": "ON",
+      "iataCode": "VCE",
+      "dupeId": 700032139,
+      "name": "HOTEL FLORA",
+      "hotelId": "ONVCEFLO",
+      "geoCode": {
+        "latitude": 45.43252,
+        "longitude": 12.33427
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30124",
+        "cityName": "VENEZIA",
+        "lines": [
+          "SAN MARCO 2283 A"
+        ]
+      },
+      "distance": {
+        "value": 1.31,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:16:11"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "VCE",
+      "dupeId": 700005471,
+      "name": "PALACE BONVECCHIATI",
+      "hotelId": "YXVCEPBH",
+      "geoCode": {
+        "latitude": 45.43559,
+        "longitude": 12.33633
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30124",
+        "cityName": "VENICE",
+        "lines": [
+          "CALLE DEI FABBRI 4680",
+          "SAN MARCO"
+        ]
+      },
+      "distance": {
+        "value": 1.37,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:19:05"
+    },
+    {
+      "chainCode": "HA",
+      "iataCode": "VCE",
+      "dupeId": 700014969,
+      "name": "GORIZIA A LA VALIGIA",
+      "hotelId": "HAVCEGOR",
+      "geoCode": {
+        "latitude": 45.43563,
+        "longitude": 12.33652
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30124",
+        "cityName": "VENICE",
+        "lines": [
+          "C. DE FABRI/S.MARCO 4696/A"
+        ]
+      },
+      "distance": {
+        "value": 1.38,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:16:39"
+    },
+    {
+      "chainCode": "LW",
+      "iataCode": "VCE",
+      "dupeId": 700050476,
+      "name": "BAUER PALLADIO HOTEL AND  SPA",
+      "hotelId": "LWVCE170",
+      "geoCode": {
+        "latitude": 45.43424,
+        "longitude": 12.33617
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30133",
+        "cityName": "VENICE",
+        "lines": [
+          "GIUDECCA 33"
+        ]
+      },
+      "distance": {
+        "value": 1.39,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:16:21"
+    },
+    {
+      "chainCode": "UZ",
+      "iataCode": "VCE",
+      "dupeId": 700033700,
+      "name": "LA SCALA PALACE",
+      "hotelId": "UZVCE466",
+      "geoCode": {
+        "latitude": 45.43267,
+        "longitude": 12.33544
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30124",
+        "cityName": "VENICE",
+        "lines": [
+          "SAN MARCO CALLE DEI FABBRI 4723"
+        ]
+      },
+      "distance": {
+        "value": 1.39,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:07"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "VCE",
+      "dupeId": 700077203,
+      "name": "AL GAZZETTINO",
+      "hotelId": "HSVCEAPH",
+      "geoCode": {
+        "latitude": 45.43673,
+        "longitude": 12.33696
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30100",
+        "cityName": "VENEDIG",
+        "lines": [
+          "SAN MARCO 4971"
+        ]
+      },
+      "distance": {
+        "value": 1.41,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:07"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "VCE",
+      "dupeId": 700077205,
+      "name": "CASA COSMO",
+      "hotelId": "HSVCEABN",
+      "geoCode": {
+        "latitude": 45.43654,
+        "longitude": 12.3373
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30124",
+        "cityName": "VENEZIA",
+        "lines": [
+          "SAN MARCO 4976"
+        ]
+      },
+      "distance": {
+        "value": 1.43,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:03"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "VCE",
+      "dupeId": 700032744,
+      "name": "PALAZZO SELVADEGO",
+      "hotelId": "HSVCEAQX",
+      "geoCode": {
+        "latitude": 45.43382,
+        "longitude": 12.33689
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30124",
+        "cityName": "VENEDIG",
+        "lines": [
+          "SAN MARCO 1224-B"
+        ]
+      },
+      "distance": {
+        "value": 1.46,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:07"
+    },
+    {
+      "chainCode": "UI",
+      "iataCode": "VCE",
+      "dupeId": 700007675,
+      "name": "GIORGIONE HOTEL",
+      "hotelId": "UIVCEGIO",
+      "geoCode": {
+        "latitude": 45.44125,
+        "longitude": 12.33705
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30121",
+        "cityName": "VENICE",
+        "lines": [
+          "CANNAREGIO-SS APOSTOLI 4587"
+        ]
+      },
+      "distance": {
+        "value": 1.47,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:17:59"
+    },
+    {
+      "chainCode": "SY",
+      "iataCode": "VCE",
+      "dupeId": 700012907,
+      "name": "STARHOTELS  SPLENDID VENICE",
+      "hotelId": "SYVCESPL",
+      "geoCode": {
+        "latitude": 45.43563,
+        "longitude": 12.33789
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30124",
+        "cityName": "VENICE",
+        "lines": [
+          "SAN MARCO MERCERIE  760"
+        ]
+      },
+      "distance": {
+        "value": 1.49,
+        "unit": "KM"
+      },
+      "masterChainCode": "TC",
+      "lastUpdate": "2025-06-03T10:17:37"
+    },
+    {
+      "chainCode": "BW",
+      "iataCode": "VCE",
+      "dupeId": 700030816,
+      "name": "BEST WESTERN ALBERGO SAN MARCO",
+      "hotelId": "BWVCE034",
+      "geoCode": {
+        "latitude": 45.43454,
+        "longitude": 12.33777
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30124",
+        "cityName": "VENEZIA",
+        "lines": [
+          "PIAZZA SAN MARCO 877"
+        ]
+      },
+      "distance": {
+        "value": 1.5,
+        "unit": "KM"
+      },
+      "masterChainCode": "EW",
+      "lastUpdate": "2025-06-03T10:19:18"
+    },
+    {
+      "chainCode": "LW",
+      "iataCode": "VCE",
+      "dupeId": 700009632,
+      "name": "LUNA HOTEL BAGLIONI VENICE",
+      "hotelId": "LWVCE148",
+      "geoCode": {
+        "latitude": 45.43295,
+        "longitude": 12.3372
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30124",
+        "cityName": "VENICE",
+        "lines": [
+          "SAN MARCO 1243"
+        ]
+      },
+      "distance": {
+        "value": 1.51,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:16:21"
+    },
+    {
+      "chainCode": "XL",
+      "iataCode": "VCE",
+      "dupeId": 700010277,
+      "name": "HOTEL MONACO AND GRAND CANAL",
+      "hotelId": "XLVCEMON",
+      "geoCode": {
+        "latitude": 45.43236,
+        "longitude": 12.33689
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30124",
+        "cityName": "VENICE",
+        "lines": [
+          "SAN MARCO 1325"
+        ]
+      },
+      "distance": {
+        "value": 1.51,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:46"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "VCE",
+      "dupeId": 700136647,
+      "name": "SAN LIO T.H. GUEST HOUSE - 1 CAT.",
+      "hotelId": "HSVCEAIE",
+      "geoCode": {
+        "latitude": 45.43768,
+        "longitude": 12.3384
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30122",
+        "cityName": "VENEZIA",
+        "lines": [
+          "CAMPO SAN LIO CASTELLO S-N"
+        ]
+      },
+      "distance": {
+        "value": 1.52,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:05"
+    },
+    {
+      "chainCode": "UZ",
+      "iataCode": "VCE",
+      "dupeId": 700018154,
+      "name": "NOTTURNO HOTEL SAN ZULIAN",
+      "hotelId": "UZVCE948",
+      "geoCode": {
+        "latitude": 45.43607,
+        "longitude": 12.33862
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30124",
+        "cityName": "VENICE",
+        "lines": [
+          "SAN MARCO 535"
+        ]
+      },
+      "distance": {
+        "value": 1.54,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:07"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "VCE",
+      "dupeId": 700031160,
+      "name": "PALAZZO GUARDI",
+      "hotelId": "HSVCEARL",
+      "geoCode": {
+        "latitude": 45.4308,
+        "longitude": 12.33629
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30123",
+        "cityName": "VENEDIG",
+        "lines": [
+          "SESTIERE DORSODURO 995"
+        ]
+      },
+      "distance": {
+        "value": 1.54,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:07"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "VCE",
+      "dupeId": 700010702,
+      "name": "ORION",
+      "hotelId": "HSVCEAUA",
+      "geoCode": {
+        "latitude": 45.43564,
+        "longitude": 12.33859
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30124",
+        "cityName": "VENEZIA",
+        "lines": [
+          "SAN MARCO 700-A"
+        ]
+      },
+      "distance": {
+        "value": 1.54,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:08"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "VCE",
+      "dupeId": 700097519,
+      "name": "BELLEVUE SUITES ST MARK SQUARE",
+      "hotelId": "YXVCEBER",
+      "geoCode": {
+        "latitude": 45.435,
+        "longitude": 12.33848
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30124",
+        "cityName": "VENICE",
+        "lines": [
+          "CALLE DEI BALONI 197",
+          "SAN MARCO"
+        ]
+      },
+      "distance": {
+        "value": 1.55,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:19:05"
+    },
+    {
+      "chainCode": "KY",
+      "iataCode": "VCE",
+      "dupeId": 700054081,
+      "name": "PHW RUZZINI PALACE HOTEL",
+      "hotelId": "KYVCERUZ",
+      "geoCode": {
+        "latitude": 45.43761,
+        "longitude": 12.3389
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30122",
+        "cityName": "VENICE",
+        "lines": [
+          "CASTELLO 5866"
+        ]
+      },
+      "distance": {
+        "value": 1.56,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:28"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "VCE",
+      "dupeId": 700072412,
+      "name": "FALIER",
+      "hotelId": "HSVCEAKM",
+      "geoCode": {
+        "latitude": 45.43436,
+        "longitude": 12.29902
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30135",
+        "cityName": "VENEDIG",
+        "lines": [
+          "SALIZADA SAN PANTALON SANTA CROCE 130"
+        ]
+      },
+      "distance": {
+        "value": 1.59,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:07"
+    },
+    {
+      "chainCode": "CI",
+      "iataCode": "VCE",
+      "dupeId": 700006717,
+      "name": "COMFORT HOTEL DIANA",
+      "hotelId": "CIVCE034",
+      "geoCode": {
+        "latitude": 45.43524,
+        "longitude": 12.3395
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30124",
+        "cityName": "VENICE",
+        "lines": [
+          "SAN MARCO-CALLE SPECCHIERI 449"
+        ]
+      },
+      "distance": {
+        "value": 1.62,
+        "unit": "KM"
+      },
+      "masterChainCode": "EC",
+      "lastUpdate": "2025-06-03T10:19:53"
+    },
+    {
+      "chainCode": "LX",
+      "iataCode": "VCE",
+      "dupeId": 700023532,
+      "name": "PALAZZO SANT ANGELO SUL CANAL",
+      "hotelId": "LXVCEPSA",
+      "geoCode": {
+        "latitude": 45.43524,
+        "longitude": 12.3395
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30124",
+        "cityName": "VENICE",
+        "lines": [
+          "SAN MARCO 3489"
+        ]
+      },
+      "distance": {
+        "value": 1.62,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:17:05"
+    },
+    {
+      "chainCode": "GZ",
+      "iataCode": "VCE",
+      "dupeId": 700034900,
+      "name": "HOTEL CASANOVA",
+      "hotelId": "GZVCE543",
+      "geoCode": {
+        "latitude": 45.43523,
+        "longitude": 12.3395
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30124",
+        "cityName": "VENEZIA",
+        "lines": [
+          "SAN MARCO 1284"
+        ]
+      },
+      "distance": {
+        "value": 1.62,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:16:33"
+    },
+    {
+      "chainCode": "UZ",
+      "iataCode": "VCE",
+      "dupeId": 700097992,
+      "name": "LANTERNA DI MARCO POLO HOTEL",
+      "hotelId": "UZVCE212",
+      "geoCode": {
+        "latitude": 45.43523,
+        "longitude": 12.3395
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30100",
+        "cityName": "VENICE",
+        "lines": [
+          "SAN MARCO 4979"
+        ]
+      },
+      "distance": {
+        "value": 1.62,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:07"
+    },
+    {
+      "chainCode": "GZ",
+      "iataCode": "VCE",
+      "dupeId": 700056739,
+      "name": "HOTEL CA ARCO ANTICO",
+      "hotelId": "GZVCECAA",
+      "geoCode": {
+        "latitude": 45.43197,
+        "longitude": 12.33836
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30124",
+        "cityName": "VENICE",
+        "lines": [
+          "1451 SAN POLO"
+        ]
+      },
+      "distance": {
+        "value": 1.63,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:16:33"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "VCE",
+      "dupeId": 700166907,
+      "name": "CA PEDROCCHI",
+      "hotelId": "HSVCEASY",
+      "geoCode": {
+        "latitude": 45.43458,
+        "longitude": 12.33987
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30124",
+        "cityName": "VENEZIA",
+        "lines": [
+          "CALLE PEDROCCHI SAN MARCO"
+        ]
+      },
+      "distance": {
+        "value": 1.66,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:08"
+    },
+    {
+      "chainCode": "FG",
+      "iataCode": "VCE",
+      "dupeId": 700006114,
+      "name": "COLOMBINA HOTEL-VENEZIA",
+      "hotelId": "FGVCECBA",
+      "geoCode": {
+        "latitude": 45.43583,
+        "longitude": 12.34034
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30122",
+        "cityName": "VENEZIA",
+        "lines": [
+          "CALLE REMEDIO CASTELLO 4416"
+        ]
+      },
+      "distance": {
+        "value": 1.68,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:16:41"
+    },
+    {
+      "chainCode": "WV",
+      "iataCode": "VCE",
+      "dupeId": 700012412,
+      "name": "HOTEL SCANDINAVIA",
+      "hotelId": "WVVCETIV",
+      "geoCode": {
+        "latitude": 45.43749,
+        "longitude": 12.3413
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30122",
+        "cityName": "VENICE",
+        "lines": [
+          "CAMPO SANTA MARIA FORMOSA",
+          "CASTELLO 5240"
+        ]
+      },
+      "distance": {
+        "value": 1.74,
+        "unit": "KM"
+      },
+      "masterChainCode": "TC",
+      "lastUpdate": "2025-06-03T10:18:30"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "VCE",
+      "dupeId": 700130154,
+      "name": "CA' BRAGADIN CARABBA - CHARMING INN",
+      "hotelId": "HSVCEAIC",
+      "geoCode": {
+        "latitude": 45.43868,
+        "longitude": 12.34292
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30122",
+        "cityName": "VENEZIA",
+        "lines": [
+          "CAMPO SANTA MARINA - CASTELLO 6041"
+        ]
+      },
+      "distance": {
+        "value": 1.87,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:05"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "VCE",
+      "dupeId": 700020935,
+      "name": "VILLA IGEA HOTEL",
+      "hotelId": "YXVCEHVI",
+      "geoCode": {
+        "latitude": 45.43459,
+        "longitude": 12.34293
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30122",
+        "cityName": "VENICE",
+        "lines": [
+          "CAMPO SAN ZACCARIA 4684"
+        ]
+      },
+      "distance": {
+        "value": 1.9,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:19:05"
+    },
+    {
+      "chainCode": "WV",
+      "iataCode": "VCE",
+      "dupeId": 700225161,
+      "name": "VILLA F",
+      "hotelId": "WVVCE826",
+      "geoCode": {
+        "latitude": 45.42662,
+        "longitude": 12.3381
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30133",
+        "cityName": "VENICE",
+        "lines": [
+          "GIUDECCA 50"
+        ]
+      },
+      "distance": {
+        "value": 1.92,
+        "unit": "KM"
+      },
+      "masterChainCode": "TC",
+      "lastUpdate": "2025-06-03T10:18:29"
+    },
+    {
+      "chainCode": "FG",
+      "iataCode": "VCE",
+      "dupeId": 700117080,
+      "name": "HOTEL PAGANELLI",
+      "hotelId": "FGVCEPAG",
+      "geoCode": {
+        "latitude": 45.43405,
+        "longitude": 12.34311
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30122",
+        "cityName": "VENICE",
+        "lines": [
+          "RIVA DEGLI SCHIAVONI 4182"
+        ]
+      },
+      "distance": {
+        "value": 1.92,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:16:41"
+    },
+    {
+      "chainCode": "LX",
+      "iataCode": "VCE",
+      "dupeId": 700023530,
+      "name": "LIASSIDI PALACE",
+      "hotelId": "LXVCELPA",
+      "geoCode": {
+        "latitude": 45.43583,
+        "longitude": 12.34449
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30122",
+        "cityName": "VENICE",
+        "lines": [
+          "CASTELLO 3405"
+        ]
+      },
+      "distance": {
+        "value": 2,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:16:06"
+    },
+    {
+      "chainCode": "OE",
+      "iataCode": "XXX",
+      "dupeId": 501102545,
+      "name": "TEST HOTEL 1",
+      "hotelId": "OEXXX111",
+      "geoCode": {
+        "latitude": 45.4275,
+        "longitude": 12.34111
+      },
+      "address": {
+        "countryCode": "ZZ",
+        "postalCode": "0",
+        "cityName": "FICTITIOUS POINT",
+        "lines": [
+          "TEST STREET 1"
+        ]
+      },
+      "distance": {
+        "value": 2.05,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:23"
+    },
+    {
+      "chainCode": "OE",
+      "iataCode": "XXX",
+      "dupeId": 501102585,
+      "name": "TEST HOTEL 2",
+      "hotelId": "OEXXX222",
+      "geoCode": {
+        "latitude": 45.4275,
+        "longitude": 12.34111
+      },
+      "address": {
+        "countryCode": "ZZ",
+        "postalCode": "0",
+        "cityName": "FICTITIOUS POINT",
+        "lines": [
+          "TEST STREET 2"
+        ]
+      },
+      "distance": {
+        "value": 2.05,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:23"
+    },
+    {
+      "chainCode": "PH",
+      "iataCode": "VCE",
+      "dupeId": 700010149,
+      "name": "METROPOLE HOTEL PREFERRED BOUT",
+      "hotelId": "PHVCEMET",
+      "geoCode": {
+        "latitude": 45.43395,
+        "longitude": 12.34521
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30122",
+        "cityName": "VENICE",
+        "lines": [
+          "CASTELLO 4149"
+        ]
+      },
+      "distance": {
+        "value": 2.09,
+        "unit": "KM"
+      },
+      "masterChainCode": "PV",
+      "lastUpdate": "2025-06-03T10:16:49"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "VCE",
+      "dupeId": 700057808,
+      "name": "HOTEL CA FORMENTA",
+      "hotelId": "YXVCECAF",
+      "geoCode": {
+        "latitude": 45.43169,
+        "longitude": 12.35369
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30122",
+        "cityName": "VENICE",
+        "lines": [
+          "CASTELLO 1560 VIA"
+        ]
+      },
+      "distance": {
+        "value": 2.79,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:19:05"
+    },
+    {
+      "chainCode": "WB",
+      "iataCode": "VCE",
+      "dupeId": 700009556,
+      "name": "HOTEL LONDRA PALACE",
+      "hotelId": "WBVCE431",
+      "geoCode": {
+        "latitude": 45.42594,
+        "longitude": 12.35196
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30122",
+        "cityName": "VENICE",
+        "lines": [
+          "CRIVA DEGLI SCHIAVONI 4171"
+        ]
+      },
+      "distance": {
+        "value": 2.88,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:17:59"
+    },
+    {
+      "chainCode": "MC",
+      "iataCode": "VCE",
+      "dupeId": 700194362,
+      "name": "JW MARRIOTT VENICE RESORT SPA",
+      "hotelId": "MCVCEJWM",
+      "geoCode": {
+        "latitude": 45.41089,
+        "longitude": 12.32242
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30133",
+        "cityName": "VENICE",
+        "lines": [
+          "ISOLA DELLE ROSE - LAGUNA DI SAN MARCO",
+          "PO BOX 731"
+        ]
+      },
+      "distance": {
+        "value": 2.97,
+        "unit": "KM"
+      },
+      "masterChainCode": "EM",
+      "lastUpdate": "2025-06-24T07:11:09"
+    },
+    {
+      "chainCode": "GZ",
+      "iataCode": "VCE",
+      "dupeId": 700098015,
+      "name": "HOTEL LOCANDA CANAL",
+      "hotelId": "GZVCE977",
+      "geoCode": {
+        "latitude": 45.42845,
+        "longitude": 12.35761
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30122",
+        "cityName": "VENICE",
+        "lines": [
+          "FONDAMENTA DEL REMEDIO",
+          "CASTELLO, 4442/C, VENEZIA"
+        ]
+      },
+      "distance": {
+        "value": 3.18,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:16:33"
+    },
+    {
+      "chainCode": "BW",
+      "iataCode": "VCE",
+      "dupeId": 700005273,
+      "name": "BEST WESTERN HOTEL BISANZIO",
+      "hotelId": "BWVCE042",
+      "geoCode": {
+        "latitude": 45.42846,
+        "longitude": 12.35761
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30122",
+        "cityName": "VENEZIA",
+        "lines": [
+          "RIVA DEGLI SCHIAVONI CALLE DEL",
+          "SAINT MARKS SQUARE"
+        ]
+      },
+      "distance": {
+        "value": 3.18,
+        "unit": "KM"
+      },
+      "masterChainCode": "EW",
+      "lastUpdate": "2025-06-03T10:19:18"
+    },
+    {
+      "chainCode": "HA",
+      "iataCode": "VCE",
+      "dupeId": 700005593,
+      "name": "HOTEL CA DEI CONTI",
+      "hotelId": "HAVCECAD",
+      "geoCode": {
+        "latitude": 45.42845,
+        "longitude": 12.35761
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30122",
+        "cityName": "VENICE",
+        "lines": [
+          "FONDAMENTA DEL REMEDIO 4429"
+        ]
+      },
+      "distance": {
+        "value": 3.18,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:16:39"
+    },
+    {
+      "chainCode": "RT",
+      "iataCode": "VCE",
+      "dupeId": 700189273,
+      "name": "LAGARE HOTEL VENEZIA - VENEZIA ISOLA DI ",
+      "hotelId": "RTVCEMGA",
+      "geoCode": {
+        "latitude": 45.45632,
+        "longitude": 12.35526
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30141",
+        "cityName": "VENEZIA ISOLA DI MURANO",
+        "lines": [
+          "RIVA LONGA 49"
+        ]
+      },
+      "distance": {
+        "value": 3.52,
+        "unit": "KM"
+      },
+      "masterChainCode": "RT",
+      "lastUpdate": "2025-06-03T10:17:26"
+    },
+    {
+      "chainCode": "BW",
+      "iataCode": "VCE",
+      "dupeId": 700022907,
+      "name": "BW PREMIER SANT ELENA",
+      "hotelId": "BWVCE238",
+      "geoCode": {
+        "latitude": 45.42616,
+        "longitude": 12.36227
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30132",
+        "cityName": "VENEZIA",
+        "lines": [
+          "CALLE BUCCARI 10"
+        ]
+      },
+      "distance": {
+        "value": 3.61,
+        "unit": "KM"
+      },
+      "masterChainCode": "EW",
+      "lastUpdate": "2025-06-03T10:19:18"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "VCE",
+      "dupeId": 700033605,
+      "name": "HOTEL PANORAMA VCE",
+      "hotelId": "YXVCEPAN",
+      "geoCode": {
+        "latitude": 45.41765,
+        "longitude": 12.36895
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30126",
+        "cityName": "VENICE",
+        "lines": [
+          "PIAZZALE SANTA MARIA ELISABETTA 1"
+        ]
+      },
+      "distance": {
+        "value": 4.48,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:19:05"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "VCE",
+      "dupeId": 700182834,
+      "name": "RIVIERA",
+      "hotelId": "HSVCEAJK",
+      "geoCode": {
+        "latitude": 45.41707,
+        "longitude": 12.36857
+      },
+      "address": {
+        "countryCode": "IT",
+        "cityName": "VENEDIG",
+        "lines": [
+          "GRAN VIALE SANTA MARIA ELISABETTA 5"
+        ]
+      },
+      "distance": {
+        "value": 4.49,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:05"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "VCE",
+      "dupeId": 700061148,
+      "name": "RIGEL",
+      "hotelId": "HSVCEASE",
+      "geoCode": {
+        "latitude": 45.41514,
+        "longitude": 12.36885
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30126",
+        "cityName": "VENEDIG",
+        "lines": [
+          "VIA ENRICO DANDOLO LIDO 13"
+        ]
+      },
+      "distance": {
+        "value": 4.62,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:08"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "VCE",
+      "dupeId": 700030046,
+      "name": "VILLA LAGUNA ALL SUITES",
+      "hotelId": "HSVCEANM",
+      "geoCode": {
+        "latitude": 45.41161,
+        "longitude": 12.36693
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30126",
+        "cityName": "VENEDIG",
+        "lines": [
+          "VIA SANDRO GALLO 6"
+        ]
+      },
+      "distance": {
+        "value": 4.72,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:07"
+    },
+    {
+      "chainCode": "BW",
+      "iataCode": "VCE",
+      "dupeId": 700016840,
+      "name": "BEST WESTERN BIASUTTI HOTELS",
+      "hotelId": "BWVCE067",
+      "geoCode": {
+        "latitude": 45.41461,
+        "longitude": 12.37138
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30126",
+        "cityName": "VENEZIA",
+        "lines": [
+          "VIALE DANDOLO 29"
+        ]
+      },
+      "distance": {
+        "value": 4.82,
+        "unit": "KM"
+      },
+      "masterChainCode": "EW",
+      "lastUpdate": "2025-06-03T10:19:18"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "VCE",
+      "dupeId": 700077004,
+      "name": "HOTEL VILLA PARCO",
+      "hotelId": "YXVCEHVP",
+      "geoCode": {
+        "latitude": 45.4078,
+        "longitude": 12.36435
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30126",
+        "cityName": "VENICE",
+        "lines": [
+          "VIA RODI 1"
+        ]
+      },
+      "distance": {
+        "value": 4.84,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:19:05"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "VCE",
+      "dupeId": 700062057,
+      "name": "VILLA PANNONIA",
+      "hotelId": "HSVCEATR",
+      "geoCode": {
+        "latitude": 45.41516,
+        "longitude": 12.37225
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30126",
+        "cityName": "VENEDIG",
+        "lines": [
+          "VIA DOGE DOMENICO MICHIEL 48"
+        ]
+      },
+      "distance": {
+        "value": 4.85,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:08"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "VCE",
+      "dupeId": 700016680,
+      "name": "VILLA CIPRO",
+      "hotelId": "HSVCEAKX",
+      "geoCode": {
+        "latitude": 45.41636,
+        "longitude": 12.37396
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30126",
+        "cityName": "VENEDIG",
+        "lines": [
+          "VIA ZARA 2"
+        ]
+      },
+      "distance": {
+        "value": 4.89,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:07"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "VCE",
+      "dupeId": 700027012,
+      "name": "RUSSO PALACE HOTEL",
+      "hotelId": "HSVCEANG",
+      "geoCode": {
+        "latitude": 45.42829,
+        "longitude": 12.38033
+      },
+      "address": {
+        "countryCode": "IT",
+        "cityName": "VENEDIG",
+        "lines": [
+          "RIVIERA SAN NICOLO 11"
+        ]
+      },
+      "distance": {
+        "value": 4.9,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:07"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "VCE",
+      "dupeId": 700155948,
+      "name": "LA PERGOLA DI VENEZIA",
+      "hotelId": "HSVCEAHJ",
+      "geoCode": {
+        "latitude": 45.41662,
+        "longitude": 12.37481
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30126",
+        "cityName": "VENEZIA",
+        "lines": [
+          "VIA CIPRO 15"
+        ]
+      },
+      "distance": {
+        "value": 4.94,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:05"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "VCE",
+      "dupeId": 700054375,
+      "name": "LA MERIDIANA",
+      "hotelId": "HSVCEAKB",
+      "geoCode": {
+        "latitude": 45.41039,
+        "longitude": 12.36916
+      },
+      "address": {
+        "countryCode": "IT",
+        "cityName": "VENEDIG",
+        "lines": [
+          "VIA LEPANTO 45"
+        ]
+      },
+      "distance": {
+        "value": 4.94,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:07"
+    },
+    {
+      "chainCode": "FG",
+      "iataCode": "VCE",
+      "dupeId": 700019430,
+      "name": "ALBERGO QUATTRO FONTANE",
+      "hotelId": "FGVCEFON",
+      "geoCode": {
+        "latitude": 45.40769,
+        "longitude": 12.36822
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30126",
+        "cityName": "VENICE",
+        "lines": [
+          "VIA QUATTRO FONTANE 16",
+          "LIDO DI VENEZIA"
+        ]
+      },
+      "distance": {
+        "value": 5.08,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:16:41"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "VCE",
+      "dupeId": 700038028,
+      "name": "LE VILLE DEL LIDO",
+      "hotelId": "HSVCEARP",
+      "geoCode": {
+        "latitude": 45.41157,
+        "longitude": 12.37309
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30126",
+        "cityName": "VENEDIG",
+        "lines": [
+          "VIA BRAGADIN 38"
+        ]
+      },
+      "distance": {
+        "value": 5.12,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:07"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "VCE",
+      "dupeId": 700013893,
+      "name": "VENEZIA 2000",
+      "hotelId": "HSVCEARF",
+      "geoCode": {
+        "latitude": 45.41867,
+        "longitude": 12.37983
+      },
+      "address": {
+        "countryCode": "IT",
+        "cityName": "VENEDIG",
+        "lines": [
+          "LUNGOMARE GABRIELE D ANNUNZIO 2"
+        ]
+      },
+      "distance": {
+        "value": 5.19,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:07"
+    },
+    {
+      "chainCode": "XN",
+      "iataCode": "VCE",
+      "dupeId": 700013555,
+      "name": "HOTEL EXCELSIOR",
+      "hotelId": "XNVCEVEX",
+      "geoCode": {
+        "latitude": 45.40302,
+        "longitude": 12.36514
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30126",
+        "cityName": "VENICE",
+        "lines": [
+          "LUNGOMARE MARCONI 41"
+        ]
+      },
+      "distance": {
+        "value": 5.26,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:32"
+    },
+    {
+      "chainCode": "AC",
+      "iataCode": "VCE",
+      "dupeId": 700169172,
+      "name": "MARCO POLO",
+      "hotelId": "ACVCE394",
+      "geoCode": {
+        "latitude": 45.48623,
+        "longitude": 12.29271
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30030",
+        "cityName": "CAMPALTO",
+        "lines": [
+          "VIA ORLANDA 122"
+        ]
+      },
+      "distance": {
+        "value": 5.79,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:19:28"
+    },
+    {
+      "chainCode": "OI",
+      "iataCode": "VCE",
+      "dupeId": 700130473,
+      "name": "HOTEL CERTOSA - VENEZIA",
+      "hotelId": "OIVCEF21",
+      "geoCode": {
+        "latitude": 45.45241,
+        "longitude": 12.39029
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30141",
+        "cityName": "Venice",
+        "lines": [
+          "ISOLA DELLA CERTOSA",
+          "VENEZIA"
+        ]
+      },
+      "distance": {
+        "value": 5.81,
+        "unit": "KM"
+      },
+      "masterChainCode": "LK",
+      "lastUpdate": "2025-06-03T10:20:15"
+    },
+    {
+      "chainCode": "FG",
+      "iataCode": "VCE",
+      "dupeId": 700026248,
+      "name": "HOTEL RUSSOTT-VENEZIA MESTRE",
+      "hotelId": "FGVCERUS",
+      "geoCode": {
+        "latitude": 45.47824,
+        "longitude": 12.26985
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30173",
+        "cityName": "VENEZIA MESTRE",
+        "lines": [
+          "VIA ORLANDA 4"
+        ]
+      },
+      "distance": {
+        "value": 5.93,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:16:41"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "VCE",
+      "dupeId": 700097719,
+      "name": "DELLE ROSE",
+      "hotelId": "HSVCEACB",
+      "geoCode": {
+        "latitude": 45.48418,
+        "longitude": 12.25783
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30173",
+        "cityName": "MESTRE",
+        "lines": [
+          "VIA MILLOSEVICH, 46"
+        ]
+      },
+      "distance": {
+        "value": 7.05,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:05"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "VCE",
+      "dupeId": 700059171,
+      "name": "GUIDI",
+      "hotelId": "HSVCEAFB",
+      "geoCode": {
+        "latitude": 45.48291,
+        "longitude": 12.25529
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30173",
+        "cityName": "MESTRE",
+        "lines": [
+          "VIA FORTE MARGHERA, 197"
+        ]
+      },
+      "distance": {
+        "value": 7.08,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:05"
+    },
+    {
+      "chainCode": "BW",
+      "iataCode": "VCE",
+      "dupeId": 700061888,
+      "name": "BW TITIAN INNHOTEL VENICE APT-TESSERA",
+      "hotelId": "BWVCE334",
+      "geoCode": {
+        "latitude": 45.50197,
+        "longitude": 12.32473
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30030",
+        "cityName": "TESSERA",
+        "lines": [
+          "VIA ORLANDA 244"
+        ]
+      },
+      "distance": {
+        "value": 7.19,
+        "unit": "KM"
+      },
+      "masterChainCode": "EW",
+      "lastUpdate": "2025-06-03T10:19:18"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "VCE",
+      "dupeId": 700053915,
+      "name": "VENICE RESORT",
+      "hotelId": "HSVCEAHU",
+      "geoCode": {
+        "latitude": 45.503,
+        "longitude": 12.326
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30030",
+        "cityName": "TESSERA",
+        "lines": [
+          "VIA TRIESTINA 153"
+        ]
+      },
+      "distance": {
+        "value": 7.31,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:05"
+    },
+    {
+      "chainCode": "CY",
+      "iataCode": "VCE",
+      "dupeId": 700054569,
+      "name": "COURTYARD VENICE ARPT MARRIOTT",
+      "hotelId": "CYVCECYC",
+      "geoCode": {
+        "latitude": 45.5037,
+        "longitude": 12.32485
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30173",
+        "cityName": "VENEZIA TESSERA",
+        "lines": [
+          "VIA TRIESTINA 170 TESSERA"
+        ]
+      },
+      "distance": {
+        "value": 7.38,
+        "unit": "KM"
+      },
+      "masterChainCode": "EM",
+      "lastUpdate": "2025-09-01T06:17:59"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "VCE",
+      "dupeId": 700027715,
+      "name": "CA DEL BORGO",
+      "hotelId": "HSVCEATD",
+      "geoCode": {
+        "latitude": 45.37259,
+        "longitude": 12.34069
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30126",
+        "cityName": "VENEDIG",
+        "lines": [
+          "PIAZZA DELLE ERBE 8"
+        ]
+      },
+      "distance": {
+        "value": 7.41,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:08"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "VCE",
+      "dupeId": 700169173,
+      "name": "COUNTRY HOUSE COUNTRY CLUB",
+      "hotelId": "HSVCEAVI",
+      "geoCode": {
+        "latitude": 45.50486,
+        "longitude": 12.30431
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30173",
+        "cityName": "FAVARO VENETO",
+        "lines": [
+          "VIA TRIESTINA 242"
+        ]
+      },
+      "distance": {
+        "value": 7.58,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:08"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "VCE",
+      "dupeId": 700136635,
+      "name": "SAN CARLO",
+      "hotelId": "HSVCEADY",
+      "geoCode": {
+        "latitude": 45.48762,
+        "longitude": 12.25075
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30173",
+        "cityName": "MESTRE",
+        "lines": [
+          "VIA FORTE MARGHERA, 131"
+        ]
+      },
+      "distance": {
+        "value": 7.71,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:05"
+    },
+    {
+      "chainCode": "HA",
+      "iataCode": "VCE",
+      "dupeId": 700026501,
+      "name": "ELITE - MESTRE",
+      "hotelId": "HAVCEELI",
+      "geoCode": {
+        "latitude": 45.4881,
+        "longitude": 12.25061
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30173",
+        "cityName": "MESTRE",
+        "lines": [
+          "VIA FORTE MARGHERA, 119"
+        ]
+      },
+      "distance": {
+        "value": 7.75,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:16:39"
+    },
+    {
+      "chainCode": "SX",
+      "iataCode": "VCE",
+      "dupeId": 700077073,
+      "name": "HOTEL AMBASCIATORI-MESTRE",
+      "hotelId": "SXVCEABA",
+      "geoCode": {
+        "latitude": 45.48374,
+        "longitude": 12.24048
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30172",
+        "cityName": "VENICE MESTRE",
+        "lines": [
+          "CORSO DEL POPOLO"
+        ]
+      },
+      "distance": {
+        "value": 8,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:17:36"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "VCE",
+      "dupeId": 700047451,
+      "name": "SWISS INTL MICHELANGELO",
+      "hotelId": "YXVCEMCH",
+      "geoCode": {
+        "latitude": 45.49024,
+        "longitude": 12.24801
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30173",
+        "cityName": "MESTRE",
+        "lines": [
+          "VIA FORTE MARGHERA 69",
+          "PIAZZA XXVII OTTOBRE"
+        ]
+      },
+      "distance": {
+        "value": 8.06,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:19:05"
+    },
+    {
+      "chainCode": "OI",
+      "iataCode": "VCE",
+      "dupeId": 700040953,
+      "name": "ANNIA PARK HOTEL - TESSERA",
+      "hotelId": "OIVCEEUP",
+      "geoCode": {
+        "latitude": 45.50998,
+        "longitude": 12.33752
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30173",
+        "cityName": "TESSERA",
+        "lines": [
+          "VIA TRIESTINA 161"
+        ]
+      },
+      "distance": {
+        "value": 8.19,
+        "unit": "KM"
+      },
+      "masterChainCode": "LK",
+      "lastUpdate": "2025-06-03T10:20:15"
+    },
+    {
+      "chainCode": "ON",
+      "iataCode": "VCE",
+      "dupeId": 700032816,
+      "name": "HOTEL LUGANO TORRETTA-VENEZIA",
+      "hotelId": "ONVCELUG",
+      "geoCode": {
+        "latitude": 45.4799,
+        "longitude": 12.23202
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30175",
+        "cityName": "VENEZIA",
+        "lines": [
+          "VIA G RIZZARDI 11",
+          "MARGHERA"
+        ]
+      },
+      "distance": {
+        "value": 8.26,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:16:11"
+    },
+    {
+      "chainCode": "HA",
+      "iataCode": "VCE",
+      "dupeId": 700008203,
+      "name": "HOLIDAY HOTEL - FAVARO VENETO",
+      "hotelId": "HAVCEHOL",
+      "geoCode": {
+        "latitude": 45.50472,
+        "longitude": 12.27076
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30030",
+        "cityName": "VENICE",
+        "lines": [
+          "38, VIA DELL'ESSICCATOIO"
+        ]
+      },
+      "distance": {
+        "value": 8.37,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:16:39"
+    },
+    {
+      "chainCode": "SX",
+      "iataCode": "VCE",
+      "dupeId": 700030908,
+      "name": "HOTEL TRITONE",
+      "hotelId": "SXVCETRI",
+      "geoCode": {
+        "latitude": 45.4829,
+        "longitude": 12.23337
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30171",
+        "cityName": "VENICE MESTRE",
+        "lines": [
+          "VIA STAZIONE 16"
+        ]
+      },
+      "distance": {
+        "value": 8.37,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:17:36"
+    },
+    {
+      "chainCode": "BW",
+      "iataCode": "VCE",
+      "dupeId": 700026246,
+      "name": "BEST WESTERN HOTEL BOLOGNA",
+      "hotelId": "BWVCE152",
+      "geoCode": {
+        "latitude": 45.48274,
+        "longitude": 12.23211
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30171",
+        "cityName": "VENEZIA MESTRE",
+        "lines": [
+          "VIA PIAVE 214"
+        ]
+      },
+      "distance": {
+        "value": 8.44,
+        "unit": "KM"
+      },
+      "masterChainCode": "EW",
+      "lastUpdate": "2025-06-03T10:19:18"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "VCE",
+      "dupeId": 700008463,
+      "name": "GRANDE ALBERGO AUSONIA - HUNGARIA",
+      "hotelId": "HSVCEAKN",
+      "geoCode": {
+        "latitude": 45.36281,
+        "longitude": 12.29872
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30126",
+        "cityName": "VENEDIG",
+        "lines": [
+          "GRAN VIALE SANTA MARIA ELISABETTA 28"
+        ]
+      },
+      "distance": {
+        "value": 8.45,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:07"
+    },
+    {
+      "chainCode": "HA",
+      "iataCode": "VCE",
+      "dupeId": 700031481,
+      "name": "HOTEL PIAVE HOTEL",
+      "hotelId": "HAVCEPIA",
+      "geoCode": {
+        "latitude": 45.48552,
+        "longitude": 12.23451
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30174",
+        "cityName": "MESTRE VENEZIA",
+        "lines": [
+          "VIA COL MOSCHIN 6 10"
+        ]
+      },
+      "distance": {
+        "value": 8.48,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:16:36"
+    },
+    {
+      "chainCode": "SC",
+      "iataCode": "VCE",
+      "dupeId": 700077074,
+      "name": "HOTEL VILLA ADELE-MARGHERA",
+      "hotelId": "SCVCE101",
+      "geoCode": {
+        "latitude": 45.47854,
+        "longitude": 12.2264
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30175",
+        "cityName": "MARGHERA",
+        "lines": [
+          "VIA PE GELAIN 10"
+        ]
+      },
+      "distance": {
+        "value": 8.54,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:17:34"
+    },
+    {
+      "chainCode": "OI",
+      "iataCode": "VCE",
+      "dupeId": 700049621,
+      "name": "HOTEL AL VIVIT - MESTRE",
+      "hotelId": "OIVCEBQW",
+      "geoCode": {
+        "latitude": 45.49301,
+        "longitude": 12.24087
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30174",
+        "cityName": "MESTRE",
+        "lines": [
+          "PIAZZA FERRETTO, 73"
+        ]
+      },
+      "distance": {
+        "value": 8.67,
+        "unit": "KM"
+      },
+      "masterChainCode": "LK",
+      "lastUpdate": "2025-06-03T10:20:15"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "VCE",
+      "dupeId": 700038718,
+      "name": "AMBASCIATA",
+      "hotelId": "HSVCEABB",
+      "geoCode": {
+        "latitude": 45.485,
+        "longitude": 12.229
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30171",
+        "cityName": "MESTRE",
+        "lines": [
+          "VIA FAGARE 19"
+        ]
+      },
+      "distance": {
+        "value": 8.78,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:03"
+    },
+    {
+      "chainCode": "CH",
+      "iataCode": "VCE",
+      "dupeId": 700038386,
+      "name": "HOTEL GARIBALDI - MESTRE",
+      "hotelId": "CHVCEH09",
+      "geoCode": {
+        "latitude": 45.49703,
+        "longitude": 12.2448
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30173",
+        "cityName": "MESTRE",
+        "lines": [
+          "24 VIALE GARIBALDI"
+        ]
+      },
+      "distance": {
+        "value": 8.79,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:19:19"
+    },
+    {
+      "chainCode": "HI",
+      "iataCode": "VCE",
+      "dupeId": 700026247,
+      "name": "HOLIDAY INN MESTRE-MARGHERA",
+      "hotelId": "HIVCE9F8",
+      "geoCode": {
+        "latitude": 45.47374,
+        "longitude": 12.21355
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30175",
+        "cityName": "VENICE",
+        "lines": [
+          "ROTONDA ROMEA 1-2"
+        ]
+      },
+      "distance": {
+        "value": 9.16,
+        "unit": "KM"
+      },
+      "masterChainCode": "6C",
+      "lastUpdate": "2025-06-03T10:19:50"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "VCE",
+      "dupeId": 700045523,
+      "name": "KAPPA",
+      "hotelId": "HSVCEAIP",
+      "geoCode": {
+        "latitude": 45.50549,
+        "longitude": 12.25025
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30174",
+        "cityName": "MESTRE",
+        "lines": [
+          "VIA TREZZO, 8"
+        ]
+      },
+      "distance": {
+        "value": 9.27,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:05"
+    },
+    {
+      "chainCode": "BW",
+      "iataCode": "VCE",
+      "dupeId": 700147209,
+      "name": "BEST WESTERN PLUS QUID HOTEL",
+      "hotelId": "BWVCE294",
+      "geoCode": {
+        "latitude": 45.4986,
+        "longitude": 12.23732
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30174",
+        "cityName": "VENICE",
+        "lines": [
+          "VIA TERRAGLIO 15"
+        ]
+      },
+      "distance": {
+        "value": 9.31,
+        "unit": "KM"
+      },
+      "masterChainCode": "EW",
+      "lastUpdate": "2025-06-03T10:19:18"
+    },
+    {
+      "chainCode": "FG",
+      "iataCode": "VCE",
+      "dupeId": 700059604,
+      "name": "PARK HOTEL AI PINI",
+      "hotelId": "FGVCEAIP",
+      "geoCode": {
+        "latitude": 45.48645,
+        "longitude": 12.21787
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30174",
+        "cityName": "VENEZIA",
+        "lines": [
+          "VIA MIRANESE 176"
+        ]
+      },
+      "distance": {
+        "value": 9.58,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:16:41"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "VCE",
+      "dupeId": 700031566,
+      "name": "CLUB",
+      "hotelId": "HSVCEACH",
+      "geoCode": {
+        "latitude": 45.50491,
+        "longitude": 12.237
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30174",
+        "cityName": "MESTRE",
+        "lines": [
+          "VIA VILLAFRANCA,1"
+        ]
+      },
+      "distance": {
+        "value": 9.85,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:05"
+    },
+    {
+      "chainCode": "RT",
+      "iataCode": "VCE",
+      "dupeId": 700051677,
+      "name": "NOVOTEL VENEZIA MESTRE",
+      "hotelId": "RTVCENOV",
+      "geoCode": {
+        "latitude": 45.50377,
+        "longitude": 12.23465
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "30174",
+        "cityName": "VENEZIA MESTRE",
+        "lines": [
+          "VIA CECCHERINI  21"
+        ]
+      },
+      "distance": {
+        "value": 9.88,
+        "unit": "KM"
+      },
+      "masterChainCode": "RT",
+      "lastUpdate": "2025-06-03T10:17:26"
+    }
+  ],
+  "meta": {
+    "count": 134,
+    "links": {
+      "self": "https://test.api.amadeus.com/v1/reference-data/locations/hotels/by-city?cityCode=VCE&radius=10&radiusUnit=KM"
+    }
+  }
+}

@@ -1,0 +1,454 @@
+{
+  "data": [
+    {
+      "chainCode": "OX",
+      "iataCode": "MIL",
+      "dupeId": 501422850,
+      "name": "MOXY BY MARRIOTT MALPENSA ARPT",
+      "hotelId": "OXMILOXX",
+      "geoCode": {
+        "latitude": 45.63085,
+        "longitude": 8.71336
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "21010",
+        "cityName": "MILAN",
+        "lines": [
+          "MILAN MALPENSA AIRPORT TERMINA"
+        ]
+      },
+      "distance": {
+        "value": 0.39,
+        "unit": "KM"
+      },
+      "masterChainCode": "EM",
+      "lastUpdate": "2025-06-03T10:16:19"
+    },
+    {
+      "chainCode": "SI",
+      "iataCode": "MXP",
+      "dupeId": 700144325,
+      "name": "SHERATON MALPENSA AIRPORT MILAN",
+      "hotelId": "SIMXP138",
+      "geoCode": {
+        "latitude": 45.63128,
+        "longitude": 8.72286
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "21010",
+        "cityName": "MALPENSA",
+        "lines": [
+          "MALPENSA TERMINAL",
+          "1 SS 336"
+        ]
+      },
+      "distance": {
+        "value": 0.74,
+        "unit": "KM"
+      },
+      "masterChainCode": "EM",
+      "lastUpdate": "2025-07-14T06:34:48"
+    },
+    {
+      "chainCode": "XN",
+      "iataCode": "MIL",
+      "dupeId": 700149069,
+      "name": "IDEA HOTEL MILANO MALPENSA",
+      "hotelId": "XNMIL001",
+      "geoCode": {
+        "latitude": 45.63746,
+        "longitude": 8.70919
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "21019",
+        "cityName": "SOMMA LOMBARDO",
+        "lines": [
+          "VIA DELLA CHIESA 27"
+        ]
+      },
+      "distance": {
+        "value": 1.19,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:31"
+    },
+    {
+      "chainCode": "SX",
+      "iataCode": "MXP",
+      "dupeId": 700097812,
+      "name": "FIRST HOTEL MALPENSA",
+      "hotelId": "SXMXPFIR",
+      "geoCode": {
+        "latitude": 45.63781,
+        "longitude": 8.706
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "21019",
+        "cityName": "SOMMA LOMBARDO",
+        "lines": [
+          "VIA BARACCA 34",
+          "CASE NUOVE"
+        ]
+      },
+      "distance": {
+        "value": 1.34,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:17:41"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "MXP",
+      "dupeId": 700098528,
+      "name": "HOTEL VILLA MALPENSA",
+      "hotelId": "YXMXPHVM",
+      "geoCode": {
+        "latitude": 45.62491,
+        "longitude": 8.69783
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "21010",
+        "cityName": "VIZZOLA TICINO",
+        "lines": [
+          "VIA DON A SACCONAGO 1"
+        ]
+      },
+      "distance": {
+        "value": 1.36,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:54"
+    },
+    {
+      "chainCode": "HI",
+      "iataCode": "MIL",
+      "dupeId": 700117465,
+      "name": "HOLIDAY INN EXP MALPENSA ARPT",
+      "hotelId": "HIMIL88F",
+      "geoCode": {
+        "latitude": 45.63976,
+        "longitude": 8.71231
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "VA,21019",
+        "cityName": "SOMMA LOMBARDO",
+        "lines": [
+          "VIA  DE PINEDO ANG VIA OLDRINI",
+          "CASE NUOVE"
+        ]
+      },
+      "distance": {
+        "value": 1.38,
+        "unit": "KM"
+      },
+      "masterChainCode": "6C",
+      "lastUpdate": "2025-06-03T10:17:03"
+    },
+    {
+      "chainCode": "RT",
+      "iataCode": "MXP",
+      "dupeId": 700051776,
+      "name": "NOVOTEL MILAN MALPENSA AIRPORT",
+      "hotelId": "RTMXPMAL",
+      "geoCode": {
+        "latitude": 45.64243,
+        "longitude": 8.75956
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "21010",
+        "cityName": "MILANO MALPENSA",
+        "lines": [
+          "VIA AL CAMPO"
+        ]
+      },
+      "distance": {
+        "value": 3.84,
+        "unit": "KM"
+      },
+      "masterChainCode": "RT",
+      "lastUpdate": "2025-06-03T10:17:23"
+    },
+    {
+      "chainCode": "BW",
+      "iataCode": "MXX",
+      "dupeId": 700039005,
+      "name": "BEST WESTERN  MORA HOTELL SPA",
+      "hotelId": "BWMXX156",
+      "geoCode": {
+        "latitude": 45.6434,
+        "longitude": 8.75919
+      },
+      "address": {
+        "countryCode": "SE",
+        "postalCode": "79230",
+        "cityName": "MORA",
+        "lines": [
+          "STRANDGATAN 12"
+        ]
+      },
+      "distance": {
+        "value": 3.86,
+        "unit": "KM"
+      },
+      "masterChainCode": "EW",
+      "lastUpdate": "2025-06-03T10:17:02"
+    },
+    {
+      "chainCode": "BW",
+      "iataCode": "MXP",
+      "dupeId": 700057899,
+      "name": "BW CAVALIERI DELLA  CORONA",
+      "hotelId": "BWMXP235",
+      "geoCode": {
+        "latitude": 45.6434,
+        "longitude": 8.75919
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "21010",
+        "cityName": "MALPENSA",
+        "lines": [
+          "VIA BAROLDO 12"
+        ]
+      },
+      "distance": {
+        "value": 3.86,
+        "unit": "KM"
+      },
+      "masterChainCode": "EW",
+      "lastUpdate": "2025-06-03T10:17:44"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "MXP",
+      "dupeId": 700098591,
+      "name": "MALPENSA INN HOTEL",
+      "hotelId": "YXMXPHMI",
+      "geoCode": {
+        "latitude": 45.58375,
+        "longitude": 8.72223
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "21010",
+        "cityName": "LONATE POZZOLO",
+        "lines": [
+          "VIA SANT ANNA 25",
+          "FRAZIONE TORNEVANTO"
+        ]
+      },
+      "distance": {
+        "value": 4.9,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:54"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "MXP",
+      "dupeId": 700056556,
+      "name": "AIRPORT HOTEL MALPENSA",
+      "hotelId": "YXMXP185",
+      "geoCode": {
+        "latitude": 45.58185,
+        "longitude": 8.71341
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "21010",
+        "cityName": "LONATE POZZOLO",
+        "lines": [
+          "VIA PIRANDELLO 16",
+          "TORNAVENTO"
+        ]
+      },
+      "distance": {
+        "value": 5.08,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:54"
+    },
+    {
+      "chainCode": "ON",
+      "iataCode": "MXP",
+      "dupeId": 700170617,
+      "name": "HOTEL VILLA DELLE ROSE",
+      "hotelId": "ONMXPVDR",
+      "geoCode": {
+        "latitude": 45.58794,
+        "longitude": 8.67686
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "28047",
+        "cityName": "OLEGGIO",
+        "lines": [
+          "VIA GALLARATE 136"
+        ]
+      },
+      "distance": {
+        "value": 5.3,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:21:53"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "MXP",
+      "dupeId": 700098469,
+      "name": "TRE LEONI",
+      "hotelId": "HSMXPABQ",
+      "geoCode": {
+        "latitude": 45.68366,
+        "longitude": 8.71129
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "21019",
+        "cityName": "SOMMA LOMBARDO",
+        "lines": [
+          "VIA MASPERO, 10"
+        ]
+      },
+      "distance": {
+        "value": 6.25,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:58"
+    },
+    {
+      "chainCode": "RA",
+      "iataCode": "MXP",
+      "dupeId": 700081823,
+      "name": "RAMADA MALPENSA",
+      "hotelId": "RAMXPNRN",
+      "geoCode": {
+        "latitude": 45.59255,
+        "longitude": 8.65001
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "28047",
+        "cityName": "OLEGGIO MALPENSA AREA",
+        "lines": [
+          "VIA PER GALLARATE 116 A"
+        ]
+      },
+      "distance": {
+        "value": 6.38,
+        "unit": "KM"
+      },
+      "masterChainCode": "WR",
+      "lastUpdate": "2025-06-03T10:17:09"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "MXP",
+      "dupeId": 700056785,
+      "name": "ASTORIA HOTEL",
+      "hotelId": "YXMXP341",
+      "geoCode": {
+        "latitude": 45.66274,
+        "longitude": 8.79346
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "21013",
+        "cityName": "GALLARATE",
+        "lines": [
+          "PIAZZA RISORGIMENTO 9A"
+        ]
+      },
+      "distance": {
+        "value": 7.25,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:54"
+    },
+    {
+      "chainCode": "GZ",
+      "iataCode": "MXP",
+      "dupeId": 700098293,
+      "name": "HOTEL MONTELAGO",
+      "hotelId": "GZMXPHMG",
+      "geoCode": {
+        "latitude": 45.69577,
+        "longitude": 8.76179
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "21010",
+        "cityName": "TERNATE VARESE",
+        "lines": [
+          "VIA ROMA 32 / 34"
+        ]
+      },
+      "distance": {
+        "value": 8.42,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-09-08T09:00:09"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "MXP",
+      "dupeId": 700077063,
+      "name": "HOTEL PINETA",
+      "hotelId": "YXMXP350",
+      "geoCode": {
+        "latitude": 45.6293,
+        "longitude": 8.83928
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "21052",
+        "cityName": "BUSTO ARSIZIO",
+        "lines": [
+          "CORSO SEMPIONE 150"
+        ]
+      },
+      "distance": {
+        "value": 9.67,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:54"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "MXP",
+      "dupeId": 700097891,
+      "name": "HORTENSIA",
+      "hotelId": "HSMXPABK",
+      "geoCode": {
+        "latitude": 45.61885,
+        "longitude": 8.84831
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "21052",
+        "cityName": "BUSTO ARSIZIO",
+        "lines": [
+          "VIA ADUA 15"
+        ]
+      },
+      "distance": {
+        "value": 10.42,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:58"
+    }
+  ],
+  "meta": {
+    "count": 18,
+    "links": {
+      "self": "https://test.api.amadeus.com/v1/reference-data/locations/hotels/by-city?cityCode=MXP&radius=10&radiusUnit=KM"
+    }
+  }
+}

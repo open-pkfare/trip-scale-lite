@@ -1,0 +1,3064 @@
+{
+  "data": [
+    {
+      "chainCode": "YX",
+      "iataCode": "FLR",
+      "dupeId": 700011609,
+      "name": "RAPALLO HOTEL",
+      "hotelId": "YXFLRHMG",
+      "geoCode": {
+        "latitude": 43.78095,
+        "longitude": 11.25542
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50129",
+        "cityName": "FLORENCE",
+        "lines": [
+          "CATERINA DALESSANDRIA 7"
+        ]
+      },
+      "distance": {
+        "value": 0.16,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:31"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "FLR",
+      "dupeId": 700097806,
+      "name": "HOTEL FEDORA",
+      "hotelId": "YXFLRH25",
+      "geoCode": {
+        "latitude": 43.78174,
+        "longitude": 11.25323
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50129",
+        "cityName": "FLORENCE",
+        "lines": [
+          "LAVAGNINI 45",
+          "VIALE SPARTACO"
+        ]
+      },
+      "distance": {
+        "value": 0.16,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:31"
+    },
+    {
+      "chainCode": "OI",
+      "iataCode": "FLR",
+      "dupeId": 700129970,
+      "name": "HOTEL BONIFACIO",
+      "hotelId": "OIFLRD21",
+      "geoCode": {
+        "latitude": 43.78183,
+        "longitude": 11.25812
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50129",
+        "cityName": "Florence",
+        "lines": [
+          "VIA BONIFACIO LUPI, 21",
+          "FIRENZE"
+        ]
+      },
+      "distance": {
+        "value": 0.25,
+        "unit": "KM"
+      },
+      "masterChainCode": "LK",
+      "lastUpdate": "2025-06-03T10:20:17"
+    },
+    {
+      "chainCode": "GZ",
+      "iataCode": "FLR",
+      "dupeId": 700006000,
+      "name": "HOTEL CIMABUE",
+      "hotelId": "GZFLRHCI",
+      "geoCode": {
+        "latitude": 43.78136,
+        "longitude": 11.25864
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50129",
+        "cityName": "FLORENCE",
+        "lines": [
+          "VIA BONIFACIO LUPI 7"
+        ]
+      },
+      "distance": {
+        "value": 0.31,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:19:54"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "FLR",
+      "dupeId": 700027573,
+      "name": "PALAZZO RICASOLI",
+      "hotelId": "YXFLRC20",
+      "geoCode": {
+        "latitude": 43.78231,
+        "longitude": 11.25942
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50129",
+        "cityName": "FLORENCE",
+        "lines": [
+          "2 VIA DELLE MANTELLATE"
+        ]
+      },
+      "distance": {
+        "value": 0.35,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:47"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "FLR",
+      "dupeId": 700030513,
+      "name": "HOTEL CARAVAGGIO",
+      "hotelId": "YXFLR154",
+      "geoCode": {
+        "latitude": 43.779,
+        "longitude": 11.25393
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50129",
+        "cityName": "FLORENCE",
+        "lines": [
+          "PIAZZA INDIPENDENZA 5"
+        ]
+      },
+      "distance": {
+        "value": 0.38,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:47"
+    },
+    {
+      "chainCode": "WV",
+      "iataCode": "FLR",
+      "dupeId": 700018695,
+      "name": "ROOM MATE LUCA",
+      "hotelId": "WVFLRCAR",
+      "geoCode": {
+        "latitude": 43.7789,
+        "longitude": 11.25639
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50129",
+        "cityName": "FLORENCE",
+        "lines": [
+          "VIA XXVII APRILE 3"
+        ]
+      },
+      "distance": {
+        "value": 0.4,
+        "unit": "KM"
+      },
+      "masterChainCode": "TC",
+      "lastUpdate": "2025-06-03T10:18:23"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "FLR",
+      "dupeId": 700017496,
+      "name": "ORTO DE MEDICI",
+      "hotelId": "YXFLR834",
+      "geoCode": {
+        "latitude": 43.77885,
+        "longitude": 11.25757
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50129",
+        "cityName": "FLORENCE",
+        "lines": [
+          "30 VIA SAN GALLO"
+        ]
+      },
+      "distance": {
+        "value": 0.44,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:47"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "FLR",
+      "dupeId": 700032130,
+      "name": "HOTEL KURSAAL AND AUSONIA",
+      "hotelId": "YXFLRKUR",
+      "geoCode": {
+        "latitude": 43.77845,
+        "longitude": 11.25346
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50123",
+        "cityName": "FIRENZE",
+        "lines": [
+          "VIA NAZIONALE 24"
+        ]
+      },
+      "distance": {
+        "value": 0.45,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:34"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "FLR",
+      "dupeId": 700032131,
+      "name": "HOTEL GIGLIO",
+      "hotelId": "YXFLRGIG",
+      "geoCode": {
+        "latitude": 43.78102,
+        "longitude": 11.26059
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50129",
+        "cityName": "FLORENCE",
+        "lines": [
+          "VIA CAVOUR 85"
+        ]
+      },
+      "distance": {
+        "value": 0.47,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:31"
+    },
+    {
+      "chainCode": "ON",
+      "iataCode": "FLR",
+      "dupeId": 700097947,
+      "name": "HOTEL KRISTAL",
+      "hotelId": "ONFLRKRI",
+      "geoCode": {
+        "latitude": 43.77936,
+        "longitude": 11.25931
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50013",
+        "cityName": "CAMPI BISENZIO",
+        "lines": [
+          "VIA BARBERINESE 109"
+        ]
+      },
+      "distance": {
+        "value": 0.48,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:21:29"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "FLR",
+      "dupeId": 700097757,
+      "name": "EDEN",
+      "hotelId": "HSFLRAQB",
+      "geoCode": {
+        "latitude": 43.77806,
+        "longitude": 11.25305
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50123",
+        "cityName": "FLORENZ",
+        "lines": [
+          "VIA NAZIONALE 55"
+        ]
+      },
+      "distance": {
+        "value": 0.5,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:28"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "FLR",
+      "dupeId": 700169994,
+      "name": "DEI MACCHIAIOLI",
+      "hotelId": "HSFLRAGK",
+      "geoCode": {
+        "latitude": 43.78188,
+        "longitude": 11.26137
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50129",
+        "cityName": "FLORENCE",
+        "lines": [
+          "VIA CAMILLO CAVOUR 21"
+        ]
+      },
+      "distance": {
+        "value": 0.51,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:21"
+    },
+    {
+      "chainCode": "UI",
+      "iataCode": "FLR",
+      "dupeId": 700025115,
+      "name": "SAN GALLO PALACE HOTEL",
+      "hotelId": "UIFLRSGP",
+      "geoCode": {
+        "latitude": 43.78482,
+        "longitude": 11.26106
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50129",
+        "cityName": "FLORENCE",
+        "lines": [
+          "VIA LORENZO IL MAGNIFICO 2"
+        ]
+      },
+      "distance": {
+        "value": 0.55,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:08"
+    },
+    {
+      "chainCode": "GZ",
+      "iataCode": "FLR",
+      "dupeId": 700005494,
+      "name": "HOTEL BOTTICELLI",
+      "hotelId": "GZFLR051",
+      "geoCode": {
+        "latitude": 43.77678,
+        "longitude": 11.25489
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50123",
+        "cityName": "FLORENCE",
+        "lines": [
+          "VIA TADDEA 8"
+        ]
+      },
+      "distance": {
+        "value": 0.62,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:19:52"
+    },
+    {
+      "chainCode": "HA",
+      "iataCode": "FLR",
+      "dupeId": 700050263,
+      "name": "PALAZZO VECCHIO",
+      "hotelId": "HAFLRVEC",
+      "geoCode": {
+        "latitude": 43.77796,
+        "longitude": 11.24984
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50123",
+        "cityName": "FIRENZE",
+        "lines": [
+          "VIA BERNARDO CENNINI 4"
+        ]
+      },
+      "distance": {
+        "value": 0.64,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:19:34"
+    },
+    {
+      "chainCode": "TS",
+      "iataCode": "FLR",
+      "dupeId": 700097912,
+      "name": "HOTEL IL GUELFO BIANCO",
+      "hotelId": "TSFLR286",
+      "geoCode": {
+        "latitude": 43.77657,
+        "longitude": 11.25706
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50129",
+        "cityName": "FLORENCE",
+        "lines": [
+          "VIA CAVOUR 29"
+        ]
+      },
+      "distance": {
+        "value": 0.66,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:17:51"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "FLR",
+      "dupeId": 700020928,
+      "name": "HOTEL GIOIA",
+      "hotelId": "YXFLRH27",
+      "geoCode": {
+        "latitude": 43.77644,
+        "longitude": 11.25695
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50129",
+        "cityName": "FIRENZE",
+        "lines": [
+          "VIA CAVOUR  25"
+        ]
+      },
+      "distance": {
+        "value": 0.68,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:31"
+    },
+    {
+      "chainCode": "UI",
+      "iataCode": "FLR",
+      "dupeId": 700009650,
+      "name": "MACHIAVELLI PALACE HOTEL",
+      "hotelId": "UIFLRC2H",
+      "geoCode": {
+        "latitude": 43.77684,
+        "longitude": 11.25152
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50123",
+        "cityName": "FLORENCE",
+        "lines": [
+          "VIA NAZIONALE 10"
+        ]
+      },
+      "distance": {
+        "value": 0.68,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:08"
+    },
+    {
+      "chainCode": "GZ",
+      "iataCode": "FLR",
+      "dupeId": 700014970,
+      "name": "HOTEL SEMPIONE",
+      "hotelId": "GZFLRH22",
+      "geoCode": {
+        "latitude": 43.77682,
+        "longitude": 11.25142
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50123",
+        "cityName": "FLORENCE",
+        "lines": [
+          "VIA NAZIONALE 15"
+        ]
+      },
+      "distance": {
+        "value": 0.68,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:19:54"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "FLR",
+      "dupeId": 700030476,
+      "name": "HOTEL COLOMBA",
+      "hotelId": "YXFLRBN5",
+      "geoCode": {
+        "latitude": 43.77625,
+        "longitude": 11.2568
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50129",
+        "cityName": "FLORENCE",
+        "lines": [
+          "VIA CAVOUR 21"
+        ]
+      },
+      "distance": {
+        "value": 0.69,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:47"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "FLR",
+      "dupeId": 700005112,
+      "name": "HOTEL BEATRICE",
+      "hotelId": "YXFLRHBE",
+      "geoCode": {
+        "latitude": 43.77722,
+        "longitude": 11.24991
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50123",
+        "cityName": "FLORENCE",
+        "lines": [
+          "VIA FIUME 11"
+        ]
+      },
+      "distance": {
+        "value": 0.7,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:31"
+    },
+    {
+      "chainCode": "HA",
+      "iataCode": "FLR",
+      "dupeId": 700004725,
+      "name": "ASCOT",
+      "hotelId": "HAFLRASC",
+      "geoCode": {
+        "latitude": 43.7766,
+        "longitude": 11.25106
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50123",
+        "cityName": "FLORENCE",
+        "lines": [
+          "VIA NAZIONALE 8"
+        ]
+      },
+      "distance": {
+        "value": 0.72,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:19:34"
+    },
+    {
+      "chainCode": "CH",
+      "iataCode": "FLR",
+      "dupeId": 700097443,
+      "name": "HOTEL ANNABELLA",
+      "hotelId": "CHFLRH49",
+      "geoCode": {
+        "latitude": 43.77635,
+        "longitude": 11.25057
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50100",
+        "cityName": "FLORENCE",
+        "lines": [
+          "VIA FIUME 5"
+        ]
+      },
+      "distance": {
+        "value": 0.76,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:16:03"
+    },
+    {
+      "chainCode": "FG",
+      "iataCode": "FLR",
+      "dupeId": 700164796,
+      "name": "AFFITTACAMERE CASA BILLI",
+      "hotelId": "FGFLRBIL",
+      "geoCode": {
+        "latitude": 43.77578,
+        "longitude": 11.25224
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50123",
+        "cityName": "FLORENCE",
+        "lines": [
+          "VIA FAENZA 12"
+        ]
+      },
+      "distance": {
+        "value": 0.77,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:16:38"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "FLR",
+      "dupeId": 700004325,
+      "name": "ALINARI",
+      "hotelId": "HSFLRARS",
+      "geoCode": {
+        "latitude": 43.77624,
+        "longitude": 11.25061
+      },
+      "address": {
+        "countryCode": "IT",
+        "cityName": "FLORENZ",
+        "lines": [
+          "LARGO FRATELLI ALINARI 15"
+        ]
+      },
+      "distance": {
+        "value": 0.77,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:28"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "FLR",
+      "dupeId": 700071708,
+      "name": "CORTE DEI MEDICI",
+      "hotelId": "HSFLRAPH",
+      "geoCode": {
+        "latitude": 43.77543,
+        "longitude": 11.254
+      },
+      "address": {
+        "countryCode": "IT",
+        "cityName": "FLORENZ",
+        "lines": [
+          "VIA DEL CANTO DEI NELLI 2"
+        ]
+      },
+      "distance": {
+        "value": 0.78,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:28"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "FLR",
+      "dupeId": 700097642,
+      "name": "HOTEL CITY",
+      "hotelId": "YXFLRH29",
+      "geoCode": {
+        "latitude": 43.77553,
+        "longitude": 11.25193
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50123",
+        "cityName": "FLORENCE",
+        "lines": [
+          "VIA SANT ANTONINO 18"
+        ]
+      },
+      "distance": {
+        "value": 0.8,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:31"
+    },
+    {
+      "chainCode": "GZ",
+      "iataCode": "FLR",
+      "dupeId": 700073873,
+      "name": "HOTEL MORANDI ALLA CROCETTA",
+      "hotelId": "GZFLR703",
+      "geoCode": {
+        "latitude": 43.77689,
+        "longitude": 11.26156
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50121",
+        "cityName": "FLORENCE",
+        "lines": [
+          "VIA LAURA 50"
+        ]
+      },
+      "distance": {
+        "value": 0.8,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:19:52"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "FLR",
+      "dupeId": 700009119,
+      "name": "HOTEL COSIMO DE MEDICI",
+      "hotelId": "YXFLRH14",
+      "geoCode": {
+        "latitude": 43.77603,
+        "longitude": 11.24995
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50123",
+        "cityName": "FLORENCE",
+        "lines": [
+          "LARGO FRATELLI ALINARI 15"
+        ]
+      },
+      "distance": {
+        "value": 0.81,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:31"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "FLR",
+      "dupeId": 700145698,
+      "name": "ART ATELIER",
+      "hotelId": "HSFLRAJH",
+      "geoCode": {
+        "latitude": 43.77541,
+        "longitude": 11.25181
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50123",
+        "cityName": "FLORENZ",
+        "lines": [
+          "VIA DELL AMORINO 20"
+        ]
+      },
+      "distance": {
+        "value": 0.82,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:28"
+    },
+    {
+      "chainCode": "GZ",
+      "iataCode": "FLR",
+      "dupeId": 700017181,
+      "name": "HOTEL MERIDIANA",
+      "hotelId": "GZFLR694",
+      "geoCode": {
+        "latitude": 43.7853,
+        "longitude": 11.26552
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50019",
+        "cityName": "FLORENCE",
+        "lines": [
+          "VIALE DON MINZONI 25"
+        ]
+      },
+      "distance": {
+        "value": 0.9,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:19:52"
+    },
+    {
+      "chainCode": "WV",
+      "iataCode": "FLR",
+      "dupeId": 700029155,
+      "name": "ALAMANNI HOTEL",
+      "hotelId": "WVFLR400",
+      "geoCode": {
+        "latitude": 43.77853,
+        "longitude": 11.24505
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50123",
+        "cityName": "FLORENCE",
+        "lines": [
+          "VIA LUIGI ALAMANNI 35"
+        ]
+      },
+      "distance": {
+        "value": 0.91,
+        "unit": "KM"
+      },
+      "masterChainCode": "TC",
+      "lastUpdate": "2025-06-03T10:18:23"
+    },
+    {
+      "chainCode": "CH",
+      "iataCode": "FLR",
+      "dupeId": 700073869,
+      "name": "RESIDENCE HILDA",
+      "hotelId": "CHFLRHRH",
+      "geoCode": {
+        "latitude": 43.7742,
+        "longitude": 11.25795
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50122",
+        "cityName": "FIRENZE",
+        "lines": [
+          "VIA SERVI 40"
+        ]
+      },
+      "distance": {
+        "value": 0.94,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:16:03"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "FLR",
+      "dupeId": 700022909,
+      "name": "HOTEL DELLE NAZIONI FLORENCE",
+      "hotelId": "YXFLRNAZ",
+      "geoCode": {
+        "latitude": 43.7771,
+        "longitude": 11.24572
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50123",
+        "cityName": "FIRENZE",
+        "lines": [
+          "15 VIA LUIGI ALAMANNI"
+        ]
+      },
+      "distance": {
+        "value": 0.95,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:34"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "FLR",
+      "dupeId": 700077018,
+      "name": "EMBASSY HOTEL",
+      "hotelId": "YXFLR482",
+      "geoCode": {
+        "latitude": 43.77781,
+        "longitude": 11.24481
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50123",
+        "cityName": "FLORENCE",
+        "lines": [
+          "VIA IACOPO DA DIACCETO 8"
+        ]
+      },
+      "distance": {
+        "value": 0.96,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:47"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "FLR",
+      "dupeId": 700006594,
+      "name": "HOTEL SPAGNA",
+      "hotelId": "YXFLRHDC",
+      "geoCode": {
+        "latitude": 43.77413,
+        "longitude": 11.25096
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50123",
+        "cityName": "FLORENCE",
+        "lines": [
+          "VIA PANZANI 7"
+        ]
+      },
+      "distance": {
+        "value": 0.97,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:31"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "FLR",
+      "dupeId": 700015542,
+      "name": "PALAZZO RUSPOLI B-B",
+      "hotelId": "HSFLRARE",
+      "geoCode": {
+        "latitude": 43.77357,
+        "longitude": 11.25532
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50129",
+        "cityName": "FLORENZ",
+        "lines": [
+          "VIA DE MARTELLI 5"
+        ]
+      },
+      "distance": {
+        "value": 0.98,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:28"
+    },
+    {
+      "chainCode": "DH",
+      "iataCode": "FLR",
+      "dupeId": 700098570,
+      "name": "C-HOTELS THE STYLE FLORENCE",
+      "hotelId": "DHFLRANY",
+      "geoCode": {
+        "latitude": 43.77563,
+        "longitude": 11.24718
+      },
+      "address": {
+        "countryCode": "IT",
+        "cityName": "FLORENCE",
+        "lines": [
+          "PIAZZA DELLA STAZIONE, 10, 50123 FIRENZE"
+        ]
+      },
+      "distance": {
+        "value": 0.98,
+        "unit": "KM"
+      },
+      "masterChainCode": "TC",
+      "lastUpdate": "2025-06-03T10:21:33"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "FLR",
+      "dupeId": 700059082,
+      "name": "HOTEL GOLF FLORENCE",
+      "hotelId": "YXFLRH06",
+      "geoCode": {
+        "latitude": 43.77906,
+        "longitude": 11.24358
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50123",
+        "cityName": "FLORENCE",
+        "lines": [
+          "VIALE F.LLI ROSSELLI, 56",
+          "V LE FRATELLI ROSSELLI 56"
+        ]
+      },
+      "distance": {
+        "value": 0.99,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:31"
+    },
+    {
+      "chainCode": "CH",
+      "iataCode": "FLR",
+      "dupeId": 700009936,
+      "name": "HOTEL MARTELLI",
+      "hotelId": "CHFLRHMT",
+      "geoCode": {
+        "latitude": 43.77385,
+        "longitude": 11.25144
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50123",
+        "cityName": "FIRENZE",
+        "lines": [
+          "VIA PANZANI 8"
+        ]
+      },
+      "distance": {
+        "value": 0.99,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:16:03"
+    },
+    {
+      "chainCode": "UI",
+      "iataCode": "FLR",
+      "dupeId": 700014157,
+      "name": "HOTEL LAURUS AL DUOMO",
+      "hotelId": "UIFLR123",
+      "geoCode": {
+        "latitude": 43.77346,
+        "longitude": 11.25307
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50123",
+        "cityName": "FLORENCE",
+        "lines": [
+          "VIA DE CERRETANI 54"
+        ]
+      },
+      "distance": {
+        "value": 1,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:08"
+    },
+    {
+      "chainCode": "RT",
+      "iataCode": "FLR",
+      "dupeId": 700012765,
+      "name": "CERRETANI FIRENZE (EX SOFITEL)",
+      "hotelId": "RTFLRSOF",
+      "geoCode": {
+        "latitude": 43.77352,
+        "longitude": 11.25258
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50123",
+        "cityName": "FIRENZE",
+        "lines": [
+          "VIA DEI CERRETANI 10"
+        ]
+      },
+      "distance": {
+        "value": 1,
+        "unit": "KM"
+      },
+      "masterChainCode": "RT",
+      "lastUpdate": "2025-06-03T10:17:18"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "FLR",
+      "dupeId": 700116911,
+      "name": "HOTEL LA GIOCONDA FLORENCE",
+      "hotelId": "YXFLRH56",
+      "geoCode": {
+        "latitude": 43.77353,
+        "longitude": 11.2522
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50123",
+        "cityName": "FLORENCE",
+        "lines": [
+          "2 VIA PANZANI"
+        ]
+      },
+      "distance": {
+        "value": 1.01,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:31"
+    },
+    {
+      "chainCode": "WV",
+      "iataCode": "FLR",
+      "dupeId": 700134023,
+      "name": "HOTEL L OROLOGIO",
+      "hotelId": "WVFLRORO",
+      "geoCode": {
+        "latitude": 43.77408,
+        "longitude": 11.24991
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50123",
+        "cityName": "FIRENZE",
+        "lines": [
+          "PIAZZA SANTA MARIA NOVELLA 24"
+        ]
+      },
+      "distance": {
+        "value": 1.01,
+        "unit": "KM"
+      },
+      "masterChainCode": "TC",
+      "lastUpdate": "2025-06-03T10:18:23"
+    },
+    {
+      "chainCode": "UI",
+      "iataCode": "FLR",
+      "dupeId": 700010909,
+      "name": "PARIS HOTEL",
+      "hotelId": "UIFLRPRS",
+      "geoCode": {
+        "latitude": 43.7734,
+        "longitude": 11.25208
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50123",
+        "cityName": "FLORENCE",
+        "lines": [
+          "2 VIA DEI BANCHI"
+        ]
+      },
+      "distance": {
+        "value": 1.02,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:08"
+    },
+    {
+      "chainCode": "UI",
+      "iataCode": "FLR",
+      "dupeId": 700006072,
+      "name": "C-HOTELS CLUB",
+      "hotelId": "UIFLRHCL",
+      "geoCode": {
+        "latitude": 43.77523,
+        "longitude": 11.24663
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50123",
+        "cityName": "FIRENZE",
+        "lines": [
+          "VIA S.CATERINA DA SIENA, 11"
+        ]
+      },
+      "distance": {
+        "value": 1.04,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:08"
+    },
+    {
+      "chainCode": "WV",
+      "iataCode": "FLR",
+      "dupeId": 700007860,
+      "name": "GRAND HOTEL MINERVA",
+      "hotelId": "WVFLRMIN",
+      "geoCode": {
+        "latitude": 43.77391,
+        "longitude": 11.24915
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50123",
+        "cityName": "FLORENCE",
+        "lines": [
+          "PIAZZA STA MARIA NOVELLA 16"
+        ]
+      },
+      "distance": {
+        "value": 1.05,
+        "unit": "KM"
+      },
+      "masterChainCode": "TC",
+      "lastUpdate": "2025-06-03T10:18:23"
+    },
+    {
+      "chainCode": "LX",
+      "iataCode": "FLR",
+      "dupeId": 700026489,
+      "name": "JK PLACE FIRENZE",
+      "hotelId": "LXFLRJKP",
+      "geoCode": {
+        "latitude": 43.77367,
+        "longitude": 11.24982
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50123",
+        "cityName": "FLORENCE",
+        "lines": [
+          "PIAZZA S MARIA NOVELLA"
+        ]
+      },
+      "distance": {
+        "value": 1.05,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:15:58"
+    },
+    {
+      "chainCode": "WV",
+      "iataCode": "FLR",
+      "dupeId": 700010327,
+      "name": "HOTEL MONTREAL",
+      "hotelId": "WVFLR549",
+      "geoCode": {
+        "latitude": 43.77477,
+        "longitude": 11.24661
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50123",
+        "cityName": "FLORENCE",
+        "lines": [
+          "VIA DELLA SCALA 43"
+        ]
+      },
+      "distance": {
+        "value": 1.08,
+        "unit": "KM"
+      },
+      "masterChainCode": "TC",
+      "lastUpdate": "2025-06-03T10:18:23"
+    },
+    {
+      "chainCode": "UZ",
+      "iataCode": "FLR",
+      "dupeId": 700006388,
+      "name": "CROCE DI MALTA HOTEL",
+      "hotelId": "UZFLRCRO",
+      "geoCode": {
+        "latitude": 43.77362,
+        "longitude": 11.24833
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50123",
+        "cityName": "FLORENCE",
+        "lines": [
+          "VIA DELLA SCALA 7"
+        ]
+      },
+      "distance": {
+        "value": 1.11,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:12"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "FLR",
+      "dupeId": 700009981,
+      "name": "HOTEL MEDICI",
+      "hotelId": "YXFLRH44",
+      "geoCode": {
+        "latitude": 43.77206,
+        "longitude": 11.25485
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50123",
+        "cityName": "FIRENZE",
+        "lines": [
+          "VIA DEI MEDICI 6"
+        ]
+      },
+      "distance": {
+        "value": 1.15,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:31"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "FLR",
+      "dupeId": 700005558,
+      "name": "HOTEL BRUNELLESCHI",
+      "hotelId": "YXFLRBRU",
+      "geoCode": {
+        "latitude": 43.7718,
+        "longitude": 11.25605
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50122",
+        "cityName": "FLORENCE",
+        "lines": [
+          "PIAZZA SANTA ELISABETTA 3",
+          "PIAZZA S. ELISABETTA"
+        ]
+      },
+      "distance": {
+        "value": 1.18,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:47"
+    },
+    {
+      "chainCode": "PH",
+      "iataCode": "FLR",
+      "dupeId": 700120714,
+      "name": "PALAZZO VECCHIETTI PREFERRED B",
+      "hotelId": "PHFLRPVH",
+      "geoCode": {
+        "latitude": 43.77168,
+        "longitude": 11.25352
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50123",
+        "cityName": "FLORENCE",
+        "lines": [
+          "VIA DEGLI STROZZI 4"
+        ]
+      },
+      "distance": {
+        "value": 1.19,
+        "unit": "KM"
+      },
+      "masterChainCode": "PV",
+      "lastUpdate": "2025-06-03T10:16:40"
+    },
+    {
+      "chainCode": "GZ",
+      "iataCode": "FLR",
+      "dupeId": 700060633,
+      "name": "HOTEL OLIMPIA",
+      "hotelId": "GZFLROLI",
+      "geoCode": {
+        "latitude": 43.7715,
+        "longitude": 11.25431
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50123",
+        "cityName": "FLORENCE",
+        "lines": [
+          "PIAZZA DELLA REPUBBLICA 2"
+        ]
+      },
+      "distance": {
+        "value": 1.21,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:19:54"
+    },
+    {
+      "chainCode": "WV",
+      "iataCode": "FLR",
+      "dupeId": 700131947,
+      "name": "GOLDEN TOWER FIRENZE",
+      "hotelId": "WVFLRGTO",
+      "geoCode": {
+        "latitude": 43.77146,
+        "longitude": 11.25223
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50123",
+        "cityName": "FIRENZE",
+        "lines": [
+          "PIAZZA STROZZI 1"
+        ]
+      },
+      "distance": {
+        "value": 1.23,
+        "unit": "KM"
+      },
+      "masterChainCode": "TC",
+      "lastUpdate": "2025-06-03T10:18:23"
+    },
+    {
+      "chainCode": "ON",
+      "iataCode": "FLR",
+      "dupeId": 700006566,
+      "name": "HOTEL DE LA PACE",
+      "hotelId": "ONFLRDLP",
+      "geoCode": {
+        "latitude": 43.77614,
+        "longitude": 11.26816
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50121",
+        "cityName": "FLORENCE",
+        "lines": [
+          "VIA A LAMARMORA 28"
+        ]
+      },
+      "distance": {
+        "value": 1.26,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:21:29"
+    },
+    {
+      "chainCode": "ON",
+      "iataCode": "FLR",
+      "dupeId": 700082253,
+      "name": "HOTEL VILLA LIANA",
+      "hotelId": "ONFLR250",
+      "geoCode": {
+        "latitude": 43.77614,
+        "longitude": 11.26816
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50121",
+        "cityName": "FLORENCE",
+        "lines": [
+          "VIA V ALFIERI 18"
+        ]
+      },
+      "distance": {
+        "value": 1.26,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:21:29"
+    },
+    {
+      "chainCode": "BW",
+      "iataCode": "FLR",
+      "dupeId": 700005257,
+      "name": "BEST WESTERN GRAND HOTEL ADRIATICO",
+      "hotelId": "BWFLR158",
+      "geoCode": {
+        "latitude": 43.7737,
+        "longitude": 11.24495
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50123",
+        "cityName": "FLORENCE",
+        "lines": [
+          "VIA MASO FINIGUERRA 9"
+        ]
+      },
+      "distance": {
+        "value": 1.26,
+        "unit": "KM"
+      },
+      "masterChainCode": "EW",
+      "lastUpdate": "2025-06-03T10:16:33"
+    },
+    {
+      "chainCode": "BW",
+      "iataCode": "FLR",
+      "dupeId": 700030661,
+      "name": "BW HOTEL PALAZZO OGNISSANTI",
+      "hotelId": "BWFLR267",
+      "geoCode": {
+        "latitude": 43.77345,
+        "longitude": 11.2448
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50123",
+        "cityName": "FLORENCE",
+        "lines": [
+          "VIA MASO FINIGUERRA 12 R"
+        ]
+      },
+      "distance": {
+        "value": 1.29,
+        "unit": "KM"
+      },
+      "masterChainCode": "EW",
+      "lastUpdate": "2025-06-03T10:16:07"
+    },
+    {
+      "chainCode": "GZ",
+      "iataCode": "FLR",
+      "dupeId": 700004267,
+      "name": "HOTEL ALBION",
+      "hotelId": "GZFLR243",
+      "geoCode": {
+        "latitude": 43.7753,
+        "longitude": 11.24213
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50123",
+        "cityName": "FLORENCE",
+        "lines": [
+          "VIA IL PRATO 22 R"
+        ]
+      },
+      "distance": {
+        "value": 1.3,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:19:52"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "FLR",
+      "dupeId": 700169926,
+      "name": "1865 RESIDENZA D'EPOCA",
+      "hotelId": "HSFLRASS",
+      "geoCode": {
+        "latitude": 43.77366,
+        "longitude": 11.26614
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50121",
+        "cityName": "FIRENZE",
+        "lines": [
+          "VIA LUIGI CARLO FARINI 12"
+        ]
+      },
+      "distance": {
+        "value": 1.31,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:18"
+    },
+    {
+      "chainCode": "UI",
+      "iataCode": "FLR",
+      "dupeId": 700029156,
+      "name": "ARIZONA HOTEL",
+      "hotelId": "UIFLRARZ",
+      "geoCode": {
+        "latitude": 43.77275,
+        "longitude": 11.26507
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50121",
+        "cityName": "FLORENCE",
+        "lines": [
+          "VIA FARINI 2"
+        ]
+      },
+      "distance": {
+        "value": 1.34,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:08"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "FLR",
+      "dupeId": 700078814,
+      "name": "AXIAL",
+      "hotelId": "HSFLRAQX",
+      "geoCode": {
+        "latitude": 43.77027,
+        "longitude": 11.25522
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50122",
+        "cityName": "FLORENZ",
+        "lines": [
+          "VIA DEI CALZAIUOLI, 11 BLU"
+        ]
+      },
+      "distance": {
+        "value": 1.35,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:28"
+    },
+    {
+      "chainCode": "WI",
+      "iataCode": "FLR",
+      "dupeId": 700013553,
+      "name": "THE WESTIN EXCELSIOR FLORENCE",
+      "hotelId": "WIFLR043",
+      "geoCode": {
+        "latitude": 43.77221,
+        "longitude": 11.24592
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50123",
+        "cityName": "FLORENCE",
+        "lines": [
+          "PIAZZA OGNISSANTI 3"
+        ]
+      },
+      "distance": {
+        "value": 1.35,
+        "unit": "KM"
+      },
+      "masterChainCode": "EM",
+      "lastUpdate": "2025-06-03T10:18:04"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "FLR",
+      "dupeId": 700081417,
+      "name": "BORGHESE PALACE ART HOTEL",
+      "hotelId": "YXFLRBAH",
+      "geoCode": {
+        "latitude": 43.77054,
+        "longitude": 11.25946
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50123",
+        "cityName": "FLORENCE",
+        "lines": [
+          "VIA GHIBELLINA 174 R"
+        ]
+      },
+      "distance": {
+        "value": 1.36,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:47"
+    },
+    {
+      "chainCode": "PH",
+      "iataCode": "FLR",
+      "dupeId": 700010311,
+      "name": "MONTEBELLO SPLENDID PREFERRED",
+      "hotelId": "PHFLRMSH",
+      "geoCode": {
+        "latitude": 43.77518,
+        "longitude": 11.24098
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50123",
+        "cityName": "FLORENCE",
+        "lines": [
+          "VIA GIUSEPPE GARIBALDI 14"
+        ]
+      },
+      "distance": {
+        "value": 1.38,
+        "unit": "KM"
+      },
+      "masterChainCode": "PV",
+      "lastUpdate": "2025-06-03T10:16:40"
+    },
+    {
+      "chainCode": "XR",
+      "iataCode": "FLR",
+      "dupeId": 700007800,
+      "name": "THE ST REGIS FLORENCE",
+      "hotelId": "XRFLR045",
+      "geoCode": {
+        "latitude": 43.77221,
+        "longitude": 11.24501
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50123",
+        "cityName": "FIRENZE",
+        "lines": [
+          "PIAZZA OGNISSANTI 1"
+        ]
+      },
+      "distance": {
+        "value": 1.39,
+        "unit": "KM"
+      },
+      "masterChainCode": "EM",
+      "lastUpdate": "2025-07-28T06:01:07"
+    },
+    {
+      "chainCode": "UI",
+      "iataCode": "FLR",
+      "dupeId": 700050446,
+      "name": "EXECUTIVE HOTEL",
+      "hotelId": "UIFLREXE",
+      "geoCode": {
+        "latitude": 43.77382,
+        "longitude": 11.24239
+      },
+      "address": {
+        "countryCode": "IT",
+        "cityName": "FLORENCE",
+        "lines": [
+          "VIA CURTATONE 5"
+        ]
+      },
+      "distance": {
+        "value": 1.39,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:08"
+    },
+    {
+      "chainCode": "ON",
+      "iataCode": "FMM",
+      "dupeId": 700126071,
+      "name": "HOTEL BAYERNWINKEL",
+      "hotelId": "ONFMMBAY",
+      "geoCode": {
+        "latitude": 43.77136,
+        "longitude": 11.26345
+      },
+      "address": {
+        "countryCode": "DE",
+        "postalCode": "86825",
+        "cityName": "BAD WORISHOFEN",
+        "lines": [
+          "KELLERWEG 4",
+          "BAYERN"
+        ]
+      },
+      "distance": {
+        "value": 1.4,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:21:29"
+    },
+    {
+      "chainCode": "ON",
+      "iataCode": "FLR",
+      "dupeId": 700053902,
+      "name": "MSNSUITES PALAZZO DEI CIOMPI-FIRENZE",
+      "hotelId": "ONFLRPAL",
+      "geoCode": {
+        "latitude": 43.77136,
+        "longitude": 11.26345
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50121",
+        "cityName": "FIRENZE",
+        "lines": [
+          "VIA PIETRAPIANA 18"
+        ]
+      },
+      "distance": {
+        "value": 1.4,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:21:29"
+    },
+    {
+      "chainCode": "AR",
+      "iataCode": "FLR",
+      "dupeId": 700044530,
+      "name": "AC BY MARRIOTT HOTEL FIRENZE",
+      "hotelId": "ARFLRFIR",
+      "geoCode": {
+        "latitude": 43.77729,
+        "longitude": 11.239
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50144",
+        "cityName": "FIRENZE",
+        "lines": [
+          "VIA LUCIANO BAUSI 5"
+        ]
+      },
+      "distance": {
+        "value": 1.41,
+        "unit": "KM"
+      },
+      "masterChainCode": "EM",
+      "lastUpdate": "2025-08-11T08:38:57"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "FLR",
+      "dupeId": 700145070,
+      "name": "TRINITY APARTMENTS",
+      "hotelId": "HSFLRAOK",
+      "geoCode": {
+        "latitude": 43.76964,
+        "longitude": 11.25311
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50123",
+        "cityName": "FLORENZ",
+        "lines": [
+          "VIA DELLE TERME 6"
+        ]
+      },
+      "distance": {
+        "value": 1.42,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:28"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "FLR",
+      "dupeId": 700006583,
+      "name": "HOTEL DE ROSE PALACE",
+      "hotelId": "YXFLRHDR",
+      "geoCode": {
+        "latitude": 43.77467,
+        "longitude": 11.24082
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50123",
+        "cityName": "FLORENCE",
+        "lines": [
+          "VIA SOLFERINO 5"
+        ]
+      },
+      "distance": {
+        "value": 1.43,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:31"
+    },
+    {
+      "chainCode": "WV",
+      "iataCode": "FLR",
+      "dupeId": 700056580,
+      "name": "ROOM MATE ISABELLA",
+      "hotelId": "WVFLRAHO",
+      "geoCode": {
+        "latitude": 43.76982,
+        "longitude": 11.25077
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50123",
+        "cityName": "FLORENCE",
+        "lines": [
+          "VIA TORNABUONI 13"
+        ]
+      },
+      "distance": {
+        "value": 1.44,
+        "unit": "KM"
+      },
+      "masterChainCode": "TC",
+      "lastUpdate": "2025-06-03T10:18:23"
+    },
+    {
+      "chainCode": "UI",
+      "iataCode": "FLR",
+      "dupeId": 700005249,
+      "name": "HOTEL BERNINI PALACE",
+      "hotelId": "UIFLRBER",
+      "geoCode": {
+        "latitude": 43.76944,
+        "longitude": 11.25762
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50122",
+        "cityName": "FLORENCE",
+        "lines": [
+          "PIAZZA SAN FIRENZE N 29"
+        ]
+      },
+      "distance": {
+        "value": 1.45,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:08"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "FLR",
+      "dupeId": 700140975,
+      "name": "BLACK 5 FLORENCE SUITE",
+      "hotelId": "HSFLRASV",
+      "geoCode": {
+        "latitude": 43.77003,
+        "longitude": 11.26123
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50122",
+        "cityName": "FIRENZE",
+        "lines": [
+          "VIA GIUSEPPE VERDI 5"
+        ]
+      },
+      "distance": {
+        "value": 1.46,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:25"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "FLR",
+      "dupeId": 700035133,
+      "name": "ANTICA TORRE TORNABUONI 1",
+      "hotelId": "YXFLRTOR",
+      "geoCode": {
+        "latitude": 43.76953,
+        "longitude": 11.25069
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50122",
+        "cityName": "FLORENCE",
+        "lines": [
+          "VIA TORNABUONI 1"
+        ]
+      },
+      "distance": {
+        "value": 1.47,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:34"
+    },
+    {
+      "chainCode": "VP",
+      "iataCode": "FLR",
+      "dupeId": 502347061,
+      "name": "RELAIS UFFIZI",
+      "hotelId": "VPFLR310",
+      "geoCode": {
+        "latitude": 43.76912,
+        "longitude": 11.25491
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50122",
+        "cityName": "Florence",
+        "lines": [
+          "16, CHIASSO DEL BUCO"
+        ]
+      },
+      "distance": {
+        "value": 1.47,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:22:03"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "FLR",
+      "dupeId": 700004673,
+      "name": "HOTEL ARIELE",
+      "hotelId": "YXFLRH03",
+      "geoCode": {
+        "latitude": 43.77548,
+        "longitude": 11.23931
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50123",
+        "cityName": "FIRENZE",
+        "lines": [
+          "VIA MAGENTA, 11"
+        ]
+      },
+      "distance": {
+        "value": 1.48,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:31"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "FLR",
+      "dupeId": 700136434,
+      "name": "RITA MAJOR",
+      "hotelId": "HSFLRAPD",
+      "geoCode": {
+        "latitude": 43.77473,
+        "longitude": 11.27027
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50121",
+        "cityName": "FLORENZ",
+        "lines": [
+          "VIA DELLA MATTONAIA 43"
+        ]
+      },
+      "distance": {
+        "value": 1.49,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:28"
+    },
+    {
+      "chainCode": "SY",
+      "iataCode": "FLR",
+      "dupeId": 700012967,
+      "name": "STARHOTELS MICHELANGELO",
+      "hotelId": "SYFLRMIC",
+      "geoCode": {
+        "latitude": 43.77681,
+        "longitude": 11.23794
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50123",
+        "cityName": "FIRENZE",
+        "lines": [
+          "VIALE FRATELLI ROSSELLI 2"
+        ]
+      },
+      "distance": {
+        "value": 1.5,
+        "unit": "KM"
+      },
+      "masterChainCode": "TC",
+      "lastUpdate": "2025-06-03T10:17:37"
+    },
+    {
+      "chainCode": "GA",
+      "iataCode": "FLR",
+      "dupeId": 700007585,
+      "name": "GALLERY HOTEL ART",
+      "hotelId": "GAFLRAUG",
+      "geoCode": {
+        "latitude": 43.76879,
+        "longitude": 11.25327
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50123",
+        "cityName": "FLORENCE",
+        "lines": [
+          "VICOLO DELL ORO 5"
+        ]
+      },
+      "distance": {
+        "value": 1.52,
+        "unit": "KM"
+      },
+      "masterChainCode": "GL",
+      "lastUpdate": "2025-06-03T10:19:38"
+    },
+    {
+      "chainCode": "DS",
+      "iataCode": "FLR",
+      "dupeId": 700047420,
+      "name": "CONTINENTALE",
+      "hotelId": "DSFLRCON",
+      "geoCode": {
+        "latitude": 43.76872,
+        "longitude": 11.25309
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50123",
+        "cityName": "FLORENCE",
+        "lines": [
+          "VICOLO DELL ORO 6"
+        ]
+      },
+      "distance": {
+        "value": 1.53,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:19:54"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "FLR",
+      "dupeId": 700058612,
+      "name": "DELLA ROBBIA",
+      "hotelId": "HSFLRAOG",
+      "geoCode": {
+        "latitude": 43.77561,
+        "longitude": 11.27202
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50132",
+        "cityName": "FLORENZ",
+        "lines": [
+          "VIA DEI DELLA ROBBIA 7"
+        ]
+      },
+      "distance": {
+        "value": 1.55,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:28"
+    },
+    {
+      "chainCode": "FG",
+      "iataCode": "FLR",
+      "dupeId": 700026269,
+      "name": "HOTEL BALESTRI",
+      "hotelId": "FGFLRH01",
+      "geoCode": {
+        "latitude": 43.76726,
+        "longitude": 11.25795
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50123",
+        "cityName": "FLORENCE",
+        "lines": [
+          "PIAZZA MENTANA 7"
+        ]
+      },
+      "distance": {
+        "value": 1.7,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:16:38"
+    },
+    {
+      "chainCode": "SX",
+      "iataCode": "FLR",
+      "dupeId": 700011176,
+      "name": "PLAZA HOTEL LUCCHESI",
+      "hotelId": "SXFLRPLA",
+      "geoCode": {
+        "latitude": 43.76655,
+        "longitude": 11.26344
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50122",
+        "cityName": "FLORENCE",
+        "lines": [
+          "38 LUNGARNO DELLA",
+          "ZECCA VECCHIA"
+        ]
+      },
+      "distance": {
+        "value": 1.88,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:17:38"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "FLR",
+      "dupeId": 700044789,
+      "name": "LA MONGOLFIERA RESIDENZE",
+      "hotelId": "HSFLRARU",
+      "geoCode": {
+        "latitude": 43.79233,
+        "longitude": 11.27416
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50133",
+        "cityName": "FLORENZ",
+        "lines": [
+          "VIA GUIDO GUINIZZELLI 1"
+        ]
+      },
+      "distance": {
+        "value": 1.89,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:18"
+    },
+    {
+      "chainCode": "CH",
+      "iataCode": "FLR",
+      "dupeId": 700073867,
+      "name": "HOTEL PRIVILEGE",
+      "hotelId": "CHFLRH38",
+      "geoCode": {
+        "latitude": 43.76641,
+        "longitude": 11.26502
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50122",
+        "cityName": "FLORENCE",
+        "lines": [
+          "LUNGARNO DELLA ZECCA VECCHIA 2"
+        ]
+      },
+      "distance": {
+        "value": 1.95,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:16:03"
+    },
+    {
+      "chainCode": "BW",
+      "iataCode": "FLR",
+      "dupeId": 700011944,
+      "name": "BEST WESTERN HOTEL RIVER",
+      "hotelId": "BWFLR309",
+      "geoCode": {
+        "latitude": 43.76634,
+        "longitude": 11.26597
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50122",
+        "cityName": "FLORENCE",
+        "lines": [
+          "LUNGARNO DELLA ZECCA VECCHIA 18"
+        ]
+      },
+      "distance": {
+        "value": 1.99,
+        "unit": "KM"
+      },
+      "masterChainCode": "EW",
+      "lastUpdate": "2025-06-03T10:16:09"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "FLR",
+      "dupeId": 700098409,
+      "name": "SILLA HOTEL",
+      "hotelId": "YXFLRSIH",
+      "geoCode": {
+        "latitude": 43.76482,
+        "longitude": 11.26094
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50125",
+        "cityName": "FLORENCE",
+        "lines": [
+          "VIA DEI RENAI 5"
+        ]
+      },
+      "distance": {
+        "value": 2.01,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:34"
+    },
+    {
+      "chainCode": "UI",
+      "iataCode": "FLR",
+      "dupeId": 501327423,
+      "name": "HOTEL HOME FLORENCE",
+      "hotelId": "UIFLRCLA",
+      "geoCode": {
+        "latitude": 43.76685,
+        "longitude": 11.26812
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50122",
+        "cityName": "FLORENCE",
+        "lines": [
+          "PIAZZA PIAVE 3"
+        ]
+      },
+      "distance": {
+        "value": 2.02,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:08"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "FLR",
+      "dupeId": 700030634,
+      "name": "JANE",
+      "hotelId": "HSFLRAQM",
+      "geoCode": {
+        "latitude": 43.76936,
+        "longitude": 11.27497
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50121",
+        "cityName": "FLORENZ",
+        "lines": [
+          "VIA ORCAGNA 56-58"
+        ]
+      },
+      "distance": {
+        "value": 2.16,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:28"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "FLR",
+      "dupeId": 700054592,
+      "name": "ANNALENA",
+      "hotelId": "HSFLRAMP",
+      "geoCode": {
+        "latitude": 43.76394,
+        "longitude": 11.24556
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50125",
+        "cityName": "FLORENZ",
+        "lines": [
+          "VIA ROMANA 34"
+        ]
+      },
+      "distance": {
+        "value": 2.19,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:28"
+    },
+    {
+      "chainCode": "GI",
+      "iataCode": "FLR",
+      "dupeId": 700081052,
+      "name": "HILTON GRDN INN FLORENCE NOVOLI",
+      "hotelId": "GIFLR424",
+      "geoCode": {
+        "latitude": 43.79179,
+        "longitude": 11.22821
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50127",
+        "cityName": "FLORENCE",
+        "lines": [
+          "VIA SANDRO PERTINI 1"
+        ]
+      },
+      "distance": {
+        "value": 2.39,
+        "unit": "KM"
+      },
+      "masterChainCode": "EH",
+      "lastUpdate": "2025-06-03T10:21:53"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "FLR",
+      "dupeId": 700077014,
+      "name": "LIDO",
+      "hotelId": "HSFLRAPA",
+      "geoCode": {
+        "latitude": 43.76618,
+        "longitude": 11.27542
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50121",
+        "cityName": "FLORENZ",
+        "lines": [
+          "VIA DEL GHIRLANDAIO, 1"
+        ]
+      },
+      "distance": {
+        "value": 2.43,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:28"
+    },
+    {
+      "chainCode": "SY",
+      "iataCode": "FLR",
+      "dupeId": 700038545,
+      "name": "STARHOTELS TUSCANY",
+      "hotelId": "SYFLRMRO",
+      "geoCode": {
+        "latitude": 43.79153,
+        "longitude": 11.22417
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50127",
+        "cityName": "FIRENZEE",
+        "lines": [
+          "VIA DI NOVOLI 59"
+        ]
+      },
+      "distance": {
+        "value": 2.68,
+        "unit": "KM"
+      },
+      "masterChainCode": "TC",
+      "lastUpdate": "2025-06-03T10:17:37"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "FLR",
+      "dupeId": 700098460,
+      "name": "TORRE DI BELLOSGUAR",
+      "hotelId": "YXFLRTDB",
+      "geoCode": {
+        "latitude": 43.76387,
+        "longitude": 11.23291
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50124",
+        "cityName": "FLORENCE",
+        "lines": [
+          "VIA ROTI MICHELOZZI 2"
+        ]
+      },
+      "distance": {
+        "value": 2.72,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:34"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "FLR",
+      "dupeId": 700136180,
+      "name": "RESIDENCE MICHELANGIOLO",
+      "hotelId": "HSFLRAQR",
+      "geoCode": {
+        "latitude": 43.76148,
+        "longitude": 11.27279
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50125",
+        "cityName": "FLORENZ",
+        "lines": [
+          "VIALE MICHELANGIOLO 21"
+        ]
+      },
+      "distance": {
+        "value": 2.72,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:28"
+    },
+    {
+      "chainCode": "GZ",
+      "iataCode": "FLR",
+      "dupeId": 700013998,
+      "name": "HOTEL VILLA CARLOTA",
+      "hotelId": "GZFLRCAR",
+      "geoCode": {
+        "latitude": 43.7582,
+        "longitude": 11.24534
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50125",
+        "cityName": "FLORENCE",
+        "lines": [
+          "VIA MICHELE DI LANDO 3"
+        ]
+      },
+      "distance": {
+        "value": 2.8,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:19:54"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "FLR",
+      "dupeId": 700077012,
+      "name": "NILHOTEL",
+      "hotelId": "HSFLRAOM",
+      "geoCode": {
+        "latitude": 43.79853,
+        "longitude": 11.22761
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50127",
+        "cityName": "FLORENZ",
+        "lines": [
+          "VIA EUGENIO BARSANTI 27 A-B"
+        ]
+      },
+      "distance": {
+        "value": 2.84,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:28"
+    },
+    {
+      "chainCode": "UZ",
+      "iataCode": "FLR",
+      "dupeId": 700030937,
+      "name": "HOTEL GRIFONE",
+      "hotelId": "UZFLRH39",
+      "geoCode": {
+        "latitude": 43.76865,
+        "longitude": 11.28534
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50136",
+        "cityName": "FIRENZE",
+        "lines": [
+          "VIA GAETANO PILATI 20 22"
+        ]
+      },
+      "distance": {
+        "value": 2.87,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:12"
+    },
+    {
+      "chainCode": "WB",
+      "iataCode": "FLR",
+      "dupeId": 700007877,
+      "name": "GRAND HOTEL VILLA CORA",
+      "hotelId": "WBFLR302",
+      "geoCode": {
+        "latitude": 43.75684,
+        "longitude": 11.24738
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50125",
+        "cityName": "FLORENCE",
+        "lines": [
+          "VIALE MACHIAVELLI 18"
+        ]
+      },
+      "distance": {
+        "value": 2.91,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:01"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "FLR",
+      "dupeId": 700060718,
+      "name": "PARK PALACE",
+      "hotelId": "HSFLRAHS",
+      "geoCode": {
+        "latitude": 43.75581,
+        "longitude": 11.25041
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50125",
+        "cityName": "FLORENZ",
+        "lines": [
+          "PIAZZALE GALILEO 5"
+        ]
+      },
+      "distance": {
+        "value": 2.98,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:21"
+    },
+    {
+      "chainCode": "TA",
+      "iataCode": "FLR",
+      "dupeId": 700045940,
+      "name": "HOTEL VILLA BETANIA",
+      "hotelId": "TAFLRBET",
+      "geoCode": {
+        "latitude": 43.75329,
+        "longitude": 11.24579
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50125",
+        "cityName": "FLORENCE",
+        "lines": [
+          "VIALE DEL POGGIOP IMPERIALE 23"
+        ]
+      },
+      "distance": {
+        "value": 3.32,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:17:47"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "FLR",
+      "dupeId": 700136052,
+      "name": "SAN GAGGIO HOUSE B-B",
+      "hotelId": "HSFLRAJX",
+      "geoCode": {
+        "latitude": 43.75412,
+        "longitude": 11.23777
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50124",
+        "cityName": "FLORENZ",
+        "lines": [
+          "VIALE CARDINAL LEOPOLDO 62"
+        ]
+      },
+      "distance": {
+        "value": 3.44,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:28"
+    },
+    {
+      "chainCode": "EU",
+      "iataCode": "FLR",
+      "dupeId": 700188366,
+      "name": "VILLA TOLOMEI HOTEL & RESORT",
+      "hotelId": "EUFLRVTO",
+      "geoCode": {
+        "latitude": 43.75845,
+        "longitude": 11.22776
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50124",
+        "cityName": "FLORENCE",
+        "lines": [
+          "VIA SANTA MARIA DI MARIGNOLLE 10"
+        ]
+      },
+      "distance": {
+        "value": 3.45,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:19:52"
+    },
+    {
+      "chainCode": "HA",
+      "iataCode": "FLR",
+      "dupeId": 700017713,
+      "name": "VILLA DE RONDINI-FIRENZE",
+      "hotelId": "HAFLRVIA",
+      "geoCode": {
+        "latitude": 43.81073,
+        "longitude": 11.27714
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50139",
+        "cityName": "FIRENZE",
+        "lines": [
+          "VIA BOLOGNESE VECCHIA 224"
+        ]
+      },
+      "distance": {
+        "value": 3.61,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:19:34"
+    },
+    {
+      "chainCode": "UI",
+      "iataCode": "FLR",
+      "dupeId": 700007336,
+      "name": "VILLA FIESOLE HOTEL",
+      "hotelId": "UIFLRVLL",
+      "geoCode": {
+        "latitude": 43.80204,
+        "longitude": 11.2979
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50014",
+        "cityName": "FIESOLE",
+        "lines": [
+          "VIA BEATO ANGELICO 35"
+        ]
+      },
+      "distance": {
+        "value": 4.07,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:08"
+    },
+    {
+      "chainCode": "CH",
+      "iataCode": "FLR",
+      "dupeId": 700074057,
+      "name": "HOTEL I CEDRI",
+      "hotelId": "CHFLRHCE",
+      "geoCode": {
+        "latitude": 43.76917,
+        "longitude": 11.20371
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50010",
+        "cityName": "FIRENZE",
+        "lines": [
+          "VIA PISANA 595A",
+          "SCANDICCI"
+        ]
+      },
+      "distance": {
+        "value": 4.38,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:16:03"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "FLR",
+      "dupeId": 700170422,
+      "name": "VILLA GUARNASCHELLI",
+      "hotelId": "HSFLRAEV",
+      "geoCode": {
+        "latitude": 43.82111,
+        "longitude": 11.23264
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50018",
+        "cityName": "SCANDICCI",
+        "lines": [
+          "POGGIO SECCO 5"
+        ]
+      },
+      "distance": {
+        "value": 4.66,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:21"
+    },
+    {
+      "chainCode": "OI",
+      "iataCode": "FLR",
+      "dupeId": 700077020,
+      "name": "GARIBALDIS HOTEL RELAIS ET CHARME",
+      "hotelId": "OIFLREJU",
+      "geoCode": {
+        "latitude": 43.79868,
+        "longitude": 11.19724
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50145",
+        "cityName": "FIRENZE",
+        "lines": [
+          "VIA PRATESE 34"
+        ]
+      },
+      "distance": {
+        "value": 4.98,
+        "unit": "KM"
+      },
+      "masterChainCode": "LK",
+      "lastUpdate": "2025-06-03T10:20:17"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "FLR",
+      "dupeId": 700169976,
+      "name": "TOGETHER FLORENCE INN",
+      "hotelId": "HSFLRAEF",
+      "geoCode": {
+        "latitude": 43.7522,
+        "longitude": 11.30663
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50126",
+        "cityName": "FIRENZE",
+        "lines": [
+          "VIA LIVENZA 3A"
+        ]
+      },
+      "distance": {
+        "value": 5.33,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:21"
+    },
+    {
+      "chainCode": "RT",
+      "iataCode": "FLR",
+      "dupeId": 700043393,
+      "name": "VILLA OLMI RESORT-BAGNO A RIPOLI",
+      "hotelId": "RTFLRVOR",
+      "geoCode": {
+        "latitude": 43.75748,
+        "longitude": 11.31186
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50012",
+        "cityName": "BAGNO A RIPOLI",
+        "lines": [
+          "VIA DEGLI OLMI 4-8"
+        ]
+      },
+      "distance": {
+        "value": 5.34,
+        "unit": "KM"
+      },
+      "masterChainCode": "RT",
+      "lastUpdate": "2025-06-03T10:17:18"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "FLR",
+      "dupeId": 700097897,
+      "name": "I PARIGI CORBINELLI",
+      "hotelId": "YXFLR444",
+      "geoCode": {
+        "latitude": 43.73028,
+        "longitude": 11.23091
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50125",
+        "cityName": "FLORENCE",
+        "lines": [
+          "VIA LUIGIANA 12"
+        ]
+      },
+      "distance": {
+        "value": 6.11,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:47"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "FLR",
+      "dupeId": 700136089,
+      "name": "RELAIS VILLA IL SASSO",
+      "hotelId": "HSFLRADI",
+      "geoCode": {
+        "latitude": 43.73091,
+        "longitude": 11.29682
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50012",
+        "cityName": "BAGNO A RIPOLI",
+        "lines": [
+          "VIA DI BELMONTE 27"
+        ]
+      },
+      "distance": {
+        "value": 6.64,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:20"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "FLR",
+      "dupeId": 700039589,
+      "name": "HOTEL VILLA STANLEY - SESTO FI",
+      "hotelId": "YXFLRSTA",
+      "geoCode": {
+        "latitude": 43.83422,
+        "longitude": 11.21256
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50019",
+        "cityName": "SESTO FIORENTINO",
+        "lines": [
+          "VIALE XX SETTEMBRE 200"
+        ]
+      },
+      "distance": {
+        "value": 6.7,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:34"
+    },
+    {
+      "chainCode": "RT",
+      "iataCode": "FLR",
+      "dupeId": 700051772,
+      "name": "NOVOTEL FIRENZE NORD AEROPORTO",
+      "hotelId": "RTFLRAPT",
+      "geoCode": {
+        "latitude": 43.80981,
+        "longitude": 11.17776
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50019",
+        "cityName": "FIRENZE SESTO FIORENTINO",
+        "lines": [
+          "VIA TEVERE 23",
+          "OSMANNORO"
+        ]
+      },
+      "distance": {
+        "value": 6.91,
+        "unit": "KM"
+      },
+      "masterChainCode": "RT",
+      "lastUpdate": "2025-06-03T10:17:18"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "FLR",
+      "dupeId": 700098058,
+      "name": "MARZIA",
+      "hotelId": "HSFLRAEI",
+      "geoCode": {
+        "latitude": 43.76537,
+        "longitude": 11.16511
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50018",
+        "cityName": "SCANDICCI",
+        "lines": [
+          "VIA PISANA 246"
+        ]
+      },
+      "distance": {
+        "value": 7.47,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:21"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "FLR",
+      "dupeId": 700033104,
+      "name": "VILLA AMBROSINA",
+      "hotelId": "HSFLRAGQ",
+      "geoCode": {
+        "latitude": 43.7049,
+        "longitude": 11.2116
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50029",
+        "cityName": "IMPRUNETA",
+        "lines": [
+          "VIA MONTEBUONI, 95"
+        ]
+      },
+      "distance": {
+        "value": 9.3,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:21"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "FLR",
+      "dupeId": 700039819,
+      "name": "HOTEL DELTA FLORENCE",
+      "hotelId": "YXFLRHDF",
+      "geoCode": {
+        "latitude": 43.85082,
+        "longitude": 11.16873
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50041",
+        "cityName": "FIRENZE",
+        "lines": [
+          "VIA VITTORIO EMANUELE 3"
+        ]
+      },
+      "distance": {
+        "value": 10.29,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:31"
+    },
+    {
+      "chainCode": "UZ",
+      "iataCode": "FLR",
+      "dupeId": 700026930,
+      "name": "ART HOTEL MIRO",
+      "hotelId": "UZFLRART",
+      "geoCode": {
+        "latitude": 43.84439,
+        "longitude": 11.15881
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50041",
+        "cityName": "CALENZANO",
+        "lines": [
+          "VIA DEGLI OLMI 7"
+        ]
+      },
+      "distance": {
+        "value": 10.36,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:12"
+    },
+    {
+      "chainCode": "UI",
+      "iataCode": "FLR",
+      "dupeId": 700027576,
+      "name": "FIRST HOTEL",
+      "hotelId": "UIFLREIX",
+      "geoCode": {
+        "latitude": 43.85179,
+        "longitude": 11.16507
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50041",
+        "cityName": "FLORENCE",
+        "lines": [
+          "VIA DINO CIOLLI 5",
+          "CALENZANO"
+        ]
+      },
+      "distance": {
+        "value": 10.57,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:08"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "FLR",
+      "dupeId": 700076985,
+      "name": "CENTRO",
+      "hotelId": "HSFLRAAU",
+      "geoCode": {
+        "latitude": 43.8218,
+        "longitude": 11.1352
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50013",
+        "cityName": "CAMPI BISENZIO",
+        "lines": [
+          "VIA MARIANO FALCINI 7"
+        ]
+      },
+      "distance": {
+        "value": 10.57,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:20"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "FLR",
+      "dupeId": 700006654,
+      "name": "DEMIDOFF COUNTRY RESORT",
+      "hotelId": "YXFLR424",
+      "geoCode": {
+        "latitude": 43.86854,
+        "longitude": 11.31636
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50036",
+        "cityName": "PRATOLINO",
+        "lines": [
+          "VIA DELLA LUPAIA 1556"
+        ]
+      },
+      "distance": {
+        "value": 10.77,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:47"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "FLR",
+      "dupeId": 700019152,
+      "name": "VILLA IL TREBBIOLO",
+      "hotelId": "HSFLRAAZ",
+      "geoCode": {
+        "latitude": 43.8497,
+        "longitude": 11.35288
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "50060",
+        "cityName": "PONTASSIEVE",
+        "lines": [
+          "VIA DEL TREBBIOLO 8"
+        ]
+      },
+      "distance": {
+        "value": 10.85,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:20"
+    }
+  ],
+  "meta": {
+    "count": 126,
+    "links": {
+      "self": "https://test.api.amadeus.com/v1/reference-data/locations/hotels/by-city?cityCode=FLR&radius=10&radiusUnit=KM"
+    }
+  }
+}

@@ -1,0 +1,280 @@
+{
+  "data": [
+    {
+      "chainCode": "BW",
+      "iataCode": "FCO",
+      "dupeId": 700193275,
+      "name": "BEST WESTERN HTL ROME AIRPORT",
+      "hotelId": "BWFCO336",
+      "geoCode": {
+        "latitude": 41.77279,
+        "longitude": 12.2415
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "00054",
+        "cityName": "FIUMICINO",
+        "lines": [
+          "VIA PORTUENSE 2465"
+        ]
+      },
+      "distance": {
+        "value": 2.49,
+        "unit": "KM"
+      },
+      "masterChainCode": "EW",
+      "lastUpdate": "2025-06-03T10:18:44"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "ROM",
+      "dupeId": 700136771,
+      "name": "HOTEL SECCY",
+      "hotelId": "YXROMSEC",
+      "geoCode": {
+        "latitude": 41.7734,
+        "longitude": 12.22953
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "00054",
+        "cityName": "FIUMICINO",
+        "lines": [
+          "VIA DELLE SCUOLE 32"
+        ]
+      },
+      "distance": {
+        "value": 2.94,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:58"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "ROM",
+      "dupeId": 700193276,
+      "name": "DOMUS LINA",
+      "hotelId": "YXROMDLI",
+      "geoCode": {
+        "latitude": 41.77172,
+        "longitude": 12.22891
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "00054",
+        "cityName": "FIUMICINO",
+        "lines": [
+          "VIA DELLA SPIAGGIA 5"
+        ]
+      },
+      "distance": {
+        "value": 3.12,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:56"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "ROM",
+      "dupeId": 501418388,
+      "name": "HOTEL TIBER",
+      "hotelId": "YXROMTIB",
+      "geoCode": {
+        "latitude": 41.77124,
+        "longitude": 12.22614
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "00054",
+        "cityName": "FIUMICINO",
+        "lines": [
+          "VIA TORRE CLEMENTINA 276"
+        ]
+      },
+      "distance": {
+        "value": 3.31,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:58"
+    },
+    {
+      "chainCode": "CI",
+      "iataCode": "FCO",
+      "dupeId": 700152468,
+      "name": "COMFORT HOTEL ROMA AIRPORT FIUMICINO",
+      "hotelId": "CIFCO058",
+      "geoCode": {
+        "latitude": 41.76759,
+        "longitude": 12.22986
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "00054",
+        "cityName": "FIUMICINO",
+        "lines": [
+          "VIA TEMPIO DELLA FORTUNA 54"
+        ]
+      },
+      "distance": {
+        "value": 3.45,
+        "unit": "KM"
+      },
+      "masterChainCode": "EC",
+      "lastUpdate": "2025-06-03T10:16:03"
+    },
+    {
+      "chainCode": "WV",
+      "iataCode": "FCO",
+      "dupeId": 700148781,
+      "name": "EURO HOUSE AIRPORT INN",
+      "hotelId": "WVFCO548",
+      "geoCode": {
+        "latitude": 41.7565,
+        "longitude": 12.27362
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "00054",
+        "cityName": "FIUMICINO",
+        "lines": [
+          "VIA DELLA SCAFA 422"
+        ]
+      },
+      "distance": {
+        "value": 4.48,
+        "unit": "KM"
+      },
+      "masterChainCode": "TC",
+      "lastUpdate": "2025-06-03T10:18:22"
+    },
+    {
+      "chainCode": "BW",
+      "iataCode": "FCO",
+      "dupeId": 700061242,
+      "name": "BEST WESTERN HTL RIVIERA",
+      "hotelId": "BWFCO270",
+      "geoCode": {
+        "latitude": 41.75648,
+        "longitude": 12.23017
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "00000",
+        "cityName": "FIUMICINO",
+        "lines": [
+          "VIA LICIO VISINTINI 30"
+        ]
+      },
+      "distance": {
+        "value": 4.52,
+        "unit": "KM"
+      },
+      "masterChainCode": "EW",
+      "lastUpdate": "2025-06-03T10:16:39"
+    },
+    {
+      "chainCode": "BN",
+      "iataCode": "ROM",
+      "dupeId": 700041012,
+      "name": "BARCELO ARAN BLU",
+      "hotelId": "BNROMABH",
+      "geoCode": {
+        "latitude": 41.73719,
+        "longitude": 12.25342
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "00121",
+        "cityName": "LIDO DI OSTOA",
+        "lines": [
+          "LUNGOMARE DUCA DEGLI ABRUZZI 72"
+        ]
+      },
+      "distance": {
+        "value": 6.28,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:19:28"
+    },
+    {
+      "chainCode": "ON",
+      "iataCode": "ROM",
+      "dupeId": 700052932,
+      "name": "HOTEL BELVEDERE CENTURY",
+      "hotelId": "ONROMBEL",
+      "geoCode": {
+        "latitude": 41.72978,
+        "longitude": 12.27642
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "00121",
+        "cityName": "LIDO DI OSTIA",
+        "lines": [
+          "PIAZZA DEI RAVENNATI 4"
+        ]
+      },
+      "distance": {
+        "value": 7.37,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:16:07"
+    },
+    {
+      "chainCode": "OI",
+      "iataCode": "ROM",
+      "dupeId": 501905223,
+      "name": "HOTEL BELLAVISTA",
+      "hotelId": "OIROMBLV",
+      "geoCode": {
+        "latitude": 41.72569,
+        "longitude": 12.29018
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "00122",
+        "cityName": "Rome",
+        "lines": [
+          "PIAZZALE MAGELLANO 16",
+          "OSTIA"
+        ]
+      },
+      "distance": {
+        "value": 8.18,
+        "unit": "KM"
+      },
+      "masterChainCode": "LK",
+      "lastUpdate": "2025-06-03T10:20:11"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "FCO",
+      "dupeId": 700140038,
+      "name": "HOTEL LA CONCHIGLIA",
+      "hotelId": "YXFCOLCH",
+      "geoCode": {
+        "latitude": 41.86068,
+        "longitude": 12.18842
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "00054",
+        "cityName": "FIUMICINO",
+        "lines": [
+          "LUNGOMARE DI PONENTE 4"
+        ]
+      },
+      "distance": {
+        "value": 9.16,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:45"
+    }
+  ],
+  "meta": {
+    "count": 11,
+    "links": {
+      "self": "https://test.api.amadeus.com/v1/reference-data/locations/hotels/by-city?cityCode=FCO&radius=10&radiusUnit=KM"
+    }
+  }
+}
