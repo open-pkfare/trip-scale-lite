@@ -35,6 +35,7 @@ import io.reactivex.rxjava3.core.Maybe;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.atomic.AtomicReference;
@@ -149,6 +150,11 @@ public class PlanningAgent extends BaseAgent {
       GeneratePlanService generatePlanService = getGeneratePlanService();
       long start = System.currentTimeMillis();
       TripRoutePlanResult planResult = generatePlanService.generatePlan(param);
+
+      ConcurrentMap<String, Object> states = Maps.newConcurrentMap();
+      states.put("current_stage", "optimizing");
+      states.put("plan_result", planResult);
+      devConfig.saveState(invocationContext.session(), states);
       log.info("*******************************************************Time taken to generate plan: {} ms",
           System.currentTimeMillis() - start);
 

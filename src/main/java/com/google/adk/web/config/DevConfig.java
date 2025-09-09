@@ -2,6 +2,7 @@ package com.google.adk.web.config;
 
 import com.google.adk.agents.BaseAgent;
 import com.google.adk.events.Event;
+import com.google.adk.events.EventActions;
 import com.google.adk.sessions.BaseSessionService;
 import com.google.adk.sessions.Session;
 import com.google.common.collect.Maps;
@@ -12,8 +13,10 @@ import com.pkfare.trip.scale.agent.planning.PlanningAgent;
 import com.pkfare.trip.scale.function.AppRunner;
 import io.reactivex.rxjava3.core.Maybe;
 import jakarta.annotation.PostConstruct;
+import java.time.Instant;
 import java.util.Map;
 import java.util.Optional;
+import java.util.UUID;
 import java.util.concurrent.ConcurrentMap;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -82,6 +85,21 @@ public class DevConfig {
 
   public Event appendEvent(Session session, Event event){
     return sessionService.appendEvent(session,event).blockingGet();
+  }
+
+  public void saveState(Session session, ConcurrentMap<String, Object> states){
+    EventActions actionsWithUpdate = EventActions.builder().stateDelta(states).build();
+    long currentTimeMillis = Instant.now().toEpochMilli(); // Use milliseconds for Java Event
+    Event systemEvent =
+        Event.builder()
+            .invocationId(UUID.randomUUID().toString())
+            .author("system") // Or 'agent', 'tool' etc.
+            .actions(actionsWithUpdate)
+            .timestamp(currentTimeMillis)
+            // content might be None or represent the action taken
+            .build();
+    Event updatedSession =
+        appendEvent(session, systemEvent);
   }
 
 }

@@ -87,7 +87,6 @@ public class BookingAgent extends BaseAgent {
   protected Flowable<Event> runAsyncImpl(InvocationContext invocationContext) {
     log.info("current agent: booking");
     TripRoutePlanResult tripRoutePlanResult = (TripRoutePlanResult) invocationContext.session().state().get("plan_result");
-    tripRoutePlanResult = mockDailyPlans();
     Map<LocalDate, JSONObject> summaries = summarize(invocationContext, tripRoutePlanResult);
     JSON json = generateRoadBook(tripRoutePlanResult, summaries);
     ROAD_BOOK_MAP.put(invocationContext.session().id(), json);
