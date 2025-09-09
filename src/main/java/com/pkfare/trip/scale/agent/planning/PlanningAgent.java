@@ -94,8 +94,10 @@ public class PlanningAgent extends BaseAgent {
 
 
       // 通过tripDemand和tripRoutes构建GeneratePlanParam
-      // GeneratePlanParam param = buildGeneratePlanParam(tripDemand, tripRoutes);
-      GeneratePlanParam param = mockSZXGeneratePlanParam();
+      GeneratePlanParam param = buildGeneratePlanParam(tripDemand, tripRoutes);
+      param.setStart_period("2025-10-01");
+      param.setEnd_period("2025-10-20");
+      // GeneratePlanParam param = mockSZXGeneratePlanParam();
       log.info("GeneratePlanParam:{}",param);
 
       // 调用GeneratePlanService.generatePlan接口
