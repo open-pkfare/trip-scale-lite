@@ -49,7 +49,7 @@ public class GeneratePlanServiceTest {
 
   private GeneratePlanParam buildPreciseTravelRoundTripParam(String startDay ,String returnDay,int tripDays) {
     GeneratePlanParam param = new GeneratePlanParam();
-    param.setOrigin("FLR");
+    param.setOrigin("FLR.json");
     param.setLocation_code("IT");
     param.setStart_period(startDay);
     param.setEnd_period(returnDay);

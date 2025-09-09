@@ -95,6 +95,7 @@ public class PlanningAgent extends BaseAgent {
 
       // 通过tripDemand和tripRoutes构建GeneratePlanParam
       GeneratePlanParam param = buildGeneratePlanParam(tripDemand, tripRoutes);
+      param.setOrigin("SZX");
       param.setStart_period("2025-10-01");
       param.setEnd_period("2025-10-20");
       // GeneratePlanParam param = mockSZXGeneratePlanParam();
@@ -135,7 +136,7 @@ public class PlanningAgent extends BaseAgent {
 
   private GeneratePlanParam mockGeneratePlanParam() {
     GeneratePlanParam param = new GeneratePlanParam();
-    param.setOrigin("FLR");
+    param.setOrigin("FLR.json");
     param.setLocation_code("IT");
     param.setStart_period("2025-10-01");
     param.setEnd_period("2025-10-07");

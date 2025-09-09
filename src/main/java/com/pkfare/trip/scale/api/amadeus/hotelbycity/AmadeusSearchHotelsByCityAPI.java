@@ -4,7 +4,6 @@ package com.pkfare.trip.scale.api.amadeus.hotelbycity;
 import com.amadeus.Amadeus;
 import com.amadeus.Params;
 import com.amadeus.resources.Hotel;
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.Lists;
@@ -14,8 +13,6 @@ import com.pkfare.trip.scale.api.amadeus.exception.AmadeusApiException;
 import com.pkfare.trip.scale.api.amadeus.hotelbycity.request.QueryHotelByCityRequest;
 import com.pkfare.trip.scale.api.amadeus.hotelbycity.response.HotelAddressDto;
 import com.pkfare.trip.scale.api.amadeus.hotelbycity.response.HotelInfoDto;
-import com.pkfare.trip.scale.util.JsonUtil;
-import java.util.Collections;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
@@ -37,8 +34,8 @@ public class AmadeusSearchHotelsByCityAPI {
   private final ObjectMapper objectMapper = new ObjectMapper();
 
   public List<HotelInfoDto> queryHotelByCity(QueryHotelByCityRequest queryHotelByCityRequest) throws AmadeusApiException {
-    if(needMock()){
-      return mockApiResponse(queryHotelByCityRequest);
+    if(needMock(queryHotelByCityRequest.getCityCode())){
+      return mockApiResponseByCityCode(queryHotelByCityRequest);
     }
     Amadeus amadeus = AmadeusClient.get();
     Params params = Params.with("cityCode", queryHotelByCityRequest.getCityCode())
@@ -64,7 +61,7 @@ public class AmadeusSearchHotelsByCityAPI {
   }
 
   public List<HotelInfoDto> queryHotelByGeocode(QueryHotelByGeocodeRequest request) throws AmadeusApiException {
-    if (needMock()) {
+    if (mockEnabled) {
       return mockHotelByGeocode(request);
     }
     Amadeus amadeus = AmadeusClient.get();
@@ -133,7 +130,54 @@ public class AmadeusSearchHotelsByCityAPI {
   }
 
   /**
-   * 返回Mock API响应
+   * 根据cityCode返回Mock API响应
+   */
+  private List<HotelInfoDto> mockApiResponseByCityCode(QueryHotelByCityRequest queryHotelByCityRequest) {
+    String cityCode = queryHotelByCityRequest.getCityCode();
+    String mockFilePath = "mock/hotelofcity/" + cityCode + ".json";
+    
+    try {
+      // 读取对应cityCode的mock JSON文件
+      ClassPathResource resource = new ClassPathResource(mockFilePath);
+      if (!resource.exists()) {
+        log.warn("Mock file not found for cityCode: {} at path: {}", cityCode, mockFilePath);
+        return new ArrayList<>();
+      }
+      
+      JsonNode rootNode = objectMapper.readTree(resource.getInputStream());
+      JsonNode dataNode = rootNode.get("data");
+
+      if (dataNode == null || !dataNode.isArray()) {
+        log.warn("Mock hotel data format is invalid for cityCode: {}, returning empty list", cityCode);
+        return new ArrayList<>();
+      }
+
+      List<HotelInfoDto> mockHotels = new ArrayList<>();
+
+      // 解析每个酒店
+      for (JsonNode hotelNode : dataNode) {
+        HotelInfoDto dto = parseMockHotel(hotelNode);
+        if (dto != null) {
+          mockHotels.add(dto);
+        }
+      }
+
+      log.info("Returned {} mock hotels for city code: {} from file: {}", 
+               mockHotels.size(), cityCode, mockFilePath);
+
+      return mockHotels;
+
+    } catch (IOException e) {
+      log.error("Failed to read mock hotel file for cityCode: {} at path: {}", cityCode, mockFilePath, e);
+      return new ArrayList<>();
+    } catch (Exception e) {
+      log.error("Failed to parse mock hotel data for cityCode: {}", cityCode, e);
+      return new ArrayList<>();
+    }
+  }
+
+  /**
+   * 返回Mock API响应（保留原方法作为fallback）
    */
   private List<HotelInfoDto> mockApiResponse(QueryHotelByCityRequest queryHotelByCityRequest) {
     try {
@@ -233,9 +277,24 @@ public class AmadeusSearchHotelsByCityAPI {
 
   /**
    * 判断是否需要使用Mock数据
+   * 先判断开关是否打开，然后判断mock/hotelofcity/下是否有对应cityCode的文件
    */
-  private boolean needMock() {
-    return mockEnabled;
+  private boolean needMock(String cityCode) {
+    if (!mockEnabled) {
+      return false;
+    }
+    
+    // 检查是否存在对应cityCode的mock文件
+    String mockFilePath = "mock/hotelofcity/" + cityCode + ".json";
+    try {
+      ClassPathResource resource = new ClassPathResource(mockFilePath);
+      boolean exists = resource.exists();
+      log.debug("Checking mock file for cityCode {}: {} - exists: {}", cityCode, mockFilePath, exists);
+      return exists;
+    } catch (Exception e) {
+      log.debug("Failed to check mock file for cityCode {}: {}", cityCode, e.getMessage());
+      return false;
+    }
   }
 
   /**
