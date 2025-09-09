@@ -8,6 +8,7 @@ import com.google.common.collect.Maps;
 import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import com.pkfare.trip.scale.agent.orchestration.AnotherRootAgent;
 import com.pkfare.trip.scale.agent.orchestration.RootAgent;
+import com.pkfare.trip.scale.agent.planning.PlanningAgent;
 import com.pkfare.trip.scale.function.AppRunner;
 import io.reactivex.rxjava3.core.Maybe;
 import jakarta.annotation.PostConstruct;
@@ -47,6 +48,7 @@ public class DevConfig {
     RootAgent rootAgent = RootAgent.instance();
     loadedAgentRegistry.put(rootAgent.name(), rootAgent);
     rootAgent.setDevConfig(this);
+    PlanningAgent.instance().setDevConfig(this);
   }
 
   @Bean

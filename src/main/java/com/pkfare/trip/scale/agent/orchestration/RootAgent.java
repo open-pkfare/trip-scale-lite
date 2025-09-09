@@ -47,6 +47,7 @@ import java.util.concurrent.ConcurrentMap;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.util.CollectionUtils;
 
 @Slf4j
 public class RootAgent extends BaseAgent {
@@ -162,11 +163,13 @@ public class RootAgent extends BaseAgent {
               break;
             case "inspiration":
               List<TripRoute> tripRoutes = mapper.readValue(text, new TypeReference<List<TripRoute>>() {});
-              states.put("current_stage", "planning");
-              states.put("trip_route", tripRoutes);
-              part = Part.builder().text(Optional.ofNullable(pref).orElse("Okay, let's start planning details for it!")).build();
-              parts.removeFirst();
-              parts.add(part);
+              if (!CollectionUtils.isEmpty(tripRoutes)){
+                states.put("current_stage", "planning");
+                states.put("trip_route", tripRoutes);
+                part = Part.builder().text(Optional.ofNullable(pref).orElse("Okay, let's start planning details for it!")).build();
+                parts.removeFirst();
+                parts.add(part);
+              }
               break;
             case "planning":
               if (content.role().isPresent() && "planner".equals(content.role().get())){

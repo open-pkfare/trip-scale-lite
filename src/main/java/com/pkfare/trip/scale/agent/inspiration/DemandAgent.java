@@ -2,6 +2,7 @@ package com.pkfare.trip.scale.agent.inspiration;
 
 import com.google.adk.agents.BaseAgent;
 import com.google.adk.agents.Instruction;
+import com.google.adk.agents.InvocationContext;
 import com.google.adk.agents.LlmAgent;
 import com.google.adk.agents.ReadonlyContext;
 import com.google.adk.events.Event;
@@ -28,12 +29,15 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 
 @Slf4j
-@Component
-public class DemandAgent {
+public class DemandAgent extends LlmAgent {
 
   private static String NAME = "trip_demand_agent";
 
   private static BaseAgent INSTANCE;
+
+  protected DemandAgent(Builder builder) {
+    super(builder);
+  }
 
   public static BaseAgent instance() {
     if (null == INSTANCE) {
@@ -53,6 +57,12 @@ public class DemandAgent {
 
     }
     return INSTANCE;
+  }
+
+  @Override
+  protected Flowable<Event> runAsyncImpl(InvocationContext invocationContext) {
+    invocationContext.branch("demander");
+    return super.runAsyncImpl(invocationContext);
   }
 
   public static void main(String[] args) {

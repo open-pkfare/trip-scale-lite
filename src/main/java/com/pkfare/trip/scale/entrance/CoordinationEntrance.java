@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.tuple.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
@@ -38,7 +39,7 @@ public class CoordinationEntrance {
    * @param conversation
    * @return
    */
-  public List<RespConversation> chat(List<byte[]> files, Conversation conversation) {
+  public List<RespConversation> chat(List<Pair<String,byte[]>> files, Conversation conversation) {
     Session session = devConfig.getSession(conversation.getConversationId(), conversation.getUserId());
     log.info("current session {} {}", conversation.getConversationId(), session.state().entrySet());
     Builder builder = Content.builder().role("user");
@@ -47,7 +48,7 @@ public class CoordinationEntrance {
       parts.add(Part.fromText(conversation.getContent()));
     }
     if (!CollectionUtils.isEmpty(files)){
-      parts.addAll(files.stream().map(bts-> Part.fromBytes(bts,"image/jpeg")).toList());
+      parts.addAll(files.stream().map(bts-> Part.fromBytes(bts.getRight(),bts.getLeft())).toList());
     }
     Content userMsg = builder.role("user").parts(parts).build();
     Flowable<Event> events = runner.runAsync(conversation.getUserId(), session.id(), userMsg);
