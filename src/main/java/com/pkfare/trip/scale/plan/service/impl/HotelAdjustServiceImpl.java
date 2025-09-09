@@ -4,6 +4,7 @@ import com.amadeus.resources.Hotel;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pkfare.trip.scale.api.amadeus.hotelbycity.request.QueryHotelByGeocodeRequest;
+import com.pkfare.trip.scale.api.amadeus.hotelbycity.response.HotelInfoDto;
 import com.pkfare.trip.scale.api.amadeus.hoteloffers.request.HotelOffersSearchRequest;
 import com.pkfare.trip.scale.api.amadeus.hoteloffers.response.HotelOfferDto;
 import com.pkfare.trip.scale.exception.TripPlanException;
@@ -85,18 +86,21 @@ public class HotelAdjustServiceImpl implements TripPlanAdjustInterface {
     geocodeRequest.setRadiusUnit("KM");
     geocodeRequest.setRatings(adjustHotelParam.getHotelRatings());
     geocodeRequest.setAmenities(adjustHotelParam.getHotelAmenities());
-    Hotel[] hotels;
+    List<HotelInfoDto>  hotels;
     do {
       hotels = amadeusHotelService.searchHotelsByGeocode(geocodeRequest);
-      if (hotels != null && hotels.length != 0) {
+      if (hotels != null && !hotels.isEmpty()) {
         break;
       }
       geocodeRequest.setRadius(geocodeRequest.getRadius() + 1);
     } while (geocodeRequest.getRadius() <= 5);
-    if (hotels == null || hotels.length == 0) {
+    if (hotels == null || hotels.isEmpty()) {
       throw new TripPlanException(TripPlanErrorCodeEnum.NO_HOTEL_FOUND);
     }
     // 不能重复之前酒店
+    List<String> hotelIds = hotels.stream()
+        .map(HotelInfoDto::getHotelId)
+        .filter(hotelId -> !hotelId.equals(oldHotel.getHotelId())).toList();
     List<String> hotelIds = Arrays.stream(hotels)
         .map(Hotel::getHotelId)
         .filter(hotelId -> !hotelId.equals(oldHotel.getHotel().getHotelId())).toList();
@@ -104,7 +108,7 @@ public class HotelAdjustServiceImpl implements TripPlanAdjustInterface {
       throw new TripPlanException(TripPlanErrorCodeEnum.NO_HOTEL_FOUND);
     }
 
-    String countryCode = hotels[0].getAddress().getCountryCode();
+    String countryCode = hotels.getFirst().getAddress().getCountryCode();
     HotelOffersSearchRequest request = new HotelOffersSearchRequest();
     request.setHotelIds(hotelIds);
     request.setCheckInDate(oldHotel.getOffers().get(0).getCheckInDate());
