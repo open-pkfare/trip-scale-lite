@@ -100,9 +100,6 @@ public class HotelAdjustServiceImpl implements TripPlanAdjustInterface {
     // 不能重复之前酒店
     List<String> hotelIds = hotels.stream()
         .map(HotelInfoDto::getHotelId)
-        .filter(hotelId -> !hotelId.equals(oldHotel.getHotelId())).toList();
-    List<String> hotelIds = Arrays.stream(hotels)
-        .map(Hotel::getHotelId)
         .filter(hotelId -> !hotelId.equals(oldHotel.getHotel().getHotelId())).toList();
     if (hotelIds.isEmpty()) {
       throw new TripPlanException(TripPlanErrorCodeEnum.NO_HOTEL_FOUND);
@@ -138,7 +135,7 @@ public class HotelAdjustServiceImpl implements TripPlanAdjustInterface {
         return BigDecimal.valueOf(Double.MAX_VALUE);
       })).orElse(null);
 
-      return HotelSearchService.buildHotelInfo(offerDto,  oldHotel.getHotel().getCityCode(), oldHotel.getHotel().getCityName(),0);
+      return HotelSearchService.buildHotelInfo(offerDto, oldHotel.getHotel().getCityCode(), oldHotel.getHotel().getCityName(), 0);
     } catch (Exception e) {
       throw new TripPlanException(TripPlanErrorCodeEnum.NO_HOTEL_FOUND);
     }
