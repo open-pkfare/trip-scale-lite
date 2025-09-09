@@ -18,7 +18,7 @@ public class RootPrompt {
           + "\n"
           + "| current_stage | transfer_to            | goals                                                   |\n"
           + "|-------------|------------------------|---------------------------------------------------------|\n"
-          + "| demand      | trip_demand_agent      | collecting user's trip demand on this stage             |\n"
+          + "| demand      | p_demand_agent      | collecting user's trip demand on this stage             |\n"
           + "| inspiration | trip_inspiration_agent | inspire user to plan a trip routes                      | \n"
           + "| planning    | trip_planning_agent    | extent user's trip route to feasible trip plan schedule |\n"
           + "| optimizing  | trip_optimizing_agent  | optimize user's trip plan schedule                     |\n"

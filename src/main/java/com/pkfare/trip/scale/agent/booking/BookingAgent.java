@@ -65,7 +65,7 @@ public class BookingAgent extends BaseAgent {
   }
 
   public BookingAgent() {
-    super("p_booking_agent", "Agent to help user book and generate roadbook.",
+    super("p_booking_agent", "Agent to help user book the trip and generate roadbook.",
         Lists.newArrayList(SUMMARY_AGENT),
         null,
         null);
@@ -85,6 +85,7 @@ public class BookingAgent extends BaseAgent {
 
   @Override
   protected Flowable<Event> runAsyncImpl(InvocationContext invocationContext) {
+    log.info("current agent: booking");
     TripRoutePlanResult tripRoutePlanResult = (TripRoutePlanResult) invocationContext.session().state().get("plan_result");
     tripRoutePlanResult = mockDailyPlans();
     Map<LocalDate, JSONObject> summaries = summarize(invocationContext, tripRoutePlanResult);
@@ -121,6 +122,7 @@ public class BookingAgent extends BaseAgent {
           Session session = runner.sessionService().createSession(NAME, UUID.randomUUID().toString()).blockingGet();
           runner.runAsync(session.userId(), session.id(), content)
               .blockingForEach(event -> {
+                //parse daily arrangement and tips, construct the road book
                 String text = event.content().get().text();
                 if (text.contains("------")){
                   text = text.split("------")[1];

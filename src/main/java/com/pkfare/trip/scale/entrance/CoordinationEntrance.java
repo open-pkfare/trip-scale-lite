@@ -79,14 +79,21 @@ public class CoordinationEntrance {
       }
     });
 
-    map.forEach((key, value)-> {
+    if (map.containsKey("object")){
       RespConversation respConversation = new RespConversation();
-      respConversation.setType(key);
-      respConversation.setContent(value.toString());
+      respConversation.setType("object");
+      respConversation.setContent(map.get("object").toString());
       respConversation.setConversationId(conversation.getConversationId());
       respConversations.add(respConversation);
-    });
+    }
 
+    if (map.containsKey("string")){
+      RespConversation respConversation = new RespConversation();
+      respConversation.setType("string");
+      respConversation.setContent(map.get("string").toString());
+      respConversation.setConversationId(conversation.getConversationId());
+      respConversations.add(respConversation);
+    }
     //log.info("state : {}", new Gson().toJson(session.state()));
     return respConversations;
   }

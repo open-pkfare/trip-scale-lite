@@ -86,7 +86,7 @@ public class OptimizingAgent extends BaseAgent {
 
   @Override
   protected Flowable<Event> runAsyncImpl(InvocationContext invocationContext) {
-
+    log.info("current agent: optimizing");
     final String[] content = new String[1];
     invocationContext.agent().findAgent(BASE_AGENT).runAsync(invocationContext).blockingForEach(event -> {
       content[0] = event.content().get().text();

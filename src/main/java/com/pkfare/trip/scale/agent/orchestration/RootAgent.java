@@ -117,6 +117,7 @@ public class RootAgent extends BaseAgent {
 
   @Override
   protected Flowable<Event> runAsyncImpl(InvocationContext invocationContext) {
+    log.info("current agent: root");
     Session session = invocationContext.session();
     initSession(session);
     return invocationContext.agent().findAgent("Coordinator").runAsync(invocationContext).doOnNext(event -> stageTransition(event, invocationContext));

@@ -1,6 +1,7 @@
 package com.pkfare.trip.scale.agent.inspiration;
 
 import com.google.adk.agents.BaseAgent;
+import com.google.adk.agents.InvocationContext;
 import com.google.adk.agents.LlmAgent;
 import com.google.adk.events.Event;
 import com.google.adk.runner.InMemoryRunner;
@@ -22,16 +23,24 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 @Slf4j
-@Component
-public class InspirationAgent {
+public class InspirationAgent extends BaseAgent {
 
   private static String NAME = "trip_inspiration_agent";
 
   private static BaseAgent INSTANCE;
 
+  private static BaseAgent INSPIRATION_AGENT;
+
+  protected InspirationAgent() {
+    super("p_inspiration_agent", "Agent to help user to inspire trip demand into trip routes.",
+        Lists.newArrayList(INSPIRATION_AGENT),
+        null,
+        null);
+  }
+
   public static BaseAgent instance() {
     if (null == INSTANCE){
-      INSTANCE = LlmAgent.builder()
+      INSPIRATION_AGENT = LlmAgent.builder()
           .name(NAME)
           .model(GoogleConfig.GEMINI_2_5_FLASH)
           .description("Agent to help user to inspire trip demand into trip routes.")
@@ -39,9 +48,22 @@ public class InspirationAgent {
           .tools(
               FunctionTool.create(PersonalPreferenceService.class, "preferences"))
           .build();
+      INSTANCE = new InspirationAgent();
     }
 
     return INSTANCE;
+  }
+
+  @Override
+  protected Flowable<Event> runAsyncImpl(InvocationContext invocationContext) {
+    log.info("current agent: inspiration");
+    invocationContext.branch("inspirator");
+    return INSPIRATION_AGENT.runAsync(invocationContext);
+  }
+
+  @Override
+  protected Flowable<Event> runLiveImpl(InvocationContext invocationContext) {
+    return null;
   }
 
   public static void main(String[] args) {

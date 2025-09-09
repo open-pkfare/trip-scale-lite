@@ -114,8 +114,7 @@ public class PlanningAgent extends BaseAgent {
 
   @Override
   protected Flowable<Event> runAsyncImpl(InvocationContext invocationContext) {
-    log.info("Starting PlanningAgent runAsyncImpl");
-
+    log.info("current agent: planning");
     try {
       // 从会话状态中获取数据
       TripDemand tripDemand = (TripDemand) invocationContext.session().state().get("trip_demand");
@@ -140,8 +139,6 @@ public class PlanningAgent extends BaseAgent {
       if (tripRoutes == null) {
         return Flowable.error(new IllegalStateException("Missing required tripRoutes in session"));
       }
-      Event event = Event.builder().author("agent").content(Content.builder().role("agent").parts(Lists.newArrayList(Part.fromText("Okay, give me a minute to plan it detaily for you..."))).build()).build();
-      devConfig.appendEvent(invocationContext.session(), event);
 
       // 通过tripDemand和tripRoutes构建GeneratePlanParam
       // GeneratePlanParam param = buildGeneratePlanParam(tripDemand, tripRoutes);
@@ -263,7 +260,7 @@ public class PlanningAgent extends BaseAgent {
     // 第二个事件：摘要事件（逻辑不变）
     if (planResult.getSummary() != null && !planResult.getSummary().isEmpty()) {
       Content summaryContent = Content.builder().role("agent")
-          .parts(Lists.newArrayList(Part.fromText(planResult.getSummary()))).build();
+          .parts(Lists.newArrayList(Part.fromText(planResult.getSummary() + " If you wish to adjust the itinerary or need me to provide additional details, please let me know."))).build();
       Event summaryEvent = Event.builder()
           .invocationId(invocationContext.invocationId())
           .author("agent")
