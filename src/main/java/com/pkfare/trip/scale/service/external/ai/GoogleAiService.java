@@ -804,7 +804,7 @@ public class GoogleAiService {
     // 选择该城市的酒店
     if (hotelInfos != null && !hotelInfos.isEmpty()) {
       List<HotelInfo> cityHotels = hotelInfos.stream()
-          .filter(hotel -> dailyActivityPlan.getCityCode().equals(hotel.getHotel().getCityName()))
+          .filter(hotel -> dailyActivityPlan.getCityCode().equals(hotel.getHotel().getCityCode()))
           .collect(Collectors.toList());
       
       if (!cityHotels.isEmpty()) {

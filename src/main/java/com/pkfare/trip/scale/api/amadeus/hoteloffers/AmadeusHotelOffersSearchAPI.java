@@ -252,7 +252,7 @@ public class AmadeusHotelOffersSearchAPI {
       RoomDetailsDto roomDetailsDto = new  RoomDetailsDto();
       offerDto.setRoom(roomDetailsDto);
       roomDetailsDto.setType(getStringValue(roomNode, "type"));
-      JsonNode typeEstimatedNode = offerNode.get("typeEstimated");
+      JsonNode typeEstimatedNode = roomNode.get("typeEstimated");
       if(typeEstimatedNode!=null){
         EstimatedRoomTypeDto estimatedRoomTypeDto = new EstimatedRoomTypeDto();
         roomDetailsDto.setTypeEstimated(estimatedRoomTypeDto);
@@ -260,7 +260,7 @@ public class AmadeusHotelOffersSearchAPI {
         estimatedRoomTypeDto.setBeds(getIntValue(typeEstimatedNode, "beds"));
         estimatedRoomTypeDto.setCategory(getStringValue(typeEstimatedNode, "category"));
       }
-      JsonNode descriptionNode = offerNode.get("description");
+      JsonNode descriptionNode = roomNode.get("description");
       if(descriptionNode!=null){
         QualifiedFreeTextDto description = new QualifiedFreeTextDto();
         roomDetailsDto.setDescription(description);

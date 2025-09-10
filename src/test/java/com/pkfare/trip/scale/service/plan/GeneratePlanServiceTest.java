@@ -24,6 +24,36 @@ public class GeneratePlanServiceTest {
   @Resource
   private GeneratePlanService generatePlanService;
 
+  @Test
+  void testSZXPlan_preciseTravel_onewaytrip() {
+    GeneratePlanParam param = mockSZXGeneratePlanParam();
+    TripRoutePlanResult result = generatePlanService.generatePlan(param);
+    assertNotNull(result);
+  }
+
+  private GeneratePlanParam mockSZXGeneratePlanParam() {
+    GeneratePlanParam param = new GeneratePlanParam();
+    param.setOrigin("SZX");
+    param.setLocation_code("CN");
+    param.setStart_period("2025-10-01");
+    param.setEnd_period("2025-10-20");
+    param.setTrip_days(14);
+    param.setAdult_number(1);
+    param.setChild_number(0);
+    param.setRoom_quantity(1);
+    param.setBudgets("15000");
+    param.setCurrency("USD");
+    param.setTrip_routes(buildOneWayTripRoutesnew());
+    return param;
+  }
+
+  private List<TripRouteParam> buildOneWayTripRoutesnew() {
+    List<TripRouteParam> tripRouteParams = Lists.newArrayList();
+    tripRouteParams.add(buildRouteTrip(5, "Rome", "IT", "FCO"));
+    tripRouteParams.add(buildRouteTrip(5, "Florence", "IT", "FLR"));
+    tripRouteParams.add(buildRouteTrip(4, "Venice", "IT", "VCE"));
+    return tripRouteParams;
+  }
 
   /**
    * 精确行程日期 && 往返航班

@@ -19,6 +19,7 @@ import com.pkfare.trip.scale.service.plan.LocationSearchService;
 import com.pkfare.trip.scale.util.DateUtil;
 import com.pkfare.trip.scale.util.JsonUtil;
 import com.pkfare.trip.scale.util.ValidationUtil;
+import java.time.format.DateTimeFormatter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -30,8 +31,6 @@ import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ThreadPoolExecutor;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 import java.util.stream.Collectors;
 
 /**
@@ -92,6 +91,8 @@ public class GeneratePlanService {
       if (!preciseTravel) {
         long dateSearchStart = System.currentTimeMillis();
         dateResult = flightSearchService.searchFlightDates(param, roundTrip);
+        param.setStart_period(toString(dateResult.getDepartureDate()));
+        param.setEnd_period(toString(dateResult.getReturnDate()));
         log.info("Flight date search completed in {} ms", System.currentTimeMillis() - dateSearchStart);
       }
 
@@ -148,6 +149,18 @@ public class GeneratePlanService {
       errorPlan.setErrorMessage("生成旅行计划时发生错误: " + e.getMessage());
       return errorPlan;
     }
+  }
+
+  public static String toString(LocalDate localDate) {
+    String pattern = "yyyy-MM-dd";
+    if (localDate == null) {
+      return null;
+    }
+    if (pattern == null || pattern.isEmpty()) {
+      pattern = "";
+    }
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
+    return localDate.format(formatter);
   }
 
   /**

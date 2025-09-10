@@ -104,6 +104,7 @@ public class ActivityFilteringService {
      * @param originalActivities 原始活动列表
      * @return 筛选后的活动列表
      */
+    /**
     public List<ActivityInfo> filterActivitiesByFlightTimeAndPreferences(
             GeneratePlanParam param,
             Map<String, List<FlightInfo>> flights,
@@ -157,7 +158,7 @@ public class ActivityFilteringService {
             // 如果全局分配失败，返回基于简单规则筛选的结果
             return fallbackActivityFiltering(originalActivities, param);
         }
-    }
+    }*/
     
     /**
      * Fallback到原有的逐日筛选逻辑，返回每日分配
@@ -314,6 +315,7 @@ public class ActivityFilteringService {
     /**
      * Fallback到原有的逐日筛选逻辑
      */
+    /**
     private List<ActivityInfo> fallbackToLegacyFiltering(
             GeneratePlanParam param, Map<String, List<FlightInfo>> flights, List<ActivityInfo> originalActivities) {
         
@@ -359,7 +361,7 @@ public class ActivityFilteringService {
             return fallbackActivityFiltering(originalActivities, param);
         }
     }
-    
+    */
     /**
      * 分析航班时间
      */
@@ -420,45 +422,51 @@ public class ActivityFilteringService {
     }
     
     /**
-     * 按城市和日期组织活动
+     * 按城市和日期组织活动 - 超简化版本：直接从activities列表中依次为每个城市每天取3～6个活动
      */
     private Map<String, Map<LocalDate, List<ActivityInfo>>> organizeActivitiesByCity(
             List<ActivityInfo> activities, GeneratePlanParam param) {
         
         Map<String, Map<LocalDate, List<ActivityInfo>>> result = new HashMap<>();
-        LocalDate currentDate = LocalDate.parse(param.getStart_period());
+        String departure = param.getStart_period();
+        LocalDate currentDate = LocalDate.parse(departure);
         
-        // 按城市分组
-        Map<String, List<ActivityInfo>> activitiesByCity = activities.stream()
-            .collect(Collectors.groupingBy(ActivityInfo::getCityCode));
+        Random random = new Random();
+        int activityIndex = 0; // 用于依次取活动的索引
         
         // 为每个城市按日期分配活动
         for (var routeParam : param.getTrip_routes()) {
             String cityCode = routeParam.getLocation_code();
-            List<ActivityInfo> cityActivities = activitiesByCity.getOrDefault(cityCode, new ArrayList<>());
-            
             Map<LocalDate, List<ActivityInfo>> dailyActivities = new HashMap<>();
-            
-            // 将活动平均分配到各天
             int totalDays = routeParam.getStay_days();
-            int activitiesPerDay = Math.max(MIN_ACTIVITIES_PER_DAY, 
-                Math.min(MAX_ACTIVITIES_PER_DAY, cityActivities.size() / totalDays));
             
             for (int day = 0; day < totalDays; day++) {
                 LocalDate date = currentDate.plusDays(day);
-                int startIndex = day * activitiesPerDay;
-                int endIndex = Math.min(startIndex + activitiesPerDay, cityActivities.size());
+                List<ActivityInfo> dayActivities = new ArrayList<>();
                 
-                if (startIndex < cityActivities.size()) {
-                    List<ActivityInfo> dayActivities = cityActivities.subList(startIndex, endIndex);
-                    dailyActivities.put(date, new ArrayList<>(dayActivities));
+                if (!activities.isEmpty()) {
+                    // 随机选择3-6个活动
+                    int targetCount = 3 + random.nextInt(4); // 3到6个活动
+                    
+                    // 依次从activities列表中取活动
+                    for (int i = 0; i < targetCount; i++) {
+                        if (activityIndex >= activities.size()) {
+                            activityIndex = 0; // 重新开始循环
+                        }
+                        dayActivities.add(activities.get(activityIndex));
+                        activityIndex++;
+                    }
                 }
+                
+                dailyActivities.put(date, dayActivities);
+                log.debug("Day {}: {} activities assigned for city {}", date, dayActivities.size(), cityCode);
             }
             
             result.put(cityCode, dailyActivities);
             currentDate = currentDate.plusDays(totalDays);
         }
         
+        log.debug("Final organization result: {} cities with daily activities", result.size());
         return result;
     }
     
@@ -470,48 +478,8 @@ public class ActivityFilteringService {
             FlightTimeAnalysis flightAnalysis, String userPreferences, GeneratePlanParam param) {
         
         try {
-            // 1. 检查Agent是否可用
-            if (agentManager.isAgentAvailable() && dayActivities.size() > 3) {
-                log.info("Using Google ADK Agent for activity filtering on {} for city {}", date, cityCode);
-                
-                // 2. 构建Agent请求
-                ActivityFilteringRequest request = buildAgentRequest(
-                    cityCode, date, dayActivities, flightAnalysis, userPreferences, param);
-                
-                // 3. 调用Agent进行筛选
-                ActivityFilteringResponse agentResponse = agentManager.filterActivitiesWithAgent(request);
-                
-                // 4. 处理Agent响应
-                if ("SUCCESS".equals(agentResponse.getStatus()) && 
-                    agentResponse.getRecommendedActivities() != null && 
-                    !agentResponse.getRecommendedActivities().isEmpty()) {
-                    
-                    List<ActivityInfo> agentFilteredActivities = agentResponse.getRecommendedActivities()
-                        .stream()
-                        .map(ActivityFilteringResponse.RecommendedActivity::getActivity)
-                        .collect(Collectors.toList());
-                    
-                    log.info("Agent filtering successful for {} on {}: {} activities selected", 
-                        cityCode, date, agentFilteredActivities.size());
-                    
-                    // 记录筛选理由
-                    if (agentResponse.getReasoning() != null) {
-                        log.debug("Agent reasoning: {}", agentResponse.getReasoning());
-                    }
-                    
-                    return agentFilteredActivities;
-                }
-                
-                log.warn("Agent filtering failed or returned empty results for {} on {}, falling back to rule-based filtering", 
-                    cityCode, date);
-            } else {
-                log.debug("Using rule-based filtering for {} on {} (Agent unavailable or insufficient activities)", 
-                    cityCode, date);
-            }
-            
-            // 5. Fallback到基于规则的筛选
+            // Fallback到基于规则的筛选
             return filterActivitiesByRulesWithPreferences(dayActivities, date, flightAnalysis, userPreferences);
-            
         } catch (Exception e) {
             log.error("Failed to use AI filtering for day {}, falling back to rule-based filtering", date, e);
             return filterActivitiesByRules(dayActivities, date, flightAnalysis);
