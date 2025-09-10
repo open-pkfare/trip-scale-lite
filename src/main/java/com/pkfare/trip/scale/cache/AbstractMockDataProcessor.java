@@ -36,11 +36,16 @@ public abstract class AbstractMockDataProcessor {
         
         // 优先尝试从缓存获取
         if (mockDataCacheManager.isCacheInitialized()) {
-            JsonNode cachedData = mockDataCacheManager.getCachedMockDataArray(cacheKey);
+            JsonNode cachedData = mockDataCacheManager.getCachedMockData(cacheKey);
             if (cachedData != null) {
-                long duration = System.currentTimeMillis() - startTime;
-                log.debug("Cache hit for key: {} in {} ms", cacheKey, duration);
-                return cachedData;
+                JsonNode dataNode = cachedData.get("data");
+                if (dataNode != null && dataNode.isArray()) {
+                    long duration = System.currentTimeMillis() - startTime;
+                    log.debug("Cache hit for key: {} in {} ms", cacheKey, duration);
+                    return dataNode;
+                } else {
+                    log.warn("Cached data format is invalid for key: {}, falling back to file reading", cacheKey);
+                }
             } else {
                 log.debug("Cache miss for key: {}, falling back to file reading", cacheKey);
             }

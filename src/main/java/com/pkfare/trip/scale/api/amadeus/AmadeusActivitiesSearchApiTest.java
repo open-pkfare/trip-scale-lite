@@ -16,7 +16,7 @@ import lombok.extern.slf4j.Slf4j;
 public class AmadeusActivitiesSearchApiTest {
 
   @Configuration
-  @ComponentScan(basePackages = "com.pkfare.trip.scale.api.amadeus")
+  @ComponentScan(basePackages = {"com.pkfare.trip.scale.api.amadeus", "com.pkfare.trip.scale.cache"})
   static class TestConfig {
   }
 
@@ -31,8 +31,8 @@ public class AmadeusActivitiesSearchApiTest {
 
   private static ActivitiesSearchRequest buildActivitiesSearchRequest() {
     ActivitiesSearchRequest request = new ActivitiesSearchRequest();
-    request.setLatitude(41.397158);
-    request.setLongitude(2.160873);
+    request.setLatitude(41.8967068);
+    request.setLongitude(12.4822025);
     request.setRadius(10);
     return request;
   }
