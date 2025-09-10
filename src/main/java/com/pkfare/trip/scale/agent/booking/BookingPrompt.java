@@ -11,7 +11,8 @@ public class BookingPrompt {
       + "\n"
       + "## Output\n"
       + "\n"
-      + "{\n"
+      + "------[{\n"
+      + "\"date\":String,\n"
       + "\"shopping_tips\":String,\n"
       + "\"meal_tips\":String,\n"
       + "\"arrangement\": [\n"
@@ -20,7 +21,7 @@ public class BookingPrompt {
       + "\"timing\":String\n"
       + "}\n"
       + "]\n"
-      + "}";
+      + "}]";
 
 
 
