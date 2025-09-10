@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @Slf4j
 @RestController
-@RequestMapping("/api/plan-result")
+@RequestMapping("/plan-result")
 @CrossOrigin(origins = "*")
 public class PlanResultController {
 
