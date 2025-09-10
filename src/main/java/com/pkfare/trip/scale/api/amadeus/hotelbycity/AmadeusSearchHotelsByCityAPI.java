@@ -177,45 +177,6 @@ public class AmadeusSearchHotelsByCityAPI {
   }
 
   /**
-   * 返回Mock API响应（保留原方法作为fallback）
-   */
-  private List<HotelInfoDto> mockApiResponse(QueryHotelByCityRequest queryHotelByCityRequest) {
-    try {
-      // 读取mock JSON文件
-      ClassPathResource resource = new ClassPathResource("mock/hotelofcity/hotel-of-city.json");
-      JsonNode rootNode = objectMapper.readTree(resource.getInputStream());
-      JsonNode dataNode = rootNode.get("data");
-
-      if (dataNode == null || !dataNode.isArray()) {
-        log.warn("Mock hotel of city data format is invalid, returning empty list");
-        return new ArrayList<>();
-      }
-
-      List<HotelInfoDto> mockHotels = new ArrayList<>();
-
-      // 解析每个酒店
-      for (JsonNode hotelNode : dataNode) {
-        HotelInfoDto dto = parseMockHotel(hotelNode);
-        if (dto != null) {
-          mockHotels.add(dto);
-        }
-      }
-
-      log.info("Returned {} mock hotels for city code: {}",
-               mockHotels.size(), queryHotelByCityRequest.getCityCode());
-
-      return mockHotels;
-
-    } catch (IOException e) {
-      log.error("Failed to read mock hotel of city file", e);
-      return new ArrayList<>();
-    } catch (Exception e) {
-      log.error("Failed to parse mock hotel of city data", e);
-      return new ArrayList<>();
-    }
-  }
-
-  /**
    * 解析单个Mock酒店
    */
   private HotelInfoDto parseMockHotel(JsonNode hotelNode) {
