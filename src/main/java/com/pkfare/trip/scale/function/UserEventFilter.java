@@ -21,7 +21,7 @@ public class UserEventFilter implements Predicate<Event> {
       if(content.role().isPresent()){
         String role = content.role().get();
         if ("user".equals(role)){
-          log.info("filter out, {}", event.toString());
+//          log.info("filter out, {}", event.toString());
           return false;
         }
       }

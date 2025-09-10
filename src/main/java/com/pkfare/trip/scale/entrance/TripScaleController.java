@@ -2,14 +2,17 @@ package com.pkfare.trip.scale.entrance;
 
 import com.alibaba.fastjson.JSON;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import com.pkfare.trip.scale.agent.booking.BookingAgent;
 import com.pkfare.trip.scale.dto.Conversation;
 import com.pkfare.trip.scale.dto.RespConversation;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
+import org.apache.commons.lang3.tuple.Pair;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,16 +44,16 @@ public class TripScaleController {
       conversation.setConversationId(UUID.randomUUID().toString());
       logger.info("generate new conversation ID: {}", conversation.getConversationId());
     }
-    List<byte[]> files = Lists.newArrayList();
+    List<Pair<String,byte[]>> files = Lists.newArrayList();
     try {
       if (null != file1 && !file1.isEmpty()) {
-        files.add(file1.getBytes());
+        files.add(Pair.of(file1.getContentType(),file1.getBytes()));
       }
       if (null != file2 && !file2.isEmpty()) {
-        files.add(file2.getBytes());
+        files.add(Pair.of(file2.getContentType(),file2.getBytes()));
       }
       if (null != file3 && !file3.isEmpty()) {
-        files.add(file3.getBytes());
+        files.add(Pair.of(file3.getContentType(),file3.getBytes()));
       }
     } catch (Throwable e) {
       log.info("file read error {}", ExceptionUtils.getStackTrace(e));

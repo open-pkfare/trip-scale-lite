@@ -13,6 +13,11 @@ spring:
     time-zone: GMT+8
     default-property-inclusion: non_null
 
+  servlet:
+    multipart:
+      max-file-size: 300MB
+      max-request-size: 300MB
+
 # 旅行计划配置
 trip:
   plan:

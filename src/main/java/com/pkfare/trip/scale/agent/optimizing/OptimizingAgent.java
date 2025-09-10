@@ -10,7 +10,9 @@ import com.google.adk.agents.LlmAgent;
 import com.google.adk.events.Event;
 import com.google.adk.runner.InMemoryRunner;
 import com.google.adk.sessions.Session;
+import com.google.adk.web.config.DevConfig;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import com.google.genai.types.Content;
 import com.google.genai.types.Part;
 import com.pkfare.trip.scale.config.GoogleConfig;
@@ -34,6 +36,8 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Scanner;
+import java.util.concurrent.ConcurrentMap;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.context.ApplicationContext;
@@ -51,6 +55,9 @@ public class OptimizingAgent extends BaseAgent {
   private static OptimizingAgent optimizingAgent;
   private static ApplicationContext applicationContext;
 
+  @Setter
+  private DevConfig devConfig;
+
   public static void setApplicationContext(ApplicationContext context) {
     applicationContext = context;
   }
@@ -62,7 +69,7 @@ public class OptimizingAgent extends BaseAgent {
         null);
   }
 
-  public static BaseAgent instance() {
+  public static OptimizingAgent instance() {
     if (null == INSTANCE) {
       Instruction instruction = new Provider(rc -> {
         TripRoutePlanResult result = (TripRoutePlanResult) rc.state().get("plan_result");
@@ -86,7 +93,7 @@ public class OptimizingAgent extends BaseAgent {
 
   @Override
   protected Flowable<Event> runAsyncImpl(InvocationContext invocationContext) {
-
+    log.info("current agent: optimizing");
     final String[] content = new String[1];
     invocationContext.agent().findAgent(BASE_AGENT).runAsync(invocationContext).blockingForEach(event -> {
       content[0] = event.content().get().text();
@@ -130,6 +137,9 @@ public class OptimizingAgent extends BaseAgent {
         long start = System.currentTimeMillis();
         TripRoutePlanResult planResult = applicationContext.getBean(TripPlanAdjustService.class)
             .adjustPlan(planParam, tripRoutePlanResult, adjustPlanParams);
+        ConcurrentMap<String, Object> states = Maps.newConcurrentMap();
+        states.put("plan_result", planResult);
+        devConfig.saveState(invocationContext.session(), states);
         log.info("*******************************************************Time taken to optimizing plan: {} ms", System.currentTimeMillis() - start);
         log.info("optimize trip plan with status: {}", planResult.getStatus());
         return createPlanEvents(planResult, invocationContext);
