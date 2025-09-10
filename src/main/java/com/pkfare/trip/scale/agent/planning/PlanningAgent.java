@@ -94,11 +94,11 @@ public class PlanningAgent extends BaseAgent {
 
 
       // 通过tripDemand和tripRoutes构建GeneratePlanParam
-      GeneratePlanParam param = buildGeneratePlanParam(tripDemand, tripRoutes);
-      param.setOrigin("SZX");
-      param.setStart_period("2025-10-01");
-      param.setEnd_period("2025-10-20");
-      // GeneratePlanParam param = mockSZXGeneratePlanParam();
+      //GeneratePlanParam param = buildGeneratePlanParam(tripDemand, tripRoutes);
+      //param.setOrigin("SZX");
+      //param.setStart_period("2025-10-01");
+      //param.setEnd_period("2025-10-20");
+      GeneratePlanParam param = mockSZXGeneratePlanParam();
       log.info("GeneratePlanParam:{}",param);
 
       // 调用GeneratePlanService.generatePlan接口
@@ -123,12 +123,12 @@ public class PlanningAgent extends BaseAgent {
     param.setOrigin("SZX");
     param.setLocation_code("CN");
     param.setStart_period("2025-10-01");
-    param.setEnd_period("2025-10-30");
-    param.setTrip_days(7);
+    param.setEnd_period("2025-10-20");
+    param.setTrip_days(14);
     param.setAdult_number(1);
     param.setChild_number(0);
     param.setRoom_quantity(1);
-    param.setBudgets("50000");
+    param.setBudgets("15000");
     param.setCurrency("USD");
     param.setTrip_routes(buildOneWayTripRoutes());
     return param;
@@ -152,7 +152,9 @@ public class PlanningAgent extends BaseAgent {
 
   private List<TripRouteParam> buildOneWayTripRoutes() {
     List<TripRouteParam> tripRouteParams = Lists.newArrayList();
-    tripRouteParams.add(buildRouteTrip(7, "Rome", "IT", "FCO"));
+    tripRouteParams.add(buildRouteTrip(5, "Rome", "IT", "FCO"));
+    tripRouteParams.add(buildRouteTrip(5, "Florence", "IT", "FLR"));
+    tripRouteParams.add(buildRouteTrip(4, "Venice", "IT", "VCE"));
     return tripRouteParams;
   }
 

@@ -66,38 +66,85 @@ public class AmadeusActivitiesSearchApi extends AbstractMockDataProcessor {
 
   /**
    * 判断是否需要使用Mock数据
+   * 先判断开关是否打开，然后判断是否存在对应经纬度的mock文件
    */
   private boolean needMock(ActivitiesSearchRequest activitiesSearchRequest) {
-    return mockEnabled;
+    if (!mockEnabled) {
+      return false;
+    }
+    
+    // 检查是否存在对应经纬度的mock文件
+    String mockFilePath = buildMockFilePath(activitiesSearchRequest.getLatitude(), activitiesSearchRequest.getLongitude());
+    try {
+      org.springframework.core.io.ClassPathResource resource = new org.springframework.core.io.ClassPathResource(mockFilePath);
+      boolean exists = resource.exists();
+      log.debug("Checking mock file for latitude: {}, longitude: {} - path: {} - exists: {}", 
+                activitiesSearchRequest.getLatitude(), activitiesSearchRequest.getLongitude(), mockFilePath, exists);
+      return exists;
+    } catch (Exception e) {
+      log.debug("Failed to check mock file for latitude: {}, longitude: {}: {}", 
+                activitiesSearchRequest.getLatitude(), activitiesSearchRequest.getLongitude(), e.getMessage());
+      return false;
+    }
+  }
+  
+  /**
+   * 构建mock文件路径
+   */
+  private String buildMockFilePath(Double latitude, Double longitude) {
+    return String.format("mock/activities/%s-%s.json", latitude, longitude);
   }
 
   /**
    * 返回Mock API响应
-   * 优化：优先从缓存获取数据，缓存未命中时回退到文件读取
+   * 根据经纬度读取对应的mock文件
    */
   private List<ActivityDto> mockApiResponse(ActivitiesSearchRequest request) {
     long startTime = System.currentTimeMillis();
+    String mockFilePath = buildMockFilePath(request.getLatitude(), request.getLongitude());
     
     try {
-      // 使用缓存优化：优先从缓存获取，缓存未命中时自动回退到文件读取
-      JsonNode dataNode = getMockDataArray("activities", "mock/activities-mock.json");
-      
-      if (dataNode == null) {
-        log.warn("Mock activities data not available, returning empty list");
+      // 读取对应经纬度的mock JSON文件
+      org.springframework.core.io.ClassPathResource resource = new org.springframework.core.io.ClassPathResource(mockFilePath);
+      if (!resource.exists()) {
+        log.warn("Mock file not found for latitude: {}, longitude: {} at path: {}", 
+                 request.getLatitude(), request.getLongitude(), mockFilePath);
         return new ArrayList<>();
       }
       
-      // 保持原有业务逻辑：解析每个活动
-      List<ActivityDto> mockActivities = parseMockDataArray(dataNode, this::parseMockActivity);
+      // 使用ObjectMapper直接读取文件
+      com.fasterxml.jackson.databind.ObjectMapper objectMapper = new com.fasterxml.jackson.databind.ObjectMapper();
+      JsonNode rootNode = objectMapper.readTree(resource.getInputStream());
+      JsonNode dataNode = rootNode.get("data");
+      
+      if (dataNode == null || !dataNode.isArray()) {
+        log.warn("Mock activities data format is invalid for latitude: {}, longitude: {}, returning empty list", 
+                 request.getLatitude(), request.getLongitude());
+        return new ArrayList<>();
+      }
+      
+      // 解析每个活动
+      List<ActivityDto> mockActivities = new ArrayList<>();
+      for (JsonNode activityNode : dataNode) {
+        ActivityDto dto = parseMockActivity(activityNode);
+        if (dto != null) {
+          mockActivities.add(dto);
+        }
+      }
       
       long duration = System.currentTimeMillis() - startTime;
-      log.info("Returned {} mock activities for latitude: {}, longitude: {}, radius: {} in {} ms", 
-               mockActivities.size(), request.getLatitude(), request.getLongitude(), request.getRadius(), duration);
+      log.info("Returned {} mock activities for latitude: {}, longitude: {}, radius: {} from file: {} in {} ms", 
+               mockActivities.size(), request.getLatitude(), request.getLongitude(), request.getRadius(), mockFilePath, duration);
       
       return mockActivities;
       
+    } catch (java.io.IOException e) {
+      log.error("Failed to read mock activities file for latitude: {}, longitude: {} at path: {}", 
+                request.getLatitude(), request.getLongitude(), mockFilePath, e);
+      return new ArrayList<>();
     } catch (Exception e) {
-      log.error("Failed to get mock activities data", e);
+      log.error("Failed to parse mock activities data for latitude: {}, longitude: {}", 
+                request.getLatitude(), request.getLongitude(), e);
       return new ArrayList<>();
     }
   }

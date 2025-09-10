@@ -4,182 +4,26 @@
       "type": "flight-date",
       "origin": "FLR",
       "destination": "SZX",
-      "departureDate": "2025-10-01",
-      "price": {
-        "total": "8898.53"
-      },
-      "links": {
-        "flightDestinations": "https://test.api.aSZXeus.com/v1/shopping/flight-destinations?origin=SZX&departureDate=2025-10-24,2021-01-19&oneWay=false&duration=1,15&nonStop=false&viewBy=DURATION",
-        "flightOffers": "https://test.api.aSZXeus.com/v2/shopping/flight-offers?originLocationCode=SZX&destinationLocationCode=FLR&departureDate=2025-10-29&returnDate=2025-10-30&adults=1&nonStop=false"
-      }
-    },
-    {
-      "type": "flight-date",
-      "origin": "FLR",
-      "destination": "SZX",
-      "departureDate": "2025-10-02",
-      "price": {
-        "total": "5498.53"
-      },
-      "links": {
-        "flightDestinations": "https://test.api.aSZXeus.com/v1/shopping/flight-destinations?origin=SZX&departureDate=2025-10-24,2021-01-19&oneWay=false&duration=1,15&nonStop=false&viewBy=DURATION",
-        "flightOffers": "https://test.api.aSZXeus.com/v2/shopping/flight-offers?originLocationCode=SZX&destinationLocationCode=FLR&departureDate=2025-10-29&returnDate=2025-10-30&adults=1&nonStop=false"
-      }
-    },
-    {
-      "type": "flight-date",
-      "origin": "FLR",
-      "destination": "SZX",
-      "departureDate": "2025-10-03",
-      "price": {
-        "total": "7898.53"
-      },
-      "links": {
-        "flightDestinations": "https://test.api.aSZXeus.com/v1/shopping/flight-destinations?origin=SZX&departureDate=2025-10-24,2021-01-19&oneWay=false&duration=1,15&nonStop=false&viewBy=DURATION",
-        "flightOffers": "https://test.api.aSZXeus.com/v2/shopping/flight-offers?originLocationCode=SZX&destinationLocationCode=FLR&departureDate=2025-10-29&returnDate=2025-10-30&adults=1&nonStop=false"
-      }
-    },
-    {
-      "type": "flight-date",
-      "origin": "FLR",
-      "destination": "SZX",
-      "departureDate": "2025-10-04",
-      "price": {
-        "total": "4898.53"
-      },
-      "links": {
-        "flightDestinations": "https://test.api.aSZXeus.com/v1/shopping/flight-destinations?origin=SZX&departureDate=2025-10-24,2021-01-19&oneWay=false&duration=1,15&nonStop=false&viewBy=DURATION",
-        "flightOffers": "https://test.api.aSZXeus.com/v2/shopping/flight-offers?originLocationCode=SZX&destinationLocationCode=FLR&departureDate=2025-10-29&returnDate=2025-10-30&adults=1&nonStop=false"
-      }
-    },
-    {
-      "type": "flight-date",
-      "origin": "FLR",
-      "destination": "SZX",
-      "departureDate": "2025-10-05",
-      "price": {
-        "total": "3098.53"
-      },
-      "links": {
-        "flightDestinations": "https://test.api.aSZXeus.com/v1/shopping/flight-destinations?origin=SZX&departureDate=2025-10-24,2021-01-19&oneWay=false&duration=1,15&nonStop=false&viewBy=DURATION",
-        "flightOffers": "https://test.api.aSZXeus.com/v2/shopping/flight-offers?originLocationCode=SZX&destinationLocationCode=FLR&departureDate=2025-10-31&returnDate=2025-10-10&adults=1&nonStop=false"
-      }
-    },
-    {
-      "type": "flight-date",
-      "origin": "FLR",
-      "destination": "SZX",
-      "departureDate": "2025-10-06",
-      "price": {
-        "total": "3698.53"
-      },
-      "links": {
-        "flightDestinations": "https://test.api.aSZXeus.com/v1/shopping/flight-destinations?origin=SZX&departureDate=2025-10-24,2021-01-19&oneWay=false&duration=1,15&nonStop=false&viewBy=DURATION",
-        "flightOffers": "https://test.api.aSZXeus.com/v2/shopping/flight-offers?originLocationCode=SZX&destinationLocationCode=FLR&departureDate=2025-10-31&returnDate=2025-10-10&adults=1&nonStop=false"
-      }
-    },
-    {
-      "type": "flight-date",
-      "origin": "FLR",
-      "destination": "SZX",
-      "departureDate": "2025-10-07",
-      "price": {
-        "total": "3298.53"
-      },
-      "links": {
-        "flightDestinations": "https://test.api.aSZXeus.com/v1/shopping/flight-destinations?origin=SZX&departureDate=2025-10-24,2021-01-19&oneWay=false&duration=1,15&nonStop=false&viewBy=DURATION",
-        "flightOffers": "https://test.api.aSZXeus.com/v2/shopping/flight-offers?originLocationCode=SZX&destinationLocationCode=FLR&departureDate=2025-10-31&returnDate=2025-10-10&adults=1&nonStop=false"
-      }
-    },
-    {
-      "type": "flight-date",
-      "origin": "FLR",
-      "destination": "SZX",
-      "departureDate": "2025-10-08",
-      "price": {
-        "total": "2098.53"
-      },
-      "links": {
-        "flightDestinations": "https://test.api.aSZXeus.com/v1/shopping/flight-destinations?origin=SZX&departureDate=2025-10-24,2021-01-19&oneWay=false&duration=1,15&nonStop=false&viewBy=DURATION",
-        "flightOffers": "https://test.api.aSZXeus.com/v2/shopping/flight-offers?originLocationCode=SZX&destinationLocationCode=FLR&departureDate=2025-10-31&returnDate=2025-10-11&adults=1&nonStop=false"
-      }
-    },
-    {
-      "type": "flight-date",
-      "origin": "FLR",
-      "destination": "SZX",
-      "departureDate": "2025-10-09",
-      "price": {
-        "total": "1998.53"
-      },
-      "links": {
-        "flightDestinations": "https://test.api.aSZXeus.com/v1/shopping/flight-destinations?origin=SZX&departureDate=2025-10-24,2021-01-19&oneWay=false&duration=1,15&nonStop=false&viewBy=DURATION",
-        "flightOffers": "https://test.api.aSZXeus.com/v2/shopping/flight-offers?originLocationCode=SZX&destinationLocationCode=FLR&departureDate=2025-10-31&returnDate=2025-10-11&adults=1&nonStop=false"
-      }
-    },
-    {
-      "type": "flight-date",
-      "origin": "FLR",
-      "destination": "SZX",
-      "departureDate": "2025-10-10",
-      "price": {
-        "total": "1598.53"
-      },
-      "links": {
-        "flightDestinations": "https://test.api.aSZXeus.com/v1/shopping/flight-destinations?origin=SZX&departureDate=2025-10-24,2021-01-19&oneWay=false&duration=1,15&nonStop=false&viewBy=DURATION",
-        "flightOffers": "https://test.api.aSZXeus.com/v2/shopping/flight-offers?originLocationCode=SZX&destinationLocationCode=FLR&departureDate=2025-10-31&returnDate=2025-10-11&adults=1&nonStop=false"
-      }
-    },
-    {
-      "type": "flight-date",
-      "origin": "FLR",
-      "destination": "SZX",
-      "departureDate": "2025-10-11",
-      "price": {
-        "total": "1498.53"
-      },
-      "links": {
-        "flightDestinations": "https://test.api.aSZXeus.com/v1/shopping/flight-destinations?origin=SZX&departureDate=2025-10-24,2021-01-19&oneWay=false&duration=1,15&nonStop=false&viewBy=DURATION",
-        "flightOffers": "https://test.api.aSZXeus.com/v2/shopping/flight-offers?originLocationCode=SZX&destinationLocationCode=FLR&departureDate=2025-10-31&returnDate=2025-10-11&adults=1&nonStop=false"
-      }
-    },
-    {
-      "type": "flight-date",
-      "origin": "FLR",
-      "destination": "SZX",
-      "departureDate": "2025-10-12",
-      "price": {
-        "total": "1098.53"
-      },
-      "links": {
-        "flightDestinations": "https://test.api.aSZXeus.com/v1/shopping/flight-destinations?origin=SZX&departureDate=2025-10-24,2021-01-19&oneWay=false&duration=1,15&nonStop=false&viewBy=DURATION",
-        "flightOffers": "https://test.api.aSZXeus.com/v2/shopping/flight-offers?originLocationCode=SZX&destinationLocationCode=FLR&departureDate=2025-10-31&returnDate=2025-10-12&adults=1&nonStop=false"
-      }
-    },
-    {
-      "type": "flight-date",
-      "origin": "FLR",
-      "destination": "SZX",
-      "departureDate": "2025-10-13",
-      "price": {
-        "total": "998.53"
-      },
-      "links": {
-        "flightDestinations": "https://test.api.aSZXeus.com/v1/shopping/flight-destinations?origin=SZX&departureDate=2025-10-24,2021-01-19&oneWay=false&duration=1,15&nonStop=false&viewBy=DURATION",
-        "flightOffers": "https://test.api.aSZXeus.com/v2/shopping/flight-offers?originLocationCode=SZX&destinationLocationCode=FLR&departureDate=2025-10-31&returnDate=2025-10-12&adults=1&nonStop=false"
-      }
-    },
-    {
-      "type": "flight-date",
-      "origin": "FLR",
-      "destination": "SZX",
       "departureDate": "2025-10-14",
       "price": {
-        "total": "998.53"
+        "total": "6150.00"
       },
       "links": {
-        "flightDestinations": "https://test.api.aSZXeus.com/v1/shopping/flight-destinations?origin=SZX&departureDate=2025-10-24,2021-01-19&oneWay=false&duration=1,15&nonStop=false&viewBy=DURATION",
-        "flightOffers": "https://test.api.aSZXeus.com/v2/shopping/flight-offers?originLocationCode=SZX&destinationLocationCode=FLR&departureDate=2025-10-31&returnDate=2025-10-12&adults=1&nonStop=false"
+        "flightDestinations": "https://test.api.amadeus.com/v1/shopping/flight-destinations?origin=FLR&departureDate=2025-10-14&oneWay=false&duration=1,15&nonStop=false&viewBy=DURATION",
+        "flightOffers": "https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=FLR&destinationLocationCode=SZX&departureDate=2025-10-14&adults=1&nonStop=false"
+      }
+    },
+    {
+      "type": "flight-date",
+      "origin": "FLR",
+      "destination": "SZX",
+      "departureDate": "2025-10-15",
+      "price": {
+        "total": "5780.00"
+      },
+      "links": {
+        "flightDestinations": "https://test.api.amadeus.com/v1/shopping/flight-destinations?origin=FLR&departureDate=2025-10-15&oneWay=false&duration=1,15&nonStop=false&viewBy=DURATION",
+        "flightOffers": "https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=FLR&destinationLocationCode=SZX&departureDate=2025-10-15&adults=1&nonStop=false"
       }
     },
     {
@@ -188,11 +32,11 @@
       "destination": "SZX",
       "departureDate": "2025-10-16",
       "price": {
-        "total": "2198.53"
+        "total": "6420.00"
       },
       "links": {
-        "flightDestinations": "https://test.api.aSZXeus.com/v1/shopping/flight-destinations?origin=SZX&departureDate=2025-10-24,2021-01-19&oneWay=false&duration=1,15&nonStop=false&viewBy=DURATION",
-        "flightOffers": "https://test.api.aSZXeus.com/v2/shopping/flight-offers?originLocationCode=SZX&destinationLocationCode=FLR&departureDate=2025-10-31&returnDate=2025-10-12&adults=1&nonStop=false"
+        "flightDestinations": "https://test.api.amadeus.com/v1/shopping/flight-destinations?origin=FLR&departureDate=2025-10-16&oneWay=false&duration=1,15&nonStop=false&viewBy=DURATION",
+        "flightOffers": "https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=FLR&destinationLocationCode=SZX&departureDate=2025-10-16&adults=1&nonStop=false"
       }
     },
     {
@@ -201,111 +45,44 @@
       "destination": "SZX",
       "departureDate": "2025-10-17",
       "price": {
-        "total": "1088.53"
+        "total": "5950.00"
       },
       "links": {
-        "flightDestinations": "https://test.api.aSZXeus.com/v1/shopping/flight-destinations?origin=SZX&departureDate=2025-10-24,2021-01-19&oneWay=false&duration=1,15&nonStop=false&viewBy=DURATION",
-        "flightOffers": "https://test.api.aSZXeus.com/v2/shopping/flight-offers?originLocationCode=SZX&destinationLocationCode=FLR&departureDate=2025-10-31&returnDate=2025-10-13&adults=1&nonStop=false"
+        "flightDestinations": "https://test.api.amadeus.com/v1/shopping/flight-destinations?origin=FLR&departureDate=2025-10-17&oneWay=false&duration=1,15&nonStop=false&viewBy=DURATION",
+        "flightOffers": "https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=FLR&destinationLocationCode=SZX&departureDate=2025-10-17&adults=1&nonStop=false"
       }
     },
     {
       "type": "flight-date",
       "origin": "FLR",
       "destination": "SZX",
-      "departureDate": "2025-10-20",
+      "departureDate": "2025-10-18",
       "price": {
-        "total": "6000.53"
+        "total": "6680.00"
       },
       "links": {
-        "flightDestinations": "https://test.api.aSZXeus.com/v1/shopping/flight-destinations?origin=SZX&departureDate=2025-10-24,2021-01-19&oneWay=false&duration=1,15&nonStop=false&viewBy=DURATION",
-        "flightOffers": "https://test.api.aSZXeus.com/v2/shopping/flight-offers?originLocationCode=SZX&destinationLocationCode=FLR&departureDate=2025-10-31&returnDate=2025-10-14&adults=1&nonStop=false"
+        "flightDestinations": "https://test.api.amadeus.com/v1/shopping/flight-destinations?origin=FLR&departureDate=2025-10-18&oneWay=false&duration=1,15&nonStop=false&viewBy=DURATION",
+        "flightOffers": "https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=FLR&destinationLocationCode=SZX&departureDate=2025-10-18&adults=1&nonStop=false"
       }
     },
     {
       "type": "flight-date",
       "origin": "FLR",
       "destination": "SZX",
-      "departureDate": "2025-10-23",
+      "departureDate": "2025-10-19",
       "price": {
-        "total": "300.53"
+        "total": "6280.00"
       },
       "links": {
-        "flightDestinations": "https://test.api.aSZXeus.com/v1/shopping/flight-destinations?origin=SZX&departureDate=2025-10-24,2021-01-19&oneWay=false&duration=1,15&nonStop=false&viewBy=DURATION",
-        "flightOffers": "https://test.api.aSZXeus.com/v2/shopping/flight-offers?originLocationCode=SZX&destinationLocationCode=FLR&departureDate=2025-10-31&returnDate=2025-10-15&adults=1&nonStop=false"
-      }
-    },
-    {
-      "type": "flight-date",
-      "origin": "FLR",
-      "destination": "SZX",
-      "departureDate": "2025-10-25",
-      "price": {
-        "total": "500.53"
-      },
-      "links": {
-        "flightDestinations": "https://test.api.aSZXeus.com/v1/shopping/flight-destinations?origin=SZX&departureDate=2025-10-24,2021-01-19&oneWay=false&duration=1,15&nonStop=false&viewBy=DURATION",
-        "flightOffers": "https://test.api.aSZXeus.com/v2/shopping/flight-offers?originLocationCode=SZX&destinationLocationCode=FLR&departureDate=2025-10-01&returnDate=2025-10-02&adults=1&nonStop=false"
-      }
-    },
-    {
-      "type": "flight-date",
-      "origin": "FLR",
-      "destination": "SZX",
-      "departureDate": "2025-10-27",
-      "returnDate": "2025-10-03",
-      "price": {
-        "total": "98.53"
-      },
-      "links": {
-        "flightDestinations": "https://test.api.aSZXeus.com/v1/shopping/flight-destinations?origin=SZX&departureDate=2025-10-24,2021-01-19&oneWay=false&duration=1,15&nonStop=false&viewBy=DURATION",
-        "flightOffers": "https://test.api.aSZXeus.com/v2/shopping/flight-offers?originLocationCode=SZX&destinationLocationCode=FLR&departureDate=2025-10-01&returnDate=2025-10-03&adults=1&nonStop=false"
-      }
-    },
-    {
-      "type": "flight-date",
-      "origin": "FLR",
-      "destination": "SZX",
-      "departureDate": "2025-10-29",
-      "price": {
-        "total": "100.53"
-      },
-      "links": {
-        "flightDestinations": "https://test.api.aSZXeus.com/v1/shopping/flight-destinations?origin=SZX&departureDate=2025-10-24,2021-01-19&oneWay=false&duration=1,15&nonStop=false&viewBy=DURATION",
-        "flightOffers": "https://test.api.aSZXeus.com/v2/shopping/flight-offers?originLocationCode=SZX&destinationLocationCode=FLR&departureDate=2020-09-29&returnDate=2020-09-30&adults=1&nonStop=false"
+        "flightDestinations": "https://test.api.amadeus.com/v1/shopping/flight-destinations?origin=FLR&departureDate=2025-10-19&oneWay=false&duration=1,15&nonStop=false&viewBy=DURATION",
+        "flightOffers": "https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=FLR&destinationLocationCode=SZX&departureDate=2025-10-19&adults=1&nonStop=false"
       }
     }
   ],
-  "dictionaries": {
-    "currencies": {
-      "EUR": "EURO"
-    },
-    "locations": {
-      "SZX": {
-        "subType": "AIRPORT",
-        "detailedName": "ADOLFO SUAREZ BARAJAS"
-      },
-      "FLR": {
-        "subType": "AIRPORT",
-        "detailedName": "MUNICH INTERNATIONAL"
-      }
-    }
-  },
   "meta": {
-    "currency": "EUR",
+    "count": 6,
     "links": {
-      "self": "https://test.api.aSZXeus.com/v1/shopping/flight-dates?origin=SZX&destination=FLR&departureDate=2025-10-24,2021-01-19&oneWay=false&duration=1,15&nonStop=false&viewBy=DURATION"
-    },
-    "defaults": {
-      "departureDate": "2025-10-01,2025-10-24",
-      "oneWay": false,
-      "duration": "1,15",
-      "nonStop": false,
-      "viewBy": "DURATION"
+      "self": "https://test.api.amadeus.com/v1/shopping/flight-dates?origin=FLR&destination=SZX&departureDate=2025-10-14,2025-10-19&oneWay=true&nonStop=false&viewBy=DATE"
     }
-  },
-  "warnings": [
-    {
-      "title": "Maximum response size reached"
-    }
-  ]
+  }
 }

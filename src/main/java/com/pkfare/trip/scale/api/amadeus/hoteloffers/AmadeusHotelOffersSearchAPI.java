@@ -65,45 +65,98 @@ public class AmadeusHotelOffersSearchAPI {
 
   /**
    * 判断是否需要使用Mock数据
+   * 先判断开关是否打开，然后判断是否存在对应countryOfResidence-roomQuantity-hotelId的mock文件
    */
   private boolean needMock(HotelOffersSearchRequest hotelOffersSearchRequest) {
-    return mockEnabled;
+    if (!mockEnabled) {
+      return false;
+    }
+    
+    // 检查是否存在对应的mock文件（任意一个hotelId匹配即可）
+    if (hotelOffersSearchRequest.getHotelIds() != null && !hotelOffersSearchRequest.getHotelIds().isEmpty()) {
+      for (String hotelId : hotelOffersSearchRequest.getHotelIds()) {
+        String mockFilePath = buildMockFilePath(hotelOffersSearchRequest.getCountryOfResidence(), 
+                                                hotelOffersSearchRequest.getRoomQuantity(), hotelId);
+        try {
+          ClassPathResource resource = new ClassPathResource(mockFilePath);
+          boolean exists = resource.exists();
+          if (exists) {
+            log.debug("Found mock file for countryOfResidence: {}, roomQuantity: {}, hotelId: {} - path: {}", 
+                      hotelOffersSearchRequest.getCountryOfResidence(), hotelOffersSearchRequest.getRoomQuantity(), 
+                      hotelId, mockFilePath);
+            return true;
+          }
+        } catch (Exception e) {
+          log.debug("Failed to check mock file for hotelId {}: {}", hotelId, e.getMessage());
+        }
+      }
+    }
+    
+    log.debug("No mock file found for any hotelId in request: {}", hotelOffersSearchRequest.getHotelIds());
+    return false;
+  }
+  
+  /**
+   * 构建mock文件路径
+   */
+  private String buildMockFilePath(String countryOfResidence, int roomQuantity, String hotelId) {
+    return String.format("mock/hotels/%s-%d-%s.json", countryOfResidence, roomQuantity, hotelId);
   }
 
   /**
    * 返回Mock API响应
+   * 根据countryOfResidence-roomQuantity-hotelId读取对应的mock文件
    */
   private List<HotelOfferDto> mockApiResponse(HotelOffersSearchRequest request) {
-    try {
-      // 读取mock JSON文件
-      ClassPathResource resource = new ClassPathResource("mock/hotels-mock.json");
-      JsonNode rootNode = objectMapper.readTree(resource.getInputStream());
-      JsonNode dataNode = rootNode.get("data");
-
-      if (dataNode == null || !dataNode.isArray()) {
-        log.warn("Mock hotel data format is invalid, returning empty list");
-        return new ArrayList<>();
-      }
-
-      List<HotelOfferDto> mockHotels = new ArrayList<>();
-
-      // 解析每个酒店offer并替换日期
-      for (JsonNode hotelNode : dataNode) {
-        HotelOfferDto dto = parseMockHotelOffer(hotelNode, request);
-        if (dto != null) {
-          mockHotels.add(dto);
+    long startTime = System.currentTimeMillis();
+    List<HotelOfferDto> allMockHotels = new ArrayList<>();
+    
+    // 遍历所有hotelIds，查找对应的mock文件
+    if (request.getHotelIds() != null && !request.getHotelIds().isEmpty()) {
+      for (String hotelId : request.getHotelIds()) {
+        String mockFilePath = buildMockFilePath(request.getCountryOfResidence(), 
+                                                request.getRoomQuantity(), hotelId);
+        
+        try {
+          ClassPathResource resource = new ClassPathResource(mockFilePath);
+          if (!resource.exists()) {
+            log.debug("Mock file not found for hotelId: {} at path: {}", hotelId, mockFilePath);
+            continue;
+          }
+          
+          // 读取并解析mock JSON文件
+          JsonNode rootNode = objectMapper.readTree(resource.getInputStream());
+          JsonNode dataNode = rootNode.get("data");
+          
+          if (dataNode == null || !dataNode.isArray()) {
+            log.warn("Mock hotel data format is invalid for hotelId: {}, skipping", hotelId);
+            continue;
+          }
+          
+          // 解析每个酒店offer并替换日期
+          for (JsonNode hotelNode : dataNode) {
+            HotelOfferDto dto = parseMockHotelOffer(hotelNode, request);
+            if (dto != null) {
+              allMockHotels.add(dto);
+            }
+          }
+          
+          log.debug("Loaded {} mock hotel offers from file: {}", dataNode.size(), mockFilePath);
+          
+        } catch (IOException e) {
+          log.error("Failed to read mock hotel file for hotelId: {} at path: {}", hotelId, mockFilePath, e);
+        } catch (Exception e) {
+          log.error("Failed to parse mock hotel data for hotelId: {}", hotelId, e);
         }
       }
-
-      log.info("Returned {} mock hotel offers for checkIn: {}, checkOut: {}",
-          mockHotels.size(), request.getCheckInDate(), request.getCheckOutDate());
-
-      return mockHotels;
-
-    } catch (IOException e) {
-      log.error("Failed to read mock hotels data", e);
-      return new ArrayList<>();
     }
+    
+    long duration = System.currentTimeMillis() - startTime;
+    log.info("Returned {} mock hotel offers for checkIn: {}, checkOut: {}, hotelIds: {} in {} ms",
+        allMockHotels.size(), request.getCheckInDate(), request.getCheckOutDate(), 
+        request.getHotelIds(), duration);
+
+    return allMockHotels;
   }
 
   /**
@@ -197,6 +250,7 @@ public class AmadeusHotelOffersSearchAPI {
     JsonNode roomNode = offerNode.get("room");
     if(roomNode!=null){
       RoomDetailsDto roomDetailsDto = new  RoomDetailsDto();
+      offerDto.setRoom(roomDetailsDto);
       roomDetailsDto.setType(getStringValue(roomNode, "type"));
       JsonNode typeEstimatedNode = offerNode.get("typeEstimated");
       if(typeEstimatedNode!=null){

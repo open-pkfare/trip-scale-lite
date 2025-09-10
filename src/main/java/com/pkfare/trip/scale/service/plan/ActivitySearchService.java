@@ -115,7 +115,6 @@ public class ActivitySearchService {
             .map(activity -> convertToActivityInfo(activity, tripRoute.getDestination_city()))
             .filter(Objects::nonNull)
             .collect(Collectors.toList());
-        log.info("total activityInfos : {}",activityInfos);
 
         // 筛选在合理距离内的活动
         List<ActivityInfo> filteredActivities = filterActivitiesByDistance(

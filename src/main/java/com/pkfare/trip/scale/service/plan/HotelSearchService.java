@@ -72,7 +72,7 @@ public class HotelSearchService {
           List<String> hotelIds = localHotelIdMap.get(route.getLocation_code());
           LocalDate[] dates = checkInOutDates.get(route.getLocation_code());
 
-          List<String> limitedHotelIds = hotelIds.subList(0, Math.min(hotelIds.size(), 20));
+          List<String> limitedHotelIds = hotelIds;// hotelIds.subList(0, Math.min(hotelIds.size(), 20));
           List<HotelInfo> routeHotels = searchHotelOffers(param, route, limitedHotelIds, dates[0], dates[1]);
 
           log.debug("Found {} hotels for route {}", routeHotels.size(), route.getLocation_code());
