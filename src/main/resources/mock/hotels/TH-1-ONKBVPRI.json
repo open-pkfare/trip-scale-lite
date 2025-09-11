@@ -1,0 +1,484 @@
+{
+  "data": [
+    {
+      "type": "hotel-offers",
+      "hotel": {
+        "type": "hotel",
+        "hotelId": "ONKBVPRI",
+        "chainCode": "ON",
+        "dupeId": "700298765",
+        "name": "Krabi Princess Resort & Spa",
+        "cityCode": "KBV",
+        "latitude": 8.0863,
+        "longitude": 98.9063
+      },
+      "available": true,
+      "offers": [
+        {
+          "id": "H1K8TCCUMV",
+          "checkInDate": "2025-10-06",
+          "checkOutDate": "2025-10-11",
+          "rateCode": "H1T",
+          "rateFamilyEstimated": {
+            "code": "PRO",
+            "type": "P"
+          },
+          "commission": {
+            "percentage": "12"
+          },
+          "room": {
+            "type": "A1Q",
+            "typeEstimated": {
+              "category": "SUPERIOR_ROOM",
+              "beds": 1,
+              "bedType": "QUEEN"
+            },
+            "description": {
+              "text": "SUPERIOR ROOM*POOL VIEW*FREE WIFI\n1 QUEEN BED,SUPERIOR\nSUPERIOR ROOM",
+              "lang": "EN"
+            }
+          },
+          "guests": {
+            "adults": 1
+          },
+          "price": {
+            "currency": "THB",
+            "base": "4500.00",
+            "total": "4725.00",
+            "taxes": [
+              {
+                "code": "TOTAL_TAX",
+                "amount": "225.00",
+                "currency": "THB",
+                "included": false
+              }
+            ],
+            "variations": {
+              "average": {
+                "base": "900.00"
+              },
+              "changes": [
+                {
+                  "startDate": "2025-10-06",
+                  "endDate": "2025-10-11",
+                  "base": "900.00"
+                }
+              ]
+            }
+          },
+          "policies": {
+            "cancellations": [
+              {
+                "description": {
+                  "text": "FREE CANCELLATION UNTIL 24H BEFORE ARRIVAL"
+                },
+                "policyType": "CANCELLATION"
+              }
+            ],
+            "paymentType": "guarantee",
+            "refundable": {
+              "cancellationRefund": "REFUNDABLE"
+            }
+          },
+          "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers/H1K8TCCUMV",
+          "roomInformation": {
+            "description": "SUPERIOR ROOM*POOL VIEW*FREE WIFI\n1 QUEEN BED,SUPERIOR\nSUPERIOR ROOM",
+            "type": "A1Q",
+            "typeEstimated": {
+              "bedType": "QUEEN",
+              "beds": 1,
+              "category": "SUPERIOR_ROOM"
+            }
+          }
+        }
+      ],
+      "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=ONKBVPRI&adults=1&checkInDate=2025-10-06&checkOutDate=2025-10-11&countryOfResidence=TH&currency=USD&paymentPolicy=NONE&roomQuantity=1"
+    },
+    {
+      "type": "hotel-offers",
+      "hotel": {
+        "type": "hotel",
+        "hotelId": "YXKBVLRS",
+        "chainCode": "YX",
+        "dupeId": "700299876",
+        "name": "Krabi La Playa Resort",
+        "cityCode": "KBV",
+        "latitude": 8.0642,
+        "longitude": 98.9142
+      },
+      "available": true,
+      "offers": [
+        {
+          "id": "H2K9TCCUMV",
+          "checkInDate": "2025-10-06",
+          "checkOutDate": "2025-10-11",
+          "rateCode": "H2T",
+          "rateFamilyEstimated": {
+            "code": "BAR",
+            "type": "C"
+          },
+          "commission": {
+            "percentage": "10"
+          },
+          "room": {
+            "type": "A2K",
+            "typeEstimated": {
+              "category": "DELUXE_ROOM",
+              "beds": 1,
+              "bedType": "KING"
+            },
+            "description": {
+              "text": "DELUXE BEACHFRONT*PRIVATE BALCONY*OCEAN VIEW\n1 KING BED,DELUXE\nDELUXE ROOM",
+              "lang": "EN"
+            }
+          },
+          "guests": {
+            "adults": 1
+          },
+          "price": {
+            "currency": "THB",
+            "base": "6200.00",
+            "total": "6510.00",
+            "taxes": [
+              {
+                "code": "TOTAL_TAX",
+                "amount": "310.00",
+                "currency": "THB",
+                "included": false
+              }
+            ],
+            "variations": {
+              "average": {
+                "base": "1240.00"
+              },
+              "changes": [
+                {
+                  "startDate": "2025-10-06",
+                  "endDate": "2025-10-11",
+                  "base": "1240.00"
+                }
+              ]
+            }
+          },
+          "policies": {
+            "cancellations": [
+              {
+                "description": {
+                  "text": "FREE CANCELLATION UNTIL 48H BEFORE ARRIVAL"
+                },
+                "policyType": "CANCELLATION"
+              }
+            ],
+            "paymentType": "guarantee",
+            "refundable": {
+              "cancellationRefund": "REFUNDABLE"
+            }
+          },
+          "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers/H2K9TCCUMV",
+          "roomInformation": {
+            "description": "DELUXE BEACHFRONT*PRIVATE BALCONY*OCEAN VIEW\n1 KING BED,DELUXE\nDELUXE ROOM",
+            "type": "A2K",
+            "typeEstimated": {
+              "bedType": "KING",
+              "beds": 1,
+              "category": "DELUXE_ROOM"
+            }
+          }
+        }
+      ],
+      "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=YXKBVLRS&adults=1&checkInDate=2025-10-06&checkOutDate=2025-10-11&countryOfResidence=TH&currency=USD&paymentPolicy=NONE&roomQuantity=1"
+    },
+    {
+      "type": "hotel-offers",
+      "hotel": {
+        "type": "hotel",
+        "hotelId": "LXKBVZEA",
+        "chainCode": "LX",
+        "dupeId": "700300987",
+        "name": "Zeavola Resort Krabi",
+        "cityCode": "KBV",
+        "latitude": 8.1125,
+        "longitude": 98.8975
+      },
+      "available": true,
+      "offers": [
+        {
+          "id": "H3K0TCCUMV",
+          "checkInDate": "2025-10-06",
+          "checkOutDate": "2025-10-11",
+          "rateCode": "H3T",
+          "rateFamilyEstimated": {
+            "code": "PRO",
+            "type": "P"
+          },
+          "commission": {
+            "percentage": "15"
+          },
+          "room": {
+            "type": "A3S",
+            "typeEstimated": {
+              "category": "SUITE",
+              "beds": 1,
+              "bedType": "KING"
+            },
+            "description": {
+              "text": "LUXURY VILLA*PRIVATE POOL*BEACHFRONT ACCESS\n1 KING BED,VILLA\nLUXURY VILLA",
+              "lang": "EN"
+            }
+          },
+          "guests": {
+            "adults": 1
+          },
+          "price": {
+            "currency": "THB",
+            "base": "12500.00",
+            "total": "13125.00",
+            "taxes": [
+              {
+                "code": "TOTAL_TAX",
+                "amount": "625.00",
+                "currency": "THB",
+                "included": false
+              }
+            ],
+            "variations": {
+              "average": {
+                "base": "2500.00"
+              },
+              "changes": [
+                {
+                  "startDate": "2025-10-06",
+                  "endDate": "2025-10-11",
+                  "base": "2500.00"
+                }
+              ]
+            }
+          },
+          "policies": {
+            "cancellations": [
+              {
+                "description": {
+                  "text": "FREE CANCELLATION UNTIL 72H BEFORE ARRIVAL"
+                },
+                "policyType": "CANCELLATION"
+              }
+            ],
+            "paymentType": "guarantee",
+            "refundable": {
+              "cancellationRefund": "REFUNDABLE"
+            }
+          },
+          "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers/H3K0TCCUMV",
+          "roomInformation": {
+            "description": "LUXURY VILLA*PRIVATE POOL*BEACHFRONT ACCESS\n1 KING BED,VILLA\nLUXURY VILLA",
+            "type": "A3S",
+            "typeEstimated": {
+              "bedType": "KING",
+              "beds": 1,
+              "category": "SUITE"
+            }
+          }
+        }
+      ],
+      "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=LXKBVZEA&adults=1&checkInDate=2025-10-06&checkOutDate=2025-10-11&countryOfResidence=TH&currency=USD&paymentPolicy=NONE&roomQuantity=1"
+    },
+    {
+      "type": "hotel-offers",
+      "hotel": {
+        "type": "hotel",
+        "hotelId": "TAKBV073",
+        "chainCode": "TA",
+        "dupeId": "700302098",
+        "name": "Krabi Town Hotel",
+        "cityCode": "KBV",
+        "latitude": 8.0726,
+        "longitude": 98.9105
+      },
+      "available": true,
+      "offers": [
+        {
+          "id": "H4K1TCCUMV",
+          "checkInDate": "2025-10-06",
+          "checkOutDate": "2025-10-11",
+          "rateCode": "H4T",
+          "rateFamilyEstimated": {
+            "code": "BAR",
+            "type": "C"
+          },
+          "commission": {
+            "percentage": "8"
+          },
+          "room": {
+            "type": "A1T",
+            "typeEstimated": {
+              "category": "STANDARD_ROOM",
+              "beds": 2,
+              "bedType": "TWIN"
+            },
+            "description": {
+              "text": "STANDARD ROOM*CITY VIEW*AIR CONDITIONING\n2 TWIN BEDS,STND\nSTANDARD ROOM",
+              "lang": "EN"
+            }
+          },
+          "guests": {
+            "adults": 1
+          },
+          "price": {
+            "currency": "THB",
+            "base": "2800.00",
+            "total": "2940.00",
+            "taxes": [
+              {
+                "code": "TOTAL_TAX",
+                "amount": "140.00",
+                "currency": "THB",
+                "included": false
+              }
+            ],
+            "variations": {
+              "average": {
+                "base": "560.00"
+              },
+              "changes": [
+                {
+                  "startDate": "2025-10-06",
+                  "endDate": "2025-10-11",
+                  "base": "560.00"
+                }
+              ]
+            }
+          },
+          "policies": {
+            "cancellations": [
+              {
+                "description": {
+                  "text": "FREE CANCELLATION UNTIL 24H BEFORE ARRIVAL"
+                },
+                "policyType": "CANCELLATION"
+              }
+            ],
+            "paymentType": "guarantee",
+            "refundable": {
+              "cancellationRefund": "REFUNDABLE"
+            }
+          },
+          "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers/H4K1TCCUMV",
+          "roomInformation": {
+            "description": "STANDARD ROOM*CITY VIEW*AIR CONDITIONING\n2 TWIN BEDS,STND\nSTANDARD ROOM",
+            "type": "A1T",
+            "typeEstimated": {
+              "bedType": "TWIN",
+              "beds": 2,
+              "category": "STANDARD_ROOM"
+            }
+          }
+        }
+      ],
+      "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=TAKBV073&adults=1&checkInDate=2025-10-06&checkOutDate=2025-10-11&countryOfResidence=TH&currency=USD&paymentPolicy=NONE&roomQuantity=1"
+    },
+    {
+      "type": "hotel-offers",
+      "hotel": {
+        "type": "hotel",
+        "hotelId": "HSKBVAAJ",
+        "chainCode": "HS",
+        "dupeId": "700303209",
+        "name": "Ao Nang Beach Resort",
+        "cityCode": "KBV",
+        "latitude": 8.0344,
+        "longitude": 98.8267
+      },
+      "available": true,
+      "offers": [
+        {
+          "id": "H5K2TCCUMV",
+          "checkInDate": "2025-10-06",
+          "checkOutDate": "2025-10-11",
+          "rateCode": "H5T",
+          "rateFamilyEstimated": {
+            "code": "PRO",
+            "type": "P"
+          },
+          "commission": {
+            "percentage": "12"
+          },
+          "room": {
+            "type": "A2D",
+            "typeEstimated": {
+              "category": "SUPERIOR_ROOM",
+              "beds": 1,
+              "bedType": "DOUBLE"
+            },
+            "description": {
+              "text": "SUPERIOR BEACHVIEW*TROPICAL GARDEN*POOL ACCESS\n1 DOUBLE BED,SUPERIOR\nSUPERIOR ROOM",
+              "lang": "EN"
+            }
+          },
+          "guests": {
+            "adults": 1
+          },
+          "price": {
+            "currency": "THB",
+            "base": "3900.00",
+            "total": "4095.00",
+            "taxes": [
+              {
+                "code": "TOTAL_TAX",
+                "amount": "195.00",
+                "currency": "THB",
+                "included": false
+              }
+            ],
+            "variations": {
+              "average": {
+                "base": "780.00"
+              },
+              "changes": [
+                {
+                  "startDate": "2025-10-06",
+                  "endDate": "2025-10-11",
+                  "base": "780.00"
+                }
+              ]
+            }
+          },
+          "policies": {
+            "cancellations": [
+              {
+                "description": {
+                  "text": "FREE CANCELLATION UNTIL 48H BEFORE ARRIVAL"
+                },
+                "policyType": "CANCELLATION"
+              }
+            ],
+            "paymentType": "guarantee",
+            "refundable": {
+              "cancellationRefund": "REFUNDABLE"
+            }
+          },
+          "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers/H5K2TCCUMV",
+          "roomInformation": {
+            "description": "SUPERIOR BEACHVIEW*TROPICAL GARDEN*POOL ACCESS\n1 DOUBLE BED,SUPERIOR\nSUPERIOR ROOM",
+            "type": "A2D",
+            "typeEstimated": {
+              "bedType": "DOUBLE",
+              "beds": 1,
+              "category": "SUPERIOR_ROOM"
+            }
+          }
+        }
+      ],
+      "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=HSKBVAAJ&adults=1&checkInDate=2025-10-06&checkOutDate=2025-10-11&countryOfResidence=TH&currency=USD&paymentPolicy=NONE&roomQuantity=1"
+    }
+  ],
+  "dictionaries": {
+    "currencyConversionLookupRates": {
+      "THB": {
+        "rate": "0.028456",
+        "target": "USD",
+        "targetDecimalPlaces": 2
+      }
+    }
+  },
+  "warnings": []
+}
