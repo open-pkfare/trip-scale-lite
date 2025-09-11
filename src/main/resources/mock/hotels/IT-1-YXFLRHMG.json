@@ -298,6 +298,450 @@
         }
       ],
       "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=YXFLRHMG&adults=1&checkInDate=2025-10-04&checkOutDate=2025-10-09&countryOfResidence=IT&currency=USD&paymentPolicy=NONE&roomQuantity=1"
+    },
+    {
+      "type": "hotel-offers",
+      "hotel": {
+        "type": "hotel",
+        "hotelId": "YXFLRH25",
+        "chainCode": "YX",
+        "dupeId": "700198234",
+        "name": "Florence Heritage Hotel",
+        "cityCode": "FLR",
+        "latitude": 43.7731,
+        "longitude": 11.2486
+      },
+      "available": true,
+      "offers": [
+        {
+          "id": "H6F2TCCUMV",
+          "checkInDate": "2025-10-04",
+          "checkOutDate": "2025-10-09",
+          "rateCode": "H6Q",
+          "rateFamilyEstimated": {
+            "code": "PRO",
+            "type": "P"
+          },
+          "commission": {
+            "percentage": "10"
+          },
+          "room": {
+            "type": "A1Q",
+            "typeEstimated": {
+              "category": "STANDARD_ROOM",
+              "beds": 1,
+              "bedType": "QUEEN"
+            },
+            "description": {
+              "text": "CLASSIC ROOM*HISTORIC BUILDING*FREE WIFI\n1 QUEEN BED,CLASSIC\nCLASSIC ROOM",
+              "lang": "EN"
+            }
+          },
+          "guests": {
+            "adults": 1
+          },
+          "price": {
+            "currency": "EUR",
+            "base": "825.00",
+            "total": "850.00",
+            "taxes": [
+              {
+                "code": "CITY_TAX",
+                "amount": "15.00",
+                "currency": "EUR",
+                "included": false
+              },
+              {
+                "code": "VAT",
+                "amount": "10.00",
+                "currency": "EUR",
+                "included": false
+              }
+            ],
+            "variations": {
+              "average": {
+                "base": "165.00"
+              },
+              "changes": [
+                {
+                  "startDate": "2025-10-04",
+                  "endDate": "2025-10-06",
+                  "base": "155.00"
+                },
+                {
+                  "startDate": "2025-10-06",
+                  "endDate": "2025-10-08",
+                  "base": "180.00"
+                },
+                {
+                  "startDate": "2025-10-08",
+                  "endDate": "2025-10-09",
+                  "base": "160.00"
+                }
+              ]
+            }
+          },
+          "policies": {
+            "cancellations": [
+              {
+                "description": {
+                  "text": "FREE CANCELLATION UNTIL 24 HOURS BEFORE CHECK-IN"
+                },
+                "policyType": "CANCELLATION",
+                "deadline": "2025-10-03T18:00:00"
+              }
+            ],
+            "paymentType": "guarantee",
+            "refundable": {
+              "cancellationRefund": "REFUNDABLE"
+            }
+          },
+          "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers/H6F2TCCUMV",
+          "roomInformation": {
+            "description": "CLASSIC ROOM*HISTORIC BUILDING*FREE WIFI\n1 QUEEN BED,CLASSIC\nCLASSIC ROOM",
+            "type": "A1Q",
+            "typeEstimated": {
+              "bedType": "QUEEN",
+              "beds": 1,
+              "category": "STANDARD_ROOM"
+            }
+          }
+        }
+      ],
+      "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=YXFLRH25&adults=1&checkInDate=2025-10-04&checkOutDate=2025-10-09&countryOfResidence=IT&currency=USD&paymentPolicy=NONE&roomQuantity=1"
+    },
+    {
+      "type": "hotel-offers",
+      "hotel": {
+        "type": "hotel",
+        "hotelId": "OIFLRD21",
+        "chainCode": "OI",
+        "dupeId": "700199876",
+        "name": "Florence Oltrarno Boutique",
+        "cityCode": "FLR",
+        "latitude": 43.7653,
+        "longitude": 11.2497
+      },
+      "available": true,
+      "offers": [
+        {
+          "id": "H7F3TCCUMV",
+          "checkInDate": "2025-10-04",
+          "checkOutDate": "2025-10-09",
+          "rateCode": "H7D",
+          "rateFamilyEstimated": {
+            "code": "BAR",
+            "type": "C"
+          },
+          "commission": {
+            "percentage": "12"
+          },
+          "room": {
+            "type": "A2D",
+            "typeEstimated": {
+              "category": "SUPERIOR_ROOM",
+              "beds": 1,
+              "bedType": "DOUBLE"
+            },
+            "description": {
+              "text": "SUPERIOR ROOM*OLTRARNO DISTRICT*ARTISAN QUARTER\n1 DOUBLE BED,SUPERIOR\nSUPERIOR ROOM",
+              "lang": "EN"
+            }
+          },
+          "guests": {
+            "adults": 1
+          },
+          "price": {
+            "currency": "EUR",
+            "base": "1050.00",
+            "total": "1080.00",
+            "taxes": [
+              {
+                "code": "CITY_TAX",
+                "amount": "20.00",
+                "currency": "EUR",
+                "included": false
+              },
+              {
+                "code": "VAT",
+                "amount": "10.00",
+                "currency": "EUR",
+                "included": false
+              }
+            ],
+            "variations": {
+              "average": {
+                "base": "210.00"
+              },
+              "changes": [
+                {
+                  "startDate": "2025-10-04",
+                  "endDate": "2025-10-06",
+                  "base": "195.00"
+                },
+                {
+                  "startDate": "2025-10-06",
+                  "endDate": "2025-10-08",
+                  "base": "230.00"
+                },
+                {
+                  "startDate": "2025-10-08",
+                  "endDate": "2025-10-09",
+                  "base": "205.00"
+                }
+              ]
+            }
+          },
+          "policies": {
+            "cancellations": [
+              {
+                "description": {
+                  "text": "FREE CANCELLATION UNTIL 48 HOURS BEFORE CHECK-IN"
+                },
+                "policyType": "CANCELLATION",
+                "deadline": "2025-10-02T18:00:00"
+              }
+            ],
+            "paymentType": "guarantee",
+            "refundable": {
+              "cancellationRefund": "REFUNDABLE"
+            }
+          },
+          "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers/H7F3TCCUMV",
+          "roomInformation": {
+            "description": "SUPERIOR ROOM*OLTRARNO DISTRICT*ARTISAN QUARTER\n1 DOUBLE BED,SUPERIOR\nSUPERIOR ROOM",
+            "type": "A2D",
+            "typeEstimated": {
+              "bedType": "DOUBLE",
+              "beds": 1,
+              "category": "SUPERIOR_ROOM"
+            }
+          }
+        }
+      ],
+      "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=OIFLRD21&adults=1&checkInDate=2025-10-04&checkOutDate=2025-10-09&countryOfResidence=IT&currency=USD&paymentPolicy=NONE&roomQuantity=1"
+    },
+    {
+      "type": "hotel-offers",
+      "hotel": {
+        "type": "hotel",
+        "hotelId": "GZFLRHCI",
+        "chainCode": "GZ",
+        "dupeId": "700200543",
+        "name": "Florence Historic Center Inn",
+        "cityCode": "FLR",
+        "latitude": 43.7722,
+        "longitude": 11.2569
+      },
+      "available": true,
+      "offers": [
+        {
+          "id": "H8F4TCCUMV",
+          "checkInDate": "2025-10-04",
+          "checkOutDate": "2025-10-09",
+          "rateCode": "H8K",
+          "rateFamilyEstimated": {
+            "code": "PRO",
+            "type": "P"
+          },
+          "commission": {
+            "percentage": "15"
+          },
+          "room": {
+            "type": "A3K",
+            "typeEstimated": {
+              "category": "DELUXE_ROOM",
+              "beds": 1,
+              "bedType": "KING"
+            },
+            "description": {
+              "text": "DELUXE ROOM*RENAISSANCE PALACE*FRESCOED CEILINGS\n1 KING BED,DELUXE\nDELUXE ROOM",
+              "lang": "EN"
+            }
+          },
+          "guests": {
+            "adults": 1
+          },
+          "price": {
+            "currency": "EUR",
+            "base": "1350.00",
+            "total": "1390.00",
+            "taxes": [
+              {
+                "code": "CITY_TAX",
+                "amount": "25.00",
+                "currency": "EUR",
+                "included": false
+              },
+              {
+                "code": "VAT",
+                "amount": "15.00",
+                "currency": "EUR",
+                "included": false
+              }
+            ],
+            "variations": {
+              "average": {
+                "base": "270.00"
+              },
+              "changes": [
+                {
+                  "startDate": "2025-10-04",
+                  "endDate": "2025-10-06",
+                  "base": "250.00"
+                },
+                {
+                  "startDate": "2025-10-06",
+                  "endDate": "2025-10-08",
+                  "base": "295.00"
+                },
+                {
+                  "startDate": "2025-10-08",
+                  "endDate": "2025-10-09",
+                  "base": "265.00"
+                }
+              ]
+            }
+          },
+          "policies": {
+            "cancellations": [
+              {
+                "description": {
+                  "text": "FREE CANCELLATION UNTIL 72 HOURS BEFORE CHECK-IN"
+                },
+                "policyType": "CANCELLATION",
+                "deadline": "2025-10-01T18:00:00"
+              }
+            ],
+            "paymentType": "guarantee",
+            "refundable": {
+              "cancellationRefund": "REFUNDABLE"
+            }
+          },
+          "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers/H8F4TCCUMV",
+          "roomInformation": {
+            "description": "DELUXE ROOM*RENAISSANCE PALACE*FRESCOED CEILINGS\n1 KING BED,DELUXE\nDELUXE ROOM",
+            "type": "A3K",
+            "typeEstimated": {
+              "bedType": "KING",
+              "beds": 1,
+              "category": "DELUXE_ROOM"
+            }
+          }
+        }
+      ],
+      "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=GZFLRHCI&adults=1&checkInDate=2025-10-04&checkOutDate=2025-10-09&countryOfResidence=IT&currency=USD&paymentPolicy=NONE&roomQuantity=1"
+    },
+    {
+      "type": "hotel-offers",
+      "hotel": {
+        "type": "hotel",
+        "hotelId": "YXFLRC20",
+        "chainCode": "YX",
+        "dupeId": "700201789",
+        "name": "Florence Cathedral Luxury Suites",
+        "cityCode": "FLR",
+        "latitude": 43.7734,
+        "longitude": 11.2560
+      },
+      "available": true,
+      "offers": [
+        {
+          "id": "H9F5TCCUMV",
+          "checkInDate": "2025-10-04",
+          "checkOutDate": "2025-10-09",
+          "rateCode": "H9S",
+          "rateFamilyEstimated": {
+            "code": "PRO",
+            "type": "P"
+          },
+          "commission": {
+            "percentage": "18"
+          },
+          "room": {
+            "type": "A4S",
+            "typeEstimated": {
+              "category": "SUITE",
+              "beds": 1,
+              "bedType": "KING"
+            },
+            "description": {
+              "text": "PRESIDENTIAL SUITE*DUOMO VIEW*PRIVATE TERRACE\n1 KING BED,SUITE\nPRESIDENTIAL SUITE",
+              "lang": "EN"
+            }
+          },
+          "guests": {
+            "adults": 1
+          },
+          "price": {
+            "currency": "EUR",
+            "base": "1950.00",
+            "total": "2010.00",
+            "taxes": [
+              {
+                "code": "CITY_TAX",
+                "amount": "35.00",
+                "currency": "EUR",
+                "included": false
+              },
+              {
+                "code": "VAT",
+                "amount": "25.00",
+                "currency": "EUR",
+                "included": false
+              }
+            ],
+            "variations": {
+              "average": {
+                "base": "390.00"
+              },
+              "changes": [
+                {
+                  "startDate": "2025-10-04",
+                  "endDate": "2025-10-06",
+                  "base": "370.00"
+                },
+                {
+                  "startDate": "2025-10-06",
+                  "endDate": "2025-10-08",
+                  "base": "420.00"
+                },
+                {
+                  "startDate": "2025-10-08",
+                  "endDate": "2025-10-09",
+                  "base": "380.00"
+                }
+              ]
+            }
+          },
+          "policies": {
+            "cancellations": [
+              {
+                "description": {
+                  "text": "FREE CANCELLATION UNTIL 7 DAYS BEFORE CHECK-IN"
+                },
+                "policyType": "CANCELLATION",
+                "deadline": "2025-09-27T18:00:00"
+              }
+            ],
+            "paymentType": "guarantee",
+            "refundable": {
+              "cancellationRefund": "REFUNDABLE"
+            }
+          },
+          "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers/H9F5TCCUMV",
+          "roomInformation": {
+            "description": "PRESIDENTIAL SUITE*DUOMO VIEW*PRIVATE TERRACE\n1 KING BED,SUITE\nPRESIDENTIAL SUITE",
+            "type": "A4S",
+            "typeEstimated": {
+              "bedType": "KING",
+              "beds": 1,
+              "category": "SUITE"
+            }
+          }
+        }
+      ],
+      "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=YXFLRC20&adults=1&checkInDate=2025-10-04&checkOutDate=2025-10-09&countryOfResidence=IT&currency=USD&paymentPolicy=NONE&roomQuantity=1"
     }
   ],
   "dictionaries": {

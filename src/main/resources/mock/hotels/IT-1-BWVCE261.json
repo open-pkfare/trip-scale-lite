@@ -93,6 +93,430 @@
         }
       ],
       "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=BWVCE261&adults=1&checkInDate=2025-10-13&checkOutDate=2025-10-17&countryOfResidence=IT&currency=USD&paymentPolicy=NONE&roomQuantity=1"
+    },
+    {
+      "type": "hotel-offers",
+      "hotel": {
+        "type": "hotel",
+        "hotelId": "AVCECAN",
+        "chainCode": "AV",
+        "dupeId": "700202456",
+        "name": "Venice Canal View Hotel",
+        "cityCode": "VCE",
+        "latitude": 45.4408,
+        "longitude": 12.3155
+      },
+      "available": true,
+      "offers": [
+        {
+          "id": "V1C2TCCUMV",
+          "checkInDate": "2025-10-13",
+          "checkOutDate": "2025-10-17",
+          "rateCode": "V1Q",
+          "rateFamilyEstimated": {
+            "code": "PRO",
+            "type": "P"
+          },
+          "commission": {
+            "percentage": "12"
+          },
+          "room": {
+            "type": "A1Q",
+            "typeEstimated": {
+              "category": "SUPERIOR_ROOM",
+              "beds": 1,
+              "bedType": "QUEEN"
+            },
+            "description": {
+              "text": "SUPERIOR ROOM*CANAL VIEW*VENETIAN STYLE\n1 QUEEN BED,SUPERIOR\nSUPERIOR ROOM",
+              "lang": "EN"
+            }
+          },
+          "guests": {
+            "adults": 1
+          },
+          "price": {
+            "currency": "EUR",
+            "base": "3800.00",
+            "total": "3830.00",
+            "taxes": [
+              {
+                "code": "CITY_TAX",
+                "amount": "20.00",
+                "currency": "EUR",
+                "included": false
+              },
+              {
+                "code": "VAT",
+                "amount": "10.00",
+                "currency": "EUR",
+                "included": false
+              }
+            ],
+            "variations": {
+              "average": {
+                "base": "950.00"
+              },
+              "changes": [
+                {
+                  "startDate": "2025-10-13",
+                  "endDate": "2025-10-15",
+                  "base": "920.00"
+                },
+                {
+                  "startDate": "2025-10-15",
+                  "endDate": "2025-10-17",
+                  "base": "980.00"
+                }
+              ]
+            }
+          },
+          "policies": {
+            "cancellations": [
+              {
+                "description": {
+                  "text": "FREE CANCELLATION UNTIL 24 HOURS BEFORE CHECK-IN"
+                },
+                "policyType": "CANCELLATION",
+                "deadline": "2025-10-12T18:00:00"
+              }
+            ],
+            "paymentType": "guarantee",
+            "refundable": {
+              "cancellationRefund": "REFUNDABLE"
+            }
+          },
+          "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers/V1C2TCCUMV",
+          "roomInformation": {
+            "description": "SUPERIOR ROOM*CANAL VIEW*VENETIAN STYLE\n1 QUEEN BED,SUPERIOR\nSUPERIOR ROOM",
+            "type": "A1Q",
+            "typeEstimated": {
+              "bedType": "QUEEN",
+              "beds": 1,
+              "category": "SUPERIOR_ROOM"
+            }
+          }
+        }
+      ],
+      "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=AVCECAN&adults=1&checkInDate=2025-10-13&checkOutDate=2025-10-17&countryOfResidence=IT&currency=USD&paymentPolicy=NONE&roomQuantity=1"
+    },
+    {
+      "type": "hotel-offers",
+      "hotel": {
+        "type": "hotel",
+        "hotelId": "YXVCEACR",
+        "chainCode": "YX",
+        "dupeId": "700203789",
+        "name": "Venice Accademia Residence",
+        "cityCode": "VCE",
+        "latitude": 45.4312,
+        "longitude": 12.3281
+      },
+      "available": true,
+      "offers": [
+        {
+          "id": "V2A3TCCUMV",
+          "checkInDate": "2025-10-13",
+          "checkOutDate": "2025-10-17",
+          "rateCode": "V2D",
+          "rateFamilyEstimated": {
+            "code": "BAR",
+            "type": "C"
+          },
+          "commission": {
+            "percentage": "10"
+          },
+          "room": {
+            "type": "A2D",
+            "typeEstimated": {
+              "category": "DELUXE_ROOM",
+              "beds": 1,
+              "bedType": "DOUBLE"
+            },
+            "description": {
+              "text": "DELUXE ROOM*ACCADEMIA BRIDGE*HISTORIC PALAZZO\n1 DOUBLE BED,DELUXE\nDELUXE ROOM",
+              "lang": "EN"
+            }
+          },
+          "guests": {
+            "adults": 1
+          },
+          "price": {
+            "currency": "EUR",
+            "base": "4200.00",
+            "total": "4240.00",
+            "taxes": [
+              {
+                "code": "CITY_TAX",
+                "amount": "25.00",
+                "currency": "EUR",
+                "included": false
+              },
+              {
+                "code": "VAT",
+                "amount": "15.00",
+                "currency": "EUR",
+                "included": false
+              }
+            ],
+            "variations": {
+              "average": {
+                "base": "1050.00"
+              },
+              "changes": [
+                {
+                  "startDate": "2025-10-13",
+                  "endDate": "2025-10-15",
+                  "base": "1020.00"
+                },
+                {
+                  "startDate": "2025-10-15",
+                  "endDate": "2025-10-17",
+                  "base": "1080.00"
+                }
+              ]
+            }
+          },
+          "policies": {
+            "cancellations": [
+              {
+                "description": {
+                  "text": "FREE CANCELLATION UNTIL 48 HOURS BEFORE CHECK-IN"
+                },
+                "policyType": "CANCELLATION",
+                "deadline": "2025-10-11T18:00:00"
+              }
+            ],
+            "paymentType": "guarantee",
+            "refundable": {
+              "cancellationRefund": "REFUNDABLE"
+            }
+          },
+          "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers/V2A3TCCUMV",
+          "roomInformation": {
+            "description": "DELUXE ROOM*ACCADEMIA BRIDGE*HISTORIC PALAZZO\n1 DOUBLE BED,DELUXE\nDELUXE ROOM",
+            "type": "A2D",
+            "typeEstimated": {
+              "bedType": "DOUBLE",
+              "beds": 1,
+              "category": "DELUXE_ROOM"
+            }
+          }
+        }
+      ],
+      "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=YXVCEACR&adults=1&checkInDate=2025-10-13&checkOutDate=2025-10-17&countryOfResidence=IT&currency=USD&paymentPolicy=NONE&roomQuantity=1"
+    },
+    {
+      "type": "hotel-offers",
+      "hotel": {
+        "type": "hotel",
+        "hotelId": "EPVCECAN",
+        "chainCode": "EP",
+        "dupeId": "700204321",
+        "name": "Venice Europa Palace",
+        "cityCode": "VCE",
+        "latitude": 45.4338,
+        "longitude": 12.3356
+      },
+      "available": true,
+      "offers": [
+        {
+          "id": "V3E4TCCUMV",
+          "checkInDate": "2025-10-13",
+          "checkOutDate": "2025-10-17",
+          "rateCode": "V3K",
+          "rateFamilyEstimated": {
+            "code": "PRO",
+            "type": "P"
+          },
+          "commission": {
+            "percentage": "15"
+          },
+          "room": {
+            "type": "A3K",
+            "typeEstimated": {
+              "category": "JUNIOR_SUITE",
+              "beds": 1,
+              "bedType": "KING"
+            },
+            "description": {
+              "text": "JUNIOR SUITE*GRAND CANAL VIEW*MURANO GLASS DECOR\n1 KING BED,SUITE\nJUNIOR SUITE",
+              "lang": "EN"
+            }
+          },
+          "guests": {
+            "adults": 1
+          },
+          "price": {
+            "currency": "EUR",
+            "base": "5200.00",
+            "total": "5250.00",
+            "taxes": [
+              {
+                "code": "CITY_TAX",
+                "amount": "30.00",
+                "currency": "EUR",
+                "included": false
+              },
+              {
+                "code": "VAT",
+                "amount": "20.00",
+                "currency": "EUR",
+                "included": false
+              }
+            ],
+            "variations": {
+              "average": {
+                "base": "1300.00"
+              },
+              "changes": [
+                {
+                  "startDate": "2025-10-13",
+                  "endDate": "2025-10-15",
+                  "base": "1250.00"
+                },
+                {
+                  "startDate": "2025-10-15",
+                  "endDate": "2025-10-17",
+                  "base": "1350.00"
+                }
+              ]
+            }
+          },
+          "policies": {
+            "cancellations": [
+              {
+                "description": {
+                  "text": "FREE CANCELLATION UNTIL 72 HOURS BEFORE CHECK-IN"
+                },
+                "policyType": "CANCELLATION",
+                "deadline": "2025-10-10T18:00:00"
+              }
+            ],
+            "paymentType": "guarantee",
+            "refundable": {
+              "cancellationRefund": "REFUNDABLE"
+            }
+          },
+          "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers/V3E4TCCUMV",
+          "roomInformation": {
+            "description": "JUNIOR SUITE*GRAND CANAL VIEW*MURANO GLASS DECOR\n1 KING BED,SUITE\nJUNIOR SUITE",
+            "type": "A3K",
+            "typeEstimated": {
+              "bedType": "KING",
+              "beds": 1,
+              "category": "JUNIOR_SUITE"
+            }
+          }
+        }
+      ],
+      "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=EPVCECAN&adults=1&checkInDate=2025-10-13&checkOutDate=2025-10-17&countryOfResidence=IT&currency=USD&paymentPolicy=NONE&roomQuantity=1"
+    },
+    {
+      "type": "hotel-offers",
+      "hotel": {
+        "type": "hotel",
+        "hotelId": "HSVCEAQT",
+        "chainCode": "HS",
+        "dupeId": "700205654",
+        "name": "Venice Aqua Terrace Hotel",
+        "cityCode": "VCE",
+        "latitude": 45.4289,
+        "longitude": 12.3198
+      },
+      "available": true,
+      "offers": [
+        {
+          "id": "V4A5TCCUMV",
+          "checkInDate": "2025-10-13",
+          "checkOutDate": "2025-10-17",
+          "rateCode": "V4T",
+          "rateFamilyEstimated": {
+            "code": "BAR",
+            "type": "C"
+          },
+          "commission": {
+            "percentage": "8"
+          },
+          "room": {
+            "type": "A1T",
+            "typeEstimated": {
+              "category": "STANDARD_ROOM",
+              "beds": 2,
+              "bedType": "TWIN"
+            },
+            "description": {
+              "text": "STANDARD ROOM*WATER TERRACE*LAGOON VIEW\n2 TWIN BEDS,STANDARD\nSTANDARD ROOM",
+              "lang": "EN"
+            }
+          },
+          "guests": {
+            "adults": 1
+          },
+          "price": {
+            "currency": "EUR",
+            "base": "3200.00",
+            "total": "3225.00",
+            "taxes": [
+              {
+                "code": "CITY_TAX",
+                "amount": "15.00",
+                "currency": "EUR",
+                "included": false
+              },
+              {
+                "code": "VAT",
+                "amount": "10.00",
+                "currency": "EUR",
+                "included": false
+              }
+            ],
+            "variations": {
+              "average": {
+                "base": "800.00"
+              },
+              "changes": [
+                {
+                  "startDate": "2025-10-13",
+                  "endDate": "2025-10-15",
+                  "base": "780.00"
+                },
+                {
+                  "startDate": "2025-10-15",
+                  "endDate": "2025-10-17",
+                  "base": "820.00"
+                }
+              ]
+            }
+          },
+          "policies": {
+            "cancellations": [
+              {
+                "description": {
+                  "text": "FREE CANCELLATION UNTIL 24 HOURS BEFORE CHECK-IN"
+                },
+                "policyType": "CANCELLATION",
+                "deadline": "2025-10-12T18:00:00"
+              }
+            ],
+            "paymentType": "guarantee",
+            "refundable": {
+              "cancellationRefund": "REFUNDABLE"
+            }
+          },
+          "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers/V4A5TCCUMV",
+          "roomInformation": {
+            "description": "STANDARD ROOM*WATER TERRACE*LAGOON VIEW\n2 TWIN BEDS,STANDARD\nSTANDARD ROOM",
+            "type": "A1T",
+            "typeEstimated": {
+              "bedType": "TWIN",
+              "beds": 2,
+              "category": "STANDARD_ROOM"
+            }
+          }
+        }
+      ],
+      "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=HSVCEAQT&adults=1&checkInDate=2025-10-13&checkOutDate=2025-10-17&countryOfResidence=IT&currency=USD&paymentPolicy=NONE&roomQuantity=1"
     }
   ],
   "dictionaries": {
@@ -134,7 +558,7 @@
       "title": "INVALID PROPERTY CODE",
       "detail": "Provider Error - INVALID PROPERTY CODE",
       "source": {
-        "parameter": "hotelIds=BAVCEBLN,EPVCECAN,YXVCEACR,YXVCEADL,YXVCEADV,YXVCECAP,YXVCECGR"
+        "parameter": "hotelIds=BAVCEBLN,YXVCEADL,YXVCEADV,YXVCECAP,YXVCECGR"
       }
     }
   ]

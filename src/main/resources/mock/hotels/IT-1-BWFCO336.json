@@ -93,6 +93,382 @@
         }
       ],
       "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=BWFCO336&adults=1&checkInDate=2025-10-04&checkOutDate=2025-10-09&countryOfResidence=IT&currency=USD&paymentPolicy=NONE&roomQuantity=1"
+    },
+    {
+      "type": "hotel-offers",
+      "hotel": {
+        "type": "hotel",
+        "hotelId": "YXROMSEC",
+        "chainCode": "YX",
+        "dupeId": "700194821",
+        "name": "Rome Secession Hotel",
+        "cityCode": "ROM",
+        "latitude": 41.9028,
+        "longitude": 12.4964
+      },
+      "available": true,
+      "offers": [
+        {
+          "id": "H2K5TCCUMV",
+          "checkInDate": "2025-10-04",
+          "checkOutDate": "2025-10-09",
+          "rateCode": "H2Q",
+          "rateFamilyEstimated": {
+            "code": "PRO",
+            "type": "P"
+          },
+          "commission": {
+            "percentage": "12"
+          },
+          "room": {
+            "type": "A2Q",
+            "typeEstimated": {
+              "category": "SUPERIOR_ROOM",
+              "beds": 1,
+              "bedType": "QUEEN"
+            },
+            "description": {
+              "text": "SUPERIOR ROOM*FREE WIFI*CITY VIEW\n1 QUEEN BED,SUPERIOR\nSUPERIOR ROOM",
+              "lang": "EN"
+            }
+          },
+          "guests": {
+            "adults": 1
+          },
+          "price": {
+            "currency": "EUR",
+            "base": "950.00",
+            "total": "970.00",
+            "taxes": [
+              {
+                "code": "TOTAL_TAX",
+                "amount": "20.00",
+                "currency": "EUR",
+                "included": false
+              }
+            ],
+            "variations": {
+              "average": {
+                "base": "190.00"
+              },
+              "changes": [
+                {
+                  "startDate": "2025-10-04",
+                  "endDate": "2025-10-09",
+                  "base": "190.00"
+                }
+              ]
+            }
+          },
+          "policies": {
+            "cancellations": [
+              {
+                "description": {
+                  "text": "FREE CANCELLATION UNTIL 24H BEFORE ARRIVAL"
+                },
+                "policyType": "CANCELLATION"
+              }
+            ],
+            "paymentType": "guarantee",
+            "refundable": {
+              "cancellationRefund": "REFUNDABLE"
+            }
+          },
+          "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers/H2K5TCCUMV",
+          "roomInformation": {
+            "description": "SUPERIOR ROOM*FREE WIFI*CITY VIEW\n1 QUEEN BED,SUPERIOR\nSUPERIOR ROOM",
+            "type": "A2Q",
+            "typeEstimated": {
+              "bedType": "QUEEN",
+              "beds": 1,
+              "category": "SUPERIOR_ROOM"
+            }
+          }
+        }
+      ],
+      "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=YXROMSEC&adults=1&checkInDate=2025-10-04&checkOutDate=2025-10-09&countryOfResidence=IT&currency=USD&paymentPolicy=NONE&roomQuantity=1"
+    },
+    {
+      "type": "hotel-offers",
+      "hotel": {
+        "type": "hotel",
+        "hotelId": "YXROMDLI",
+        "chainCode": "YX",
+        "dupeId": "700195432",
+        "name": "Rome Deluxe Inn",
+        "cityCode": "ROM",
+        "latitude": 41.8986,
+        "longitude": 12.4768
+      },
+      "available": true,
+      "offers": [
+        {
+          "id": "H3K7TCCUMV",
+          "checkInDate": "2025-10-04",
+          "checkOutDate": "2025-10-09",
+          "rateCode": "H3Q",
+          "rateFamilyEstimated": {
+            "code": "BAR",
+            "type": "C"
+          },
+          "commission": {
+            "percentage": "8"
+          },
+          "room": {
+            "type": "A1K",
+            "typeEstimated": {
+              "category": "DELUXE_ROOM",
+              "beds": 1,
+              "bedType": "KING"
+            },
+            "description": {
+              "text": "DELUXE ROOM*BREAKFAST INCLUDED*BALCONY\n1 KING BED,DELUXE\nDELUXE ROOM",
+              "lang": "EN"
+            }
+          },
+          "guests": {
+            "adults": 1
+          },
+          "price": {
+            "currency": "EUR",
+            "base": "1200.00",
+            "total": "1225.00",
+            "taxes": [
+              {
+                "code": "TOTAL_TAX",
+                "amount": "25.00",
+                "currency": "EUR",
+                "included": false
+              }
+            ],
+            "variations": {
+              "average": {
+                "base": "240.00"
+              },
+              "changes": [
+                {
+                  "startDate": "2025-10-04",
+                  "endDate": "2025-10-09",
+                  "base": "240.00"
+                }
+              ]
+            }
+          },
+          "policies": {
+            "cancellations": [
+              {
+                "description": {
+                  "text": "FREE CANCELLATION UNTIL 48H BEFORE ARRIVAL"
+                },
+                "policyType": "CANCELLATION"
+              }
+            ],
+            "paymentType": "guarantee",
+            "refundable": {
+              "cancellationRefund": "REFUNDABLE"
+            }
+          },
+          "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers/H3K7TCCUMV",
+          "roomInformation": {
+            "description": "DELUXE ROOM*BREAKFAST INCLUDED*BALCONY\n1 KING BED,DELUXE\nDELUXE ROOM",
+            "type": "A1K",
+            "typeEstimated": {
+              "bedType": "KING",
+              "beds": 1,
+              "category": "DELUXE_ROOM"
+            }
+          }
+        }
+      ],
+      "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=YXROMDLI&adults=1&checkInDate=2025-10-04&checkOutDate=2025-10-09&countryOfResidence=IT&currency=USD&paymentPolicy=NONE&roomQuantity=1"
+    },
+    {
+      "type": "hotel-offers",
+      "hotel": {
+        "type": "hotel",
+        "hotelId": "YXROMTIB",
+        "chainCode": "YX",
+        "dupeId": "700196789",
+        "name": "Rome Tiberius Boutique Hotel",
+        "cityCode": "ROM",
+        "latitude": 41.9009,
+        "longitude": 12.4833
+      },
+      "available": true,
+      "offers": [
+        {
+          "id": "H4K9TCCUMV",
+          "checkInDate": "2025-10-04",
+          "checkOutDate": "2025-10-09",
+          "rateCode": "H4Q",
+          "rateFamilyEstimated": {
+            "code": "PRO",
+            "type": "P"
+          },
+          "commission": {
+            "percentage": "15"
+          },
+          "room": {
+            "type": "A2T",
+            "typeEstimated": {
+              "category": "JUNIOR_SUITE",
+              "beds": 2,
+              "bedType": "TWIN"
+            },
+            "description": {
+              "text": "JUNIOR SUITE*HISTORIC CENTER*TERRACE\n2 TWIN BEDS,SUITE\nJUNIOR SUITE",
+              "lang": "EN"
+            }
+          },
+          "guests": {
+            "adults": 1
+          },
+          "price": {
+            "currency": "EUR",
+            "base": "1450.00",
+            "total": "1480.00",
+            "taxes": [
+              {
+                "code": "TOTAL_TAX",
+                "amount": "30.00",
+                "currency": "EUR",
+                "included": false
+              }
+            ],
+            "variations": {
+              "average": {
+                "base": "290.00"
+              },
+              "changes": [
+                {
+                  "startDate": "2025-10-04",
+                  "endDate": "2025-10-09",
+                  "base": "290.00"
+                }
+              ]
+            }
+          },
+          "policies": {
+            "cancellations": [
+              {
+                "description": {
+                  "text": "FREE CANCELLATION UNTIL 72H BEFORE ARRIVAL"
+                },
+                "policyType": "CANCELLATION"
+              }
+            ],
+            "paymentType": "guarantee",
+            "refundable": {
+              "cancellationRefund": "REFUNDABLE"
+            }
+          },
+          "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers/H4K9TCCUMV",
+          "roomInformation": {
+            "description": "JUNIOR SUITE*HISTORIC CENTER*TERRACE\n2 TWIN BEDS,SUITE\nJUNIOR SUITE",
+            "type": "A2T",
+            "typeEstimated": {
+              "bedType": "TWIN",
+              "beds": 2,
+              "category": "JUNIOR_SUITE"
+            }
+          }
+        }
+      ],
+      "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=YXROMTIB&adults=1&checkInDate=2025-10-04&checkOutDate=2025-10-09&countryOfResidence=IT&currency=USD&paymentPolicy=NONE&roomQuantity=1"
+    },
+    {
+      "type": "hotel-offers",
+      "hotel": {
+        "type": "hotel",
+        "hotelId": "CIFCO058",
+        "chainCode": "CI",
+        "dupeId": "700197654",
+        "name": "Rome Fiumicino Airport Hotel",
+        "cityCode": "FCO",
+        "latitude": 41.7886,
+        "longitude": 12.2389
+      },
+      "available": true,
+      "offers": [
+        {
+          "id": "H5K1TCCUMV",
+          "checkInDate": "2025-10-04",
+          "checkOutDate": "2025-10-09",
+          "rateCode": "H5Q",
+          "rateFamilyEstimated": {
+            "code": "BAR",
+            "type": "C"
+          },
+          "commission": {
+            "percentage": "10"
+          },
+          "room": {
+            "type": "A1D",
+            "typeEstimated": {
+              "category": "STANDARD_ROOM",
+              "beds": 1,
+              "bedType": "DOUBLE"
+            },
+            "description": {
+              "text": "AIRPORT SHUTTLE*SOUNDPROOF ROOM*24H FRONT DESK\n1 DOUBLE BED,STND\nSTANDARD ROOM",
+              "lang": "EN"
+            }
+          },
+          "guests": {
+            "adults": 1
+          },
+          "price": {
+            "currency": "EUR",
+            "base": "750.00",
+            "total": "770.00",
+            "taxes": [
+              {
+                "code": "TOTAL_TAX",
+                "amount": "20.00",
+                "currency": "EUR",
+                "included": false
+              }
+            ],
+            "variations": {
+              "average": {
+                "base": "150.00"
+              },
+              "changes": [
+                {
+                  "startDate": "2025-10-04",
+                  "endDate": "2025-10-09",
+                  "base": "150.00"
+                }
+              ]
+            }
+          },
+          "policies": {
+            "cancellations": [
+              {
+                "description": {
+                  "text": "FREE CANCELLATION UNTIL 24H BEFORE ARRIVAL"
+                },
+                "policyType": "CANCELLATION"
+              }
+            ],
+            "paymentType": "guarantee",
+            "refundable": {
+              "cancellationRefund": "REFUNDABLE"
+            }
+          },
+          "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers/H5K1TCCUMV",
+          "roomInformation": {
+            "description": "AIRPORT SHUTTLE*SOUNDPROOF ROOM*24H FRONT DESK\n1 DOUBLE BED,STND\nSTANDARD ROOM",
+            "type": "A1D",
+            "typeEstimated": {
+              "bedType": "DOUBLE",
+              "beds": 1,
+              "category": "STANDARD_ROOM"
+            }
+          }
+        }
+      ],
+      "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=CIFCO058&adults=1&checkInDate=2025-10-04&checkOutDate=2025-10-09&countryOfResidence=IT&currency=USD&paymentPolicy=NONE&roomQuantity=1"
     }
   ],
   "dictionaries": {
@@ -118,7 +494,7 @@
       "title": "INVALID PROPERTY CODE",
       "detail": "Provider Error - INVALID PROPERTY CODE",
       "source": {
-        "parameter": "hotelIds=BNROMABH,CIFCO058,YXFCOLCH,YXROMDLI,YXROMSEC,YXROMTIB"
+        "parameter": "hotelIds=BNROMABH,YXFCOLCH"
       }
     }
   ]

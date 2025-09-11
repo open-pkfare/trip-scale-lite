@@ -34,6 +34,7 @@ public class AmadeusHotelOffersSearchAPI {
   private final ObjectMapper objectMapper = new ObjectMapper();
 
   public List<HotelOfferDto> hotelOffersSearch(HotelOffersSearchRequest hotelOffersSearchRequest) {
+    log.info("hotelOffersSearchRequest:{}",hotelOffersSearchRequest);
     if (needMock(hotelOffersSearchRequest)) {
       return mockApiResponse(hotelOffersSearchRequest);
     }
