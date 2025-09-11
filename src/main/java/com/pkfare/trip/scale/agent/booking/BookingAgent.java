@@ -65,7 +65,7 @@ public class BookingAgent extends BaseAgent {
   }
 
   public BookingAgent() {
-    super("p_booking_agent", "Agent to help user book and generate roadbook.",
+    super("p_booking_agent", "Agent to help user book the trip and generate roadbook.",
         Lists.newArrayList(SUMMARY_AGENT),
         null,
         null);
@@ -85,8 +85,8 @@ public class BookingAgent extends BaseAgent {
 
   @Override
   protected Flowable<Event> runAsyncImpl(InvocationContext invocationContext) {
+    log.info("current agent: booking");
     TripRoutePlanResult tripRoutePlanResult = (TripRoutePlanResult) invocationContext.session().state().get("plan_result");
-    tripRoutePlanResult = mockDailyPlans();
     Map<LocalDate, JSONObject> summaries = summarize(invocationContext, tripRoutePlanResult);
     JSON json = generateRoadBook(tripRoutePlanResult, summaries);
     ROAD_BOOK_MAP.put(invocationContext.session().id(), json);
@@ -110,29 +110,48 @@ public class BookingAgent extends BaseAgent {
 
   private Map<LocalDate, JSONObject> summarize(InvocationContext invocationContext, TripRoutePlanResult tripRoutePlanResult) {
     Map<LocalDate, JSONObject> all = Maps.newConcurrentMap();
+    List<DailyRoutePlan> dailyPlans = tripRoutePlanResult.getDailyPlans();
+    List<CompletableFuture<Void>> futures = Lists.newArrayList();
 
-    List<CompletableFuture<Void>> futures = tripRoutePlanResult.getDailyPlans().stream()
-        .map(dailyPlan -> CompletableFuture.runAsync(() -> {
-          Map<String, String> map = dailyPlan.getActivities().stream()
+    for (int i = 0; i < dailyPlans.size(); i += 4) {
+      int endIndex = Math.min(i + 4, dailyPlans.size());
+      List<DailyRoutePlan> batch = dailyPlans.subList(i, endIndex);
+      Map<String, DailyRoutePlan> map = batch.stream().collect(Collectors.toMap(drp-> drp.getDate().toString(), drp-> drp));
+      CompletableFuture<Void> future = CompletableFuture.runAsync(() -> {
+        JSONArray days = new JSONArray();
+        for (DailyRoutePlan dailyPlan : batch) {
+          JSONObject day = new JSONObject();
+          day.put("date", dailyPlan.getDate().toString());
+          Map<String, String> temp = dailyPlan.getActivities().stream()
               .collect(Collectors.toMap(ActivityInfo::getActivityId, ai -> ai.getName() + " " + ai.getDescription()));
+          day.put("activities", temp);
+          days.add(day);
+        }
 
-          Content content = Content.fromParts(Part.fromText("here are activities: \n" + JSON.toJSONString(map)));
+        log.info("input arrangement {}", JSON.toJSONString(days));
+        Content content = Content.fromParts(Part.fromText("here are activities: \n" + JSON.toJSONString(days)));
 
-          Session session = runner.sessionService().createSession(NAME, UUID.randomUUID().toString()).blockingGet();
-          runner.runAsync(session.userId(), session.id(), content)
-              .blockingForEach(event -> {
-                String text = event.content().get().text();
-                if (text.contains("------")){
-                  text = text.split("------")[1];
-                }
-                text = text.replace("```json","").replace("```","");
-                JSONObject object = JSON.parseObject(text);
-                object.put("date", dailyPlan.getDate().toString());
-                object.put("city", dailyPlan.getCityName());
-                all.put(dailyPlan.getDate(), object);
-              });
-        }))
-        .toList();
+        Session session = runner.sessionService().createSession(NAME, UUID.randomUUID().toString()).blockingGet();
+        runner.runAsync(session.userId(), session.id(), content)
+            .blockingForEach(event -> {
+              //parse daily arrangement and tips, construct the road book
+              String text = event.content().get().text();
+              if (text.contains("------")){
+                text = text.split("------")[1];
+              }
+              text = text.replace("```json","").replace("```","");
+              JSONArray array = JSON.parseArray(text);
+              for (Object o : array) {
+                JSONObject day = (JSONObject)o;
+                String date = day.getString("date");
+                DailyRoutePlan dailyPlan = map.get(date);
+                day.put("city", dailyPlan.getCityName());
+                all.put(dailyPlan.getDate(), day);
+              }
+            });
+      });
+      futures.add(future);
+    }
 
     CompletableFuture.allOf(futures.toArray(new CompletableFuture[0])).join();
     return all;

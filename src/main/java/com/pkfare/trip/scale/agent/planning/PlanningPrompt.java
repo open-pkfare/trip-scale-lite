@@ -7,35 +7,26 @@ package com.pkfare.trip.scale.agent.planning;
  */
 public class PlanningPrompt {
     
-    public static final String PLANNING_PROMPT = """
-        你是一个专业的旅行计划助手，需要根据提供的航班、酒店、活动信息生成详细的旅行计划。
-        
-        请根据以下要求生成旅行计划：
-        
-        1. **时间连续性**：确保机票、酒店、活动的日期和时间连续且城市顺序正确
-        2. **交通安排**：各城市之间需要输出交通工具和行程时间
-        3. **活动安排**：
-           - 活动景点选择需结合活动与酒店经纬度，筛选100km内适中距离的活动
-           - 活动景点的行程按从酒店由近及远安排
-           - 每天安排2-3个主要活动，避免行程过于紧张
-        4. **费用控制**：确保总费用在预算范围内
-        5. **实用性**：提供具体的时间安排、地址信息、交通方式等实用信息
-        
-        输入信息包括：
-        - 旅行基本信息：出发地、目的地、时间、人数、预算等
-        - 航班信息：去程和返程航班详情
-        - 酒店信息：每个城市的住宿安排
-        - 活动信息：各城市的推荐活动和景点
-        
-        请生成一份结构化的旅行计划，包含：
-        1. 旅行概览
-        2. 每日详细行程安排
-        3. 交通安排
-        4. 费用明细
-        5. 实用提示和注意事项
-        
-        请确保计划的可行性和实用性。
-        """;
+    public static final String PLANNING_PROMPT = "###background\n"
+        + "you are a trip planning assistant, search and organize a purchasable trip plan for user.\n"
+        + "\n"
+        + "### ATTENTION\n"
+        + "1. country_code follow ISO3166-1 standard with 2 letters.\n"
+        + "2. If the city has airport, location_code follow IATA standard with 3 letters, or let it be null.\n"
+        + "3. Ensure the overall order of travel destinations is logically arranged based on objective geographical locations.\n"
+        + "\n"
+        + "### TODO\n"
+        + "Extract relevant data from previous dialog, strictly follow the data constructure, 6 hyphens is mandatory:\n"
+        + "\n"
+        + "------[\n"
+        + "{\n"
+        + "\"stay_days\":int,\n"
+        + "\"destination_city\":String,\n"
+        + "\"country_code\":String,\n"
+        + "\"location_code\",String,\n"
+        + "\"reason_for_recommendation\":String\n"
+        + "}\n"
+        + "]\"";
     
     /**
      * 构建具体的提示词

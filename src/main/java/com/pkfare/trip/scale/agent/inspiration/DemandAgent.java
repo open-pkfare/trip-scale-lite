@@ -2,6 +2,7 @@ package com.pkfare.trip.scale.agent.inspiration;
 
 import com.google.adk.agents.BaseAgent;
 import com.google.adk.agents.Instruction;
+import com.google.adk.agents.InvocationContext;
 import com.google.adk.agents.LlmAgent;
 import com.google.adk.agents.ReadonlyContext;
 import com.google.adk.events.Event;
@@ -9,6 +10,7 @@ import com.google.adk.runner.InMemoryRunner;
 import com.google.adk.sessions.Session;
 import com.google.adk.tools.AgentTool;
 import com.google.adk.tools.FunctionTool;
+import com.google.common.collect.Lists;
 import com.google.genai.types.Content;
 import com.google.genai.types.Part;
 import com.google.gson.Gson;
@@ -28,12 +30,20 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 
 @Slf4j
-@Component
-public class DemandAgent {
+public class DemandAgent extends BaseAgent {
 
   private static String NAME = "trip_demand_agent";
 
-  private static BaseAgent INSTANCE;
+  private static DemandAgent INSTANCE;
+
+  private static BaseAgent DEMAND_AGENT;
+
+  public DemandAgent() {
+    super("p_demand_agent", "Agent to help user to collect and refine his trip demand info.",
+        Lists.newArrayList(DEMAND_AGENT),
+        null,
+        null);
+  }
 
   public static BaseAgent instance() {
     if (null == INSTANCE) {
@@ -42,17 +52,30 @@ public class DemandAgent {
         String prompt = StringUtils.replace(DemandPrompt.DEMAND_AND_PREFERENCE_INSPIRATION,"{{today}}", today);
         return Single.just(prompt);
       });
-      INSTANCE = LlmAgent.builder()
+      DEMAND_AGENT = LlmAgent.builder()
           .name(NAME)
           .model(GoogleConfig.GEMINI_2_5_FLASH)
-          .description("Agent to help user to inspire and collect trip demand info.")
+          .description("Agent to help user to collect and refine his trip demand info.")
           .instruction(instruction)
           .subAgents(SuggestionAgent.instance())
-//          .tools(AgentTool.create(SuggestionAgent.instance(), true))
           .build();
+//          .tools(AgentTool.create(SuggestionAgent.instance(), true))
 
+      INSTANCE = new DemandAgent();
     }
     return INSTANCE;
+  }
+
+  @Override
+  protected Flowable<Event> runAsyncImpl(InvocationContext invocationContext) {
+    log.info("current agent: demand");
+    invocationContext.branch("demander");
+    return DEMAND_AGENT.runAsync(invocationContext);
+  }
+
+  @Override
+  protected Flowable<Event> runLiveImpl(InvocationContext invocationContext) {
+    return null;
   }
 
   public static void main(String[] args) {

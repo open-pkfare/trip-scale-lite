@@ -18,6 +18,11 @@ spring:
     async:
       request-timeout: 600000  # 300秒超时
 
+  servlet:
+    multipart:
+      max-file-size: 300MB
+      max-request-size: 300MB
+
 # 旅行计划配置
 trip:
   plan:
