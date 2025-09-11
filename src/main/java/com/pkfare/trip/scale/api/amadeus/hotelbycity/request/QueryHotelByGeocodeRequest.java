@@ -45,4 +45,8 @@ public class QueryHotelByGeocodeRequest {
    * Default value : ALL
    */
   private String hotelSource = "ALL" ;
+  /**
+   * City code. mock use
+   */
+  private String cityCode;
 }
