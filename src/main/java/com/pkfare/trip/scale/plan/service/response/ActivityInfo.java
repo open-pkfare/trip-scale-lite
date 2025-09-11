@@ -35,6 +35,11 @@ public class ActivityInfo {
      * 城市代码
      */
     private String cityCode;
+
+    /**
+     * 城市名称
+     */
+    private String cityName;
     
     /**
      * 评分

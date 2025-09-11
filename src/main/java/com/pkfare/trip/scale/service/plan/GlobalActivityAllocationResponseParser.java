@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pkfare.trip.scale.plan.service.response.ActivityInfo;
 import com.pkfare.trip.scale.service.plan.dto.DailyActivityPlan;
 import com.pkfare.trip.scale.service.plan.dto.GlobalActivityAllocationResponse;
+import com.pkfare.trip.scale.util.JsonUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -253,7 +254,7 @@ public class GlobalActivityAllocationResponseParser {
             Matcher dailyPlansMatcher = DAILY_PLANS_PATTERN.matcher(response);
             if (dailyPlansMatcher.find()) {
                 String dailyPlansContent = "[" + dailyPlansMatcher.group(1) + "]";
-                JsonNode dailyPlansNode = objectMapper.readTree(dailyPlansContent);
+                JsonNode dailyPlansNode = JsonUtil.toJsonNode(dailyPlansContent);
                 dailyPlans = parseDailyPlansFromJsonNode(dailyPlansNode, originalActivities);
             }
         } catch (Exception e) {

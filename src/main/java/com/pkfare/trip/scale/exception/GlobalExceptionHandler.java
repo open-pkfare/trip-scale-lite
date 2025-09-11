@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
+import org.springframework.web.context.request.async.AsyncRequestTimeoutException;
 
 /**
  * 全局异常处理器
@@ -73,6 +74,20 @@ public class GlobalExceptionHandler {
             request.getDescription(false)
         );
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
+    }
+    
+    /**
+     * 处理异步请求超时异常
+     */
+    @ExceptionHandler(AsyncRequestTimeoutException.class)
+    public ResponseEntity<ErrorResponse> handleAsyncRequestTimeoutException(AsyncRequestTimeoutException e, WebRequest request) {
+        log.error("Async request timeout occurred: {}", e.getMessage(), e);
+        ErrorResponse errorResponse = new ErrorResponse(
+            "REQUEST_TIMEOUT",
+            "Request processing took too long and timed out. Please try again later.",
+            request.getDescription(false)
+        );
+        return ResponseEntity.status(HttpStatus.REQUEST_TIMEOUT).body(errorResponse);
     }
     
     /**

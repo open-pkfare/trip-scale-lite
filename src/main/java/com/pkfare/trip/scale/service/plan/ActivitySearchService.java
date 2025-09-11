@@ -112,7 +112,7 @@ public class ActivitySearchService {
 
       if (activities != null && activities.size() > 0) {
         List<ActivityInfo> activityInfos = activities.stream()
-            .map(activity -> convertToActivityInfo(activity, tripRoute.getDestination_city()))
+            .map(activity -> convertToActivityInfo(activity,tripRoute.getLocation_code(), tripRoute.getDestination_city()))
             .filter(Objects::nonNull)
             .collect(Collectors.toList());
 
@@ -195,7 +195,7 @@ public class ActivitySearchService {
    * @param cityCode 城市代码
    * @return 活动信息
    */
-  private ActivityInfo convertToActivityInfo(ActivityDto activity, String cityCode) {
+  private ActivityInfo convertToActivityInfo(ActivityDto activity, String cityCode,String cityName) {
     if (activity == null) {
       return null;
     }
@@ -210,6 +210,7 @@ public class ActivitySearchService {
     activityInfo.setName(activity.getName());
     activityInfo.setDescription(activity.getShortDescription());
     activityInfo.setCityCode(cityCode);
+    activityInfo.setCityName(cityName);
 
     // 评分信息
     activityInfo.setRating(DoubleUtil.strToDouble(activity.getRating()));
@@ -289,7 +290,7 @@ public class ActivitySearchService {
       }
 
       List<ActivityInfo> activityInfos = activities.stream()
-          .map(activity -> convertToActivityInfo(activity, hotel.getHotel().getCityCode()))
+          .map(activity -> convertToActivityInfo(activity, hotel.getHotel().getCityCode(), hotel.getHotel().getCityName()))
           .filter(Objects::nonNull)
           .collect(Collectors.toList());
 

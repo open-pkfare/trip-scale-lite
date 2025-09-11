@@ -15,8 +15,10 @@ import com.pkfare.trip.scale.service.plan.dto.DailyActivityPlan;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.Executor;
-import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -35,8 +37,14 @@ public class GoogleAiService {
   private final GeoApiContext geoApiContext;
 
   private final Executor routeCalculationExecutor;
+  
+  @Value("${trip.plan.ai.timeout-seconds:300}")
+  private int aiTimeoutSeconds;
+  
+  @Value("${trip.plan.ai.route-calculation-timeout-seconds:300}")
+  private int routeCalculationTimeoutSeconds;
 
-  private static final int MAX_CONCURRENT_REQUESTS = 10;
+  private static final int MAX_CONCURRENT_REQUESTS = 50; // 增加线程池大小以避免死锁
 
   // 路线缓存：起点经纬度_终点经纬度 -> RouteSegment
   private final Map<String, RouteSegment> routeCache = new ConcurrentHashMap<>();
@@ -48,12 +56,19 @@ public class GoogleAiService {
         .apiKey(GoogleConfig.GOOGLE_API_KEY)
         .build();
 
-    this.routeCalculationExecutor = Executors.newFixedThreadPool(MAX_CONCURRENT_REQUESTS,
+    // 使用ThreadPoolExecutor以便更好地控制线程池行为
+    this.routeCalculationExecutor = new java.util.concurrent.ThreadPoolExecutor(
+        MAX_CONCURRENT_REQUESTS / 2, // 核心线程数
+        MAX_CONCURRENT_REQUESTS,     // 最大线程数
+        60L, java.util.concurrent.TimeUnit.SECONDS, // 空闲线程存活时间
+        new java.util.concurrent.LinkedBlockingQueue<>(100), // 队列大小
         r -> {
           Thread t = new Thread(r, "GoogleDirections-" + System.currentTimeMillis());
           t.setDaemon(true);
           return t;
-        });
+        },
+        new java.util.concurrent.ThreadPoolExecutor.CallerRunsPolicy() // 拒绝策略：调用者执行
+    );
   }
 
   /**
@@ -252,6 +267,9 @@ public class GoogleAiService {
   private List<DailyRoutePlan> generateDailyRoutePlansFromAllocation(
       List<DailyActivityPlan> dailyActivityPlans, List<HotelInfo> hotelInfos, GeneratePlanParam param) throws Exception {
     
+    // 添加线程池状态监控
+    logThreadPoolStatus("Before generating daily route plans");
+    
     List<CompletableFuture<DailyRoutePlan>> futures = new ArrayList<>();
     
     for (DailyActivityPlan dailyActivityPlan : dailyActivityPlans) {
@@ -268,14 +286,32 @@ public class GoogleAiService {
       futures.add(future);
     }
     
-    // 等待所有任务完成
+    // 等待所有任务完成，添加超时处理
     CompletableFuture<Void> allFutures = CompletableFuture.allOf(futures.toArray(new CompletableFuture[0]));
     
-    return allFutures.thenApply(v ->
-        futures.stream()
-            .map(CompletableFuture::join)
-            .collect(Collectors.toList())
-    ).get();
+    try {
+      logThreadPoolStatus("Waiting for daily route plans completion");
+      List<DailyRoutePlan> result = allFutures.thenApply(v ->
+          futures.stream()
+              .map(CompletableFuture::join)
+              .collect(Collectors.toList())
+      ).get(aiTimeoutSeconds, TimeUnit.SECONDS);
+      
+      logThreadPoolStatus("After daily route plans completion");
+      return result;
+    } catch (TimeoutException e) {
+      log.warn("Daily route plan generation from allocation timed out after {} seconds, returning partial results", aiTimeoutSeconds);
+      logThreadPoolStatus("After timeout occurred");
+      
+      // 取消未完成的任务
+      futures.forEach(future -> future.cancel(true));
+      // 返回已完成的计划
+      return futures.stream()
+          .filter(CompletableFuture::isDone)
+          .filter(future -> !future.isCancelled() && !future.isCompletedExceptionally())
+          .map(CompletableFuture::join)
+          .collect(Collectors.toList());
+    }
   }
 
   /**
@@ -315,14 +351,26 @@ public class GoogleAiService {
       currentDate = currentDate.plusDays(routeParam.getStay_days());
     }
 
-    // 等待所有任务完成
+    // 等待所有任务完成，添加超时处理
     CompletableFuture<Void> allFutures = CompletableFuture.allOf(futures.toArray(new CompletableFuture[0]));
 
-    return allFutures.thenApply(v ->
-        futures.stream()
-            .map(CompletableFuture::join)
-            .collect(Collectors.toList())
-    ).get();
+    try {
+      return allFutures.thenApply(v ->
+          futures.stream()
+              .map(CompletableFuture::join)
+              .collect(Collectors.toList())
+      ).get(aiTimeoutSeconds, TimeUnit.SECONDS);
+    } catch (TimeoutException e) {
+      log.warn("Daily route plan generation timed out after {} seconds, returning partial results", aiTimeoutSeconds);
+      // 取消未完成的任务
+      futures.forEach(future -> future.cancel(true));
+      // 返回已完成的计划
+      return futures.stream()
+          .filter(CompletableFuture::isDone)
+          .filter(future -> !future.isCancelled() && !future.isCompletedExceptionally())
+          .map(CompletableFuture::join)
+          .collect(Collectors.toList());
+    }
   }
 
   private DailyRoutePlan generateSingleDayPlanOptimized(CityPlanData cityData, LocalDate date, int dayIndex) throws Exception {
@@ -398,6 +446,8 @@ public class GoogleAiService {
       return new ArrayList<>();
     }
 
+    logThreadPoolStatus("Before route batch calculation");
+
     // 创建位置点列表：酒店 -> 活动1 -> 活动2 -> ... -> 酒店
     List<LocationPoint> waypoints = new ArrayList<>();
     waypoints.add(new LocationPoint(hotel.getHotel().getName(), hotel.getHotel().getLatitude(), hotel.getHotel().getLongitude()));
@@ -421,15 +471,28 @@ public class GoogleAiService {
       routeFutures.add(future);
     }
 
-    // 等待所有路线计算完成
+    // 等待所有路线计算完成，添加超时处理
     CompletableFuture<Void> allRoutes = CompletableFuture.allOf(routeFutures.toArray(new CompletableFuture[0]));
 
-    return allRoutes.thenApply(v ->
-        routeFutures.stream()
-            .map(CompletableFuture::join)
-            .filter(Objects::nonNull)
-            .collect(Collectors.toList())
-    ).get();
+    try {
+      return allRoutes.thenApply(v ->
+          routeFutures.stream()
+              .map(CompletableFuture::join)
+              .filter(Objects::nonNull)
+              .collect(Collectors.toList())
+      ).get(routeCalculationTimeoutSeconds, TimeUnit.SECONDS);
+    } catch (TimeoutException e) {
+      log.warn("Route calculation timed out after {} seconds, returning partial results", routeCalculationTimeoutSeconds);
+      // 取消未完成的任务
+      routeFutures.forEach(future -> future.cancel(true));
+      // 返回已完成的路线
+      return routeFutures.stream()
+          .filter(CompletableFuture::isDone)
+          .filter(future -> !future.isCancelled() && !future.isCompletedExceptionally())
+          .map(CompletableFuture::join)
+          .filter(Objects::nonNull)
+          .collect(Collectors.toList());
+    }
   }
 
   private List<LocationPoint> generateRouteLocationPoints(HotelInfo hotel, List<ActivityInfo> activities) {
@@ -456,6 +519,7 @@ public class GoogleAiService {
    * 带缓存的路线计算
    */
   private RouteSegment calculateRouteWithCache(LocationPoint start, LocationPoint end) {
+    log.info("calculateRouteWithCache,start:{},end:{}",start,end);
     // 生成缓存键
     String cacheKey = generateCacheKey(start, end);
 
@@ -674,47 +738,160 @@ public class GoogleAiService {
    * 计算两点间路线
    */
   private RouteSegment calculateRoute(LocationPoint start, LocationPoint end) {
-    try {
-      LatLng startLatLng = new LatLng(start.getLatitude(), start.getLongitude());
-      LatLng endLatLng = new LatLng(end.getLatitude(), end.getLongitude());
+    log.info("calculateRoute,start:{},end:{}",start,end);
+    // 根据地理位置智能选择交通模式优先级
+    TravelMode[] travelModes = getOptimalTravelModes(start, end);
+    
+    for (TravelMode mode : travelModes) {
+      try {
+        log.debug("Attempting {} route from {} to {}", mode, start.getName(), end.getName());
+        
+        LatLng startLatLng = new LatLng(start.getLatitude(), start.getLongitude());
+        LatLng endLatLng = new LatLng(end.getLatitude(), end.getLongitude());
 
-      DirectionsResult result = DirectionsApi.newRequest(geoApiContext)
-          .origin(startLatLng)
-          .destination(endLatLng)
-          .mode(TravelMode.DRIVING)
-          .language("en")
-          .region("us")
-          .await();
+        // 根据地区选择合适的region参数
+        String region = isVeniceArea(start) || isVeniceArea(end) ? "it" : "us";
 
-      if (result.routes != null && result.routes.length > 0) {
-        DirectionsRoute route = result.routes[0];
-        DirectionsLeg leg = route.legs[0];
+        DirectionsResult result = DirectionsApi.newRequest(geoApiContext)
+            .origin(startLatLng)
+            .destination(endLatLng)
+            .mode(mode)
+            .language("en")
+            .region(region)
+            .await();
 
-        RouteSegment segment = new RouteSegment();
-        segment.setStartName(start.getName());
-        segment.setStartLocation(createGeoInfo(start.getLatitude(), start.getLongitude()));
-        segment.setEndName(end.getName());
-        segment.setEndLocation(createGeoInfo(end.getLatitude(), end.getLongitude()));
-        segment.setDistance(leg.distance.inMeters);
-        segment.setDuration(leg.duration.inSeconds);
-        segment.setTravelMode("DRIVING");
+        if (result.routes != null && result.routes.length > 0) {
+          DirectionsRoute route = result.routes[0];
+          DirectionsLeg leg = route.legs[0];
 
-        // 提取步骤说明
-        List<String> steps = new ArrayList<>();
-        //for (DirectionsStep step : leg.steps) {
-        //    steps.add(step.htmlInstructions);
-        //}
-        segment.setSteps(steps);
-        segment.setOverview(route.summary);
-        //segment.setRoutesJson(JsonUtil.toJson(result.routes));
+          RouteSegment segment = new RouteSegment();
+          segment.setStartName(start.getName());
+          segment.setStartLocation(createGeoInfo(start.getLatitude(), start.getLongitude()));
+          segment.setEndName(end.getName());
+          segment.setEndLocation(createGeoInfo(end.getLatitude(), end.getLongitude()));
+          segment.setDistance(leg.distance.inMeters);
+          segment.setDuration(leg.duration.inSeconds);
+          segment.setTravelMode(mode.toString());
 
-        return segment;
+          // 提取步骤说明
+          List<String> steps = new ArrayList<>();
+          //for (DirectionsStep step : leg.steps) {
+          //    steps.add(step.htmlInstructions);
+          //}
+          segment.setSteps(steps);
+          segment.setOverview(route.summary);
+          //segment.setRoutesJson(JsonUtil.toJson(result.routes));
+
+          log.info("Successfully calculated {} route from {} to {}", mode, start.getName(), end.getName());
+          return segment;
+        }
+      } catch (Exception e) {
+        log.debug("Failed to calculate {} route from {} to {}: {}", mode, start.getName(), end.getName(), e.getMessage());
+        // 继续尝试下一个交通模式
       }
-    } catch (Exception e) {
-      log.error("Failed to calculate route from {} to {}", start.getName(), end.getName(), e);
     }
+    
+    // 所有交通模式都失败，创建估算路线
+    log.warn("All travel modes failed for route from {} to {}, creating estimated route", start.getName(), end.getName());
+    return createEstimatedRoute(start, end);
+  }
 
-    return null;
+  /**
+   * 根据地理位置获取最优交通模式顺序
+   */
+  private TravelMode[] getOptimalTravelModes(LocationPoint start, LocationPoint end) {
+    boolean startInVenice = isVeniceArea(start);
+    boolean endInVenice = isVeniceArea(end);
+    
+    if (startInVenice || endInVenice) {
+      // Venice地区：优先公共交通（包含水上巴士），然后步行，最后驾车
+      log.debug("Venice area detected, prioritizing TRANSIT and WALKING modes");
+      return new TravelMode[]{TravelMode.TRANSIT, TravelMode.WALKING, TravelMode.DRIVING};
+    } else {
+      // 其他地区：优先驾车，然后公共交通，最后步行
+      return new TravelMode[]{TravelMode.DRIVING, TravelMode.TRANSIT, TravelMode.WALKING};
+    }
+  }
+
+  /**
+   * 检查坐标是否在Venice地区
+   */
+  private boolean isVeniceArea(LocationPoint point) {
+    // Venice及其岛屿的大致范围：纬度 45.3-45.5，经度 12.2-12.4
+    double lat = point.getLatitude();
+    double lng = point.getLongitude();
+    return lat >= 45.3 && lat <= 45.5 && lng >= 12.2 && lng <= 12.4;
+  }
+
+  /**
+   * 创建估算路线（当所有API调用都失败时的回退方案）
+   */
+  private RouteSegment createEstimatedRoute(LocationPoint start, LocationPoint end) {
+    log.info("Creating estimated route from {} to {}", start.getName(), end.getName());
+    
+    // 计算直线距离
+    double distanceMeters = calculateDistance(start.getLatitude(), start.getLongitude(), 
+        end.getLatitude(), end.getLongitude());
+    
+    // 根据地区和距离估算时间
+    boolean isVeniceRoute = isVeniceArea(start) || isVeniceArea(end);
+    double avgSpeedKmh;
+    String travelMode;
+    String overview;
+    
+    if (isVeniceRoute) {
+      // Venice地区：考虑水上交通和步行
+      avgSpeedKmh = 12.0; // 水上巴士 + 步行的平均速度
+      travelMode = "WATER_TRANSIT";
+      overview = "Estimated route via Venice water transport and walking";
+    } else {
+      // 其他地区：一般城市交通
+      avgSpeedKmh = 25.0; // 城市交通平均速度
+      travelMode = "ESTIMATED";
+      overview = "Estimated route based on straight-line distance";
+    }
+    
+    // 计算估算时间（秒）
+    long estimatedDurationSeconds = Math.round((distanceMeters / 1000.0) / avgSpeedKmh * 3600);
+    // 最少5分钟
+    estimatedDurationSeconds = Math.max(estimatedDurationSeconds, 300);
+    
+    RouteSegment segment = new RouteSegment();
+    segment.setStartName(start.getName());
+    segment.setStartLocation(createGeoInfo(start.getLatitude(), start.getLongitude()));
+    segment.setEndName(end.getName());
+    segment.setEndLocation(createGeoInfo(end.getLatitude(), end.getLongitude()));
+    segment.setDistance(Math.round(distanceMeters));
+    segment.setDuration(estimatedDurationSeconds);
+    segment.setTravelMode(travelMode);
+    
+    List<String> steps = new ArrayList<>();
+    if (isVeniceRoute) {
+      steps.add("Take vaporetto (water bus) or walk through Venice");
+      steps.add("Estimated route - actual water transport schedules may vary");
+    } else {
+      steps.add("Estimated route based on geographical distance");
+      steps.add("Actual route and travel time may vary significantly");
+    }
+    segment.setSteps(steps);
+    segment.setOverview(overview);
+    
+    return segment;
+  }
+
+  /**
+   * 记录线程池状态
+   */
+  private void logThreadPoolStatus(String context) {
+    if (routeCalculationExecutor instanceof java.util.concurrent.ThreadPoolExecutor) {
+      java.util.concurrent.ThreadPoolExecutor tpe = (java.util.concurrent.ThreadPoolExecutor) routeCalculationExecutor;
+      log.info("{} - ThreadPool Status: Active={}, Pool={}, Queue={}, Completed={}", 
+          context,
+          tpe.getActiveCount(),
+          tpe.getPoolSize(), 
+          tpe.getQueue().size(),
+          tpe.getCompletedTaskCount());
+    }
   }
 
   /**
@@ -792,7 +969,7 @@ public class GoogleAiService {
    */
   private DailyRoutePlan generateSingleDayPlanFromAllocation(
       DailyActivityPlan dailyActivityPlan, List<HotelInfo> hotelInfos) throws Exception {
-    
+    log.info("generateSingleDayPlanFromAllocation dailyActivityPlan:{}",dailyActivityPlan.getDate());
     DailyRoutePlan dailyPlan = new DailyRoutePlan();
     dailyPlan.setDate(dailyActivityPlan.getDate());
     dailyPlan.setCityCode(dailyActivityPlan.getCityCode());

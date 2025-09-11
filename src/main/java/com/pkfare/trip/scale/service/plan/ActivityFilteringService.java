@@ -1,12 +1,12 @@
 package com.pkfare.trip.scale.service.plan;
 
 import com.pkfare.trip.scale.plan.service.param.GeneratePlanParam;
+import com.pkfare.trip.scale.plan.service.param.TripRouteParam;
 import com.pkfare.trip.scale.plan.service.response.ActivityInfo;
 import com.pkfare.trip.scale.plan.service.response.FlightInfo;
 import com.pkfare.trip.scale.plan.service.response.ItineraryInfo;
 import com.pkfare.trip.scale.plan.service.response.SegmentInfo;
 import com.pkfare.trip.scale.service.plan.dto.ActivityFilteringRequest;
-import com.pkfare.trip.scale.service.plan.dto.ActivityFilteringResponse;
 import com.pkfare.trip.scale.service.plan.dto.GlobalActivityAllocationRequest;
 import com.pkfare.trip.scale.service.plan.dto.GlobalActivityAllocationResponse;
 import com.pkfare.trip.scale.service.plan.dto.DailyActivityPlan;
@@ -17,6 +17,9 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.*;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.stream.Collectors;
 
 /**
@@ -30,9 +33,19 @@ import java.util.stream.Collectors;
 public class ActivityFilteringService {
     
     private final ActivityFilteringAgentManager agentManager;
+    private final ExecutorService executorService;
     
     public ActivityFilteringService(ActivityFilteringAgentManager agentManager) {
         this.agentManager = agentManager;
+        // 创建专用线程池用于并行AI调用
+        this.executorService = Executors.newFixedThreadPool(
+            Math.min(Runtime.getRuntime().availableProcessors(), 4), // 最多4个线程
+            r -> {
+                Thread t = new Thread(r, "activity-filtering-ai-" + System.currentTimeMillis());
+                t.setDaemon(true);
+                return t;
+            }
+        );
     }
     
     private static final int MIN_ACTIVITIES_PER_DAY = 2;
@@ -40,7 +53,7 @@ public class ActivityFilteringService {
     private static final int DEFAULT_ACTIVITIES_PER_DAY = 3;
     
     /**
-     * 基于航班时间和用户偏好筛选活动 - 使用全局AI分配，返回每日活动分配
+     * 基于航班时间和用户偏好筛选活动 - 使用按城市分批并行AI分配，返回每日活动分配
      * 
      * @param param 生成计划参数
      * @param flights 航班信息
@@ -52,46 +65,41 @@ public class ActivityFilteringService {
             Map<String, List<FlightInfo>> flights,
             List<ActivityInfo> originalActivities) {
         
-        log.info("Starting global AI activity allocation with {} original activities", originalActivities.size());
+        log.info("Starting optimized AI activity allocation with {} original activities", originalActivities.size());
+        long startTime = System.currentTimeMillis();
         
         try {
-            // 1. 检查Agent是否可用，如果可用则使用全局AI分配
+            // 1. 检查Agent是否可用，如果可用则使用分批并行AI分配
             if (agentManager.isAgentAvailable() && originalActivities.size() > 5) {
-                log.info("Using global AI activity allocation for {} activities", originalActivities.size());
+                log.info("Using city-based parallel AI activity allocation for {} activities", originalActivities.size());
                 
-                // 2. 构建全局分配请求
-                GlobalActivityAllocationRequest globalRequest = buildGlobalAllocationRequest(param, flights, originalActivities);
+                // 2. 按城市分组活动
+                Map<String, List<ActivityInfo>> activitiesByCity = groupActivitiesByCity(originalActivities, param);
+                log.info("Activities grouped into {} cities: {}", activitiesByCity.size(), activitiesByCity.keySet());
                 
-                // 3. 调用全局AI分配
-                GlobalActivityAllocationResponse globalResponse = agentManager.allocateActivitiesGlobally(param,globalRequest);
+                // 3. 并行调用AI为每个城市分配活动
+                List<DailyActivityPlan> allDailyPlans = processActivitiesByCityInParallel(
+                    param, flights, activitiesByCity);
                 
-                // 4. 处理全局分配响应
-                if ("SUCCESS".equals(globalResponse.getStatus()) && 
-                    globalResponse.getDailyPlans() != null && 
-                    !globalResponse.getDailyPlans().isEmpty()) {
+                if (!allDailyPlans.isEmpty()) {
+                    long duration = System.currentTimeMillis() - startTime;
+                    log.info("Parallel AI allocation successful: {} daily plans generated in {} ms", 
+                        allDailyPlans.size(), duration);
                     
-                    log.info("Global AI allocation successful: {} daily plans generated", 
-                        globalResponse.getDailyPlans().size());
-                    
-                    // 记录分配理由
-                    if (globalResponse.getAllocationReasoning() != null) {
-                        log.debug("AI allocation reasoning: {}", globalResponse.getAllocationReasoning());
-                    }
-                    
-                    return globalResponse.getDailyPlans();
+                    return allDailyPlans;
                 }
                 
-                log.warn("Global AI allocation failed or returned empty results, falling back to rule-based filtering");
+                log.warn("Parallel AI allocation failed or returned empty results, falling back to rule-based filtering");
             } else {
                 log.debug("Using rule-based filtering (Agent unavailable or insufficient activities)");
             }
             
-            // 5. Fallback到原有的逐日筛选逻辑
+            // 4. Fallback到原有的逐日筛选逻辑
             return fallbackToLegacyDailyAllocation(param, flights, originalActivities);
             
         } catch (Exception e) {
-            log.error("Failed to perform global activity allocation", e);
-            // 如果全局分配失败，返回基于简单规则筛选的结果
+            log.error("Failed to perform parallel activity allocation", e);
+            // 如果并行分配失败，返回基于简单规则筛选的结果
             return fallbackToLegacyDailyAllocation(param, flights, originalActivities);
         }
     }
@@ -225,6 +233,324 @@ public class ActivityFilteringService {
             log.error("Legacy daily allocation also failed", e);
             return new ArrayList<>();
         }
+    }
+    
+    /**
+     * 按城市分组活动
+     */
+    private Map<String, List<ActivityInfo>> groupActivitiesByCity(List<ActivityInfo> originalActivities, GeneratePlanParam param) {
+        Map<String, List<ActivityInfo>> activitiesByCity = new HashMap<>();
+        
+        // 获取行程中的所有城市
+        Set<String> tripCities = param.getTrip_routes().stream()
+            .map(route -> route.getLocation_code())
+            .collect(Collectors.toSet());
+        
+        // 按城市分组活动
+        for (ActivityInfo activity : originalActivities) {
+            String cityCode = activity.getCityCode();
+            
+            // 如果活动的城市代码在行程中，则添加到对应城市组
+            if (cityCode != null && tripCities.contains(cityCode)) {
+                activitiesByCity.computeIfAbsent(cityCode, k -> new ArrayList<>()).add(activity);
+            }
+        }
+        
+        log.info("Activities grouped by city: {}", 
+            activitiesByCity.entrySet().stream()
+                .collect(Collectors.toMap(
+                    Map.Entry::getKey, 
+                    entry -> entry.getValue().size()
+                )));
+        
+        return activitiesByCity;
+    }
+    
+    /**
+     * 并行处理各城市的活动分配
+     */
+    private List<DailyActivityPlan> processActivitiesByCityInParallel(
+            GeneratePlanParam param, 
+            Map<String, List<FlightInfo>> flights, 
+            Map<String, List<ActivityInfo>> activitiesByCity) {
+        
+        log.info("Starting parallel processing for {} cities", activitiesByCity.size());
+        
+        // 创建并行任务
+        List<CompletableFuture<List<DailyActivityPlan>>> futures = new ArrayList<>();
+        
+        for (Map.Entry<String, List<ActivityInfo>> cityEntry : activitiesByCity.entrySet()) {
+            String cityCode = cityEntry.getKey();
+            List<ActivityInfo> cityActivities = cityEntry.getValue();
+            
+            // 为每个城市创建异步任务
+            CompletableFuture<List<DailyActivityPlan>> future = CompletableFuture
+                .supplyAsync(() -> processCityActivitiesWithAI(param, flights, cityCode, cityActivities), executorService)
+                .exceptionally(throwable -> {
+                    log.error("Failed to process activities for city {}: {}", cityCode, throwable.getMessage());
+                    // 如果AI处理失败，使用规则引擎作为fallback
+                    return processCityActivitiesWithRules(param, flights, cityCode, cityActivities);
+                });
+            
+            futures.add(future);
+        }
+        
+        // 等待所有任务完成并合并结果
+        List<DailyActivityPlan> allDailyPlans = new ArrayList<>();
+        
+        try {
+            CompletableFuture<Void> allOf = CompletableFuture.allOf(futures.toArray(new CompletableFuture[0]));
+            allOf.get(); // 等待所有任务完成
+            
+            // 收集所有结果
+            for (CompletableFuture<List<DailyActivityPlan>> future : futures) {
+                List<DailyActivityPlan> cityPlans = future.get();
+                if (cityPlans != null && !cityPlans.isEmpty()) {
+                    allDailyPlans.addAll(cityPlans);
+                }
+            }
+            
+            // 按日期排序
+            allDailyPlans.sort(Comparator.comparing(DailyActivityPlan::getDate));
+            
+            log.info("Parallel processing completed. Total daily plans: {}", allDailyPlans.size());
+            
+        } catch (Exception e) {
+            log.error("Failed to complete parallel processing", e);
+            return new ArrayList<>();
+        }
+        
+        return allDailyPlans;
+    }
+    
+    /**
+     * 使用AI处理单个城市的活动分配
+     */
+    private List<DailyActivityPlan> processCityActivitiesWithAI(
+            GeneratePlanParam param, 
+            Map<String, List<FlightInfo>> flights, 
+            String cityCode, 
+            List<ActivityInfo> cityActivities) {
+        
+        log.info("Processing {} activities for city {} with AI", cityActivities.size(), cityCode);
+        long startTime = System.currentTimeMillis();
+        
+        try {
+            // 构建城市特定的全局分配请求
+            GlobalActivityAllocationRequest cityRequest = buildCitySpecificAllocationRequest(
+                param, flights, cityCode, cityActivities);
+            
+            // 调用AI进行分配
+            GlobalActivityAllocationResponse response = agentManager.allocateActivitiesGlobally(param, cityRequest);
+            
+            if ("SUCCESS".equals(response.getStatus()) && 
+                response.getDailyPlans() != null && 
+                !response.getDailyPlans().isEmpty()) {
+                
+                long duration = System.currentTimeMillis() - startTime;
+                log.info("AI processing completed for city {} in {} ms: {} daily plans", 
+                    cityCode, duration, response.getDailyPlans().size());
+                
+                return response.getDailyPlans();
+            } else {
+                log.warn("AI processing failed for city {}, using rule-based fallback", cityCode);
+                return processCityActivitiesWithRules(param, flights, cityCode, cityActivities);
+            }
+            
+        } catch (Exception e) {
+            log.error("AI processing failed for city {}: {}", cityCode, e.getMessage());
+            return processCityActivitiesWithRules(param, flights, cityCode, cityActivities);
+        }
+    }
+    
+    /**
+     * 使用规则引擎处理单个城市的活动分配（作为AI的fallback）
+     */
+    private List<DailyActivityPlan> processCityActivitiesWithRules(
+            GeneratePlanParam param, 
+            Map<String, List<FlightInfo>> flights, 
+            String cityCode, 
+            List<ActivityInfo> cityActivities) {
+        
+        log.info("Processing {} activities for city {} with rules", cityActivities.size(), cityCode);
+        
+        try {
+            // 获取该城市的停留信息
+            var cityRoute = param.getTrip_routes().stream()
+                .filter(route -> cityCode.equals(route.getLocation_code()))
+                .findFirst()
+                .orElse(null);
+            
+            if (cityRoute == null) {
+                log.warn("No route information found for city {}", cityCode);
+                return new ArrayList<>();
+            }
+            
+            // 分析航班时间
+            FlightTimeAnalysis flightAnalysis = analyzeFlightTimes(flights, param);
+            
+            // 获取用户偏好
+            String userPreferences = getUserPreferences("mock_user_id");
+            
+            // 计算该城市的起始日期
+            LocalDate cityStartDate = calculateCityStartDate(param, cityCode);
+            
+            // 为该城市的每一天分配活动
+            List<DailyActivityPlan> cityPlans = new ArrayList<>();
+            
+            for (int day = 0; day < cityRoute.getStay_days(); day++) {
+                LocalDate date = cityStartDate.plusDays(day);
+                
+                // 为这一天筛选活动
+                List<ActivityInfo> dayActivities = filterActivitiesForDay(
+                    cityCode, date, cityActivities, flightAnalysis, userPreferences, param);
+                
+                // 构建DailyActivityPlan
+                DailyActivityPlan dailyPlan = new DailyActivityPlan();
+                dailyPlan.setDate(date);
+                dailyPlan.setCityCode(cityCode);
+                dailyPlan.setCityName(cityRoute.getDestination_city());
+                dailyPlan.setActivities(dayActivities);
+                
+                // 设置日期类型
+                if (date.equals(flightAnalysis.getArrivalDate())) {
+                    dailyPlan.setDayType("arrival_day");
+                    dailyPlan.setIntensityLevel("relaxed");
+                } else if (date.equals(flightAnalysis.getDepartureDate())) {
+                    dailyPlan.setDayType("departure_day");
+                    dailyPlan.setIntensityLevel("relaxed");
+                } else {
+                    dailyPlan.setDayType("full_day");
+                    dailyPlan.setIntensityLevel(dayActivities.size() > 3 ? "intensive" : "moderate");
+                }
+                
+                cityPlans.add(dailyPlan);
+            }
+            
+            log.info("Rule-based processing completed for city {}: {} daily plans", cityCode, cityPlans.size());
+            return cityPlans;
+            
+        } catch (Exception e) {
+            log.error("Rule-based processing failed for city {}: {}", cityCode, e.getMessage());
+            return new ArrayList<>();
+        }
+    }
+    
+    /**
+     * 构建城市特定的全局分配请求
+     */
+    private GlobalActivityAllocationRequest buildCitySpecificAllocationRequest(
+            GeneratePlanParam param, 
+            Map<String, List<FlightInfo>> flights, 
+            String cityCode, 
+            List<ActivityInfo> cityActivities) {
+        
+        // 获取该城市的路线信息
+        TripRouteParam cityRoute = param.getTrip_routes().stream()
+            .filter(route -> cityCode.equals(route.getDestination_city()))
+            .findFirst()
+            .orElseThrow(() -> new IllegalArgumentException("No route found for city: " + cityCode));
+        
+        GlobalActivityAllocationRequest request = new GlobalActivityAllocationRequest();
+        request.setAllActivities(cityActivities);
+        request.setBudget(param.getBudgets());
+        request.setCurrency(param.getCurrency());
+        
+        // 构建该城市的行程信息
+        GlobalActivityAllocationRequest.TripItinerary itinerary = new GlobalActivityAllocationRequest.TripItinerary();
+        LocalDate cityStartDate = calculateCityStartDate(param, cityCode);
+        itinerary.setStartDate(cityStartDate);
+        itinerary.setEndDate(cityStartDate.plusDays(cityRoute.getStay_days() - 1));
+        itinerary.setTotalDays(cityRoute.getStay_days());
+        
+        // 构建单个城市停留信息
+        List<GlobalActivityAllocationRequest.CityStay> cityStays = new ArrayList<>();
+        GlobalActivityAllocationRequest.CityStay cityStay = new GlobalActivityAllocationRequest.CityStay();
+        cityStay.setCityCode(cityCode);
+        cityStay.setCityName(cityRoute.getDestination_city());
+        cityStay.setStartDate(cityStartDate);
+        cityStay.setEndDate(cityStartDate.plusDays(cityRoute.getStay_days() - 1));
+        cityStay.setStayDays(cityRoute.getStay_days());
+        cityStay.setReasonForRecommendation(cityRoute.getReason_for_recommendation());
+        cityStays.add(cityStay);
+        
+        itinerary.setCityStays(cityStays);
+        request.setItinerary(itinerary);
+        
+        // 构建航班约束（只包含影响该城市的航班）
+        FlightTimeAnalysis flightAnalysis = analyzeFlightTimes(flights, param);
+        GlobalActivityAllocationRequest.FlightConstraints flightConstraints = 
+            new GlobalActivityAllocationRequest.FlightConstraints();
+        
+        // 只有当该城市包含到达日或离开日时才设置航班约束
+        if (flightAnalysis.getArrivalDate() != null && 
+            !flightAnalysis.getArrivalDate().isBefore(cityStartDate) && 
+            !flightAnalysis.getArrivalDate().isAfter(cityStartDate.plusDays(cityRoute.getStay_days() - 1))) {
+            flightConstraints.setArrivalDate(flightAnalysis.getArrivalDate());
+            flightConstraints.setArrivalTime(flightAnalysis.getArrivalTime() != null ? 
+                flightAnalysis.getArrivalTime().toString() : null);
+        }
+        
+        if (flightAnalysis.getDepartureDate() != null && 
+            !flightAnalysis.getDepartureDate().isBefore(cityStartDate) && 
+            !flightAnalysis.getDepartureDate().isAfter(cityStartDate.plusDays(cityRoute.getStay_days() - 1))) {
+            flightConstraints.setDepartureDate(flightAnalysis.getDepartureDate());
+            flightConstraints.setDepartureTime(flightAnalysis.getDepartureTime() != null ? 
+                flightAnalysis.getDepartureTime().toString() : null);
+        }
+        
+        // 构建该城市的每日类型映射
+        Map<LocalDate, String> dayTypes = new HashMap<>();
+        LocalDate date = cityStartDate;
+        for (int day = 0; day < cityRoute.getStay_days(); day++) {
+            LocalDate currentDate = date.plusDays(day);
+            if (currentDate.equals(flightAnalysis.getArrivalDate())) {
+                dayTypes.put(currentDate, "arrival_day");
+            } else if (currentDate.equals(flightAnalysis.getDepartureDate())) {
+                dayTypes.put(currentDate, "departure_day");
+            } else {
+                dayTypes.put(currentDate, "full_day");
+            }
+        }
+        flightConstraints.setDayTypes(dayTypes);
+        request.setFlightConstraints(flightConstraints);
+        
+        // 构建用户偏好
+        try {
+            String userPreferencesJson = getUserPreferences("mock_user_id");
+            Map<String, Object> preferences = JsonUtil.fromJson(userPreferencesJson, Map.class);
+            ActivityFilteringRequest.UserPreferences userPref = new ActivityFilteringRequest.UserPreferences();
+            userPref.setLikes((List<String>) preferences.getOrDefault("likes", new ArrayList<>()));
+            userPref.setHates((List<String>) preferences.getOrDefault("hates", new ArrayList<>()));
+            userPref.setPrefer((List<String>) preferences.getOrDefault("prefer", new ArrayList<>()));
+            request.setUserPreferences(userPref);
+        } catch (Exception e) {
+            log.warn("Failed to parse user preferences for city {}, using default", cityCode, e);
+            ActivityFilteringRequest.UserPreferences defaultPref = new ActivityFilteringRequest.UserPreferences();
+            defaultPref.setLikes(new ArrayList<>());
+            defaultPref.setHates(new ArrayList<>());
+            defaultPref.setPrefer(new ArrayList<>());
+            request.setUserPreferences(defaultPref);
+        }
+        
+        return request;
+    }
+    
+    /**
+     * 计算城市的起始日期
+     */
+    private LocalDate calculateCityStartDate(GeneratePlanParam param, String targetCityCode) {
+        LocalDate currentDate = LocalDate.parse(param.getStart_period());
+        
+        for (var routeParam : param.getTrip_routes()) {
+            if (targetCityCode.equals(routeParam.getLocation_code())) {
+                return currentDate;
+            }
+            currentDate = currentDate.plusDays(routeParam.getStay_days());
+        }
+        
+        // 如果没找到，返回行程开始日期
+        return LocalDate.parse(param.getStart_period());
     }
     
     /**
@@ -401,6 +727,24 @@ public class ActivityFilteringService {
         }
         
         return analysis;
+    }
+    
+    /**
+     * 清理资源
+     */
+    public void shutdown() {
+        if (executorService != null && !executorService.isShutdown()) {
+            log.info("Shutting down activity filtering executor service");
+            executorService.shutdown();
+            try {
+                if (!executorService.awaitTermination(10, java.util.concurrent.TimeUnit.SECONDS)) {
+                    executorService.shutdownNow();
+                }
+            } catch (InterruptedException e) {
+                executorService.shutdownNow();
+                Thread.currentThread().interrupt();
+            }
+        }
     }
     
     /**
