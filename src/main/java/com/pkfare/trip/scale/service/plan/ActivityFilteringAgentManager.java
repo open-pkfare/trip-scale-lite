@@ -37,137 +37,9 @@ import java.util.concurrent.TimeUnit;
 public class ActivityFilteringAgentManager {
     
     @Autowired
-    private ActivityFilteringResponseParser responseParser;
-    
-    @Autowired
     private GlobalActivityAllocationResponseParser globalResponseParser;
-    
-    private static final int AGENT_TIMEOUT_SECONDS = 30;
-    private static final String SESSION_PREFIX = "activity_filtering_";
-    
-    /**
-     * 使用Google ADK Agent进行活动筛选
-     * 
-     * @param request 筛选请求
-     * @return 筛选响应
-     */
-    public ActivityFilteringResponse filterActivitiesWithAgent(ActivityFilteringRequest request) {
-        log.info("Starting AI activity filtering for city {} on {}", 
-            request.getCityCode(), request.getDate());
-        try {
-            // 1. 创建Agent实例
-            BaseAgent agent = ActivityFilteringAgent.instance();
-            InMemoryRunner runner = new InMemoryRunner(agent);
-            
-            // 2. 创建会话
-            String sessionId = generateSessionId(request);
-            ConcurrentMap<String, Object> sessionState = createSessionState(request);
-            
-            Session session = runner.sessionService()
-                .createSession("activity_filtering", sessionId, sessionState, "user123")
-                .blockingGet();
-            
-            // 3. 构建输入内容
-            String prompt = buildFilteringPrompt(request);
-            Content inputContent = Content.fromParts(Part.fromText(prompt));
-            
-            // 4. 执行Agent调用
-            log.debug("Sending prompt to agent: {}", prompt);
-            Flowable<Event> events = runner.runAsync("activity_filtering", session.id(), inputContent);
-            
-            // 5. 收集响应
-            StringBuilder responseBuilder = new StringBuilder();
-            events.timeout(AGENT_TIMEOUT_SECONDS, TimeUnit.SECONDS)
-                .blockingForEach(event -> {
-                    String content = event.stringifyContent();
-                    responseBuilder.append(content).append("\n");
-                    log.debug("Agent response event: {}", content);
-                });
-            
-            String agentResponse = responseBuilder.toString().trim();
-            log.info("Agent filtering completed for city {} on {}", 
-                request.getCityCode(), request.getDate());
-            
-            // 6. 解析响应
-            ActivityFilteringResponse response = responseParser.parseResponse(agentResponse, request.getCandidateActivities());
-            
-            return response;
-            
-        } catch (Exception e) {
-            log.error("Failed to execute agent filtering for city {} on {}", 
-                request.getCityCode(), request.getDate(), e);
-            
-            // 返回错误响应
-            ActivityFilteringResponse errorResponse = new ActivityFilteringResponse();
-            errorResponse.setStatus("ERROR");
-            errorResponse.setErrorMessage("Agent execution failed: " + e.getMessage());
-            return errorResponse;
-        }
-    }
-    
 
-    
-    /**
-     * 生成会话ID
-     */
-    private String generateSessionId(ActivityFilteringRequest request) {
-        return SESSION_PREFIX + request.getCityCode() + "_" + request.getDate().toString() + "_" + System.currentTimeMillis();
-    }
-    
-    /**
-     * 创建会话状态
-     */
-    private ConcurrentMap<String, Object> createSessionState(ActivityFilteringRequest request) {
-        ConcurrentMap<String, Object> state = Maps.newConcurrentMap();
-        state.put("user:userId", "user123"); // 实际应该从请求中获取
-        state.put("city_code", request.getCityCode());
-        state.put("city_name", request.getCityName());
-        state.put("date", request.getDate().toString());
-        state.put("budget", request.getBudget());
-        state.put("currency", request.getCurrency());
-        
-        if (request.getFlightInfo() != null) {
-            if (request.getFlightInfo().getType() != null) {
-                state.put("flight_type", request.getFlightInfo().getType());
-            }
-            if (request.getFlightInfo().getArrivalTime() != null) {
-                state.put("arrival_time", request.getFlightInfo().getArrivalTime());
-            }
-            if (request.getFlightInfo().getDepartureTime() != null) {
-                state.put("departure_time", request.getFlightInfo().getDepartureTime());
-            }
-        }
-        
-        return state;
-    }
-    
-    /**
-     * 构建筛选提示词
-     */
-    private String buildFilteringPrompt(ActivityFilteringRequest request) {
-        try {
-            // 构建航班信息JSON
-            String flightInfoJson = JsonUtil.toJson(request.getFlightInfo());
-            
-            // 构建用户偏好JSON
-            String userPreferencesJson = JsonUtil.toJson(request.getUserPreferences());
-            
-            // 构建活动列表JSON（简化版，只包含关键信息）
-            String activitiesJson = buildSimplifiedActivitiesJson(request.getCandidateActivities());
-            
-            // 构建城市信息JSON
-            String cityInfoJson = buildCityInfoJson(request);
-            
-            // 使用提示词模板
-            return ActivityFilteringPrompt.buildFilteringPrompt(
-                flightInfoJson, userPreferencesJson, activitiesJson, cityInfoJson);
-                
-        } catch (Exception e) {
-            log.error("Failed to build filtering prompt", e);
-            return "Please filter the provided activities based on flight schedule and user preferences.";
-        }
-    }
-    
+
     /**
      * 构建简化的活动JSON（避免过长的输入）
      */
@@ -191,25 +63,6 @@ public class ActivityFilteringAgentManager {
         } catch (Exception e) {
             log.error("Failed to build simplified activities JSON", e);
             return "[]";
-        }
-    }
-    
-    /**
-     * 构建城市信息JSON
-     */
-    private String buildCityInfoJson(ActivityFilteringRequest request) {
-        try {
-            return String.format(
-                "{\"city_code\":\"%s\",\"city_name\":\"%s\",\"date\":\"%s\",\"budget\":\"%s\",\"currency\":\"%s\"}",
-                request.getCityCode(),
-                request.getCityName(),
-                request.getDate().toString(),
-                request.getBudget() != null ? request.getBudget() : "",
-                request.getCurrency() != null ? request.getCurrency() : ""
-            );
-        } catch (Exception e) {
-            log.error("Failed to build city info JSON", e);
-            return "{}";
         }
     }
     
@@ -280,36 +133,6 @@ public class ActivityFilteringAgentManager {
             errorResponse.setErrorMessage("Global allocation failed: " + e.getMessage());
             return errorResponse;
         }
-    }
-    
-    /**
-     * 生成全局会话ID
-     */
-    private String generateGlobalSessionId(GlobalActivityAllocationRequest request) {
-        return "global_allocation_" + request.getItinerary().getTotalDays() + "days_" + System.currentTimeMillis();
-    }
-    
-    /**
-     * 创建全局会话状态
-     */
-    private ConcurrentMap<String, Object> createGlobalSessionState(GlobalActivityAllocationRequest request) {
-        ConcurrentMap<String, Object> state = Maps.newConcurrentMap();
-        state.put("user:userId", "user123"); // Should be from request
-        state.put("total_days", request.getItinerary().getTotalDays());
-        state.put("total_activities", request.getAllActivities().size());
-        state.put("budget", request.getBudget());
-        state.put("currency", request.getCurrency());
-        
-        if (request.getFlightConstraints() != null) {
-            if (request.getFlightConstraints().getArrivalDate() != null) {
-                state.put("arrival_date", request.getFlightConstraints().getArrivalDate().toString());
-            }
-            if (request.getFlightConstraints().getDepartureDate() != null) {
-                state.put("departure_date", request.getFlightConstraints().getDepartureDate().toString());
-            }
-        }
-        
-        return state;
     }
     
     /**

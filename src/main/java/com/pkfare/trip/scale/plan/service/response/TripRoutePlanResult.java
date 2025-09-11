@@ -30,6 +30,8 @@ public class TripRoutePlanResult {
      * 备选航班信息列表
      */
     private List<FlightInfo> alternativeFlights;
+
+    private List<CityHotelsInfo> cityHotelsInfos;
     
     /**
      * 总距离（米）
