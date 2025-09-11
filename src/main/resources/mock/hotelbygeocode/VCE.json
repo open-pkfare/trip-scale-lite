@@ -1,0 +1,130 @@
+{
+  "data": [
+    {
+      "chainCode": "YX",
+      "iataCode": "ROM",
+      "dupeId": 501418388,
+      "name": "HOTEL TIBER",
+      "hotelId": "BWVCE261",
+      "geoCode": {
+        "latitude": 41.77124,
+        "longitude": 12.22614
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "00054",
+        "cityName": "FIUMICINO",
+        "lines": [
+          "VIA TORRE CLEMENTINA 276"
+        ]
+      },
+      "distance": {
+        "value": 0,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:58"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "ROM",
+      "dupeId": 700193276,
+      "name": "DOMUS LINA",
+      "hotelId": "AVCECAN",
+      "geoCode": {
+        "latitude": 41.77172,
+        "longitude": 12.22891
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "00054",
+        "cityName": "FIUMICINO",
+        "lines": [
+          "VIA DELLA SPIAGGIA 5"
+        ]
+      },
+      "distance": {
+        "value": 0.23,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:56"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "ROM",
+      "dupeId": 700136771,
+      "name": "HOTEL SECCY",
+      "hotelId": "YXVCEACR",
+      "geoCode": {
+        "latitude": 41.7734,
+        "longitude": 12.22953
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "00054",
+        "cityName": "FIUMICINO",
+        "lines": [
+          "VIA DELLE SCUOLE 32"
+        ]
+      },
+      "distance": {
+        "value": 0.37,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:58"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "ROM",
+      "dupeId": 700136771,
+      "name": "HOTEL SECCY",
+      "hotelId": "EPVCECAN",
+      "geoCode": {
+        "latitude": 41.7734,
+        "longitude": 12.22953
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "00054",
+        "cityName": "FIUMICINO",
+        "lines": [
+          "VIA DELLE SCUOLE 32"
+        ]
+      },
+      "distance": {
+        "value": 0.37,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:58"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "ROM",
+      "dupeId": 700136771,
+      "name": "HOTEL SECCY",
+      "hotelId": "HSVCEAQT",
+      "geoCode": {
+        "latitude": 41.7734,
+        "longitude": 12.22953
+      },
+      "address": {
+        "countryCode": "IT",
+        "postalCode": "00054",
+        "cityName": "FIUMICINO",
+        "lines": [
+          "VIA DELLE SCUOLE 32"
+        ]
+      },
+      "distance": {
+        "value": 0.37,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:58"
+    }
+  ],
+  "meta": {
+    "count": 8,
+    "links": {
+      "self": "https://test.api.amadeus.com/v1/reference-data/locations/hotels/by-geocode?hotelSource=ALL&latitude=41.77124&longitude=12.22614&radius=5&radiusUnit=KM"
+    }
+  }
+}

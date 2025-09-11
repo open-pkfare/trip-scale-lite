@@ -13,6 +13,7 @@ import com.pkfare.trip.scale.api.amadeus.exception.AmadeusApiException;
 import com.pkfare.trip.scale.api.amadeus.hotelbycity.request.QueryHotelByCityRequest;
 import com.pkfare.trip.scale.api.amadeus.hotelbycity.response.HotelAddressDto;
 import com.pkfare.trip.scale.api.amadeus.hotelbycity.response.HotelInfoDto;
+import java.util.Collections;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
@@ -34,6 +35,7 @@ public class AmadeusSearchHotelsByCityAPI {
   private final ObjectMapper objectMapper = new ObjectMapper();
 
   public List<HotelInfoDto> queryHotelByCity(QueryHotelByCityRequest queryHotelByCityRequest) throws AmadeusApiException {
+    log.info("queryHotelByCityRequest:{}",queryHotelByCityRequest);
     if(needMock(queryHotelByCityRequest.getCityCode())){
       return mockApiResponseByCityCode(queryHotelByCityRequest);
     }
@@ -68,8 +70,7 @@ public class AmadeusSearchHotelsByCityAPI {
     Params params = Params.with("latitude", request.getLatitude())
         .and("longitude", request.getLongitude())
         .and("radius", request.getRadius())
-        .and("radiusUnit", request.getRadiusUnit())
-        .and("ratings", request.getRatings());
+        .and("radiusUnit", request.getRadiusUnit());
     if (!CollectionUtils.isEmpty(request.getRatings())) {
       params.and("ratings", request.getRatings());
     }
@@ -98,9 +99,15 @@ public class AmadeusSearchHotelsByCityAPI {
    * 返回Mock API响应
    */
   private List<HotelInfoDto> mockHotelByGeocode(QueryHotelByGeocodeRequest request) {
+    String mockFilePath = "mock/hotelofcity/" + request.getCityCode() + ".json";
+
     try {
-      // 读取mock JSON文件
-      ClassPathResource resource = new ClassPathResource("mock/hotelbygeocode/hotel-by-geocode.json");
+      // 读取对应cityCode的mock JSON文件
+      ClassPathResource resource = new ClassPathResource(mockFilePath);
+      if (!resource.exists()) {
+        log.warn("Mock file not found for cityCode: {} at path: {}", request.getCityCode(), mockFilePath);
+        return Collections.emptyList();
+      }
       JsonNode rootNode = objectMapper.readTree(resource.getInputStream());
       JsonNode dataNode = rootNode.get("data");
 

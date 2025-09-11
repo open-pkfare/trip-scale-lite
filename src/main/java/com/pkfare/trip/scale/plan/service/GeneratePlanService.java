@@ -5,7 +5,9 @@ import com.pkfare.trip.scale.model.dto.SubmitAiPlanInfo;
 import com.pkfare.trip.scale.plan.service.param.GeneratePlanParam;
 import com.pkfare.trip.scale.plan.service.param.TripRouteParam;
 import com.pkfare.trip.scale.plan.service.response.ActivityInfo;
+import com.pkfare.trip.scale.plan.service.response.CityHotelsInfo;
 import com.pkfare.trip.scale.plan.service.response.CityLocationInfo;
+import com.pkfare.trip.scale.plan.service.response.DailyRoutePlan;
 import com.pkfare.trip.scale.plan.service.response.FlightInfo;
 import com.pkfare.trip.scale.plan.service.response.HotelInfo;
 import com.pkfare.trip.scale.plan.service.response.TripRoutePlanResult;
@@ -26,8 +28,11 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -125,6 +130,7 @@ public class GeneratePlanService {
           finalResult.flights, finalResult.hotels, dailyActivityPlans);
       log.info("AI route planning generation completed in {} ms", System.currentTimeMillis() - aiStart);
 
+      tripRoutePlanResult = supplementCityDimensionHotel(tripRoutePlanResult);
       long totalTime = System.currentTimeMillis() - start;
       log.info("=== PERFORMANCE SUMMARY ===");
       log.info("Total trip plan generation time: {} ms", totalTime);
@@ -148,6 +154,218 @@ public class GeneratePlanService {
       errorPlan.setStatus(com.pkfare.trip.scale.model.enums.PlanStatus.API_ERROR.getDescription());
       errorPlan.setErrorMessage("生成旅行计划时发生错误: " + e.getMessage());
       return errorPlan;
+    }
+  }
+
+  /**
+   * 补充城市维度的酒店信息
+   * 从每日计划中提取酒店信息，按城市维度汇总，确保每个城市的酒店不重复
+   * 
+   * @param tripRoutePlanResult 旅行路线规划结果
+   * @return 补充了城市酒店信息的结果
+   */
+  private TripRoutePlanResult supplementCityDimensionHotel(TripRoutePlanResult tripRoutePlanResult) {
+    if (tripRoutePlanResult == null || tripRoutePlanResult.getDailyPlans() == null || tripRoutePlanResult.getDailyPlans().isEmpty()) {
+      log.warn("TripRoutePlanResult or dailyPlans is null/empty, skipping city hotel supplementation");
+      return tripRoutePlanResult;
+    }
+
+    log.info("Starting city dimension hotel supplementation for {} daily plans", tripRoutePlanResult.getDailyPlans().size());
+
+    try {
+      // 按城市分组收集酒店信息
+      Map<String, CityHotelCollector> cityHotelMap = new HashMap<>();
+      
+      // 遍历每日计划，收集酒店信息
+      for (DailyRoutePlan dailyPlan : tripRoutePlanResult.getDailyPlans()) {
+        String cityCode = dailyPlan.getCityCode();
+        String cityName = dailyPlan.getCityName();
+        
+        if (cityCode == null || cityCode.trim().isEmpty()) {
+          log.warn("Daily plan for date {} has null/empty cityCode, skipping", dailyPlan.getDate());
+          continue;
+        }
+        
+        // 获取或创建城市酒店收集器
+        CityHotelCollector collector = cityHotelMap.computeIfAbsent(cityCode, 
+            k -> new CityHotelCollector(cityCode, cityName));
+        
+        // 收集首选酒店
+        if (dailyPlan.getPreferredHotel() != null) {
+          collector.addPreferredHotel(dailyPlan.getPreferredHotel());
+        }
+        
+        // 收集备选酒店
+        if (dailyPlan.getAlternativeHotels() != null && !dailyPlan.getAlternativeHotels().isEmpty()) {
+          for (HotelInfo alternativeHotel : dailyPlan.getAlternativeHotels()) {
+            if (alternativeHotel != null) {
+              collector.addAlternativeHotel(alternativeHotel);
+            }
+          }
+        }
+      }
+      
+      // 构建城市酒店信息列表
+      List<CityHotelsInfo> cityHotelsInfos = cityHotelMap.values().stream()
+          .map(this::buildCityHotelsInfo)
+          .filter(cityHotelsInfo -> cityHotelsInfo != null)
+          .collect(Collectors.toList());
+      
+      // 设置到结果中
+      tripRoutePlanResult.setCityHotelsInfos(cityHotelsInfos);
+      
+      log.info("City dimension hotel supplementation completed: {} cities processed, {} total unique hotels", 
+          cityHotelsInfos.size(), 
+          cityHotelsInfos.stream().mapToInt(city -> 
+              (city.getPreferredHotel() != null ? 1 : 0) + 
+              (city.getAlternativeHotels() != null ? city.getAlternativeHotels().size() : 0)
+          ).sum());
+      
+    } catch (Exception e) {
+      log.error("Failed to supplement city dimension hotel information", e);
+      // 不影响主流程，继续返回原结果
+    }
+
+    return tripRoutePlanResult;
+  }
+  
+  /**
+   * 构建城市酒店信息
+   * 
+   * @param collector 城市酒店收集器
+   * @return 城市酒店信息
+   */
+  private CityHotelsInfo buildCityHotelsInfo(CityHotelCollector collector) {
+    try {
+      CityHotelsInfo cityHotelsInfo = new CityHotelsInfo();
+      cityHotelsInfo.setCityCode(collector.getCityCode());
+      cityHotelsInfo.setCityName(collector.getCityName());
+      
+      // 设置首选酒店（选择出现频率最高的，如果频率相同则选择第一个）
+      HotelInfo preferredHotel = collector.getMostPreferredHotel();
+      cityHotelsInfo.setPreferredHotel(preferredHotel);
+      
+      // 设置备选酒店（去除首选酒店，避免重复）
+      List<HotelInfo> alternativeHotels = collector.getUniqueAlternativeHotels(preferredHotel);
+      cityHotelsInfo.setAlternativeHotels(alternativeHotels);
+      
+      log.debug("Built city hotels info for {}: preferred={}, alternatives={}", 
+          collector.getCityCode(), 
+          preferredHotel != null ? preferredHotel.getHotel().getHotelId() : "null",
+          alternativeHotels.size());
+      
+      return cityHotelsInfo;
+      
+    } catch (Exception e) {
+      log.error("Failed to build city hotels info for city {}", collector.getCityCode(), e);
+      return null;
+    }
+  }
+  
+  /**
+   * 城市酒店收集器内部类
+   * 用于收集和去重每个城市的酒店信息
+   */
+  private static class CityHotelCollector {
+    private final String cityCode;
+    private final String cityName;
+    private final Map<String, HotelFrequency> preferredHotelFrequency = new HashMap<>();
+    private final Map<String, HotelInfo> alternativeHotelsMap = new HashMap<>();
+    
+    public CityHotelCollector(String cityCode, String cityName) {
+      this.cityCode = cityCode;
+      this.cityName = cityName;
+    }
+    
+    public String getCityCode() {
+      return cityCode;
+    }
+    
+    public String getCityName() {
+      return cityName;
+    }
+    
+    /**
+     * 添加首选酒店（记录频率）
+     */
+    public void addPreferredHotel(HotelInfo hotel) {
+      if (hotel == null || hotel.getHotel() == null || hotel.getHotel().getHotelId() == null) {
+        return;
+      }
+      
+      String hotelId = hotel.getHotel().getHotelId();
+      HotelFrequency frequency = preferredHotelFrequency.computeIfAbsent(hotelId, 
+          k -> new HotelFrequency(hotel, 0));
+      frequency.incrementCount();
+    }
+    
+    /**
+     * 添加备选酒店（去重）
+     */
+    public void addAlternativeHotel(HotelInfo hotel) {
+      if (hotel == null || hotel.getHotel() == null || hotel.getHotel().getHotelId() == null) {
+        return;
+      }
+      
+      String hotelId = hotel.getHotel().getHotelId();
+      alternativeHotelsMap.putIfAbsent(hotelId, hotel);
+    }
+    
+    /**
+     * 获取最优首选酒店（出现频率最高的）
+     */
+    public HotelInfo getMostPreferredHotel() {
+      return preferredHotelFrequency.values().stream()
+          .max((f1, f2) -> Integer.compare(f1.getCount(), f2.getCount()))
+          .map(HotelFrequency::getHotel)
+          .orElse(null);
+    }
+    
+    /**
+     * 获取唯一的备选酒店列表（排除首选酒店）
+     */
+    public List<HotelInfo> getUniqueAlternativeHotels(HotelInfo preferredHotel) {
+      Set<String> excludeHotelIds = new HashSet<>();
+      
+      // 排除首选酒店
+      if (preferredHotel != null && preferredHotel.getHotel() != null && 
+          preferredHotel.getHotel().getHotelId() != null) {
+        excludeHotelIds.add(preferredHotel.getHotel().getHotelId());
+      }
+      
+      // 也要排除所有在首选酒店频率记录中的酒店（避免重复）
+      excludeHotelIds.addAll(preferredHotelFrequency.keySet());
+      
+      return alternativeHotelsMap.values().stream()
+          .filter(hotel -> hotel != null && hotel.getHotel() != null && 
+                          hotel.getHotel().getHotelId() != null &&
+                          !excludeHotelIds.contains(hotel.getHotel().getHotelId()))
+          .collect(Collectors.toList());
+    }
+  }
+  
+  /**
+   * 酒店频率记录内部类
+   */
+  private static class HotelFrequency {
+    private final HotelInfo hotel;
+    private int count;
+    
+    public HotelFrequency(HotelInfo hotel, int count) {
+      this.hotel = hotel;
+      this.count = count;
+    }
+    
+    public HotelInfo getHotel() {
+      return hotel;
+    }
+    
+    public int getCount() {
+      return count;
+    }
+    
+    public void incrementCount() {
+      this.count++;
     }
   }
 

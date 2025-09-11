@@ -226,7 +226,7 @@ public class ActivityFilteringService {
             }
             
             log.info("Legacy daily allocation completed. Generated {} daily plans", dailyPlans.size());
-            
+            dailyPlans.sort(Comparator.comparing(DailyActivityPlan::getDate));
             return dailyPlans;
             
         } catch (Exception e) {
@@ -358,7 +358,7 @@ public class ActivityFilteringService {
             }
             
         } catch (Exception e) {
-            log.error("AI processing failed for city {}: {}", cityCode, e.getMessage());
+            log.error("AI processing failed for city {}: {}", cityCode, e);
             return processCityActivitiesWithRules(param, flights, cityCode, cityActivities);
         }
     }
@@ -447,7 +447,7 @@ public class ActivityFilteringService {
         
         // 获取该城市的路线信息
         TripRouteParam cityRoute = param.getTrip_routes().stream()
-            .filter(route -> cityCode.equals(route.getDestination_city()))
+            .filter(route -> cityCode.equals(route.getLocation_code()))
             .findFirst()
             .orElseThrow(() -> new IllegalArgumentException("No route found for city: " + cityCode));
         
@@ -551,91 +551,6 @@ public class ActivityFilteringService {
         
         // 如果没找到，返回行程开始日期
         return LocalDate.parse(param.getStart_period());
-    }
-    
-    /**
-     * 构建全局活动分配请求
-     */
-    public GlobalActivityAllocationRequest buildGlobalAllocationRequest(
-            GeneratePlanParam param, Map<String, List<FlightInfo>> flights, List<ActivityInfo> originalActivities) {
-        
-        GlobalActivityAllocationRequest request = new GlobalActivityAllocationRequest();
-        request.setAllActivities(originalActivities);
-        request.setBudget(param.getBudgets());
-        request.setCurrency(param.getCurrency());
-        
-        // 构建行程信息
-        GlobalActivityAllocationRequest.TripItinerary itinerary = new GlobalActivityAllocationRequest.TripItinerary();
-        itinerary.setStartDate(LocalDate.parse(param.getStart_period()));
-        itinerary.setEndDate(LocalDate.parse(param.getEnd_period()));
-        itinerary.setTotalDays(param.getTrip_days());
-        
-        // 构建城市停留信息
-        List<GlobalActivityAllocationRequest.CityStay> cityStays = new ArrayList<>();
-        LocalDate currentDate = itinerary.getStartDate();
-        
-        for (var routeParam : param.getTrip_routes()) {
-            GlobalActivityAllocationRequest.CityStay cityStay = new GlobalActivityAllocationRequest.CityStay();
-            cityStay.setCityCode(routeParam.getLocation_code());
-            cityStay.setCityName(routeParam.getDestination_city());
-            cityStay.setStartDate(currentDate);
-            cityStay.setEndDate(currentDate.plusDays(routeParam.getStay_days() - 1));
-            cityStay.setStayDays(routeParam.getStay_days());
-            cityStay.setReasonForRecommendation(routeParam.getReason_for_recommendation());
-            
-            cityStays.add(cityStay);
-            currentDate = currentDate.plusDays(routeParam.getStay_days());
-        }
-        
-        itinerary.setCityStays(cityStays);
-        request.setItinerary(itinerary);
-        
-        // 构建航班约束
-        FlightTimeAnalysis flightAnalysis = analyzeFlightTimes(flights, param);
-        GlobalActivityAllocationRequest.FlightConstraints flightConstraints = 
-            new GlobalActivityAllocationRequest.FlightConstraints();
-        flightConstraints.setArrivalDate(flightAnalysis.getArrivalDate());
-        flightConstraints.setArrivalTime(flightAnalysis.getArrivalTime() != null ? 
-            flightAnalysis.getArrivalTime().toString() : null);
-        flightConstraints.setDepartureDate(flightAnalysis.getDepartureDate());
-        flightConstraints.setDepartureTime(flightAnalysis.getDepartureTime() != null ? 
-            flightAnalysis.getDepartureTime().toString() : null);
-        
-        // 构建每日类型映射
-        Map<LocalDate, String> dayTypes = new HashMap<>();
-        LocalDate date = itinerary.getStartDate();
-        while (!date.isAfter(itinerary.getEndDate())) {
-            if (date.equals(flightAnalysis.getArrivalDate())) {
-                dayTypes.put(date, "arrival_day");
-            } else if (date.equals(flightAnalysis.getDepartureDate())) {
-                dayTypes.put(date, "departure_day");
-            } else {
-                dayTypes.put(date, "full_day");
-            }
-            date = date.plusDays(1);
-        }
-        flightConstraints.setDayTypes(dayTypes);
-        request.setFlightConstraints(flightConstraints);
-        
-        // 构建用户偏好
-        try {
-            String userPreferencesJson = getUserPreferences("mock_user_id");
-            Map<String, Object> preferences = JsonUtil.fromJson(userPreferencesJson, Map.class);
-            ActivityFilteringRequest.UserPreferences userPref = new ActivityFilteringRequest.UserPreferences();
-            userPref.setLikes((List<String>) preferences.getOrDefault("likes", new ArrayList<>()));
-            userPref.setHates((List<String>) preferences.getOrDefault("hates", new ArrayList<>()));
-            userPref.setPrefer((List<String>) preferences.getOrDefault("prefer", new ArrayList<>()));
-            request.setUserPreferences(userPref);
-        } catch (Exception e) {
-            log.warn("Failed to parse user preferences for global allocation, using default", e);
-            ActivityFilteringRequest.UserPreferences defaultPref = new ActivityFilteringRequest.UserPreferences();
-            defaultPref.setLikes(new ArrayList<>());
-            defaultPref.setHates(new ArrayList<>());
-            defaultPref.setPrefer(new ArrayList<>());
-            request.setUserPreferences(defaultPref);
-        }
-        
-        return request;
     }
     
     /**
@@ -766,7 +681,7 @@ public class ActivityFilteringService {
     }
     
     /**
-     * 按城市和日期组织活动 - 超简化版本：直接从activities列表中依次为每个城市每天取3～6个活动
+     * 按城市和日期组织活动 - 修复版本：确保每个活动在整个行程中只使用一次，避免重复
      */
     private Map<String, Map<LocalDate, List<ActivityInfo>>> organizeActivitiesByCity(
             List<ActivityInfo> activities, GeneratePlanParam param) {
@@ -776,7 +691,12 @@ public class ActivityFilteringService {
         LocalDate currentDate = LocalDate.parse(departure);
         
         Random random = new Random();
-        int activityIndex = 0; // 用于依次取活动的索引
+        
+        // 创建活动池的副本，用于逐步消耗（避免修改原列表）
+        List<ActivityInfo> availableActivities = new ArrayList<>(activities);
+        Set<String> usedActivityIds = new HashSet<>(); // 跟踪已使用的活动ID
+        
+        log.info("Starting activity organization with {} total activities", availableActivities.size());
         
         // 为每个城市按日期分配活动
         for (var routeParam : param.getTrip_routes()) {
@@ -784,33 +704,107 @@ public class ActivityFilteringService {
             Map<LocalDate, List<ActivityInfo>> dailyActivities = new HashMap<>();
             int totalDays = routeParam.getStay_days();
             
+            // 过滤出该城市的活动
+            List<ActivityInfo> citySpecificActivities = availableActivities.stream()
+                .filter(activity -> activity.getCityCode() != null && 
+                                  activity.getCityCode().equals(cityCode) &&
+                                  activity.getActivityId() != null &&
+                                  !usedActivityIds.contains(activity.getActivityId()))
+                .collect(Collectors.toList());
+            
+            log.info("City {} has {} available activities for {} days", 
+                cityCode, citySpecificActivities.size(), totalDays);
+            
+            // 如果该城市没有足够的专属活动，使用通用活动池
+            if (citySpecificActivities.size() < totalDays * 2) { // 至少每天2个活动
+                List<ActivityInfo> generalActivities = availableActivities.stream()
+                    .filter(activity -> activity.getActivityId() != null &&
+                                      !usedActivityIds.contains(activity.getActivityId()))
+                    .collect(Collectors.toList());
+                
+                // 将通用活动添加到城市活动池中（避免重复添加）
+                for (ActivityInfo generalActivity : generalActivities) {
+                    if (!citySpecificActivities.contains(generalActivity)) {
+                        citySpecificActivities.add(generalActivity);
+                    }
+                }
+                
+                log.debug("Extended city {} activities to {} total activities", 
+                    cityCode, citySpecificActivities.size());
+            }
+            
+            // 为该城市的每一天分配活动
             for (int day = 0; day < totalDays; day++) {
                 LocalDate date = currentDate.plusDays(day);
                 List<ActivityInfo> dayActivities = new ArrayList<>();
                 
-                if (!activities.isEmpty()) {
-                    // 随机选择3-6个活动
-                    int targetCount = 3 + random.nextInt(4); // 3到6个活动
+                if (!citySpecificActivities.isEmpty()) {
+                    // 根据可用活动数量和天数计算每天的活动数量
+                    int remainingDays = totalDays - day;
+                    int remainingActivities = (int) citySpecificActivities.stream()
+                        .filter(activity -> !usedActivityIds.contains(activity.getActivityId()))
+                        .count();
                     
-                    // 依次从activities列表中取活动
-                    for (int i = 0; i < targetCount; i++) {
-                        if (activityIndex >= activities.size()) {
-                            activityIndex = 0; // 重新开始循环
-                        }
-                        dayActivities.add(activities.get(activityIndex));
-                        activityIndex++;
+                    // 计算目标活动数量（3-6个，但要考虑剩余活动数量）
+                    int baseTargetCount = 3 + random.nextInt(4); // 3到6个活动
+                    int maxPossibleCount = Math.max(1, remainingActivities / remainingDays);
+                    int targetCount = Math.min(baseTargetCount, maxPossibleCount);
+                    targetCount = Math.max(targetCount, 1); // 至少1个活动
+                    
+                    log.debug("Day {} in city {}: targeting {} activities (remaining: {}, days left: {})", 
+                        date, cityCode, targetCount, remainingActivities, remainingDays);
+                    
+                    // 从城市活动池中选择未使用的活动
+                    List<ActivityInfo> candidateActivities = citySpecificActivities.stream()
+                        .filter(activity -> !usedActivityIds.contains(activity.getActivityId()))
+                        .collect(Collectors.toList());
+                    
+                    // 随机选择活动（确保不重复）
+                    Collections.shuffle(candidateActivities, random);
+                    
+                    for (int i = 0; i < Math.min(targetCount, candidateActivities.size()); i++) {
+                        ActivityInfo selectedActivity = candidateActivities.get(i);
+                        dayActivities.add(selectedActivity);
+                        usedActivityIds.add(selectedActivity.getActivityId());
                     }
                 }
                 
                 dailyActivities.put(date, dayActivities);
-                log.debug("Day {}: {} activities assigned for city {}", date, dayActivities.size(), cityCode);
+                log.debug("Day {}: {} unique activities assigned for city {} (total used: {})", 
+                    date, dayActivities.size(), cityCode, usedActivityIds.size());
             }
             
             result.put(cityCode, dailyActivities);
             currentDate = currentDate.plusDays(totalDays);
         }
         
-        log.debug("Final organization result: {} cities with daily activities", result.size());
+        // 最终验证：检查是否有重复活动
+        Set<String> finalUsedIds = new HashSet<>();
+        int duplicateCount = 0;
+        int totalAssignedActivities = 0;
+        
+        for (Map.Entry<String, Map<LocalDate, List<ActivityInfo>>> cityEntry : result.entrySet()) {
+            String cityCode = cityEntry.getKey();
+            for (Map.Entry<LocalDate, List<ActivityInfo>> dayEntry : cityEntry.getValue().entrySet()) {
+                LocalDate date = dayEntry.getKey();
+                for (ActivityInfo activity : dayEntry.getValue()) {
+                    totalAssignedActivities++;
+                    if (activity.getActivityId() != null) {
+                        if (finalUsedIds.contains(activity.getActivityId())) {
+                            duplicateCount++;
+                            log.warn("DUPLICATE DETECTED: Activity {} on {} in city {}", 
+                                activity.getActivityId(), date, cityCode);
+                        } else {
+                            finalUsedIds.add(activity.getActivityId());
+                        }
+                    }
+                }
+            }
+        }
+        
+        log.info("Activity organization completed: {} cities, {} total activities assigned, {} unique, {} duplicates", 
+            result.size(), totalAssignedActivities, finalUsedIds.size(), duplicateCount);
+        
         return result;
     }
     
@@ -961,18 +955,18 @@ public class ActivityFilteringService {
             List<ActivityInfo> activities, LocalDate date, FlightTimeAnalysis flightAnalysis) {
         
         // 根据日期类型确定活动数量
-        int targetCount = DEFAULT_ACTIVITIES_PER_DAY;
+        int targetCount = 2 + new Random().nextInt(4); // 2到5随机取一个目标数
         
         // 到达日：减少活动数量
         if (flightAnalysis.getArrivalDate() != null && date.equals(flightAnalysis.getArrivalDate())) {
-            if (flightAnalysis.getArrivalTime() != null && flightAnalysis.getArrivalTime().isAfter(LocalTime.of(15, 0))) {
+            if (flightAnalysis.getArrivalTime() != null /**&& flightAnalysis.getArrivalTime().isAfter(LocalTime.of(15, 0))*/) {
                 targetCount = MIN_ACTIVITIES_PER_DAY; // 下午到达，只安排2个活动
             }
         }
         
         // 离开日：减少活动数量
         if (flightAnalysis.getDepartureDate() != null && date.equals(flightAnalysis.getDepartureDate())) {
-            if (flightAnalysis.getDepartureTime() != null && flightAnalysis.getDepartureTime().isBefore(LocalTime.of(15, 0))) {
+            if (flightAnalysis.getDepartureTime() != null /** && flightAnalysis.getDepartureTime().isBefore(LocalTime.of(15, 0))*/) {
                 targetCount = MIN_ACTIVITIES_PER_DAY; // 下午前离开，只安排2个活动
             }
         }
@@ -1027,38 +1021,7 @@ public class ActivityFilteringService {
             return "{}";
         }
     }
-    
-    /**
-     * 简单的fallback筛选
-     */
-    private List<ActivityInfo> fallbackActivityFiltering(List<ActivityInfo> activities, GeneratePlanParam param) {
-        log.info("Using fallback activity filtering");
-        
-        // 按评分排序，每个城市选择合适数量的活动
-        Map<String, List<ActivityInfo>> activitiesByCity = activities.stream()
-            .collect(Collectors.groupingBy(ActivityInfo::getCityCode));
-        
-        List<ActivityInfo> result = new ArrayList<>();
-        
-        for (var routeParam : param.getTrip_routes()) {
-            String cityCode = routeParam.getLocation_code();
-            List<ActivityInfo> cityActivities = activitiesByCity.getOrDefault(cityCode, new ArrayList<>());
-            
-            int totalActivities = Math.min(
-                routeParam.getStay_days() * DEFAULT_ACTIVITIES_PER_DAY,
-                cityActivities.size()
-            );
-            
-            List<ActivityInfo> selectedActivities = cityActivities.stream()
-                .sorted((a, b) -> Double.compare(b.getRating(), a.getRating()))
-                .limit(totalActivities)
-                .collect(Collectors.toList());
-            
-            result.addAll(selectedActivities);
-        }
-        
-        return result;
-    }
+
     
     /**
      * 解析时间字符串
