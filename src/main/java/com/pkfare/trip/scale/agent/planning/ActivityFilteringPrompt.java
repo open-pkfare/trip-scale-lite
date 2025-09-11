@@ -20,10 +20,13 @@ public class ActivityFilteringPrompt {
         
         ## Allocation Principles
         
-        ### 1. No Activity Repetition
-        - **Unique Activities**: Each activity can only be assigned to ONE day throughout the entire trip
+        ### 1. No Activity Repetition - CRITICAL REQUIREMENT
+        - **Absolute Uniqueness**: Each activity can ONLY be assigned to ONE day throughout the ENTIRE trip
+        - **Cross-City Uniqueness**: Even when processing cities separately, ensure NO activity appears in multiple cities or multiple days
+        - **Daily Uniqueness**: Within each city, ensure NO activity appears on multiple days
         - **Comprehensive Coverage**: Utilize the full range of available activities across all cities
         - **Strategic Selection**: Choose the best activities for each city and day combination
+        - **Verification Required**: Before finalizing any day's plan, verify that no activity has been used before
         
         ### 2. Intensity Balance
         - **Alternating Rhythm**: Mix intensive days (3-6 activities) with relaxing days (2-3 activities)
@@ -89,13 +92,23 @@ public class ActivityFilteringPrompt {
         }
         ```
         
-        ## Quality Assurance
+        ## Quality Assurance - MANDATORY CHECKS
         
         - **Completeness**: Every day should have 2-6 activities (adjust based on day type)
-        - **Uniqueness**: Verify no activity appears twice in the entire plan
+        - **CRITICAL - Activity Uniqueness**: 
+          * Verify NO activity appears twice in the entire plan
+          * Check each activity ID against all previous days
+          * Ensure each city's daily plans have completely unique activities
+          * Double-check that no activity is duplicated across different cities or dates
         - **Balance**: Ensure good mix of intensive and relaxing days
         - **Coherence**: Each day should have thematic or geographic coherence
         - **Feasibility**: All activities should be practically achievable within time constraints
+        
+        ### Pre-Submission Verification Checklist:
+        1. ✅ Count total unique activities used vs. total activities assigned
+        2. ✅ Scan all daily plans for any duplicate activity IDs
+        3. ✅ Verify each city has unique activities for each day
+        4. ✅ Confirm no activity appears in multiple cities (unless it's a different location/instance)
         
         Create a memorable and well-balanced travel experience that maximizes the use of available activities while respecting user preferences and practical constraints.
         """;
@@ -117,7 +130,12 @@ public class ActivityFilteringPrompt {
                "### User Preferences:\n" + userPreferences + "\n\n" +
                "### Candidate Activities:\n" + activities + "\n\n" +
                "### City Information:\n" + cityInfo + "\n\n" +
-               "Please filter and recommend activities based on the above information.";
+               "Please filter and recommend activities based on the above information.\n\n" +
+               "**CRITICAL REQUIREMENT - NO ACTIVITY REPETITION:**\n" +
+               "- Each activity can ONLY be assigned to ONE day in this city\n" +
+               "- Ensure NO activity appears on multiple days within this city\n" +
+               "- Verify activity uniqueness before finalizing each day's plan\n" +
+               "- Create diverse daily experiences using different activities each day";
     }
     
     /**
@@ -138,6 +156,12 @@ public class ActivityFilteringPrompt {
                "### User Preferences:\n" + userPreferences + "\n\n" +
                "### Flight Constraints:\n" + flightConstraints + "\n\n" +
                "Please create a complete daily activity allocation plan for the entire trip based on the above information. " +
-               "Ensure no activity repetition and maintain a good balance between intensive and relaxing days.";
+               "\n\n**CRITICAL REQUIREMENTS:**\n" +
+               "1. **ZERO ACTIVITY REPETITION**: Each activity must appear ONLY ONCE in the entire trip plan\n" +
+               "2. **UNIQUE DAILY ACTIVITIES**: Each city must have completely unique activities for each day\n" +
+               "3. **CROSS-CITY UNIQUENESS**: No activity should be duplicated across different cities or dates\n" +
+               "4. **VERIFICATION MANDATORY**: Before submitting, verify that no activity ID appears twice in the entire plan\n" +
+               "5. **BALANCE REQUIREMENT**: Maintain a good balance between intensive and relaxing days\n\n" +
+               "Double-check your final plan to ensure absolute activity uniqueness across all days and cities.";
     }
 }

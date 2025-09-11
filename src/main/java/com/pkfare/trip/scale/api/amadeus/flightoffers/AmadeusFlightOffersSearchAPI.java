@@ -37,6 +37,7 @@ public class AmadeusFlightOffersSearchAPI {
   private final ObjectMapper objectMapper = new ObjectMapper();
 
   public List<FlightOfferDto> flightOffersSearch(FlightOffersSearchRequest flightOffersSearchRequest) {
+    log.info("flightOffersSearchRequest:{}",flightOffersSearchRequest);
     if(needMock(flightOffersSearchRequest)){
       return mockApiResponse(flightOffersSearchRequest);
     }

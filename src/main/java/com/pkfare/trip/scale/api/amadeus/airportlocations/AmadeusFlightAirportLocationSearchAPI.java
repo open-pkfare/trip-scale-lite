@@ -31,6 +31,7 @@ public class AmadeusFlightAirportLocationSearchAPI {
   private final ObjectMapper objectMapper = new ObjectMapper();
 
   public List<LocationDto> queryFlightLocation(FlightAirportLocationSearchRequest request) {
+    log.info("FlightAirportLocationSearchRequest:{}",request);
     if(needMock(request)){
       return mockApiResponse(request);
     }
@@ -154,8 +155,152 @@ public class AmadeusFlightAirportLocationSearchAPI {
     return mockEnabled;
   }
 
+  /**
+   * 将Amadeus Location数组转换为LocationDto列表
+   */
   private List<LocationDto> convert2Dtos(Location[] locations) {
-    return Lists.newArrayList();
+    List<LocationDto> result = new ArrayList<>();
+    
+    if (locations == null || locations.length == 0) {
+      log.debug("Location array is null or empty");
+      return result;
+    }
+    
+    for (Location location : locations) {
+      try {
+        LocationDto dto = convertSingleLocation(location);
+        if (dto != null) {
+          result.add(dto);
+        }
+      } catch (Exception e) {
+        log.warn("Failed to convert Location to DTO: {}", e.getMessage(), e);
+      }
+    }
+    
+    log.debug("Converted {} Location objects to DTOs", result.size());
+    return result;
+  }
+  
+  /**
+   * 转换单个Location对象为LocationDto
+   */
+  private LocationDto convertSingleLocation(Location location) {
+    if (location == null) {
+      return null;
+    }
+    
+    try {
+      LocationDto dto = new LocationDto();
+      
+      // 设置基本信息
+      dto.setType(getStringProperty(location, "type"));
+      dto.setSubType(getStringProperty(location, "subType"));
+      dto.setName(getStringProperty(location, "name"));
+      dto.setDetailedName(getStringProperty(location, "detailedName"));
+      dto.setTimeZoneOffset(getStringProperty(location, "timeZoneOffset"));
+      dto.setIataCode(getStringProperty(location, "iataCode"));
+      
+      // 转换地理坐标信息
+      if (location.getGeoCode() != null) {
+        try {
+          GeoCodeDto geoCodeDto = new GeoCodeDto();
+          geoCodeDto.setLatitude(location.getGeoCode().getLatitude());
+          geoCodeDto.setLongitude(location.getGeoCode().getLongitude());
+          dto.setGeoCode(geoCodeDto);
+        } catch (Exception e) {
+          log.warn("Failed to extract geoCode properties: {}", e.getMessage());
+        }
+      }
+      
+      // 设置地址信息（直接使用Amadeus SDK的Address对象）
+      if (location.getAddress() != null) {
+        dto.setAddress(location.getAddress());
+      }
+      
+      // 转换相关性分数（从analytics中提取）
+      if (location.getAnalytics() != null) {
+        try {
+          // 使用反射安全地获取analytics中的travelers.score
+          Double relevance = extractRelevanceScore(location.getAnalytics());
+          dto.setRelevance(relevance);
+        } catch (Exception e) {
+          log.warn("Failed to extract relevance score: {}", e.getMessage());
+        }
+      }
+      
+      return dto;
+      
+    } catch (Exception e) {
+      log.error("Failed to convert single Location to DTO", e);
+      return null;
+    }
+  }
+  
+  /**
+   * 安全地获取Location对象的字符串属性
+   */
+  private String getStringProperty(Location location, String propertyName) {
+    try {
+      // 使用反射获取属性值，因为Amadeus SDK的方法名可能与预期不同
+      java.lang.reflect.Method getter = findGetter(location.getClass(), propertyName);
+      if (getter != null) {
+        Object value = getter.invoke(location);
+        return value != null ? value.toString() : null;
+      }
+    } catch (Exception e) {
+      log.debug("Failed to get property {} from Location: {}", propertyName, e.getMessage());
+    }
+    return null;
+  }
+  
+  /**
+   * 提取相关性分数
+   */
+  private Double extractRelevanceScore(Object analytics) {
+    try {
+      // 尝试获取 analytics.travelers.score
+      java.lang.reflect.Method getTravelers = findGetter(analytics.getClass(), "travelers");
+      if (getTravelers != null) {
+        Object travelers = getTravelers.invoke(analytics);
+        if (travelers != null) {
+          java.lang.reflect.Method getScore = findGetter(travelers.getClass(), "score");
+          if (getScore != null) {
+            Object score = getScore.invoke(travelers);
+            if (score instanceof Number) {
+              return ((Number) score).doubleValue();
+            }
+          }
+        }
+      }
+    } catch (Exception e) {
+      log.debug("Failed to extract relevance score: {}", e.getMessage());
+    }
+    return null;
+  }
+  
+  /**
+   * 查找对应属性的getter方法
+   */
+  private java.lang.reflect.Method findGetter(Class<?> clazz, String propertyName) {
+    try {
+      // 尝试标准的getter方法名
+      String getterName = "get" + propertyName.substring(0, 1).toUpperCase() + propertyName.substring(1);
+      return clazz.getMethod(getterName);
+    } catch (NoSuchMethodException e) {
+      try {
+        // 尝试is开头的方法名（用于boolean类型）
+        String isGetterName = "is" + propertyName.substring(0, 1).toUpperCase() + propertyName.substring(1);
+        return clazz.getMethod(isGetterName);
+      } catch (NoSuchMethodException e2) {
+        // 尝试直接使用属性名
+        try {
+          return clazz.getMethod(propertyName);
+        } catch (NoSuchMethodException e3) {
+          log.debug("No getter found for property: {} in class: {}", propertyName, clazz.getSimpleName());
+          return null;
+        }
+      }
+    }
   }
 
 }
