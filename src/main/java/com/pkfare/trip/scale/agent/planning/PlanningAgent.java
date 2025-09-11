@@ -157,6 +157,7 @@ public class PlanningAgent extends BaseAgent {
       ConcurrentMap<String, Object> states = Maps.newConcurrentMap();
       states.put("current_stage", "optimizing");
       states.put("plan_result", planResult);
+      states.put("trip_route", tripRoutes);
       devConfig.saveState(invocationContext.session(), states);
       log.info("*******************************************************Time taken to generate plan: {} ms",
           System.currentTimeMillis() - start);
