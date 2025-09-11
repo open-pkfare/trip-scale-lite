@@ -34,6 +34,7 @@ public class AmadeusSearchHotelsByCityAPI {
   private final ObjectMapper objectMapper = new ObjectMapper();
 
   public List<HotelInfoDto> queryHotelByCity(QueryHotelByCityRequest queryHotelByCityRequest) throws AmadeusApiException {
+    log.info("queryHotelByCityRequest:{}",queryHotelByCityRequest);
     if(needMock(queryHotelByCityRequest.getCityCode())){
       return mockApiResponseByCityCode(queryHotelByCityRequest);
     }

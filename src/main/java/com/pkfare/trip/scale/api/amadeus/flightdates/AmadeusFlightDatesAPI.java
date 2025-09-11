@@ -34,6 +34,7 @@ public class AmadeusFlightDatesAPI {
   private final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
   public List<FlightDateDto> flightDates(FlightDatesRequest flightDatesRequest) {
+    log.info("flightDatesRequest:{}",flightDatesRequest);
     if(needMock(flightDatesRequest)){
       return mockApiResponse(flightDatesRequest);
     }
