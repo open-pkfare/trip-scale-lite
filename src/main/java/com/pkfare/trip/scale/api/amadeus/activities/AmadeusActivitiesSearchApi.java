@@ -22,6 +22,10 @@ import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 
+/**
+ *
+ */
+
 @Slf4j
 @Component
 public class AmadeusActivitiesSearchApi extends AbstractMockDataProcessor {

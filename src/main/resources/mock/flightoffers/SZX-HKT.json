@@ -1,0 +1,1123 @@
+{
+  "meta": {
+    "count": 12,
+    "links": {
+      "self": "https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=SZX&destinationLocationCode=HKT&departureDate=2025-10-03&adults=2&nonStop=true&currencyCode=USD&maxPrice=5000&max=50"
+    }
+  },
+  "data": [
+    {
+      "type": "flight-offer",
+      "id": "1",
+      "source": "GDS",
+      "instantTicketingRequired": false,
+      "nonHomogeneous": false,
+      "oneWay": true,
+      "isUpsellOffer": false,
+      "lastTicketingDate": "2025-10-01",
+      "lastTicketingDateTime": "2025-10-01T23:59:00",
+      "numberOfBookableSeats": 9,
+      "itineraries": [
+        {
+          "duration": "PT2H45M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "SZX",
+                "terminal": "3",
+                "at": "2025-10-03T08:30:00"
+              },
+              "arrival": {
+                "iataCode": "HKT",
+                "terminal": "1",
+                "at": "2025-10-03T10:15:00"
+              },
+              "carrierCode": "TG",
+              "number": "2086",
+              "aircraft": {
+                "code": "320"
+              },
+              "operating": {
+                "carrierCode": "TG"
+              },
+              "duration": "PT2H45M",
+              "id": "1",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        }
+      ],
+      "price": {
+        "currency": "USD",
+        "total": "320.00",
+        "base": "280.00",
+        "fees": [
+          {
+            "amount": "25.00",
+            "type": "SUPPLIER"
+          },
+          {
+            "amount": "15.00",
+            "type": "TICKETING"
+          }
+        ],
+        "grandTotal": "640.00"
+      },
+      "pricingOptions": {
+        "fareType": [
+          "PUBLISHED"
+        ],
+        "includedCheckedBagsOnly": true
+      },
+      "validatingAirlineCodes": [
+        "TG"
+      ],
+      "travelerPricings": [
+        {
+          "travelerId": "1",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "USD",
+            "total": "320.00",
+            "base": "280.00"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "1",
+              "cabin": "ECONOMY",
+              "fareBasis": "OOWTH",
+              "brandedFare": "ECONOMY",
+              "brandedFareLabel": "ECONOMY",
+              "class": "O",
+              "includedCheckedBags": {
+                "quantity": 1,
+                "weight": 23,
+                "weightUnit": "KG"
+              },
+              "includedCabinBags": {
+                "quantity": 1,
+                "weight": 7,
+                "weightUnit": "KG"
+              }
+            }
+          ]
+        },
+        {
+          "travelerId": "2",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "USD",
+            "total": "320.00",
+            "base": "280.00"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "1",
+              "cabin": "ECONOMY",
+              "fareBasis": "OOWTH",
+              "brandedFare": "ECONOMY",
+              "brandedFareLabel": "ECONOMY",
+              "class": "O",
+              "includedCheckedBags": {
+                "quantity": 1,
+                "weight": 23,
+                "weightUnit": "KG"
+              },
+              "includedCabinBags": {
+                "quantity": 1,
+                "weight": 7,
+                "weightUnit": "KG"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "flight-offer",
+      "id": "2",
+      "source": "GDS",
+      "instantTicketingRequired": false,
+      "nonHomogeneous": false,
+      "oneWay": true,
+      "isUpsellOffer": false,
+      "lastTicketingDate": "2025-10-01",
+      "lastTicketingDateTime": "2025-10-01T23:59:00",
+      "numberOfBookableSeats": 7,
+      "itineraries": [
+        {
+          "duration": "PT2H50M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "SZX",
+                "terminal": "3",
+                "at": "2025-10-03T13:25:00"
+              },
+              "arrival": {
+                "iataCode": "HKT",
+                "terminal": "1",
+                "at": "2025-10-03T15:15:00"
+              },
+              "carrierCode": "TG",
+              "number": "2088",
+              "aircraft": {
+                "code": "321"
+              },
+              "operating": {
+                "carrierCode": "TG"
+              },
+              "duration": "PT2H50M",
+              "id": "2",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        }
+      ],
+      "price": {
+        "currency": "USD",
+        "total": "340.00",
+        "base": "300.00",
+        "fees": [
+          {
+            "amount": "25.00",
+            "type": "SUPPLIER"
+          },
+          {
+            "amount": "15.00",
+            "type": "TICKETING"
+          }
+        ],
+        "grandTotal": "680.00"
+      },
+      "pricingOptions": {
+        "fareType": [
+          "PUBLISHED"
+        ],
+        "includedCheckedBagsOnly": true
+      },
+      "validatingAirlineCodes": [
+        "TG"
+      ],
+      "travelerPricings": [
+        {
+          "travelerId": "1",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "USD",
+            "total": "340.00",
+            "base": "300.00"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "2",
+              "cabin": "ECONOMY",
+              "fareBasis": "QOWTH",
+              "brandedFare": "ECONOMY",
+              "brandedFareLabel": "ECONOMY",
+              "class": "Q",
+              "includedCheckedBags": {
+                "quantity": 1,
+                "weight": 23,
+                "weightUnit": "KG"
+              },
+              "includedCabinBags": {
+                "quantity": 1,
+                "weight": 7,
+                "weightUnit": "KG"
+              }
+            }
+          ]
+        },
+        {
+          "travelerId": "2",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "USD",
+            "total": "340.00",
+            "base": "300.00"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "2",
+              "cabin": "ECONOMY",
+              "fareBasis": "QOWTH",
+              "brandedFare": "ECONOMY",
+              "brandedFareLabel": "ECONOMY",
+              "class": "Q",
+              "includedCheckedBags": {
+                "quantity": 1,
+                "weight": 23,
+                "weightUnit": "KG"
+              },
+              "includedCabinBags": {
+                "quantity": 1,
+                "weight": 7,
+                "weightUnit": "KG"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "flight-offer",
+      "id": "3",
+      "source": "GDS",
+      "instantTicketingRequired": false,
+      "nonHomogeneous": false,
+      "oneWay": true,
+      "isUpsellOffer": false,
+      "lastTicketingDate": "2025-10-01",
+      "lastTicketingDateTime": "2025-10-01T23:59:00",
+      "numberOfBookableSeats": 5,
+      "itineraries": [
+        {
+          "duration": "PT2H40M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "SZX",
+                "terminal": "3",
+                "at": "2025-10-03T19:45:00"
+              },
+              "arrival": {
+                "iataCode": "HKT",
+                "terminal": "1",
+                "at": "2025-10-03T21:25:00"
+              },
+              "carrierCode": "TG",
+              "number": "2090",
+              "aircraft": {
+                "code": "320"
+              },
+              "operating": {
+                "carrierCode": "TG"
+              },
+              "duration": "PT2H40M",
+              "id": "3",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        }
+      ],
+      "price": {
+        "currency": "USD",
+        "total": "365.00",
+        "base": "325.00",
+        "fees": [
+          {
+            "amount": "25.00",
+            "type": "SUPPLIER"
+          },
+          {
+            "amount": "15.00",
+            "type": "TICKETING"
+          }
+        ],
+        "grandTotal": "730.00"
+      },
+      "pricingOptions": {
+        "fareType": [
+          "PUBLISHED"
+        ],
+        "includedCheckedBagsOnly": true
+      },
+      "validatingAirlineCodes": [
+        "TG"
+      ],
+      "travelerPricings": [
+        {
+          "travelerId": "1",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "USD",
+            "total": "365.00",
+            "base": "325.00"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "3",
+              "cabin": "ECONOMY",
+              "fareBasis": "VOWTH",
+              "brandedFare": "ECONOMY",
+              "brandedFareLabel": "ECONOMY",
+              "class": "V",
+              "includedCheckedBags": {
+                "quantity": 1,
+                "weight": 23,
+                "weightUnit": "KG"
+              },
+              "includedCabinBags": {
+                "quantity": 1,
+                "weight": 7,
+                "weightUnit": "KG"
+              }
+            }
+          ]
+        },
+        {
+          "travelerId": "2",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "USD",
+            "total": "365.00",
+            "base": "325.00"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "3",
+              "cabin": "ECONOMY",
+              "fareBasis": "VOWTH",
+              "brandedFare": "ECONOMY",
+              "brandedFareLabel": "ECONOMY",
+              "class": "V",
+              "includedCheckedBags": {
+                "quantity": 1,
+                "weight": 23,
+                "weightUnit": "KG"
+              },
+              "includedCabinBags": {
+                "quantity": 1,
+                "weight": 7,
+                "weightUnit": "KG"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "flight-offer",
+      "id": "4",
+      "source": "GDS",
+      "instantTicketingRequired": false,
+      "nonHomogeneous": false,
+      "oneWay": true,
+      "isUpsellOffer": false,
+      "lastTicketingDate": "2025-10-01",
+      "lastTicketingDateTime": "2025-10-01T23:59:00",
+      "numberOfBookableSeats": 9,
+      "itineraries": [
+        {
+          "duration": "PT2H35M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "SZX",
+                "terminal": "3",
+                "at": "2025-10-03T11:15:00"
+              },
+              "arrival": {
+                "iataCode": "HKT",
+                "terminal": "1",
+                "at": "2025-10-03T12:50:00"
+              },
+              "carrierCode": "FD",
+              "number": "3188",
+              "aircraft": {
+                "code": "320"
+              },
+              "operating": {
+                "carrierCode": "FD"
+              },
+              "duration": "PT2H35M",
+              "id": "4",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        }
+      ],
+      "price": {
+        "currency": "USD",
+        "total": "280.00",
+        "base": "250.00",
+        "fees": [
+          {
+            "amount": "20.00",
+            "type": "SUPPLIER"
+          },
+          {
+            "amount": "10.00",
+            "type": "TICKETING"
+          }
+        ],
+        "grandTotal": "560.00"
+      },
+      "pricingOptions": {
+        "fareType": [
+          "PUBLISHED"
+        ],
+        "includedCheckedBagsOnly": false
+      },
+      "validatingAirlineCodes": [
+        "FD"
+      ],
+      "travelerPricings": [
+        {
+          "travelerId": "1",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "USD",
+            "total": "280.00",
+            "base": "250.00"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "4",
+              "cabin": "ECONOMY",
+              "fareBasis": "OOWFD",
+              "brandedFare": "BASIC",
+              "brandedFareLabel": "BASIC ECONOMY",
+              "class": "O",
+              "includedCheckedBags": {
+                "quantity": 0
+              },
+              "includedCabinBags": {
+                "quantity": 1,
+                "weight": 7,
+                "weightUnit": "KG"
+              },
+              "amenities": [
+                {
+                  "description": "CHECKED BAG 20KG",
+                  "isChargeable": true,
+                  "amenityType": "BAGGAGE",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "travelerId": "2",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "USD",
+            "total": "280.00",
+            "base": "250.00"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "4",
+              "cabin": "ECONOMY",
+              "fareBasis": "OOWFD",
+              "brandedFare": "BASIC",
+              "brandedFareLabel": "BASIC ECONOMY",
+              "class": "O",
+              "includedCheckedBags": {
+                "quantity": 0
+              },
+              "includedCabinBags": {
+                "quantity": 1,
+                "weight": 7,
+                "weightUnit": "KG"
+              },
+              "amenities": [
+                {
+                  "description": "CHECKED BAG 20KG",
+                  "isChargeable": true,
+                  "amenityType": "BAGGAGE",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "flight-offer",
+      "id": "5",
+      "source": "GDS",
+      "instantTicketingRequired": false,
+      "nonHomogeneous": false,
+      "oneWay": true,
+      "isUpsellOffer": false,
+      "lastTicketingDate": "2025-10-01",
+      "lastTicketingDateTime": "2025-10-01T23:59:00",
+      "numberOfBookableSeats": 6,
+      "itineraries": [
+        {
+          "duration": "PT2H45M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "SZX",
+                "terminal": "3",
+                "at": "2025-10-03T16:20:00"
+              },
+              "arrival": {
+                "iataCode": "HKT",
+                "terminal": "1",
+                "at": "2025-10-03T18:05:00"
+              },
+              "carrierCode": "FD",
+              "number": "3190",
+              "aircraft": {
+                "code": "321"
+              },
+              "operating": {
+                "carrierCode": "FD"
+              },
+              "duration": "PT2H45M",
+              "id": "5",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        }
+      ],
+      "price": {
+        "currency": "USD",
+        "total": "295.00",
+        "base": "265.00",
+        "fees": [
+          {
+            "amount": "20.00",
+            "type": "SUPPLIER"
+          },
+          {
+            "amount": "10.00",
+            "type": "TICKETING"
+          }
+        ],
+        "grandTotal": "590.00"
+      },
+      "pricingOptions": {
+        "fareType": [
+          "PUBLISHED"
+        ],
+        "includedCheckedBagsOnly": false
+      },
+      "validatingAirlineCodes": [
+        "FD"
+      ],
+      "travelerPricings": [
+        {
+          "travelerId": "1",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "USD",
+            "total": "295.00",
+            "base": "265.00"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "5",
+              "cabin": "ECONOMY",
+              "fareBasis": "QOWFD",
+              "brandedFare": "BASIC",
+              "brandedFareLabel": "BASIC ECONOMY",
+              "class": "Q",
+              "includedCheckedBags": {
+                "quantity": 0
+              },
+              "includedCabinBags": {
+                "quantity": 1,
+                "weight": 7,
+                "weightUnit": "KG"
+              },
+              "amenities": [
+                {
+                  "description": "CHECKED BAG 20KG",
+                  "isChargeable": true,
+                  "amenityType": "BAGGAGE",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "travelerId": "2",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "USD",
+            "total": "295.00",
+            "base": "265.00"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "5",
+              "cabin": "ECONOMY",
+              "fareBasis": "QOWFD",
+              "brandedFare": "BASIC",
+              "brandedFareLabel": "BASIC ECONOMY",
+              "class": "Q",
+              "includedCheckedBags": {
+                "quantity": 0
+              },
+              "includedCabinBags": {
+                "quantity": 1,
+                "weight": 7,
+                "weightUnit": "KG"
+              },
+              "amenities": [
+                {
+                  "description": "CHECKED BAG 20KG",
+                  "isChargeable": true,
+                  "amenityType": "BAGGAGE",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "flight-offer",
+      "id": "6",
+      "source": "GDS",
+      "instantTicketingRequired": false,
+      "nonHomogeneous": false,
+      "oneWay": true,
+      "isUpsellOffer": false,
+      "lastTicketingDate": "2025-10-01",
+      "lastTicketingDateTime": "2025-10-01T23:59:00",
+      "numberOfBookableSeats": 4,
+      "itineraries": [
+        {
+          "duration": "PT2H30M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "SZX",
+                "terminal": "3",
+                "at": "2025-10-03T07:00:00"
+              },
+              "arrival": {
+                "iataCode": "HKT",
+                "terminal": "1",
+                "at": "2025-10-03T08:30:00"
+              },
+              "carrierCode": "SL",
+              "number": "8862",
+              "aircraft": {
+                "code": "320"
+              },
+              "operating": {
+                "carrierCode": "SL"
+              },
+              "duration": "PT2H30M",
+              "id": "6",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        }
+      ],
+      "price": {
+        "currency": "USD",
+        "total": "385.00",
+        "base": "345.00",
+        "fees": [
+          {
+            "amount": "25.00",
+            "type": "SUPPLIER"
+          },
+          {
+            "amount": "15.00",
+            "type": "TICKETING"
+          }
+        ],
+        "grandTotal": "770.00"
+      },
+      "pricingOptions": {
+        "fareType": [
+          "PUBLISHED"
+        ],
+        "includedCheckedBagsOnly": true
+      },
+      "validatingAirlineCodes": [
+        "SL"
+      ],
+      "travelerPricings": [
+        {
+          "travelerId": "1",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "USD",
+            "total": "385.00",
+            "base": "345.00"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "6",
+              "cabin": "ECONOMY",
+              "fareBasis": "VOWSL",
+              "brandedFare": "ECONOMY",
+              "brandedFareLabel": "ECONOMY",
+              "class": "V",
+              "includedCheckedBags": {
+                "quantity": 1,
+                "weight": 20,
+                "weightUnit": "KG"
+              },
+              "includedCabinBags": {
+                "quantity": 1,
+                "weight": 7,
+                "weightUnit": "KG"
+              }
+            }
+          ]
+        },
+        {
+          "travelerId": "2",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "USD",
+            "total": "385.00",
+            "base": "345.00"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "6",
+              "cabin": "ECONOMY",
+              "fareBasis": "VOWSL",
+              "brandedFare": "ECONOMY",
+              "brandedFareLabel": "ECONOMY",
+              "class": "V",
+              "includedCheckedBags": {
+                "quantity": 1,
+                "weight": 20,
+                "weightUnit": "KG"
+              },
+              "includedCabinBags": {
+                "quantity": 1,
+                "weight": 7,
+                "weightUnit": "KG"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "flight-offer",
+      "id": "7",
+      "source": "GDS",
+      "instantTicketingRequired": false,
+      "nonHomogeneous": false,
+      "oneWay": true,
+      "isUpsellOffer": false,
+      "lastTicketingDate": "2025-10-01",
+      "lastTicketingDateTime": "2025-10-01T23:59:00",
+      "numberOfBookableSeats": 8,
+      "itineraries": [
+        {
+          "duration": "PT2H40M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "SZX",
+                "terminal": "3",
+                "at": "2025-10-03T14:30:00"
+              },
+              "arrival": {
+                "iataCode": "HKT",
+                "terminal": "1",
+                "at": "2025-10-03T16:10:00"
+              },
+              "carrierCode": "SL",
+              "number": "8864",
+              "aircraft": {
+                "code": "321"
+              },
+              "operating": {
+                "carrierCode": "SL"
+              },
+              "duration": "PT2H40M",
+              "id": "7",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        }
+      ],
+      "price": {
+        "currency": "USD",
+        "total": "395.00",
+        "base": "355.00",
+        "fees": [
+          {
+            "amount": "25.00",
+            "type": "SUPPLIER"
+          },
+          {
+            "amount": "15.00",
+            "type": "TICKETING"
+          }
+        ],
+        "grandTotal": "790.00"
+      },
+      "pricingOptions": {
+        "fareType": [
+          "PUBLISHED"
+        ],
+        "includedCheckedBagsOnly": true
+      },
+      "validatingAirlineCodes": [
+        "SL"
+      ],
+      "travelerPricings": [
+        {
+          "travelerId": "1",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "USD",
+            "total": "395.00",
+            "base": "355.00"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "7",
+              "cabin": "ECONOMY",
+              "fareBasis": "TOWSL",
+              "brandedFare": "ECONOMY",
+              "brandedFareLabel": "ECONOMY",
+              "class": "T",
+              "includedCheckedBags": {
+                "quantity": 1,
+                "weight": 20,
+                "weightUnit": "KG"
+              },
+              "includedCabinBags": {
+                "quantity": 1,
+                "weight": 7,
+                "weightUnit": "KG"
+              }
+            }
+          ]
+        },
+        {
+          "travelerId": "2",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "USD",
+            "total": "395.00",
+            "base": "355.00"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "7",
+              "cabin": "ECONOMY",
+              "fareBasis": "TOWSL",
+              "brandedFare": "ECONOMY",
+              "brandedFareLabel": "ECONOMY",
+              "class": "T",
+              "includedCheckedBags": {
+                "quantity": 1,
+                "weight": 20,
+                "weightUnit": "KG"
+              },
+              "includedCabinBags": {
+                "quantity": 1,
+                "weight": 7,
+                "weightUnit": "KG"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "flight-offer",
+      "id": "8",
+      "source": "GDS",
+      "instantTicketingRequired": false,
+      "nonHomogeneous": false,
+      "oneWay": true,
+      "isUpsellOffer": false,
+      "lastTicketingDate": "2025-10-01",
+      "lastTicketingDateTime": "2025-10-01T23:59:00",
+      "numberOfBookableSeats": 3,
+      "itineraries": [
+        {
+          "duration": "PT2H55M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "SZX",
+                "terminal": "3",
+                "at": "2025-10-03T21:10:00"
+              },
+              "arrival": {
+                "iataCode": "HKT",
+                "terminal": "1",
+                "at": "2025-10-03T23:05:00"
+              },
+              "carrierCode": "9C",
+              "number": "8752",
+              "aircraft": {
+                "code": "320"
+              },
+              "operating": {
+                "carrierCode": "9C"
+              },
+              "duration": "PT2H55M",
+              "id": "8",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        }
+      ],
+      "price": {
+        "currency": "USD",
+        "total": "310.00",
+        "base": "275.00",
+        "fees": [
+          {
+            "amount": "22.00",
+            "type": "SUPPLIER"
+          },
+          {
+            "amount": "13.00",
+            "type": "TICKETING"
+          }
+        ],
+        "grandTotal": "620.00"
+      },
+      "pricingOptions": {
+        "fareType": [
+          "PUBLISHED"
+        ],
+        "includedCheckedBagsOnly": false
+      },
+      "validatingAirlineCodes": [
+        "9C"
+      ],
+      "travelerPricings": [
+        {
+          "travelerId": "1",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "USD",
+            "total": "310.00",
+            "base": "275.00"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "8",
+              "cabin": "ECONOMY",
+              "fareBasis": "QOW9C",
+              "brandedFare": "BASIC",
+              "brandedFareLabel": "BASIC ECONOMY",
+              "class": "Q",
+              "includedCheckedBags": {
+                "quantity": 0
+              },
+              "includedCabinBags": {
+                "quantity": 1,
+                "weight": 5,
+                "weightUnit": "KG"
+              },
+              "amenities": [
+                {
+                  "description": "CHECKED BAG 15KG",
+                  "isChargeable": true,
+                  "amenityType": "BAGGAGE",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "travelerId": "2",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "USD",
+            "total": "310.00",
+            "base": "275.00"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "8",
+              "cabin": "ECONOMY",
+              "fareBasis": "QOW9C",
+              "brandedFare": "BASIC",
+              "brandedFareLabel": "BASIC ECONOMY",
+              "class": "Q",
+              "includedCheckedBags": {
+                "quantity": 0
+              },
+              "includedCabinBags": {
+                "quantity": 1,
+                "weight": 5,
+                "weightUnit": "KG"
+              },
+              "amenities": [
+                {
+                  "description": "CHECKED BAG 15KG",
+                  "isChargeable": true,
+                  "amenityType": "BAGGAGE",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "dictionaries": {
+    "locations": {
+      "SZX": {
+        "cityCode": "SZX",
+        "countryCode": "CN"
+      },
+      "HKT": {
+        "cityCode": "HKT",
+        "countryCode": "TH"
+      }
+    },
+    "aircraft": {
+      "320": "AIRBUS A320",
+      "321": "AIRBUS A321"
+    },
+    "currencies": {
+      "USD": "US DOLLAR"
+    },
+    "carriers": {
+      "TG": "THAI AIRWAYS INTERNATIONAL",
+      "FD": "THAI AIRASIA",
+      "SL": "THAI LION AIR",
+      "9C": "SPRING AIRLINES"
+    }
+  }
+}
