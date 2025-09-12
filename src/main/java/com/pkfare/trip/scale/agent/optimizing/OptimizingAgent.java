@@ -293,7 +293,7 @@ public class OptimizingAgent extends BaseAgent {
 
     List<FlightInfo> flightInfos = JsonUtil.fromJson(flights, new TypeReference<List<FlightInfo>>() {
     });
-    briefTripRoutePlan.setPreferredFlights(flightInfos);
+    briefTripRoutePlan.setFlightInfos(flightInfos);
     String dailyPlan = "[{\"date\":\"2025-10-01\",\"cityCode\":\"FCO\",\"cityName\":\"Rome\",\"preferredHotel\":{\"hotelId\":\"BWFCO336\","
         + "\"dupeId\":\"700193275\",\"offerId\":\"23O43KCF30\",\"hotelName\":\"Best Western Hotel Rome Airport\",\"cityCode\":\"FCO\","
         + "\"cityName\":\"Rome\",\"checkInDate\":\"2025-10-01\",\"checkOutDate\":\"2025-10-04\",\"nights\":3,\"totalPrice\":495.0,"

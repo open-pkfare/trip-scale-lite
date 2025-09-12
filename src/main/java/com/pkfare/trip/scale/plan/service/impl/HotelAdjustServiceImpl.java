@@ -1,6 +1,5 @@
 package com.pkfare.trip.scale.plan.service.impl;
 
-import com.amadeus.resources.Hotel;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pkfare.trip.scale.api.amadeus.hotelbycity.request.QueryHotelByGeocodeRequest;
@@ -12,6 +11,7 @@ import com.pkfare.trip.scale.model.enums.TripPlanErrorCodeEnum;
 import com.pkfare.trip.scale.plan.service.TripPlanAdjustInterface;
 import com.pkfare.trip.scale.plan.service.param.AdjustHotelParam;
 import com.pkfare.trip.scale.plan.service.param.GeneratePlanParam;
+import com.pkfare.trip.scale.plan.service.response.CityHotelsInfo;
 import com.pkfare.trip.scale.plan.service.response.DailyRoutePlan;
 import com.pkfare.trip.scale.plan.service.response.HotelInfo;
 import com.pkfare.trip.scale.plan.service.response.TripRoutePlanResult;
@@ -20,7 +20,7 @@ import com.pkfare.trip.scale.service.external.amadeus.AmadeusHotelService;
 import com.pkfare.trip.scale.service.plan.HotelSearchService;
 import com.pkfare.trip.scale.util.PriceUtil;
 import java.math.BigDecimal;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
@@ -45,25 +45,44 @@ public class HotelAdjustServiceImpl implements TripPlanAdjustInterface {
   @Autowired
   private ObjectMapper objectMapper;
 
+  /**
+   * 调整某个城市的酒店
+   *
+   * @param generatePlanParam 生成计划参数
+   * @param tripPlan          原始旅行计划
+   * @param adjustParam       调整参数列表
+   * @return 调整后的旅行计划
+   */
   @Override
   public void adjust(GeneratePlanParam generatePlanParam, TripRoutePlanResult tripPlan, JsonNode adjustParam) {
     AdjustHotelParam adjustHotelParam = objectMapper.convertValue(adjustParam, AdjustHotelParam.class);
     log.info("Adjusting hotel param: {}", adjustHotelParam);
+    boolean found = false;
+    CityHotelsInfo cityHotelsInfo = null;
+    List<CityHotelsInfo> cityHotelsInfos = tripPlan.getCityHotelsInfos();
+    for (int i = 0; i < cityHotelsInfos.size(); i++) {
+      cityHotelsInfo = cityHotelsInfos.get(i);
+      if (!cityHotelsInfo.getPreferredHotel().getHotel().getHotelId().equals(adjustHotelParam.getId())) {
+        continue;
+      }
+      List<HotelInfo> hotelInfos = searchHotel(generatePlanParam, cityHotelsInfo.getPreferredHotel(), adjustHotelParam);
+      cityHotelsInfo.setPreferredHotel(hotelInfos.getFirst());
+      cityHotelsInfo.setAlternativeHotels(hotelInfos.subList(1, hotelInfos.size()));
+      found = true;
+      log.info("Hotel adjusted successfully: old={}, new={}", adjustHotelParam.getId(), cityHotelsInfo.getPreferredHotel().getHotel().getHotelId());
+      break;
+    }
+    if (!found) {
+      throw new TripPlanException(TripPlanErrorCodeEnum.NO_HOTEL_FOUND);
+    }
 
     List<DailyRoutePlan> dailyPlans = tripPlan.getDailyPlans();
-    boolean found = false;
     for (int i = 0; i < dailyPlans.size(); i++) {
       DailyRoutePlan dailyRoutePlan = dailyPlans.get(i);
       HotelInfo hotel = dailyRoutePlan.getPreferredHotel();
       if (hotel.getHotel().getHotelId().equals(adjustHotelParam.getId())) {
-        found = true;
-        HotelInfo newHotel = searchHotel(generatePlanParam, hotel, adjustHotelParam);
-        if (Objects.isNull(newHotel)) {
-          throw new TripPlanException(TripPlanErrorCodeEnum.NO_HOTEL_FOUND);
-        }
-        newHotel.setPreferred(Boolean.TRUE);
-        dailyRoutePlan.setPreferredHotel(newHotel);
-
+        dailyRoutePlan.setPreferredHotel(cityHotelsInfo.getPreferredHotel());
+        dailyRoutePlan.setAlternativeHotels(cityHotelsInfo.getAlternativeHotels());
         try {
           googleAiService.generateRoutesOptimized(dailyRoutePlan, dailyRoutePlan.getActivities());
         } catch (Exception e) {
@@ -73,12 +92,9 @@ public class HotelAdjustServiceImpl implements TripPlanAdjustInterface {
         break;
       }
     }
-    if (!found) {
-      throw new TripPlanException(TripPlanErrorCodeEnum.NO_HOTEL_FOUND);
-    }
   }
 
-  private HotelInfo searchHotel(GeneratePlanParam generatePlanParam, HotelInfo oldHotel, AdjustHotelParam adjustHotelParam) {
+  private List<HotelInfo> searchHotel(GeneratePlanParam generatePlanParam, HotelInfo oldHotel, AdjustHotelParam adjustHotelParam) {
     QueryHotelByGeocodeRequest geocodeRequest = new QueryHotelByGeocodeRequest();
     geocodeRequest.setLatitude(oldHotel.getHotel().getLatitude());
     geocodeRequest.setLongitude(oldHotel.getHotel().getLongitude());
@@ -87,7 +103,7 @@ public class HotelAdjustServiceImpl implements TripPlanAdjustInterface {
     geocodeRequest.setRatings(adjustHotelParam.getHotelRatings());
     geocodeRequest.setAmenities(adjustHotelParam.getHotelAmenities());
     geocodeRequest.setCityCode(oldHotel.getHotel().getCityCode());
-    List<HotelInfoDto>  hotels;
+    List<HotelInfoDto> hotels;
     do {
       hotels = amadeusHotelService.searchHotelsByGeocode(geocodeRequest);
       if (hotels != null && !hotels.isEmpty()) {
@@ -109,8 +125,8 @@ public class HotelAdjustServiceImpl implements TripPlanAdjustInterface {
     String countryCode = hotels.getFirst().getAddress().getCountryCode();
     HotelOffersSearchRequest request = new HotelOffersSearchRequest();
     request.setHotelIds(hotelIds);
-    request.setCheckInDate(oldHotel.getOffers().get(0).getCheckInDate());
-    request.setCheckOutDate(oldHotel.getOffers().get(0).getCheckOutDate());
+    request.setCheckInDate(oldHotel.getOffers().getFirst().getCheckInDate());
+    request.setCheckOutDate(oldHotel.getOffers().getFirst().getCheckOutDate());
     request.setAdults(generatePlanParam.getAdult_number() + generatePlanParam.getChild_number());
     request.setCountryOfResidence(countryCode);
     request.setRoomQuantity(1);
@@ -126,17 +142,24 @@ public class HotelAdjustServiceImpl implements TripPlanAdjustInterface {
         throw new TripPlanException(TripPlanErrorCodeEnum.NO_HOTEL_FOUND);
       }
 
-      // 按价格排序，选择最便宜的
-      HotelOfferDto offerDto = offers.stream()
+      // 按价格升序排序，选择前几个
+      List<HotelOfferDto> dtoList = offers.stream()
           .filter(offer -> !offer.getHotel().getHotelId().equals(oldHotel.getHotel().getHotelId()))
-          .min(Comparator.comparing(offer -> {
-        if (offer.getOffers() != null && !offer.getOffers().isEmpty()) {
-          return PriceUtil.parsePrice(offer.getOffers().getFirst().getPrice().getTotal());
-        }
-        return BigDecimal.valueOf(Double.MAX_VALUE);
-      })).orElse(null);
+          .sorted(Comparator.comparing(offer -> {
+            if (offer.getOffers() != null && !offer.getOffers().isEmpty()) {
+              return PriceUtil.parsePrice(offer.getOffers().getFirst().getPrice().getTotal());
+            }
+            return BigDecimal.valueOf(Double.MAX_VALUE);
+          })).limit(5).toList();
 
-      return HotelSearchService.buildHotelInfo(offerDto, oldHotel.getHotel().getCityCode(), oldHotel.getHotel().getCityName(), 0);
+      List<HotelInfo> hotelInfos = new ArrayList<>();
+      String cityCode = oldHotel.getHotel().getCityCode();
+      String cityName = oldHotel.getHotel().getCityName();
+      int index = 0;
+      for (HotelOfferDto offerDto : dtoList) {
+        hotelInfos.add(HotelSearchService.buildHotelInfo(offerDto, cityCode, cityName, index++));
+      }
+      return hotelInfos;
     } catch (Exception e) {
       throw new TripPlanException(TripPlanErrorCodeEnum.NO_HOTEL_FOUND);
     }
