@@ -21,6 +21,10 @@ import java.util.ArrayList;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * https://test.api.amadeus.com/v1/reference-data/locations?subType=AIRPORT&keyword=KBV&page%5Blimit%5D=10&page%5Boffset%5D=0&sort=analytics.travelers.score&view=FULL
+ */
+
 @Slf4j
 @Component
 public class AmadeusFlightAirportLocationSearchAPI {

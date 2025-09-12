@@ -1,0 +1,424 @@
+{
+  "data": [
+    {
+      "chainCode": "ON",
+      "iataCode": "KBV",
+      "dupeId": 700071989,
+      "name": "AONANG PRINCEVILLE RESORT",
+      "hotelId": "ONKBVPRI",
+      "geoCode": {
+        "latitude": 8.0526,
+        "longitude": 98.91175
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "81000",
+        "cityName": "KRABI",
+        "lines": [
+          "164 MOO 2",
+          "T. AONANG, U. MUANG"
+        ]
+      },
+      "distance": {
+        "value": 0,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:21:31"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "KBV",
+      "dupeId": 700028472,
+      "name": "LAYANA RESORT AND SPA",
+      "hotelId": "YXKBVLRS",
+      "geoCode": {
+        "latitude": 8.0526,
+        "longitude": 98.91175
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "81150",
+        "cityName": "KRABI",
+        "lines": [
+          "272 MOO 3 SALADAN",
+          "KOH LANTA"
+        ]
+      },
+      "distance": {
+        "value": 0,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:49"
+    },
+    {
+      "chainCode": "LX",
+      "iataCode": "KBV",
+      "dupeId": 700041802,
+      "name": "ZEAVOLA ALL SUITES BOUTIQUE",
+      "hotelId": "LXKBVZEA",
+      "geoCode": {
+        "latitude": 8.0526,
+        "longitude": 98.91175
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "81000",
+        "cityName": "KRABI",
+        "lines": [
+          "11 MOO 8 LAEM TONG"
+        ]
+      },
+      "distance": {
+        "value": 0,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:15:59"
+    },
+    {
+      "chainCode": "TA",
+      "iataCode": "KBV",
+      "dupeId": 700145124,
+      "name": "KOHJUM RESORT",
+      "hotelId": "TAKBV073",
+      "geoCode": {
+        "latitude": 8.05877,
+        "longitude": 98.91845
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "81130",
+        "cityName": "KRABI",
+        "lines": [
+          "237 MOO 5 KOHSRIBOYA, NUAKLONG"
+        ]
+      },
+      "distance": {
+        "value": 1,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:17:45"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "KBV",
+      "dupeId": 700136629,
+      "name": "SAMRAN RESIDENCE",
+      "hotelId": "HSKBVAAJ",
+      "geoCode": {
+        "latitude": 8.06249,
+        "longitude": 98.90909
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "81000",
+        "cityName": "KRABI",
+        "lines": [
+          "127-12-13 KRABI ROAD, TAMBON PAKNUM"
+        ]
+      },
+      "distance": {
+        "value": 1.14,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:47"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "KBV",
+      "dupeId": 700162515,
+      "name": "THIP RESIDENCE BOUTIQUE",
+      "hotelId": "HSKBVACX",
+      "geoCode": {
+        "latitude": 8.0306,
+        "longitude": 98.86398
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "81000",
+        "cityName": "KRABI",
+        "lines": [
+          "222-2 MOO5, TAMBON SAITHAI , AMPHUR MUANG"
+        ]
+      },
+      "distance": {
+        "value": 5.8,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:47"
+    },
+    {
+      "chainCode": "IR",
+      "iataCode": "KBV",
+      "dupeId": 700129074,
+      "name": "AONANG PHU PETRA RESORT",
+      "hotelId": "IRKBV0UA",
+      "geoCode": {
+        "latitude": 8.03717,
+        "longitude": 98.83469
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "81000",
+        "cityName": "KRABI",
+        "lines": [
+          "521 MOO 2 SOI 11,TUMBOL AONANG AMPUR MUANG"
+        ]
+      },
+      "distance": {
+        "value": 8.66,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:19:53"
+    },
+    {
+      "chainCode": "RT",
+      "iataCode": "KBV",
+      "dupeId": 501443754,
+      "name": "IBIS STYLES KRABI AO NANG",
+      "hotelId": "RTKBVANG",
+      "geoCode": {
+        "latitude": 8.03426,
+        "longitude": 98.8311
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "81000",
+        "cityName": "KRABI",
+        "lines": [
+          "AO NANG"
+        ]
+      },
+      "distance": {
+        "value": 9.11,
+        "unit": "KM"
+      },
+      "masterChainCode": "RT",
+      "lastUpdate": "2025-06-03T10:17:21"
+    },
+    {
+      "chainCode": "LW",
+      "iataCode": "KBV",
+      "dupeId": 700002609,
+      "name": "RAYAVADEE",
+      "hotelId": "LWKBV819",
+      "geoCode": {
+        "latitude": 8.00935,
+        "longitude": 98.83836
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "81000",
+        "cityName": "KRABI",
+        "lines": [
+          "214 MOO 2, TAMBON AO-NANG",
+          "AMPHUR MUANG"
+        ]
+      },
+      "distance": {
+        "value": 9.41,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:16:50"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "KBV",
+      "dupeId": 700053700,
+      "name": "AO NANG PARADISE RESORT - LONGSTAY",
+      "hotelId": "HSKBVAAS",
+      "geoCode": {
+        "latitude": 8.03318,
+        "longitude": 98.82744
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "81000",
+        "cityName": "KRABI",
+        "lines": [
+          "25-18 MOO 2 AO NANG MAUNG"
+        ]
+      },
+      "distance": {
+        "value": 9.53,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:47"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "KBV",
+      "dupeId": 700033042,
+      "name": "KRABI TIPA RESORT",
+      "hotelId": "HSKBVABQ",
+      "geoCode": {
+        "latitude": 8.03238,
+        "longitude": 98.82343
+      },
+      "address": {
+        "countryCode": "TH",
+        "cityName": "KRABI",
+        "lines": [
+          "121-1 MOO 2 AO-NANG MUANG"
+        ]
+      },
+      "distance": {
+        "value": 9.98,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:47"
+    },
+    {
+      "chainCode": "GZ",
+      "iataCode": "KBV",
+      "dupeId": 700162516,
+      "name": "THE L RESORT KRABI",
+      "hotelId": "GZKBVTLR",
+      "geoCode": {
+        "latitude": 8.0336,
+        "longitude": 98.81919
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "81000",
+        "cityName": "KRABI",
+        "lines": [
+          "31 MOO 2",
+          "AO NANG BEACH"
+        ]
+      },
+      "distance": {
+        "value": 10.41,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:27"
+    },
+    {
+      "chainCode": "ON",
+      "iataCode": "KBV",
+      "dupeId": 700050944,
+      "name": "ANDAMANEE BOUTIQUE RESORT AND SPA",
+      "hotelId": "ONKBVAND",
+      "geoCode": {
+        "latitude": 8.0527,
+        "longitude": 98.81674
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "81000",
+        "cityName": "KRABI",
+        "lines": [
+          "175 MOO 5",
+          "SOI NOPPARAT THARA 10, AO NANG"
+        ]
+      },
+      "distance": {
+        "value": 10.47,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:21:31"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "KBV",
+      "dupeId": 700154507,
+      "name": "CENTARA ANDA DHEVI RESORT - SPA KRABI",
+      "hotelId": "HSKBVADE",
+      "geoCode": {
+        "latitude": 8.04032,
+        "longitude": 98.81741
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "81000",
+        "cityName": "KRABI",
+        "lines": [
+          "182 MOO 3 TAMBOL AO-NANG, MUANG"
+        ]
+      },
+      "distance": {
+        "value": 10.48,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:47"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "KBV",
+      "dupeId": 700171999,
+      "name": "SWISS CHALET PENSION, GUESTHOUSE",
+      "hotelId": "HSKBVAAL",
+      "geoCode": {
+        "latitude": 8.04021,
+        "longitude": 98.81729
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "81000",
+        "cityName": "KRABI",
+        "lines": [
+          "153-6 MOO 3, AO NANG"
+        ]
+      },
+      "distance": {
+        "value": 10.5,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:47"
+    },
+    {
+      "chainCode": "HI",
+      "iataCode": "KBV",
+      "dupeId": 700096744,
+      "name": "HOLIDAY INN RESORT KRABI AO NAN",
+      "hotelId": "HIKBVE48",
+      "geoCode": {
+        "latitude": 8.04087,
+        "longitude": 98.81538
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "81000",
+        "cityName": "MUANG",
+        "lines": [
+          "123 MOO 3, AONANG BEACH"
+        ]
+      },
+      "distance": {
+        "value": 10.7,
+        "unit": "KM"
+      },
+      "masterChainCode": "6C",
+      "lastUpdate": "2025-06-03T10:19:12"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "KBV",
+      "dupeId": 700149803,
+      "name": "DIAMOND PLACE",
+      "hotelId": "HSKBVADJ",
+      "geoCode": {
+        "latitude": 8.04609,
+        "longitude": 98.81364
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "81000",
+        "cityName": "KRABI",
+        "lines": [
+          "179 MOO 3,AO NANG,MUANG"
+        ]
+      },
+      "distance": {
+        "value": 10.83,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:47"
+    }
+  ],
+  "meta": {
+    "count": 17,
+    "links": {
+      "self": "https://test.api.amadeus.com/v1/reference-data/locations/hotels/by-city?cityCode=KBV&radius=10&radiusUnit=KM"
+    }
+  }
+}

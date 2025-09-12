@@ -25,6 +25,10 @@ import com.pkfare.trip.scale.api.amadeus.hotelbycity.request.QueryHotelByGeocode
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.CollectionUtils;
 
+/**
+ * https://test.api.amadeus.com/v1/reference-data/locations/hotels/by-city?cityCode=FCO&radius=10&radiusUnit=KM
+ */
+
 @Slf4j
 @Component
 public class AmadeusSearchHotelsByCityAPI {

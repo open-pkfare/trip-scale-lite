@@ -26,7 +26,7 @@ public class BriefDailyRoutePlan {
   /**
    * 首选当日住宿酒店
    */
-  private BriefHotelInfo preferredHotel;
+//  private BriefHotelInfo preferredHotel;
 
   /**
    * 当日活动列表（按时间顺序）
@@ -36,7 +36,7 @@ public class BriefDailyRoutePlan {
   public BriefDailyRoutePlan(DailyRoutePlan dailyRoutePlan) {
     this.date = dailyRoutePlan.getDate();
     this.cityCode = dailyRoutePlan.getCityCode();
-    this.preferredHotel = new BriefHotelInfo(dailyRoutePlan.getPreferredHotel());
+//    this.preferredHotel = new BriefHotelInfo(dailyRoutePlan.getPreferredHotel());
     this.activities = dailyRoutePlan.getActivities().stream().map(BriefActivityInfo::new).collect(Collectors.toList());
   }
 }
