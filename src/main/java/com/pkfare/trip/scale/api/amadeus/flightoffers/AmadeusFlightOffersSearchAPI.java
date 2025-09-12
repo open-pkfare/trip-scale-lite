@@ -27,6 +27,9 @@ import java.util.Objects;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 
+/**
+ * https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=SZX&destinationLocationCode=HKT&departureDate=2025-10-03&adults=2&nonStop=true&currencyCode=USD&maxPrice=5000&max=50
+ */
 @Slf4j
 @Component
 public class AmadeusFlightOffersSearchAPI {

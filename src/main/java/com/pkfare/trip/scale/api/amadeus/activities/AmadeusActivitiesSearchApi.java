@@ -23,7 +23,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- *
+ * https://test.api.amadeus.com/v1/shopping/activities?latitude=7.8804479&longitude=98.3922504&radius=20
  */
 
 @Slf4j
