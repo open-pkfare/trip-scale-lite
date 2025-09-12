@@ -22,6 +22,7 @@ import com.pkfare.trip.scale.util.DateUtil;
 import com.pkfare.trip.scale.util.JsonUtil;
 import com.pkfare.trip.scale.util.ValidationUtil;
 import java.time.format.DateTimeFormatter;
+import java.util.Comparator;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -209,6 +210,7 @@ public class GeneratePlanService {
       List<CityHotelsInfo> cityHotelsInfos = cityHotelMap.values().stream()
           .map(this::buildCityHotelsInfo)
           .filter(cityHotelsInfo -> cityHotelsInfo != null)
+          .sorted(Comparator.comparing(CityHotelsInfo::getCheckInDate))
           .collect(Collectors.toList());
       
       // 设置到结果中
@@ -244,7 +246,7 @@ public class GeneratePlanService {
       // 设置首选酒店（选择出现频率最高的，如果频率相同则选择第一个）
       HotelInfo preferredHotel = collector.getMostPreferredHotel();
       cityHotelsInfo.setPreferredHotel(preferredHotel);
-      
+      cityHotelsInfo.setCheckInDate(preferredHotel.getOffers().getFirst().getCheckInDate());
       // 设置备选酒店（去除首选酒店，避免重复）
       List<HotelInfo> alternativeHotels = collector.getUniqueAlternativeHotels(preferredHotel);
       cityHotelsInfo.setAlternativeHotels(alternativeHotels);

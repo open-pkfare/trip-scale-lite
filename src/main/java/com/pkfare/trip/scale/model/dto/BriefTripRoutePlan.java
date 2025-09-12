@@ -30,7 +30,7 @@ public class BriefTripRoutePlan {
   public BriefTripRoutePlan(TripRoutePlanResult dailyRoutePlan) {
     this.dailyPlans = dailyRoutePlan.getDailyPlans().stream().map(BriefDailyRoutePlan::new).collect(Collectors.toList());
     this.hotelInfos = dailyRoutePlan.getCityHotelsInfos().stream().map(BriefHotelInfo::new).collect(Collectors.toList());
-    // todo 先设置为空集合
+    // 先设置为空集合，暂不支持通过对话调整航班
     this.flightInfos = Collections.emptyList();
   }
 }
