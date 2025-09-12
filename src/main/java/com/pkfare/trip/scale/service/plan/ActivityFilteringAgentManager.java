@@ -11,8 +11,6 @@ import com.pkfare.trip.scale.agent.planning.ActivityFilteringAgent;
 import com.pkfare.trip.scale.agent.planning.ActivityFilteringPrompt;
 import com.pkfare.trip.scale.plan.service.param.GeneratePlanParam;
 import com.pkfare.trip.scale.plan.service.response.ActivityInfo;
-import com.pkfare.trip.scale.service.plan.dto.ActivityFilteringRequest;
-import com.pkfare.trip.scale.service.plan.dto.ActivityFilteringResponse;
 import com.pkfare.trip.scale.service.plan.dto.GlobalActivityAllocationRequest;
 import com.pkfare.trip.scale.service.plan.dto.GlobalActivityAllocationResponse;
 import com.pkfare.trip.scale.util.JsonUtil;
@@ -20,8 +18,6 @@ import io.reactivex.rxjava3.core.Flowable;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import java.time.LocalDate;
 import java.util.List;
 import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.TimeUnit;
