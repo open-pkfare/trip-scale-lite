@@ -297,7 +297,7 @@ public class ActivitySearchService {
       // 筛选在合理距离内的活动
       List<ActivityInfo> activityInfoList = filterActivitiesByDistance(activityInfos,
           // 因为是mock数据，将距离限制放宽
-          new HotelLocationInfo(hotel.getHotel().getLatitude(), hotel.getHotel().getLongitude()), 2000);
+          new HotelLocationInfo(hotel.getHotel().getLatitude(), hotel.getHotel().getLongitude()), 100);
 
       // 筛选评分最高的活动
       List<ActivityInfo> topActivities = activityInfoList.stream()
