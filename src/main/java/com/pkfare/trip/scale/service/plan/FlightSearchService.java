@@ -144,7 +144,7 @@ public class FlightSearchService {
                 FlightLocationInfo locationInfo = new FlightLocationInfo();
                 
                 // 设置机场代码
-                locationInfo.setAirport(airportCode);
+                locationInfo.setAirport(location.getIataCode());
                 
                 // 设置经纬度信息
                 GeoInfo geoInfo = new GeoInfo();

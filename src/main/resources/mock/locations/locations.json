@@ -156,6 +156,66 @@
           "score": 18
         }
       }
+    }, {
+      "type": "location",
+      "subType": "AIRPORT",
+      "name": "PHUKET INTL",
+      "detailedName": "PHUKET/TH:PHUKET INTL",
+      "id": "AHKT",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/reference-data/locations/AHKT",
+        "methods": [
+          "GET"
+        ]
+      },
+      "timeZoneOffset": "+07:00",
+      "iataCode": "HKT",
+      "geoCode": {
+        "latitude": 8.11334,
+        "longitude": 98.31695
+      },
+      "address": {
+        "cityName": "PHUKET",
+        "cityCode": "HKT",
+        "countryName": "THAILAND",
+        "countryCode": "TH",
+        "regionCode": "SEASI"
+      },
+      "analytics": {
+        "travelers": {
+          "score": 8
+        }
+      }
+    }, {
+      "type": "location",
+      "subType": "AIRPORT",
+      "name": "KRABI",
+      "detailedName": "KRABI/TH:KRABI",
+      "id": "AKBV",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/reference-data/locations/AKBV",
+        "methods": [
+          "GET"
+        ]
+      },
+      "timeZoneOffset": "+07:00",
+      "iataCode": "KBV",
+      "geoCode": {
+        "latitude": 8.09584,
+        "longitude": 98.98889
+      },
+      "address": {
+        "cityName": "KRABI",
+        "cityCode": "KBV",
+        "countryName": "THAILAND",
+        "countryCode": "TH",
+        "regionCode": "SEASI"
+      },
+      "analytics": {
+        "travelers": {
+          "score": 3
+        }
+      }
     }
   ]
 }

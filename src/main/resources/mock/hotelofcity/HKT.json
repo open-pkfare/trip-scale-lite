@@ -1,0 +1,1790 @@
+{
+  "data": [
+    {
+      "chainCode": "ON",
+      "iataCode": "HKT",
+      "dupeId": 700054161,
+      "name": "KASALONG PHUKET RESORT",
+      "hotelId": "ONHKTKAS",
+      "geoCode": {
+        "latitude": 7.87665,
+        "longitude": 98.38389
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83110",
+        "cityName": "PHUKET",
+        "lines": [
+          "9 MOO 5 TAMBON SAKHU",
+          "AMPUR TALANG"
+        ]
+      },
+      "distance": {
+        "value": 0,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:21:50"
+    },
+    {
+      "chainCode": "YH",
+      "iataCode": "HKT",
+      "dupeId": 700011078,
+      "name": "PHUKET ORCHID RESORT",
+      "hotelId": "YHHKT0HE",
+      "geoCode": {
+        "latitude": 7.87665,
+        "longitude": 98.38389
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83100",
+        "cityName": "PHUKET",
+        "lines": [
+          "34 LUANGPHOCHUAN ROAD"
+        ]
+      },
+      "distance": {
+        "value": 0,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:35"
+    },
+    {
+      "chainCode": "VC",
+      "iataCode": "HKT",
+      "dupeId": 700152797,
+      "name": "MARRIOTT VAC CLUB BEACH CLUB",
+      "hotelId": "VCHKTPBV",
+      "geoCode": {
+        "latitude": 7.87665,
+        "longitude": 98.38389
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83110",
+        "cityName": "PHUKET",
+        "lines": [
+          "230 MOO",
+          "MAIKHAO TALANG"
+        ]
+      },
+      "distance": {
+        "value": 0,
+        "unit": "KM"
+      },
+      "masterChainCode": "EM",
+      "lastUpdate": "2025-06-03T10:18:11"
+    },
+    {
+      "chainCode": "DS",
+      "iataCode": "HKT",
+      "dupeId": 700002637,
+      "name": "THE SURIN PHUKET",
+      "hotelId": "DSHKT682",
+      "geoCode": {
+        "latitude": 7.87665,
+        "longitude": 98.38388
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83110",
+        "cityName": "PHUKET",
+        "lines": [
+          "118 MOO 3 CHEOENG TALAY TALANG"
+        ]
+      },
+      "distance": {
+        "value": 0,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:19:56"
+    },
+    {
+      "chainCode": "WV",
+      "iataCode": "HKT",
+      "dupeId": 700099348,
+      "name": "MOM TRIS VILLA ROYALE",
+      "hotelId": "WVHKT072",
+      "geoCode": {
+        "latitude": 7.87665,
+        "longitude": 98.38389
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83100",
+        "cityName": "PHUKET",
+        "lines": [
+          "12 KATA NOI ROAD STREET"
+        ]
+      },
+      "distance": {
+        "value": 0,
+        "unit": "KM"
+      },
+      "masterChainCode": "TC",
+      "lastUpdate": "2025-06-03T10:18:26"
+    },
+    {
+      "chainCode": "TA",
+      "iataCode": "HKT",
+      "dupeId": 700034990,
+      "name": "PHUKET GRACELAND RESORT AND SPA",
+      "hotelId": "TAHKT383",
+      "geoCode": {
+        "latitude": 7.87665,
+        "longitude": 98.38389
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83150",
+        "cityName": "PHUKET",
+        "lines": [
+          "190 THAWEEWONG ROAD",
+          "PATONG DISTRICT"
+        ]
+      },
+      "distance": {
+        "value": 0,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:17:44"
+    },
+    {
+      "chainCode": "MK",
+      "iataCode": "HKT",
+      "dupeId": 700184169,
+      "name": "MOEVENPICK RESORT KARON BEACH PHUKET",
+      "hotelId": "MKHKT768",
+      "geoCode": {
+        "latitude": 7.87665,
+        "longitude": 98.38389
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83100",
+        "cityName": "PHUKET",
+        "lines": [
+          "509 PATAK ROAD"
+        ]
+      },
+      "distance": {
+        "value": 0,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:29"
+    },
+    {
+      "chainCode": "WV",
+      "iataCode": "HKT",
+      "dupeId": 700046032,
+      "name": "METROPOLE HOTEL PHUKET",
+      "hotelId": "WVHKTMET",
+      "geoCode": {
+        "latitude": 7.88332,
+        "longitude": 98.39272
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83000",
+        "cityName": "PHUKET",
+        "lines": [
+          "1 SOI MONTRI ROAD"
+        ]
+      },
+      "distance": {
+        "value": 1.22,
+        "unit": "KM"
+      },
+      "masterChainCode": "TC",
+      "lastUpdate": "2025-06-03T10:18:26"
+    },
+    {
+      "chainCode": "WV",
+      "iataCode": "HKT",
+      "dupeId": 700217319,
+      "name": "U ZENMAYA PHUKET",
+      "hotelId": "WVHKT230",
+      "geoCode": {
+        "latitude": 7.89044,
+        "longitude": 98.3898
+      },
+      "address": {
+        "countryCode": "TH",
+        "cityName": "PHUKET",
+        "lines": [
+          "6 114 MOO 6 KAMARA"
+        ]
+      },
+      "distance": {
+        "value": 1.66,
+        "unit": "KM"
+      },
+      "masterChainCode": "TC",
+      "lastUpdate": "2025-06-03T10:18:26"
+    },
+    {
+      "chainCode": "WV",
+      "iataCode": "HKT",
+      "dupeId": 700050957,
+      "name": "GLOW ELIXIR KOH YAO YAI",
+      "hotelId": "WVHKT385",
+      "geoCode": {
+        "latitude": 7.89044,
+        "longitude": 98.3898
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83000",
+        "cityName": "PHUKET",
+        "lines": [
+          "99 MOO3 PRUNAI",
+          "KOH YAO YAI"
+        ]
+      },
+      "distance": {
+        "value": 1.66,
+        "unit": "KM"
+      },
+      "masterChainCode": "TC",
+      "lastUpdate": "2025-06-03T10:18:26"
+    },
+    {
+      "chainCode": "DH",
+      "iataCode": "HKT",
+      "dupeId": 700148567,
+      "name": "L'ESPRIT DE NAIYANG PHUKET RESORT",
+      "hotelId": "DHHKTAPI",
+      "geoCode": {
+        "latitude": 7.89044,
+        "longitude": 98.3898
+      },
+      "address": {
+        "countryCode": "TH",
+        "cityName": "PHUKET",
+        "lines": [
+          "91/8 MOO 3, NAIYANG BEACH, TAMBON SAKHU, THALANG"
+        ]
+      },
+      "distance": {
+        "value": 1.66,
+        "unit": "KM"
+      },
+      "masterChainCode": "TC",
+      "lastUpdate": "2025-06-03T10:21:34"
+    },
+    {
+      "chainCode": "WV",
+      "iataCode": "HKT",
+      "dupeId": 501259653,
+      "name": "EASTIN EASY PATONG PHUKET",
+      "hotelId": "WVHKT473",
+      "geoCode": {
+        "latitude": 7.89044,
+        "longitude": 98.3898
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83120",
+        "cityName": "PHUKET",
+        "lines": [
+          "222 RATUTHIT SONGROIPI ROAD",
+          "KATHU"
+        ]
+      },
+      "distance": {
+        "value": 1.66,
+        "unit": "KM"
+      },
+      "masterChainCode": "TC",
+      "lastUpdate": "2025-06-03T10:18:26"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "HKT",
+      "dupeId": 700174264,
+      "name": "AVISTA HIDEAWAY RESORT AND SPA",
+      "hotelId": "YXHKTAVH",
+      "geoCode": {
+        "latitude": 7.89044,
+        "longitude": 98.3898
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83150",
+        "cityName": "PHUKET",
+        "lines": [
+          "MUEN NGOEN ROAD",
+          "TRI TRANG BEACH, PATONG  KATHU"
+        ]
+      },
+      "distance": {
+        "value": 1.66,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:49"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "HKT",
+      "dupeId": 700141297,
+      "name": "THE BLISS SOUTH BEACH PATONG",
+      "hotelId": "YXHKTTBS",
+      "geoCode": {
+        "latitude": 7.89044,
+        "longitude": 98.3898
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83510",
+        "cityName": "PHUKET",
+        "lines": [
+          "40 THAVEEWONG ROAD",
+          "PATONG KATHU"
+        ]
+      },
+      "distance": {
+        "value": 1.66,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:49"
+    },
+    {
+      "chainCode": "GT",
+      "iataCode": "HKT",
+      "dupeId": 700028134,
+      "name": "GOLDEN TULIP MANGOSTEEN RESORT AND SPA",
+      "hotelId": "GTHKTMAN",
+      "geoCode": {
+        "latitude": 7.89044,
+        "longitude": 98.3898
+      },
+      "address": {
+        "countryCode": "TH",
+        "cityName": "PHUKET",
+        "lines": [
+          "99 4 MOO 7"
+        ]
+      },
+      "distance": {
+        "value": 1.66,
+        "unit": "KM"
+      },
+      "masterChainCode": "LI",
+      "lastUpdate": "2025-06-03T10:16:37"
+    },
+    {
+      "chainCode": "RE",
+      "iataCode": "HKT",
+      "dupeId": 700010864,
+      "name": "REGENT PHUKET CAPE PANWA",
+      "hotelId": "REHKT727",
+      "geoCode": {
+        "latitude": 7.88334,
+        "longitude": 98.4
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83000",
+        "cityName": "PHUKET",
+        "lines": [
+          "84 MOO 8 SAKDIDEJ ROAD",
+          "TAMBON VICHIT-  AMPHUR MUANG"
+        ]
+      },
+      "distance": {
+        "value": 1.92,
+        "unit": "KM"
+      },
+      "masterChainCode": "6C",
+      "lastUpdate": "2025-06-03T10:17:13"
+    },
+    {
+      "chainCode": "ON",
+      "iataCode": "HKT",
+      "dupeId": 700099367,
+      "name": "THE VILLAGE COCONUT ISLAND",
+      "hotelId": "ONHKTVIL",
+      "geoCode": {
+        "latitude": 7.9121,
+        "longitude": 98.37537
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83200",
+        "cityName": "PHUKET",
+        "lines": [
+          "51/7 MOO 6",
+          "KOHKAEW - MUANG"
+        ]
+      },
+      "distance": {
+        "value": 4.05,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:21:50"
+    },
+    {
+      "chainCode": "WI",
+      "iataCode": "HKT",
+      "dupeId": 700127670,
+      "name": "WESTIN SIRAY BAY RESORT PHUKET",
+      "hotelId": "WIHKT452",
+      "geoCode": {
+        "latitude": 7.8723,
+        "longitude": 98.42915
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83000",
+        "cityName": "PHUKET",
+        "lines": [
+          "21 4 MOO 1 T RASADA A MUANG"
+        ]
+      },
+      "distance": {
+        "value": 5.01,
+        "unit": "KM"
+      },
+      "masterChainCode": "EM",
+      "lastUpdate": "2025-06-09T06:05:40"
+    },
+    {
+      "chainCode": "WV",
+      "iataCode": "HKT",
+      "dupeId": 501285806,
+      "name": "PHUKET PANWA BEACH RESORT",
+      "hotelId": "WVHKT92B",
+      "geoCode": {
+        "latitude": 7.83103,
+        "longitude": 98.4012
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83000",
+        "cityName": "PHUKET",
+        "lines": [
+          "8 88 MOO 7 SAKDIDECH ROAD",
+          "VICHIT SUB-DISTRICT"
+        ]
+      },
+      "distance": {
+        "value": 5.42,
+        "unit": "KM"
+      },
+      "masterChainCode": "TC",
+      "lastUpdate": "2025-06-03T10:18:26"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "HKT",
+      "dupeId": 700163107,
+      "name": "TINIDEE GOLF RESORT AT PHUKET",
+      "hotelId": "YXHKTTHP",
+      "geoCode": {
+        "latitude": 7.91642,
+        "longitude": 98.34539
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83120",
+        "cityName": "PHUKET",
+        "lines": [
+          "42 MOO 5",
+          "VICHITSONGKRAM ROAD, KATHU DISTRICT"
+        ]
+      },
+      "distance": {
+        "value": 6.13,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:49"
+    },
+    {
+      "chainCode": "YH",
+      "iataCode": "HKT",
+      "dupeId": 700118138,
+      "name": "SLEEP WITH ME HOTEL",
+      "hotelId": "YHHKTSWM",
+      "geoCode": {
+        "latitude": 7.9089,
+        "longitude": 98.3333
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83150",
+        "cityName": "PHUKET",
+        "lines": [
+          "39/119 PRABARAMEE ROAD"
+        ]
+      },
+      "distance": {
+        "value": 6.63,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:35"
+    },
+    {
+      "chainCode": "DH",
+      "iataCode": "HKT",
+      "dupeId": 700162538,
+      "name": "SUNSURI PHUKET (FORMER U SUNSURI PHUKET",
+      "hotelId": "DHHKTAQC",
+      "geoCode": {
+        "latitude": 7.8167,
+        "longitude": 98.34024
+      },
+      "address": {
+        "countryCode": "TH",
+        "cityName": "PHUKET",
+        "lines": [
+          "11/5 MOO 1, RAWAI, MUANG, PHUKET"
+        ]
+      },
+      "distance": {
+        "value": 8.22,
+        "unit": "KM"
+      },
+      "masterChainCode": "TC",
+      "lastUpdate": "2025-06-03T10:21:34"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "HKT",
+      "dupeId": 700054526,
+      "name": "KANTARY BAY HOTEL",
+      "hotelId": "HSHKTACD",
+      "geoCode": {
+        "latitude": 7.80578,
+        "longitude": 98.40602
+      },
+      "address": {
+        "countryCode": "TH",
+        "cityName": "PHUKET",
+        "lines": [
+          "31-11 MU 8, SAKDIDEJ RD, CAPE PANWA"
+        ]
+      },
+      "distance": {
+        "value": 8.25,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:38"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "HKT",
+      "dupeId": 700163899,
+      "name": "SIAM HOTEL",
+      "hotelId": "HSHKTAAL",
+      "geoCode": {
+        "latitude": 7.89024,
+        "longitude": 98.30339
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83150",
+        "cityName": "PHUKET",
+        "lines": [
+          "SOI BANZAAN, 74-18 NANAI ROAD"
+        ]
+      },
+      "distance": {
+        "value": 9,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:38"
+    },
+    {
+      "chainCode": "BW",
+      "iataCode": "HKT",
+      "dupeId": 700225128,
+      "name": "BEST WESTERN PATONG BEACH",
+      "hotelId": "BWHKT360",
+      "geoCode": {
+        "latitude": 7.89267,
+        "longitude": 98.30185
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83150",
+        "cityName": "PHUKET",
+        "lines": [
+          "190 PUNGMUENG SAI GOR"
+        ]
+      },
+      "distance": {
+        "value": 9.21,
+        "unit": "KM"
+      },
+      "masterChainCode": "EW",
+      "lastUpdate": "2025-06-03T10:22:02"
+    },
+    {
+      "chainCode": "BW",
+      "iataCode": "HKY",
+      "dupeId": 700062784,
+      "name": "BEST WESTERN ELDRETH INN",
+      "hotelId": "BWHKY100",
+      "geoCode": {
+        "latitude": 7.89267,
+        "longitude": 98.30185
+      },
+      "address": {
+        "countryCode": "US",
+        "postalCode": "28640",
+        "stateCode": "NC",
+        "cityName": "JEFFERSON",
+        "lines": [
+          "829 EAST MAIN STREET",
+          "P. O. BOX 12"
+        ]
+      },
+      "distance": {
+        "value": 9.21,
+        "unit": "KM"
+      },
+      "masterChainCode": "EW",
+      "lastUpdate": "2025-06-03T10:16:25"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "HKT",
+      "dupeId": 700152374,
+      "name": "RCB PATONG",
+      "hotelId": "HSHKTAAZ",
+      "geoCode": {
+        "latitude": 7.89195,
+        "longitude": 98.30004
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83100",
+        "cityName": "PHUKET",
+        "lines": [
+          "155-8 PUNGMUANG SAI KOR ROAD, PATONG"
+        ]
+      },
+      "distance": {
+        "value": 9.39,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:38"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "HKT",
+      "dupeId": 700147993,
+      "name": "PIMNARA BOUTIQUE HOTEL",
+      "hotelId": "HSHKTAJQ",
+      "geoCode": {
+        "latitude": 7.89182,
+        "longitude": 98.29983
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83150",
+        "cityName": "PHUKET",
+        "lines": [
+          "JUNGCEYLON SHOPPING DESTINATION, 181 RAT-U-THIT"
+        ]
+      },
+      "distance": {
+        "value": 9.41,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:40"
+    },
+    {
+      "chainCode": "ON",
+      "iataCode": "HKT",
+      "dupeId": 700163874,
+      "name": "AQUARIUS GAY GUESTHOUSE & SAUNA",
+      "hotelId": "ONHKTAQG",
+      "geoCode": {
+        "latitude": 7.89543,
+        "longitude": 98.29969
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83150",
+        "cityName": "PHUKET",
+        "lines": [
+          "127/10-17 RAT-U-THIT 200 PEE",
+          "KATHU"
+        ]
+      },
+      "distance": {
+        "value": 9.51,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:21:49"
+    },
+    {
+      "chainCode": "RT",
+      "iataCode": "HKT",
+      "dupeId": 700162109,
+      "name": "NOVOTEL PHUKET VINTAGE PARK",
+      "hotelId": "RTHKTNOV",
+      "geoCode": {
+        "latitude": 7.89868,
+        "longitude": 98.30044
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83150",
+        "cityName": "PHUKET",
+        "lines": [
+          "89 RAT U THIT 200 PEE RD",
+          "PATONG BEACH  KATHU"
+        ]
+      },
+      "distance": {
+        "value": 9.52,
+        "unit": "KM"
+      },
+      "masterChainCode": "RT",
+      "lastUpdate": "2025-06-03T10:17:21"
+    },
+    {
+      "chainCode": "CH",
+      "iataCode": "PBS",
+      "dupeId": 700118143,
+      "name": "THE ALBUM HOTEL",
+      "hotelId": "CHPBSTHE",
+      "geoCode": {
+        "latitude": 7.89727,
+        "longitude": 98.29963
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83150",
+        "cityName": "PATONG BEACH",
+        "lines": [
+          "29 SAWATDIRAK ROAD"
+        ]
+      },
+      "distance": {
+        "value": 9.56,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:19:22"
+    },
+    {
+      "chainCode": "FG",
+      "iataCode": "PBS",
+      "dupeId": 700127651,
+      "name": "BAAN YUREE RESORT & SPA",
+      "hotelId": "FGPBSBAA",
+      "geoCode": {
+        "latitude": 7.89929,
+        "longitude": 98.30014
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83150",
+        "cityName": "PATONG BEACH",
+        "lines": [
+          "PETCHAKUT"
+        ]
+      },
+      "distance": {
+        "value": 9.57,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:16:43"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "HKT",
+      "dupeId": 700184761,
+      "name": "GOOD NICE HOTEL",
+      "hotelId": "HSHKTAKD",
+      "geoCode": {
+        "latitude": 7.88583,
+        "longitude": 98.29698
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83150",
+        "cityName": "PHUKET",
+        "lines": [
+          "162-63-67 PHUNMUANG A.RD.,T.PATONG A.KATHU"
+        ]
+      },
+      "distance": {
+        "value": 9.63,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:40"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "HKT",
+      "dupeId": 700010986,
+      "name": "PATONG PEARL RESORTEL",
+      "hotelId": "HSHKTAEU",
+      "geoCode": {
+        "latitude": 7.89756,
+        "longitude": 98.29903
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83150",
+        "cityName": "PHUKET",
+        "lines": [
+          "13 SAWASDEERUK RD.,PATONG BEACH, KATHU"
+        ]
+      },
+      "distance": {
+        "value": 9.63,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:39"
+    },
+    {
+      "chainCode": "TA",
+      "iataCode": "HKT",
+      "dupeId": 700049300,
+      "name": "PATONG COTTAGE RESORT-PA TONG",
+      "hotelId": "TAHKT105",
+      "geoCode": {
+        "latitude": 7.88386,
+        "longitude": 98.29643
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "00000",
+        "cityName": "PA TONG",
+        "lines": [
+          "20514 NANAI ROAD"
+        ]
+      },
+      "distance": {
+        "value": 9.67,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:17:44"
+    },
+    {
+      "chainCode": "GZ",
+      "iataCode": "HKT",
+      "dupeId": 700178615,
+      "name": "CONNECT GUESTHOUSE",
+      "hotelId": "GZHKT862",
+      "geoCode": {
+        "latitude": 7.89638,
+        "longitude": 98.29821
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83150",
+        "cityName": "PHUKET",
+        "lines": [
+          "125 8-9 RATH-U-THIT RD.",
+          "PARADISE COMPLEX - WAY IN"
+        ]
+      },
+      "distance": {
+        "value": 9.69,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:19:24"
+    },
+    {
+      "chainCode": "RT",
+      "iataCode": "HKT",
+      "dupeId": 700055665,
+      "name": "IBIS PHUKET PATONG",
+      "hotelId": "RTHKTIBI",
+      "geoCode": {
+        "latitude": 7.90218,
+        "longitude": 98.29975
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83150",
+        "cityName": "PHUKET",
+        "lines": [
+          "10 CHALERMPHRAKIAT ROAD",
+          "PATONG DISTRICT KATHU"
+        ]
+      },
+      "distance": {
+        "value": 9.7,
+        "unit": "KM"
+      },
+      "masterChainCode": "RT",
+      "lastUpdate": "2025-06-03T10:17:21"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "HKT",
+      "dupeId": 700098616,
+      "name": "ASPERY HOTEL",
+      "hotelId": "HSHKTAFQ",
+      "geoCode": {
+        "latitude": 7.90031,
+        "longitude": 98.29898
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83120",
+        "cityName": "PHUKET",
+        "lines": [
+          "5-41-51 PATONG BEACH ROAD, PATONG, KATHU,"
+        ]
+      },
+      "distance": {
+        "value": 9.72,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:39"
+    },
+    {
+      "chainCode": "UI",
+      "iataCode": "HKT",
+      "dupeId": 700154220,
+      "name": "CITRUS HEIGHTS PATONG PHUKET",
+      "hotelId": "UIHKTHPP",
+      "geoCode": {
+        "latitude": 7.88444,
+        "longitude": 98.29579
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83150",
+        "cityName": "PHUKET",
+        "lines": [
+          "160/36 PHANG MUANG SAI KOR ROAD",
+          "SOI NANAI RUAMJAI -NANAI SOI 8-"
+        ]
+      },
+      "distance": {
+        "value": 9.75,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:10"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "HKT",
+      "dupeId": 700227089,
+      "name": "ROYAL PHAWADEE VILLAGE",
+      "hotelId": "HSHKTAGK",
+      "geoCode": {
+        "latitude": 7.89752,
+        "longitude": 98.29793
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83150",
+        "cityName": "PHUKET",
+        "lines": [
+          "3 SAWADEERAK ROAD"
+        ]
+      },
+      "distance": {
+        "value": 9.75,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:39"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "HKT",
+      "dupeId": 700023617,
+      "name": "PATONG BEACH LODGE - PHUKET",
+      "hotelId": "YXHKTPAT",
+      "geoCode": {
+        "latitude": 7.88972,
+        "longitude": 98.29637
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83150",
+        "cityName": "PHUKET",
+        "lines": [
+          "31 RAT U THID ROAD",
+          "PATONG BEACH"
+        ]
+      },
+      "distance": {
+        "value": 9.75,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:49"
+    },
+    {
+      "chainCode": "FG",
+      "iataCode": "HKT",
+      "dupeId": 700005032,
+      "name": "BANTHAI BEACH RESORT & SPA",
+      "hotelId": "FGHKTBAN",
+      "geoCode": {
+        "latitude": 7.88974,
+        "longitude": 98.29636
+      },
+      "address": {
+        "countryCode": "TH",
+        "cityName": "PATONG BEACH",
+        "lines": [
+          "94 THAVEEWONG ROAD"
+        ]
+      },
+      "distance": {
+        "value": 9.75,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:16:38"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "HKT",
+      "dupeId": 700071993,
+      "name": "SILVER RESORTEL",
+      "hotelId": "HSHKTAFW",
+      "geoCode": {
+        "latitude": 7.89761,
+        "longitude": 98.29786
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83150",
+        "cityName": "PHUKET",
+        "lines": [
+          "3-37 SAWADIRAK RD.PATONG BEACH KATHU PHUKET"
+        ]
+      },
+      "distance": {
+        "value": 9.76,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:39"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "HKT",
+      "dupeId": 700002638,
+      "name": "ANDAMAN EMBRACE RESORT - SPA",
+      "hotelId": "HSHKTAJM",
+      "geoCode": {
+        "latitude": 7.89949,
+        "longitude": 98.29794
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83150",
+        "cityName": "PHUKET",
+        "lines": [
+          "2 HADPATONG ROAD, PATONG BEACH"
+        ]
+      },
+      "distance": {
+        "value": 9.8,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:40"
+    },
+    {
+      "chainCode": "LX",
+      "iataCode": "HKT",
+      "dupeId": 700056191,
+      "name": "LA FLORA PATONG",
+      "hotelId": "LXHKTLFP",
+      "geoCode": {
+        "latitude": 7.89545,
+        "longitude": 98.29595
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83150",
+        "cityName": "PHUKET",
+        "lines": [
+          "39 TAWEEWONG ROAD"
+        ]
+      },
+      "distance": {
+        "value": 9.91,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:17:39"
+    },
+    {
+      "chainCode": "XL",
+      "iataCode": "HKT",
+      "dupeId": 501365407,
+      "name": "LA FLORA RESORT PATONG SUMMIT",
+      "hotelId": "XLHKTFRP",
+      "geoCode": {
+        "latitude": 7.89545,
+        "longitude": 98.29594
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83150",
+        "cityName": "PHUKET",
+        "lines": [
+          "39 TAWEEWONG ROAD",
+          "PATONG BEACH"
+        ]
+      },
+      "distance": {
+        "value": 9.91,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:43"
+    },
+    {
+      "chainCode": "UI",
+      "iataCode": "HKT",
+      "dupeId": 700013298,
+      "name": "CENTARA VILLAS PHUKET",
+      "hotelId": "UIHKTCKV",
+      "geoCode": {
+        "latitude": 7.85114,
+        "longitude": 98.29742
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83100",
+        "cityName": "PHUKET",
+        "lines": [
+          "701 PATAK ROAD",
+          "KARON BEACH. MUANG."
+        ]
+      },
+      "distance": {
+        "value": 9.94,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:10"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "HKT",
+      "dupeId": 700163892,
+      "name": "PACIFIC CLUB RESORT",
+      "hotelId": "HSHKTAHE",
+      "geoCode": {
+        "latitude": 7.85698,
+        "longitude": 98.2958
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83100",
+        "cityName": "PHUKET",
+        "lines": [
+          "16 PATAK ROAD, SOI 24, KARON BEACH"
+        ]
+      },
+      "distance": {
+        "value": 9.95,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:40"
+    },
+    {
+      "chainCode": "BC",
+      "iataCode": "HKT",
+      "dupeId": 700056077,
+      "name": "DUSITD2 PHUKET RESORT",
+      "hotelId": "BCHKTDPR",
+      "geoCode": {
+        "latitude": 7.88754,
+        "longitude": 98.29403
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83150",
+        "cityName": "PHUKET",
+        "lines": [
+          "48 RUAM JAI ROAD",
+          "PATONG BEACH"
+        ]
+      },
+      "distance": {
+        "value": 9.97,
+        "unit": "KM"
+      },
+      "masterChainCode": "PV",
+      "lastUpdate": "2025-06-03T10:19:27"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "HKT",
+      "dupeId": 700118127,
+      "name": "PATONG INN",
+      "hotelId": "HSHKTAKB",
+      "geoCode": {
+        "latitude": 7.89335,
+        "longitude": 98.29487
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83150",
+        "cityName": "PHUKET",
+        "lines": [
+          "128 THWEEWONG ROAD, PATONG BEACH"
+        ]
+      },
+      "distance": {
+        "value": 9.98,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:40"
+    },
+    {
+      "chainCode": "GZ",
+      "iataCode": "HKT",
+      "dupeId": 700162235,
+      "name": "MANDARAVA RESORT KARON BEACH",
+      "hotelId": "GZHKTMRS",
+      "geoCode": {
+        "latitude": 7.85635,
+        "longitude": 98.29551
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83100",
+        "cityName": "PHUKET",
+        "lines": [
+          "14/2 PATAK ROAD SOI 24",
+          "KARON BEACH"
+        ]
+      },
+      "distance": {
+        "value": 10,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:21:15"
+    },
+    {
+      "chainCode": "RA",
+      "iataCode": "HKT",
+      "dupeId": 700003800,
+      "name": "RAMADA RSRT KARON BEACH PHUKET",
+      "hotelId": "RAHKT515",
+      "geoCode": {
+        "latitude": 7.84015,
+        "longitude": 98.30078
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83100",
+        "cityName": "PHUKET",
+        "lines": [
+          "568 PATAK ROAD  KARON BEACH"
+        ]
+      },
+      "distance": {
+        "value": 10.02,
+        "unit": "KM"
+      },
+      "masterChainCode": "WR",
+      "lastUpdate": "2025-06-03T10:17:06"
+    },
+    {
+      "chainCode": "RT",
+      "iataCode": "HKT",
+      "dupeId": 700143365,
+      "name": "MGALLERY B LAY TONG PHUKET",
+      "hotelId": "RTHKTMGA",
+      "geoCode": {
+        "latitude": 7.90567,
+        "longitude": 98.29769
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83150",
+        "cityName": "PHUKET",
+        "lines": [
+          "198 TAVEEWONG ROAD PATONG",
+          "KATHU"
+        ]
+      },
+      "distance": {
+        "value": 10.03,
+        "unit": "KM"
+      },
+      "masterChainCode": "RT",
+      "lastUpdate": "2025-06-03T10:17:21"
+    },
+    {
+      "chainCode": "UI",
+      "iataCode": "HKT",
+      "dupeId": 700154222,
+      "name": "CITIN PLAZA PATONG PHUKET",
+      "hotelId": "UIHKTCIT",
+      "geoCode": {
+        "latitude": 7.8814,
+        "longitude": 98.29269
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83150",
+        "cityName": "PHUKET",
+        "lines": [
+          "34/50-57 PRACHANUKHRO ROAD",
+          "PATONG"
+        ]
+      },
+      "distance": {
+        "value": 10.06,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:10"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "HKT",
+      "dupeId": 700004943,
+      "name": "BAAN LAIMAI BEACH RESORT",
+      "hotelId": "HSHKTAAY",
+      "geoCode": {
+        "latitude": 7.88974,
+        "longitude": 98.29342
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83150",
+        "cityName": "PHUKET",
+        "lines": [
+          "66 THAVEE-WONG RD. PATONG BEACH"
+        ]
+      },
+      "distance": {
+        "value": 10.07,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:38"
+    },
+    {
+      "chainCode": "RT",
+      "iataCode": "HKT",
+      "dupeId": 700002643,
+      "name": "NOVOTEL PHUKET RESORT",
+      "hotelId": "RTHKTRST",
+      "geoCode": {
+        "latitude": 7.90788,
+        "longitude": 98.29764
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83150",
+        "cityName": "PHUKET",
+        "lines": [
+          "KALIM BEACH ROAD",
+          "PATONG"
+        ]
+      },
+      "distance": {
+        "value": 10.12,
+        "unit": "KM"
+      },
+      "masterChainCode": "RT",
+      "lastUpdate": "2025-06-03T10:17:21"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "HKT",
+      "dupeId": 501833249,
+      "name": "BURASARI BOUTIQUE HOTEL AND RESORT",
+      "hotelId": "HSHKTAEL",
+      "geoCode": {
+        "latitude": 7.88807,
+        "longitude": 98.29265
+      },
+      "address": {
+        "countryCode": "TH",
+        "cityName": "PHUKET",
+        "lines": [
+          "18-110 RUAMJAI ROAD"
+        ]
+      },
+      "distance": {
+        "value": 10.13,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:38"
+    },
+    {
+      "chainCode": "UZ",
+      "iataCode": "HKT",
+      "dupeId": 700052978,
+      "name": "CCS HIDEAWAY",
+      "hotelId": "UZHKT680",
+      "geoCode": {
+        "latitude": 7.8299,
+        "longitude": 98.30484
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83100",
+        "cityName": "KARON",
+        "lines": [
+          "84 21 PATAK RD SOI 10"
+        ]
+      },
+      "distance": {
+        "value": 10.14,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:14"
+    },
+    {
+      "chainCode": "HI",
+      "iataCode": "HKT",
+      "dupeId": 700002641,
+      "name": "HOLIDAY INN RESORT PHUKET",
+      "hotelId": "HIHKTD94",
+      "geoCode": {
+        "latitude": 7.8886,
+        "longitude": 98.29232
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83150",
+        "cityName": "PHUKET",
+        "lines": [
+          "52 THAWEEWONG RD PATONG BEACH"
+        ]
+      },
+      "distance": {
+        "value": 10.18,
+        "unit": "KM"
+      },
+      "masterChainCode": "6C",
+      "lastUpdate": "2025-06-03T10:17:48"
+    },
+    {
+      "chainCode": "WV",
+      "iataCode": "HKT",
+      "dupeId": 700013257,
+      "name": "THAVORN PALM BEACH RESORT",
+      "hotelId": "WVHKT822",
+      "geoCode": {
+        "latitude": 7.85156,
+        "longitude": 98.29504
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83100",
+        "cityName": "PHUKET",
+        "lines": [
+          "311 PATAK ROAD",
+          "KARON BEACH"
+        ]
+      },
+      "distance": {
+        "value": 10.18,
+        "unit": "KM"
+      },
+      "masterChainCode": "TC",
+      "lastUpdate": "2025-06-03T10:18:26"
+    },
+    {
+      "chainCode": "BW",
+      "iataCode": "HKT",
+      "dupeId": 700002632,
+      "name": "PHUKET OCEAN RESORT",
+      "hotelId": "BWHKT312",
+      "geoCode": {
+        "latitude": 7.84595,
+        "longitude": 98.29674
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83100",
+        "cityName": "PHUKET",
+        "lines": [
+          "562 PATAK ROAD KARON BEACH"
+        ]
+      },
+      "distance": {
+        "value": 10.19,
+        "unit": "KM"
+      },
+      "masterChainCode": "EW",
+      "lastUpdate": "2025-06-03T10:19:16"
+    },
+    {
+      "chainCode": "FG",
+      "iataCode": "HKT",
+      "dupeId": 700050937,
+      "name": "THE ACCESS RESORT & VILLAS",
+      "hotelId": "FGHKTACC",
+      "geoCode": {
+        "latitude": 7.82128,
+        "longitude": 98.31004
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83100",
+        "cityName": "PHUKET",
+        "lines": [
+          "459/2 PATAK ROAD"
+        ]
+      },
+      "distance": {
+        "value": 10.21,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:16:38"
+    },
+    {
+      "chainCode": "HL",
+      "iataCode": "HKT",
+      "dupeId": 700002631,
+      "name": "HILTON PHUKET ARCADIA RESORT AND SPA",
+      "hotelId": "HLHKT101",
+      "geoCode": {
+        "latitude": 7.85431,
+        "longitude": 98.29359
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83100",
+        "cityName": "PHUKET",
+        "lines": [
+          "333 PATAK ROAD",
+          "TAMBON KARON"
+        ]
+      },
+      "distance": {
+        "value": 10.26,
+        "unit": "KM"
+      },
+      "masterChainCode": "EH",
+      "lastUpdate": "2025-06-03T10:21:30"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "HKT",
+      "dupeId": 700040275,
+      "name": "THE BLUE MARINE RESORT AND SPA",
+      "hotelId": "HSHKTAKK",
+      "geoCode": {
+        "latitude": 7.91084,
+        "longitude": 98.29716
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83150",
+        "cityName": "PHUKET",
+        "lines": [
+          "290-1 PRABARAMEE RD., PATONG, KATHU"
+        ]
+      },
+      "distance": {
+        "value": 10.29,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:40"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "HKT",
+      "dupeId": 700056262,
+      "name": "PATONG GRAND VILLE HOTEL",
+      "hotelId": "HSHKTAAE",
+      "geoCode": {
+        "latitude": 7.87687,
+        "longitude": 98.29046
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83150",
+        "cityName": "PHUKET",
+        "lines": [
+          "19 SIRIRAT ROAD, PATONG BEACH"
+        ]
+      },
+      "distance": {
+        "value": 10.29,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:38"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "HKT",
+      "dupeId": 700078693,
+      "name": "SUGAR PALM KARON RESORT",
+      "hotelId": "HSHKTAEY",
+      "geoCode": {
+        "latitude": 7.84857,
+        "longitude": 98.29439
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83100",
+        "cityName": "PHUKET",
+        "lines": [
+          "542 - 1 PATAK ROAD, KARON BEACH, MUANG"
+        ]
+      },
+      "distance": {
+        "value": 10.34,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:39"
+    },
+    {
+      "chainCode": "WV",
+      "iataCode": "HKT",
+      "dupeId": 700024585,
+      "name": "BOATHOUSE KATA BEACH",
+      "hotelId": "WVHKTMOM",
+      "geoCode": {
+        "latitude": 7.84627,
+        "longitude": 98.295
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83100",
+        "cityName": "PHUKET",
+        "lines": [
+          "182 KOTANODE ROAD",
+          "KATA BEACH"
+        ]
+      },
+      "distance": {
+        "value": 10.36,
+        "unit": "KM"
+      },
+      "masterChainCode": "TC",
+      "lastUpdate": "2025-06-03T10:18:26"
+    },
+    {
+      "chainCode": "RA",
+      "iataCode": "HKT",
+      "dupeId": 700002633,
+      "name": "RAMADA PHUKET SOUTH SEA",
+      "hotelId": "RAHKTH09",
+      "geoCode": {
+        "latitude": 7.84679,
+        "longitude": 98.29363
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83100",
+        "cityName": "PHUKET",
+        "lines": [
+          "204 KARON ROAD",
+          "MUANG DISTRICT"
+        ]
+      },
+      "distance": {
+        "value": 10.49,
+        "unit": "KM"
+      },
+      "masterChainCode": "WR",
+      "lastUpdate": "2025-06-03T10:17:06"
+    },
+    {
+      "chainCode": "UI",
+      "iataCode": "HKT",
+      "dupeId": 700141649,
+      "name": "CENTARA GRAND BEACH PHUKET",
+      "hotelId": "UIHKTAJW",
+      "geoCode": {
+        "latitude": 7.85792,
+        "longitude": 98.29043
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83100",
+        "cityName": "PHUKET",
+        "lines": [
+          "683 PATAK ROAD, KARON BEACH",
+          "AMPHUR MUANG"
+        ]
+      },
+      "distance": {
+        "value": 10.51,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:10"
+    },
+    {
+      "chainCode": "ON",
+      "iataCode": "HKT",
+      "dupeId": 700154530,
+      "name": "KARON CLIFF CONTEMPORARY BOUTIQUE BUNGAL",
+      "hotelId": "ONHKTARO",
+      "geoCode": {
+        "latitude": 7.81951,
+        "longitude": 98.30696
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83100",
+        "cityName": "PHUKET",
+        "lines": [
+          "691/1 PATAK ROAD",
+          "KARON BEACH"
+        ]
+      },
+      "distance": {
+        "value": 10.59,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:21:49"
+    },
+    {
+      "chainCode": "ON",
+      "iataCode": "HKT",
+      "dupeId": 700020044,
+      "name": "SERENE RESORT",
+      "hotelId": "ONHKTSER",
+      "geoCode": {
+        "latitude": 7.82713,
+        "longitude": 98.30146
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83100",
+        "cityName": "PHUKET",
+        "lines": [
+          "175 KHOKTANODE ROAD",
+          "KARON MUANG"
+        ]
+      },
+      "distance": {
+        "value": 10.62,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:21:50"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "HKT",
+      "dupeId": 700117307,
+      "name": "METADEE RESORT",
+      "hotelId": "HSHKTAFA",
+      "geoCode": {
+        "latitude": 7.81933,
+        "longitude": 98.30302
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "83100",
+        "cityName": "PHUKET",
+        "lines": [
+          "66 KATA ROAD, T.KARON"
+        ]
+      },
+      "distance": {
+        "value": 10.96,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:20:39"
+    }
+  ],
+  "meta": {
+    "count": 72,
+    "links": {
+      "self": "https://test.api.amadeus.com/v1/reference-data/locations/hotels/by-city?cityCode=HKT&radius=10&radiusUnit=KM"
+    }
+  }
+}
