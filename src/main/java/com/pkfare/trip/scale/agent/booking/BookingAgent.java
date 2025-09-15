@@ -16,6 +16,7 @@ import com.google.adk.web.config.DevConfig;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.genai.types.Content;
+import com.google.genai.types.GenerateContentConfig;
 import com.google.genai.types.Part;
 import com.pkfare.trip.scale.agent.inspiration.DemandPrompt;
 import com.pkfare.trip.scale.agent.planning.PlanningAgent;
@@ -76,6 +77,7 @@ public class BookingAgent extends BaseAgent {
       SUMMARY_AGENT = LlmAgent.builder().name(NAME)
           .model(GoogleConfig.GEMINI_2_5_FLASH)
           .description("Agent to help user to summarize trip items.")
+          .generateContentConfig(GenerateContentConfig.builder().temperature(0.2f).build())
           .instruction(BookingPrompt.SUMMARY_PROMPT).build();
 
       INSTANCE = new BookingAgent();
