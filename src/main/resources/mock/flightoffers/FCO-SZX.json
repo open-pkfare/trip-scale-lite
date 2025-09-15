@@ -19,18 +19,18 @@
       "numberOfBookableSeats": 8,
       "itineraries": [
         {
-          "duration": "PT13H45M",
+          "duration": "PT20H45M",
           "segments": [
             {
               "departure": {
                 "iataCode": "FCO",
                 "terminal": "3",
-                "at": "2025-10-03T11:15:00"
+                "at": "2025-10-03T14:15:00"
               },
               "arrival": {
                 "iataCode": "SZX",
                 "terminal": "3",
-                "at": "2025-10-04T08:00:00"
+                "at": "2025-10-04T11:00:00"
               },
               "carrierCode": "HU",
               "number": "7908",
@@ -40,7 +40,7 @@
               "operating": {
                 "carrierCode": "HU"
               },
-              "duration": "PT13H45M",
+              "duration": "PT20H45M",
               "id": "1",
               "numberOfStops": 0,
               "blacklistedInEU": false
@@ -149,7 +149,7 @@
       "numberOfBookableSeats": 6,
       "itineraries": [
         {
-          "duration": "PT16H30M",
+          "duration": "PT21H30M",
           "segments": [
             {
               "departure": {
@@ -158,9 +158,9 @@
                 "at": "2025-10-03T14:45:00"
               },
               "arrival": {
-                "iataCode": "DOH",
-                "terminal": "1",
-                "at": "2025-10-03T22:15:00"
+                "iataCode": "SZX",
+                "terminal": "3",
+                "at": "2025-10-04T12:15:00"
               },
               "carrierCode": "QR",
               "number": "132",
@@ -170,32 +170,8 @@
               "operating": {
                 "carrierCode": "QR"
               },
-              "duration": "PT6H30M",
+              "duration": "PT21H30M",
               "id": "2",
-              "numberOfStops": 0,
-              "blacklistedInEU": false
-            },
-            {
-              "departure": {
-                "iataCode": "DOH",
-                "terminal": "1",
-                "at": "2025-10-04T02:00:00"
-              },
-              "arrival": {
-                "iataCode": "SZX",
-                "terminal": "3",
-                "at": "2025-10-04T15:15:00"
-              },
-              "carrierCode": "QR",
-              "number": "874",
-              "aircraft": {
-                "code": "359"
-              },
-              "operating": {
-                "carrierCode": "QR"
-              },
-              "duration": "PT8H15M",
-              "id": "3",
               "numberOfStops": 0,
               "blacklistedInEU": false
             }
@@ -255,24 +231,6 @@
                 "weight": 7,
                 "weightUnit": "KG"
               }
-            },
-            {
-              "segmentId": "3",
-              "cabin": "ECONOMY",
-              "fareBasis": "QOWQR",
-              "brandedFare": "ECONOMY",
-              "brandedFareLabel": "ECONOMY",
-              "class": "Q",
-              "includedCheckedBags": {
-                "quantity": 1,
-                "weight": 30,
-                "weightUnit": "KG"
-              },
-              "includedCabinBags": {
-                "quantity": 1,
-                "weight": 7,
-                "weightUnit": "KG"
-              }
             }
           ]
         },
@@ -288,24 +246,6 @@
           "fareDetailsBySegment": [
             {
               "segmentId": "2",
-              "cabin": "ECONOMY",
-              "fareBasis": "QOWQR",
-              "brandedFare": "ECONOMY",
-              "brandedFareLabel": "ECONOMY",
-              "class": "Q",
-              "includedCheckedBags": {
-                "quantity": 1,
-                "weight": 30,
-                "weightUnit": "KG"
-              },
-              "includedCabinBags": {
-                "quantity": 1,
-                "weight": 7,
-                "weightUnit": "KG"
-              }
-            },
-            {
-              "segmentId": "3",
               "cabin": "ECONOMY",
               "fareBasis": "QOWQR",
               "brandedFare": "ECONOMY",
@@ -339,53 +279,29 @@
       "numberOfBookableSeats": 4,
       "itineraries": [
         {
-          "duration": "PT17H45M",
+          "duration": "PT22H45M",
           "segments": [
             {
               "departure": {
                 "iataCode": "FCO",
                 "terminal": "1",
-                "at": "2025-10-03T09:30:00"
-              },
-              "arrival": {
-                "iataCode": "FRA",
-                "terminal": "1",
-                "at": "2025-10-03T11:35:00"
-              },
-              "carrierCode": "LH",
-              "number": "235",
-              "aircraft": {
-                "code": "320"
-              },
-              "operating": {
-                "carrierCode": "LH"
-              },
-              "duration": "PT2H05M",
-              "id": "4",
-              "numberOfStops": 0,
-              "blacklistedInEU": false
-            },
-            {
-              "departure": {
-                "iataCode": "FRA",
-                "terminal": "1",
-                "at": "2025-10-03T13:45:00"
+                "at": "2025-10-03T13:15:00"
               },
               "arrival": {
                 "iataCode": "SZX",
                 "terminal": "3",
-                "at": "2025-10-04T07:30:00"
+                "at": "2025-10-04T12:00:00"
               },
               "carrierCode": "LH",
-              "number": "783",
+              "number": "235",
               "aircraft": {
                 "code": "748"
               },
               "operating": {
                 "carrierCode": "LH"
               },
-              "duration": "PT11H45M",
-              "id": "5",
+              "duration": "PT22H45M",
+              "id": "3",
               "numberOfStops": 0,
               "blacklistedInEU": false
             }
@@ -429,25 +345,7 @@
           },
           "fareDetailsBySegment": [
             {
-              "segmentId": "4",
-              "cabin": "ECONOMY",
-              "fareBasis": "VOWLH",
-              "brandedFare": "ECONOMY",
-              "brandedFareLabel": "ECONOMY",
-              "class": "V",
-              "includedCheckedBags": {
-                "quantity": 1,
-                "weight": 23,
-                "weightUnit": "KG"
-              },
-              "includedCabinBags": {
-                "quantity": 1,
-                "weight": 8,
-                "weightUnit": "KG"
-              }
-            },
-            {
-              "segmentId": "5",
+              "segmentId": "3",
               "cabin": "ECONOMY",
               "fareBasis": "VOWLH",
               "brandedFare": "ECONOMY",
@@ -477,25 +375,7 @@
           },
           "fareDetailsBySegment": [
             {
-              "segmentId": "4",
-              "cabin": "ECONOMY",
-              "fareBasis": "VOWLH",
-              "brandedFare": "ECONOMY",
-              "brandedFareLabel": "ECONOMY",
-              "class": "V",
-              "includedCheckedBags": {
-                "quantity": 1,
-                "weight": 23,
-                "weightUnit": "KG"
-              },
-              "includedCabinBags": {
-                "quantity": 1,
-                "weight": 8,
-                "weightUnit": "KG"
-              }
-            },
-            {
-              "segmentId": "5",
+              "segmentId": "3",
               "cabin": "ECONOMY",
               "fareBasis": "VOWLH",
               "brandedFare": "ECONOMY",
@@ -529,7 +409,7 @@
       "numberOfBookableSeats": 7,
       "itineraries": [
         {
-          "duration": "PT15H20M",
+          "duration": "PT20H20M",
           "segments": [
             {
               "departure": {
@@ -538,44 +418,20 @@
                 "at": "2025-10-03T16:40:00"
               },
               "arrival": {
-                "iataCode": "AMS",
-                "terminal": "1",
-                "at": "2025-10-03T19:20:00"
+                "iataCode": "SZX",
+                "terminal": "3",
+                "at": "2025-10-04T13:00:00"
               },
               "carrierCode": "KL",
               "number": "1605",
-              "aircraft": {
-                "code": "737"
-              },
-              "operating": {
-                "carrierCode": "KL"
-              },
-              "duration": "PT2H40M",
-              "id": "6",
-              "numberOfStops": 0,
-              "blacklistedInEU": false
-            },
-            {
-              "departure": {
-                "iataCode": "AMS",
-                "terminal": "1",
-                "at": "2025-10-03T21:15:00"
-              },
-              "arrival": {
-                "iataCode": "SZX",
-                "terminal": "3",
-                "at": "2025-10-04T16:00:00"
-              },
-              "carrierCode": "KL",
-              "number": "832",
               "aircraft": {
                 "code": "77W"
               },
               "operating": {
                 "carrierCode": "KL"
               },
-              "duration": "PT11H45M",
-              "id": "7",
+              "duration": "PT20H20M",
+              "id": "4",
               "numberOfStops": 0,
               "blacklistedInEU": false
             }
@@ -619,25 +475,7 @@
           },
           "fareDetailsBySegment": [
             {
-              "segmentId": "6",
-              "cabin": "ECONOMY",
-              "fareBasis": "TOWKL",
-              "brandedFare": "ECONOMY",
-              "brandedFareLabel": "ECONOMY",
-              "class": "T",
-              "includedCheckedBags": {
-                "quantity": 1,
-                "weight": 23,
-                "weightUnit": "KG"
-              },
-              "includedCabinBags": {
-                "quantity": 1,
-                "weight": 8,
-                "weightUnit": "KG"
-              }
-            },
-            {
-              "segmentId": "7",
+              "segmentId": "4",
               "cabin": "ECONOMY",
               "fareBasis": "TOWKL",
               "brandedFare": "ECONOMY",
@@ -667,25 +505,7 @@
           },
           "fareDetailsBySegment": [
             {
-              "segmentId": "6",
-              "cabin": "ECONOMY",
-              "fareBasis": "TOWKL",
-              "brandedFare": "ECONOMY",
-              "brandedFareLabel": "ECONOMY",
-              "class": "T",
-              "includedCheckedBags": {
-                "quantity": 1,
-                "weight": 23,
-                "weightUnit": "KG"
-              },
-              "includedCabinBags": {
-                "quantity": 1,
-                "weight": 8,
-                "weightUnit": "KG"
-              }
-            },
-            {
-              "segmentId": "7",
+              "segmentId": "4",
               "cabin": "ECONOMY",
               "fareBasis": "TOWKL",
               "brandedFare": "ECONOMY",
@@ -719,53 +539,29 @@
       "numberOfBookableSeats": 5,
       "itineraries": [
         {
-          "duration": "PT18H50M",
+          "duration": "PT23H50M",
           "segments": [
             {
               "departure": {
                 "iataCode": "FCO",
                 "terminal": "3",
-                "at": "2025-10-03T06:25:00"
-              },
-              "arrival": {
-                "iataCode": "IST",
-                "terminal": "1",
-                "at": "2025-10-03T10:00:00"
-              },
-              "carrierCode": "TK",
-              "number": "1864",
-              "aircraft": {
-                "code": "321"
-              },
-              "operating": {
-                "carrierCode": "TK"
-              },
-              "duration": "PT3H35M",
-              "id": "8",
-              "numberOfStops": 0,
-              "blacklistedInEU": false
-            },
-            {
-              "departure": {
-                "iataCode": "IST",
-                "terminal": "1",
-                "at": "2025-10-03T12:45:00"
+                "at": "2025-10-03T15:15:00"
               },
               "arrival": {
                 "iataCode": "SZX",
                 "terminal": "3",
-                "at": "2025-10-04T01:15:00"
+                "at": "2025-10-04T15:05:00"
               },
               "carrierCode": "TK",
-              "number": "73",
+              "number": "1864",
               "aircraft": {
                 "code": "77W"
               },
               "operating": {
                 "carrierCode": "TK"
               },
-              "duration": "PT10H30M",
-              "id": "9",
+              "duration": "PT23H50M",
+              "id": "5",
               "numberOfStops": 0,
               "blacklistedInEU": false
             }
@@ -809,25 +605,7 @@
           },
           "fareDetailsBySegment": [
             {
-              "segmentId": "8",
-              "cabin": "ECONOMY",
-              "fareBasis": "VOWTK",
-              "brandedFare": "ECONOMY",
-              "brandedFareLabel": "ECONOMY",
-              "class": "V",
-              "includedCheckedBags": {
-                "quantity": 1,
-                "weight": 23,
-                "weightUnit": "KG"
-              },
-              "includedCabinBags": {
-                "quantity": 1,
-                "weight": 8,
-                "weightUnit": "KG"
-              }
-            },
-            {
-              "segmentId": "9",
+              "segmentId": "5",
               "cabin": "ECONOMY",
               "fareBasis": "VOWTK",
               "brandedFare": "ECONOMY",
@@ -857,25 +635,7 @@
           },
           "fareDetailsBySegment": [
             {
-              "segmentId": "8",
-              "cabin": "ECONOMY",
-              "fareBasis": "VOWTK",
-              "brandedFare": "ECONOMY",
-              "brandedFareLabel": "ECONOMY",
-              "class": "V",
-              "includedCheckedBags": {
-                "quantity": 1,
-                "weight": 23,
-                "weightUnit": "KG"
-              },
-              "includedCabinBags": {
-                "quantity": 1,
-                "weight": 8,
-                "weightUnit": "KG"
-              }
-            },
-            {
-              "segmentId": "9",
+              "segmentId": "5",
               "cabin": "ECONOMY",
               "fareBasis": "VOWTK",
               "brandedFare": "ECONOMY",
@@ -906,33 +666,13 @@
       "SZX": {
         "cityCode": "SZX",
         "countryCode": "CN"
-      },
-      "DOH": {
-        "cityCode": "DOH",
-        "countryCode": "QA"
-      },
-      "FRA": {
-        "cityCode": "FRA",
-        "countryCode": "DE"
-      },
-      "AMS": {
-        "cityCode": "AMS",
-        "countryCode": "NL"
-      },
-      "IST": {
-        "cityCode": "IST",
-        "countryCode": "TR"
       }
     },
     "aircraft": {
       "789": "BOEING 787-9",
       "787": "BOEING 787-8",
-      "359": "AIRBUS A350-900",
-      "320": "AIRBUS A320",
       "748": "BOEING 747-8",
-      "737": "BOEING 737-800",
-      "77W": "BOEING 777-300ER",
-      "321": "AIRBUS A321"
+      "77W": "BOEING 777-300ER"
     },
     "currencies": {
       "USD": "US DOLLAR"

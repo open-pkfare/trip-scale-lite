@@ -19,18 +19,18 @@
       "numberOfBookableSeats": 7,
       "itineraries": [
         {
-          "duration": "PT2H50M",
+          "duration": "PT3H50M",
           "segments": [
             {
               "departure": {
                 "iataCode": "KBV",
                 "terminal": "1",
-                "at": "2025-10-10T09:15:00"
+                "at": "2025-10-10T14:15:00"
               },
               "arrival": {
                 "iataCode": "SZX",
                 "terminal": "3",
-                "at": "2025-10-10T13:05:00"
+                "at": "2025-10-10T18:05:00"
               },
               "carrierCode": "TG",
               "number": "2087",
@@ -40,7 +40,7 @@
               "operating": {
                 "carrierCode": "TG"
               },
-              "duration": "PT2H50M",
+              "duration": "PT3H50M",
               "id": "1",
               "numberOfStops": 0,
               "blacklistedInEU": false
@@ -149,7 +149,7 @@
       "numberOfBookableSeats": 5,
       "itineraries": [
         {
-          "duration": "PT2H45M",
+          "duration": "PT3H45M",
           "segments": [
             {
               "departure": {
@@ -170,7 +170,7 @@
               "operating": {
                 "carrierCode": "TG"
               },
-              "duration": "PT2H45M",
+              "duration": "PT3H45M",
               "id": "2",
               "numberOfStops": 0,
               "blacklistedInEU": false
@@ -279,7 +279,7 @@
       "numberOfBookableSeats": 3,
       "itineraries": [
         {
-          "duration": "PT2H55M",
+          "duration": "PT3H55M",
           "segments": [
             {
               "departure": {
@@ -300,7 +300,7 @@
               "operating": {
                 "carrierCode": "TG"
               },
-              "duration": "PT2H55M",
+              "duration": "PT3H55M",
               "id": "3",
               "numberOfStops": 0,
               "blacklistedInEU": false
@@ -409,18 +409,18 @@
       "numberOfBookableSeats": 9,
       "itineraries": [
         {
-          "duration": "PT2H40M",
+          "duration": "PT3H40M",
           "segments": [
             {
               "departure": {
                 "iataCode": "KBV",
                 "terminal": "1",
-                "at": "2025-10-10T12:20:00"
+                "at": "2025-10-10T14:15:00"
               },
               "arrival": {
                 "iataCode": "SZX",
                 "terminal": "3",
-                "at": "2025-10-10T16:00:00"
+                "at": "2025-10-10T17:55:00"
               },
               "carrierCode": "FD",
               "number": "3189",
@@ -430,7 +430,7 @@
               "operating": {
                 "carrierCode": "FD"
               },
-              "duration": "PT2H40M",
+              "duration": "PT3H40M",
               "id": "4",
               "numberOfStops": 0,
               "blacklistedInEU": false
@@ -555,7 +555,7 @@
       "numberOfBookableSeats": 6,
       "itineraries": [
         {
-          "duration": "PT2H50M",
+          "duration": "PT3H50M",
           "segments": [
             {
               "departure": {
@@ -576,7 +576,7 @@
               "operating": {
                 "carrierCode": "FD"
               },
-              "duration": "PT2H50M",
+              "duration": "PT3H50M",
               "id": "5",
               "numberOfStops": 0,
               "blacklistedInEU": false
@@ -701,18 +701,18 @@
       "numberOfBookableSeats": 4,
       "itineraries": [
         {
-          "duration": "PT2H35M",
+          "duration": "PT3H35M",
           "segments": [
             {
               "departure": {
                 "iataCode": "KBV",
                 "terminal": "1",
-                "at": "2025-10-10T08:45:00"
+                "at": "2025-10-10T13:15:00"
               },
               "arrival": {
                 "iataCode": "SZX",
                 "terminal": "3",
-                "at": "2025-10-10T12:20:00"
+                "at": "2025-10-10T16:50:00"
               },
               "carrierCode": "SL",
               "number": "8863",
@@ -722,7 +722,7 @@
               "operating": {
                 "carrierCode": "SL"
               },
-              "duration": "PT2H35M",
+              "duration": "PT3H35M",
               "id": "6",
               "numberOfStops": 0,
               "blacklistedInEU": false
@@ -831,7 +831,7 @@
       "numberOfBookableSeats": 8,
       "itineraries": [
         {
-          "duration": "PT2H45M",
+          "duration": "PT3H45M",
           "segments": [
             {
               "departure": {
@@ -852,7 +852,7 @@
               "operating": {
                 "carrierCode": "SL"
               },
-              "duration": "PT2H45M",
+              "duration": "PT3H45M",
               "id": "7",
               "numberOfStops": 0,
               "blacklistedInEU": false
@@ -961,7 +961,7 @@
       "numberOfBookableSeats": 2,
       "itineraries": [
         {
-          "duration": "PT3H00M",
+          "duration": "PT4H",
           "segments": [
             {
               "departure": {
@@ -982,7 +982,7 @@
               "operating": {
                 "carrierCode": "9C"
               },
-              "duration": "PT3H00M",
+              "duration": "PT4H",
               "id": "8",
               "numberOfStops": 0,
               "blacklistedInEU": false
@@ -1107,18 +1107,18 @@
       "numberOfBookableSeats": 6,
       "itineraries": [
         {
-          "duration": "PT2H40M",
+          "duration": "PT3H40M",
           "segments": [
             {
               "departure": {
                 "iataCode": "KBV",
                 "terminal": "1",
-                "at": "2025-10-10T10:25:00"
+                "at": "2025-10-10T13:15:00"
               },
               "arrival": {
                 "iataCode": "SZX",
                 "terminal": "3",
-                "at": "2025-10-10T14:05:00"
+                "at": "2025-10-10T16:55:00"
               },
               "carrierCode": "WE",
               "number": "2456",
@@ -1128,7 +1128,7 @@
               "operating": {
                 "carrierCode": "WE"
               },
-              "duration": "PT2H40M",
+              "duration": "PT3H40M",
               "id": "9",
               "numberOfStops": 0,
               "blacklistedInEU": false
@@ -1237,7 +1237,7 @@
       "numberOfBookableSeats": 4,
       "itineraries": [
         {
-          "duration": "PT2H50M",
+          "duration": "PT3H50M",
           "segments": [
             {
               "departure": {
@@ -1258,7 +1258,7 @@
               "operating": {
                 "carrierCode": "WE"
               },
-              "duration": "PT2H50M",
+              "duration": "PT3H50M",
               "id": "10",
               "numberOfStops": 0,
               "blacklistedInEU": false
