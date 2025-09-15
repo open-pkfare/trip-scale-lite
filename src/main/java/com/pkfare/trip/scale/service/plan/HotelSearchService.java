@@ -147,23 +147,24 @@ public class HotelSearchService {
     }
 
     LocalDate currentCheckInDate = firstCheckInDate;
-
     for (TripRouteParam route : param.getTrip_routes()) {
       LocalDate checkOutDate = DateUtil.addDays(currentCheckInDate, route.getStay_days());
+      /**
       if(checkOutDate.isAfter(lastCheckOutDate)){
         log.info("calculateCheckInOutDates force update date :checkOutDate:{},lastCheckOutDate:{}",checkOutDate,lastCheckOutDate);
         checkOutDate = lastCheckOutDate;
       }
-
+      if(currentCheckInDate.isEqual(checkOutDate)){
+        break;
+      }
+      */
       checkInOutDates.put(route.getLocation_code(),
           new LocalDate[]{currentCheckInDate, checkOutDate});
-
       log.info("calculateCheckInOutDates City {}: CheckIn={}, CheckOut={}",
           route.getLocation_code(), currentCheckInDate, checkOutDate);
 
       // 下一个城市的入住时间是当前城市的退房时间
       currentCheckInDate = checkOutDate;
-
     }
 
     log.info("calculateCheckInOutDates:{}",checkInOutDates);
