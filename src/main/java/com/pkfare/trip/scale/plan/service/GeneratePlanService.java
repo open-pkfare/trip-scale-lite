@@ -142,8 +142,8 @@ public class GeneratePlanService {
           finalResult.flights.size(), finalResult.hotels.size(), finalResult.activities.size(), 
           totalAllocatedActivities, dailyActivityPlans.size());
       logThreadPoolStatus();
-      String resultJson = JsonUtil.toJson(tripRoutePlanResult);
-      log.info("Generated trip plan JSON: {}", resultJson);
+      //String resultJson = JsonUtil.toJson(tripRoutePlanResult);
+      //log.info("Generated trip plan JSON: {}", resultJson);
       return tripRoutePlanResult;
 
     } catch (Exception e) {

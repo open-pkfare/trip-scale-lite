@@ -176,6 +176,8 @@ public class AmadeusFlightOffersSearchAPI {
 
   /**
    * 判断是否需要使用Mock数据
+   * 先判断mockEnabled开关是否为true，如果为false，直接调用API接口
+   * 如果为true，走mockApiResponse逻辑
    */
   private boolean needMock(FlightOffersSearchRequest request) {
     log.debug("AmadeusFlightOffersSearchAPI mockEnabled value: {}", mockEnabled);
@@ -184,16 +186,39 @@ public class AmadeusFlightOffersSearchAPI {
 
   /**
    * 返回Mock API响应
+   * 先判断mock/flightoffers/文件夹下是否有以origin-destination命名的json文件
+   * 如果有，解析该文件构造返回结果
+   * 如果没有该json文件，再解析mock/flights-mock.json文件
    */
   private List<FlightOfferDto> mockApiResponse(FlightOffersSearchRequest request) {
+    String origin = request.getOrigin();
+    String destination = request.getDestination();
+    
+    // 先尝试读取特定路线的mock文件
+    String specificMockFileName = String.format("mock/flightoffers/%s-%s.json", origin, destination);
+    ClassPathResource specificResource = new ClassPathResource(specificMockFileName);
+    
+    if (specificResource.exists()) {
+      log.info("Found specific mock file for route {} -> {}: {}", origin, destination, specificMockFileName);
+      return readMockDataFromResource(specificResource, request, specificMockFileName);
+    }
+    
+    // 如果没有特定路线的文件，使用通用的mock文件
+    log.info("No specific mock file found for route {} -> {}, using general mock file", origin, destination);
+    ClassPathResource generalResource = new ClassPathResource("mock/flights-mock.json");
+    return readMockDataFromResource(generalResource, request, "mock/flights-mock.json");
+  }
+  
+  /**
+   * 从指定资源读取mock数据
+   */
+  private List<FlightOfferDto> readMockDataFromResource(ClassPathResource resource, FlightOffersSearchRequest request, String fileName) {
     try {
-      // 读取mock JSON文件
-      ClassPathResource resource = new ClassPathResource("mock/flights-mock.json");
       JsonNode rootNode = objectMapper.readTree(resource.getInputStream());
       JsonNode dataNode = rootNode.get("data");
       
       if (dataNode == null || !dataNode.isArray()) {
-        log.warn("Mock data format is invalid, returning empty list");
+        log.warn("Mock data format is invalid in file {}, returning empty list", fileName);
         return new ArrayList<>();
       }
       
@@ -207,13 +232,13 @@ public class AmadeusFlightOffersSearchAPI {
         }
       }
       
-      log.info("Returned {} mock flight offers for request: {} -> {}", 
-               mockFlights.size(), request.getOrigin(), request.getDestination());
+      log.info("Returned {} mock flight offers from file {} for request: {} -> {}", 
+               mockFlights.size(), fileName, request.getOrigin(), request.getDestination());
       
       return mockFlights;
       
     } catch (IOException e) {
-      log.error("Failed to read mock flights data", e);
+      log.error("Failed to read mock flights data from file: {}", fileName, e);
       return new ArrayList<>();
     }
   }
