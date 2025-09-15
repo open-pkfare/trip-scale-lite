@@ -140,6 +140,7 @@ public class HotelSearchService {
     // 获取去程到达时间作为第一个城市的入住时间
     LocalDate firstCheckInDate = getArrivalDate(flights, true);
     LocalDate lastCheckOutDate = getReturnDate(flights);
+    log.info("calculateCheckInOutDates,firstCheckInDate:{},lastCheckOutDate:{}",firstCheckInDate,lastCheckOutDate);
     if (firstCheckInDate == null) {
       // 如果无法从航班信息获取，使用开始日期
       firstCheckInDate = DateUtil.parseDate(param.getStart_period());
@@ -228,13 +229,13 @@ public class HotelSearchService {
           SegmentInfo lastSegment = returnItinerary.getSegments().get(
               returnItinerary.getSegments().size() - 1);
 
-          if (lastSegment.getArrivalTime() != null) {
+          if (lastSegment.getDepartureTime() != null) {
             try {
               // 解析到达时间字符串为LocalDate
-              LocalDateTime arrivalDateTime = LocalDateTime.parse(
-                  lastSegment.getArrivalTime(),
+              LocalDateTime departureTime = LocalDateTime.parse(
+                  lastSegment.getDepartureTime(),
                   DateTimeFormatter.ISO_LOCAL_DATE_TIME);
-              return arrivalDateTime.toLocalDate();
+              return departureTime.toLocalDate();
             } catch (Exception e) {
               log.warn("Failed to parse return arrival time: {}", lastSegment.getArrivalTime());
             }
@@ -249,13 +250,13 @@ public class HotelSearchService {
             SegmentInfo lastSegment = itinerary.getSegments().get(
                 itinerary.getSegments().size() - 1);
 
-            if (lastSegment.getArrivalTime() != null) {
+            if (lastSegment.getDepartureTime() != null) {
               try {
-                LocalDateTime arrivalDateTime = LocalDateTime.parse(
-                    lastSegment.getArrivalTime(),
+                LocalDateTime departureTime = LocalDateTime.parse(
+                    lastSegment.getDepartureTime(),
                     DateTimeFormatter.ISO_LOCAL_DATE_TIME);
                 // 对于单程航班，可以假设返程日期为到达日期后的几天
-                return arrivalDateTime.toLocalDate().plusDays(7); // 假设停留7天
+                return departureTime.toLocalDate().plusDays(7); // 假设停留7天
               } catch (Exception e) {
                 log.warn("Failed to parse single trip arrival time: {}", lastSegment.getArrivalTime());
               }
