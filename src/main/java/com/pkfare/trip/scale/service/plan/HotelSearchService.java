@@ -150,13 +150,14 @@ public class HotelSearchService {
     for (TripRouteParam route : param.getTrip_routes()) {
       LocalDate checkOutDate = DateUtil.addDays(currentCheckInDate, route.getStay_days());
       if(checkOutDate.isAfter(lastCheckOutDate)){
+        log.info("calculateCheckInOutDates force update date :checkOutDate:{},lastCheckOutDate:{}",checkOutDate,lastCheckOutDate);
         checkOutDate = lastCheckOutDate;
       }
 
       checkInOutDates.put(route.getLocation_code(),
           new LocalDate[]{currentCheckInDate, checkOutDate});
 
-      log.info("City {}: CheckIn={}, CheckOut={}",
+      log.info("calculateCheckInOutDates City {}: CheckIn={}, CheckOut={}",
           route.getLocation_code(), currentCheckInDate, checkOutDate);
 
       // 下一个城市的入住时间是当前城市的退房时间
@@ -164,6 +165,7 @@ public class HotelSearchService {
 
     }
 
+    log.info("calculateCheckInOutDates:{}",checkInOutDates);
     return checkInOutDates;
   }
 

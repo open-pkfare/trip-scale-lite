@@ -19,7 +19,7 @@
       "numberOfBookableSeats": 6,
       "itineraries": [
         {
-          "duration": "PT22H15M",
+          "duration": "PT12H15M",
           "segments": [
             {
               "departure": {
@@ -30,7 +30,7 @@
               "arrival": {
                 "iataCode": "SZX",
                 "terminal": "3",
-                "at": "2025-10-04T12:30:00"
+                "at": "2025-10-04T02:30:00"
               },
               "carrierCode": "LH",
               "number": "335",
@@ -40,7 +40,7 @@
               "operating": {
                 "carrierCode": "LH"
               },
-              "duration": "PT22H15M",
+              "duration": "PT12H15M",
               "id": "1",
               "numberOfStops": 0,
               "blacklistedInEU": false
@@ -149,7 +149,7 @@
       "numberOfBookableSeats": 8,
       "itineraries": [
         {
-          "duration": "PT22H30M",
+          "duration": "PT12H30M",
           "segments": [
             {
               "departure": {
@@ -160,7 +160,7 @@
               "arrival": {
                 "iataCode": "SZX",
                 "terminal": "3",
-                "at": "2025-10-04T13:45:00"
+                "at": "2025-10-04T03:45:00"
               },
               "carrierCode": "KL",
               "number": "1619",
@@ -170,7 +170,7 @@
               "operating": {
                 "carrierCode": "KL"
               },
-              "duration": "PT22H30M",
+              "duration": "PT12H30M",
               "id": "3",
               "numberOfStops": 0,
               "blacklistedInEU": false
@@ -279,7 +279,7 @@
       "numberOfBookableSeats": 5,
       "itineraries": [
         {
-          "duration": "PT25H20M",
+          "duration": "PT12H45M",
           "segments": [
             {
               "departure": {
@@ -290,7 +290,7 @@
               "arrival": {
                 "iataCode": "SZX",
                 "terminal": "3",
-                "at": "2025-10-04T15:50:00"
+                "at": "2025-10-04T03:15:00"
               },
               "carrierCode": "AZ",
               "number": "1652",
@@ -300,7 +300,7 @@
               "operating": {
                 "carrierCode": "AZ"
               },
-              "duration": "PT25H20M",
+              "duration": "PT12H45M",
               "id": "5",
               "numberOfStops": 0,
               "blacklistedInEU": false
@@ -409,7 +409,7 @@
       "numberOfBookableSeats": 7,
       "itineraries": [
         {
-          "duration": "PT21H40M",
+          "duration": "PT13H",
           "segments": [
             {
               "departure": {
@@ -420,7 +420,7 @@
               "arrival": {
                 "iataCode": "SZX",
                 "terminal": "3",
-                "at": "2025-10-04T11:55:00"
+                "at": "2025-10-04T03:15:00"
               },
               "carrierCode": "AZ",
               "number": "1650",
@@ -430,7 +430,7 @@
               "operating": {
                 "carrierCode": "AZ"
               },
-              "duration": "PT21H40M",
+              "duration": "PT13H",
               "id": "8",
               "numberOfStops": 0,
               "blacklistedInEU": false
@@ -539,7 +539,7 @@
       "numberOfBookableSeats": 9,
       "itineraries": [
         {
-          "duration": "PT25H15M",
+          "duration": "PT12H",
           "segments": [
             {
               "departure": {
@@ -550,7 +550,7 @@
               "arrival": {
                 "iataCode": "SZX",
                 "terminal": "3",
-                "at": "2025-10-04T18:05:00"
+                "at": "2025-10-04T04:50:00"
               },
               "carrierCode": "AZ",
               "number": "1658",
@@ -560,7 +560,7 @@
               "operating": {
                 "carrierCode": "AZ"
               },
-              "duration": "PT25H15M",
+              "duration": "PT12H",
               "id": "11",
               "numberOfStops": 0,
               "blacklistedInEU": false

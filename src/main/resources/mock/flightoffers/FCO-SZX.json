@@ -19,7 +19,7 @@
       "numberOfBookableSeats": 8,
       "itineraries": [
         {
-          "duration": "PT20H45M",
+          "duration": "PT12H15M",
           "segments": [
             {
               "departure": {
@@ -30,7 +30,7 @@
               "arrival": {
                 "iataCode": "SZX",
                 "terminal": "3",
-                "at": "2025-10-04T11:00:00"
+                "at": "2025-10-04T02:30:00"
               },
               "carrierCode": "HU",
               "number": "7908",
@@ -40,7 +40,7 @@
               "operating": {
                 "carrierCode": "HU"
               },
-              "duration": "PT20H45M",
+              "duration": "PT12H15M",
               "id": "1",
               "numberOfStops": 0,
               "blacklistedInEU": false
@@ -149,7 +149,7 @@
       "numberOfBookableSeats": 6,
       "itineraries": [
         {
-          "duration": "PT21H30M",
+          "duration": "PT12H30M",
           "segments": [
             {
               "departure": {
@@ -160,7 +160,7 @@
               "arrival": {
                 "iataCode": "SZX",
                 "terminal": "3",
-                "at": "2025-10-04T12:15:00"
+                "at": "2025-10-04T03:15:00"
               },
               "carrierCode": "QR",
               "number": "132",
@@ -170,7 +170,7 @@
               "operating": {
                 "carrierCode": "QR"
               },
-              "duration": "PT21H30M",
+              "duration": "PT12H30M",
               "id": "2",
               "numberOfStops": 0,
               "blacklistedInEU": false
@@ -279,7 +279,7 @@
       "numberOfBookableSeats": 4,
       "itineraries": [
         {
-          "duration": "PT22H45M",
+          "duration": "PT12H45M",
           "segments": [
             {
               "departure": {
@@ -290,7 +290,7 @@
               "arrival": {
                 "iataCode": "SZX",
                 "terminal": "3",
-                "at": "2025-10-04T12:00:00"
+                "at": "2025-10-04T02:00:00"
               },
               "carrierCode": "LH",
               "number": "235",
@@ -300,7 +300,7 @@
               "operating": {
                 "carrierCode": "LH"
               },
-              "duration": "PT22H45M",
+              "duration": "PT12H45M",
               "id": "3",
               "numberOfStops": 0,
               "blacklistedInEU": false
@@ -409,7 +409,7 @@
       "numberOfBookableSeats": 7,
       "itineraries": [
         {
-          "duration": "PT20H20M",
+          "duration": "PT13H",
           "segments": [
             {
               "departure": {
@@ -420,7 +420,7 @@
               "arrival": {
                 "iataCode": "SZX",
                 "terminal": "3",
-                "at": "2025-10-04T13:00:00"
+                "at": "2025-10-04T05:40:00"
               },
               "carrierCode": "KL",
               "number": "1605",
@@ -430,7 +430,7 @@
               "operating": {
                 "carrierCode": "KL"
               },
-              "duration": "PT20H20M",
+              "duration": "PT13H",
               "id": "4",
               "numberOfStops": 0,
               "blacklistedInEU": false
@@ -539,7 +539,7 @@
       "numberOfBookableSeats": 5,
       "itineraries": [
         {
-          "duration": "PT23H50M",
+          "duration": "PT12H",
           "segments": [
             {
               "departure": {
@@ -550,7 +550,7 @@
               "arrival": {
                 "iataCode": "SZX",
                 "terminal": "3",
-                "at": "2025-10-04T15:05:00"
+                "at": "2025-10-04T03:15:00"
               },
               "carrierCode": "TK",
               "number": "1864",
@@ -560,7 +560,7 @@
               "operating": {
                 "carrierCode": "TK"
               },
-              "duration": "PT23H50M",
+              "duration": "PT12H",
               "id": "5",
               "numberOfStops": 0,
               "blacklistedInEU": false
