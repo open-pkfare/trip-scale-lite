@@ -12,58 +12,34 @@
       "source": "GDS",
       "instantTicketingRequired": false,
       "nonHomogeneous": false,
-      "oneWay": false,
+      "oneWay": true,
       "isUpsellOffer": false,
       "lastTicketingDate": "2025-09-16",
       "lastTicketingDateTime": "2025-09-16",
       "numberOfBookableSeats": 9,
       "itineraries": [
         {
-          "duration": "PT8H15M",
+          "duration": "PT3H30M",
           "segments": [
             {
               "departure": {
                 "iataCode": "SZX",
-                "at": "2025-10-01T03:40:00"
+                "at": "2025-10-01T08:00:00"
               },
               "arrival": {
-                "iataCode": "DMK",
-                "terminal": "1",
-                "at": "2025-10-01T05:25:00"
+                "iataCode": "CNX",
+                "at": "2025-10-01T11:30:00"
               },
-              "carrierCode": "SL",
-              "number": "903",
+              "carrierCode": "CA",
+              "number": "823",
               "aircraft": {
                 "code": "738"
               },
               "operating": {
-                "carrierCode": "SL"
+                "carrierCode": "CA"
               },
-              "duration": "PT2H45M",
+              "duration": "PT3H30M",
               "id": "10",
-              "numberOfStops": 0,
-              "blacklistedInEU": false
-            },
-            {
-              "departure": {
-                "iataCode": "DMK",
-                "terminal": "2",
-                "at": "2025-10-01T09:40:00"
-              },
-              "arrival": {
-                "iataCode": "CNX",
-                "at": "2025-10-01T10:55:00"
-              },
-              "carrierCode": "SL",
-              "number": "506",
-              "aircraft": {
-                "code": "739"
-              },
-              "operating": {
-                "carrierCode": "SL"
-              },
-              "duration": "PT1H15M",
-              "id": "11",
               "numberOfStops": 0,
               "blacklistedInEU": false
             }
@@ -72,19 +48,19 @@
       ],
       "price": {
         "currency": "EUR",
-        "total": "121.33",
-        "base": "67.00",
+        "total": "280.00",
+        "base": "220.00",
         "fees": [
           {
-            "amount": "0.00",
+            "amount": "30.00",
             "type": "SUPPLIER"
           },
           {
-            "amount": "0.00",
+            "amount": "30.00",
             "type": "TICKETING"
           }
         ],
-        "grandTotal": "121.33"
+        "grandTotal": "280.00"
       },
       "pricingOptions": {
         "fareType": [
@@ -134,58 +110,34 @@
       "source": "GDS",
       "instantTicketingRequired": false,
       "nonHomogeneous": false,
-      "oneWay": false,
+      "oneWay": true,
       "isUpsellOffer": false,
       "lastTicketingDate": "2025-09-16",
       "lastTicketingDateTime": "2025-09-16",
       "numberOfBookableSeats": 9,
       "itineraries": [
         {
-          "duration": "PT9H30M",
+          "duration": "PT3H45M",
           "segments": [
             {
               "departure": {
                 "iataCode": "SZX",
-                "at": "2025-10-01T03:40:00"
-              },
-              "arrival": {
-                "iataCode": "DMK",
-                "terminal": "1",
-                "at": "2025-10-01T05:25:00"
-              },
-              "carrierCode": "SL",
-              "number": "903",
-              "aircraft": {
-                "code": "738"
-              },
-              "operating": {
-                "carrierCode": "SL"
-              },
-              "duration": "PT2H45M",
-              "id": "37",
-              "numberOfStops": 0,
-              "blacklistedInEU": false
-            },
-            {
-              "departure": {
-                "iataCode": "DMK",
-                "terminal": "2",
-                "at": "2025-10-01T10:45:00"
+                "at": "2025-10-01T10:15:00"
               },
               "arrival": {
                 "iataCode": "CNX",
-                "at": "2025-10-01T12:10:00"
+                "at": "2025-10-01T14:00:00"
               },
-              "carrierCode": "SL",
-              "number": "508",
+              "carrierCode": "CZ",
+              "number": "609",
               "aircraft": {
-                "code": "739"
+                "code": "333"
               },
               "operating": {
-                "carrierCode": "SL"
+                "carrierCode": "CZ"
               },
-              "duration": "PT1H25M",
-              "id": "38",
+              "duration": "PT3H45M",
+              "id": "37",
               "numberOfStops": 0,
               "blacklistedInEU": false
             }
@@ -194,19 +146,19 @@
       ],
       "price": {
         "currency": "EUR",
-        "total": "121.33",
-        "base": "67.00",
+        "total": "320.00",
+        "base": "250.00",
         "fees": [
           {
-            "amount": "0.00",
+            "amount": "35.00",
             "type": "SUPPLIER"
           },
           {
-            "amount": "0.00",
+            "amount": "35.00",
             "type": "TICKETING"
           }
         ],
-        "grandTotal": "121.33"
+        "grandTotal": "320.00"
       },
       "pricingOptions": {
         "fareType": [
