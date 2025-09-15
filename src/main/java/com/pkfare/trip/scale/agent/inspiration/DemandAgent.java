@@ -12,6 +12,7 @@ import com.google.adk.tools.AgentTool;
 import com.google.adk.tools.FunctionTool;
 import com.google.common.collect.Lists;
 import com.google.genai.types.Content;
+import com.google.genai.types.GenerateContentConfig;
 import com.google.genai.types.Part;
 import com.google.gson.Gson;
 import com.pkfare.trip.scale.assistance.DestinationSuggestionService;
@@ -57,6 +58,7 @@ public class DemandAgent extends BaseAgent {
           .model(GoogleConfig.GEMINI_2_5_FLASH)
           .description("Agent to help user to collect and refine his trip demand info.")
           .instruction(instruction)
+          .generateContentConfig(GenerateContentConfig.builder().temperature(0.2f).build())
           .subAgents(SuggestionAgent.instance())
           .build();
 //          .tools(AgentTool.create(SuggestionAgent.instance(), true))

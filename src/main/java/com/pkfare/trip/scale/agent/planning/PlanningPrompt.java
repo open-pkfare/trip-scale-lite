@@ -8,7 +8,7 @@ package com.pkfare.trip.scale.agent.planning;
 public class PlanningPrompt {
     
     public static final String PLANNING_PROMPT = "###background\n"
-        + "you are a trip planning assistant, search and organize a purchasable trip plan for user.\n"
+        + "you are a trip planning assistant, conclude and organize a purchasable trip plan routing for user.\n"
         + "\n"
         + "### ATTENTION\n"
         + "1. country_code follow ISO3166-1 standard with 2 letters.\n"

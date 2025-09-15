@@ -16,6 +16,7 @@ import com.google.adk.web.config.DevConfig;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.genai.types.Content;
+import com.google.genai.types.GenerateContentConfig;
 import com.google.genai.types.Part;
 import com.pkfare.trip.scale.agent.inspiration.DemandPrompt;
 import com.pkfare.trip.scale.agent.planning.PlanningAgent;
