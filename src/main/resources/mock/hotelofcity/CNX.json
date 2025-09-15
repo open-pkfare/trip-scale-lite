@@ -1,0 +1,654 @@
+{
+  "data": [
+    {
+      "chainCode": "UI",
+      "iataCode": "CNX",
+      "dupeId": 700040315,
+      "name": "DUANGTAWAN HOTEL",
+      "hotelId": "UICNXCDH",
+      "geoCode": {
+        "latitude": 18.78987,
+        "longitude": 98.99973
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "50100",
+        "cityName": "CHIANG MAI",
+        "lines": [
+          "132 LOYKROH ROAD",
+          "CHANGKLAN"
+        ]
+      },
+      "distance": {
+        "value": 0,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:18:04"
+    },
+    {
+      "chainCode": "MD",
+      "iataCode": "CNX",
+      "dupeId": 700056414,
+      "name": "LE MERIDIEN CHIANG MAI",
+      "hotelId": "MDCNX950",
+      "geoCode": {
+        "latitude": 18.79062,
+        "longitude": 98.99918
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "50100",
+        "cityName": "CHIANG MAI",
+        "lines": [
+          "108 CHANG KLAN ROAD",
+          "TAMBOL CHANG KLAN AMPHUR MUANG"
+        ]
+      },
+      "distance": {
+        "value": 0.1,
+        "unit": "KM"
+      },
+      "masterChainCode": "EM",
+      "lastUpdate": "2025-06-03T10:20:21"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "CNX",
+      "dupeId": 700185086,
+      "name": "NEW MITRAPAP HOTEL",
+      "hotelId": "HSCNXAAO",
+      "geoCode": {
+        "latitude": 18.79157,
+        "longitude": 98.9983
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "50300",
+        "cityName": "CHIANG MAI",
+        "lines": [
+          "94-96 RATCHAWONG RD. T.CHANG MOI MUANG"
+        ]
+      },
+      "distance": {
+        "value": 0.24,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:19:12"
+    },
+    {
+      "chainCode": "BC",
+      "iataCode": "CNX",
+      "dupeId": 700041772,
+      "name": "DUSITD2 CHIANG MAI",
+      "hotelId": "BCCNXD2H",
+      "geoCode": {
+        "latitude": 18.78614,
+        "longitude": 98.99932
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "50100",
+        "cityName": "CHIANG MAI",
+        "lines": [
+          "100 CHANG KLAN ROAD",
+          "TAMBOL CHANG KLAN,AMPHUR MUANG"
+        ]
+      },
+      "distance": {
+        "value": 0.41,
+        "unit": "KM"
+      },
+      "masterChainCode": "PV",
+      "lastUpdate": "2025-06-03T10:19:27"
+    },
+    {
+      "chainCode": "EP",
+      "iataCode": "CNX",
+      "dupeId": 700047832,
+      "name": "PURIPUNN BABY GRAND BOUTIQUE",
+      "hotelId": "EPCNXPUR",
+      "geoCode": {
+        "latitude": 18.79131,
+        "longitude": 99.00378
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "50000",
+        "cityName": "CHIANG MAI",
+        "lines": [
+          "104 1 CHAREON MUANG SOI 2"
+        ]
+      },
+      "distance": {
+        "value": 0.45,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:19:37"
+    },
+    {
+      "chainCode": "WV",
+      "iataCode": "CNX",
+      "dupeId": 700018188,
+      "name": "AMORATAPAE HOTEL CHIANGMAI",
+      "hotelId": "WVCNXAMO",
+      "geoCode": {
+        "latitude": 18.78925,
+        "longitude": 98.99372
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "50300",
+        "cityName": "CHIANG MAI",
+        "lines": [
+          "22 CHAIYAPOOM ROAD",
+          "T CHANGMOI MUANG"
+        ]
+      },
+      "distance": {
+        "value": 0.63,
+        "unit": "KM"
+      },
+      "masterChainCode": "TC",
+      "lastUpdate": "2025-06-03T10:17:58"
+    },
+    {
+      "chainCode": "BC",
+      "iataCode": "CNX",
+      "dupeId": 700012085,
+      "name": "ROYAL PRINCESS CHIANG MAI",
+      "hotelId": "BCCNXINN",
+      "geoCode": {
+        "latitude": 18.78332,
+        "longitude": 98.99979
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "50100",
+        "cityName": "CHIANG MAI",
+        "lines": [
+          "112 CHANG KLAN ROAD"
+        ]
+      },
+      "distance": {
+        "value": 0.72,
+        "unit": "KM"
+      },
+      "masterChainCode": "PV",
+      "lastUpdate": "2025-06-03T10:19:27"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "CNX",
+      "dupeId": 700156203,
+      "name": "HOTEL M CHIANG MAI",
+      "hotelId": "HSCNXAAE",
+      "geoCode": {
+        "latitude": 18.7879,
+        "longitude": 98.993
+      },
+      "address": {
+        "countryCode": "TH",
+        "cityName": "CHIANG MAI",
+        "lines": [
+          "RATCHADAMNOEN RD. 2-6"
+        ]
+      },
+      "distance": {
+        "value": 0.73,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:19:12"
+    },
+    {
+      "chainCode": "WV",
+      "iataCode": "CNX",
+      "dupeId": 700054493,
+      "name": "C H HOTEL",
+      "hotelId": "WVCNX755",
+      "geoCode": {
+        "latitude": 18.78265,
+        "longitude": 99.00248
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "50100",
+        "cityName": "CHIANG MAI",
+        "lines": [
+          "10 SOI 8, CHAROENPRATHET RD"
+        ]
+      },
+      "distance": {
+        "value": 0.85,
+        "unit": "KM"
+      },
+      "masterChainCode": "TC",
+      "lastUpdate": "2025-06-03T10:17:58"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "CNX",
+      "dupeId": 700053515,
+      "name": "MANINARAKORN HOTEL",
+      "hotelId": "HSCNXABA",
+      "geoCode": {
+        "latitude": 18.78126,
+        "longitude": 99.0011
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "50100",
+        "cityName": "CHIANG MAI",
+        "lines": [
+          "99 SRIDONCHAI RD. T. CHANGKLAN,"
+        ]
+      },
+      "distance": {
+        "value": 0.96,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:19:12"
+    },
+    {
+      "chainCode": "SG",
+      "iataCode": "CNX",
+      "dupeId": 700070821,
+      "name": "SHANGRI LA CHIANG MAI",
+      "hotelId": "SGCNXLCM",
+      "geoCode": {
+        "latitude": 18.77886,
+        "longitude": 98.99951
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "50100",
+        "cityName": "CHIANG MAI",
+        "lines": [
+          "89/8 CHANG KLAN ROAD"
+        ]
+      },
+      "distance": {
+        "value": 1.22,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:17:34"
+    },
+    {
+      "chainCode": "WV",
+      "iataCode": "CNX",
+      "dupeId": 700055565,
+      "name": "U CHIANG MAI",
+      "hotelId": "WVCNX205",
+      "geoCode": {
+        "latitude": 18.78818,
+        "longitude": 98.98784
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "50200",
+        "cityName": "CHIANG MAI",
+        "lines": [
+          "70 RATCHADAMNOEN ROAD",
+          "SRI-POOM"
+        ]
+      },
+      "distance": {
+        "value": 1.26,
+        "unit": "KM"
+      },
+      "masterChainCode": "TC",
+      "lastUpdate": "2025-06-03T10:17:58"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "CNX",
+      "dupeId": 700144237,
+      "name": "PARASOL INN",
+      "hotelId": "HSCNXACA",
+      "geoCode": {
+        "latitude": 18.78922,
+        "longitude": 98.98619
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "50000",
+        "cityName": "CHIANG MAI",
+        "lines": [
+          "105-1-5 KLANGWIENG INTERSACTION, PRAPOKKLAO ROAD,",
+          "PRASING"
+        ]
+      },
+      "distance": {
+        "value": 1.42,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:19:12"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "CNX",
+      "dupeId": 700013325,
+      "name": "THE EMPRESS HOTEL - CONVENTION CENTER",
+      "hotelId": "HSCNXAAI",
+      "geoCode": {
+        "latitude": 18.77555,
+        "longitude": 99.00015
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "50000",
+        "cityName": "CHIANG MAI",
+        "lines": [
+          "199 CHANG KLANG RD."
+        ]
+      },
+      "distance": {
+        "value": 1.59,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:19:12"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "CNX",
+      "dupeId": 700053693,
+      "name": "CHIANG MAI GATE",
+      "hotelId": "HSCNXABB",
+      "geoCode": {
+        "latitude": 18.77883,
+        "longitude": 98.98835
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "50100",
+        "cityName": "CHIANG MAI",
+        "lines": [
+          "11-10 SURIYAWONG ROAD, HAIYA"
+        ]
+      },
+      "distance": {
+        "value": 1.71,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:19:12"
+    },
+    {
+      "chainCode": "WV",
+      "iataCode": "CNX",
+      "dupeId": 700009665,
+      "name": "IMPERIAL MAE PING HOTEL",
+      "hotelId": "WVCNXIMP",
+      "geoCode": {
+        "latitude": 18.77038,
+        "longitude": 98.99852
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "50100",
+        "cityName": "CHIANG MAI",
+        "lines": [
+          "153 SRIDONCHAI ROAD",
+          "CHANGKLAN DISTRICT - AMPHUR MUANG"
+        ]
+      },
+      "distance": {
+        "value": 2.17,
+        "unit": "KM"
+      },
+      "masterChainCode": "TC",
+      "lastUpdate": "2025-06-03T10:17:58"
+    },
+    {
+      "chainCode": "WV",
+      "iataCode": "CNX",
+      "dupeId": 700127706,
+      "name": "SIRIPANNA VILLAS RESORT",
+      "hotelId": "WVCNX672",
+      "geoCode": {
+        "latitude": 18.77348,
+        "longitude": 99.01497
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "50100",
+        "cityName": "CHIANG MAI",
+        "lines": [
+          "36 RAT UTHIT ROAD",
+          "TAMBON WA KET"
+        ]
+      },
+      "distance": {
+        "value": 2.43,
+        "unit": "KM"
+      },
+      "masterChainCode": "TC",
+      "lastUpdate": "2025-06-03T10:17:58"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "CNX",
+      "dupeId": 700128042,
+      "name": "CENTARA KHUM PHAYA RESORT - SPA CENTARA",
+      "hotelId": "HSCNXACD",
+      "geoCode": {
+        "latitude": 18.8008,
+        "longitude": 99.02548
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "50000",
+        "cityName": "CHIANG MAI",
+        "lines": [
+          "137 MOO 5, NONGPAKLANG, MUANG"
+        ]
+      },
+      "distance": {
+        "value": 2.97,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:19:12"
+    },
+    {
+      "chainCode": "SX",
+      "iataCode": "CNX",
+      "dupeId": 700127705,
+      "name": "FURAMA CHIANG MAI",
+      "hotelId": "SXCNXFCM",
+      "geoCode": {
+        "latitude": 18.80197,
+        "longitude": 98.97077
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "TH50300",
+        "cityName": "CHIANG MAI",
+        "lines": [
+          "54 HUAY KEAW ROAD"
+        ]
+      },
+      "distance": {
+        "value": 3.33,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:17:38"
+    },
+    {
+      "chainCode": "WV",
+      "iataCode": "CNX",
+      "dupeId": 700045876,
+      "name": "EURASIA CHIANG MAI HOTEL",
+      "hotelId": "WVCNX762",
+      "geoCode": {
+        "latitude": 18.76742,
+        "longitude": 99.02394
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "50000",
+        "cityName": "CHIANG MAI",
+        "lines": [
+          "1 LIKKASITHRADVIDHEE RD"
+        ]
+      },
+      "distance": {
+        "value": 3.57,
+        "unit": "KM"
+      },
+      "masterChainCode": "TC",
+      "lastUpdate": "2025-06-03T10:17:58"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "CNX",
+      "dupeId": 501833218,
+      "name": "KANTARY HILLS HOTEL AND SERVICED APARTME",
+      "hotelId": "HSCNXAAZ",
+      "geoCode": {
+        "latitude": 18.79646,
+        "longitude": 98.9647
+      },
+      "address": {
+        "countryCode": "TH",
+        "cityName": "CHIANG MAI",
+        "lines": [
+          "44 NIMMANHAEMIN ROAD, SOI 12, SUTHEP"
+        ]
+      },
+      "distance": {
+        "value": 3.76,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:19:12"
+    },
+    {
+      "chainCode": "WV",
+      "iataCode": "CNX",
+      "dupeId": 700059026,
+      "name": "GOLDEN CUPIDS HOTEL",
+      "hotelId": "WVCNX013",
+      "geoCode": {
+        "latitude": 18.767,
+        "longitude": 99.02616
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "50210",
+        "cityName": "CHIANG MAI",
+        "lines": [
+          "2 1-2 MOO 7",
+          "TUMBON NORNGCHOM"
+        ]
+      },
+      "distance": {
+        "value": 3.77,
+        "unit": "KM"
+      },
+      "masterChainCode": "TC",
+      "lastUpdate": "2025-06-03T10:17:58"
+    },
+    {
+      "chainCode": "WV",
+      "iataCode": "CNX",
+      "dupeId": 700045877,
+      "name": "THE IMPERIAL CHIANG MAI RESORT SPA",
+      "hotelId": "WVCNX761",
+      "geoCode": {
+        "latitude": 18.767,
+        "longitude": 99.02616
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "50180",
+        "cityName": "CHIANG MAI",
+        "lines": [
+          "284 MOO 3, DON KAEWLA2 CHIANG MAI FANG RD, MAE RIM"
+        ]
+      },
+      "distance": {
+        "value": 3.77,
+        "unit": "KM"
+      },
+      "masterChainCode": "TC",
+      "lastUpdate": "2025-06-03T10:17:58"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "CNX",
+      "dupeId": 700162134,
+      "name": "SHEIK ISTANA HOTEL",
+      "hotelId": "HSCNXACB",
+      "geoCode": {
+        "latitude": 18.75439,
+        "longitude": 98.99374
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "50100",
+        "cityName": "CHIANG MAI",
+        "lines": [
+          "10-1 MOO 3 PADAD ROAD, PADAD SUB-DISTRICT"
+        ]
+      },
+      "distance": {
+        "value": 3.99,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:19:12"
+    },
+    {
+      "chainCode": "RT",
+      "iataCode": "CNX",
+      "dupeId": 700150147,
+      "name": "IBIS STYLES CHIANG MAI",
+      "hotelId": "RTCNXALL",
+      "geoCode": {
+        "latitude": 18.80592,
+        "longitude": 98.9603
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "50300",
+        "cityName": "CHIANG MAI",
+        "lines": [
+          "7 9 MOO 1 KANKLONG",
+          "CHOLPRATHAN RD"
+        ]
+      },
+      "distance": {
+        "value": 4.52,
+        "unit": "KM"
+      },
+      "masterChainCode": "RT",
+      "lastUpdate": "2025-06-03T10:17:19"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "CNX",
+      "dupeId": 700137427,
+      "name": "THE ORIENTAL SIAM VILLAS RESORT",
+      "hotelId": "HSCNXAAS",
+      "geoCode": {
+        "latitude": 18.76854,
+        "longitude": 99.04259
+      },
+      "address": {
+        "countryCode": "TH",
+        "postalCode": "50000",
+        "cityName": "CHIANG MAI",
+        "lines": [
+          "40-1 MOO 2, TAMBON TASALA, AMPHUR MUANG"
+        ]
+      },
+      "distance": {
+        "value": 5.1,
+        "unit": "KM"
+      },
+      "lastUpdate": "2025-06-03T10:19:12"
+    }
+  ],
+  "meta": {
+    "count": 26,
+    "links": {
+      "self": "https://test.api.amadeus.com/v1/reference-data/locations/hotels/by-city?cityCode=CNX&hotelSource=ALL&radius=5&radiusUnit=KM"
+    }
+  }
+}
