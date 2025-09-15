@@ -10,6 +10,7 @@ import com.google.adk.tools.FunctionTool;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.genai.types.Content;
+import com.google.genai.types.GenerateContentConfig;
 import com.google.genai.types.Part;
 import com.google.gson.Gson;
 import com.pkfare.trip.scale.assistance.PersonalPreferenceService;
@@ -45,6 +46,7 @@ public class InspirationAgent extends BaseAgent {
           .model(GoogleConfig.GEMINI_2_5_FLASH)
           .description("Agent to help user to inspire trip demand into trip routes.")
           .instruction(InspirationPrompt.TRIP_ROUTES_INSPIRATION)
+          .generateContentConfig(GenerateContentConfig.builder().temperature(0.5f).build())
           .tools(
               FunctionTool.create(PersonalPreferenceService.class, "preferences"))
           .build();
