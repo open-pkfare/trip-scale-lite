@@ -45,7 +45,8 @@ public class MockDataCacheManager {
             loadMockDataFile("mock/hotels/*.json");
             loadMockDataFile( "mock/hotelofcity/*.json");
             loadMockDataFile( "mock/locations/locations.json");
-            
+            loadMockDataFile( "mock/hotelbygeocode/*.json");
+
             // 使用通配符加载所有flightdates文件
             loadMockDataFile( "mock/flightdates/*.json");
             

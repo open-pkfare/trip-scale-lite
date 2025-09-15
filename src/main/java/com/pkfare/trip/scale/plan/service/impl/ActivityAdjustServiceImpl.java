@@ -14,6 +14,7 @@ import com.pkfare.trip.scale.plan.service.response.DailyRoutePlan;
 import com.pkfare.trip.scale.plan.service.response.TripRoutePlanResult;
 import com.pkfare.trip.scale.service.external.ai.GoogleAiService;
 import com.pkfare.trip.scale.service.plan.ActivitySearchService;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
@@ -25,6 +26,7 @@ import java.util.stream.Collectors;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 /**
  * 活动调整服务实现类
@@ -106,11 +108,16 @@ public class ActivityAdjustServiceImpl implements TripPlanAdjustInterface {
   }
 
   private Optional<ActivityInfo> searchActivities(TripRoutePlanResult tripPlan, DailyRoutePlan schedule, AdjustActivityParam adjustActivityParam) {
-    List<ActivityInfo> activities = activitySearchService.searchActivitiesNearby(schedule.getPreferredHotel(), adjustActivityParam.getActivityType(),
-        schedule.getPreferredHotel().getOffers().get(0).getPrice().getCurrency());
-    if (activities.isEmpty()) {
+    List<ActivityInfo> activities;
+    int radius = ActivitySearchService.DEFAULT_RADIUS;
+    do {
+      activities = activitySearchService.searchActivitiesNearby(schedule.getPreferredHotel(), adjustActivityParam.getActivityType(), radius);
+      radius += 2;
+    } while (activities.isEmpty() && radius <= 30);
+    if (CollectionUtils.isEmpty(activities)) {
       return Optional.empty();
     }
+
     Set<String> idSet = tripPlan.getDailyPlans().stream()
         .flatMap(dailyPlan -> dailyPlan.getActivities().stream())
         .map(ActivityInfo::getActivityId).collect(Collectors.toSet());

@@ -33,7 +33,7 @@ public class ActivitySearchService {
   @Autowired
   private AmadeusActivityService amadeusActivityService;
 
-  private static final int DEFAULT_RADIUS = 20;
+  public static final int DEFAULT_RADIUS = 20;
   private static final int MAX_ACTIVITIES_PER_CITY = 6;
   private static final double ACTIVITY_SEARCH_RADIUS_KM = 100.0;
 
@@ -270,15 +270,15 @@ public class ActivitySearchService {
         .collect(Collectors.toList());
   }
 
-  public List<ActivityInfo> searchActivitiesNearby(HotelInfo hotel, String activityType, String currency) {
+  public List<ActivityInfo> searchActivitiesNearby(HotelInfo hotel, String activityType, int radius) {
     ActivitiesSearchRequest request = new ActivitiesSearchRequest();
     request.setLatitude(hotel.getHotel().getLatitude());
     request.setLongitude(hotel.getHotel().getLongitude());
-    // todo 需要调整radius加重试
-    request.setRadius(DEFAULT_RADIUS);
+    request.setRadius(radius);
     if (StringUtils.isNotBlank(activityType)) {
       request.setCategoryGroup(activityType);
     }
+    String currency = hotel.getOffers().getFirst().getPrice().getCurrency();
     if (StringUtils.isNotBlank(currency)) {
       request.setCurrency(currency);
     }
@@ -296,8 +296,8 @@ public class ActivitySearchService {
 
       // 筛选在合理距离内的活动
       List<ActivityInfo> activityInfoList = filterActivitiesByDistance(activityInfos,
-          // todo  因为是mock数据，将距离限制放宽
-          new HotelLocationInfo(hotel.getHotel().getLatitude(), hotel.getHotel().getLongitude()), 2000);
+          // 因为是mock数据，将距离限制放宽
+          new HotelLocationInfo(hotel.getHotel().getLatitude(), hotel.getHotel().getLongitude()), 100);
 
       // 筛选评分最高的活动
       List<ActivityInfo> topActivities = activityInfoList.stream()
