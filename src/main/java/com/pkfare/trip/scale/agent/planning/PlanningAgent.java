@@ -16,6 +16,7 @@ import com.google.adk.web.config.DevConfig;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.genai.types.Content;
+import com.google.genai.types.GenerateContentConfig;
 import com.google.genai.types.Part;
 import com.pkfare.trip.scale.agent.booking.BookingAgent;
 import com.pkfare.trip.scale.agent.inspiration.DemandAgent;
@@ -82,6 +83,7 @@ public class PlanningAgent extends BaseAgent {
           .model(GoogleConfig.GEMINI_2_5_FLASH)
           .description("Agent to extract key data from dialog.")
           .instruction(PlanningPrompt.PLANNING_PROMPT)
+          .generateContentConfig(GenerateContentConfig.builder().temperature(0.2f).build())
           .build();
       INSTANCE = new PlanningAgent();
     }
