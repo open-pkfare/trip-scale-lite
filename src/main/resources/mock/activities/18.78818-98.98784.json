@@ -1,0 +1,1999 @@
+{
+  "data": [
+    {
+      "type": "activity",
+      "id": "139328740",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/shopping/activities/139328740",
+        "methods": [
+          "GET"
+        ]
+      },
+      "name": "一天的道伊因塔农国家公园与大象护理",
+      "description": "<div><p>一天的道伊因塔农国家公园与大象护理</p></div>",
+      "geoCode": {
+        "latitude": 18.7883439,
+        "longitude": 98.98530079999999
+      },
+      "price": {
+        "amount": "117.0",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzQxYTc3MmQ0LWUyZDEtNDgyNC1hMDQ1LTQ0YjdhYTQ4MTVjNiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzM2NjRiMWNjLWU5NWEtNDgwZi1hYmQwLWYwYjcyZmJlMDc5MiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0="
+      ],
+      "bookingLink": "https://amadeus.booking.holibob.tech/product/28fc8280-9a1b-4922-9fd4-73c620bf2b3e",
+      "minimumDuration": ""
+    },
+    {
+      "type": "activity",
+      "id": "139001259",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/shopping/activities/139001259",
+        "methods": [
+          "GET"
+        ]
+      },
+      "name": "清迈的维昂库姆卡姆寺村骑行之旅",
+      "description": "<div><p>骑自行车游览这些令人愉悦的遗址，Wiang Kum Kam曾是13世纪一个重要的城市。参观由孟莱王建造的前清迈遗迹。骑行轻松，适合所有健身水平的人。参观古城的遗址。研究表明，这里是古城Wiang Kum Kam，是孟莱王建造的众多防御城市之一。骑行随后沿着河流悠闲地继续，欣赏清迈南部的乡村村庄。经过的种植园让我们想起了必须品尝的时令水果。在当地餐厅享用美味的泰式午餐。从您的清迈酒店接送，轻松无忧。</p></div>",
+      "geoCode": {
+        "latitude": 18.7877743,
+        "longitude": 98.9939419
+      },
+      "price": {
+        "amount": "108.0",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzNlYTVlYzc0LWVlZDgtNDBlZC04Yzc4LWU0ZWRmYzhmNjBlMCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzljN2ZhNGI2LWUwZjctNGZlYS1hNGU5LTVkMmMzYjRkN2RjZSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2VjY2QzNTU4LWMxZjUtNDg5My05YTE1LTkzNDE1MWZiNGM0ZiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzY5ZDc0YThkLTBmYmYtNGVmNi1hOGJlLTM5ZTVmYWRlYzIzOCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzZiYzNhZTdkLTk5ZGQtNGQyMC1iOWJkLWE4NTQyMDcxMTUxNCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzg2NDk1Mzg1LTM3ZDQtNGFmMC1hOTAyLTJkMThkNmQ3NTVhNiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzNjYTQxYjQ4LWNiM2MtNDA0Zi1iZTE1LWQ4MDAwM2UzODU4ZCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzNmM2MzNDVmLTYyY2UtNDkyNC1iZDJmLTBlOTBkNDVlMzIwYSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2ZkNzhkMmIxLTY1NWUtNGQ4ZS1hNzljLWQxNDdlZDE4NmVmZSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2Y5ODZlNjkxLWI2NWUtNGRhNi1hMTU1LWY5NjA1YmZiMDc4YiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzE1MTRmMDU1LTAxODMtNGRjMy1hODdiLTdmNmY2YWIzMzE3ZCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0="
+      ],
+      "bookingLink": "https://amadeus.booking.holibob.tech/product/7eee20c6-1b21-4ae5-94f7-7dcef486aa1c",
+      "minimumDuration": "5 hours"
+    },
+    {
+      "type": "activity",
+      "id": "139328741",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/shopping/activities/139328741",
+        "methods": [
+          "GET"
+        ]
+      },
+      "name": "半天城市寺庙之旅，搭乘嘟嘟车，享用咖喏索午餐",
+      "description": "<div><p>乘坐嘟嘟车的半日城市寺庙之旅，享用咖喱面午餐</p></div>",
+      "geoCode": {
+        "latitude": 18.7883439,
+        "longitude": 98.98530079999999
+      },
+      "price": {
+        "amount": "86.0",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzY1YWYxOGRkLTA0MWEtNGZmOS04MDcwLTQyN2UwM2MxYjIxZiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0="
+      ],
+      "bookingLink": "https://amadeus.booking.holibob.tech/product/4fb38836-d823-437c-9387-c2bd278f6338",
+      "minimumDuration": ""
+    },
+    {
+      "type": "activity",
+      "id": "138999304",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/shopping/activities/138999304",
+        "methods": [
+          "GET"
+        ]
+      },
+      "name": "杜伊苏泰国家公园至清迈初学者下坡山地自行车骑行",
+      "description": "<div><p>从素贴山国家公园的山顶骑山地自行车下坡1200米，抵达山谷底部的华彤陶湖。这是清迈初学者和中级骑行者的终极山地自行车冒险。我们经验丰富的英语导游将确保您的一天充满乐趣、安全和刺激！我们将提供所有安全装备和山地自行车，您只需带上运动服和鞋子。\n• 在1500米的观景点体验骑行下坡的刺激，直达清迈\n• 骑行穿越泰国北部最美的国家公园，并在湖中游泳\n• 在骑行前往梅平谷的过程中欣赏壮丽的景色\n• 享受专业导游的陪伴和帮助</p></div>",
+      "geoCode": {
+        "latitude": 18.7813779,
+        "longitude": 99.002697
+      },
+      "price": {
+        "amount": "71.0",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzE2Nzc5NjVlLTI5YWItNGU0ZS1iNjExLTAzN2E2ZjljOTJkZSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzI1Nzk1YzNmLTk4NjQtNDhmMy04YzkzLTZjZTJmMmRjM2MzOSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2ZiNjk3OTNmLTliYzctNDEzYS05NDA3LWYyNDkwZGMzZmJkMyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2ZjMWQ5YzczLTc1NGItNDJmMi1iYzU2LTA5NzUxM2U1ZDJkOSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzQyNzM4YTQ1LTRhODYtNDQwMC05NDkxLTAwMzAzMTk5MTNkNCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzE4NzA4MzkwLTQ2OWMtNDM5Ni05YjhlLTkwZGJlNDViZDVjZSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2I0MjZmZDRjLTA4OTctNGZlMi1hYjEwLWI4OGYxMmY5ZDEyMiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzVlMWNiODMzLTA3NGMtNDExMS1hNGE2LTRlOTYxMmU2ZGVmMyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzU5MTU3MTAwLWRlYmYtNDYzOC1hYmNhLTY0NGNhNDFjZmNhZSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzM3NzFmMjFkLTU5YjQtNDdjYy1iZWZmLTBkMjVlNGVjMGI2YyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzNiOGJlOTc1LWI4YzItNDlkOS1iYWIwLTRlYmRlMDJkY2RmNiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzVkZjNmZTI4LTg3ZGItNDc5OS05NDk3LWY2ZmY5MDk3YTNiYyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzY5NWQ4ZDhkLTVkMTMtNGVjMS1hMDI0LTEwODIwNjUyZTRhNiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2QwOTg2NzVjLTY1ZjEtNGEwYS04NDE1LWUxYTA0MjlmN2VlNSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzE0YTkwZWYxLTNkZDctNDBiMy1iYjQyLTI2Mzk5NDgyOGIzNyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzVlMjZkYzI1LWNjZTQtNDQ5ZC04MGY1LTIzMjI0ZTViNWExNSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzU1NWUwMmNlLTA3Y2ItNDdkMC1iMzg1LTdmMzRmOWM2NmRiZCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzc2MzcyYmZhLTg4NTQtNGY1Yy1hMjRhLWNlOWQyMTI4NjlkNSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2IzNjMxZjk4LTE2MWYtNGMzNy05ZTM4LTdhZDVlOGE1MGJkMSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzQ3YjM0OWEwLWIxYmEtNGVlYS1iNTc4LWEzMDNiYThkZWFkZCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2FmMTA1YzgzLTdlMzAtNGVjMy1hNTE2LTE3ZDIzYzdmOWE4MSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzE3ZDJjOTQ0LWExODItNDcxZS04YjMyLTQxYWJmYTAzYTkzNyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzU3YTE1NWM5LTBkOTQtNDMzYy1hNzgyLTg3NzUwNWEzMjYxYyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzk0MzdlZGZmLWZjYzctNDk2MC1iYmVhLTVlNjM4ZjZiYzkwMiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzU3MDgwM2I5LTY4ZGUtNGFjZS05MjAzLWFjOTFmNzA5M2EzMSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0="
+      ],
+      "bookingLink": "https://amadeus.booking.holibob.tech/product/7283ed90-3cf2-4d65-be2e-6fa57da2d697",
+      "minimumDuration": "6 hours"
+    },
+    {
+      "type": "activity",
+      "id": "138999935",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/shopping/activities/138999935",
+        "methods": [
+          "GET"
+        ]
+      },
+      "name": "清迈乡村自行车之旅",
+      "description": "<div><p>骑自行车探索清迈乡村的美丽，体验传统的北方生活方式，欣赏美丽的绿色风景。如果您只有半天的时间进行自行车游览，这是您最好的选择。它将让您对泰国北部的文化、历史、乡村生活和风景留下深刻的印象。您将骑行在精心挑选的安静道路和小巷中，能够体验乡村和泰国的生活方式。这是我们最受欢迎的旅游项目，如果您的身体状况一般，您会表现得很好。在当地餐厅享用美味的泰式午餐。提供无忧的接送服务，从您的清迈酒店出发。</p></div>",
+      "geoCode": {
+        "latitude": 18.7880027,
+        "longitude": 98.9937865
+      },
+      "price": {
+        "amount": "58.0",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzhkNDBhMDM1LWNmNDEtNGZjZi1hMGVjLTgzNWZkOWY3NjUyNSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzVlNTI2ZGM3LTE5NGUtNGY5MC05ZmQzLTU2NDg5YzVkNDAzMyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzc2MDg0Mzk5LTgzM2YtNDU5YS04Y2FmLWRmM2U0OGNlYTFhMCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2M5YWZmNTE3LTIzMTUtNDRlMy05MTFkLTk5ZmJiZmJlZWJhNSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2FiMzUyNzIzLWY1YTctNGI4OC04MTdiLWFkMDJhNGNjODZjMCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzRkMDgxY2I4LWUzYzktNDZhZi1iYzM5LTU1OWYwODAyOWFiMyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2IyMWNhZWUzLTQ4ZjYtNDEzZC05ZjFlLTY3ZWQxMjQ3M2UyYyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzk2M2IzNzVjLWZiODUtNDdmNS04ZDYxLWQwZjIyZjZlYzEyNyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzQzNzJmMWZmLTRhNDMtNGY4OS05NWQwLTBmMWRhZWE1OWY1NCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2MwMTcyZjJjLWQ1YzQtNDc4Zi1iNzEyLWVlY2IzYTcyZTA3ZSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2ZmNjYzZmRmLTcyYTYtNGU4Ny1hNjIyLWVlY2U3YTQ0OGZiYSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzNkM2NmYjg1LTBiM2ItNDgxYS04N2FhLWQ4YmEwZGZmZmUwNyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2NhZTliNmZmLWMyMGEtNDNiYy04YzQ2LTExOTEwNGJmYWFjMyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2MwZjQyZDcwLTU5M2UtNGRkMi1hZDA3LThlMTIwOTgwNjcwNCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzU4MWFmNDhkLTIxODQtNDkyOC05MGQwLWYxZTY4MTBmNjlmOSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2E0MmYwMjZiLWM4YjQtNGJkMS1hYWQyLTk5OTgwYzNjMWRlYyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzE3MmE4MWZmLWZjMTQtNGJiZC05NTQwLTc0MzhlZGQzZDMzYSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2ZlZDNlMTE1LTJkMzAtNGU3YS1hMmIyLWQ3OGJlNGYzMGUyOSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzEyMmY3ZDkxLTg2NzgtNDg2NC1hMmExLWU0YjYxMjFhMGVhOSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2ZkNGE5N2RkLTYxNDQtNDk1OS1hYzU2LWEzYzMwODJlODk5ZSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzA3NzYzNjQyLWM3NmQtNGUwMC1iMGM1LWMyYjFlMjdmMDc4NSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2MwNTUzYmM3LTljZjUtNDk3OC1hYThjLWJmNGZhNDYyYTYyYyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzkwYzk3MWNkLWM5Y2UtNDA2Zi1iOTgzLWM2MjAzMDVkNmJmZCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2ZiMzE5YWI3LWFhYzMtNGFiNS05ZDViLTVmZDBkYzZmZjcyNSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzUzODNlZTNhLTE4NGMtNDNkOC1hNmE0LWUxMjcxMGU3ZTZiOSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2U4YzYwNjRjLTkzYTEtNDM2My05MzMzLTkwOWRkODIwNDk1OCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0="
+      ],
+      "bookingLink": "https://amadeus.booking.holibob.tech/product/625f2726-b9de-4576-9f0f-3dd371b35895",
+      "minimumDuration": "4 hours"
+    },
+    {
+      "type": "activity",
+      "id": "139042854",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/shopping/activities/139042854",
+        "methods": [
+          "GET"
+        ]
+      },
+      "name": "拉胡村徒步旅行与竹筏漂流",
+      "description": "<div><p>我们激动人心的一天的第一个目的地将是莫法瀑布。在瀑布旁留下美好的回忆。然后，放松身心，欣赏大自然的美丽。接下来，参观山脉中的美丽茶园。最后，驱车前往徒步旅行的起点。在山中的美丽荒野中徒步旅行2小时，参观部落小镇。您将有机会在我们经验丰富的导游的帮助下欣赏大自然，感受泰国丛林的魅力。在拉胡村享用美味的午餐。\n\n在梅滕河沿岸的竹筏上享受愉快的体验。探索河两岸的美丽风景。这段轻松的河流之旅大约需要2小时。这是清迈地区最佳和最长的竹筏漂流。您将在竹筏的另一侧与我们的司机会合，然后返回清迈。\n\n亮点：\n\n•          徒步前往一个游客罕至的偏远社区。\n•          了解一个没有公路通往外界的拉胡村的生活。\n•          体验在未开发的河段上进行真正的竹筏漂流的刺激。\n\n如果您喜欢：徒步旅行、竹筏漂流、旅行、文化和家庭冒险，这个旅游项目非常适合您。</p></div>",
+      "geoCode": {
+        "latitude": 18.7883439,
+        "longitude": 98.98530079999999
+      },
+      "price": {
+        "amount": "125.0",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2EzNTIwNTI5LTczNGMtNDFlNC04NDQ5LWI0NDYzMDE2YmM1ZiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzE4NTdmZDgzLTcxOWItNDI0ZC1iZjlmLTBhNDMxYWM0ZDY4NiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzJhMDdmZWRiLWI5YWQtNDBhYi1hNzJiLTA2YWM3ZjBlMzhmOSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0="
+      ],
+      "bookingLink": "https://amadeus.booking.holibob.tech/product/2c3d2ca3-892b-409e-ad76-ada7535d26ba",
+      "minimumDuration": ""
+    },
+    {
+      "type": "activity",
+      "id": "139544141",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/shopping/activities/139544141",
+        "methods": [
+          "GET"
+        ]
+      },
+      "name": "Chiang Mai Premium Pass: 90+ Benefits with Zipline",
+      "shortDescription": "Save up to 57% when you use your pass",
+      "description": "Plan your Chiang Mai trip with a pass that provides access to top attractions. \r\n\r\nChoose your favorite sights and dining spots from the pass for a flexible itinerary. Use the pass for up to 365 days from the purchase date, giving you ample time to visit. \r\n\r\nActivate it when you’re ready for 24 hours of unlimited site visits. Receive instant tickets for easy entry to all included locations and bypass lines for a hassle-free experience with TAGTHAi.\r\n\r\nAttractions and activities include Royal Park Rajapruek, the Siam Dragon Cabaret show, the Chiang Mai coffee farm tour, the Maeping River cruise, and Absolute Thai: Thai Costume Rental Chiang Mai.\r\n\r\nFor massages, visit The Home Massage Chiang Mai, Masumi Spa, RatiLanna Spa, and Heart N Soul Massage.\r\n\r\nEnjoy food and beverages at Nara Thai Cuisine, Kiew Kai Ka, Khao-Sō-i, and the View All Day restaurant.",
+      "geoCode": {
+        "latitude": 18.7813558,
+        "longitude": 98.9890913
+      },
+      "price": {
+        "amount": "79.74",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://aws-tiqets-cdn.imgix.net/images/content/1692afb263a04433bbc0f6e4dcc2e052.jpeg?auto=format%2Ccompress&fit=crop&h=1284&ixlib=python-3.2.1&q=70&w=1284",
+        "https://aws-tiqets-cdn.imgix.net/images/content/cd080d93956d4994aa6d2e271328090f.jpeg?auto=format%2Ccompress&fit=crop&h=1284&ixlib=python-3.2.1&q=70&w=1284",
+        "https://aws-tiqets-cdn.imgix.net/images/content/385d4ae08b2c4b62af423f0ca657bc28.jpeg?auto=format%2Ccompress&fit=crop&h=1284&ixlib=python-3.2.1&q=70&w=1284",
+        "https://aws-tiqets-cdn.imgix.net/images/content/67221c9b873d4216b930c5824e2438b3.jpeg?auto=format%2Ccompress&fit=crop&h=1284&ixlib=python-3.2.1&q=70&w=1284",
+        "https://aws-tiqets-cdn.imgix.net/images/content/988a7bf4150f4f87996085564b685cd9.jpeg?auto=format%2Ccompress&fit=crop&h=1284&ixlib=python-3.2.1&q=70&w=1284",
+        "https://aws-tiqets-cdn.imgix.net/images/content/f7e72139766044f0ba97d99d0e73bd2b.jpeg?auto=format%2Ccompress&fit=crop&h=1284&ixlib=python-3.2.1&q=70&w=1284",
+        "https://aws-tiqets-cdn.imgix.net/images/content/adc110c01d8b4c7bad2168c8d3e0944d.jpeg?auto=format%2Ccompress&fit=crop&h=1284&ixlib=python-3.2.1&q=70&w=1284",
+        "https://aws-tiqets-cdn.imgix.net/images/content/8f0c6ab451974bce87ba1ac7f719a7c8.jpeg?auto=format%2Ccompress&fit=crop&h=1284&ixlib=python-3.2.1&q=70&w=1284",
+        "https://aws-tiqets-cdn.imgix.net/images/content/b1866fedc3184eda8ed22fa4716ba5e4.jpeg?auto=format%2Ccompress&fit=crop&h=1284&ixlib=python-3.2.1&q=70&w=1284",
+        "https://aws-tiqets-cdn.imgix.net/images/content/806408b5eb1d431d9d6e832acecbf165.jpeg?auto=format%2Ccompress&fit=crop&h=1284&ixlib=python-3.2.1&q=70&w=1284"
+      ],
+      "bookingLink": "https://www.tiqets.com/en/checkout/tickets-for-tagthai-chiang-mai-premium-pass-with-9-0-benefits-p1104194/booking_details/?partner=amadeus",
+      "minimumDuration": ""
+    },
+    {
+      "type": "activity",
+      "id": "139013380",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/shopping/activities/139013380",
+        "methods": [
+          "GET"
+        ]
+      },
+      "name": "清迈出发的清莱白庙和山地部落村庄之旅",
+      "description": "<div><p>从清迈出发前往清莱白庙（Wat Rong Khun）和山地部落村庄是一趟在泰国北部非常受欢迎的一日游。清莱位于清迈以北约200公里，是令人惊叹的白庙的所在地。周边地区提供了探索各种部落文化和传统的机会。您将发现一个山地部落社区，让您在村庄中体验更个性化的冒险。别忘了带上您的相机！</p></div>",
+      "geoCode": {
+        "latitude": 18.7883364,
+        "longitude": 98.9852863
+      },
+      "price": {
+        "amount": "48.0",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2ZkYjgxNzgwLTczZDEtNDUzMi04NmY1LTQzOWNkYThhMmQxOSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzc0YTVkNmE3LTU5ZTEtNDAwMS05N2U5LWEzNzAzYmZjODA4NiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzFlOGYzOTg2LWViMGMtNDgzZC04NjRhLWI0NjJkZGZhZTMxYyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzI0ZDU1Mjc3LTQ1MTUtNDZlZS1hNDUyLTM0NDE5OTBmNDc2NSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzRkYmExMzJmLWMxMGEtNDQwOS1iOWUzLTIyYzIyZjkwMzAzZCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2UzMzc1YzJlLWU3MjgtNDFmZC1hNDhlLWIyNzEyMjc2ZDQwNSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2MxYTY2YmJmLThlMTMtNGQ3My1iNTc2LTJkOWQxOGZkOTkwMyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzc3MmNjNmM3LWJmN2EtNGQwMS05YzgzLTA5ZTZhN2RmMWU5MSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2U5M2FmNmVmLTk5YTktNGJjNi04NWJkLTRlNDBkNTAyMTY3OSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzdhOGM2NDI3LTU4MzMtNGNkZS1iOWM5LTM3YjcxMDM0ZjE3NSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2Y2MWVmODc2LWY0NDctNDMxYi05NDk2LTJlNDI4YTgxNzc4ZCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzViYWM1Y2RiLWE4OWMtNGNjNC1hODQ1LTcwYmU1NGQ1NWVlOSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzlhNTBkNGM3LTc0MzItNDQxYy1iYWQ1LTMzNTI5OTI2NzA4NyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2Y5ZWNkNjVhLTkzZWQtNDA5Mi1hM2IxLWRkNjVmYmRiMGRjZSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzU2ZWYzZjM3LTUzNjUtNGQxMy04YjlkLTIwMTEwYzM3N2ZkMiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2RmOGJmZDgyLTllMTgtNDJlZC1hNWY1LWJlZjRkOTQ0Y2M0NyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0="
+      ],
+      "bookingLink": "https://amadeus.booking.holibob.tech/product/c5025a9f-e1ee-4964-8ce8-5959302d16a9",
+      "minimumDuration": "11 hours"
+    },
+    {
+      "type": "activity",
+      "id": "139721941",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/shopping/activities/139721941",
+        "methods": [
+          "GET"
+        ]
+      },
+      "name": "私人全日游清莱，配有面包车和司机",
+      "description": "<div><p>在清莱进行一整天的私人游览，您将拥有自己的面包车和司机，可以选择最符合您兴趣的行程。选项1将带您游览清莱的一些顶级景点。您将首先在梅卡昌温泉放松身心，然后参观长颈族村庄，了解该部落的文化。接下来，探索令人惊叹的白庙和色彩斑斓的蓝庙。在风景如画的秋意丰茶园稍作休息，享受新鲜的茶和山顶美景，最后在以独特黑色主题艺术和建筑而闻名的黑屋博物馆结束一天的行程。如果您想将寺庙参观与著名的金三角之旅结合起来，选项2是一个不错的选择。在梅卡昌温泉和长颈族村庄停留后，您将参观白庙、黑屋博物馆和蓝庙。一天的行程在金三角结束，您可以欣赏湄公河的全景，甚至可以选择额外付费乘船游览。对于那些对寺庙和文化体验感兴趣的人，选项3提供了从清迈出发的一整天旅行。您将从梅卡昌温泉开始，然后参观长颈族村庄。接下来，探索白庙、黑屋博物馆和蓝庙。行程最后在华富拉康寺结束，那里有一座巨大的白色观音像，俯瞰清莱市的壮丽景色。在您选择的游览结束后，您将舒适地返回清迈，留下许多美好的回忆。</p></div>",
+      "geoCode": {
+        "latitude": 18.7968178,
+        "longitude": 98.9931305
+      },
+      "price": {
+        "amount": "183.0",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzU2ZmU4ZWVlLWY0OTQtNGM3Mi05MWI1LWE1Y2NlNjU0NGVjNiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzY5YmY5OTRmLWJiZDEtNGVhMC1iNTk1LWYyMjhiMDc5NmIyZiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2E4YzM1NzMwLWFiNmQtNDY3OS1hMTA5LTgwMzZlZDE3YTY0YSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2E2MmQ2ODk1LTAxNTAtNGYzNy05Y2U4LTY2MDk4ODQ4ZWU1YyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzY0ZDU2MGMwLTc4MjQtNDY1Ni1iZWNlLTA4MWZkZjBkY2Q5YiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzI1ZjA2MGFiLWQzODQtNDE1Ny1hZTY4LWZmNGRmMTdmYmE1MiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2IyZjA5ZDVkLTQyN2ItNDU3Mi05MDZiLWU2ZjJmNTg5M2QzYyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzRmMWU2MDNlLTAwYjEtNGFkNi04M2EyLTk1YjhjYWY2NTRhMiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2Q4MDMwMGU4LTdmNDQtNDViMS1hODllLTBjNTg2MDI2NDRmMiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0="
+      ],
+      "bookingLink": "https://amadeus.booking.holibob.tech/product/1a1a5ebf-43cb-44c0-a30e-1d2ab6cbaa89",
+      "minimumDuration": "12 hours"
+    },
+    {
+      "type": "activity",
+      "id": "139734894",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/shopping/activities/139734894",
+        "methods": [
+          "GET"
+        ]
+      },
+      "name": "在黎明之际体验佛教生活方式之旅",
+      "description": "<div><p>以酒店接送开始您的一天，直接投入到丰富的佛教文化体验中。您的一天从在尊贵的克鲁巴·斯里·维查伊雕像前施舍给僧侣开始，这是一个宁静的时刻，体现了泰国传统的核心。接下来，您将前往托帕尤市场，这是一个热闹的当地中心，您可以在这里享用一顿简单的当地早餐，并浏览新鲜的农产品和手工艺品。随后，您将探索素万度寺，以其精美的建筑和作为清迈佛教中心的历史重要性而闻名。这个宁静的早晨体验将在上午中段以舒适的方式送您返回酒店。</p></div>",
+      "geoCode": {
+        "latitude": 18.7968178,
+        "longitude": 98.9931305
+      },
+      "price": {
+        "amount": "186.0",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzljYzIzMTZkLWIwOTAtNGZiZi04YjU5LWUwMjY2ZGI2ODQ4ZSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2U4MTExZDRhLWRkOTctNDdlOC1iMjdkLTYwN2EwNGJkNjcwMSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2E2NjNiZTI1LTUxZTYtNDNiMy1iNzg0LThkYTRiYWIxZjk3YSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzFlMGJhMmE4LTM1YTgtNGNmMi05YThiLTViNTU0N2U1MzIxMyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzBjZGYwYzM4LWY0MmYtNDllYy05NWU4LWI0YmY5YWI2MWFjMSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0="
+      ],
+      "bookingLink": "https://amadeus.booking.holibob.tech/product/4cc1a0eb-10e2-45ed-bc5a-86cc97c74315",
+      "minimumDuration": "4 hours"
+    },
+    {
+      "type": "activity",
+      "id": "139721921",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/shopping/activities/139721921",
+        "methods": [
+          "GET"
+        ]
+      },
+      "name": "清莱艺术与文化地标一日游团体游",
+      "description": "<div><p>在这次从清迈出发的全天小组游中，探索清莱的艺术和文化宝藏。穿越美丽的风景，发现展示泰国北部丰富遗产和创造力的标志性地标。首先在一个天然温泉放松身心，然后前往被称为白庙的朗孔寺。这个视觉上令人惊叹的地方以其精美的白色雕刻和象征性的艺术作品而闻名。接下来，前往被称为黑屋的班达姆博物馆。这组引人入胜的黑色木建筑中，展示了泰国艺术家塔万·杜查尼的各种艺术和文化展品。在被称为蓝庙的朗孔苏亚寺，您将被深蓝色的内部装饰和雄伟的白色佛像所吸引，二者共同营造出一种生动而宁静的氛围。接下来，参观长颈族村，见证卡伦山地部落独特的传统和生活方式。这次文化体验让您深入了解泰国最著名的民族之一。此次旅行将艺术、历史和文化沉浸完美结合，为所有旅行者提供充实而难忘的体验。</p></div>",
+      "geoCode": {
+        "latitude": 18.7968178,
+        "longitude": 98.9931305
+      },
+      "price": {
+        "amount": "96.0",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzU4NmQ4OTliLTU4YzItNDc2ZS04NDFhLTc2MmE4YWZkYjA2NCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzA1YjFlOWJhLWU3OTktNGRjOC05ZmYyLTc1YjIwYTQ0MDJlZSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2I0OWJkNmIyLTk1MDEtNGRkNS05NzljLTE0ZjQwNzJmYjkxMiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzIzYWYzNDUxLWVkYTEtNDhhNC1iODZlLWJlMGU0ZGU2NjBmMiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0="
+      ],
+      "bookingLink": "https://amadeus.booking.holibob.tech/product/1b4d68a8-b878-4454-b2bb-3b00e8e957ca",
+      "minimumDuration": ""
+    },
+    {
+      "type": "activity",
+      "id": "139013378",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/shopping/activities/139013378",
+        "methods": [
+          "GET"
+        ]
+      },
+      "name": "清迈 - 印塔侬一日游",
+      "description": "<div><p>在这次旅行中，您将参观因他侬山，也被称为泰国的屋脊，海拔2565米，是该国的最高点。这次旅行将带您领略泰国北部最高山脉上一些最美丽的自然景观。您将参观一座令人印象深刻的瀑布，一个山地部落村庄，以及壮观的双王和王后皇家佛塔。在到达因他侬山之前，您将享受一次轻松的自然小径徒步旅行。别忘了带上您的相机！</p></div>",
+      "geoCode": {
+        "latitude": 18.7883364,
+        "longitude": 98.9852863
+      },
+      "price": {
+        "amount": "42.0",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2I5OTYwZGZiLTViZGMtNGRhYi05ZjI0LWQ5MWE3Y2VhODFjMyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2EwNzRlZGVkLTNlN2EtNGMzMS1iMGIzLTRiODcyNGYyZTRmMSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzdhNTM3M2UwLTM1NzctNGIxNy1iMDFmLWNmOTA5ODA2MzI3MSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzQyNWU0MTJmLTYwYzYtNDE4Ny1iYmY3LWU4MmZlMTZkNWM1ZCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2MwNjY2MGY0LTJhOTMtNGVmNi05MDY5LWVjNDYzYzJiNWZkYiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2EwMGIwYjhjLWI4OWItNDZlMy1hYzdlLWNhMGJmZTVkYzYwMyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2M3MjJlMzkxLTc0NTMtNGRmYi04ZTUwLTQ4MGE1ZDMyMDczMiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0="
+      ],
+      "bookingLink": "https://amadeus.booking.holibob.tech/product/5c4974f8-6b3a-4a91-8145-9ec45fc474d4",
+      "minimumDuration": "10 hours"
+    },
+    {
+      "type": "activity",
+      "id": "139721925",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/shopping/activities/139721925",
+        "methods": [
+          "GET"
+        ]
+      },
+      "name": "私人半日游：帕拉特寺和素贴山寺",
+      "description": "<div><p>在这次轻松的半日游中，和私人司机一起探索清迈最具灵性和风景如画的两座寺庙。您的旅程可以从宁静的森林小径开始，或者直接驱车前往位于山坡上的隐秘丛林寺庙——帕拉特寺（Wat Pha Lat）。这里被郁郁葱葱的绿树环绕，宁静的环境和美丽的石雕非常适合反思和拍照。接着继续向山上前往清迈最具标志性的寺庙——双龙寺（Wat Phra That Doi Suthep）。您可以攀登传奇的阶梯，或乘坐缆车到达金色的佛塔，欣赏城市的壮丽景色。了解当地的信仰，感受这座受人尊敬的寺庙的精神能量。这次半日私人旅行非常适合时间有限的旅行者，让您可以按照自己的节奏探索清迈的圣地，无需导游。</p></div>",
+      "geoCode": {
+        "latitude": 18.8064779,
+        "longitude": 98.94661459999999
+      },
+      "price": {
+        "amount": "80.0",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzYxMjliZDc0LWZlMjktNDk4Zi04ZmI5LWE2MzBlN2ZkM2E1NyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzBiNjdjY2M5LWU1ZTctNDJiOC04NjFhLTU4NDYwZDI3NGEwMCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2EzZDBkOTBiLWNmNGQtNDgxNi1hYjRkLTQ0ZDQ2YmQ5NzE2YyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzRiYjMzNDUxLTg4ZTUtNDE4Ny1hYzlkLTI2YjRiZmZmZWM1ZCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0="
+      ],
+      "bookingLink": "https://amadeus.booking.holibob.tech/product/78086683-ca3b-49b0-9834-81834180d177",
+      "minimumDuration": "4 hours"
+    },
+    {
+      "type": "activity",
+      "id": "139000005",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/shopping/activities/139000005",
+        "methods": [
+          "GET"
+        ]
+      },
+      "name": "清迈出发的清莱之旅：寺庙与黑屋博物馆",
+      "description": "<div><p>在这次从清迈出发的小团体游中，您可以在一天内欣赏清莱的亮点。您将参观宏伟的朗坤寺，也被称为白庙，游览朗色寺（蓝庙），并有机会在被称为“黑屋”的黑屋博物馆了解传统与现代建筑。</p></div>",
+      "geoCode": {
+        "latitude": 18.787475,
+        "longitude": 98.99394439999999
+      },
+      "price": {
+        "amount": "45.0",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2NjODJkMmNhLTBkNTQtNGU0MC04NDc3LTIwODRmNmJmNjc5MyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzBjZGE3OTFiLTE3MDItNDhiYi04OWUwLTFhZGI4NDBhM2U2NSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2RiYTViODk5LTQ4ODItNGY2ZS04MWVkLTA1NDFhNzIxMTkzYyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzQ2Y2FhMzMxLTc1MDItNDZiOC04NzRhLTJmMjc1MDE3MGJhZCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzI0ZDgxMjllLTM4MDctNGMxZi05NjJkLTQxYjc1ODRjZTExYyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzhkYThjZjJhLTU4MjEtNGFlZS05MzVjLTgyNjU0MzBiZTZlOCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2JlZTczMDY4LTA5MjEtNGFkYy05YzQ3LTZjYmE1YTY1NDljZSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2Q1MmY4MzljLWM3NjAtNDRmNS05YTZjLWFjY2YxMmNmYzFjMiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzA4ZjA5YzZiLWRlYTgtNDQ5MS1iYmJmLWI4YzA3MTUwN2U1NyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2NkNmJhNGY2LWI1OGUtNDY4Yi04ODc2LTg1NjNhODc2NWZkYSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2U1ZmQ0ZGJlLWVmODAtNDkwMC1iMWY1LTdlMjQ1NDU4NDRjZCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2QyYzZiNTc4LTA1YzgtNDM2ZC04MzRhLTg4MTY5MzBjODI5NiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzhkZmE4MDQxLWQyYWEtNDQwYS04ZTJkLTQ2YzIwNTIxNGZiMSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2RlYmY0MDRjLWMyNWYtNDFmMS04YTc4LTYzZGJkYWEyM2E1YiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2VmMzY2ODZmLTZmMWYtNDc5YS1iMjdiLTU0MTMwYzUxODhlYyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzRhM2JjZjIwLTM1YjAtNGNlNC1iMjEwLTY1ZTk2MjM5OWQwNiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzM3YjdjZWFhLTc4OTUtNGFiOS1hNDhhLTVjYWFjYjNmOGJlZSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2ViNmU2MWM5LWMwNjQtNGYzYi1hMDIyLThjNWRiNmEyZTIyZCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2QzYWE5NTgxLTg5OWItNDJkMi1iMDA3LTM2MTc5OTk4YTZlMyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzQxMDNlOGMzLWYzNjItNGZmMS05ZGI0LTEwYWJhYjljZWI4OCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzc1OWQ0MGU4LTFjMzAtNDA4NS1iODEyLTRlZTZlZTEyM2U4YyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzNjYTNmY2VhLTlkZWItNGJmYy1hZTQ4LTZjNzc0MTNkMDY1MyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2QyMjE4MjYwLTc0NWQtNGM2ZC1hZWFjLWE4ZWQxZmYwODk5YSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzkxYmZmYmM1LWUxNjMtNDAwNi04MDc4LTdlNjVlMDc3ODgxYyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2U5YjM5NzhmLTc0ODItNDc4MC1hMjE1LTcxMjU2NWE0MGJiYSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzg0N2Q4M2VhLWM5MWYtNDJiYy1hOGM2LWNhZWMxNzNkYjhkNSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2Y4ZWVmNjMwLTdiY2ItNDhhMS04NmYzLTEzMzQ1NjZlODU5ZiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzBhOThlMjI3LTcwOWUtNGQ4Zi1iMGViLTc3ODhmNmFhZDc1MCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzQ1MzlkYjdhLWQyZDktNDdiOS1hOTA4LTVkY2NlYjQwYzI0YSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzY3NWQ5M2FlLTYxMjctNGFiZi1hMTQ2LTYzODFiM2M0NTM0ZCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2Q4OGE1OTg3LTZkNjctNGQ5Ni1iMmQzLTc3ZDg2YzYwMTcyZSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0="
+      ],
+      "bookingLink": "https://amadeus.booking.holibob.tech/product/49b09a89-c008-4a2a-8741-d1706f337c9e",
+      "minimumDuration": "11 hours"
+    },
+    {
+      "type": "activity",
+      "id": "139000095",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/shopping/activities/139000095",
+        "methods": [
+          "GET"
+        ]
+      },
+      "name": "清迈半日游：素贴山寺与城市寺庙",
+      "description": "<div><p>通过这个小团体旅游，您可以打卡泰国三大顶级寺庙。您将参观古老的契迪龙寺（Wat Chedi Louang），漫步于苏安道克寺（Wat Saun Dok）的皇家花园，并进行僧侣朝圣，前往清迈最神圣的寺庙——双龙寺（Wat Phra That Doi Suthep）。亮点包括金色兰纳宝塔和俯瞰城市的壮丽景色。</p></div>",
+      "geoCode": {
+        "latitude": 18.787747,
+        "longitude": 98.99312839999999
+      },
+      "price": {
+        "amount": "38.0",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzhmYWE5NjBiLWRlYjktNGNjYi1iNzgyLTI0OTYzYThiMmEzZCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzA4MWU5MGRhLWQ5N2MtNDVkZS04ZGVmLTA5NzVkNzAwMjVmOCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2NmN2Q0MWRhLWEzZmItNDFkYy04NGYxLTZmZDY0NzUyZTg2YiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzdjMmEzZTlkLWEyZmMtNGUyNC1iZWVkLWQ0YjdhY2I5NzI2ZiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2YyNjMzYTM5LTc3NTYtNGI5OC1hNTc5LTI5MDRmZDFiNzAxOCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzU4ZGQ0ODkyLTg0MjYtNDc3MS04MDM0LTA4MTRjYmQ5Y2IxNiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0="
+      ],
+      "bookingLink": "https://amadeus.booking.holibob.tech/product/4d167078-2280-499c-b4d2-63800945d6bf",
+      "minimumDuration": "4 hours"
+    },
+    {
+      "type": "activity",
+      "id": "139002206",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/shopping/activities/139002206",
+        "methods": [
+          "GET"
+        ]
+      },
+      "name": "全天清莱三庙之旅：白庙、蓝庙、大佛庙",
+      "description": "<div><p>此行程提供了沉浸式体验，深入了解泰国丰富的文化和遗产。</p><p>您将有机会参观三座独特的寺庙，每座寺庙代表了泰国佛教和建筑风格的不同方面。这将帮助您更深入地理解该国的宗教和艺术传统。</p><p>白庙、蓝庙和红庙因其独特而引人注目的设计而闻名。</p><p>从瓦龙昆的非传统白色建筑，到瓦龙苏亚滕的鲜艳蓝色，再到瓦胡亚普拉康结合传统与现代元素的设计，每座寺庙都展示了卓越的工艺和象征意义。</p><p>我们的专业导游将在整个行程中陪伴您。他们将分享关于每座寺庙的深刻信息，包括其历史、建筑重要性和文化背景。</p><p>*提供酒店往返接送</p><p>*小团体游</p><p>*参观温泉和三座寺庙</p><p>*包含自助午餐</p></div>",
+      "geoCode": {
+        "latitude": 18.787747,
+        "longitude": 98.99312839999999
+      },
+      "price": {
+        "amount": "41.0",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzcyNjFkZjZjLTIxODItNDE4ZC04ZmViLTA3YjhiYjIwNjUyYiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzA2Y2JmMGU1LTE0ZjMtNGMwMC1hNzVjLTI2NjNlNjgwM2QwMSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzI4OWM5N2JmLTZhOTAtNDhmMy1hNWNkLTNlZWEwOWY3ZThjYiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzAxMjg3ZDBhLTA1ZTgtNDhjOC1iNTU2LWRmYWFiODU1ZDdkNiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2JjMWU5ZjRhLWQwMzktNGYwNC04NmNmLWU4M2I2ZGMyZTZiMyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzM3NjgwY2Q2LTg1MzUtNGFkNi1iMjhhLTkxOGYzNjVhZGFjZiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzA0OTk3MjJmLTllODItNDRkMS1hZjY4LWE5MDY1NWFkMDYxMiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzJmMDk2ODljLTEzODMtNDg0OC1iYWM4LWEzN2MzMDA2NDQ0MyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2I2ZjIzMmM2LTkyNmItNDFjNy1iNWRhLTM5N2E5MmMwNjAwZiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzA1ZThiNjNmLTM3ODMtNGRlOC1iZTNjLWI2ZDFmOGYyZjNhNyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2VhNzdhNTE4LTIyNzUtNDNkZC05MzFlLTkxNDg5OGZhN2VkYSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2Y4MTBlZDJjLWNmMWQtNDFkZi1hZGY3LTU2YjhhMTlkZDE3MyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzI3NTRjMzIwLTYzNGEtNDI3ZC1hMTc1LTgzNjMzMzZlYzZlMCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzRmZmNmZjlkLTUyMjQtNGEzNC1hZTAxLWM1NWNiMmE3NGJhYSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzg5ODY2NzNmLTg2MTMtNDM0OC05MjE4LWI3NzEzZDk0YWZmYyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzIyOTBlY2FkLTdjY2EtNDliNC05YTdkLTc4ZTdlYWQyYmQ3ZiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzg1YTRmOGFhLWEwMTQtNDQxZS04OTU2LTdlZjRmZDM2OWZlZSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2I3NGE3MGM5LTc0NDAtNDFmZC05Y2M5LWYwNjU5NDQzNDIzNCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzk2ZmIzYTI2LTE1ZTEtNGExZi04MzY1LWQ0ZDRmZmNjYzE2ZSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2YzYjYwZTY2LTU2NTQtNDYzNy05MzM1LWYzZGRjYzRiMGM4OSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzk4ODBlNGUwLThiZjAtNDEzYy1hZmRlLTY1OWJlNDBiZGM1ZiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzY3OWE4ZjhkLTdhZjItNDI4NS04YTBlLTJlNWY4YjA5MDM4NCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzA1OWQ5MTM3LTI3NmYtNDE5NC04MGQ3LWFiMzQ3YWUzZTE5MCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2QyMGRiMWQyLWJmNWEtNGE5Zi05ZTUwLWExMTdlNWI0ZGVlYiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzI1ZGJmYzYwLTI2OGEtNGNjZC04NmE3LWE4NmI3YTUxODM3YyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2UzMGJmYzc1LWM3YTAtNGQ1MC04NDQ1LTJkODgxYjBkNDAyZSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzg0Yjg0ZDYwLWUzMWUtNGU1NS04YTRlLTVjYTU1Zjk0MWMwNiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2M3ZDc0ODczLTEwMjEtNDY2YS05MGU4LWNkOTFjZjZkNmU4YiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzkxZGJmYzI4LTdmMzAtNGM3Yi04NGQ2LWVkNGUxNjFlZGUyNiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzZiNWJkNGI5LWE5ODEtNDI5OC05NzgyLWZlMWFiYmZiNGNhZSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzQ4NDA4MDg0LTUxMWQtNDUwOC04ZDk3LTk4YzU3NzM2NTYxZiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2RjMmE2MDM2LTEwMzMtNDAyNC1iMTc1LWY1NDAwNWFmMTZlNSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0="
+      ],
+      "bookingLink": "https://amadeus.booking.holibob.tech/product/36435190-6601-4b99-964e-dcd80d9ecbd7",
+      "minimumDuration": ""
+    },
+    {
+      "type": "activity",
+      "id": "138999112",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/shopping/activities/138999112",
+        "methods": [
+          "GET"
+        ]
+      },
+      "name": "半日游：素贴山寺及城市寺庙（私人导览）",
+      "description": "<div><p>在这次导览冒险中，体验泰国北部一些受人喜爱的佛教寺庙。在方便的酒店接送后，前往素贴-普伊国家公园，乘坐缆车或攀登306级台阶，抵达神圣的素贴寺（Wat Phra That Doi Suthep）。在返回城市之前，欣赏清迈的壮丽景色，并参观契迪龙寺和潘陶寺。</p></div>",
+      "geoCode": {
+        "latitude": 18.8049889,
+        "longitude": 98.92163370000002
+      },
+      "price": {
+        "amount": "57.0",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzQ5Y2ZhYjRlLTY5YzctNDgyNy1iMjNlLTNhMzQ2Y2Y1NjQwMCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2QzYzUyMDY0LWUwNjctNDlhMi1hZmU5LTlmOTEwNWE4MTQyMCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzNjOWE4OWJjLWZhNWQtNDNkMy1hZDNmLTU5MjI5YzM3MjI1YSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzdhM2NmZDJiLWIzYzAtNGMxMS05ZjM3LTNjMDRiODQyYmJlZiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2M0NTBkOWVmLTc4NmItNGFlMS1iMmY1LTQyZWM5NjVlM2Q1MCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzUxNWIxZDk4LWYyOWUtNDhmNi04Y2E3LWU2MDg3ZGZjYTg4ZiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2I2YjI5NzdhLTYyY2EtNDY0Mi1iZmM3LTdiM2ZhZjExOTBlNyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzBmZDgyZGRlLWJlZmUtNDlkMS05MTE1LWU2MWEzYzkxNTFjOCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzNjNmI1NzJhLTdhMjktNDA5NS1hN2Y4LTQ3MzE3YTZhMGM1NCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzdmOGVjMTQwLTkyZWUtNGY2NC1hN2I2LTAxMGVlMGUxYTQxZSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzFiMTMzZDgzLTA2Y2YtNDFhOS1iMGUwLTZiMTMyZTQ0YTBmYSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0="
+      ],
+      "bookingLink": "https://amadeus.booking.holibob.tech/product/6d84bc89-48aa-4550-9bd1-1d6dc78e327e",
+      "minimumDuration": ""
+    },
+    {
+      "type": "activity",
+      "id": "139001975",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/shopping/activities/139001975",
+        "methods": [
+          "GET"
+        ]
+      },
+      "name": "与佛教僧侣交谈并在寺庙中进行手工艺制作",
+      "description": "<div><p>您可以根据列表自行参观寺庙。这次旅行将使您的寺庙参观变得特别，我们将与僧侣和当地人安排，让您能够进入当地居民的家中，与他们交谈。</p></div>",
+      "geoCode": {
+        "latitude": 18.7902317,
+        "longitude": 98.9873528
+      },
+      "price": {
+        "amount": "42.0",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzEwYjhlOGFlLTMwOWUtNDhkNS04ZjQxLWM1YzJhMGRkMGNhNSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzllNzM1OTkyLTliMWQtNDNhNi05MTA0LWYzMGRiMTM3NGQzMSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzBlNzEwYWI3LWQzZWUtNGRjMy1iNWQ1LWY0MGY5ZWY5MTU3NSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzBmMTdmMTE1LTBjNDEtNGRlNy1iYWM5LTI4YTAzOThmOGNlZiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzI5NmM0ZWNkLWE5NDgtNDZmNi1hNTU1LWYxNGE2ZDg4N2IwYSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzFmYzMwYTM0LWQ3MTktNDE2My04ZjRkLWJkMDM3NjdkY2UzNyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2QyYzEyMmUzLTllZWYtNGQwMy1iZmNiLTM3MDgxMmVhYzMyNiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzE3Njk1MmRjLTJmN2UtNDBjZS05OWYyLWNmZmFlMzY4YmQwZSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzFlYmU4MzhjLWViMmQtNDY5MS04MTNmLWNhZTNjMmUxZjVhMSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2YxYjZiODBlLTg5YzUtNGU3Mi05NDVkLTkzYjUzYWUyMGU3MiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzRhMmE0NzU1LTVkYTAtNDhhOC05MzE1LWJhOGRkYmY4OGEyOSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2M4YWU3YjBiLTJmNTItNDg3Ni04MzE5LTk1ZjBiYTQ3M2UyMCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0="
+      ],
+      "bookingLink": "https://amadeus.booking.holibob.tech/product/09ce6294-37b8-4deb-86c3-232e07044b25",
+      "minimumDuration": "3 hours"
+    },
+    {
+      "type": "activity",
+      "id": "138999242",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/shopping/activities/138999242",
+        "methods": [
+          "GET"
+        ]
+      },
+      "name": "清迈半日美食之旅",
+      "description": "<div><p>在这场半天的美食之旅中，尽情品尝清迈的美味。无论您是想以美食开启新的一天，还是希望在清迈的旅程中画上完美的句号，这次旅行都将带您深入了解当地的烹饪文化，并有机会品尝到美味的地方特色。从芒果糯米饭到木薯饺子，这次旅行展示了泰国美食中常常在国外菜单上缺失的一面。</p></div>",
+      "geoCode": {
+        "latitude": 18.7911661,
+        "longitude": 99.0013235
+      },
+      "price": {
+        "amount": "36.0",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzE0ZGUyMmIzLTg1ZmYtNGYxNy1hZGYyLTNmOGRmYjFkNzc2OSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzNmZjdjMzlmLTBmMjUtNDdiYS04NzAwLWVmNDU0YTM1NmMwNiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzZjMmIyNDJhLWFlNDgtNGIzNi04YmE1LTFjNDE2YTk0NmYzNCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzUxOWViOWRkLTQ3MzItNDJiOS05NzM5LWYwMTZjYzU2ZmE0OSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2YyMGQ2M2YxLWMzZmMtNDVjNy04YTk4LWRhNzRkNjhhNzBmNCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2UyNjk0ZWFjLWFjZjgtNDU4Yy1iYzYyLTJiNmM2ZjhmNTYxZSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2EzZTVkMDZmLTc0MjUtNGI5YS1hYTY5LTIyOTRkNzY1NDQwNSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzc5YjgxMWEwLTZiNzAtNDg4MS1hZTkwLTIxZmQzMWVmNDFmMSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2Y2MjQ0YTIwLWRhZTktNDdlMC05Y2ZkLWZlM2Q1OGQwZjJmNSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2M0NmJjZDNlLWUxNTktNDA0YS05N2YzLWFhNGUyZTVhNDJiZiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzUxODQyZTA2LTM2OTEtNDkyMC1hODc1LWE1YWM3ODBhMTE2MyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0="
+      ],
+      "bookingLink": "https://amadeus.booking.holibob.tech/product/074a9116-600c-44a8-90d3-a10a4c258ad1",
+      "minimumDuration": ""
+    },
+    {
+      "type": "activity",
+      "id": "139000071",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/shopping/activities/139000071",
+        "methods": [
+          "GET"
+        ]
+      },
+      "name": "清迈古城维昂库姆坎团体游",
+      "description": "<div><p>在这次从清迈出发的团体游中，探索维昂库姆坎，欣赏超过200年的古迹。您还将乘坐马车，这是一种有趣的方式来参观历史悠久的寺庙并探索周边地区。还可以参观清迈的艺术与文化中心以及三王纪念碑。</p></div>",
+      "geoCode": {
+        "latitude": 18.7998821,
+        "longitude": 99.0126255
+      },
+      "price": {
+        "amount": "39.0",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2ZkYzk1YTBmLTFmOGUtNDhiYi05MWIzLTdmZjM3MmY2ZTQ0ZiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzNjYjgzMDJkLTUyYWYtNDVkZi1hNTliLTljMGQzYzgxNjBiZSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzEzM2EzMDVhLThkNjYtNGNiNi05YTRjLTdjNDlmNzliMmFiMSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2Q4ZDdkMWNmLTlkZDUtNDA2OS04MTVlLWUwOWUwNTM2N2I3OCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzQ2OWIwYmE4LTdkZTEtNDdkZi1iNDAxLThmYTVjYWNlZmE5ZCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2JkY2YzNzEwLTgzNzItNGQ5Yy1hMjU1LWEyNmE2ZTFmNzU1NCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzQzZDIyYzA1LThmNDItNGUzMy1iNjQ2LWE3ZjA4YTljZDdmOSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2I0ZTEyMmU2LTBhZjgtNDVjMy1iZDlkLTk3ZTc4ODI4ZTY2ZCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzRjODRmNzRhLWQ4MWYtNDRmYi1iMTZmLTE5ZjA1YjkwYTQzYyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0="
+      ],
+      "bookingLink": "https://amadeus.booking.holibob.tech/product/65efed31-19dd-4635-ba7f-0c26044e7d0d",
+      "minimumDuration": "3 hours 30 minutes"
+    },
+    {
+      "type": "activity",
+      "id": "139001878",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/shopping/activities/139001878",
+        "methods": [
+          "GET"
+        ]
+      },
+      "name": "探索威昂库姆坎古城与清曼寺之旅",
+      "description": "<div><p>在这次半天的清迈之旅中，探索泰国北部的历史和文化，欣赏古城威昂昆坎的遗址。在参观考古遗址、几座寺庙以及清迈市艺术与文化中心时，您将受益于导游的解说。您的行程包括一次风景如画的马车之旅，以及酒店接送服务。</p></div>",
+      "geoCode": {
+        "latitude": 18.7998821,
+        "longitude": 99.0126255
+      },
+      "price": {
+        "amount": "37.0",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzMyYzgyNWRhLTIwMmItNGQxMS04NmRjLTViOTEwOGIyMjA0YyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2ExNWUwYmM5LWJlMTgtNDNkOS04NmEwLTdhNzYxNTJhZWUwNSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2U2N2IyYTU2LWY5YTQtNGY0NC04NmFkLTViYTc0MThiM2EwNiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzA1NTdhNmJmLWY2NDctNGM5OS05ODgxLTNiNjNiYjYzZWViNCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzU3ZWYxMTJlLWUzZjMtNDk0OC05NTUyLTUzODMxNjFhYWQxOCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2EyOTc0ODYwLTFkMjEtNDZjOC1hNjRlLTUyYTMxYTUzNzE1NyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzExOWVjNTU2LTFjNmQtNGMwMi05MDIxLTUwNTIzYTFjYWM2ZSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzE4NDBiZDgyLTBjMGQtNDg5Yi04ZTdlLWU0YTgyODJlYjUwNSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0="
+      ],
+      "bookingLink": "https://amadeus.booking.holibob.tech/product/c5fcfde1-16f5-4b16-9c1c-5dbdd189d11a",
+      "minimumDuration": "3 hours 30 minutes"
+    },
+    {
+      "type": "activity",
+      "id": "138999409",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/shopping/activities/138999409",
+        "methods": [
+          "GET"
+        ]
+      },
+      "name": "清迈之旅：情侣步行逃逸",
+      "description": "<div><p>为全世界的浪漫主义者们准备的独家之旅！在专业当地导游的陪同下，您将游览城市中最浪漫的地方。与您的爱人一起踏上浪漫之旅，体验清迈所能提供的最佳体验！您将沉浸在迷人的氛围中。城市中被认为是约会最佳地点的是什么？在哪里可以拍摄美丽的照片？您会惊讶于城市的街道、建筑和公园中隐藏着多少历史爱情故事。从感人至深和悲惨的故事，到幽默或辛辣的故事。迷人的“素贴山”对情侣们有什么特别之处？为什么它是情侣们的热门景点？泰国最著名的历史情侣是谁？清迈因其无与伦比的浪漫而闻名，情侣们可以一起做许多有趣的事情，享受独特的体验。这个旅游特别推荐在情人节期间参加！</p></div>",
+      "geoCode": {
+        "latitude": 18.7392197,
+        "longitude": 98.9566747
+      },
+      "price": {
+        "amount": "146.0",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2RjODgzMTQyLWVhMzEtNDk3ZS1hODk3LWQ2NTgwN2Y5NDg1YSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2IwNjg2NTZmLWI4MTEtNDFkMS1hYTU0LWI4ZTEwMTVmMDAyMCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzk0N2QyYmU1LTdkMzAtNDMzZC1iZmMzLTFmZTYwZDE1ZDJjZiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzc4ZjEyZWFlLTNjYjgtNDRjOS05NGU0LTYwYWY0ZWY5ZmY5NSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzU5NjI1MjI5LTliNDgtNDA2MS1hOTFhLTg1YWRjZmUzNzRlYyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzkyZTI4NmVhLTBkZTQtNDMzNy04YjAyLTk1N2RlOGM3NjllYiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0="
+      ],
+      "bookingLink": "https://amadeus.booking.holibob.tech/product/46f72d0c-80a5-4707-9209-77e8a6587cf5",
+      "minimumDuration": "2 hours"
+    },
+    {
+      "type": "activity",
+      "id": "139660212",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/shopping/activities/139660212",
+        "methods": [
+          "GET"
+        ]
+      },
+      "name": "发现清莱的导览游，包含接送服务",
+      "description": "<div><p>探索孔河的海岸，欣赏美丽的风景，访问老挝的新唐人街，无需签证。与美丽的艺术和寺庙建筑留下美好的回忆。在整个旅程中结识来自不同国家的新朋友。在当地餐厅品尝泰国自助餐。与优秀的司机安全旅行，并根据泰国法律享有旅行保险。</p></div>",
+      "geoCode": {
+        "latitude": 18.7864006,
+        "longitude": 99.00089159999999
+      },
+      "price": {
+        "amount": "32.0",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzc4ZDIyNWI0LTkzMGMtNGFmOC1hNGQ4LWY3N2ViYzQyM2EyMiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzE0NmY5ODg1LTdhNTEtNGRlMC1iYmY1LWUzOTBkMGVkMzRmYiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzJhNmYzYjRlLTEyYzQtNDYyMS05NDY4LTBiOWVlYWNiNDVhNSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzMxMjY0NzhkLTZhMjMtNDIxYS04NjBkLWFmM2U2ODQ1ODU5YSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzU1ZmFiZTVjLTc3YjktNDBjZS1iZDE3LTRmMmJlODUzYWE0YiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2E1NGJmNDM5LTZiZjAtNDg1NC04NDk1LWRhNWE1NzI3NzA3ZCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzZkODBhYzRkLWIxYjQtNDQwYi1iOTY5LWJlNzBhY2MzYjg1ZiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2IyMzQzMTI4LTNjNDgtNDVmMi1iNDFiLWUzMDBhY2Y3OTZlZCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2ZmNDZkYWMzLTdjZjMtNGYwMy1iM2FhLTY5MzkzNmJiZDExYiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzFhNGYxOWYzLTM3MDYtNDlhOS04Y2JkLTI1ODZhOWE1ODllNiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzVmNGYwMTIxLTZiOTItNGMxYy05MzNiLTFkMWI4M2NkMzc1OCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2VhYjE1OTQwLTRkYTYtNGJmMi1iN2FkLThmNjEyNGI4MTJjOSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2Q0ODhjZjA2LTZiYTAtNDhlMC1iMTYyLTBkNzMyZjQzYTcyMSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2ZkNjM0NWFiLTU5MGEtNDgwMy04MWFiLTJkMjgwNGQ1YzM0YiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzkwNjBhOTMwLWNhODctNGE2NC1iYjRmLTMzZDU2ZWQ5YzBjNSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2ViZmI1ZWRlLTA0ZjUtNGRmMy04OWUxLThjMjJjMTMzMDBiMyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2Y2ZGU0YTYwLTdlNDUtNDQyNS1hNmJiLWI3ZjkyZWFjNjJiZSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2IxM2FlNzRmLWYzNmYtNGQ3NC1hYTYwLTEzNGM5OTY3MzY2NyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2ExNGYyNjI5LWUxODAtNDEwYS04OTg2LTc4MWIxN2JmZjMyOCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2NhNTY0ODg1LWQ5MzMtNGYwOS1hODc2LTYxMDE2MjZjZDJiNCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2NiMDI0MzE4LWE3NmYtNGE5NS1hYjkxLWQ2MmJiNGZiZTY4YyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2ZkY2NkNDlhLTQxMzUtNDdjZC04MTQxLTYyZTM2NTAzNzQxOCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2FiODFmOTMwLTA1NmYtNDYxYi04NmYyLTRhY2EzN2IzYTc0OSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzVlYTYyZWY4LTg4YmYtNDljMC05MzYzLWIxZmNjN2E5ZjQ1NSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzNmOWJjODIxLTAzM2QtNGIxNi1hZDliLTA1NDZiMjAwMmRjZiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzYzZjA2YjljLWRiZWUtNDE0YS1iMDg0LWIxYjMwNmVkODM0YSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzRhYmE3MTRkLWY1OGQtNGM0Ny1hY2E5LWVhZmJiMWE3MWNiOCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzc3ZWM1YTZhLTM5NTktNDk1MS1iY2VkLWU4ZTE5MzkxNTMyNyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2YzZDllYzYwLThkZDQtNGY1Ni04MzFjLTFiODkxNGY0Mzk2MSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzU2Y2VkNGIyLTZlMzctNDAzMi04MTVhLTU2ZWFiMjE5ZGZkZCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2FmYTY1YTRjLTFlYjMtNDNhMi04M2U3LTc2Mjk5MjAwOGNkZiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzIxMDE0YjU3LTk5NWUtNGVlMi05ODE5LTlhY2NmOGNkNzRlZCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2EwZDFiMzkxLWMyMDQtNDEzNC05ZGIxLTNkYzk3YmYwN2JhZSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2E3YzMyYWJmLTRkNWUtNGFlNC1hYWQ2LTQ1NWZjNWVmYzYwZSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzVlNzZlZjE3LTFjMTgtNDFmNS05YThhLTEwMTgyNjRjZWVmYSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2Q5NGY0YzEzLTkxZWUtNDI1OC1hYzkyLTYzYjAwNmVjOGFiOCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2Y4ZDI5YzgyLTNlM2EtNDhkOC05M2M2LTI0NWNiNGZhNGRjNCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzQ3NWNkMGNkLWY3OWEtNDI4NC1hYjNiLTcxZjVkM2FmOWQzMSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2Y4MjExYzcwLTlkOTktNDdjYi05OTQzLTU2ODYxZWM0M2I3YiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzljYzE0ODhlLThiNDItNDVlMy1iYTZjLTNhMTQ4N2RlZmU3YSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzliNGU3NDEzLWVmN2UtNDg0MC1hYjhlLTljNTNiOWM5N2EyZSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2U4N2UxYmYwLTc1OTEtNDI3My1iNzE1LTljNjA1ZjJlYzM4YSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2RiNGVmOWFiLWUxNTYtNDdiYS05MmQ3LTc5MWM2YTBhY2I3OCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzY2M2UyYjlhLWQ3ODMtNDMzOS1hNGU0LWQ1ZDliNTE3MmRlMCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzZkMDY4NWYwLWE5NDUtNGY5MC1hMzk4LTNiMzM5MGQ1OGFjOSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2QwMzRhMWVlLTgyNzEtNGY0OC1hYTFiLWYzMGY5ZDM4MzJmZCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2JhZWJhZTc2LWIwNTctNGJhOS1hMTFkLWEwY2I1NThhMWI4MSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzEyYzk1NmNmLTU5YTUtNDkzNy04MWZkLTI0MTgyMjYzYjQ1ZSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzFlY2I5NzU4LTBhZmQtNGQ5Ny1hY2Y3LTg1NGExNDk0OGNjZSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2Q4YjEzNDE5LTFjOTEtNDQzZi05NTk4LTg1MWE3NDg3NjI0OCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0="
+      ],
+      "bookingLink": "https://amadeus.booking.holibob.tech/product/3668c9d8-55f5-4bc1-98ca-541ae95e5ff2",
+      "minimumDuration": ""
+    },
+    {
+      "type": "activity",
+      "id": "138999280",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/shopping/activities/138999280",
+        "methods": [
+          "GET"
+        ]
+      },
+      "name": "北清迈、清莱4天私人游",
+      "description": "<div><p>为期4天的私人旅游，从清迈出发，游览清莱，最后返回清迈。如果您在北部只有短暂的时间，我们将为您提供这次旅行，以便您充分利用时间，留下美好的北部体验回忆。您可以参观大多数著名景点。在清迈，您可以游览素贴山寺、蓝庙、契迪龙寺、手工艺工厂、粘性瀑布（宝桶瀑布），以及在游客较少的清道地区进行徒步旅行。我们将在树屋度假村过夜，第一晚的住宿将非常特别。在清莱，您可以参观白庙、蓝庙、华普拉孔寺、茶园、杜伊通宫和金三角。与专业的导游一起，您可以灵活安排时间，他们会悉心照顾您，让您的旅程更加愉快。</p></div>",
+      "geoCode": {
+        "latitude": 18.787747,
+        "longitude": 98.99312839999999
+      },
+      "price": {
+        "amount": "401.0",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2ZlYzc3N2YwLTVjNTctNGZkMC04Njc2LWEwODcyMzY4NDI2MyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzlkYWE1MWUxLWRhYjAtNDViNC1hMDNjLTNkYTA3NmQ2NzcxMCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0="
+      ],
+      "bookingLink": "https://amadeus.booking.holibob.tech/product/3c3efafb-7640-4ca6-90cf-8ac3e63f9866",
+      "minimumDuration": "4 days"
+    },
+    {
+      "type": "activity",
+      "id": "139001991",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/shopping/activities/139001991",
+        "methods": [
+          "GET"
+        ]
+      },
+      "name": "清迈的素贴山寺和泰国手工艺品之旅",
+      "description": "<div><p>想在清迈寻找一次刺激的冒险吗？参观标志性的双龙寺，然后探索三甘旁和博桑村。</p><p>首先，您可以选择乘坐缆车或步行沿着风景如画的蛇形楼梯上到双龙山。在山顶，您可以欣赏到清迈的全景，并探索这座金色的寺庙。</p><p>接下来，参观当地的手工艺工作坊，您将看到丝绸、银器和木材被制作成美丽的纪念品。这次半日游完美结合了文化、手工艺和难忘的美景。</p><p>• 参观清迈最神圣和标志性的寺庙——帕那达双龙寺</p><p>• 探索被称为“手工艺之家”的三甘旁</p><p>• 欣赏博桑村精美装饰的纸伞</p><p>• 享受与讲英语的导游的舒适接送服务</p></div>",
+      "geoCode": {
+        "latitude": 18.7864006,
+        "longitude": 99.00089159999999
+      },
+      "price": {
+        "amount": "66.0",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzI5YTA2MWYyLTdiNGYtNDRhYi1iNTQ0LWRiNjIzNTUwNWZhMCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzhmM2ZiNGQ2LTc1NmUtNDNhZS1iM2U1LWNlOTBhYTBlMjk4NiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzk4NmI3M2Q5LWZkMDQtNGNmZi1hNmVkLWM1MjMwM2NiYjJhMyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzE0ZWE4ZDkwLTFjMTItNGJmNi1hMzk0LWI2N2ZkY2UwNTVkZSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2UxMDAyOTllLTgxNGYtNDQxMC1iMjQyLWEwNWFkOGQzMDM5OCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2M4ZTY1MjU1LWQ0ODAtNGI1OS05NGY0LWQ5NzVhMzYxN2YxNiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2Q3ZTY4OTc0LWJjODctNDkyYy1hOGIxLWZhMzRkOWZmYTY0NCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0="
+      ],
+      "bookingLink": "https://amadeus.booking.holibob.tech/product/ef86a788-237b-46fb-b46e-dcf2635aa2fa",
+      "minimumDuration": ""
+    },
+    {
+      "type": "activity",
+      "id": "139000146",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/shopping/activities/139000146",
+        "methods": [
+          "GET"
+        ]
+      },
+      "name": "山地部落、白蓝寺、黑屋（来自清迈）",
+      "description": "<div><p>不要让有限的时间阻止你欣赏清迈的美景——在这次充实的一日游中，轻松游览城市的主要景点，无需担心如何在各个景点之间移动。此行程仅限10人，以确保您能获得导游的个性化关注。</p></div>",
+      "geoCode": {
+        "latitude": 18.7880601,
+        "longitude": 98.9930402
+      },
+      "price": {
+        "amount": "45.0",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzcyZWQ0MGFiLTUzMGItNDY2ZC05Mzk1LTU3NTE3N2ViN2JlOSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzA1ZDk4MDBmLTc5YjEtNDIwZS05Mjk5LTAwOTFkY2UyNDc4MyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2IxYzgzNDJjLTg0NzMtNDg3ZS04MmYxLWE1NTFkMTU1MjE1NyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzM2YmViOTZlLTYyNTUtNDI5OC1hNmVkLTZjZmI3YzA1ZWFlMCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2MyNTIzODFkLTExYTEtNGU3Yi05ZDYzLTdkZmIwZGYyNzM5NyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzBhNzg0ZDhkLTE0YjQtNGQyMi1hZTYyLTRkZmQ1NWUzNGNjOSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzhiNWM5ODJkLTllZjEtNGYyOS05YjYwLTU2NWNkM2IxY2VlZSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzAxNGY4NDQwLTEyN2MtNDg3ZS1iYzhjLTljYTA1ZWY5OTI2NCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2M4NjY2NDdjLTQxMmYtNDlhOC1hMzgzLThlZmQ0MTQyYzZmYSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2EzNGVhODNmLWY0YzktNGM2My04ZTQ4LWY2NjQxMjNiYjM5NiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzkzNzc3ZDVhLTI1YmEtNGZjYy05ZDQwLTVlMDBmN2ExMjlhNSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzkzNGI0MGRkLWZmZTctNDg5Zi05M2Q1LTlmYzM3MGY4OGI2NCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2QxMTA0ZjkzLTE1MDYtNDk2ZS04ZjU5LTA1MDJkMjY5MDM4ZiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2Q3YTI1YTQyLTY4ZjEtNDdiMS1hOTI2LTE2YjJkYTZhZjExNyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzQ0N2Y2MzE2LWZjYWYtNDViMC1iMDk1LTkxNTAyYjlhMTk2MSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2ZiZDYyMDQxLWY0NDgtNDgzNy1hZWUzLTMxNjZkNWFlNmUxMiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2I5ZGMyM2Y3LWQ4OTktNGRmMC04N2QzLWU1MzU2ZjA1M2M5OCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzBiZWU2NGUxLTgxYWMtNDZjYS05Zjk1LTE5YTFhNmQzNmU1YSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzIxMDg1NDNjLWFkYjYtNDhlYi1hMjFhLTI4YzE5NWU4MTNmNCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2Y3NTA2OGVhLTBlMmYtNGJjZC04ZWE2LWQ3MDE5ZDU1OWVlYiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2M1NDE2NGUxLTMxN2QtNGNhYi04ZDFjLWE3ZWJmYjEwYjI2MCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzQyOWFlNzQwLTdjNmUtNDI4Zi04YzRhLWZiMmMwY2Q2YjY4MSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzljZTgyMmQ1LTM0YjAtNDJhMC04NDk4LTc0YmZhOWY4MjI2NSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2IwOTE1Mjk0LTJhNDktNGVkYi1iYjNlLTY5ZTg4NzExNGEyYyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2IyMzhiNDI2LWM0MGItNGQ3MS1hN2NhLWQ4NDYyYzFiNmVlZiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzE4ZTgyNzdiLWJhMWQtNDVmNi1hZmEzLWI1NzFlZjc4MTZhNiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzNhNDhjMzJmLTUxY2MtNDc5Yi1iODAxLWI1YWM0OWQ2YzhhMCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2ExOTEyNTVhLTMzNTEtNDNmMi05YzQ4LTg0OTJkZGJkMzU4MyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzc3NjdiZDBlLWRhMTAtNDIyOS1hODJjLTIwZTQ1YmQyOGJhYSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzUyMTE2MzJmLTc0NDctNDFjZC1iYzU2LTU4ZjJkNWQyNmQyOSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzI0MWFlNzMzLTZkNmQtNDA3Ni05MWMzLTFiM2VlNjI3OTM2YyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2YyMjRmMGFkLTRlNTYtNGFhMy05NjdjLWVlMzg1Njg3ZDdjZiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzVjYTYwMTNhLTZlMzctNGY0Mi1iZDk4LWM0MWQ0YTBlZDdjOCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzc3NjgyNjEwLTU0NzctNDFlNS05NWNjLTM5YzIzOGQ2NWU5NyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2IwZTU1ZDQzLWQwNDAtNGU2My05MWNmLWJjNjlkMDE0MTJmYiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzhhYzNjNjlmLTdlMzctNDAzMi1iZDU3LTNhYjAzMjg4NmU3NCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzM4MDliOGE1LTQ1M2MtNGQ5Yi04NTdjLWUxN2ZhYzA0Y2MzMCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2VkNGMwMjBmLTg0NjYtNDM0NS1hNzNlLTZjZmU4Yzk3ZGMxZCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzM5MGU1YmMxLTBjZDktNDJlNi04NjhhLWFkMmI4ZTZlMDVhZiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzVkNzgzZDBjLTE5NmMtNDE3OS1hMjUxLWZlYWZhMjYzMjgyOCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzQ2M2U3NjZhLTk0NjgtNGEwZi05OGIxLTE3MjhlOWZhYzVkMCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2Q4NmQxYTZiLTY0NjQtNGM4MC04ZmNlLWZlYTZkNzQxN2VmYyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2VhM2UxNGM4LTIxOTAtNDZjMi05MTUwLTU2YTk0Mzc0NDFlYSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzMwNTNkY2FkLTBhYWMtNDlmOC1iZmY1LTQ4OWJiNjhhYTFiMyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzhhNjAxNTE4LTU1MTYtNGNlOS1iMTdhLWZmYjVlYzNlMTJlMiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2FkYjFjYWJjLWEyNTctNDgzMi05MzBlLTI2YmZhMzBjYWUwZSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2E3ZDZlZGYzLTFlNTYtNDE5MS1hYmJhLThkNzBlNjQwMTU4ZiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2E1ZTVjY2RjLWE1NGYtNDg0NC1iNDc3LTI3N2NjZDEyMTU5YiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2YzNzhhMGMzLTE3YTAtNDM0Zi1iMTMzLWVjYmZmOWU2YjgzYyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2E4MWM0YjEwLTNhMTQtNDA3ZS04MTAxLWQ0NDBhMjA2NjNlMSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzQ1NTg4YTFlLTJlYzUtNDQwOS1iODA4LTI3YWRkNDVlNTZjZCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0="
+      ],
+      "bookingLink": "https://amadeus.booking.holibob.tech/product/b3d0fda7-c178-4131-9139-a8938934c2f4",
+      "minimumDuration": ""
+    },
+    {
+      "type": "activity",
+      "id": "139704196",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/shopping/activities/139704196",
+        "methods": [
+          "GET"
+        ]
+      },
+      "name": "清迈粘稠瀑布、丹特瓦达和班登寺之旅",
+      "description": "<div><p>从清迈出发，体验一个融合自然、文化和幻想的神奇一日游。首先前往Dantewada咖啡馆，这是一处充满神话雕塑、梦幻花园和风景名胜的奇幻Himmapan灵感天堂——非常适合拍照和放松。接下来，探索班登寺，以其鲜艳的蓝色调、精致的兰纳风格设计和12个生肖佛塔而闻名。漫步于宁静的寺院，欣赏卧佛，享受开阔的乡村美景。然后，前往此次行程的亮点——粘性瀑布（Buatong瀑布）——这是一个罕见的奇观，富含矿物质的岩石让你轻松攀爬流动的水。凉爽一下，探索小径，前所未有地享受大自然。这个行程非常适合情侣、家庭、独自旅行者和团体，承诺带来美丽、奇迹和难忘的回忆。</p></div>",
+      "geoCode": {
+        "latitude": 18.7880601,
+        "longitude": 98.9930402
+      },
+      "price": {
+        "amount": "43.0",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzkyMDNhNWEwLTgwMzctNDk2MS04MzEyLWMzNmU4ZDc2Y2NkYiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzA1MzkzMDdmLTk3MmQtNDBjMi04ZDFjLTc3ODgxYmYyYmM4OSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzJkMzFmYzFmLWRmODEtNDQzMy1iMWRkLTEwNDk1MDVmMjRiOCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2RmYTlkNDViLWU4Y2ItNDk5Yi05ZmRmLTI5NzllNjFiNjQ0MiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzllMDJlOGQ5LTkzZjMtNDRkYS05NzAxLTU1ODYzY2M2M2JmNiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzI5NTNjMmZjLTc0MmYtNDhiMC04ZDQ2LTUzMzQyODMxOTA2MyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzIwZjQwNGI1LTMyZTQtNDQwYy05MWExLWExOTA5ZGI4NDI0MiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzRjMjhkYTJhLWIwYWQtNDBkNS04NTI5LWQyOTdiN2RkNzU3YyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzgwYmM0ZWIyLWNkYmUtNGYyYi1iMTUxLWFkZWI0YmEzOTdjYiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2MzODIxNmY3LTkyMjUtNDhhMi1iMDc0LTE0MjZkZTdkOWU5MCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzcyNDc5MWQ0LTY1NWYtNDc1NC1iOTcxLWRiYjQwMDg1ZGJkMSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzVmMzEwZGY4LWFhZTctNDI3MS1hZjhmLWQzY2VmZmQ5NjY1OCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzVkNzljOTFmLTUxYjQtNGYzMS1iN2IxLTZlOTU0OTQ3N2M4NCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzBkZTIyZmQyLTAwMzktNDM4MS1hZmE0LWU0NmRkYzY3YTU2NyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzBiODBiYWNkLTU1YTQtNGY0Ni04ODVmLWQwODE4OGYwOTA0YyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzFhZjk3ZDgyLWQ1NmUtNGMxOC1iMDcwLTQ4NGRjZjgxMDJhOSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzQxMjdhM2ZjLWY2NDYtNDBhMi05MWIwLTdmNGEyNTIxMzcwMiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzg3ZjdlNzdjLWU1ZTMtNDcyYy04ZGYwLTBhODQwMTRiYTYxMCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2U0NDYxYjBhLWMwOGQtNDJiYS1iMWIwLTBhYTRlYjliZDYzYiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzM1ZjcwNGEwLTQxY2ItNDY5NC05MGExLWZmNjljMzY3ZmY1MSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzMyMTk4Yjk5LWRlMWUtNDU3MC1iODM0LWM1NWJmNWE1NDY1NSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzA1YTYyZDk2LTFkMGMtNDFmMi1hYzFmLThjOWE1NzBmYzk3OCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzMxZDc4MTFlLTkwNzktNGIxMC04NDNkLWM5OWFmOTdhZTlhNSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzQ3NGU1M2M2LTk5NzAtNDUwYi04NDc4LWQ0YWJhYjgxNDg0MyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzJkMzk3NTZlLThkZmQtNGY3Yi1hOTNjLTc1OTBlOTg5OGQxOCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2IwODBlYjk2LTgzODktNGIzMC1iYTcyLWViM2YyMjU1MmJkOSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2Q0MjY5ZDQ3LTg0MTYtNDRkOC1hZTMyLWRmNWExZWE5YTk5MSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzE2ZjIwZGJjLTlhZmYtNGM5NS1hODJjLTQ3ZmY5NWZjNWQ1YSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzdiZWI1ZDIyLWMxODYtNDE2NS1hZGQyLTFlNTQwMzJkOWMwNCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2NlMTQxMGY0LTkwZWYtNGE3Yy04ZTk2LWIwNmM2NGE0ZThjOSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzlhM2FjYjlmLTBjY2MtNDhkOS05YTA1LTliMjEwMDA3MTUwZSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2JkZTQ2MGE5LTAzYjUtNDJjZS05MGNkLTAwOTc5NzY1YzczMSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2MwY2IxYzVmLWMwNGYtNGEwZC05YzE3LWViOWFjNGE2NzI2NiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzA3OTA3MWY1LWM3NGUtNGNkYi1iMmUxLTRmMzc2ODY0M2Y2YyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2YyM2Q5NWM2LTM4NzAtNGZiZi1hOTM2LTBmMjI4OTBhY2JhOSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzRhZmVhM2M1LWViZDktNGFiZC04NzFjLTZjZWU2N2JhMTBiNyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2E5MzgyNjA5LThlOTctNDMwMC1hZWEzLTliZWYyNjZlMGQ4NyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzExYzYzODc0LWZiZjYtNDk0OS04MTZmLWVjMmU1YTI4N2U1MyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2QxN2Y2YTE0LTUzNDctNDRmZC05M2U2LWNkNjU1NzNlM2NlNiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2YzZTVhNGFiLWJkNDItNDFhMS05OTlkLWMwN2E0YjQ0ZjYwNiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0="
+      ],
+      "bookingLink": "https://amadeus.booking.holibob.tech/product/cbb89729-a547-41b1-9630-f8d125ecc072",
+      "minimumDuration": "7 hours"
+    },
+    {
+      "type": "activity",
+      "id": "139000580",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/shopping/activities/139000580",
+        "methods": [
+          "GET"
+        ]
+      },
+      "name": "半日游：素贴山与苗族山地部落",
+      "description": "<div><p>在半天的冒险中，探索清迈的精神和文化心脏，前往两个标志性目的地。攀登神圣的素贴山，那里是备受尊敬的素贴寺（Wat Phra That Doi Suthep）的所在地。惊叹于其宏伟的金色佛塔，并享受俯瞰城市的壮丽全景。</p><p>之后，前往一个传统的苗族山地村庄。沉浸在他们独特的生活方式中，了解他们的风俗和传统，欣赏他们色彩斑斓的传统服饰和精美的手工艺品。这个旅游活动完美结合了精神启迪和真实的文化发现，让您一窥泰国北部多样的遗产。</p></div>",
+      "geoCode": {
+        "latitude": 18.787747,
+        "longitude": 98.99312839999999
+      },
+      "price": {
+        "amount": "33.0",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2JkZDIxZWM3LWE5NzUtNDMwZS1hOWRkLTk2NjlmYWI0OWQ3NSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzdkYmQzMjUxLTFhZjgtNDU4Ni1hNzYxLWMzNTIwOGU1YWI4MSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2Q0ODVlNzVlLThiNmUtNGZhYi05N2RmLWVlNzUxNTljYWI2YSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzJhOTFiMzhiLTFiMWEtNDM5Ni1iOWYxLTdjODQxZTEzNWIzOSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzlmNDY0NDVmLTQyZTAtNGVlMS1iZDE4LTk5MmY3NWM4MzE1OCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzBhNzkzYmU2LTczNGItNGIxYi1iYzA4LTdkMjYwMzBlMTg4NyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzNjZWJmMTkxLTE4NzUtNDc1My05Y2FmLWE3OTEyMTlkZDAwOCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0="
+      ],
+      "bookingLink": "https://amadeus.booking.holibob.tech/product/27b5f49d-35a5-4b3d-bff5-b1c989b0d4c3",
+      "minimumDuration": "5 hours"
+    },
+    {
+      "type": "activity",
+      "id": "138998355",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/shopping/activities/138998355",
+        "methods": [
+          "GET"
+        ]
+      },
+      "name": "令人惊叹的北方私人游（3天2夜）",
+      "description": "<div><p>踏上为期三天的北泰国私人探险之旅，游览寺庙、瀑布、温泉等景点。这个行程专为希望无忧无虑地欣赏该地区最佳景点的旅行者而设计，您的私人导游将处理所有细节，让您专注于享受美景。此外，所有餐饮和住宿费用均已包含，让您无需担心额外开支。</p></div>",
+      "geoCode": {
+        "latitude": 18.787747,
+        "longitude": 98.99312839999999
+      },
+      "price": {
+        "amount": "336.0",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzc1MjEyMjRjLTYyZWYtNDlkOC1iYTFjLTkxYmUwYTU4ZjU4OSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzdhNGVmOWFhLTBiOWEtNGVmYi1iNDAxLTY1ZDM1YjJhMmNkZSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2NmYjhjY2I1LTQzNzAtNDk4OS1hYjJlLTdhMWI0OTgwODIzMSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2MwZTQzNjYxLWRkYmEtNGU2ZS05ODA3LTY1NDRmZjk3MTE5NSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzdjZjg0MDE2LTM4ZDItNDMwYS04MDUwLTVkMTQyZTVhMTk2OCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzdlZWRiMjk4LThlZWYtNDIwOS04YzQwLTk3ZDVmNmM4MDNlNCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzczN2VkMjYxLTNjZDYtNGEwZS1iZmMyLWFhZjk3NTgxMzBiYiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzY4OTliNDcyLThmNWUtNGNmYS1iZTI4LTkzNmU2ZWUyN2RhZiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzA1YjE0ODliLTNiMTItNDJlMy05Y2M5LWE2NDlhNDllYTk2NyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2I2MTA2M2M5LTFhYjYtNGJkMy04ZDlmLWJlY2MzOGJlZTZmZSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzBkMTY4ODk3LWJkZDYtNDYzMy1hNDZkLTdlZDdkNWYxYTI0NCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzhmMGFhOGY4LTlmZmQtNDM0Ny05OWZlLWQ0MmU2MjY0MjgwNiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0="
+      ],
+      "bookingLink": "https://amadeus.booking.holibob.tech/product/26d3a74a-0d85-49d5-8902-3898902149ef",
+      "minimumDuration": "3 days"
+    },
+    {
+      "type": "activity",
+      "id": "139000126",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/shopping/activities/139000126",
+        "methods": [
+          "GET"
+        ]
+      },
+      "name": "清迈大象、竹筏漂流与瀑布之旅",
+      "description": "<div><p>通过预订这个包含多项活动的旅游，充分利用您在清迈的日子，所有活动均由您的导游组织。您将前往丛林观看大象，放松身心于竹筏上，然后在梅旺瀑布中畅游。酒店接送、午餐和瓶装水也都包含在内。</p></div>",
+      "geoCode": {
+        "latitude": 18.7815359,
+        "longitude": 98.9884853
+      },
+      "price": {
+        "amount": "79.0",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzdiYWJiMjBhLTFjNjEtNGY0My1iN2ZlLWJiNDAzYzc5MDkxMyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzAwYmVlOThlLTY4MmEtNDRlNy04ODdhLWY1NTU0ZjkzMWYzMiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzY1OTJhNmI1LTBhM2ItNDYzOS05YjA2LWUzZWM4OTZmY2UyMiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzFhZTIxMmMzLTQ0MzEtNDYxYy1hMzdmLTNhNjk4ZWQxY2JiYiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzhkMWYyMzUwLWQ1NzYtNGFmOC1iMDgwLTcwZGM1ZTg5ZjExMSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2I5NjMyMmIyLTU2YzMtNGU3Yi05ZjcyLWI0Njg1NTA4ZTIyOCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzE1MWI3NWM1LWU3MzUtNDNlMS1hMmE4LWE1OTkyMmVjNmI5NSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzdlMzg4OWJlLTEzZmQtNGY0Zi1iMDU3LTQ4YTVhODllYWM2YyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzE1YzgzNWY2LTMwM2EtNGMyMy05ZGU0LTAzMzFhMzBhOTgwMSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2E0NGZiZGNmLTU4ZmYtNGQ2My1iNDJiLTc4ZWE5NmNlYzQ5ZiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzU4YzlmMmYxLTk0M2EtNGRmZS04NzRmLWZhMmE0NzIyZmU3MCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2VmMjU0OTNiLWE3NTItNGFmNC04MzRkLTg5NDVkZGNhMmY5NiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzBmMGM0ZmFjLTBkZDgtNDkyNC05OWM4LThiM2VkNjRkMjc1NSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0="
+      ],
+      "bookingLink": "https://amadeus.booking.holibob.tech/product/440ecdaf-b811-4761-923b-dce10fd1784f",
+      "minimumDuration": "8 hours"
+    },
+    {
+      "type": "activity",
+      "id": "138999601",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/shopping/activities/138999601",
+        "methods": [
+          "GET"
+        ]
+      },
+      "name": "粘稠瀑布清迈与梅恩戈特船游",
+      "description": "<div><p>在这一天的全日游中，我们将带您前往清迈省一座令人惊叹的偏僻寺庙，享受在梅恩戈特水库的船游，并参观迷人的粘性瀑布！</p><p>我们将穿过宁静的当地村庄，沿着被丛林覆盖的山丘行驶，经过闪闪发光的稻田、郁郁葱葱的乡村农田和当地的佛教寺庙。</p><p>抛开繁忙的城市，加入我们，享受一次激动人心的省内一日游吧！</p></div>",
+      "geoCode": {
+        "latitude": 18.7880003,
+        "longitude": 98.9930693
+      },
+      "price": {
+        "amount": "51.0",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2ZmMGRjNTgxLTNjYzktNDI2My1hMDk2LTRmMWM0Yjk0MzgxMCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzI1NWQ5MzA2LTVlYTYtNDM2MS05NTliLWFlZWNjMDAzYmVmNSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzU0YWU2ZjNmLWM5Y2ItNDc3Yi1hNjdjLWU3ZGRhNzBhZTk5YSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2U0MDliMjIyLTc4MDgtNDQ3MC1hOTM2LTA1ZDA2ZDBhMTllOSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2IxN2NhMmU2LTE4OWEtNDBhZi1hMjlkLWNhMjM1Zjc5YzczZSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzdkZTM3NWI0LTk3NzUtNDU5Mi04ZTBlLTFmNGUxNjRiZTdhYSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzA1OTQzMmE3LWJiMjMtNDY1Ny04M2FiLTg3ZTUwNTNlOTNmOCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzY0NGZiYTBmLWUwNWYtNGIwYS04YTYxLWY2OTU4ZWE0Y2I3YyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzcyMWE2MzdlLWY3MzUtNDExOC1hYzBhLTExNWE2MjNhOTIyNCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzA3YzBkOGY1LThiZTItNGMwZC1hMzJlLTk5ZmZkYTQ0YzEyMiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzg5NDEyY2RhLTZjMGItNDM1Yy05ZjQxLWYyN2Q5YWQ1ZTg5MyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2RhYjQ0OWExLTExYzgtNGEwMS1iMjUzLWFjNjUxMGQ2ZmQ3OCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzcwNDI3YzkxLTkxMzctNDM3NS04MzM0LTU4NmVmZTQxMjhlNCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzNjMTdjOWRjLTNmZjYtNDFmYy05NTMxLWM5NTZjZmU0ODhmNiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2RhNGMwZWZjLWEyZjItNDQ4NS04Y2RlLTI4NzUxZjBkYTQ2YiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0="
+      ],
+      "bookingLink": "https://amadeus.booking.holibob.tech/product/57a384f1-2ff8-4c15-ae92-53fd0cf09503",
+      "minimumDuration": "8 hours"
+    },
+    {
+      "type": "activity",
+      "id": "138999206",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/shopping/activities/138999206",
+        "methods": [
+          "GET"
+        ]
+      },
+      "name": "清迈出发的因他农一日游",
+      "description": "<div><p>在这次从清迈出发的日间游中，欣赏泰国因他农国家公园的美丽风景和新鲜空气。您将参观该国最高的山峰，游览一个苗族市场和一个卡伦族村落，欣赏双塔，这对古老的佛塔内供奉着佛教遗物。您还将参观稻田梯田，并在瓦奇拉坦瀑布停留一段时间，然后返回清迈。</p></div>",
+      "geoCode": {
+        "latitude": 18.7836852,
+        "longitude": 98.9990931
+      },
+      "price": {
+        "amount": "144.0",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzdjYzQ3ZmQ2LWRjYzgtNDQ2Yy05NmRkLWQxMTUyNTYwOTVhYiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2MyMTQzYjIzLWRlNmUtNDFiYS05OTM2LWY2NTVhNTVmZGFjNSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzRlNGRiMTFiLTliYmUtNDIzNC1hOTQyLWNhZjg0ZDM1MGI2YiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzA4ZjIyMzQwLWRmNTItNGZlNS04OTA1LTQ5YTc2NDg0MjdjNiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2MxZmZiNGMyLTlmZTMtNDM2NC1iZDUyLTMzNDFmYTg4Yjc5MiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzZkYTAxZjliLWYwYjMtNDk2Yy1iNDY5LWY5ODExN2EzNGFlYiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzRkMGNlMGQ4LWJhOTgtNGU4MS05MjY4LTE0MDZjYjAwODI2OSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2U3NDQ1MzRlLTY5NTItNDk0Ni04OWQ4LWY3MzdiZGRkNmI0YSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzVkYmQyMzRmLWFmMDktNDE0Ni05Y2YzLTliNjI2ZTNkYmRkYiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzA0ZTVmNTlhLTNmYTAtNGUzMi04ZWM3LTMwZWZhNWE0ZTllNiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0="
+      ],
+      "bookingLink": "https://amadeus.booking.holibob.tech/product/e1ff54ec-3fce-4f93-a0b8-e786c7d09061",
+      "minimumDuration": "8 hours"
+    },
+    {
+      "type": "activity",
+      "id": "139000500",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/shopping/activities/139000500",
+        "methods": [
+          "GET"
+        ]
+      },
+      "name": "清迈梅滕森林保护区全天冒险之旅",
+      "description": "<div><p>敞开心扉，迎接全新的体验，踏上冒险之路，近距离感受大自然和树木，参观山地部落村庄。此外，您还可以在梅塘河上享受游泳和竹筏漂流的乐趣！</p></div>",
+      "geoCode": {
+        "latitude": 18.7837222,
+        "longitude": 99.0004115
+      },
+      "price": {
+        "amount": "72.0",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2Y3NGMyMWNjLWZmN2UtNGNjNi05NDA1LTZhYTFhMTg5N2JhMCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzQ2ZjQ0MjVlLWEzZmYtNDEwMS1hNzUxLWM5ZjU5NTQxMmRjOSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2U4OWYzNmUzLTRlOGUtNDI3NS1hYmNjLTZhYTNlNzliMjc4MSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2IyZDE5ZmVhLTQwNzAtNGZiNS04Mjg0LTg0YTcxZGFkODAwOCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2E3ZWQ2ZDNjLTcxYmItNDYwNC1hZDZjLWNmNGUyYTE5MjU2NiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzcxN2ZkYTcwLWEyYjUtNGYwMy05ZTUzLWI3NTI1NTRlNzMxOCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzA0MDYyM2NhLTVkZjYtNDYyMC04NWUyLWQ4MDU5NTc5NDhlYiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzkzZTExOGNkLTRkMjktNDFjMy05MzhlLTQ2Zjc4NWMxMWVlZSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0="
+      ],
+      "bookingLink": "https://amadeus.booking.holibob.tech/product/3ed62957-4f77-4435-a54d-da0f448e0920",
+      "minimumDuration": "9 hours"
+    },
+    {
+      "type": "activity",
+      "id": "138999776",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/shopping/activities/138999776",
+        "methods": [
+          "GET"
+        ]
+      },
+      "name": "清迈出发的清莱和卡伦村之旅",
+      "description": "<div><p>在这次从清迈出发的小团体旅行中，将清莱之行与前往卡伦村庄的体验结合起来。您将参观著名的蓝庙和白庙，欣赏班达姆博物馆的建筑风格，并与居住在附近村庄的卡伦社区成员见面。</p></div>",
+      "geoCode": {
+        "latitude": 18.787475,
+        "longitude": 98.99394439999999
+      },
+      "price": {
+        "amount": "52.0",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzYzMzY4YTU2LTQ3YWMtNDQyMi1iYWQ4LTNkZGFkMTI0OGIwYyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzAzMDRhMGRiLWU1ZjUtNDdiNi1hYmIyLWMxZjQ2NzgyMjJkZCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzIyNjVkZTdhLWEyZGQtNDAzYS1iYjMxLWJmMDRiOGRiZDNmOCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2NiYjc1NmZlLTExODItNDI5Mi05ODdlLWMxOTc1MzQ2MDQyOCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2EwYjBiM2IyLTc5ZTktNDUyNS04M2I0LWRmMTllZDBiNDZhYSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzVmY2VkYzJjLTNmMzItNGRhNy1iNzlkLTlhN2JlZjUxMzVjYyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzVhYWQ5MDViLWFiZWUtNDIxZi1iOWEzLWYzZjk3ODdkMzFlNiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2UwMzJkZjk5LTA1OTUtNDYwNC1hNjc2LTM2NjczYjJmM2E4ZCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2IxMWFhYjU1LTdkNTQtNDg1Yy04MmY1LWE1ZDg0ZTE5MzZlYSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2RlOTM1OWIyLWQ1YzktNGFiMS1iZDdmLWU5ZGUwZTdjMzQ3MCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzhlOTFmMmI2LTkzZjUtNGVjNy05ODM1LTIyMDlkZDQxNDQ5MyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzNmODA1ZWY0LTdiYjgtNDI1Zi1hMzZhLWM5MWZiNWNkYzhjNiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzVmMjc5ZTdjLThmNTMtNGQ5ZC05NzQ3LTA1MWJjMGIxMmVjOSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2Q2M2Y4ZjYzLTQ3OTYtNDA4ZS05Y2U0LWMxMzk1MmY5NmUwZiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzM0ZWU5MjNmLTQ2NDUtNGFjMS1hOGRlLTAzNmUwYTlkN2M5MyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzRjMmEyMDBjLTEwMWUtNDUzYy1iNjA4LTVhZmRhMTAyOTZkZiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0="
+      ],
+      "bookingLink": "https://amadeus.booking.holibob.tech/product/082e5d3a-54ac-4bf2-b87f-bba6abded3e5",
+      "minimumDuration": "11 hours"
+    },
+    {
+      "type": "activity",
+      "id": "138998868",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/shopping/activities/138998868",
+        "methods": [
+          "GET"
+        ]
+      },
+      "name": "清莱之旅、船游和村庄参观",
+      "description": "<div><p>通过将清迈替换为清莱的一日游，让您的泰国之行更加丰富。在这里，您可以看到常被忽视的景点，包括寺庙、博物馆和自然奇观的结合。您无需预订任何交通工具——一切都为您安排妥当——此次旅行将展示白庙、金三角，并参观卡伦村。</p></div>",
+      "geoCode": {
+        "latitude": 18.7880601,
+        "longitude": 98.9930402
+      },
+      "price": {
+        "amount": "64.0",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzA0N2NiYTBlLWMyZjUtNDk0NC04YWQ4LWY3YzE0MTk0OTNjZSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2NmNWM2OTBlLWI1YzYtNDE4OC1hZDc4LWYyZTJjMjBjODRiNCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2RmNjRhYTAzLTk5YTgtNGY0Yi1iNmY1LTNhNzc1YmUyYTIzZSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2QzMmVjM2U2LTYyZDUtNDQ5ZS05OWMzLTQ0YjZhMzRkYTAzNSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzg0NDFmNjVjLTM3MmEtNGJmZi1iYjFjLTBmMmQ3ZmE1NjE0MCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzAxYjcyOGU0LTI0NmQtNDk5MC04OGJjLWYxODZkNWIwMmY5ZiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2VkNmMwYjg2LTRkOGQtNDcwOS1hZTAzLTk0N2ExZTU5M2ZmOSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzQxNTMzZTU5LTRiOWMtNDdkMS1iNDBiLWY5MjFkZWE2MmJmNCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzIxMzY1M2I5LTZhYzgtNDcxYi04ZGI2LWJkNTgyNmU5YTY1ZiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2JlZDZiMGQ0LWZlNDYtNDkyYy1hMGNkLWVjMmY1ZmVmMGI1ZCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2E2YTNkOTFhLWMwOTMtNDYxMS1iOGZiLWJhNmU4NGVhYjRkMCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzkxYWQyNDdiLWI5ZjAtNGY1Zi1iNmJhLWE1YWJjMDczZGQxOSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzE2NTVjZTYwLTY2ZDgtNDlkYi05NjVhLWYyNjY5Nzc5MTQ2ZCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2Y1MDEzMjJlLWUyN2ItNDc1OS1hOGY4LTQyZWRjNGZmZjEzYyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzk2OGViNzE0LTMxYTItNDNiOC1iYzI4LTI3NDI5YmEyNjE1YyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzFmNGYxYWFlLWUzY2ItNDA5OC1hMzEzLTI3ZmM5NzFmMTVmZCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzY4MDkwZTQ5LTdhYWUtNGRjNi1iNjU4LWE3ZTcyMTBhNjkzOSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzA0NDk3N2E4LTAwZjAtNGVlYy05NmM0LWI4MDY0MjIyMWQzYSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2YwOWE1MzhlLWFkZGYtNDExNy1hMTBkLTkxODA5M2JiMzk4YyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzRiNzA3YTc2LTI4OGQtNDI4NC05ZmFjLTNhMGY5YmI3YTdiMSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzk3YTU2ZjgwLTNlYTQtNDA5ZS1hMjZhLWU0MDc4ZmJkZjU0NyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzY1NzViNWQzLTlhMDItNDQwMy1hNmU4LTI4NzRkNjVkNDk4OSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2UxM2M2YjlkLWI4YTUtNDYzYi1hYmFjLTM0NjVhOTJkZmZmNiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzQ1NWJiODRmLWQ3NTctNDllNy04MjI3LWZhMTNmMTNiOWY3NiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzkwMzRkY2ExLTlmZGMtNDY1MC05N2ZhLWE1NzZlZWUwN2NlOCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2I1MGE5OWM4LTNjNDUtNGQwYy1iNzJmLWJkZTIxYzNlNzkzZSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2JkYTIxYTU4LTY1NDgtNDA0Mi1hYTgyLTExNjAzZGYyOTJkZiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzM4MjBiZmU2LTg0MzItNDRkYy04NDI2LWVjNDUxMzdlNzAwMSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2M5NjNjNzM1LTEwNzQtNDQ5Zi04OTk5LTg0NjVlNGRjZjBhMSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzBiMTM2YWY1LWI2MzgtNDdhYy1hNWM1LTVjNTBhOTE1ZjUzMCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2RhMjRlMDM0LTgzYzUtNDkyYy04NmRhLTYzNTY0NzM0YmE0YiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2VhOTA5NWQ3LTMyNzMtNDJlOS04MGZjLTU4OGUyMWY4MTNlNSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzczNjhjYmJiLTI4ZTMtNDliYS1hMDVmLWFjNTBlZTQxOGUxZCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2Y4ZWQ2YzlmLTI5OGUtNGNmMS04YTczLTBhNGU2ZGU1MmRjZSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2YwOGQwNjY2LWI5YmItNDE4NS05NmY5LTUwMTllMmZhNjhjMiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzEyMTJjMTFlLTE4YTItNGY4NS1hMDE4LTc4NDM5ODg4NGVkNSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzFlMjg1NmExLWUyNzAtNDg4NC04NGU2LThjNjAyMWJhYjA1MiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzNlNDIzYTdkLTk0YjQtNGY5OS05Mjk3LTMxODRiZWExMDYxZCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzY2MmQ0Njk5LTMxZGYtNDBjNS05NDViLTQ0NWIzMzg0MjVkOSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2E2OWU5OTQxLTEyNzktNGRlYi05MTRjLTY2NzMwZDhhOGE5ZCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzRlYTJhYzExLTM3MWQtNDc3Mi1iMzQ3LTkwODAzZmZiYTlmNyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzM2MTY3ZWM5LTgzZTctNDY3Ni05MDI1LTVkNzhiZjJlMjkxZiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0="
+      ],
+      "bookingLink": "https://amadeus.booking.holibob.tech/product/5f0c6ad3-6182-4021-b2d6-34af6ea421d7",
+      "minimumDuration": ""
+    },
+    {
+      "type": "activity",
+      "id": "139538233",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/shopping/activities/139538233",
+        "methods": [
+          "GET"
+        ]
+      },
+      "name": "清迈一日泰国烹饪课程与布阿通瀑布游览",
+      "description": "<div><p>在清迈参加我们的泰国烹饪课程和粘性瀑布探险，发现泰国的美味！您的旅程将从方便的酒店接送开始，接着前往梅乔市场，您将在这里探索丰富多彩的泰国香草和新鲜食材。成为大厨，准备正宗的泰国菜肴，提供素食选项。与新朋友一起品尝您的创作，或将它们带回酒店。畅游清凉的粘性瀑布，也被称为布阿通瀑布（农场烹饪课程选项），您可以在这里攀爬瀑布而不滑倒——这是一个吸引全球游客的自然奇观。您可以选择在农场或市区的全天体验。结束您的一天，轻松返回您的住宿地点。</p></div>",
+      "geoCode": {
+        "latitude": 18.7853916,
+        "longitude": 98.9909045
+      },
+      "price": {
+        "amount": "40.0",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzg4MmJiYjdhLTA4ZmItNGNhNS1iMWZkLWExYTJhMjkyZWY0MyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzYzODk0NWE2LWI1ZTQtNGFmYy1hOTdjLTViZjFlMGRiZGQ3NyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2Y2OWY5OWY0LWRhMDItNGYyZi1hYzRlLTJhMDU1NWRlZjEzZiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzUxZGM3YTJhLTNiNmEtNGFkMi1iZWM3LTQ5YTE3NzVkNmRiZSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzAxNjY2NDU4LTliYWEtNDFlMy04MGMwLTg4NWQ5MGZhOWMxZCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2YyYjdhYmY5LTQyZTAtNGRlYi04NjI5LTEyYmIwMGFjMjhiNyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzg1MzhjNTZkLWI1ZDUtNGJjZi04MTUzLWU1NTRkNmIxZmQ3MCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2VlOWE0NWRmLTRkZTgtNDM4My1iOTljLWY3ZWYyZjk1N2JkZiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzc3OTliNjE2LTkwNjMtNGQxMy05NmUzLWU0YWYxODI5N2UyYyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2U4ZjQ2ZDczLTNlMDUtNDM3OC04M2Y4LTQ1MzU5MDFkNjI0MyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2UzMTU2NjJhLTQ3NWUtNDIxOC04M2MwLTkyNDYyMGM2Yzk5OCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzkxMjUyZDA1LTk2NWEtNGNhNy1hMGE5LTkyM2NmYTk1Yjg3YiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2VkMWMyZmUxLWMzODEtNGVkNS04ZTQwLTYxZDhlOGFiY2E3NSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzE1YzFlZjAzLWY2MjQtNDc5ZS1iNWQwLWQ1NTRiMjBmYTBhYSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzQxNDFhYzc4LWVlZTMtNDVjZC04MjdjLTk5YjJjNTUyMTM2NCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2JlNWUyZDNmLWNiYjgtNDJjMy04N2NmLTQ5YWIzMDU2MGE0YiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2JjODdhNjQwLTc3ZWYtNDE3OC1iMDVhLTE5ZmFiZGRmMTFiOSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzRmZTVkYmUyLTlmMjUtNDdjNS1hMGI3LWViNjMwMDFjZmUyOSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2NlMzRhOThlLTBiMmEtNGY4My1iOGRjLWViZWZjYzA5NWM4MyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzQ0NThhYjU3LWU0MmQtNDczMy05ZDMwLTkyMjUwOWI2NWE1YyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzA0MzVkM2MxLWE3ZTgtNGZmNS1hMDllLTNlY2Y4YmQzNzhkNSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzUxN2E5MjNiLWU5YWItNDQ2Ni04MzhiLTU2YWE0MzM1YzZlNCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2MzNGVlMzAyLTczMmItNGUzMC04ZTVhLTI4NDJjY2QzMWYxNyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2Y1MDk0MTIzLTA4NDAtNDAwZC1hMzllLTBkMzkyMjFjNGVkNSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzgyMDc4MGQ5LWU5ZGMtNGQzNS1iNjFjLTdlOTE5ODRjNGY5MCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzg2NmQwN2E1LTUxNzUtNDZhMy1hZGFiLTUxYWU3MTUxZjI4OCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzYzOTY0ODE2LWY1NWEtNGUwMi04ZjJjLTNmZDA4NDEyNGQ2OCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzAzZTg0ZWYxLTYxNzUtNDBkOC1iMzM0LTE5YWIyZGM3MGNkMSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzRhMTIwYmY1LWY1NzktNGY5Ni04MGZjLTgyNWM2ZmRiZTJkMSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzliMjkzODI0LTY2OTYtNDdjNS1iNDllLTIwN2I5MGM1OWMxOCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzNiM2JkMzhmLWQ1NTItNDNmMy1hMzIwLTlhZjE0NzY0Y2Q3NyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzVhMTdmNmEyLTdhMGMtNDJkMC04N2Q2LWU4MTgzNjhiMzE4YSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzM0NDMxYTM4LWI5ZjgtNGRkZi04YTNhLWFlNmRmOWJkNGEzMiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2U2YTBiMDVkLTRlMzctNDgzZS1iMTFhLWI3Y2MyMjkzZDUxZCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzYxMWQzZTljLTJjM2ItNDlmZS1hMjM5LTUyNmViODE0YTkzZiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2M0ODc5NjAxLWMyMzktNDc5Zi1iZmU3LTMxNTlmYjM0ZGJlNSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2EwMzBjMjM0LWMzMTgtNDJlNC05ZGQ3LTAwYTRlODU5OGY1NiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzljNzg4ODhhLTgzZDUtNDZhYi05ZmE2LTUxOWU1YTgzZDY3ZiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2U2ODY1NGE0LTYxNjUtNGI5My1hOWZjLTU5N2YyZThkNDE3YSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzI5ZWUzZDNmLWM2ZmItNGE4YS1iMjk2LTdlYTc1NzE2OTFlMSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2Q3ZDE3MzBhLWI5MDQtNDYwNi1iNWFiLWQ1NTcxY2E3ZTJjMCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0="
+      ],
+      "bookingLink": "https://amadeus.booking.holibob.tech/product/9fb4e84f-22b4-472a-aec3-a3007c15f9fd",
+      "minimumDuration": "6 hours"
+    },
+    {
+      "type": "activity",
+      "id": "139635420",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/shopping/activities/139635420",
+        "methods": [
+          "GET"
+        ]
+      },
+      "name": "清迈阳光月光：文化嘟嘟车体验",
+      "description": "<div><p>在这次令人兴奋的嘟嘟车之旅中，像当地人一样发现清迈的魅力！探索历史悠久的契迪龙寺，欣赏斯里苏潘寺精美的银饰工艺，感受兰纳风格的洛克莫里寺的美丽——这一切都在令人难忘的一天中完成。漫步于热闹的瓦罗罗市场，享受街头美食，购买独特的纪念品，感受当地的氛围。最后在充满绚丽花卉的花卉市场结束你的冒险之旅。在一位讲英语的导游的带领下，这次嘟嘟车之旅为你提供了一种有趣而难忘的清迈体验。</p><p>• 根据你的日程选择白天或晚上的旅游。</p><p>• 乘坐传统的嘟嘟车穿行于城市，体验独特。</p><p>• 参观契迪龙寺、斯里苏潘寺、洛克莫里寺和瓦罗罗市场等热门景点。</p><p>• 从友好的导游那里了解迷人的故事和见解。</p></div>",
+      "geoCode": {
+        "latitude": 18.7837381,
+        "longitude": 98.9991495
+      },
+      "price": {
+        "amount": "87.0",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzE4MjJmZDc1LTA4YTgtNGUwMy1iY2FhLTY3ZDA0ZTI2YTc5YyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2JhZDk1ZTc1LTM5NGItNGZlNS1iY2Q0LWE0MGNlMjBlZGM0YiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzg4OTkxOWFmLTM1NWUtNDU0OC04ZjMxLTkwZjc2ZjkzMjg3NyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzg5MTE0NmM0LTMzYmEtNDhkMC1hOGFlLTE2ZTIwOTJlNDIyOCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2E4Y2MyMzNiLTVjMjktNGMxNS05ZDk0LWQ1NWZjZjgxODQxMSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzM3Mzg4YmIxLTBjZTQtNGNjNi1hYzRmLTIzNmJlMTJhZDFhNyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzNjOTgwYThjLTA0Y2UtNGI4MC04YjRlLTFhMzk2ODliYjA0ZCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2ZlZDUxZTc2LTA5ZTctNDM0NC1iOTYxLTQzZDAxZmJhYzc4MiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzU2NjcyOTdjLTg4ZDMtNDc2Yi05NDUwLTkyNjFkYzQ0MzU2NCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzIxMzQ2NDg0LTQ1ZTYtNGY2My1iZDExLTViZTdkNWNiNGVlNyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0="
+      ],
+      "bookingLink": "https://amadeus.booking.holibob.tech/product/e1643851-dea3-4857-b97e-2e6155e465f8",
+      "minimumDuration": "3 hours"
+    },
+    {
+      "type": "activity",
+      "id": "138998748",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/shopping/activities/138998748",
+        "methods": [
+          "GET"
+        ]
+      },
+      "name": "清迈私人定制城市之旅，配当地向导及啤酒",
+      "description": "<div><p>与私人当地向导一起探索清迈的夜晚，他们将分享亮点和隐藏的宝藏，包括寺庙和夜市。您可以根据自己的兴趣个性化行程——无论是想品尝街头美食、购买纪念品，还是欣赏夜间灯光下的寺庙。在整个过程中，您将能够以大型团体旅游无法提供的方式与当地向导建立联系。</p></div>",
+      "geoCode": {
+        "latitude": 18.7842466,
+        "longitude": 98.9818291
+      },
+      "price": {
+        "amount": "55.0",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzk3YmMzZjY2LTAzNjEtNDMzOS05Y2NmLTRlYzE2ZDAxOTk4MyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzZiNTYyMjEzLTFjNGYtNDUxNy04ZDY2LTVhYjY3YTBhMzhkZSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzE1OGY5ZDFiLTUxNzktNDg4MC1hZmE3LTEwZjNjMzVlMTczYyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2JlZmFhZWMwLWJlMWMtNDVjNi1hZjQ0LWM2YTY3YjRhMWYxYiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2UzZWNjNWFmLTM3MDEtNGU1Yi04ZTY2LTFhNTU4NGEzZmNmMSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2M0ZWJkODVlLTZlYzAtNDkwZS1iYTM3LWEwNTcyMDc2ZTgzMyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzkzZDg3MzYxLTFkYjItNDZmMi1iN2QzLTU2N2Q3MjU5MTUwZiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzUzOTEzZTU1LWFmMjgtNDQ0Zi04YTFjLWZmYzkxN2I0ZDRkNyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0="
+      ],
+      "bookingLink": "https://amadeus.booking.holibob.tech/product/b0bb38b8-7f5e-48ea-9fde-1f2a4ad87acf",
+      "minimumDuration": "2 hours 30 minutes"
+    },
+    {
+      "type": "activity",
+      "id": "138999256",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/shopping/activities/138999256",
+        "methods": [
+          "GET"
+        ]
+      },
+      "name": "清迈乌蒙寺与素贴山私人夜游",
+      "description": "<div><p>在这个夜间游览中，参观清迈一些最著名的寺庙，您将享受空调交通和全程导游服务，无需自己安排。您将有机会与乌蒙寺的僧侣交谈，然后在素贴山寺观看他们的诵经，以及欣赏照亮城市和宝塔的灯光。</p></div>",
+      "geoCode": {
+        "latitude": 18.789109,
+        "longitude": 98.96931819999999
+      },
+      "price": {
+        "amount": "57.0",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzBiZGNmZGIyLWQxYjYtNDFmNy1hMDNmLTk0NDQ2NWNkMjRjNyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzk1ZjhiMzIzLTY4YWYtNDlkNS05YWNhLWUxNTgyNGFiNWVjYiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2Q2NGI3NzVhLTE4NmUtNDFkOC05ZWY1LTM5YjY3YjFmMWNiYSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzc0YWZkMmI0LWQ1NjktNDYxYy1hYTRmLTMwMWQ2ZWYwMzExMyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzkxYzFmYTBmLWZhZTYtNDhkZS04YWNhLTk5ZTMxNzNmN2U2NSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0="
+      ],
+      "bookingLink": "https://amadeus.booking.holibob.tech/product/954594b1-9d1f-479d-9a09-806dac7ed359",
+      "minimumDuration": "4 hours"
+    },
+    {
+      "type": "activity",
+      "id": "138999170",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/shopping/activities/138999170",
+        "methods": [
+          "GET"
+        ]
+      },
+      "name": "清迈大峡谷与皇家花卉博览会",
+      "description": "<div><p>一天的旅行结合了古城的魅力、花园的美丽、独特的寺庙、当地美食以及最佳自然水上乐园，您可以在这里享受漂浮的水上乐园、儿童区、皮划艇、独木舟、巨型滑梯、滑水板等活动。</p></div>",
+      "geoCode": {
+        "latitude": 18.7883439,
+        "longitude": 98.98530079999999
+      },
+      "price": {
+        "amount": "86.0",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzAzM2M1NmE1LWJmYjgtNDkyYS04NmZkLWFlNDI3NzI1ODI0MyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2M1Njc2ZjM3LTMzMTItNDgzYS1hMTVlLWNjYjg4YjRlMDAxYSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzRjNjYwNTQ2LWM4MDctNDM3MS05MGQ0LWZjOWVlMmYzYjczZCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2FiZTc1MjcyLTk4N2QtNGM1My1iMDU1LWE4ZDExN2E5YjQyMyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2MwM2E5ZWY0LWM0Y2MtNGZkNi1iNGVmLWM3NmM0NGJkMjc4YiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2Q2ZjNmNDM0LTA2ZTEtNDkzZi04ZjcwLTdlNDZmYzc0YzViYiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzMxYmEwYjIxLTAxMmQtNDRmZi05MjJmLWRmMGFhODY1ZjY3NiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzk4NTU0MzMxLTdkOWEtNDY1ZS1iNzgzLTk1NDY5NDQ4Yjg2OCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2IxMDI0M2EyLTc5ZTUtNGJhZi04Y2JmLTQxMWY2ZjAyZjZmZSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0="
+      ],
+      "bookingLink": "https://amadeus.booking.holibob.tech/product/3a76eb2b-600a-4365-8921-75e86ea1a525",
+      "minimumDuration": "24 hours"
+    },
+    {
+      "type": "activity",
+      "id": "139058191",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/shopping/activities/139058191",
+        "methods": [
+          "GET"
+        ]
+      },
+      "name": "私人行程：3天2夜旅行：清迈-清莱-金三角之旅",
+      "description": "<div><p>- 在为期三天的旅行中访问三个国家。</p><p>- 此行将访问缅甸和老挝的边界。</p><p>- 了解更多东南亚文化，见识更多风土人情。</p><p>- 节省您的时间和预算。</p><p>- 体验更多不为人知的地方。</p><p>- 行程涵盖清迈和清莱的所有亮点。</p><p>- 在路上见到更多山地部落的人。</p><p>- 与更多当地人接触，并在乡村过夜。</p></div>",
+      "geoCode": {
+        "latitude": 18.7883439,
+        "longitude": 98.98530079999999
+      },
+      "price": {
+        "amount": "300.0",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2VhNzg0MWYyLTIwNTEtNGNjOC1iYzFlLTk5YzgxMzk5OGI0MiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2UxMmQwYzI5LTEzYTUtNGQ5OS1hZGM5LTliOWVjZDQ2ZjJlNiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2JkMzg1MjgzLWJjN2YtNGFhMC04ZjkyLTQyZGE4YTIzNDUxMiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2NhZjcwNmYwLTk2YTctNDI2Ny05YjdhLTZkZmU5ZmIwNmIxOCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzY1YTdmMzVkLTVhNGMtNDRmYy04NDBiLWJkNTE3ZjljYmNiZCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzhhZThhZjA5LWZhNTAtNDM3Mi1hZjFkLTIzZGQxZTllN2U4MyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzA3NTM0YmE4LWE1YWYtNDAyNC05ZGZjLTU1ZDJhYTZlY2Q4YyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzNmMDBiNTE0LTQ1MWQtNDdlMS04ZWE2LWIyNmZjMzk1YmE0NSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzdjMDcwNDhmLWQ2MWMtNGY4NC04YjFhLTk5NzFiYTQwNDk0NSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2Y5NjFlOGQyLTEwNjctNDMzZC1iMjY4LWUxN2ZkNjJlODExNCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzNkMTdlNmE4LWRlNTgtNDI1NS1hNjAzLWI2MTdhNjM5YWEwNiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzA1M2RmOWRkLTYyYmItNGU2NS1iMWQzLTk4MGFkNDg0NzZkNyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzNjNDE0MGRmLWFkZjEtNGYzYS04NjRkLTZkNzE1YjdhZTU0YiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzM3ZjQ4YWZmLWNiZDYtNDQ4NC05ODY5LWZkZmU4OWU2NDQ0ZiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0="
+      ],
+      "bookingLink": "https://amadeus.booking.holibob.tech/product/52e43143-fa50-4111-8002-83a5f20ac987",
+      "minimumDuration": "3 days"
+    },
+    {
+      "type": "activity",
+      "id": "139635619",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/shopping/activities/139635619",
+        "methods": [
+          "GET"
+        ]
+      },
+      "name": "清迈城市之旅：双龙寺与观景点（SHA Plus）",
+      "description": "<div><p>在这次半日游中，探索清迈的古老寺庙。游览历史悠久的宗教遗迹，包括双龙寺、契迪龙寺、帕拉特寺和塔佩门。欣赏清迈市的美丽景色以及历史悠久的佛教和印度教遗迹的精美建筑。</p><p> • 探索迷人的清迈古老寺庙</p><p> • 拥有广阔城市景观的双龙寺</p><p> • 独特且传统的佛教建筑</p><p> • 契迪龙寺的历史佛陀遗物</p><p> • 清迈及其周边地区的全景</p><p> • 包含酒店接送服务</p></div>",
+      "geoCode": {
+        "latitude": 18.7837222,
+        "longitude": 99.0004115
+      },
+      "price": {
+        "amount": "44.0",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzc5MDYyYjQ1LTc4NWItNDk3Yy05ZmM2LTNmOTQzMTg3N2JlZiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2QyYzZhMGRkLTBhYTAtNDUzOC1iZjU3LTJmYjE3ZTM4OTJkYSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzA2NDZlMmExLTI4MjgtNDg3NC1iMWRmLWZjNjBiYWU1M2Q3OSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzdmMjJmZmNjLWRkMjAtNDE2NS1iMzE0LTg2MDI4Nzg5MTg0OSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2U0N2Y3NjBlLWEzN2YtNDNlMy1hNjY4LWUxNDA0YTViOWUzNSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzkzNmM4NWVlLWRkYzctNDdjNS04OGQ5LTllZjFiOTdhNDY4OSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0="
+      ],
+      "bookingLink": "https://amadeus.booking.holibob.tech/product/807b1c31-17d5-4989-894b-cf7adfbc3294",
+      "minimumDuration": "4 hours"
+    },
+    {
+      "type": "activity",
+      "id": "139471711",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/shopping/activities/139471711",
+        "methods": [
+          "GET"
+        ]
+      },
+      "name": "竹筏漂流与大象探险",
+      "description": "<div><p>----------------------------------------------------------------------------------------------------</p></div>",
+      "geoCode": {
+        "latitude": 18.8053997,
+        "longitude": 99.02007239999999
+      },
+      "price": {
+        "amount": "67.0",
+        "currencyCode": "USD"
+      },
+      "pictures": [
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2Y4OTViYTA1LTI4OTAtNGE1NC04YzBlLTg3OGVhN2YwYTBmYSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzQ5OWVhZjMxLTdmNjktNDQ0MC05MGNmLWQwMDg0NzQzZDBhZSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0="
+      ],
+      "bookingLink": "https://amadeus.booking.holibob.tech/product/ce3bd8d3-f8c1-4f8c-b038-3e80de0794c8",
+      "minimumDuration": ""
+    },
+    {
+      "type": "activity",
+      "id": "139002030",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/shopping/activities/139002030",
+        "methods": [
+          "GET"
+        ]
+      },
+      "name": "清迈老城4小时夜间自行车之旅",
+      "description": "<div><p>一位经验丰富的英语导游将带您骑行，游览清迈一些必看的景点，但避免人潮拥挤。参观洛克莫利寺，聆听僧侣的诵经，游览塔佩门和契迪龙寺，最后在清迈门市场品尝街头美食，结束这次骑行之旅。夜间出行可以享受更凉爽的气温和更少的游客。</p></div>",
+      "geoCode": {
+        "latitude": 18.7931943,
+        "longitude": 98.9865854
+      },
+      "price": {
+        "amount": "67.0",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2Q1ZTY4YzEzLWIzZjUtNGJkMy1iMjFiLWExNzJhNmExZTExYiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzBiMWQ3MmNiLTJiM2YtNGJlMS05NzRlLTk1MzQ3ODc3N2JkNiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzU5NDliZjlmLWE3YmUtNGEzMS04ZmIxLTQyOTBhZGU5YTNlYyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzk1OGVlNjYxLWMyMmUtNGUwOS04MTgzLTQ3NzQ4YzdjYzY1MiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2NiMDMyZDY3LTIyMjEtNDIwMS04YzFjLWMzM2ZkYzc2MDdhOSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzgwMTk3NjNjLWQ0ZDItNGFlOC04YjM3LTU1ZmY5OGIwNTU0MCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzJlYTM5ODk3LWVhZmYtNDJjZS04OTBlLTU5OTVhOGY4MWM1OSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2FmNmU4YzlmLTgwNDctNDJiZi05ZTVmLTBlMDBmODYwNDA2MSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2JkOGRkYjEwLTYxYzAtNDBlOS04MDA2LTEzZGE2M2I1NmRkZCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzY5MzRiODQwLWM3NWItNGQ3MS04MDg5LTc5ZTYxMDMyNTExMSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2NkMTlhMDBmLWEwNTgtNGFhNS04MjMxLWEzZjQ5ZmNiMTVkZiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2UxNmU2ZWZiLTZlZDQtNDNhOC1hYTc1LTlhNWQ4MzcwOTg0OSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzMzYTY0ZWNkLTJjZGUtNDhkYS1iMGUzLTI2MzZjYzM4OTVlOSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2RiMDEyM2ZhLWQwNWItNDY1My04ODgzLTIzMWE3MzkyMGEyNCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzZjM2NlMGQwLTQ5MTUtNDI3Zi04MDE5LTI5OWE0YzZlZDI2OSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzY4Yjk2NmU0LThkYTktNGE4NS1iZmMwLWU0NTBiNWM5NTEyZSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzllZWJiMDI3LTQ5NTktNDJlOS1iYmE0LTAwNGQxYThkMDFiOCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0="
+      ],
+      "bookingLink": "https://amadeus.booking.holibob.tech/product/210816f6-d6e2-4245-8316-bd3c3837f716",
+      "minimumDuration": "4 hours"
+    },
+    {
+      "type": "activity",
+      "id": "139695444",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/shopping/activities/139695444",
+        "methods": [
+          "GET"
+        ]
+      },
+      "name": "清莱之旅：白庙参观",
+      "description": "<div><p>通过这次全天游览，花一天时间探索清莱及其周边地区。您将参观城市标志性的“白庙”（Wat Rong Khun），以及“蓝庙”（Wat Rong Seur Ten）和黑屋博物馆（Baan Dam Museum）。还可以选择额外付费参观一个卡伦社区。</p></div>",
+      "geoCode": {
+        "latitude": 18.806326,
+        "longitude": 99.01727600000001
+      },
+      "price": {
+        "amount": "34.0",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzNjZmIwYzg2LWQ0MGUtNGZhMC1iMzdkLWU0ZjYyYTRiMDQ0YyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2U5NmZkNDJhLTkxMDgtNGY1MC1hOWJiLTM1ZDczNWIxMzU1YSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2JlNjU2OTAxLTJiZDItNGY3ZS1iOGJlLTU4ZjAyOWRlNTIxOCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzkzOTk5NDI3LTJiYTktNDVlMS1iOWViLTQwNzQzZmRkOTk5NiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzViNjZiNzUwLTUwZDgtNDAzZC1iMzk0LWM3YzY2MGQzYjc1NSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzg3M2FmNzIyLTM0ZDQtNDUzNC04ZTY0LWNlMDQ0ZWQzMDNlZCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2RkNzdiNzQ2LWFmYzAtNDliYy1hZTk2LTg3MGRiOTY3MjFiMSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2QyNDk3Y2IyLWMzMjUtNDYzZS1hNDNjLWVlNTkyZTU4NTdkYiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2FjOTNlYjkzLTQ5YmUtNDlhZi1hODVhLWExOWE1NjEzNGQ0MiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2I0NTQyNTYyLTNkMmMtNDJjYi1hMTI0LWRlM2ExNzFmZmM5OCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzM5OWVjYjIwLTM3ZGEtNDdjOC1iZmFjLTM5NjI4NmQ1OWMwOCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzBiM2YxM2EwLTU5ZWEtNGE1Mi1hNjA5LTBiNjkyMjEyNjQyMiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2ZhNmI3YTZjLTI4MDUtNDVmMi1iZTE1LTY1ZjkxN2ZiMTEwNiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzZkOTlhMTNjLTkzYWMtNDljZS04OWUxLTIwMzQ0YmExNWNiYSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzM0ZjUxOGUwLTMyNGYtNGZiYS1iZGE2LTVhMWM5NTczZGZiZCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzI0ZTUxMTBiLTQ1YjYtNDg2NC1iNGExLTg3MjFkYWEyMTUwNiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzViMzM1ODYwLTA1NmYtNGI3ZC1hOTYzLWRlYmQzMTJiNGFkZSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2I5ODdjYWQyLWJhNjItNGI5Yy04NzRjLTM3ZTdjYWUxN2ZiZiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzA3NjBiOGJjLWU0ZGQtNDMwYi1iMmNjLTVhYjgxZWI3M2JhNCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2IyOTNjYzllLTM4ZTAtNGNiNC1hOWUwLWJmMjA5MTlkYmQ0NSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2I2MDljZjA0LWQzMDItNDVlYS04N2FlLWIwMjg4NmI3Y2YzNiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzc1ZDI2MjljLWI1ODMtNDA0Ni1iYjAzLWIyYTY1NDYzYTliMiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzY1Y2Q0N2NiLWY1M2UtNDcxYS1iZDYwLWE5MmRlYmIwY2M4YiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0="
+      ],
+      "bookingLink": "https://amadeus.booking.holibob.tech/product/4ada53e0-7140-46cf-899b-d393aa43053a",
+      "minimumDuration": "12 hours"
+    },
+    {
+      "type": "activity",
+      "id": "138998740",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/shopping/activities/138998740",
+        "methods": [
+          "GET"
+        ]
+      },
+      "name": "清迈梅旺三天丛林徒步探险",
+      "description": "<div><p>在这次为期三天的私人徒步旅行中，深入偏远的梅旺国家公园，您将沉浸在大自然和当地的野生动物中。您的导游将带您穿越公园，无需自己导航。您的餐饮、住宿和交通都将为您安排好，因此您只需尽情享受这次私人徒步旅行。</p></div>",
+      "geoCode": {
+        "latitude": 18.7837222,
+        "longitude": 99.0004115
+      },
+      "price": {
+        "amount": "118.0",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2NkZTQxMTYzLWJkZTQtNDhmMy05NDViLTA3MGFkMTkxYjJiNyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzczNjFhYTlhLWYwN2ItNDE0Yi1hZTk5LTc2NmJkN2ViMWQ5MyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2NlN2U2NDI0LWFhZmMtNGI0Zi05MTNiLTdhMGRiODAxNjM2OCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2UyMjBmNjE4LTQ1MzktNGUxYS05Yjg5LTEwNTgxZGQ3NTI5YyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzI5NDBkZWM4LTI4ODAtNDc2NS05OWE5LWQzYzMwNWY1ZTlmNSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2NlNWNiZmRlLTY2MjYtNGQ5Ny05MDNlLTMyY2ZmYTQ3NWI5ZCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzM3ZTVkNTJmLTc2NTEtNDM3Ni1hMDFkLWEwODdmM2QwMWM5ZiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2E4Njg2ZGI1LTllNmItNGUwMC1iZGRiLTVhMjZjYTYwODI1MiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzQ5N2VmOTk5LTNkYWEtNDgyNy04YjY4LTY0YzBjMTU5MTljMSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzk2MTljMWVlLTJkMWItNGY1My05NWNlLWQ2YzM5OTU0MmY4YyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0="
+      ],
+      "bookingLink": "https://amadeus.booking.holibob.tech/product/8c14f052-ec39-470e-b027-bfab85e24457",
+      "minimumDuration": "3 days"
+    },
+    {
+      "type": "activity",
+      "id": "138998909",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/shopping/activities/138998909",
+        "methods": [
+          "GET"
+        ]
+      },
+      "name": "清迈风味：街头美食冒险",
+      "description": "<div><p>作为清迈的当地人，我们为我们的美食感到自豪。实际上，清迈被誉为北泰美食的首都！</p><p>除了自然风光和热情的当地人，正是美食让清迈声名远扬。在这次美食体验中，我将带你品尝清迈门周围的当地美食，我保证你会带着饱腹感结束这次旅行！</p><p>*以下是你将在市场上品尝的一些菜肴/甜点*</p><p>北泰香肠（我们个人最爱的！），北泰鸡肉黄面，还有更多美味！</p><p>*小团体，人数不超过8人。</p></div>",
+      "geoCode": {
+        "latitude": 18.7813558,
+        "longitude": 98.9890913
+      },
+      "price": {
+        "amount": "37.0",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzFlMTk4MTM3LTczOTctNDQxNy04MDcwLWJlZmY4NTc3ZjZlNSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzEyODdhZTY5LTJhN2EtNGFlYi04MzZjLTQ2OTg1M2MxZTgzOCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzJiZGMxMTA5LTM0MTAtNGYwOS1hYjA5LWY2NDJmNjQ2NTc0MCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzQyMTk5NWRiLWQ2M2ItNGUwNy1iNzUxLTJlM2QzMTcxM2Q1NyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzNjMWU4OTQ3LWFhMmQtNDRmMS04ZTMxLTg1ZmYyNzNkYjE4OCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzA0NDg2MjIzLWIwNDMtNDA5NS1hOTMzLWNjNGFkZGYwYjlkZiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzhjODAyYjExLWNhNDYtNGFhZC1hZGUwLTE5N2QyNjcwOTA0NCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2YxNDdjMmI2LTA0MzktNGM5Yi1iZTJiLTA3OWRjOGM3Nzc0ZCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzdhM2Y1NWYwLWViMGQtNDA4My1iMmVmLTRlNGVjZmJkY2Y1OCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2E1YTMyZDM2LTUxZTgtNDBmMi1hMDIwLWNiZDFjZTM0NjAzMCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzZiYTAxMzM2LWUxM2UtNGU3MS1iMWQwLTQzZDQwNzIzMTZmYyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzNjNTE2NTIyLTBhOTYtNDBmNC05NDQwLTRjZjRhMTFlZGZkMiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzA5NGEzNjUzLTYzNzAtNDA4Yi05Y2QwLWRhMzA0OGI0ZDRhZCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2EwMmYzZjQwLTI0MTYtNDk1NC1hNDg4LWYwZDBiM2RhMGZlMCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0="
+      ],
+      "bookingLink": "https://amadeus.booking.holibob.tech/product/0868d64c-6056-4486-bf23-4a2b305afba2",
+      "minimumDuration": "2 hours 30 minutes"
+    },
+    {
+      "type": "activity",
+      "id": "138999875",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/shopping/activities/138999875",
+        "methods": [
+          "GET"
+        ]
+      },
+      "name": "清莱白庙与金三角一日游",
+      "description": "<div><p>从清迈出发，踏上前往金三角和清莱的冒险之旅。无需担心行程规划，因为为您精心安排了完整的路线，包括精选酒店接送服务以及景点门票。路线中展示的景点包括白庙、索普鲁克和梅卡昌温泉。</p></div>",
+      "geoCode": {
+        "latitude": 18.8001106,
+        "longitude": 98.9683099
+      },
+      "price": {
+        "amount": "77.0",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzg0MDU5ZmU0LTQyODMtNDgwMy1iNWI1LTRjNWM5NDcyMzdiMSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzFiOGQyZWI0LWQwMzQtNGE0MC04ZjY3LTZmMzU0MjA0MWQzMiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzE3NzIzYjM4LTA5NjYtNDMyMC05YTA0LWEwMWEzMTlhODlmZiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2NmNmVkNmQ3LWI4YTUtNGEwNS05MjUyLWQzMjc5NzliYjhmNyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2Q1Y2E1ZDExLWNkMTEtNDQ5OC1iN2MwLWFmY2E0OTM4YjE2MyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzhmMTNmOTc5LTQ0NjAtNGQ1Ny05OTFkLWExZmEzNjM5YWM4MyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzlmNDhkOTI4LTc4NDUtNDk1YS1iZDI3LTk2NDRmMDU1OGVmYiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzhhMGM0MTU2LTk4MTEtNGM5ZS1iN2ViLWU2YWM5NjUzZjgzYSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzM4Mzc0YTM1LTc2ZGQtNDA3MC04NTViLTkzYTQwZWRhOGU3NSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0="
+      ],
+      "bookingLink": "https://amadeus.booking.holibob.tech/product/e2dc8e35-842f-4fa9-bfc0-1d433321c992",
+      "minimumDuration": ""
+    },
+    {
+      "type": "activity",
+      "id": "139406855",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/shopping/activities/139406855",
+        "methods": [
+          "GET"
+        ]
+      },
+      "name": "与当地艺术家的涂鸦和街头艺术工作坊 - 合法进行",
+      "description": "<div><p>旅行者将与当地涂鸦艺术家Drcas一起探索清迈充满活力的街头艺术场景。体验开始于一场隐藏巷道和著名壁画的步行游，旅行者将在此了解涂鸦文化和技巧。接下来，旅行者将参加一个动手工作坊，在墙上（视天气而定）或布袋上创作自己的涂鸦，带回家。无需任何经验，所有材料，包括围裙和手套，均由我们提供。旅行者将获得Drcas的指导，他将分享他的专业知识和个人故事。如果旅行者在涂鸦方面有经验，可以合作设计更高级的作品。部分收益将用于支持泰缅边境山区和冲突受影响地区贫困儿童的教育。旅行者应携带防晒用品和步行游所需的水。这一独特的体验让旅行者在创造力的表达中，同时对当地社区产生积极影响。</p></div>",
+      "geoCode": {
+        "latitude": 18.7945373,
+        "longitude": 98.9846307
+      },
+      "price": {
+        "amount": "31.0",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzk3NDJkOGI1LWZiYjgtNGRmOS1hNWRlLTcwZmY0MWI3NDRhYSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzdjYTY5N2M4LTU2NDQtNGE2Ni04MGFhLTdhZGUzMGYwNDFhNyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2Q0N2ExZmI5LTJmNWEtNDI3Ni05NDAzLTU0MjJkNjQ3ZjJjNyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzE3ZTg1NmE3LTQ1NmYtNGIyOC1hZTdlLWM2NTE1ZDAwNTg0OSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzg4ZTdkY2IxLTNkOGItNDU1MS1hODZmLTY1NDEzODQ4MmFmNiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2QwOGVhMWI0LWI4ZjItNDgzNi1hYjBkLWE2NmVhNTNjOTZlZCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzA5YWNkZWE5LWI1ZjYtNDg0YS04YmUyLTQ3MGU5M2JkNDMxMiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2M2OWIyZTdiLTZkMzAtNGVhNC04YTk4LWY3NTQxNTUzODFhMCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2VmOTI5YTAyLWMwOWQtNGQyYi05MTA4LWNkMDJlMTU4MGZkNyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2JiNmMxYjAzLTM1ZjgtNDIwMS05NTg1LTkyODg5NWJjNTM4MCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzNjMjE3MjdhLTY3ODEtNGEwZC1iZDFmLTY5ZDUxNzJlNzgwYiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzI1MWRkYjU0LTZlNDctNDg5MS1iMzNkLTAwMzFlZjQ2YzI0YyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2IyNzRmOGExLWY5YWItNDM0Yi1iZmRjLWQyMmE4Yjc2Nzg0MCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzFiMThiZmE0LTFhYzItNGEyYS05OWUwLWFmNmEyYTM3MGRkNiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzgxODg4OWI0LWQxNTctNDcyYi1hMGEzLWQ0ZTM2NGJlOTc1NCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2QzMzY4YjI5LWZiZGItNDE1YS1hNDZkLWI3MTAyZDBiZTZiNSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2EyNjE1MWQwLTg5MzEtNDhmMy04ZTFkLWUzMDFiZmRmOWNhYyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2U4YmFkOWYwLTFiMzEtNGU1ZC1hY2E5LTdlNWVjOTc0ZmRjMyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2UxMzUyODllLTM0YjktNDE3Mi04ZWVhLTYwMDBmMjQ4MzJkZCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0="
+      ],
+      "bookingLink": "https://amadeus.booking.holibob.tech/product/d2c17061-7f0b-4191-b0e6-46747a5b6809",
+      "minimumDuration": ""
+    },
+    {
+      "type": "activity",
+      "id": "139001565",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/shopping/activities/139001565",
+        "methods": [
+          "GET"
+        ]
+      },
+      "name": "清迈的素贴山寺和泰国手工艺品之旅",
+      "description": "<div><p>在这次从清迈出发的半日游中，探索古老的双龙寺和泰国手工艺品。游览双龙寺的历史遗迹，欣赏寺顶俯瞰清迈市的美丽景色，并造访“手工艺之家”三甘烹。</p><p> • 清迈最神圣的寺庙——帕叻双龙寺</p><p> • 金色尖塔矗立于寺庙之上，数公里外可见</p><p> • 详细的神龛和宝塔展示泰国历史</p><p> • 从您的专业导游那里了解寺庙的创立故事</p><p> • 浏览在清迈本地制作的独特手工艺品</p></div>",
+      "geoCode": {
+        "latitude": 18.7836852,
+        "longitude": 98.9990931
+      },
+      "price": {
+        "amount": "32.0",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzUxMGM1NjVkLTAxYmMtNGNjYy1hMzNmLWNhMmI2Y2U2NGM2NiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzZhN2UxYjAxLWI2ZjctNGIzMy04Y2RjLTFhYTg4MzdmZDhmNCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2MwYjJjMzA3LTIzM2MtNDc4Yi05MjM5LTQwMGIyOWE1Y2M5OSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzE0ZGZjYTQ3LTZjMTQtNGE3Mi05ODM3LWRjNDA1NjVhYjhmMyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2Q2NWEwODhmLTExMzUtNDI1ZC05MjlhLTc2ODc0YmM1YmQ5YiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzJjODcwYTFiLTQwNDktNGI3Yi05ZjE1LTk1NmFiNWUzYzgzMSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2RjMjU1NGI0LTRlY2ItNGI2MC04MGJlLTE5MjgxNjk4MzIyOCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzFmMzVkNjY5LTM3MjMtNDY1YS1iNDkyLWY3ZWI3MDZlYjNhZSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzY5ZTdkODVjLWEzYWItNDZmMy04ZWY5LTRjMmNmZDJjNzdjMSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2M0MDExZGY5LTg4M2ItNGM1OC05MTdjLTcxY2Y0Y2NkODhjMCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzdlNDI4YWMzLTIxMDItNDVlNC1iYTgwLTU4NTY3ZWMwZmU3MCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0="
+      ],
+      "bookingLink": "https://amadeus.booking.holibob.tech/product/05d2ba0a-daed-46af-beff-b653f38a7ef5",
+      "minimumDuration": "4 hours"
+    },
+    {
+      "type": "activity",
+      "id": "138998874",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/shopping/activities/138998874",
+        "methods": [
+          "GET"
+        ]
+      },
+      "name": "清迈夜间骑行之旅",
+      "description": "<div><p>在清迈门东侧的护城河路上，与您的导游和不超过10人的小组会面。请于下午5:45到达进行自行车和头盔的调整，然后在下午6:00出发，前往古城的东门。在塔佩（Tha Phae）停留，这里曾是商人进出古城的入口，如今经过精美修复，是了解历史的好去处。</p><p>继续骑行前往因塔金寺（Wat Intakhin），欣赏这座百年白色佛像和三王纪念碑，您将聆听导游讲述清迈的建立历史。到达城墙护城河后，放下自行车，步行前往洛克莫利寺（Wat Lok Molee），查看木制祈祷厅，或许还能听到僧侣的诵经声。</p><p>骑行前往清迈最著名的纪念碑，契迪龙寺（Wat Chedi Luang），这里有城市柱和三棵幸运的双翅木。此次旅行的最后一站是清迈的夜市，您将与导游一起品尝一些街头美食，享用饮品。大约在晚上10点结束行程。</p></div>",
+      "geoCode": {
+        "latitude": 18.7931943,
+        "longitude": 98.9865854
+      },
+      "price": {
+        "amount": "28.0",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2QzNzVjYTA0LTBkMGYtNDQyNy1iYWM1LWZiNDY1NGU2YzZmZSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzMwYzA5OWI5LWI0MzUtNGJkZi04ZWExLTA3ZmVmMWFmODA3YyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzkzYzJmNTI3LWI4YzQtNDg5My05OTcwLTdkN2JjZTU4MzU1YiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzY4YTMwMWFkLTMyYjItNDc0MS05NjUwLWNhMDYzY2ViZmM3YyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzc2NzM3NTQwLTk2ZjctNDBhMC05ZjU1LWEyZDA0ZTE4NGMyNiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2MyZDBhNmY4LTNmMjEtNGM4ZS1hYmU0LWVmMzY2N2YxMmM0ZSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzQ1YTQ1MmMwLWNhNDEtNGY0NC04MmE0LTRlNDI0ZjQ3ZWI2MyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzUyMzZjZDlkLTljNzEtNDZmNi04Y2EzLWNhMTU5Y2RlNTM0YSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzFiNjExZmRhLTFiYjMtNDc0ZC05NWUxLTI2Y2NlYjNjYTI0NiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzUwZGQ2ODZkLWIyNjMtNDI3MC04NTIwLWJlMmZlOWJjNzZmMyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2U5ODkwMGJhLTU2ZDItNDRiMS1iMmZkLTBiMzdjNGRkNzFmZSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzMxNTg5OTFiLTBlMjktNDhkMi1iMjYxLWQ4OGIwYWQ5ODA5OSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0="
+      ],
+      "bookingLink": "https://amadeus.booking.holibob.tech/product/2362ead3-ea5c-48a8-a003-56a4834f1df4",
+      "minimumDuration": "4 hours"
+    },
+    {
+      "type": "activity",
+      "id": "139494159",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/shopping/activities/139494159",
+        "methods": [
+          "GET"
+        ]
+      },
+      "name": "清迈夜间野生动物园门票",
+      "description": "<div><p>通过购买清迈夜间野生动物园的门票，您可以看到夜间出现的野生动物，并在这个独特的夜间动物园中观察到从美洲豹到白犀牛的各种动物。您的票包括进入美洲豹步道区和夜间野生动物园的电车游览，提前预订确保您在清迈夜间野生动物园的名额，让您无需排队等候。美洲豹步道的导览步行游览 在自然环境中观察夜行性动物 包括野生动物观察电车游览 绝佳机会观看夜间捕猎的稀有物种。</p></div>",
+      "geoCode": {
+        "latitude": 18.7554746,
+        "longitude": 98.9701759
+      },
+      "price": {
+        "amount": "57.0",
+        "currencyCode": "EUR"
+      },
+      "pictures": [
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2EyMDFkZTdjLTE1ZGUtNDRiZC04NjJhLWFkNjU2ODVhYjcwYiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzg1MWJjODMyLTU5MjQtNDhiMy04MTdjLWEwMjExOWQ5NDJmYiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzcxMDA4YjA2LTIzYWQtNDZjMi04NDQwLTAxOWIzM2RlNjFhYiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzdhMzAzNTllLWQxM2YtNDljNC1iZWI4LWExOWUyYjA4OWU3ZiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzL2M2ODA5OTIyLTJiOTQtNDUyMS1hMDViLWRlZGJiNmNjYmRmZiIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzRlMTRjM2RjLWE0NTQtNGU3NS1hMzgyLTZkYjc0MjE2OWVjNyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzAyMjNhZmMwLTRiOTEtNDRmYi04ZGM0LTc1OTAxZTA4ZDE3ZCIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0=",
+        "https://images.holibob.tech/eyJrZXkiOiJwcm9kdWN0SW1hZ2VzLzljNjNhNjU0LTUyNmItNDJhMS04NTg0LWU1ZmUwZjE4OTMxZSIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsIndpZHRoIjoxOTIwLCJoZWlnaHQiOjEwODB9fX0="
+      ],
+      "bookingLink": "https://amadeus.booking.holibob.tech/product/e0a1f8c5-89e9-4509-abbd-6be1441e99c1",
+      "minimumDuration": ""
+    }
+  ],
+  "meta": {
+    "count": 52,
+    "links": {
+      "self": "https://test.api.amadeus.com/v1/shopping/activities?latitude=18.78818&longitude=98.98784&radius=8"
+    }
+  }
+}

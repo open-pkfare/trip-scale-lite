@@ -1,0 +1,1332 @@
+{
+  "meta": {
+    "count": 37,
+    "links": {
+      "self": "https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=CNX&destinationLocationCode=SZX&departureDate=2025-10-01&adults=1&nonStop=false"
+    }
+  },
+  "data": [
+    {
+      "type": "flight-offer",
+      "id": "1",
+      "source": "GDS",
+      "instantTicketingRequired": false,
+      "nonHomogeneous": false,
+      "oneWay": false,
+      "isUpsellOffer": false,
+      "lastTicketingDate": "2025-09-16",
+      "lastTicketingDateTime": "2025-09-16",
+      "numberOfBookableSeats": 9,
+      "itineraries": [
+        {
+          "duration": "PT27H35M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "CNX",
+                "at": "2025-10-01T22:00:00"
+              },
+              "arrival": {
+                "iataCode": "DMK",
+                "terminal": "2",
+                "at": "2025-10-01T23:15:00"
+              },
+              "carrierCode": "SL",
+              "number": "521",
+              "aircraft": {
+                "code": "739"
+              },
+              "operating": {
+                "carrierCode": "SL"
+              },
+              "duration": "PT1H15M",
+              "id": "76",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            },
+            {
+              "departure": {
+                "iataCode": "DMK",
+                "terminal": "1",
+                "at": "2025-10-02T22:50:00"
+              },
+              "arrival": {
+                "iataCode": "SZX",
+                "at": "2025-10-03T02:35:00"
+              },
+              "carrierCode": "SL",
+              "number": "902",
+              "aircraft": {
+                "code": "738"
+              },
+              "operating": {
+                "carrierCode": "SL"
+              },
+              "duration": "PT2H45M",
+              "id": "77",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        }
+      ],
+      "price": {
+        "currency": "EUR",
+        "total": "129.92",
+        "base": "67.00",
+        "fees": [
+          {
+            "amount": "0.00",
+            "type": "SUPPLIER"
+          },
+          {
+            "amount": "0.00",
+            "type": "TICKETING"
+          }
+        ],
+        "grandTotal": "129.92"
+      },
+      "pricingOptions": {
+        "fareType": [
+          "PUBLISHED"
+        ],
+        "includedCheckedBagsOnly": false
+      },
+      "validatingAirlineCodes": [
+        "GP"
+      ],
+      "travelerPricings": [
+        {
+          "travelerId": "1",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "EUR",
+            "total": "129.92",
+            "base": "67.00"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "76",
+              "cabin": "ECONOMY",
+              "fareBasis": "OLTOW",
+              "class": "O",
+              "includedCabinBags": {
+                "quantity": 1
+              }
+            },
+            {
+              "segmentId": "77",
+              "cabin": "ECONOMY",
+              "fareBasis": "USLSTAFF",
+              "class": "U",
+              "includedCabinBags": {
+                "quantity": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "flight-offer",
+      "id": "2",
+      "source": "GDS",
+      "instantTicketingRequired": false,
+      "nonHomogeneous": false,
+      "oneWay": false,
+      "isUpsellOffer": false,
+      "lastTicketingDate": "2025-10-01",
+      "lastTicketingDateTime": "2025-10-01",
+      "numberOfBookableSeats": 9,
+      "itineraries": [
+        {
+          "duration": "PT10H5M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "CNX",
+                "at": "2025-10-01T23:05:00"
+              },
+              "arrival": {
+                "iataCode": "PEK",
+                "terminal": "3",
+                "at": "2025-10-02T04:40:00"
+              },
+              "carrierCode": "CA",
+              "number": "824",
+              "aircraft": {
+                "code": "738"
+              },
+              "operating": {
+                "carrierCode": "CA"
+              },
+              "duration": "PT4H35M",
+              "id": "3",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            },
+            {
+              "departure": {
+                "iataCode": "PEK",
+                "terminal": "3",
+                "at": "2025-10-02T06:30:00"
+              },
+              "arrival": {
+                "iataCode": "SZX",
+                "at": "2025-10-02T10:10:00"
+              },
+              "carrierCode": "CA",
+              "number": "1393",
+              "aircraft": {
+                "code": "359"
+              },
+              "operating": {
+                "carrierCode": "CA"
+              },
+              "duration": "PT3H40M",
+              "id": "4",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        }
+      ],
+      "price": {
+        "currency": "EUR",
+        "total": "229.87",
+        "base": "143.00",
+        "fees": [
+          {
+            "amount": "0.00",
+            "type": "SUPPLIER"
+          },
+          {
+            "amount": "0.00",
+            "type": "TICKETING"
+          }
+        ],
+        "grandTotal": "229.87",
+        "additionalServices": [
+          {
+            "amount": "95.00",
+            "type": "CHECKED_BAGS"
+          }
+        ]
+      },
+      "pricingOptions": {
+        "fareType": [
+          "PUBLISHED"
+        ],
+        "includedCheckedBagsOnly": true
+      },
+      "validatingAirlineCodes": [
+        "CA"
+      ],
+      "travelerPricings": [
+        {
+          "travelerId": "1",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "EUR",
+            "total": "229.87",
+            "base": "143.00"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "3",
+              "cabin": "ECONOMY",
+              "fareBasis": "TONCPDD8",
+              "brandedFare": "STDECO",
+              "brandedFareLabel": "ECONOMY STANDARD",
+              "class": "T",
+              "includedCheckedBags": {
+                "quantity": 1
+              },
+              "includedCabinBags": {
+                "quantity": 1
+              },
+              "amenities": [
+                {
+                  "description": "PRE PAID BAGGAGE",
+                  "isChargeable": true,
+                  "amenityType": "BAGGAGE",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                },
+                {
+                  "description": "CHECKED BAG SECOND",
+                  "isChargeable": true,
+                  "amenityType": "BAGGAGE",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                },
+                {
+                  "description": "EXCESS BAGGAGE",
+                  "isChargeable": true,
+                  "amenityType": "BAGGAGE",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                },
+                {
+                  "description": "CHANGEABLE TICKET",
+                  "isChargeable": true,
+                  "amenityType": "BRANDED_FARES",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                }
+              ]
+            },
+            {
+              "segmentId": "4",
+              "cabin": "ECONOMY",
+              "fareBasis": "TONCPDD8",
+              "brandedFare": "STDECO",
+              "brandedFareLabel": "ECONOMY STANDARD",
+              "class": "T",
+              "includedCheckedBags": {
+                "quantity": 1
+              },
+              "includedCabinBags": {
+                "quantity": 1
+              },
+              "amenities": [
+                {
+                  "description": "PRE PAID BAGGAGE",
+                  "isChargeable": true,
+                  "amenityType": "BAGGAGE",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                },
+                {
+                  "description": "CHECKED BAG SECOND",
+                  "isChargeable": true,
+                  "amenityType": "BAGGAGE",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                },
+                {
+                  "description": "EXCESS BAGGAGE",
+                  "isChargeable": true,
+                  "amenityType": "BAGGAGE",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                },
+                {
+                  "description": "CHANGEABLE TICKET",
+                  "isChargeable": true,
+                  "amenityType": "BRANDED_FARES",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "flight-offer",
+      "id": "3",
+      "source": "GDS",
+      "instantTicketingRequired": false,
+      "nonHomogeneous": false,
+      "oneWay": false,
+      "isUpsellOffer": false,
+      "lastTicketingDate": "2025-10-01",
+      "lastTicketingDateTime": "2025-10-01",
+      "numberOfBookableSeats": 9,
+      "itineraries": [
+        {
+          "duration": "PT11H20M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "CNX",
+                "at": "2025-10-01T23:05:00"
+              },
+              "arrival": {
+                "iataCode": "PEK",
+                "terminal": "3",
+                "at": "2025-10-02T04:40:00"
+              },
+              "carrierCode": "CA",
+              "number": "824",
+              "aircraft": {
+                "code": "738"
+              },
+              "operating": {
+                "carrierCode": "CA"
+              },
+              "duration": "PT4H35M",
+              "id": "40",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            },
+            {
+              "departure": {
+                "iataCode": "PEK",
+                "terminal": "3",
+                "at": "2025-10-02T08:00:00"
+              },
+              "arrival": {
+                "iataCode": "SZX",
+                "at": "2025-10-02T11:25:00"
+              },
+              "carrierCode": "CA",
+              "number": "1331",
+              "aircraft": {
+                "code": "77W"
+              },
+              "operating": {
+                "carrierCode": "CA"
+              },
+              "duration": "PT3H25M",
+              "id": "41",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        }
+      ],
+      "price": {
+        "currency": "EUR",
+        "total": "229.87",
+        "base": "143.00",
+        "fees": [
+          {
+            "amount": "0.00",
+            "type": "SUPPLIER"
+          },
+          {
+            "amount": "0.00",
+            "type": "TICKETING"
+          }
+        ],
+        "grandTotal": "229.87",
+        "additionalServices": [
+          {
+            "amount": "95.00",
+            "type": "CHECKED_BAGS"
+          }
+        ]
+      },
+      "pricingOptions": {
+        "fareType": [
+          "PUBLISHED"
+        ],
+        "includedCheckedBagsOnly": true
+      },
+      "validatingAirlineCodes": [
+        "CA"
+      ],
+      "travelerPricings": [
+        {
+          "travelerId": "1",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "EUR",
+            "total": "229.87",
+            "base": "143.00"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "40",
+              "cabin": "ECONOMY",
+              "fareBasis": "TONCPDD8",
+              "brandedFare": "STDECO",
+              "brandedFareLabel": "ECONOMY STANDARD",
+              "class": "T",
+              "includedCheckedBags": {
+                "quantity": 1
+              },
+              "includedCabinBags": {
+                "quantity": 1
+              },
+              "amenities": [
+                {
+                  "description": "PRE PAID BAGGAGE",
+                  "isChargeable": true,
+                  "amenityType": "BAGGAGE",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                },
+                {
+                  "description": "CHECKED BAG SECOND",
+                  "isChargeable": true,
+                  "amenityType": "BAGGAGE",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                },
+                {
+                  "description": "EXCESS BAGGAGE",
+                  "isChargeable": true,
+                  "amenityType": "BAGGAGE",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                },
+                {
+                  "description": "CHANGEABLE TICKET",
+                  "isChargeable": true,
+                  "amenityType": "BRANDED_FARES",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                }
+              ]
+            },
+            {
+              "segmentId": "41",
+              "cabin": "ECONOMY",
+              "fareBasis": "TONCPDD8",
+              "brandedFare": "STDECO",
+              "brandedFareLabel": "ECONOMY STANDARD",
+              "class": "T",
+              "includedCheckedBags": {
+                "quantity": 1
+              },
+              "includedCabinBags": {
+                "quantity": 1
+              },
+              "amenities": [
+                {
+                  "description": "PRE PAID BAGGAGE",
+                  "isChargeable": true,
+                  "amenityType": "BAGGAGE",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                },
+                {
+                  "description": "CHECKED BAG SECOND",
+                  "isChargeable": true,
+                  "amenityType": "BAGGAGE",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                },
+                {
+                  "description": "EXCESS BAGGAGE",
+                  "isChargeable": true,
+                  "amenityType": "BAGGAGE",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                },
+                {
+                  "description": "CHANGEABLE TICKET",
+                  "isChargeable": true,
+                  "amenityType": "BRANDED_FARES",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "flight-offer",
+      "id": "4",
+      "source": "GDS",
+      "instantTicketingRequired": false,
+      "nonHomogeneous": false,
+      "oneWay": false,
+      "isUpsellOffer": false,
+      "lastTicketingDate": "2025-10-01",
+      "lastTicketingDateTime": "2025-10-01",
+      "numberOfBookableSeats": 4,
+      "itineraries": [
+        {
+          "duration": "PT5H30M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "CNX",
+                "at": "2025-10-01T10:05:00"
+              },
+              "arrival": {
+                "iataCode": "KMG",
+                "at": "2025-10-01T13:00:00"
+              },
+              "carrierCode": "MU",
+              "number": "9640",
+              "aircraft": {
+                "code": "73E"
+              },
+              "operating": {
+                "carrierCode": "MU"
+              },
+              "duration": "PT1H55M",
+              "id": "65",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            },
+            {
+              "departure": {
+                "iataCode": "KMG",
+                "at": "2025-10-01T14:30:00"
+              },
+              "arrival": {
+                "iataCode": "SZX",
+                "at": "2025-10-01T16:35:00"
+              },
+              "carrierCode": "MU",
+              "number": "5757",
+              "aircraft": {
+                "code": "738"
+              },
+              "operating": {
+                "carrierCode": "MU"
+              },
+              "duration": "PT2H5M",
+              "id": "66",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        }
+      ],
+      "price": {
+        "currency": "EUR",
+        "total": "389.70",
+        "base": "303.00",
+        "fees": [
+          {
+            "amount": "0.00",
+            "type": "SUPPLIER"
+          },
+          {
+            "amount": "0.00",
+            "type": "TICKETING"
+          }
+        ],
+        "grandTotal": "389.70"
+      },
+      "pricingOptions": {
+        "fareType": [
+          "PUBLISHED"
+        ],
+        "includedCheckedBagsOnly": true
+      },
+      "validatingAirlineCodes": [
+        "MU"
+      ],
+      "travelerPricings": [
+        {
+          "travelerId": "1",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "EUR",
+            "total": "389.70",
+            "base": "303.00"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "65",
+              "cabin": "BUSINESS",
+              "fareBasis": "ILE0WCJS",
+              "brandedFare": "BS",
+              "brandedFareLabel": "BUSINESS STANDARD",
+              "class": "I",
+              "includedCheckedBags": {
+                "quantity": 2
+              },
+              "includedCabinBags": {
+                "quantity": 2
+              },
+              "amenities": [
+                {
+                  "description": "PRE PAID BAGGAGE",
+                  "isChargeable": true,
+                  "amenityType": "BAGGAGE",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                },
+                {
+                  "description": "UPTO70LB 32KG AND62LI 158LCM",
+                  "isChargeable": false,
+                  "amenityType": "BAGGAGE",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                },
+                {
+                  "description": "CARRY8KG 18LB UPTO 45LI 115LCM",
+                  "isChargeable": false,
+                  "amenityType": "BAGGAGE",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                },
+                {
+                  "description": "BASIC SEAT",
+                  "isChargeable": false,
+                  "amenityType": "BRANDED_FARES",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                },
+                {
+                  "description": "CHANGE BEFORE DEPARTURE",
+                  "isChargeable": true,
+                  "amenityType": "BRANDED_FARES",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                },
+                {
+                  "description": "REFUND BEFORE DEPARTURE",
+                  "isChargeable": true,
+                  "amenityType": "BRANDED_FARES",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                }
+              ]
+            },
+            {
+              "segmentId": "66",
+              "cabin": "BUSINESS",
+              "fareBasis": "ILE0WCJS",
+              "brandedFare": "BS",
+              "brandedFareLabel": "BUSINESS STANDARD",
+              "class": "J",
+              "includedCheckedBags": {
+                "quantity": 2
+              },
+              "includedCabinBags": {
+                "quantity": 2
+              },
+              "amenities": [
+                {
+                  "description": "PRE PAID BAGGAGE",
+                  "isChargeable": true,
+                  "amenityType": "BAGGAGE",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                },
+                {
+                  "description": "UPTO70LB 32KG AND62LI 158LCM",
+                  "isChargeable": false,
+                  "amenityType": "BAGGAGE",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                },
+                {
+                  "description": "CARRY8KG 18LB UPTO 45LI 115LCM",
+                  "isChargeable": false,
+                  "amenityType": "BAGGAGE",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                },
+                {
+                  "description": "BASIC SEAT",
+                  "isChargeable": false,
+                  "amenityType": "BRANDED_FARES",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                },
+                {
+                  "description": "CHANGE BEFORE DEPARTURE",
+                  "isChargeable": true,
+                  "amenityType": "BRANDED_FARES",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                },
+                {
+                  "description": "REFUND BEFORE DEPARTURE",
+                  "isChargeable": true,
+                  "amenityType": "BRANDED_FARES",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "flight-offer",
+      "id": "5",
+      "source": "GDS",
+      "instantTicketingRequired": false,
+      "nonHomogeneous": false,
+      "oneWay": false,
+      "isUpsellOffer": false,
+      "lastTicketingDate": "2025-10-01",
+      "lastTicketingDateTime": "2025-10-01",
+      "numberOfBookableSeats": 4,
+      "itineraries": [
+        {
+          "duration": "PT18H50M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "CNX",
+                "at": "2025-10-01T16:20:00"
+              },
+              "arrival": {
+                "iataCode": "KMG",
+                "at": "2025-10-01T19:15:00"
+              },
+              "carrierCode": "MU",
+              "number": "9620",
+              "aircraft": {
+                "code": "737"
+              },
+              "operating": {
+                "carrierCode": "MU"
+              },
+              "duration": "PT1H55M",
+              "id": "87",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            },
+            {
+              "departure": {
+                "iataCode": "KMG",
+                "at": "2025-10-02T09:55:00"
+              },
+              "arrival": {
+                "iataCode": "SZX",
+                "at": "2025-10-02T12:10:00"
+              },
+              "carrierCode": "MU",
+              "number": "5759",
+              "aircraft": {
+                "code": "73E"
+              },
+              "operating": {
+                "carrierCode": "MU"
+              },
+              "duration": "PT2H15M",
+              "id": "88",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        }
+      ],
+      "price": {
+        "currency": "EUR",
+        "total": "389.70",
+        "base": "303.00",
+        "fees": [
+          {
+            "amount": "0.00",
+            "type": "SUPPLIER"
+          },
+          {
+            "amount": "0.00",
+            "type": "TICKETING"
+          }
+        ],
+        "grandTotal": "389.70"
+      },
+      "pricingOptions": {
+        "fareType": [
+          "PUBLISHED"
+        ],
+        "includedCheckedBagsOnly": true
+      },
+      "validatingAirlineCodes": [
+        "MU"
+      ],
+      "travelerPricings": [
+        {
+          "travelerId": "1",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "EUR",
+            "total": "389.70",
+            "base": "303.00"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "87",
+              "cabin": "BUSINESS",
+              "fareBasis": "ILE0WCJS",
+              "brandedFare": "BS",
+              "brandedFareLabel": "BUSINESS STANDARD",
+              "class": "I",
+              "includedCheckedBags": {
+                "quantity": 2
+              },
+              "includedCabinBags": {
+                "quantity": 2
+              },
+              "amenities": [
+                {
+                  "description": "PRE PAID BAGGAGE",
+                  "isChargeable": true,
+                  "amenityType": "BAGGAGE",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                },
+                {
+                  "description": "UPTO70LB 32KG AND62LI 158LCM",
+                  "isChargeable": false,
+                  "amenityType": "BAGGAGE",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                },
+                {
+                  "description": "CARRY8KG 18LB UPTO 45LI 115LCM",
+                  "isChargeable": false,
+                  "amenityType": "BAGGAGE",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                },
+                {
+                  "description": "BASIC SEAT",
+                  "isChargeable": false,
+                  "amenityType": "BRANDED_FARES",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                },
+                {
+                  "description": "CHANGE BEFORE DEPARTURE",
+                  "isChargeable": true,
+                  "amenityType": "BRANDED_FARES",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                },
+                {
+                  "description": "REFUND BEFORE DEPARTURE",
+                  "isChargeable": true,
+                  "amenityType": "BRANDED_FARES",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                }
+              ]
+            },
+            {
+              "segmentId": "88",
+              "cabin": "BUSINESS",
+              "fareBasis": "ILE0WCJS",
+              "brandedFare": "BS",
+              "brandedFareLabel": "BUSINESS STANDARD",
+              "class": "J",
+              "includedCheckedBags": {
+                "quantity": 2
+              },
+              "includedCabinBags": {
+                "quantity": 2
+              },
+              "amenities": [
+                {
+                  "description": "PRE PAID BAGGAGE",
+                  "isChargeable": true,
+                  "amenityType": "BAGGAGE",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                },
+                {
+                  "description": "UPTO70LB 32KG AND62LI 158LCM",
+                  "isChargeable": false,
+                  "amenityType": "BAGGAGE",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                },
+                {
+                  "description": "CARRY8KG 18LB UPTO 45LI 115LCM",
+                  "isChargeable": false,
+                  "amenityType": "BAGGAGE",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                },
+                {
+                  "description": "BASIC SEAT",
+                  "isChargeable": false,
+                  "amenityType": "BRANDED_FARES",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                },
+                {
+                  "description": "CHANGE BEFORE DEPARTURE",
+                  "isChargeable": true,
+                  "amenityType": "BRANDED_FARES",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                },
+                {
+                  "description": "REFUND BEFORE DEPARTURE",
+                  "isChargeable": true,
+                  "amenityType": "BRANDED_FARES",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "flight-offer",
+      "id": "6",
+      "source": "GDS",
+      "instantTicketingRequired": false,
+      "nonHomogeneous": false,
+      "oneWay": false,
+      "isUpsellOffer": false,
+      "lastTicketingDate": "2025-10-01",
+      "lastTicketingDateTime": "2025-10-01",
+      "numberOfBookableSeats": 4,
+      "itineraries": [
+        {
+          "duration": "PT23H15M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "CNX",
+                "at": "2025-10-01T16:20:00"
+              },
+              "arrival": {
+                "iataCode": "KMG",
+                "at": "2025-10-01T19:15:00"
+              },
+              "carrierCode": "MU",
+              "number": "9620",
+              "aircraft": {
+                "code": "737"
+              },
+              "operating": {
+                "carrierCode": "MU"
+              },
+              "duration": "PT1H55M",
+              "id": "33",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            },
+            {
+              "departure": {
+                "iataCode": "KMG",
+                "at": "2025-10-02T14:30:00"
+              },
+              "arrival": {
+                "iataCode": "SZX",
+                "at": "2025-10-02T16:35:00"
+              },
+              "carrierCode": "MU",
+              "number": "5757",
+              "aircraft": {
+                "code": "738"
+              },
+              "operating": {
+                "carrierCode": "MU"
+              },
+              "duration": "PT2H5M",
+              "id": "34",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        }
+      ],
+      "price": {
+        "currency": "EUR",
+        "total": "389.70",
+        "base": "303.00",
+        "fees": [
+          {
+            "amount": "0.00",
+            "type": "SUPPLIER"
+          },
+          {
+            "amount": "0.00",
+            "type": "TICKETING"
+          }
+        ],
+        "grandTotal": "389.70"
+      },
+      "pricingOptions": {
+        "fareType": [
+          "PUBLISHED"
+        ],
+        "includedCheckedBagsOnly": true
+      },
+      "validatingAirlineCodes": [
+        "MU"
+      ],
+      "travelerPricings": [
+        {
+          "travelerId": "1",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "EUR",
+            "total": "389.70",
+            "base": "303.00"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "33",
+              "cabin": "BUSINESS",
+              "fareBasis": "ILE0WCJS",
+              "brandedFare": "BS",
+              "brandedFareLabel": "BUSINESS STANDARD",
+              "class": "I",
+              "includedCheckedBags": {
+                "quantity": 2
+              },
+              "includedCabinBags": {
+                "quantity": 2
+              },
+              "amenities": [
+                {
+                  "description": "PRE PAID BAGGAGE",
+                  "isChargeable": true,
+                  "amenityType": "BAGGAGE",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                },
+                {
+                  "description": "UPTO70LB 32KG AND62LI 158LCM",
+                  "isChargeable": false,
+                  "amenityType": "BAGGAGE",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                },
+                {
+                  "description": "CARRY8KG 18LB UPTO 45LI 115LCM",
+                  "isChargeable": false,
+                  "amenityType": "BAGGAGE",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                },
+                {
+                  "description": "BASIC SEAT",
+                  "isChargeable": false,
+                  "amenityType": "BRANDED_FARES",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                },
+                {
+                  "description": "CHANGE BEFORE DEPARTURE",
+                  "isChargeable": true,
+                  "amenityType": "BRANDED_FARES",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                },
+                {
+                  "description": "REFUND BEFORE DEPARTURE",
+                  "isChargeable": true,
+                  "amenityType": "BRANDED_FARES",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                }
+              ]
+            },
+            {
+              "segmentId": "34",
+              "cabin": "BUSINESS",
+              "fareBasis": "ILE0WCJS",
+              "brandedFare": "BS",
+              "brandedFareLabel": "BUSINESS STANDARD",
+              "class": "J",
+              "includedCheckedBags": {
+                "quantity": 2
+              },
+              "includedCabinBags": {
+                "quantity": 2
+              },
+              "amenities": [
+                {
+                  "description": "PRE PAID BAGGAGE",
+                  "isChargeable": true,
+                  "amenityType": "BAGGAGE",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                },
+                {
+                  "description": "UPTO70LB 32KG AND62LI 158LCM",
+                  "isChargeable": false,
+                  "amenityType": "BAGGAGE",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                },
+                {
+                  "description": "CARRY8KG 18LB UPTO 45LI 115LCM",
+                  "isChargeable": false,
+                  "amenityType": "BAGGAGE",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                },
+                {
+                  "description": "BASIC SEAT",
+                  "isChargeable": false,
+                  "amenityType": "BRANDED_FARES",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                },
+                {
+                  "description": "CHANGE BEFORE DEPARTURE",
+                  "isChargeable": true,
+                  "amenityType": "BRANDED_FARES",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                },
+                {
+                  "description": "REFUND BEFORE DEPARTURE",
+                  "isChargeable": true,
+                  "amenityType": "BRANDED_FARES",
+                  "amenityProvider": {
+                    "name": "BrandedFare"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "dictionaries": {
+    "locations": {
+      "PVG": {
+        "cityCode": "SHA",
+        "countryCode": "CN"
+      },
+      "DMK": {
+        "cityCode": "BKK",
+        "countryCode": "TH"
+      },
+      "BKK": {
+        "cityCode": "BKK",
+        "countryCode": "TH"
+      },
+      "KMG": {
+        "cityCode": "KMG",
+        "countryCode": "CN"
+      },
+      "CTU": {
+        "cityCode": "CTU",
+        "countryCode": "CN"
+      },
+      "HGH": {
+        "cityCode": "HGH",
+        "countryCode": "CN"
+      },
+      "WUH": {
+        "cityCode": "WUH",
+        "countryCode": "CN"
+      },
+      "CNX": {
+        "cityCode": "CNX",
+        "countryCode": "TH"
+      },
+      "SHA": {
+        "cityCode": "SHA",
+        "countryCode": "CN"
+      },
+      "SZX": {
+        "cityCode": "SZX",
+        "countryCode": "CN"
+      },
+      "CAN": {
+        "cityCode": "CAN",
+        "countryCode": "CN"
+      },
+      "HAK": {
+        "cityCode": "HAK",
+        "countryCode": "CN"
+      },
+      "ICN": {
+        "cityCode": "SEL",
+        "countryCode": "KR"
+      },
+      "PEK": {
+        "cityCode": "BJS",
+        "countryCode": "CN"
+      },
+      "PKX": {
+        "cityCode": "BJS",
+        "countryCode": "CN"
+      }
+    },
+    "aircraft": {
+      "320": "AIRBUS A320",
+      "321": "AIRBUS A321",
+      "330": "AIRBUS INDUSTRIE A330",
+      "332": "AIRBUS A330-200",
+      "333": "AIRBUS A330-300",
+      "359": "AIRBUS A350-900",
+      "737": "BOEING 737 ALL SERIES PASSENGER",
+      "738": "BOEING 737-800",
+      "739": "BOEING 737-900",
+      "773": "BOEING 777-300",
+      "787": "787  ALL SERIES PASSENGER",
+      "789": "BOEING 787-9",
+      "7M8": "BOEING 737 MAX 8",
+      "73E": "BOEING 737-500 (WINGLETS)",
+      "73L": "BOEING 737-200 MIXED CONFIGURATION",
+      "73M": "BOEING 737-200 MIXED CONFIGURATION",
+      "32Q": "AIRBUS A321NEO",
+      "77W": "BOEING 777-300ER"
+    },
+    "currencies": {
+      "EUR": "EURO"
+    },
+    "carriers": {
+      "3U": "SICHUAN AIRLINES",
+      "VZ": "THAI VIETJET AIR",
+      "CZ": "CHINA SOUTHERN AIRLINES",
+      "MU": "CHINA EASTERN AIRLINES",
+      "SL": "THAI LION AIR",
+      "KE": "KOREAN AIR",
+      "HU": "HAINAN AIRLINES",
+      "CA": "AIR CHINA",
+      "ZH": "SHENZHEN AIRLINES"
+    }
+  }
+}
