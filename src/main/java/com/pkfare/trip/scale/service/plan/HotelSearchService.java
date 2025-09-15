@@ -139,6 +139,7 @@ public class HotelSearchService {
 
     // 获取去程到达时间作为第一个城市的入住时间
     LocalDate firstCheckInDate = getArrivalDate(flights, true);
+    LocalDate lastCheckOutDate = getReturnDate(flights);
     if (firstCheckInDate == null) {
       // 如果无法从航班信息获取，使用开始日期
       firstCheckInDate = DateUtil.parseDate(param.getStart_period());
@@ -148,6 +149,9 @@ public class HotelSearchService {
 
     for (TripRouteParam route : param.getTrip_routes()) {
       LocalDate checkOutDate = DateUtil.addDays(currentCheckInDate, route.getStay_days());
+      if(checkOutDate.isAfter(lastCheckOutDate)){
+        checkOutDate = lastCheckOutDate;
+      }
 
       checkInOutDates.put(route.getLocation_code(),
           new LocalDate[]{currentCheckInDate, checkOutDate});
@@ -157,6 +161,7 @@ public class HotelSearchService {
 
       // 下一个城市的入住时间是当前城市的退房时间
       currentCheckInDate = checkOutDate;
+
     }
 
     return checkInOutDates;
@@ -198,6 +203,68 @@ public class HotelSearchService {
       }
     }
 
+    return null;
+  }
+
+  /**
+   * 从航班信息中获取返程日期
+   *
+   * @param flights 航班信息列表
+   * @return 返程日期
+   */
+  private LocalDate getReturnDate(List<FlightInfo> flights) {
+    if (flights == null || flights.isEmpty()) {
+      return null;
+    }
+
+    for (FlightInfo flight : flights) {
+      if (flight.getItineraries() != null && flight.getItineraries().size() >= 2) {
+        // 对于往返航班，返程是第二个行程
+        var returnItinerary = flight.getItineraries().get(1);
+        if (returnItinerary.getSegments() != null && !returnItinerary.getSegments().isEmpty()) {
+          // 取返程最后一个航段的到达时间
+          SegmentInfo lastSegment = returnItinerary.getSegments().get(
+              returnItinerary.getSegments().size() - 1);
+
+          if (lastSegment.getArrivalTime() != null) {
+            try {
+              // 解析到达时间字符串为LocalDate
+              LocalDateTime arrivalDateTime = LocalDateTime.parse(
+                  lastSegment.getArrivalTime(),
+                  DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+              return arrivalDateTime.toLocalDate();
+            } catch (Exception e) {
+              log.warn("Failed to parse return arrival time: {}", lastSegment.getArrivalTime());
+            }
+          }
+        }
+      } else if (flight.getItineraries() != null && flight.getItineraries().size() == 1) {
+        // 如果只有一个行程，检查是否为单程航班
+        if (Boolean.TRUE.equals(flight.getOneWay())) {
+          // 单程航班，返回去程到达日期作为返程日期的参考
+          var itinerary = flight.getItineraries().get(0);
+          if (itinerary.getSegments() != null && !itinerary.getSegments().isEmpty()) {
+            SegmentInfo lastSegment = itinerary.getSegments().get(
+                itinerary.getSegments().size() - 1);
+
+            if (lastSegment.getArrivalTime() != null) {
+              try {
+                LocalDateTime arrivalDateTime = LocalDateTime.parse(
+                    lastSegment.getArrivalTime(),
+                    DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+                // 对于单程航班，可以假设返程日期为到达日期后的几天
+                return arrivalDateTime.toLocalDate().plusDays(7); // 假设停留7天
+              } catch (Exception e) {
+                log.warn("Failed to parse single trip arrival time: {}", lastSegment.getArrivalTime());
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // 如果无法从航班信息中获取返程日期，返回null
+    log.warn("Unable to determine return date from flight information");
     return null;
   }
 

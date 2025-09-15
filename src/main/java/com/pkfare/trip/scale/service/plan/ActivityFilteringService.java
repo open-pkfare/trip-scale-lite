@@ -339,6 +339,7 @@ public class ActivityFilteringService {
             // 构建城市特定的全局分配请求
             GlobalActivityAllocationRequest cityRequest = buildCitySpecificAllocationRequest(
                 param, flights, cityCode, cityActivities);
+            log.info("GlobalActivityAllocationRequest:{}",cityRequest);
             
             // 调用AI进行分配
             GlobalActivityAllocationResponse response = agentManager.allocateActivitiesGlobally(param, cityRequest);
@@ -532,7 +533,8 @@ public class ActivityFilteringService {
             defaultPref.setPrefer(new ArrayList<>());
             request.setUserPreferences(defaultPref);
         }
-        
+
+        log.info("GlobalActivityAllocationRequest:{}",request);
         return request;
     }
     

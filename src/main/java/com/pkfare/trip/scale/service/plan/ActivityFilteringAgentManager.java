@@ -96,6 +96,7 @@ public class ActivityFilteringAgentManager {
             // 3. 构建输入内容
             String prompt = buildGlobalAllocationPrompt(request);
             Content inputContent = Content.fromParts(Part.fromText(prompt));
+            log.info("inputContent:{}",inputContent);
             
             // 4. 执行Agent调用
             log.debug("Sending global allocation prompt to agent");
