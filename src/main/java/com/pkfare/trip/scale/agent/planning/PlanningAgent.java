@@ -5,23 +5,17 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.google.adk.agents.BaseAgent;
-import com.google.adk.agents.CallbackContext;
 import com.google.adk.agents.Callbacks.AfterAgentCallback;
 import com.google.adk.agents.Callbacks.BeforeAgentCallback;
 import com.google.adk.agents.InvocationContext;
 import com.google.adk.agents.LlmAgent;
 import com.google.adk.events.Event;
-import com.google.adk.sessions.Session;
 import com.google.adk.web.config.DevConfig;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.genai.types.Content;
 import com.google.genai.types.GenerateContentConfig;
 import com.google.genai.types.Part;
-import com.pkfare.trip.scale.agent.booking.BookingAgent;
-import com.pkfare.trip.scale.agent.inspiration.DemandAgent;
-import com.pkfare.trip.scale.agent.inspiration.InspirationAgent;
-import com.pkfare.trip.scale.agent.optimizing.OptimizingAgent;
 import com.pkfare.trip.scale.config.GoogleConfig;
 import com.pkfare.trip.scale.dto.TripDemand;
 import com.pkfare.trip.scale.dto.TripRoute;
@@ -32,12 +26,12 @@ import com.pkfare.trip.scale.plan.service.response.TripRoutePlanResult;
 import com.pkfare.trip.scale.service.PlanResultCacheService;
 import com.pkfare.trip.scale.util.JsonUtil;
 import io.reactivex.rxjava3.core.Flowable;
-import io.reactivex.rxjava3.core.Maybe;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.atomic.AtomicReference;
 import lombok.Setter;
@@ -124,6 +118,7 @@ public class PlanningAgent extends BaseAgent {
       List<TripRoute> tripRoutes = (List<TripRoute>) invocationContext.session().state().get("trip_route");
       AtomicReference<List<TripRoute>> tripRoutesAt = new AtomicReference<>();
       if (CollectionUtils.isEmpty(tripRoutes)) {
+        log.info("no result in states. start extract from dialog.");
         invocationContext.branch("extract");
         LLM_AGENT.runAsync(invocationContext).blockingForEach(event -> {
           Optional<Content> optional = event.content();
@@ -135,16 +130,26 @@ public class PlanningAgent extends BaseAgent {
       tripRoutes = tripRoutesAt.get();
 
       log.info("tripDemand:{},tripRoutes:{}", tripDemand, tripRoutes);
+      GeneratePlanService generatePlanService = getGeneratePlanService();
 
-      if (tripDemand == null) {
-        return Flowable.error(new IllegalStateException("Missing required tripDemand in session"));
-      }
+      GeneratePlanParam param = null;
       if (tripRoutes == null) {
-        return Flowable.error(new IllegalStateException("Missing required tripRoutes in session"));
+        //return Flowable.error(new IllegalStateException("Missing required tripRoutes in session"));
+        param = mockSZXItalyGeneratePlanParam();;
+      }else if (tripDemand ==null) {
+        //return Flowable.error(new IllegalStateException("Missing required tripDemand in session"));
+        param = mockDefaultGeneratePlanParam(tripRoutes);
+      }else{
+        // 1. 参数验证
+        param = buildGeneratePlanParam(tripDemand,tripRoutes);
+        boolean checkSuccess = generatePlanService.validateParams(param);
+        if(!checkSuccess){
+          param = mockDefaultGeneratePlanParam(tripRoutes);
+        }else{
+          // 通过tripDemand和tripRoutes构建GeneratePlanParam
+          param = buildGeneratePlanParam(tripDemand, tripRoutes);
+        }
       }
-
-      // 通过tripDemand和tripRoutes构建GeneratePlanParam
-      GeneratePlanParam param = buildGeneratePlanParam(tripDemand, tripRoutes);
       param.setOrigin("SZX");
       param.setStart_period("2025-10-01");
       param.setEnd_period("2025-10-20");
@@ -152,7 +157,6 @@ public class PlanningAgent extends BaseAgent {
       log.info("GeneratePlanParam:{}", JsonUtil.toJson(param));
 
       // 调用GeneratePlanService.generatePlan接口
-      GeneratePlanService generatePlanService = getGeneratePlanService();
       long start = System.currentTimeMillis();
       TripRoutePlanResult planResult = generatePlanService.generatePlan(param);
 
@@ -175,20 +179,110 @@ public class PlanningAgent extends BaseAgent {
     }
   }
 
-  private GeneratePlanParam mockSZXGeneratePlanParam() {
+  private GeneratePlanParam mockDefaultGeneratePlanParam(List<TripRoute> tripRoutes) {
+    if(isItalyTrip(tripRoutes)){
+      return mockSZXItalyGeneratePlanParam();
+    }else if(isThailandChiangMaiTrip(tripRoutes)){
+      return mockSZXThailandChiangMaiGeneratePlanParam();
+    }else{
+      return mockSZXThailandGeneratePlanParam();
+    }
+  }
+
+  private boolean isThailandChiangMaiTrip(List<TripRoute> tripRoutes) {
+    // 通过trip_routes中的destination_city判断，如果有Chiang Mai，返回true，否则false
+    if (CollectionUtils.isEmpty(tripRoutes)) {
+      return false;
+    }
+    
+    return tripRoutes.stream()
+        .anyMatch(route -> route != null && 
+            "Chiang Mai".equalsIgnoreCase(route.getDestination_city()));
+  }
+
+  private boolean isItalyTrip(List<TripRoute> tripRoutes) {
+    // 通过trip_routes中的destination_city判断，如果有Rome、Florence、Milan、Venice，返回true，否则false
+    if (CollectionUtils.isEmpty(tripRoutes)) {
+      return false;
+    }
+    
+    // 定义意大利城市列表
+    Set<String> italyCities = Set.of("Rome", "Florence", "Milan", "Venice");
+    
+    return tripRoutes.stream()
+        .anyMatch(route -> route != null && 
+            italyCities.stream().anyMatch(city -> 
+                city.equalsIgnoreCase(route.getDestination_city())));
+  }
+
+  private GeneratePlanParam mockSZXThailandGeneratePlanParam() {
     GeneratePlanParam param = new GeneratePlanParam();
     param.setOrigin("SZX");
     param.setLocation_code("CN");
     param.setStart_period("2025-10-01");
     param.setEnd_period("2025-10-20");
-    param.setTrip_days(14);
+    param.setTrip_days(5);
+    param.setAdult_number(2);
+    param.setChild_number(0);
+    param.setRoom_quantity(1);
+    param.setBudgets("15000");
+    param.setCurrency("USD");
+    param.setTrip_routes(buildSZXThailandOneWayTripRoutes());
+    return param;
+  }
+
+  private List<TripRouteParam> buildSZXThailandOneWayTripRoutes() {
+    List<TripRouteParam> tripRouteParams = Lists.newArrayList();
+    tripRouteParams.add(buildRouteTrip(2, "Phuket", "TH", "HKT"));
+    tripRouteParams.add(buildRouteTrip(3, "Krabi", "TH", "KBV"));
+    return tripRouteParams;
+  }
+
+  private GeneratePlanParam mockSZXThailandChiangMaiGeneratePlanParam() {
+    GeneratePlanParam param = new GeneratePlanParam();
+    param.setOrigin("SZX");
+    param.setLocation_code("CN");
+    param.setStart_period("2025-10-01");
+    param.setEnd_period("2025-10-20");
+    param.setTrip_days(5);
+    param.setAdult_number(2);
+    param.setChild_number(0);
+    param.setRoom_quantity(1);
+    param.setBudgets("15000");
+    param.setCurrency("USD");
+    param.setTrip_routes(buildSZXThailandChiangMaiOneWayTripRoutes());
+    return param;
+  }
+
+  private List<TripRouteParam> buildSZXThailandChiangMaiOneWayTripRoutes() {
+    List<TripRouteParam> tripRouteParams = Lists.newArrayList();
+    tripRouteParams.add(buildRouteTrip(2, "Phuket", "TH", "HKT"));
+    tripRouteParams.add(buildRouteTrip(1, "Chiang Mai", "TH", "CNX"));
+    tripRouteParams.add(buildRouteTrip(2, "Krabi", "TH", "KBV"));
+    return tripRouteParams;
+  }
+
+  private GeneratePlanParam mockSZXItalyGeneratePlanParam() {
+    GeneratePlanParam param = new GeneratePlanParam();
+    param.setOrigin("SZX");
+    param.setLocation_code("CN");
+    param.setStart_period("2025-10-01");
+    param.setEnd_period("2025-10-20");
+    param.setTrip_days(5);
     param.setAdult_number(1);
     param.setChild_number(0);
     param.setRoom_quantity(1);
     param.setBudgets("15000");
     param.setCurrency("USD");
-    param.setTrip_routes(buildOneWayTripRoutes());
+    param.setTrip_routes(buildSZXItalyOneWayTripRoutes());
     return param;
+  }
+
+  private List<TripRouteParam> buildSZXItalyOneWayTripRoutes() {
+    List<TripRouteParam> tripRouteParams = Lists.newArrayList();
+    tripRouteParams.add(buildRouteTrip(2, "Milan", "IT", "MXP"));
+    tripRouteParams.add(buildRouteTrip(3, "Rome", "IT", "FCO"));
+    return tripRouteParams;
   }
 
   private GeneratePlanParam mockGeneratePlanParam() {

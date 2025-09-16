@@ -21,7 +21,7 @@ public class ActivityFilteringPrompt {
         ## Allocation Principles
         
         ### 1. No Activity Repetition - CRITICAL REQUIREMENT
-        - **Absolute Uniqueness**: Each activity can ONLY be assigned to ONE day throughout the ENTIRE trip
+        - **Absolute Uniqueness**: Each activity can ONLY be visited once throughout the ENTIRE trip
         - **Cross-City Uniqueness**: Even when processing cities separately, ensure NO activity appears in multiple cities or multiple days
         - **Daily Uniqueness**: Within each city, ensure NO activity appears on multiple days
         - **Comprehensive Coverage**: Utilize the full range of available activities across all cities
