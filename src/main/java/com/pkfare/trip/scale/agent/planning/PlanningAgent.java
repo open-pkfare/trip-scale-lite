@@ -124,6 +124,7 @@ public class PlanningAgent extends BaseAgent {
       List<TripRoute> tripRoutes = (List<TripRoute>) invocationContext.session().state().get("trip_route");
       AtomicReference<List<TripRoute>> tripRoutesAt = new AtomicReference<>();
       if (CollectionUtils.isEmpty(tripRoutes)) {
+        log.info("no result in states. start extract from dialog.");
         invocationContext.branch("extract");
         LLM_AGENT.runAsync(invocationContext).blockingForEach(event -> {
           Optional<Content> optional = event.content();
