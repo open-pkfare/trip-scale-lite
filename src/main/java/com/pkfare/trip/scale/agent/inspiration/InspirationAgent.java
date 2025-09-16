@@ -46,7 +46,7 @@ public class InspirationAgent extends BaseAgent {
           .model(GoogleConfig.GEMINI_2_5_FLASH)
           .description("Agent to help user to inspire trip demand into trip routes.")
           .instruction(InspirationPrompt.TRIP_ROUTES_INSPIRATION)
-          .generateContentConfig(GenerateContentConfig.builder().temperature(0.5f).build())
+          .generateContentConfig(GenerateContentConfig.builder().temperature(0.3f).build())
           .tools(
               FunctionTool.create(PersonalPreferenceService.class, "preferences"))
           .build();
