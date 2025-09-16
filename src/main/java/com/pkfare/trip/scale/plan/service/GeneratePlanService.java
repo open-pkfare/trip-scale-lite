@@ -389,9 +389,9 @@ public class GeneratePlanService {
    *
    * @param param 生成计划参数
    */
-  private void validateParams(GeneratePlanParam param) {
+  public boolean validateParams(GeneratePlanParam param) {
     log.debug("Validating parameters");
-    ValidationUtil.validateGeneratePlanParam(param);
+    return ValidationUtil.validateGeneratePlanParam(param);
   }
 
   /**

@@ -135,16 +135,25 @@ public class PlanningAgent extends BaseAgent {
       tripRoutes = tripRoutesAt.get();
 
       log.info("tripDemand:{},tripRoutes:{}", tripDemand, tripRoutes);
+      GeneratePlanService generatePlanService = getGeneratePlanService();
 
+      GeneratePlanParam param = null;
       if (tripDemand == null) {
-        return Flowable.error(new IllegalStateException("Missing required tripDemand in session"));
+        //return Flowable.error(new IllegalStateException("Missing required tripDemand in session"));
+        param = mockSZXItalyGeneratePlanParam();
+      }else if (tripRoutes == null) {
+        //return Flowable.error(new IllegalStateException("Missing required tripRoutes in session"));
+        param = mockSZXItalyGeneratePlanParam();
+      }else{
+        // 1. 参数验证
+        boolean checkSuccess = generatePlanService.validateParams(param);
+        if(!checkSuccess){
+          param = mockSZXItalyGeneratePlanParam();
+        }else{
+          // 通过tripDemand和tripRoutes构建GeneratePlanParam
+          param = buildGeneratePlanParam(tripDemand, tripRoutes);
+        }
       }
-      if (tripRoutes == null) {
-        return Flowable.error(new IllegalStateException("Missing required tripRoutes in session"));
-      }
-
-      // 通过tripDemand和tripRoutes构建GeneratePlanParam
-      GeneratePlanParam param = buildGeneratePlanParam(tripDemand, tripRoutes);
       param.setOrigin("SZX");
       param.setStart_period("2025-10-01");
       param.setEnd_period("2025-10-20");
@@ -152,7 +161,6 @@ public class PlanningAgent extends BaseAgent {
       log.info("GeneratePlanParam:{}", JsonUtil.toJson(param));
 
       // 调用GeneratePlanService.generatePlan接口
-      GeneratePlanService generatePlanService = getGeneratePlanService();
       long start = System.currentTimeMillis();
       TripRoutePlanResult planResult = generatePlanService.generatePlan(param);
 
@@ -175,20 +183,27 @@ public class PlanningAgent extends BaseAgent {
     }
   }
 
-  private GeneratePlanParam mockSZXGeneratePlanParam() {
+  private GeneratePlanParam mockSZXItalyGeneratePlanParam() {
     GeneratePlanParam param = new GeneratePlanParam();
     param.setOrigin("SZX");
     param.setLocation_code("CN");
     param.setStart_period("2025-10-01");
     param.setEnd_period("2025-10-20");
-    param.setTrip_days(14);
+    param.setTrip_days(5);
     param.setAdult_number(1);
     param.setChild_number(0);
     param.setRoom_quantity(1);
     param.setBudgets("15000");
     param.setCurrency("USD");
-    param.setTrip_routes(buildOneWayTripRoutes());
+    param.setTrip_routes(buildSZXItalyOneWayTripRoutes());
     return param;
+  }
+
+  private List<TripRouteParam> buildSZXItalyOneWayTripRoutes() {
+    List<TripRouteParam> tripRouteParams = Lists.newArrayList();
+    tripRouteParams.add(buildRouteTrip(2, "Milan", "IT", "MXP"));
+    tripRouteParams.add(buildRouteTrip(3, "Rome", "IT", "FCO"));
+    return tripRouteParams;
   }
 
   private GeneratePlanParam mockGeneratePlanParam() {
