@@ -12,7 +12,7 @@ public class PlanningPrompt {
         + "\n"
         + "### ATTENTION\n"
         + "1. country_code follow ISO3166-1 standard with 2 letters.\n"
-        + "2. If the city has airport, location_code follow IATA standard with 3 letters, or let it be null.\n"
+        + "2. If the city has airport, location_code is required, or let it be null, it follows IATA standard with 3 letters.\n"
         + "3. Ensure the overall order of travel destinations is logically arranged based on objective geographical locations.\n"
         + "\n"
         + "### TODO\n"

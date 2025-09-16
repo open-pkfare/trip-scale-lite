@@ -48,9 +48,9 @@ public class ActivityFilteringAgentManager {
                 json.append("{")
                     .append("\"id\":\"").append(activity.getActivityId() != null ? activity.getActivityId() : "").append("\",")
                     .append("\"name\":\"").append(activity.getName()).append("\",")
-                    .append("\"description\":\"").append(activity.getDescription() != null ? activity.getDescription() : "").append("\",")
-                    .append("\"rating\":").append(activity.getRating()).append(",")
-                    .append("\"price\":").append(activity.getPrice()).append(",")
+//                    .append("\"description\":\"").append(activity.getDescription() != null ? activity.getDescription() : "").append("\",")
+//                    .append("\"rating\":").append(activity.getRating()).append(",")
+//                    .append("\"price\":").append(activity.getPrice()).append(",")
                     .append("\"cityCode\":\"").append(activity.getCityCode()).append("\"")
                     .append("}");
             }
