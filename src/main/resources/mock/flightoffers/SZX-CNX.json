@@ -1,6 +1,6 @@
 {
   "meta": {
-    "count": 42,
+    "count": 5,
     "links": {
       "self": "https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=SZX&destinationLocationCode=CNX&departureDate=2025-10-01&adults=1&nonStop=false"
     }
@@ -14,32 +14,34 @@
       "nonHomogeneous": false,
       "oneWay": true,
       "isUpsellOffer": false,
-      "lastTicketingDate": "2025-09-16",
-      "lastTicketingDateTime": "2025-09-16",
-      "numberOfBookableSeats": 9,
+      "lastTicketingDate": "2025-10-01",
+      "lastTicketingDateTime": "2025-10-01T23:59:00",
+      "numberOfBookableSeats": 7,
       "itineraries": [
         {
-          "duration": "PT3H30M",
+          "duration": "PT2H30M",
           "segments": [
             {
               "departure": {
                 "iataCode": "SZX",
-                "at": "2025-10-01T08:00:00"
+                "terminal": "3",
+                "at": "2025-10-03T09:45:00"
               },
               "arrival": {
                 "iataCode": "CNX",
-                "at": "2025-10-01T11:30:00"
+                "terminal": "1",
+                "at": "2025-10-03T12:15:00"
               },
-              "carrierCode": "CA",
-              "number": "823",
+              "carrierCode": "TG",
+              "number": "2002",
               "aircraft": {
-                "code": "738"
+                "code": "320"
               },
               "operating": {
-                "carrierCode": "CA"
+                "carrierCode": "TG"
               },
-              "duration": "PT3H30M",
-              "id": "10",
+              "duration": "PT2H30M",
+              "id": "1",
               "numberOfStops": 0,
               "blacklistedInEU": false
             }
@@ -47,29 +49,25 @@
         }
       ],
       "price": {
-        "currency": "EUR",
-        "total": "280.00",
-        "base": "220.00",
+        "currency": "USD",
+        "total": "315.00",
+        "base": "275.40",
         "fees": [
           {
-            "amount": "30.00",
+            "amount": "45.60",
             "type": "SUPPLIER"
-          },
-          {
-            "amount": "30.00",
-            "type": "TICKETING"
           }
         ],
-        "grandTotal": "280.00"
+        "grandTotal": "274.00"
       },
       "pricingOptions": {
         "fareType": [
           "PUBLISHED"
         ],
-        "includedCheckedBagsOnly": false
+        "includedCheckedBagsOnly": true
       },
       "validatingAirlineCodes": [
-        "GP"
+        "TG"
       ],
       "travelerPricings": [
         {
@@ -77,26 +75,17 @@
           "fareOption": "STANDARD",
           "travelerType": "ADULT",
           "price": {
-            "currency": "EUR",
-            "total": "121.33",
-            "base": "67.00"
+            "currency": "USD",
+            "total": "298.00",
+            "base": "293.25"
           },
           "fareDetailsBySegment": [
             {
-              "segmentId": "10",
+              "segmentId": "1",
               "cabin": "ECONOMY",
-              "fareBasis": "USLSTAFF",
-              "class": "U",
-              "includedCabinBags": {
-                "quantity": 1
-              }
-            },
-            {
-              "segmentId": "11",
-              "cabin": "ECONOMY",
-              "fareBasis": "OLTOW",
-              "class": "O",
-              "includedCabinBags": {
+              "fareBasis": "VLOWCN",
+              "class": "V",
+              "includedCheckedBags": {
                 "quantity": 1
               }
             }
@@ -112,32 +101,34 @@
       "nonHomogeneous": false,
       "oneWay": true,
       "isUpsellOffer": false,
-      "lastTicketingDate": "2025-09-16",
-      "lastTicketingDateTime": "2025-09-16",
-      "numberOfBookableSeats": 9,
+      "lastTicketingDate": "2025-10-01",
+      "lastTicketingDateTime": "2025-10-01T23:59:00",
+      "numberOfBookableSeats": 5,
       "itineraries": [
         {
-          "duration": "PT3H45M",
+          "duration": "PT2H40M",
           "segments": [
             {
               "departure": {
                 "iataCode": "SZX",
-                "at": "2025-10-01T10:15:00"
+                "terminal": "3",
+                "at": "2025-10-03T10:15:00"
               },
               "arrival": {
                 "iataCode": "CNX",
-                "at": "2025-10-01T14:00:00"
+                "terminal": "1",
+                "at": "2025-10-03T12:55:00"
               },
-              "carrierCode": "CZ",
-              "number": "609",
+              "carrierCode": "TG",
+              "number": "2004",
               "aircraft": {
-                "code": "333"
+                "code": "320"
               },
               "operating": {
-                "carrierCode": "CZ"
+                "carrierCode": "TG"
               },
-              "duration": "PT3H45M",
-              "id": "37",
+              "duration": "PT2H40M",
+              "id": "1",
               "numberOfStops": 0,
               "blacklistedInEU": false
             }
@@ -145,29 +136,25 @@
         }
       ],
       "price": {
-        "currency": "EUR",
-        "total": "320.00",
-        "base": "250.00",
+        "currency": "USD",
+        "total": "343.00",
+        "base": "259.25",
         "fees": [
           {
-            "amount": "35.00",
+            "amount": "45.75",
             "type": "SUPPLIER"
-          },
-          {
-            "amount": "35.00",
-            "type": "TICKETING"
           }
         ],
-        "grandTotal": "320.00"
+        "grandTotal": "313.00"
       },
       "pricingOptions": {
         "fareType": [
           "PUBLISHED"
         ],
-        "includedCheckedBagsOnly": false
+        "includedCheckedBagsOnly": true
       },
       "validatingAirlineCodes": [
-        "GP"
+        "TG"
       ],
       "travelerPricings": [
         {
@@ -175,26 +162,17 @@
           "fareOption": "STANDARD",
           "travelerType": "ADULT",
           "price": {
-            "currency": "EUR",
-            "total": "121.33",
-            "base": "67.00"
+            "currency": "USD",
+            "total": "327.00",
+            "base": "255.85"
           },
           "fareDetailsBySegment": [
             {
-              "segmentId": "37",
+              "segmentId": "1",
               "cabin": "ECONOMY",
-              "fareBasis": "USLSTAFF",
-              "class": "U",
-              "includedCabinBags": {
-                "quantity": 1
-              }
-            },
-            {
-              "segmentId": "38",
-              "cabin": "ECONOMY",
-              "fareBasis": "OLTOW",
-              "class": "O",
-              "includedCabinBags": {
+              "fareBasis": "VLOWCN",
+              "class": "V",
+              "includedCheckedBags": {
                 "quantity": 1
               }
             }
@@ -208,58 +186,36 @@
       "source": "GDS",
       "instantTicketingRequired": false,
       "nonHomogeneous": false,
-      "oneWay": false,
+      "oneWay": true,
       "isUpsellOffer": false,
       "lastTicketingDate": "2025-10-01",
-      "lastTicketingDateTime": "2025-10-01",
-      "numberOfBookableSeats": 5,
+      "lastTicketingDateTime": "2025-10-01T23:59:00",
+      "numberOfBookableSeats": 7,
       "itineraries": [
         {
-          "duration": "PT11H15M",
+          "duration": "PT2H50M",
           "segments": [
             {
               "departure": {
                 "iataCode": "SZX",
-                "at": "2025-10-01T11:35:00"
-              },
-              "arrival": {
-                "iataCode": "PEK",
                 "terminal": "3",
-                "at": "2025-10-01T14:45:00"
-              },
-              "carrierCode": "CA",
-              "number": "1394",
-              "aircraft": {
-                "code": "787"
-              },
-              "operating": {
-                "carrierCode": "CA"
-              },
-              "duration": "PT3H10M",
-              "id": "12",
-              "numberOfStops": 0,
-              "blacklistedInEU": false
-            },
-            {
-              "departure": {
-                "iataCode": "PEK",
-                "terminal": "3",
-                "at": "2025-10-01T17:40:00"
+                "at": "2025-10-03T11:15:00"
               },
               "arrival": {
                 "iataCode": "CNX",
-                "at": "2025-10-01T21:50:00"
+                "terminal": "1",
+                "at": "2025-10-03T14:05:00"
               },
-              "carrierCode": "CA",
-              "number": "823",
+              "carrierCode": "TG",
+              "number": "2006",
               "aircraft": {
-                "code": "738"
+                "code": "320"
               },
               "operating": {
-                "carrierCode": "CA"
+                "carrierCode": "TG"
               },
-              "duration": "PT5H10M",
-              "id": "13",
+              "duration": "PT2H50M",
+              "id": "1",
               "numberOfStops": 0,
               "blacklistedInEU": false
             }
@@ -267,26 +223,16 @@
         }
       ],
       "price": {
-        "currency": "EUR",
-        "total": "340.28",
-        "base": "262.00",
+        "currency": "USD",
+        "total": "368.00",
+        "base": "277.95",
         "fees": [
           {
-            "amount": "0.00",
+            "amount": "47.40",
             "type": "SUPPLIER"
-          },
-          {
-            "amount": "0.00",
-            "type": "TICKETING"
           }
         ],
-        "grandTotal": "340.28",
-        "additionalServices": [
-          {
-            "amount": "95.00",
-            "type": "CHECKED_BAGS"
-          }
-        ]
+        "grandTotal": "341.00"
       },
       "pricingOptions": {
         "fareType": [
@@ -295,7 +241,7 @@
         "includedCheckedBagsOnly": true
       },
       "validatingAirlineCodes": [
-        "CA"
+        "TG"
       ],
       "travelerPricings": [
         {
@@ -303,106 +249,19 @@
           "fareOption": "STANDARD",
           "travelerType": "ADULT",
           "price": {
-            "currency": "EUR",
-            "total": "340.28",
-            "base": "262.00"
+            "currency": "USD",
+            "total": "366.00",
+            "base": "305.15"
           },
           "fareDetailsBySegment": [
             {
-              "segmentId": "12",
+              "segmentId": "1",
               "cabin": "ECONOMY",
-              "fareBasis": "TONCZCC",
-              "brandedFare": "STDECO",
-              "brandedFareLabel": "ECONOMY STANDARD",
-              "class": "T",
+              "fareBasis": "VLOWCN",
+              "class": "V",
               "includedCheckedBags": {
                 "quantity": 1
-              },
-              "includedCabinBags": {
-                "quantity": 1
-              },
-              "amenities": [
-                {
-                  "description": "PRE PAID BAGGAGE",
-                  "isChargeable": true,
-                  "amenityType": "BAGGAGE",
-                  "amenityProvider": {
-                    "name": "BrandedFare"
-                  }
-                },
-                {
-                  "description": "CHECKED BAG SECOND",
-                  "isChargeable": true,
-                  "amenityType": "BAGGAGE",
-                  "amenityProvider": {
-                    "name": "BrandedFare"
-                  }
-                },
-                {
-                  "description": "EXCESS BAGGAGE",
-                  "isChargeable": true,
-                  "amenityType": "BAGGAGE",
-                  "amenityProvider": {
-                    "name": "BrandedFare"
-                  }
-                },
-                {
-                  "description": "CHANGEABLE TICKET",
-                  "isChargeable": true,
-                  "amenityType": "BRANDED_FARES",
-                  "amenityProvider": {
-                    "name": "BrandedFare"
-                  }
-                }
-              ]
-            },
-            {
-              "segmentId": "13",
-              "cabin": "ECONOMY",
-              "fareBasis": "TONCZCC",
-              "brandedFare": "STDECO",
-              "brandedFareLabel": "ECONOMY STANDARD",
-              "class": "T",
-              "includedCheckedBags": {
-                "quantity": 1
-              },
-              "includedCabinBags": {
-                "quantity": 1
-              },
-              "amenities": [
-                {
-                  "description": "PRE PAID BAGGAGE",
-                  "isChargeable": true,
-                  "amenityType": "BAGGAGE",
-                  "amenityProvider": {
-                    "name": "BrandedFare"
-                  }
-                },
-                {
-                  "description": "CHECKED BAG SECOND",
-                  "isChargeable": true,
-                  "amenityType": "BAGGAGE",
-                  "amenityProvider": {
-                    "name": "BrandedFare"
-                  }
-                },
-                {
-                  "description": "EXCESS BAGGAGE",
-                  "isChargeable": true,
-                  "amenityType": "BAGGAGE",
-                  "amenityProvider": {
-                    "name": "BrandedFare"
-                  }
-                },
-                {
-                  "description": "CHANGEABLE TICKET",
-                  "isChargeable": true,
-                  "amenityType": "BRANDED_FARES",
-                  "amenityProvider": {
-                    "name": "BrandedFare"
-                  }
-                }
-              ]
+              }
             }
           ]
         }
@@ -414,58 +273,36 @@
       "source": "GDS",
       "instantTicketingRequired": false,
       "nonHomogeneous": false,
-      "oneWay": false,
+      "oneWay": true,
       "isUpsellOffer": false,
       "lastTicketingDate": "2025-10-01",
-      "lastTicketingDateTime": "2025-10-01",
-      "numberOfBookableSeats": 9,
+      "lastTicketingDateTime": "2025-10-01T23:59:00",
+      "numberOfBookableSeats": 8,
       "itineraries": [
         {
-          "duration": "PT12H20M",
+          "duration": "PT3H",
           "segments": [
             {
               "departure": {
                 "iataCode": "SZX",
-                "at": "2025-10-01T10:30:00"
-              },
-              "arrival": {
-                "iataCode": "PEK",
                 "terminal": "3",
-                "at": "2025-10-01T13:45:00"
-              },
-              "carrierCode": "CA",
-              "number": "1308",
-              "aircraft": {
-                "code": "359"
-              },
-              "operating": {
-                "carrierCode": "CA"
-              },
-              "duration": "PT3H15M",
-              "id": "28",
-              "numberOfStops": 0,
-              "blacklistedInEU": false
-            },
-            {
-              "departure": {
-                "iataCode": "PEK",
-                "terminal": "3",
-                "at": "2025-10-01T17:40:00"
+                "at": "2025-10-03T10:15:00"
               },
               "arrival": {
                 "iataCode": "CNX",
-                "at": "2025-10-01T21:50:00"
+                "terminal": "1",
+                "at": "2025-10-03T13:15:00"
               },
-              "carrierCode": "CA",
-              "number": "823",
+              "carrierCode": "TG",
+              "number": "2008",
               "aircraft": {
-                "code": "738"
+                "code": "320"
               },
               "operating": {
-                "carrierCode": "CA"
+                "carrierCode": "TG"
               },
-              "duration": "PT5H10M",
-              "id": "29",
+              "duration": "PT3H",
+              "id": "1",
               "numberOfStops": 0,
               "blacklistedInEU": false
             }
@@ -473,26 +310,16 @@
         }
       ],
       "price": {
-        "currency": "EUR",
-        "total": "490.28",
-        "base": "412.00",
+        "currency": "USD",
+        "total": "382.00",
+        "base": "311.95",
         "fees": [
           {
-            "amount": "0.00",
+            "amount": "54.60",
             "type": "SUPPLIER"
-          },
-          {
-            "amount": "0.00",
-            "type": "TICKETING"
           }
         ],
-        "grandTotal": "490.28",
-        "additionalServices": [
-          {
-            "amount": "95.00",
-            "type": "CHECKED_BAGS"
-          }
-        ]
+        "grandTotal": "379.00"
       },
       "pricingOptions": {
         "fareType": [
@@ -501,7 +328,7 @@
         "includedCheckedBagsOnly": true
       },
       "validatingAirlineCodes": [
-        "CA"
+        "TG"
       ],
       "travelerPricings": [
         {
@@ -509,106 +336,19 @@
           "fareOption": "STANDARD",
           "travelerType": "ADULT",
           "price": {
-            "currency": "EUR",
-            "total": "490.28",
-            "base": "412.00"
+            "currency": "USD",
+            "total": "358.00",
+            "base": "287.30"
           },
           "fareDetailsBySegment": [
             {
-              "segmentId": "28",
+              "segmentId": "1",
               "cabin": "ECONOMY",
-              "fareBasis": "YES",
-              "brandedFare": "STDECO",
-              "brandedFareLabel": "ECONOMY STANDARD",
-              "class": "Y",
+              "fareBasis": "VLOWCN",
+              "class": "V",
               "includedCheckedBags": {
                 "quantity": 1
-              },
-              "includedCabinBags": {
-                "quantity": 1
-              },
-              "amenities": [
-                {
-                  "description": "PRE PAID BAGGAGE",
-                  "isChargeable": true,
-                  "amenityType": "BAGGAGE",
-                  "amenityProvider": {
-                    "name": "BrandedFare"
-                  }
-                },
-                {
-                  "description": "CHECKED BAG SECOND",
-                  "isChargeable": true,
-                  "amenityType": "BAGGAGE",
-                  "amenityProvider": {
-                    "name": "BrandedFare"
-                  }
-                },
-                {
-                  "description": "EXCESS BAGGAGE",
-                  "isChargeable": true,
-                  "amenityType": "BAGGAGE",
-                  "amenityProvider": {
-                    "name": "BrandedFare"
-                  }
-                },
-                {
-                  "description": "CHANGEABLE TICKET",
-                  "isChargeable": true,
-                  "amenityType": "BRANDED_FARES",
-                  "amenityProvider": {
-                    "name": "BrandedFare"
-                  }
-                }
-              ]
-            },
-            {
-              "segmentId": "29",
-              "cabin": "ECONOMY",
-              "fareBasis": "PONCZCC",
-              "brandedFare": "STDECO",
-              "brandedFareLabel": "ECONOMY STANDARD",
-              "class": "P",
-              "includedCheckedBags": {
-                "quantity": 1
-              },
-              "includedCabinBags": {
-                "quantity": 1
-              },
-              "amenities": [
-                {
-                  "description": "PRE PAID BAGGAGE",
-                  "isChargeable": true,
-                  "amenityType": "BAGGAGE",
-                  "amenityProvider": {
-                    "name": "BrandedFare"
-                  }
-                },
-                {
-                  "description": "CHECKED BAG SECOND",
-                  "isChargeable": true,
-                  "amenityType": "BAGGAGE",
-                  "amenityProvider": {
-                    "name": "BrandedFare"
-                  }
-                },
-                {
-                  "description": "EXCESS BAGGAGE",
-                  "isChargeable": true,
-                  "amenityType": "BAGGAGE",
-                  "amenityProvider": {
-                    "name": "BrandedFare"
-                  }
-                },
-                {
-                  "description": "CHANGEABLE TICKET",
-                  "isChargeable": true,
-                  "amenityType": "BRANDED_FARES",
-                  "amenityProvider": {
-                    "name": "BrandedFare"
-                  }
-                }
-              ]
+              }
             }
           ]
         }
@@ -620,360 +360,36 @@
       "source": "GDS",
       "instantTicketingRequired": false,
       "nonHomogeneous": false,
-      "oneWay": false,
+      "oneWay": true,
       "isUpsellOffer": false,
       "lastTicketingDate": "2025-10-01",
-      "lastTicketingDateTime": "2025-10-01",
-      "numberOfBookableSeats": 5,
+      "lastTicketingDateTime": "2025-10-01T23:59:00",
+      "numberOfBookableSeats": 8,
       "itineraries": [
         {
-          "duration": "PT35H35M",
+          "duration": "PT2H20M",
           "segments": [
             {
               "departure": {
                 "iataCode": "SZX",
-                "at": "2025-10-01T11:15:00"
-              },
-              "arrival": {
-                "iataCode": "PVG",
-                "terminal": "2",
-                "at": "2025-10-01T13:55:00"
-              },
-              "carrierCode": "CA",
-              "number": "1894",
-              "aircraft": {
-                "code": "332"
-              },
-              "operating": {
-                "carrierCode": "CA"
-              },
-              "duration": "PT2H40M",
-              "id": "77",
-              "numberOfStops": 0,
-              "blacklistedInEU": false
-            },
-            {
-              "departure": {
-                "iataCode": "SHA",
-                "terminal": "2",
-                "at": "2025-10-01T22:30:00"
-              },
-              "arrival": {
-                "iataCode": "PEK",
                 "terminal": "3",
-                "at": "2025-10-02T00:55:00"
-              },
-              "carrierCode": "CA",
-              "number": "1566",
-              "aircraft": {
-                "code": "77W"
-              },
-              "operating": {
-                "carrierCode": "CA"
-              },
-              "duration": "PT2H25M",
-              "id": "78",
-              "numberOfStops": 0,
-              "blacklistedInEU": false
-            },
-            {
-              "departure": {
-                "iataCode": "PEK",
-                "terminal": "3",
-                "at": "2025-10-02T17:40:00"
+                "at": "2025-10-03T08:15:00"
               },
               "arrival": {
                 "iataCode": "CNX",
-                "at": "2025-10-02T21:50:00"
+                "terminal": "1",
+                "at": "2025-10-03T10:35:00"
               },
-              "carrierCode": "CA",
-              "number": "823",
+              "carrierCode": "TG",
+              "number": "2010",
               "aircraft": {
-                "code": "738"
+                "code": "320"
               },
               "operating": {
-                "carrierCode": "CA"
-              },
-              "duration": "PT5H10M",
-              "id": "79",
-              "numberOfStops": 0,
-              "blacklistedInEU": false
-            }
-          ]
-        }
-      ],
-      "price": {
-        "currency": "EUR",
-        "total": "529.70",
-        "base": "443.00",
-        "fees": [
-          {
-            "amount": "0.00",
-            "type": "SUPPLIER"
-          },
-          {
-            "amount": "0.00",
-            "type": "TICKETING"
-          }
-        ],
-        "grandTotal": "529.70",
-        "additionalServices": [
-          {
-            "amount": "95.00",
-            "type": "CHECKED_BAGS"
-          }
-        ]
-      },
-      "pricingOptions": {
-        "fareType": [
-          "PUBLISHED"
-        ],
-        "includedCheckedBagsOnly": true
-      },
-      "validatingAirlineCodes": [
-        "CA"
-      ],
-      "travelerPricings": [
-        {
-          "travelerId": "1",
-          "fareOption": "STANDARD",
-          "travelerType": "ADULT",
-          "price": {
-            "currency": "EUR",
-            "total": "529.70",
-            "base": "443.00"
-          },
-          "fareDetailsBySegment": [
-            {
-              "segmentId": "77",
-              "cabin": "ECONOMY",
-              "fareBasis": "YES",
-              "brandedFare": "STDECO",
-              "brandedFareLabel": "ECONOMY STANDARD",
-              "class": "Y",
-              "includedCheckedBags": {
-                "quantity": 1
-              },
-              "includedCabinBags": {
-                "quantity": 1
-              },
-              "amenities": [
-                {
-                  "description": "PRE PAID BAGGAGE",
-                  "isChargeable": true,
-                  "amenityType": "BAGGAGE",
-                  "amenityProvider": {
-                    "name": "BrandedFare"
-                  }
-                },
-                {
-                  "description": "CHECKED BAG SECOND",
-                  "isChargeable": true,
-                  "amenityType": "BAGGAGE",
-                  "amenityProvider": {
-                    "name": "BrandedFare"
-                  }
-                },
-                {
-                  "description": "EXCESS BAGGAGE",
-                  "isChargeable": true,
-                  "amenityType": "BAGGAGE",
-                  "amenityProvider": {
-                    "name": "BrandedFare"
-                  }
-                },
-                {
-                  "description": "CHANGEABLE TICKET",
-                  "isChargeable": true,
-                  "amenityType": "BRANDED_FARES",
-                  "amenityProvider": {
-                    "name": "BrandedFare"
-                  }
-                }
-              ]
-            },
-            {
-              "segmentId": "78",
-              "cabin": "ECONOMY",
-              "fareBasis": "TONCZCC",
-              "brandedFare": "STDECO",
-              "brandedFareLabel": "ECONOMY STANDARD",
-              "class": "T",
-              "includedCheckedBags": {
-                "quantity": 1
-              },
-              "includedCabinBags": {
-                "quantity": 1
-              },
-              "amenities": [
-                {
-                  "description": "PRE PAID BAGGAGE",
-                  "isChargeable": true,
-                  "amenityType": "BAGGAGE",
-                  "amenityProvider": {
-                    "name": "BrandedFare"
-                  }
-                },
-                {
-                  "description": "CHECKED BAG SECOND",
-                  "isChargeable": true,
-                  "amenityType": "BAGGAGE",
-                  "amenityProvider": {
-                    "name": "BrandedFare"
-                  }
-                },
-                {
-                  "description": "EXCESS BAGGAGE",
-                  "isChargeable": true,
-                  "amenityType": "BAGGAGE",
-                  "amenityProvider": {
-                    "name": "BrandedFare"
-                  }
-                },
-                {
-                  "description": "CHANGEABLE TICKET",
-                  "isChargeable": true,
-                  "amenityType": "BRANDED_FARES",
-                  "amenityProvider": {
-                    "name": "BrandedFare"
-                  }
-                }
-              ]
-            },
-            {
-              "segmentId": "79",
-              "cabin": "ECONOMY",
-              "fareBasis": "TONCZCC",
-              "brandedFare": "STDECO",
-              "brandedFareLabel": "ECONOMY STANDARD",
-              "class": "T",
-              "includedCheckedBags": {
-                "quantity": 1
-              },
-              "includedCabinBags": {
-                "quantity": 1
-              },
-              "amenities": [
-                {
-                  "description": "PRE PAID BAGGAGE",
-                  "isChargeable": true,
-                  "amenityType": "BAGGAGE",
-                  "amenityProvider": {
-                    "name": "BrandedFare"
-                  }
-                },
-                {
-                  "description": "CHECKED BAG SECOND",
-                  "isChargeable": true,
-                  "amenityType": "BAGGAGE",
-                  "amenityProvider": {
-                    "name": "BrandedFare"
-                  }
-                },
-                {
-                  "description": "EXCESS BAGGAGE",
-                  "isChargeable": true,
-                  "amenityType": "BAGGAGE",
-                  "amenityProvider": {
-                    "name": "BrandedFare"
-                  }
-                },
-                {
-                  "description": "CHANGEABLE TICKET",
-                  "isChargeable": true,
-                  "amenityType": "BRANDED_FARES",
-                  "amenityProvider": {
-                    "name": "BrandedFare"
-                  }
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "flight-offer",
-      "id": "6",
-      "source": "GDS",
-      "instantTicketingRequired": false,
-      "nonHomogeneous": false,
-      "oneWay": false,
-      "isUpsellOffer": false,
-      "lastTicketingDate": "2025-10-01",
-      "lastTicketingDateTime": "2025-10-01",
-      "numberOfBookableSeats": 9,
-      "itineraries": [
-        {
-          "duration": "PT24H35M",
-          "segments": [
-            {
-              "departure": {
-                "iataCode": "SZX",
-                "at": "2025-10-01T22:15:00"
-              },
-              "arrival": {
-                "iataCode": "HGH",
-                "terminal": "4",
-                "at": "2025-10-02T00:15:00"
-              },
-              "carrierCode": "CA",
-              "number": "1736",
-              "aircraft": {
-                "code": "321"
-              },
-              "operating": {
-                "carrierCode": "CA"
-              },
-              "duration": "PT2H",
-              "id": "56",
-              "numberOfStops": 0,
-              "blacklistedInEU": false
-            },
-            {
-              "departure": {
-                "iataCode": "HGH",
-                "terminal": "4",
-                "at": "2025-10-02T07:00:00"
-              },
-              "arrival": {
-                "iataCode": "PEK",
-                "terminal": "3",
-                "at": "2025-10-02T09:20:00"
-              },
-              "carrierCode": "CA",
-              "number": "1701",
-              "aircraft": {
-                "code": "321"
-              },
-              "operating": {
-                "carrierCode": "CA"
+                "carrierCode": "TG"
               },
               "duration": "PT2H20M",
-              "id": "57",
-              "numberOfStops": 0,
-              "blacklistedInEU": false
-            },
-            {
-              "departure": {
-                "iataCode": "PEK",
-                "terminal": "3",
-                "at": "2025-10-02T17:40:00"
-              },
-              "arrival": {
-                "iataCode": "CNX",
-                "at": "2025-10-02T21:50:00"
-              },
-              "carrierCode": "CA",
-              "number": "823",
-              "aircraft": {
-                "code": "738"
-              },
-              "operating": {
-                "carrierCode": "CA"
-              },
-              "duration": "PT5H10M",
-              "id": "58",
+              "id": "1",
               "numberOfStops": 0,
               "blacklistedInEU": false
             }
@@ -981,26 +397,16 @@
         }
       ],
       "price": {
-        "currency": "EUR",
-        "total": "543.70",
-        "base": "457.00",
+        "currency": "USD",
+        "total": "313.00",
+        "base": "221.85",
         "fees": [
           {
-            "amount": "0.00",
+            "amount": "43.05",
             "type": "SUPPLIER"
-          },
-          {
-            "amount": "0.00",
-            "type": "TICKETING"
           }
         ],
-        "grandTotal": "543.70",
-        "additionalServices": [
-          {
-            "amount": "95.00",
-            "type": "CHECKED_BAGS"
-          }
-        ]
+        "grandTotal": "270.00"
       },
       "pricingOptions": {
         "fareType": [
@@ -1009,7 +415,7 @@
         "includedCheckedBagsOnly": true
       },
       "validatingAirlineCodes": [
-        "CA"
+        "TG"
       ],
       "travelerPricings": [
         {
@@ -1017,432 +423,19 @@
           "fareOption": "STANDARD",
           "travelerType": "ADULT",
           "price": {
-            "currency": "EUR",
-            "total": "543.70",
-            "base": "457.00"
+            "currency": "USD",
+            "total": "307.00",
+            "base": "246.50"
           },
           "fareDetailsBySegment": [
             {
-              "segmentId": "56",
+              "segmentId": "1",
               "cabin": "ECONOMY",
-              "fareBasis": "YES",
-              "brandedFare": "STDECO",
-              "brandedFareLabel": "ECONOMY STANDARD",
-              "class": "Y",
+              "fareBasis": "VLOWCN",
+              "class": "V",
               "includedCheckedBags": {
                 "quantity": 1
-              },
-              "includedCabinBags": {
-                "quantity": 1
-              },
-              "amenities": [
-                {
-                  "description": "PRE PAID BAGGAGE",
-                  "isChargeable": true,
-                  "amenityType": "BAGGAGE",
-                  "amenityProvider": {
-                    "name": "BrandedFare"
-                  }
-                },
-                {
-                  "description": "CHECKED BAG SECOND",
-                  "isChargeable": true,
-                  "amenityType": "BAGGAGE",
-                  "amenityProvider": {
-                    "name": "BrandedFare"
-                  }
-                },
-                {
-                  "description": "EXCESS BAGGAGE",
-                  "isChargeable": true,
-                  "amenityType": "BAGGAGE",
-                  "amenityProvider": {
-                    "name": "BrandedFare"
-                  }
-                },
-                {
-                  "description": "CHANGEABLE TICKET",
-                  "isChargeable": true,
-                  "amenityType": "BRANDED_FARES",
-                  "amenityProvider": {
-                    "name": "BrandedFare"
-                  }
-                }
-              ]
-            },
-            {
-              "segmentId": "57",
-              "cabin": "ECONOMY",
-              "fareBasis": "TONCZCC",
-              "brandedFare": "STDECO",
-              "brandedFareLabel": "ECONOMY STANDARD",
-              "class": "T",
-              "includedCheckedBags": {
-                "quantity": 1
-              },
-              "includedCabinBags": {
-                "quantity": 1
-              },
-              "amenities": [
-                {
-                  "description": "PRE PAID BAGGAGE",
-                  "isChargeable": true,
-                  "amenityType": "BAGGAGE",
-                  "amenityProvider": {
-                    "name": "BrandedFare"
-                  }
-                },
-                {
-                  "description": "CHECKED BAG SECOND",
-                  "isChargeable": true,
-                  "amenityType": "BAGGAGE",
-                  "amenityProvider": {
-                    "name": "BrandedFare"
-                  }
-                },
-                {
-                  "description": "EXCESS BAGGAGE",
-                  "isChargeable": true,
-                  "amenityType": "BAGGAGE",
-                  "amenityProvider": {
-                    "name": "BrandedFare"
-                  }
-                },
-                {
-                  "description": "CHANGEABLE TICKET",
-                  "isChargeable": true,
-                  "amenityType": "BRANDED_FARES",
-                  "amenityProvider": {
-                    "name": "BrandedFare"
-                  }
-                }
-              ]
-            },
-            {
-              "segmentId": "58",
-              "cabin": "ECONOMY",
-              "fareBasis": "TONCZCC",
-              "brandedFare": "STDECO",
-              "brandedFareLabel": "ECONOMY STANDARD",
-              "class": "T",
-              "includedCheckedBags": {
-                "quantity": 1
-              },
-              "includedCabinBags": {
-                "quantity": 1
-              },
-              "amenities": [
-                {
-                  "description": "PRE PAID BAGGAGE",
-                  "isChargeable": true,
-                  "amenityType": "BAGGAGE",
-                  "amenityProvider": {
-                    "name": "BrandedFare"
-                  }
-                },
-                {
-                  "description": "CHECKED BAG SECOND",
-                  "isChargeable": true,
-                  "amenityType": "BAGGAGE",
-                  "amenityProvider": {
-                    "name": "BrandedFare"
-                  }
-                },
-                {
-                  "description": "EXCESS BAGGAGE",
-                  "isChargeable": true,
-                  "amenityType": "BAGGAGE",
-                  "amenityProvider": {
-                    "name": "BrandedFare"
-                  }
-                },
-                {
-                  "description": "CHANGEABLE TICKET",
-                  "isChargeable": true,
-                  "amenityType": "BRANDED_FARES",
-                  "amenityProvider": {
-                    "name": "BrandedFare"
-                  }
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "flight-offer",
-      "id": "7",
-      "source": "GDS",
-      "instantTicketingRequired": false,
-      "nonHomogeneous": false,
-      "oneWay": false,
-      "isUpsellOffer": false,
-      "lastTicketingDate": "2025-10-01",
-      "lastTicketingDateTime": "2025-10-01",
-      "numberOfBookableSeats": 9,
-      "itineraries": [
-        {
-          "duration": "PT24H35M",
-          "segments": [
-            {
-              "departure": {
-                "iataCode": "SZX",
-                "at": "2025-10-01T22:15:00"
-              },
-              "arrival": {
-                "iataCode": "HGH",
-                "terminal": "4",
-                "at": "2025-10-02T00:15:00"
-              },
-              "carrierCode": "CA",
-              "number": "1736",
-              "aircraft": {
-                "code": "321"
-              },
-              "operating": {
-                "carrierCode": "CA"
-              },
-              "duration": "PT2H",
-              "id": "59",
-              "numberOfStops": 0,
-              "blacklistedInEU": false
-            },
-            {
-              "departure": {
-                "iataCode": "HGH",
-                "terminal": "4",
-                "at": "2025-10-02T08:00:00"
-              },
-              "arrival": {
-                "iataCode": "PEK",
-                "terminal": "3",
-                "at": "2025-10-02T10:25:00"
-              },
-              "carrierCode": "CA",
-              "number": "1703",
-              "aircraft": {
-                "code": "333"
-              },
-              "operating": {
-                "carrierCode": "CA"
-              },
-              "duration": "PT2H25M",
-              "id": "60",
-              "numberOfStops": 0,
-              "blacklistedInEU": false
-            },
-            {
-              "departure": {
-                "iataCode": "PEK",
-                "terminal": "3",
-                "at": "2025-10-02T17:40:00"
-              },
-              "arrival": {
-                "iataCode": "CNX",
-                "at": "2025-10-02T21:50:00"
-              },
-              "carrierCode": "CA",
-              "number": "823",
-              "aircraft": {
-                "code": "738"
-              },
-              "operating": {
-                "carrierCode": "CA"
-              },
-              "duration": "PT5H10M",
-              "id": "61",
-              "numberOfStops": 0,
-              "blacklistedInEU": false
-            }
-          ]
-        }
-      ],
-      "price": {
-        "currency": "EUR",
-        "total": "543.70",
-        "base": "457.00",
-        "fees": [
-          {
-            "amount": "0.00",
-            "type": "SUPPLIER"
-          },
-          {
-            "amount": "0.00",
-            "type": "TICKETING"
-          }
-        ],
-        "grandTotal": "543.70",
-        "additionalServices": [
-          {
-            "amount": "95.00",
-            "type": "CHECKED_BAGS"
-          }
-        ]
-      },
-      "pricingOptions": {
-        "fareType": [
-          "PUBLISHED"
-        ],
-        "includedCheckedBagsOnly": true
-      },
-      "validatingAirlineCodes": [
-        "CA"
-      ],
-      "travelerPricings": [
-        {
-          "travelerId": "1",
-          "fareOption": "STANDARD",
-          "travelerType": "ADULT",
-          "price": {
-            "currency": "EUR",
-            "total": "543.70",
-            "base": "457.00"
-          },
-          "fareDetailsBySegment": [
-            {
-              "segmentId": "59",
-              "cabin": "ECONOMY",
-              "fareBasis": "YES",
-              "brandedFare": "STDECO",
-              "brandedFareLabel": "ECONOMY STANDARD",
-              "class": "Y",
-              "includedCheckedBags": {
-                "quantity": 1
-              },
-              "includedCabinBags": {
-                "quantity": 1
-              },
-              "amenities": [
-                {
-                  "description": "PRE PAID BAGGAGE",
-                  "isChargeable": true,
-                  "amenityType": "BAGGAGE",
-                  "amenityProvider": {
-                    "name": "BrandedFare"
-                  }
-                },
-                {
-                  "description": "CHECKED BAG SECOND",
-                  "isChargeable": true,
-                  "amenityType": "BAGGAGE",
-                  "amenityProvider": {
-                    "name": "BrandedFare"
-                  }
-                },
-                {
-                  "description": "EXCESS BAGGAGE",
-                  "isChargeable": true,
-                  "amenityType": "BAGGAGE",
-                  "amenityProvider": {
-                    "name": "BrandedFare"
-                  }
-                },
-                {
-                  "description": "CHANGEABLE TICKET",
-                  "isChargeable": true,
-                  "amenityType": "BRANDED_FARES",
-                  "amenityProvider": {
-                    "name": "BrandedFare"
-                  }
-                }
-              ]
-            },
-            {
-              "segmentId": "60",
-              "cabin": "ECONOMY",
-              "fareBasis": "TONCZCC",
-              "brandedFare": "STDECO",
-              "brandedFareLabel": "ECONOMY STANDARD",
-              "class": "T",
-              "includedCheckedBags": {
-                "quantity": 1
-              },
-              "includedCabinBags": {
-                "quantity": 1
-              },
-              "amenities": [
-                {
-                  "description": "PRE PAID BAGGAGE",
-                  "isChargeable": true,
-                  "amenityType": "BAGGAGE",
-                  "amenityProvider": {
-                    "name": "BrandedFare"
-                  }
-                },
-                {
-                  "description": "CHECKED BAG SECOND",
-                  "isChargeable": true,
-                  "amenityType": "BAGGAGE",
-                  "amenityProvider": {
-                    "name": "BrandedFare"
-                  }
-                },
-                {
-                  "description": "EXCESS BAGGAGE",
-                  "isChargeable": true,
-                  "amenityType": "BAGGAGE",
-                  "amenityProvider": {
-                    "name": "BrandedFare"
-                  }
-                },
-                {
-                  "description": "CHANGEABLE TICKET",
-                  "isChargeable": true,
-                  "amenityType": "BRANDED_FARES",
-                  "amenityProvider": {
-                    "name": "BrandedFare"
-                  }
-                }
-              ]
-            },
-            {
-              "segmentId": "61",
-              "cabin": "ECONOMY",
-              "fareBasis": "TONCZCC",
-              "brandedFare": "STDECO",
-              "brandedFareLabel": "ECONOMY STANDARD",
-              "class": "T",
-              "includedCheckedBags": {
-                "quantity": 1
-              },
-              "includedCabinBags": {
-                "quantity": 1
-              },
-              "amenities": [
-                {
-                  "description": "PRE PAID BAGGAGE",
-                  "isChargeable": true,
-                  "amenityType": "BAGGAGE",
-                  "amenityProvider": {
-                    "name": "BrandedFare"
-                  }
-                },
-                {
-                  "description": "CHECKED BAG SECOND",
-                  "isChargeable": true,
-                  "amenityType": "BAGGAGE",
-                  "amenityProvider": {
-                    "name": "BrandedFare"
-                  }
-                },
-                {
-                  "description": "EXCESS BAGGAGE",
-                  "isChargeable": true,
-                  "amenityType": "BAGGAGE",
-                  "amenityProvider": {
-                    "name": "BrandedFare"
-                  }
-                },
-                {
-                  "description": "CHANGEABLE TICKET",
-                  "isChargeable": true,
-                  "amenityType": "BRANDED_FARES",
-                  "amenityProvider": {
-                    "name": "BrandedFare"
-                  }
-                }
-              ]
+              }
             }
           ]
         }

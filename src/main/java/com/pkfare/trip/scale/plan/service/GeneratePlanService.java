@@ -100,6 +100,7 @@ public class GeneratePlanService {
         param.setStart_period(toString(dateResult.getDepartureDate()));
         param.setEnd_period(toString(dateResult.getReturnDate()));
         log.info("Flight date search completed in {} ms", System.currentTimeMillis() - dateSearchStart);
+        log.info("Flight date search completed.param:{}",param);
       }
 
       // 4. 并发执行独立的搜索任务
@@ -466,6 +467,7 @@ public class GeneratePlanService {
             Map<String, List<String>> hotelIds = hotelSearchService.getHotelsByCity(param.getTrip_routes());
             log.info("[{}] Hotel IDs search completed in {} ms, found {} cities", 
                 Thread.currentThread().getName(), System.currentTimeMillis() - start, hotelIds.size());
+            log.info("hotelIds:{}",hotelIds);
             return hotelIds;
           } catch (Exception e) {
             log.error("[{}] Hotel IDs search failed", Thread.currentThread().getName(), e);

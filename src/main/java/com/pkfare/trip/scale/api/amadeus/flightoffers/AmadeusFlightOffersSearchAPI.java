@@ -332,8 +332,24 @@ public class AmadeusFlightOffersSearchAPI {
     segmentDto.setNumberOfStops(getIntValue(segmentNode, "numberOfStops"));
     segmentDto.setBlacklistedInEU(getBooleanValue(segmentNode, "blacklistedInEU"));
     
-    // 解析出发信息并替换参数
+    // 获取原始的出发和到达时间，用于判断是否跨天
+    String originalDepartureDateTime = null;
+    String originalArrivalDateTime = null;
+    
     JsonNode departureNode = segmentNode.get("departure");
+    JsonNode arrivalNode = segmentNode.get("arrival");
+    
+    if (departureNode != null) {
+      originalDepartureDateTime = getStringValue(departureNode, "at");
+    }
+    if (arrivalNode != null) {
+      originalArrivalDateTime = getStringValue(arrivalNode, "at");
+    }
+    
+    // 判断原始mock数据中是否为跨天航班
+    boolean isOvernightFlight = isOvernightFlight(originalDepartureDateTime, originalArrivalDateTime);
+    
+    // 解析出发信息并替换参数
     if (departureNode != null) {
       AirportInfoDto departure = new AirportInfoDto();
       
@@ -343,15 +359,13 @@ public class AmadeusFlightOffersSearchAPI {
       departure.setTerminal(getStringValue(departureNode, "terminal"));
       
       // 替换出发日期（保持时间不变）
-      String originalDateTime = getStringValue(departureNode, "at");
-      String newDateTime = replaceDateInDateTime(originalDateTime, request.getDepartureDate());
+      String newDateTime = replaceDateInDateTime(originalDepartureDateTime, request.getDepartureDate());
       departure.setAt(newDateTime);
       
       segmentDto.setDeparture(departure);
     }
     
     // 解析到达信息并替换参数
-    JsonNode arrivalNode = segmentNode.get("arrival");
     if (arrivalNode != null) {
       AirportInfoDto arrival = new AirportInfoDto();
       
@@ -360,17 +374,51 @@ public class AmadeusFlightOffersSearchAPI {
       arrival.setIataCode(arrivalCode);
       arrival.setTerminal(getStringValue(arrivalNode, "terminal"));
       
-      // 替换到达日期（保持时间不变）
-      String originalDateTime = getStringValue(arrivalNode, "at");
+      // 替换到达日期（保持时间不变，如果是跨天航班则加1天）
       String targetDate = segmentIndex == 0 ? request.getDepartureDate() : 
                          (request.getReturnDate() != null ? request.getReturnDate() : request.getDepartureDate());
-      String newDateTime = replaceDateInDateTime(originalDateTime, targetDate);
+      
+      // 如果原始数据是跨天航班，到达日期需要加1天
+      if (isOvernightFlight) {
+        try {
+          LocalDate baseDate = LocalDate.parse(targetDate, DateTimeFormatter.ISO_LOCAL_DATE);
+          LocalDate arrivalDate = baseDate.plusDays(1);
+          targetDate = arrivalDate.format(DateTimeFormatter.ISO_LOCAL_DATE);
+        } catch (Exception e) {
+          log.warn("Failed to add one day to target date: {}", targetDate, e);
+        }
+      }
+      
+      String newDateTime = replaceDateInDateTime(originalArrivalDateTime, targetDate);
       arrival.setAt(newDateTime);
       
       segmentDto.setArrival(arrival);
     }
     
     return segmentDto;
+  }
+
+  /**
+   * 判断是否为跨天航班（到达时间在起飞时间的第二天）
+   */
+  private boolean isOvernightFlight(String departureDateTime, String arrivalDateTime) {
+    if (departureDateTime == null || arrivalDateTime == null) {
+      return false;
+    }
+    
+    try {
+      // 解析出发和到达时间
+      LocalDateTime departure = LocalDateTime.parse(departureDateTime, DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+      LocalDateTime arrival = LocalDateTime.parse(arrivalDateTime, DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+      
+      // 判断到达日期是否比出发日期晚一天或更多
+      return arrival.toLocalDate().isAfter(departure.toLocalDate());
+      
+    } catch (Exception e) {
+      log.warn("Failed to parse datetime for overnight flight check: departure={}, arrival={}", 
+               departureDateTime, arrivalDateTime, e);
+      return false;
+    }
   }
 
   /**
