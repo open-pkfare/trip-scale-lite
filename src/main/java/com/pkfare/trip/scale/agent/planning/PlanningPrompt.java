@@ -21,7 +21,7 @@ public class PlanningPrompt {
         + "3. Fill location_code if the location has code."
         + "\n"
         + "### OUTPUT "
-        + "output strictly follow the array data constructure, 6 hyphens is mandatory:\n"
+        + "output strictly follow the array data constructure, the beginning 6 hyphens is mandatory:\n"
         + "\n"
         + "------[{\n"
         + "\"stay_days\":int,\n"
