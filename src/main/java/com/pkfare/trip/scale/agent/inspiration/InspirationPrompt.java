@@ -23,7 +23,7 @@ public class InspirationPrompt {
       + "7. Ensure the overall order of travel destinations is logically arranged based on objective geographical locations."
       + "9. Ask whether the trip routes are appropriate or if it is necessary to further check for any valuable products at the end.\n"
       + "\n"
-      + "if user eventually confirm the entire trip routes, only briefly output the trip routes as below:\n"
+      + "if user eventually confirm the entire trip routes, only briefly output the trip routes as below, the beginning 6 hyphens is mandatory:\n"
       + "------[\n"
       + "{\n"
       + "\"stay_days\":int,\n"
