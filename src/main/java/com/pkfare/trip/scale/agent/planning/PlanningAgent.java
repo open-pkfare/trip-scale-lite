@@ -133,7 +133,7 @@ public class PlanningAgent extends BaseAgent {
       GeneratePlanService generatePlanService = getGeneratePlanService();
 
       GeneratePlanParam param = null;
-      if (tripRoutes == null) {
+      if (CollectionUtils.isEmpty(tripRoutes)) {
         //return Flowable.error(new IllegalStateException("Missing required tripRoutes in session"));
         param = mockSZXItalyGeneratePlanParam();;
       }else if (tripDemand ==null) {
@@ -207,12 +207,12 @@ public class PlanningAgent extends BaseAgent {
     }
     
     // 定义意大利城市列表
-    Set<String> italyCities = Set.of("Rome", "Florence", "Milan", "Venice");
+    Set<String> italyCountries = Set.of("IT");
     
     return tripRoutes.stream()
-        .anyMatch(route -> route != null && 
-            italyCities.stream().anyMatch(city -> 
-                city.equalsIgnoreCase(route.getDestination_city())));
+        .anyMatch(route -> route != null &&
+            italyCountries.stream().anyMatch(city ->
+                city.equalsIgnoreCase(route.getCountry_code())));
   }
 
   private GeneratePlanParam mockSZXThailandGeneratePlanParam() {
