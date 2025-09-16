@@ -47,6 +47,7 @@ import java.util.concurrent.ConcurrentMap;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.springframework.util.CollectionUtils;
 
 @Slf4j
@@ -143,7 +144,7 @@ public class RootAgent extends BaseAgent {
           if (text.contains("------")) {
             String[] tt = text.split("------");
             pref = tt[0];
-            text = tt[1];
+            text = tt.length == 1? tt[0]:tt[1];
           }
           text = text.replace("```json","").replace("```","");
 
@@ -156,6 +157,7 @@ public class RootAgent extends BaseAgent {
           switch (currentStage) {
             case "demand":
               TripDemand tripDemand = mapper.readValue(text, TripDemand.class);
+              log.info("switch stage from demand to inspiration");
               states.put("current_stage", "inspiration");
               states.put("trip_demand", tripDemand);
               part = Part.builder().text(tripDemand.getBrief()).build();
@@ -165,6 +167,7 @@ public class RootAgent extends BaseAgent {
             case "inspiration":
               List<TripRoute> tripRoutes = mapper.readValue(text, new TypeReference<List<TripRoute>>() {});
               if (!CollectionUtils.isEmpty(tripRoutes)){
+                log.info("switch stage from inspiration to planning");
                 states.put("current_stage", "planning");
                 states.put("trip_route", tripRoutes);
                 part = Part.builder().text(Optional.ofNullable(pref).orElse("Okay, let's start planning details for it!")).build();
@@ -175,7 +178,7 @@ public class RootAgent extends BaseAgent {
             case "planning":
               if (content.role().isPresent() && "planner".equals(content.role().get())){
                 TripRoutePlanResult tripRoutePlanResult = mapper.readValue(text, TripRoutePlanResult.class);
-                states.put("current_stage", "adjustment");
+                states.put("current_stage", "optimizing");
                 states.put("plan_result", tripRoutePlanResult);
                 part = Part.builder().text(text).build();
                 parts.removeFirst();
@@ -186,7 +189,7 @@ public class RootAgent extends BaseAgent {
           }
         } catch (Throwable e) {
 //          log.info("error {}", ExceptionUtils.getStackTrace(e));
-//          log.info("parse error text : {}", text);
+          log.info("parse error currentStage : {} text : {}, error {}", currentStage, text, ExceptionUtils.getStackTrace(e));
           return;
         }
 

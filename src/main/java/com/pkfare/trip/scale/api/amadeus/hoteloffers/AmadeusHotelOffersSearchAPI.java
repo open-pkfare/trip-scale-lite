@@ -121,7 +121,7 @@ public class AmadeusHotelOffersSearchAPI {
         try {
           ClassPathResource resource = new ClassPathResource(mockFilePath);
           if (!resource.exists()) {
-            log.debug("Mock file not found for hotelId: {} at path: {}", hotelId, mockFilePath);
+            //log.debug("Mock file not found for hotelId: {} at path: {}", hotelId, mockFilePath);
             continue;
           }
           

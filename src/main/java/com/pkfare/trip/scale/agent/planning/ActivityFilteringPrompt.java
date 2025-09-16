@@ -112,31 +112,7 @@ public class ActivityFilteringPrompt {
         
         Create a memorable and well-balanced travel experience that maximizes the use of available activities while respecting user preferences and practical constraints.
         """;
-    
-    /**
-     * Build specific activity filtering prompt
-     * 
-     * @param flightInfo Flight information JSON string
-     * @param userPreferences User preferences JSON string
-     * @param activities Original activity list JSON string
-     * @param cityInfo City information JSON string
-     * @return Complete prompt
-     */
-    public static String buildFilteringPrompt(String flightInfo, String userPreferences, 
-                                            String activities, String cityInfo) {
-        return ACTIVITY_FILTERING_PROMPT + 
-               "\n\n## Input Information\n\n" +
-               "### Flight Information:\n" + flightInfo + "\n\n" +
-               "### User Preferences:\n" + userPreferences + "\n\n" +
-               "### Candidate Activities:\n" + activities + "\n\n" +
-               "### City Information:\n" + cityInfo + "\n\n" +
-               "Please filter and recommend activities based on the above information.\n\n" +
-               "**CRITICAL REQUIREMENT - NO ACTIVITY REPETITION:**\n" +
-               "- Each activity can ONLY be assigned to ONE day in this city\n" +
-               "- Ensure NO activity appears on multiple days within this city\n" +
-               "- Verify activity uniqueness before finalizing each day's plan\n" +
-               "- Create diverse daily experiences using different activities each day";
-    }
+
     
     /**
      * Build global activity allocation prompt
@@ -153,7 +129,7 @@ public class ActivityFilteringPrompt {
                "\n\n## Complete Trip Information\n\n" +
                "### All Available Activities:\n" + allActivities + "\n\n" +
                "### Trip Itinerary:\n" + tripItinerary + "\n\n" +
-               "### User Preferences:\n" + userPreferences + "\n\n" +
+               /** "### User Preferences:\n" + userPreferences + "\n\n" + */
                "### Flight Constraints:\n" + flightConstraints + "\n\n" +
                "Please create a complete daily activity allocation plan for the entire trip based on the above information. " +
                "\n\n**CRITICAL REQUIREMENTS:**\n" +

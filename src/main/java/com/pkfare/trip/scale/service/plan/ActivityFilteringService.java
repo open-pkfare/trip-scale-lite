@@ -534,7 +534,6 @@ public class ActivityFilteringService {
             request.setUserPreferences(defaultPref);
         }
 
-        log.info("GlobalActivityAllocationRequest:{}",request);
         return request;
     }
     
@@ -614,6 +613,30 @@ public class ActivityFilteringService {
         List<FlightInfo> preferredFlights = flights.getOrDefault("preferred", new ArrayList<>());
         
         if (!preferredFlights.isEmpty()) {
+
+            FlightInfo flightInfo = preferredFlights.get(0);
+            if(flightInfo.getItineraries() != null && !flightInfo.getItineraries().isEmpty()){
+                ItineraryInfo outboundItinerary = flightInfo.getItineraries().get(0);
+                if (outboundItinerary.getSegments() != null && !outboundItinerary.getSegments().isEmpty()) {
+                    SegmentInfo lastSegment = outboundItinerary.getSegments().get(outboundItinerary.getSegments().size() - 1);
+                    if (lastSegment.getArrivalTime() != null) {
+                        analysis.setArrivalTime(parseTime(lastSegment.getArrivalTime()));
+                        analysis.setArrivalDate(parseDate(lastSegment.getArrivalTime()));
+                    }
+                }
+
+                ItineraryInfo returnItinerary = flightInfo.getItineraries().get(flightInfo.getItineraries().size() - 1);
+                if (returnItinerary.getSegments() != null && !returnItinerary.getSegments().isEmpty()) {
+                    SegmentInfo firstSegment = returnItinerary.getSegments().get(0);
+                    if (firstSegment.getDepartureTime() != null) {
+                        analysis.setDepartureTime(parseTime(firstSegment.getDepartureTime()));
+                        analysis.setDepartureDate(parseDate(firstSegment.getDepartureTime()));
+                    }
+                }
+            }
+
+
+            /**
             // 分析去程航班（第一个航班）
             FlightInfo outboundFlight = preferredFlights.get(0);
             if (outboundFlight.getItineraries() != null && !outboundFlight.getItineraries().isEmpty()) {
@@ -640,7 +663,7 @@ public class ActivityFilteringService {
                         }
                     }
                 }
-            }
+            }**/
         }
         
         return analysis;

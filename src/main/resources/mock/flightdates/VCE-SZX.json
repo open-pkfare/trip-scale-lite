@@ -4,9 +4,87 @@
       "type": "flight-date",
       "origin": "VCE",
       "destination": "SZX",
+      "departureDate": "2025-10-08",
+      "price": {
+        "total": "5850.00"
+      },
+      "links": {
+        "flightDestinations": "https://test.api.amadeus.com/v1/shopping/flight-destinations?origin=VCE&departureDate=2025-10-14&oneWay=false&duration=1,15&nonStop=false&viewBy=DURATION",
+        "flightOffers": "https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=VCE&destinationLocationCode=SZX&departureDate=2025-10-14&adults=1&nonStop=false"
+      }
+    },
+    {
+      "type": "flight-date",
+      "origin": "VCE",
+      "destination": "SZX",
+      "departureDate": "2025-10-09",
+      "price": {
+        "total": "5850.00"
+      },
+      "links": {
+        "flightDestinations": "https://test.api.amadeus.com/v1/shopping/flight-destinations?origin=VCE&departureDate=2025-10-14&oneWay=false&duration=1,15&nonStop=false&viewBy=DURATION",
+        "flightOffers": "https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=VCE&destinationLocationCode=SZX&departureDate=2025-10-14&adults=1&nonStop=false"
+      }
+    },
+    {
+      "type": "flight-date",
+      "origin": "VCE",
+      "destination": "SZX",
+      "departureDate": "2025-10-10",
+      "price": {
+        "total": "5850.00"
+      },
+      "links": {
+        "flightDestinations": "https://test.api.amadeus.com/v1/shopping/flight-destinations?origin=VCE&departureDate=2025-10-14&oneWay=false&duration=1,15&nonStop=false&viewBy=DURATION",
+        "flightOffers": "https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=VCE&destinationLocationCode=SZX&departureDate=2025-10-14&adults=1&nonStop=false"
+      }
+    },
+    {
+      "type": "flight-date",
+      "origin": "VCE",
+      "destination": "SZX",
+      "departureDate": "2025-10-11",
+      "price": {
+        "total": "5960.00"
+      },
+      "links": {
+        "flightDestinations": "https://test.api.amadeus.com/v1/shopping/flight-destinations?origin=VCE&departureDate=2025-10-14&oneWay=false&duration=1,15&nonStop=false&viewBy=DURATION",
+        "flightOffers": "https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=VCE&destinationLocationCode=SZX&departureDate=2025-10-14&adults=1&nonStop=false"
+      }
+    },
+    {
+      "type": "flight-date",
+      "origin": "VCE",
+      "destination": "SZX",
+      "departureDate": "2025-10-12",
+      "price": {
+        "total": "5720.00"
+      },
+      "links": {
+        "flightDestinations": "https://test.api.amadeus.com/v1/shopping/flight-destinations?origin=VCE&departureDate=2025-10-14&oneWay=false&duration=1,15&nonStop=false&viewBy=DURATION",
+        "flightOffers": "https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=VCE&destinationLocationCode=SZX&departureDate=2025-10-14&adults=1&nonStop=false"
+      }
+    },
+    {
+      "type": "flight-date",
+      "origin": "VCE",
+      "destination": "SZX",
+      "departureDate": "2025-10-13",
+      "price": {
+        "total": "5820.00"
+      },
+      "links": {
+        "flightDestinations": "https://test.api.amadeus.com/v1/shopping/flight-destinations?origin=VCE&departureDate=2025-10-14&oneWay=false&duration=1,15&nonStop=false&viewBy=DURATION",
+        "flightOffers": "https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=VCE&destinationLocationCode=SZX&departureDate=2025-10-14&adults=1&nonStop=false"
+      }
+    },
+    {
+      "type": "flight-date",
+      "origin": "VCE",
+      "destination": "SZX",
       "departureDate": "2025-10-14",
       "price": {
-        "total": "6320.00"
+        "total": "5920.00"
       },
       "links": {
         "flightDestinations": "https://test.api.amadeus.com/v1/shopping/flight-destinations?origin=VCE&departureDate=2025-10-14&oneWay=false&duration=1,15&nonStop=false&viewBy=DURATION",
@@ -19,6 +97,19 @@
       "destination": "SZX",
       "departureDate": "2025-10-15",
       "price": {
+        "total": "6320.00"
+      },
+      "links": {
+        "flightDestinations": "https://test.api.amadeus.com/v1/shopping/flight-destinations?origin=VCE&departureDate=2025-10-14&oneWay=false&duration=1,15&nonStop=false&viewBy=DURATION",
+        "flightOffers": "https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=VCE&destinationLocationCode=SZX&departureDate=2025-10-14&adults=1&nonStop=false"
+      }
+    },
+    {
+      "type": "flight-date",
+      "origin": "VCE",
+      "destination": "SZX",
+      "departureDate": "2025-10-16",
+      "price": {
         "total": "5890.00"
       },
       "links": {
@@ -30,7 +121,7 @@
       "type": "flight-date",
       "origin": "VCE",
       "destination": "SZX",
-      "departureDate": "2025-10-16",
+      "departureDate": "2025-10-17",
       "price": {
         "total": "6750.00"
       },
@@ -43,7 +134,7 @@
       "type": "flight-date",
       "origin": "VCE",
       "destination": "SZX",
-      "departureDate": "2025-10-17",
+      "departureDate": "2025-10-18",
       "price": {
         "total": "5650.00"
       },
@@ -56,7 +147,7 @@
       "type": "flight-date",
       "origin": "VCE",
       "destination": "SZX",
-      "departureDate": "2025-10-18",
+      "departureDate": "2025-10-19",
       "price": {
         "total": "6480.00"
       },
@@ -69,7 +160,7 @@
       "type": "flight-date",
       "origin": "VCE",
       "destination": "SZX",
-      "departureDate": "2025-10-19",
+      "departureDate": "2025-10-20",
       "price": {
         "total": "6120.00"
       },
