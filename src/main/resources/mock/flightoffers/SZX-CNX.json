@@ -1,0 +1,541 @@
+{
+  "meta": {
+    "count": 5,
+    "links": {
+      "self": "https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=SZX&destinationLocationCode=CNX&departureDate=2025-10-01&adults=1&nonStop=false"
+    }
+  },
+  "data": [
+    {
+      "type": "flight-offer",
+      "id": "1",
+      "source": "GDS",
+      "instantTicketingRequired": false,
+      "nonHomogeneous": false,
+      "oneWay": true,
+      "isUpsellOffer": false,
+      "lastTicketingDate": "2025-10-01",
+      "lastTicketingDateTime": "2025-10-01T23:59:00",
+      "numberOfBookableSeats": 7,
+      "itineraries": [
+        {
+          "duration": "PT2H30M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "SZX",
+                "terminal": "3",
+                "at": "2025-10-03T09:45:00"
+              },
+              "arrival": {
+                "iataCode": "CNX",
+                "terminal": "1",
+                "at": "2025-10-03T12:15:00"
+              },
+              "carrierCode": "TG",
+              "number": "2002",
+              "aircraft": {
+                "code": "320"
+              },
+              "operating": {
+                "carrierCode": "TG"
+              },
+              "duration": "PT2H30M",
+              "id": "1",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        }
+      ],
+      "price": {
+        "currency": "USD",
+        "total": "315.00",
+        "base": "275.40",
+        "fees": [
+          {
+            "amount": "45.60",
+            "type": "SUPPLIER"
+          }
+        ],
+        "grandTotal": "274.00"
+      },
+      "pricingOptions": {
+        "fareType": [
+          "PUBLISHED"
+        ],
+        "includedCheckedBagsOnly": true
+      },
+      "validatingAirlineCodes": [
+        "TG"
+      ],
+      "travelerPricings": [
+        {
+          "travelerId": "1",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "USD",
+            "total": "298.00",
+            "base": "293.25"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "1",
+              "cabin": "ECONOMY",
+              "fareBasis": "VLOWCN",
+              "class": "V",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "flight-offer",
+      "id": "2",
+      "source": "GDS",
+      "instantTicketingRequired": false,
+      "nonHomogeneous": false,
+      "oneWay": true,
+      "isUpsellOffer": false,
+      "lastTicketingDate": "2025-10-01",
+      "lastTicketingDateTime": "2025-10-01T23:59:00",
+      "numberOfBookableSeats": 5,
+      "itineraries": [
+        {
+          "duration": "PT2H40M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "SZX",
+                "terminal": "3",
+                "at": "2025-10-03T10:15:00"
+              },
+              "arrival": {
+                "iataCode": "CNX",
+                "terminal": "1",
+                "at": "2025-10-03T12:55:00"
+              },
+              "carrierCode": "TG",
+              "number": "2004",
+              "aircraft": {
+                "code": "320"
+              },
+              "operating": {
+                "carrierCode": "TG"
+              },
+              "duration": "PT2H40M",
+              "id": "1",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        }
+      ],
+      "price": {
+        "currency": "USD",
+        "total": "343.00",
+        "base": "259.25",
+        "fees": [
+          {
+            "amount": "45.75",
+            "type": "SUPPLIER"
+          }
+        ],
+        "grandTotal": "313.00"
+      },
+      "pricingOptions": {
+        "fareType": [
+          "PUBLISHED"
+        ],
+        "includedCheckedBagsOnly": true
+      },
+      "validatingAirlineCodes": [
+        "TG"
+      ],
+      "travelerPricings": [
+        {
+          "travelerId": "1",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "USD",
+            "total": "327.00",
+            "base": "255.85"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "1",
+              "cabin": "ECONOMY",
+              "fareBasis": "VLOWCN",
+              "class": "V",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "flight-offer",
+      "id": "3",
+      "source": "GDS",
+      "instantTicketingRequired": false,
+      "nonHomogeneous": false,
+      "oneWay": true,
+      "isUpsellOffer": false,
+      "lastTicketingDate": "2025-10-01",
+      "lastTicketingDateTime": "2025-10-01T23:59:00",
+      "numberOfBookableSeats": 7,
+      "itineraries": [
+        {
+          "duration": "PT2H50M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "SZX",
+                "terminal": "3",
+                "at": "2025-10-03T11:15:00"
+              },
+              "arrival": {
+                "iataCode": "CNX",
+                "terminal": "1",
+                "at": "2025-10-03T14:05:00"
+              },
+              "carrierCode": "TG",
+              "number": "2006",
+              "aircraft": {
+                "code": "320"
+              },
+              "operating": {
+                "carrierCode": "TG"
+              },
+              "duration": "PT2H50M",
+              "id": "1",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        }
+      ],
+      "price": {
+        "currency": "USD",
+        "total": "368.00",
+        "base": "277.95",
+        "fees": [
+          {
+            "amount": "47.40",
+            "type": "SUPPLIER"
+          }
+        ],
+        "grandTotal": "341.00"
+      },
+      "pricingOptions": {
+        "fareType": [
+          "PUBLISHED"
+        ],
+        "includedCheckedBagsOnly": true
+      },
+      "validatingAirlineCodes": [
+        "TG"
+      ],
+      "travelerPricings": [
+        {
+          "travelerId": "1",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "USD",
+            "total": "366.00",
+            "base": "305.15"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "1",
+              "cabin": "ECONOMY",
+              "fareBasis": "VLOWCN",
+              "class": "V",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "flight-offer",
+      "id": "4",
+      "source": "GDS",
+      "instantTicketingRequired": false,
+      "nonHomogeneous": false,
+      "oneWay": true,
+      "isUpsellOffer": false,
+      "lastTicketingDate": "2025-10-01",
+      "lastTicketingDateTime": "2025-10-01T23:59:00",
+      "numberOfBookableSeats": 8,
+      "itineraries": [
+        {
+          "duration": "PT3H",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "SZX",
+                "terminal": "3",
+                "at": "2025-10-03T10:15:00"
+              },
+              "arrival": {
+                "iataCode": "CNX",
+                "terminal": "1",
+                "at": "2025-10-03T13:15:00"
+              },
+              "carrierCode": "TG",
+              "number": "2008",
+              "aircraft": {
+                "code": "320"
+              },
+              "operating": {
+                "carrierCode": "TG"
+              },
+              "duration": "PT3H",
+              "id": "1",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        }
+      ],
+      "price": {
+        "currency": "USD",
+        "total": "382.00",
+        "base": "311.95",
+        "fees": [
+          {
+            "amount": "54.60",
+            "type": "SUPPLIER"
+          }
+        ],
+        "grandTotal": "379.00"
+      },
+      "pricingOptions": {
+        "fareType": [
+          "PUBLISHED"
+        ],
+        "includedCheckedBagsOnly": true
+      },
+      "validatingAirlineCodes": [
+        "TG"
+      ],
+      "travelerPricings": [
+        {
+          "travelerId": "1",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "USD",
+            "total": "358.00",
+            "base": "287.30"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "1",
+              "cabin": "ECONOMY",
+              "fareBasis": "VLOWCN",
+              "class": "V",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "flight-offer",
+      "id": "5",
+      "source": "GDS",
+      "instantTicketingRequired": false,
+      "nonHomogeneous": false,
+      "oneWay": true,
+      "isUpsellOffer": false,
+      "lastTicketingDate": "2025-10-01",
+      "lastTicketingDateTime": "2025-10-01T23:59:00",
+      "numberOfBookableSeats": 8,
+      "itineraries": [
+        {
+          "duration": "PT2H20M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "SZX",
+                "terminal": "3",
+                "at": "2025-10-03T08:15:00"
+              },
+              "arrival": {
+                "iataCode": "CNX",
+                "terminal": "1",
+                "at": "2025-10-03T10:35:00"
+              },
+              "carrierCode": "TG",
+              "number": "2010",
+              "aircraft": {
+                "code": "320"
+              },
+              "operating": {
+                "carrierCode": "TG"
+              },
+              "duration": "PT2H20M",
+              "id": "1",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        }
+      ],
+      "price": {
+        "currency": "USD",
+        "total": "313.00",
+        "base": "221.85",
+        "fees": [
+          {
+            "amount": "43.05",
+            "type": "SUPPLIER"
+          }
+        ],
+        "grandTotal": "270.00"
+      },
+      "pricingOptions": {
+        "fareType": [
+          "PUBLISHED"
+        ],
+        "includedCheckedBagsOnly": true
+      },
+      "validatingAirlineCodes": [
+        "TG"
+      ],
+      "travelerPricings": [
+        {
+          "travelerId": "1",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "USD",
+            "total": "307.00",
+            "base": "246.50"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "1",
+              "cabin": "ECONOMY",
+              "fareBasis": "VLOWCN",
+              "class": "V",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "dictionaries": {
+    "locations": {
+      "PVG": {
+        "cityCode": "SHA",
+        "countryCode": "CN"
+      },
+      "TFU": {
+        "cityCode": "CTU",
+        "countryCode": "CN"
+      },
+      "DMK": {
+        "cityCode": "BKK",
+        "countryCode": "TH"
+      },
+      "BKK": {
+        "cityCode": "BKK",
+        "countryCode": "TH"
+      },
+      "KMG": {
+        "cityCode": "KMG",
+        "countryCode": "CN"
+      },
+      "HGH": {
+        "cityCode": "HGH",
+        "countryCode": "CN"
+      },
+      "TPE": {
+        "cityCode": "TPE",
+        "countryCode": "TW"
+      },
+      "NKG": {
+        "cityCode": "NKG",
+        "countryCode": "CN"
+      },
+      "CNX": {
+        "cityCode": "CNX",
+        "countryCode": "TH"
+      },
+      "SHA": {
+        "cityCode": "SHA",
+        "countryCode": "CN"
+      },
+      "SZX": {
+        "cityCode": "SZX",
+        "countryCode": "CN"
+      },
+      "CAN": {
+        "cityCode": "CAN",
+        "countryCode": "CN"
+      },
+      "SYX": {
+        "cityCode": "SYX",
+        "countryCode": "CN"
+      },
+      "HAK": {
+        "cityCode": "HAK",
+        "countryCode": "CN"
+      },
+      "PEK": {
+        "cityCode": "BJS",
+        "countryCode": "CN"
+      }
+    },
+    "aircraft": {
+      "320": "AIRBUS A320",
+      "321": "AIRBUS A321",
+      "330": "AIRBUS INDUSTRIE A330",
+      "332": "AIRBUS A330-200",
+      "333": "AIRBUS A330-300",
+      "359": "AIRBUS A350-900",
+      "737": "BOEING 737 ALL SERIES PASSENGER",
+      "738": "BOEING 737-800",
+      "739": "BOEING 737-900",
+      "773": "BOEING 777-300",
+      "787": "787  ALL SERIES PASSENGER",
+      "789": "BOEING 787-9",
+      "7M8": "BOEING 737 MAX 8",
+      "73E": "BOEING 737-500 (WINGLETS)",
+      "73L": "BOEING 737-200 MIXED CONFIGURATION",
+      "32Q": "AIRBUS A321NEO",
+      "77W": "BOEING 777-300ER"
+    },
+    "currencies": {
+      "EUR": "EURO"
+    },
+    "carriers": {
+      "VZ": "THAI VIETJET AIR",
+      "CZ": "CHINA SOUTHERN AIRLINES",
+      "MU": "CHINA EASTERN AIRLINES",
+      "SL": "THAI LION AIR",
+      "HU": "HAINAN AIRLINES",
+      "CA": "AIR CHINA",
+      "ZH": "SHENZHEN AIRLINES",
+      "JX": "STARLUX AIRLINES"
+    }
+  }
+}

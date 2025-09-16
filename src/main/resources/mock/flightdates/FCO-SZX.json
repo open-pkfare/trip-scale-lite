@@ -4,6 +4,84 @@
       "type": "flight-date",
       "origin": "FCO",
       "destination": "SZX",
+      "departureDate": "2025-10-08",
+      "price": {
+        "total": "5260.00"
+      },
+      "links": {
+        "flightDestinations": "https://test.api.amadeus.com/v1/shopping/flight-destinations?origin=FCO&departureDate=2025-10-14&oneWay=false&duration=1,15&nonStop=false&viewBy=DURATION",
+        "flightOffers": "https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=FCO&destinationLocationCode=SZX&departureDate=2025-10-14&adults=1&nonStop=false"
+      }
+    },
+    {
+      "type": "flight-date",
+      "origin": "FCO",
+      "destination": "SZX",
+      "departureDate": "2025-10-09",
+      "price": {
+        "total": "5165.00"
+      },
+      "links": {
+        "flightDestinations": "https://test.api.amadeus.com/v1/shopping/flight-destinations?origin=FCO&departureDate=2025-10-14&oneWay=false&duration=1,15&nonStop=false&viewBy=DURATION",
+        "flightOffers": "https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=FCO&destinationLocationCode=SZX&departureDate=2025-10-14&adults=1&nonStop=false"
+      }
+    },
+    {
+      "type": "flight-date",
+      "origin": "FCO",
+      "destination": "SZX",
+      "departureDate": "2025-10-10",
+      "price": {
+        "total": "5060.00"
+      },
+      "links": {
+        "flightDestinations": "https://test.api.amadeus.com/v1/shopping/flight-destinations?origin=FCO&departureDate=2025-10-14&oneWay=false&duration=1,15&nonStop=false&viewBy=DURATION",
+        "flightOffers": "https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=FCO&destinationLocationCode=SZX&departureDate=2025-10-14&adults=1&nonStop=false"
+      }
+    },
+    {
+      "type": "flight-date",
+      "origin": "FCO",
+      "destination": "SZX",
+      "departureDate": "2025-10-11",
+      "price": {
+        "total": "4860.00"
+      },
+      "links": {
+        "flightDestinations": "https://test.api.amadeus.com/v1/shopping/flight-destinations?origin=FCO&departureDate=2025-10-14&oneWay=false&duration=1,15&nonStop=false&viewBy=DURATION",
+        "flightOffers": "https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=FCO&destinationLocationCode=SZX&departureDate=2025-10-14&adults=1&nonStop=false"
+      }
+    },
+    {
+      "type": "flight-date",
+      "origin": "FCO",
+      "destination": "SZX",
+      "departureDate": "2025-10-12",
+      "price": {
+        "total": "4460.00"
+      },
+      "links": {
+        "flightDestinations": "https://test.api.amadeus.com/v1/shopping/flight-destinations?origin=FCO&departureDate=2025-10-14&oneWay=false&duration=1,15&nonStop=false&viewBy=DURATION",
+        "flightOffers": "https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=FCO&destinationLocationCode=SZX&departureDate=2025-10-14&adults=1&nonStop=false"
+      }
+    },
+    {
+      "type": "flight-date",
+      "origin": "FCO",
+      "destination": "SZX",
+      "departureDate": "2025-10-13",
+      "price": {
+        "total": "4580.00"
+      },
+      "links": {
+        "flightDestinations": "https://test.api.amadeus.com/v1/shopping/flight-destinations?origin=FCO&departureDate=2025-10-14&oneWay=false&duration=1,15&nonStop=false&viewBy=DURATION",
+        "flightOffers": "https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=FCO&destinationLocationCode=SZX&departureDate=2025-10-14&adults=1&nonStop=false"
+      }
+    },
+    {
+      "type": "flight-date",
+      "origin": "FCO",
+      "destination": "SZX",
       "departureDate": "2025-10-14",
       "price": {
         "total": "5680.00"
@@ -72,6 +150,19 @@
       "departureDate": "2025-10-19",
       "price": {
         "total": "6350.00"
+      },
+      "links": {
+        "flightDestinations": "https://test.api.amadeus.com/v1/shopping/flight-destinations?origin=FCO&departureDate=2025-10-19&oneWay=false&duration=1,15&nonStop=false&viewBy=DURATION",
+        "flightOffers": "https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=FCO&destinationLocationCode=SZX&departureDate=2025-10-19&adults=1&nonStop=false"
+      }
+    },
+    {
+      "type": "flight-date",
+      "origin": "FCO",
+      "destination": "SZX",
+      "departureDate": "2025-10-20",
+      "price": {
+        "total": "5550.00"
       },
       "links": {
         "flightDestinations": "https://test.api.amadeus.com/v1/shopping/flight-destinations?origin=FCO&departureDate=2025-10-19&oneWay=false&duration=1,15&nonStop=false&viewBy=DURATION",

@@ -1,0 +1,285 @@
+{
+  "data": [
+    {
+      "type": "hotel-offers",
+      "hotel": {
+        "type": "hotel",
+        "hotelId": "UICNXCDH",
+          "chainCode": "UI",
+        "dupeId": "700152797",
+        "name": "Duangtawan Hotel Chiang Mai",
+        "cityCode": "CNX",
+        "latitude": 18.78987,
+        "longitude": 98.99973
+      },
+      "available": true,
+      "offers": [
+        {
+          "id": "13UABYJ22I",
+          "checkInDate": "2025-10-01",
+          "checkOutDate": "2025-10-05",
+          "rateCode": "RAC",
+          "rateFamilyEstimated": {
+            "code": "PRO",
+            "type": "P"
+          },
+          "room": {
+            "type": "AP7",
+            "typeEstimated": {
+              "category": "RESIDENTIAL_APARTMENT",
+              "beds": 2,
+              "bedType": "DOUBLE"
+            },
+            "description": {
+              "text": "Prepay Non-refundable Non-changeable, prepay in full\n2 Bedroom Apartment, Bedroom 1: 1 King,\nBedroom 2: 2 Double, Sofa bed, Bathrooms: 2,",
+              "lang": "EN"
+            }
+          },
+          "guests": {
+            "adults": 2
+          },
+          "price": {
+            "currency": "THB",
+            "base": "1,839.25.00",
+            "total": "7357.00",
+            "variations": {
+              "average": {
+                "base": "7357.00"
+              },
+              "changes": [
+                {
+                  "startDate": "2025-10-03",
+                  "endDate": "2025-10-05",
+                  "base": "7357.00"
+                }
+              ]
+            }
+          },
+          "policies": {
+            "cancellations": [
+              {
+                "description": {
+                  "text": "NON-REFUNDABLE RATE"
+                },
+                "policyType": "CANCELLATION"
+              }
+            ],
+            "paymentType": "deposit",
+            "refundable": {
+              "cancellationRefund": "NON_REFUNDABLE"
+            }
+          },
+          "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers/13UABYJ22I",
+          "roomInformation": {
+            "description": "Prepay Non-refundable Non-changeable, prepay in full\n2 Bedroom Apartment, Bedroom 1: 1 King,\nBedroom 2: 2 Double, Sofa bed, Bathrooms: 2,",
+            "type": "AP7",
+            "typeEstimated": {
+              "bedType": "DOUBLE",
+              "beds": 2,
+              "category": "RESIDENTIAL_APARTMENT"
+            }
+          }
+        }
+      ],
+      "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=VCHKTPBV&adults=2&checkInDate=2025-10-03&checkOutDate=2025-10-05&countryOfResidence=TH&paymentPolicy=NONE&roomQuantity=1"
+    },
+    {
+      "type": "hotel-offers",
+      "hotel": {
+        "type": "hotel",
+        "hotelId": "MDCNX950",
+        "chainCode": "MD",
+        "dupeId": "700127670",
+        "name": "LE MERIDIEN CHIANG MAI",
+        "cityCode": "CNX",
+        "latitude": 18.79062,
+        "longitude": 98.99918
+      },
+      "available": true,
+      "offers": [
+        {
+          "id": "1EUM9WEG1X",
+          "checkInDate": "2025-10-01",
+          "checkOutDate": "2025-10-05",
+          "rateCode": "RAC",
+          "rateFamilyEstimated": {
+            "code": "BAR",
+            "type": "P"
+          },
+          "room": {
+            "type": "REG",
+            "typeEstimated": {
+              "category": "STANDARD_ROOM",
+              "beds": 1,
+              "bedType": "KING"
+            },
+            "description": {
+              "text": "Flexible Rate\nGuest Room, 1 King, 58sqm/624sqft,\nLiving/sitting area, Wireless internet,",
+              "lang": "EN"
+            }
+          },
+          "guests": {
+            "adults": 2
+          },
+          "price": {
+            "currency": "THB",
+            "base": "6400.00",
+            "total": "7596.80",
+            "variations": {
+              "average": {
+                "base": "3200.00"
+              },
+              "changes": [
+                {
+                  "startDate": "2025-10-01",
+                  "endDate": "2025-10-05",
+                  "base": "3200.00"
+                }
+              ]
+            }
+          },
+          "policies": {
+            "cancellations": [
+              {
+                "deadline": "2025-09-30T23:59:00+07:00",
+                "amount": "6912.00",
+                "policyType": "CANCELLATION"
+              }
+            ],
+            "paymentType": "guarantee",
+            "refundable": {
+              "cancellationRefund": "REFUNDABLE_UP_TO_DEADLINE"
+            }
+          },
+          "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers/1EUM9WEG1X",
+          "roomInformation": {
+            "description": "Flexible Rate\nGuest Room, 1 King, 58sqm/624sqft,\nLiving/sitting area, Wireless internet,",
+            "type": "REG",
+            "typeEstimated": {
+              "bedType": "KING",
+              "beds": 1,
+              "category": "STANDARD_ROOM"
+            }
+          }
+        }
+      ],
+      "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=WIHKT452&adults=2&checkInDate=2025-10-03&checkOutDate=2025-10-05&countryOfResidence=TH&paymentPolicy=NONE&roomQuantity=1"
+    },
+    {
+      "type": "hotel-offers",
+      "hotel": {
+        "type": "hotel",
+        "hotelId": "HSCNXAAO",
+        "chainCode": "HS",
+        "dupeId": "700127670",
+        "name": "NEW MITRAPAP HOTEL",
+        "cityCode": "CNX",
+        "latitude": 18.79157,
+        "longitude": 98.9983
+      },
+      "available": true,
+      "offers": [
+        {
+          "id": "1EUM9WEG1X",
+          "checkInDate": "2025-10-01",
+          "checkOutDate": "2025-10-05",
+          "rateCode": "RAC",
+          "rateFamilyEstimated": {
+            "code": "BAR",
+            "type": "P"
+          },
+          "room": {
+            "type": "REG",
+            "typeEstimated": {
+              "category": "STANDARD_ROOM",
+              "beds": 1,
+              "bedType": "KING"
+            },
+            "description": {
+              "text": "Flexible Rate\nGuest Room, 1 King, 58sqm/624sqft,\nLiving/sitting area, Wireless internet,",
+              "lang": "EN"
+            }
+          },
+          "guests": {
+            "adults": 2
+          },
+          "price": {
+            "currency": "THB",
+            "base": "6900.00",
+            "total": "7596.80",
+            "variations": {
+              "average": {
+                "base": "3250.00"
+              },
+              "changes": [
+                {
+                  "startDate": "2025-10-01",
+                  "endDate": "2025-10-05",
+                  "base": "3250.00"
+                }
+              ]
+            }
+          },
+          "policies": {
+            "cancellations": [
+              {
+                "deadline": "2025-09-30T23:59:00+07:00",
+                "amount": "6912.00",
+                "policyType": "CANCELLATION"
+              }
+            ],
+            "paymentType": "guarantee",
+            "refundable": {
+              "cancellationRefund": "REFUNDABLE_UP_TO_DEADLINE"
+            }
+          },
+          "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers/1EUM9WEG1X",
+          "roomInformation": {
+            "description": "Flexible Rate\nGuest Room, 1 King, 58sqm/624sqft,\nLiving/sitting area, Wireless internet,",
+            "type": "REG",
+            "typeEstimated": {
+              "bedType": "KING",
+              "beds": 1,
+              "category": "STANDARD_ROOM"
+            }
+          }
+        }
+      ],
+      "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=WIHKT452&adults=2&checkInDate=2025-10-03&checkOutDate=2025-10-05&countryOfResidence=TH&paymentPolicy=NONE&roomQuantity=1"
+    }
+  ],
+  "warnings": [
+    {
+      "code": 3237,
+      "title": "PROPERTY CODE NOT FOUND IN SYSTEM",
+      "detail": "Provider Error - PROPERTY CODE NOT FOUND IN SYSTEM",
+      "source": {
+        "parameter": "hotelIds=REHKT727"
+      }
+    },
+    {
+      "code": 3494,
+      "title": "ROOM OR RATE NOT AVAILABLE OR RESTRICTED",
+      "detail": "Provider Error - ROOM OR RATE NOT AVAILABLE OR RESTRICTED",
+      "source": {
+        "parameter": "hotelIds=ONHKTKAS,ONHKTVIL"
+      }
+    },
+    {
+      "code": 3664,
+      "title": "NO ROOMS AVAILABLE AT REQUESTED PROPERTY",
+      "detail": "Provider Error - NO ROOMS AVAILABLE AT REQUESTED PROPERTY",
+      "source": {
+        "parameter": "hotelIds=DSHKT682,WVHKT230,WVHKT473"
+      }
+    },
+    {
+      "code": 1257,
+      "title": "INVALID PROPERTY CODE",
+      "detail": "Provider Error - INVALID PROPERTY CODE",
+      "source": {
+        "parameter": "hotelIds=DHHKTAPI,DHHKTAQC,GTHKTMAN,MKHKT768,WVHKT072,WVHKT385,WVHKT92B,WVHKTMET,YXHKTAVH,YXHKTTBS,YXHKTTHP"
+      }
+    }
+  ]
+}

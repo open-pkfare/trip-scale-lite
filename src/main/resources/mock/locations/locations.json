@@ -216,6 +216,36 @@
           "score": 3
         }
       }
+    },{
+      "type": "location",
+      "subType": "AIRPORT",
+      "name": "CHIANG MAI INTL",
+      "detailedName": "CHIANG MAI/TH:CHIANG MAI INTL",
+      "id": "ACNX",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/reference-data/locations/ACNX",
+        "methods": [
+          "GET"
+        ]
+      },
+      "timeZoneOffset": "+07:00",
+      "iataCode": "CNX",
+      "geoCode": {
+        "latitude": 18.76667,
+        "longitude": 98.96667
+      },
+      "address": {
+        "cityName": "CHIANG MAI",
+        "cityCode": "CNX",
+        "countryName": "THAILAND",
+        "countryCode": "TH",
+        "regionCode": "SEASI"
+      },
+      "analytics": {
+        "travelers": {
+          "score": 6
+        }
+      }
     }
   ]
 }
